@@ -1,0 +1,2542 @@
+#  ___ _            _ _    _ _    __
+# / __(_)_ __  _ __| (_)__(_) |_ /_/
+# \__ \ | '  \| '_ \ | / _| |  _/ -_)
+# |___/_|_|_|_| .__/_|_\__|_|\__\___|
+#             |_| Module: DeFilippis 0.1
+components:
+  schemas:
+    Error404:
+      type: object
+      properties:
+        error:
+          description: Error message
+          type: string
+        status:
+          description: Error status
+          type: integer
+          enum:
+          - 404
+    ArrayOfDF_Client:
+      type: array
+      items:
+        $ref: '#/components/schemas/DF_Client'
+    ArrayOfDF_Devis:
+      type: array
+      items:
+        $ref: '#/components/schemas/DF_Devis'
+    PublicationResult:
+      type: object
+      properties:
+        mime:
+          description: MIME type
+          type: string
+        content:
+          description: Content (plain text or base64 encoded)
+          type: string
+    DF_Fournisseurs:
+      type: object
+      properties:
+        descriptionfournisseur:
+          description: Description
+          type: string
+        row_id:
+          description: ID
+          type: string
+        idfournisseur:
+          description: IdFournisseur
+          type: string
+        nomfournisseur:
+          description: Nom
+          type: string
+        telfournisseur:
+          description: Telephone
+          type: string
+        emailfournisseur:
+          description: Email
+          type: string
+    ArrayOfDF_Fournisseurs:
+      type: array
+      items:
+        $ref: '#/components/schemas/DF_Fournisseurs'
+    DF_Devis:
+      type: object
+      properties:
+        prix_unitaire_devis:
+          description: Prix Unitaire
+          type: number
+        dateemisisondevis:
+          description: 'Date Emission '
+          type: string
+        DF_Devis_DF_Produit_Finis_id:
+          description: DF produit finis
+          type: string
+        titreprojet:
+          description: Titre Projet
+          type: string
+        totalDevis:
+          description: Total
+          type: integer
+        nomclientdevis:
+          description: NomClient
+          type: string
+        lieuprojet:
+          description: Lieu Projet
+          type: string
+        numerodevis:
+          description: Numero Devis
+          type: string
+        contactdevis:
+          description: Contact
+          type: string
+        DF_Devis_DF_Produit_Finis_id__idproduit:
+          description: DF produit finis Id Produit
+          type: string
+        emaildevis:
+          description: Email
+          type: string
+        tvaDevis:
+          description: TVA
+          type: number
+        commentaireDevis:
+          description: Commentaire
+          type: string
+        row_id:
+          description: ID
+          type: string
+        titredevis:
+          description: Titre Devis
+          type: string
+        quantiteDevis:
+          description: Quantité
+          type: integer
+        teldevis:
+          description: Telephone
+          type: string
+        statut_devis:
+          description: 'Statut '
+          type: string
+          enum:
+          - E
+          - V
+          - R
+          - A
+    DF_Client:
+      type: object
+      properties:
+        mailclient:
+          description: Email Client
+          type: string
+        reg_client:
+          description: Region
+          type: string
+        id_sec_act_client:
+          description: Id Secteur Activité
+          type: integer
+        DF_Client_DF_Devis_id:
+          description: DF devis
+          type: string
+        telephoneclient:
+          description: Telephone Client
+          type: string
+        fax_client:
+          description: Fax Client
+          type: string
+        website_client:
+          description: 'Site Web '
+          type: string
+        nmclient:
+          description: Raison Sociale
+          type: string
+        DF_Client_DF_Devis_id__numerodevis:
+          description: DF devis Numero Devis
+          type: string
+        adresseclient:
+          description: Adresse 1
+          type: string
+        villeclient:
+          description: Ville
+          type: string
+        adresseclient2:
+          description: Adresse 2
+          type: string
+        codepostclient:
+          description: ZipCode
+          type: integer
+        idclient:
+          description: IdClient
+          type: string
+        descriptionclient:
+          description: Descirption
+          type: string
+        row_id:
+          description: ID
+          type: string
+    DF_Produit_Finis:
+      type: object
+      properties:
+        longueur:
+          description: Longueur
+          type: number
+        heauteur:
+          description: Hauteur
+          type: number
+        largeur:
+          description: Largeur
+          type: number
+        unite:
+          description: Unité
+          type: string
+        dispo_produit:
+          description: Disponibilité
+          type: boolean
+        finition:
+          description: Finition
+          type: string
+        source:
+          description: Source
+          type: string
+        prd_price:
+          description: Prix Unitaire
+          type: number
+        quantite_stock:
+          description: Quanitité Stock
+          type: integer
+        nomproduit:
+          description: Nom Produit
+          type: string
+        DF_Produit_Finis_DF_Fournisseurs_id__idfournisseur:
+          description: Suppliers IdFournisseur
+          type: string
+        price:
+          description: Prix
+          type: string
+        idproduit:
+          description: Id Produit
+          type: string
+        code_fournisseur:
+          description: Code Fournisseur
+          type: string
+        DF_Produit_Finis_DF_Fournisseurs_id:
+          description: Suppliers
+          type: string
+        designation:
+          description: Designation
+          type: string
+        row_id:
+          description: ID
+          type: string
+        commentaire:
+          description: Commentaire
+          type: string
+        nom_fournisseur:
+          description: Nom Fournisseur
+          type: string
+    ArrayOfDF_Produit_Finis:
+      type: array
+      items:
+        $ref: '#/components/schemas/DF_Produit_Finis'
+    ActionResult:
+      type: object
+      properties:
+        result:
+          description: Action result
+          type: string
+    DF_Contact:
+      type: object
+      properties:
+        DF_Contact_DF_Client_id:
+          description: DF client
+          type: string
+        nom_contact_c:
+          description: Nom Contact
+          type: string
+        id_emploi:
+          description: Id Emploi
+          type: integer
+        DF_Contact_DF_Commande_id:
+          description: DF commande
+          type: string
+        mail_contact:
+          description: Mail Contact
+          type: string
+        civilite_client_contact:
+          description: Civilité
+          type: string
+          enum:
+          - M
+          - F
+        portable_contact:
+          description: Portable Contact
+          type: string
+        DF_Contact_DF_Client_id__idclient:
+          description: DF client IdClient
+          type: string
+        DF_Contact_DF_Commande_id__id_contact_commande:
+          description: DF commande Id Contact
+          type: string
+        fax_contact:
+          description: Fax Contact
+          type: string
+        commentaire_contact:
+          description: Commentaire
+          type: string
+        prenom_contact_c:
+          description: Prénom Contact
+          type: string
+        __id:
+          description: ' id'
+          type: string
+        row_id:
+          description: ID
+          type: string
+        tel_contact:
+          description: Tel Conract
+          type: string
+        id_contact:
+          description: Id Contact
+          type: string
+        id_client_contact:
+          description: Id Client
+          type: string
+    TreeviewData:
+      type: object
+      properties:
+        item:
+          description: Object item with lists of linked objects' items
+          type: object
+    ArrayOfDF_Contact:
+      type: array
+      items:
+        $ref: '#/components/schemas/DF_Contact'
+    ArrayOfDF_Commande:
+      type: array
+      items:
+        $ref: '#/components/schemas/DF_Commande'
+    Error400:
+      type: object
+      properties:
+        error:
+          description: Error message
+          type: string
+        status:
+          description: Error status
+          type: integer
+          enum:
+          - 400
+    Error401:
+      type: object
+      properties:
+        error:
+          description: Error message
+          type: string
+        status:
+          description: Error status
+          type: integer
+          enum:
+          - 401
+    Error500:
+      type: object
+      properties:
+        error:
+          description: Error message
+          type: string
+        status:
+          description: Error status
+          type: integer
+          enum:
+          - 500
+    DF_Commande:
+      type: object
+      properties:
+        DF_Commande_DF_Client_id__idclient:
+          description: DF client IdClient
+          type: string
+        tx_tva_cmd:
+          description: Taux TVA
+          type: number
+        prix_tonne_cmd:
+          description: Prix Tonne
+          type: number
+        delai_cmd:
+          description: Délai
+          type: string
+        ref_chantier:
+          description: 'Réf Chantier '
+          type: string
+        DF_Commande_DF_Produit_Finis_id__idproduit:
+          description: DF produit finis Id Produit
+          type: string
+        id_commande:
+          description: Id Commande
+          type: string
+        idx_mon_cmd:
+          description: Indexation monétaire
+          type: string
+        tx_remise_cmd:
+          description: Taux Remise
+          type: number
+        date_cmd:
+          description: Date Commande
+          type: string
+        num_cde:
+          description: Num Cde
+          type: string
+        livraison_detail_cmd:
+          description: 'Livraison Detail '
+          type: string
+        DF_Commande_DF_Produit_Finis_id:
+          description: DF produit finis
+          type: string
+        id_livraison_commande:
+          description: Id Livraison
+          type: integer
+        fact_cmd:
+          description: 'Facturation '
+          type: string
+        redacteur_cmd:
+          description: Rédacteur
+          type: string
+        row_id:
+          description: ID
+          type: string
+        validite_offre_cmd:
+          description: Valdiité de l'offre
+          type: integer
+        DF_Commande_DF_Client_id:
+          description: DF client
+          type: string
+        id_contact_commande:
+          description: Id Contact
+          type: string
+        paiement_cmd:
+          description: Paiement
+          type: string
+    Error403:
+      type: object
+      properties:
+        error:
+          description: Error message
+          type: string
+        status:
+          description: Error status
+          type: integer
+          enum:
+          - 403
+  securitySchemes:
+    basicAuth:
+      scheme: basic
+      type: http
+    bearerAuth:
+      bearerFormat: Simplicite token
+      scheme: bearer
+      type: http
+openapi: 3.0.2
+paths:
+  /rest/DF_Contact:
+    get:
+      summary: Search DF_Contact business object records or get contextualized metadata
+      security:
+      - bearerAuth: []
+      operationId: obj-df_contact-search
+      responses:
+        '200':
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArrayOfDF_Contact'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: boolean
+        in: query
+        name: _metadata
+        description: Metadata?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _count
+        description: Count?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _doc
+        description: Documentation?
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: id_contact
+        description: Search filter for Id Contact
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: id_client_contact
+        description: Search filter for Id Client
+        required: false
+      - schema:
+          type: string
+          enum:
+          - M
+          - F
+        in: query
+        name: civilite_client_contact
+        description: Search filter for Civilité
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: nom_contact_c
+        description: Search filter for Nom Contact
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: prenom_contact_c
+        description: Search filter for Prénom Contact
+        required: false
+      - schema:
+          type: integer
+        in: query
+        name: id_emploi
+        description: Search filter for Id Emploi
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: tel_contact
+        description: Search filter for Tel Conract
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: portable_contact
+        description: Search filter for Portable Contact
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: fax_contact
+        description: Search filter for Fax Contact
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: mail_contact
+        description: Search filter for Mail Contact
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: commentaire_contact
+        description: Search filter for Commentaire
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: __id
+        description: Search filter for id
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Contact_DF_Client_id
+        description: Search filter for DF client
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Contact_DF_Client_id__idclient
+        description: Search filter for DF client IdClient
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Contact_DF_Commande_id
+        description: Search filter for DF commande
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Contact_DF_Commande_id__id_contact_commande
+        description: Search filter for DF commande Id Contact
+        required: false
+      tags:
+      - DF_Contact
+  /login:
+    get:
+      summary: Login (obtain bearer token)
+      security:
+      - basicAuth: []
+      operationId: login
+      responses:
+        '200':
+          description: Successful login
+          content:
+            application/json: {}
+            text/plain: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+      parameters:
+      - schema:
+          type: string
+          enum:
+          - json
+          - oauth2
+          - token
+        in: query
+        name: _output
+        description: Optional output format
+        required: false
+      tags:
+      - session
+  /logout:
+    get:
+      summary: Logout (revoke bearer token)
+      security:
+      - bearerAuth: []
+      operationId: logout
+      responses:
+        '200':
+          description: Successfull logout
+          content:
+            application/json: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+      tags:
+      - session
+  /rest/DF_Produit_Finis:
+    get:
+      summary: Search DF_Produit_Finis business object records or get contextualized
+        metadata
+      security:
+      - bearerAuth: []
+      operationId: obj-df_produit_finis-search
+      responses:
+        '200':
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArrayOfDF_Produit_Finis'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: boolean
+        in: query
+        name: _metadata
+        description: Metadata?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _count
+        description: Count?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _doc
+        description: Documentation?
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: idproduit
+        description: Search filter for Id Produit
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: nomproduit
+        description: Search filter for Nom Produit
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: code_fournisseur
+        description: Search filter for Code Fournisseur
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: designation
+        description: Search filter for Designation
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: longueur
+        description: Search filter for Longueur
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: largeur
+        description: Search filter for Largeur
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: heauteur
+        description: Search filter for Hauteur
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: finition
+        description: Search filter for Finition
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: commentaire
+        description: Search filter for Commentaire
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: price
+        description: Search filter for Prix
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: unite
+        description: Search filter for Unité
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: source
+        description: Search filter for Source
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: prd_price
+        description: Search filter for Prix Unitaire
+        required: false
+      - schema:
+          type: integer
+        in: query
+        name: quantite_stock
+        description: Search filter for Quanitité Stock
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: dispo_produit
+        description: Search filter for Disponibilité
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: nom_fournisseur
+        description: Search filter for Nom Fournisseur
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Produit_Finis_DF_Fournisseurs_id
+        description: Search filter for Suppliers
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Produit_Finis_DF_Fournisseurs_id__idfournisseur
+        description: Search filter for Suppliers IdFournisseur
+        required: false
+      tags:
+      - DF_Produit_Finis
+  /rest/DF_Client/{row_id}:
+    post:
+      summary: Create a new DF_Clientbusiness object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DF_Client'
+      operationId: obj-df_client-create
+      responses:
+        '200':
+          description: Success in creating a new business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DF_Client'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_Client
+    get:
+      summary: Get a DF_Client business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-df_client-get
+      responses:
+        '200':
+          description: Success in getting a single business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DF_Client'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: row ID (or empty or _ for all row IDs)
+        required: true
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_documents
+        description: Inline documents?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_objects
+        description: Inline objects?
+        required: false
+      tags:
+      - DF_Client
+    delete:
+      summary: Delete a DF_Client business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-df_client-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+          content:
+            application/json: {}
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_Client
+    put:
+      summary: Update a DF_Clientbusiness object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DF_Client'
+      operationId: obj-df_client-update
+      responses:
+        '200':
+          description: Success in updating a business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DF_Client'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_Client
+  /rest/DF_Devis:
+    get:
+      summary: Search DF_Devis business object records or get contextualized metadata
+      security:
+      - bearerAuth: []
+      operationId: obj-df_devis-search
+      responses:
+        '200':
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArrayOfDF_Devis'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: boolean
+        in: query
+        name: _metadata
+        description: Metadata?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _count
+        description: Count?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _doc
+        description: Documentation?
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: numerodevis
+        description: Search filter for Numero Devis
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: titredevis
+        description: Search filter for Titre Devis
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: titreprojet
+        description: Search filter for Titre Projet
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: lieuprojet
+        description: Search filter for Lieu Projet
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: nomclientdevis
+        description: Search filter for NomClient
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: contactdevis
+        description: Search filter for Contact
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: teldevis
+        description: Search filter for Telephone
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: emaildevis
+        description: Search filter for Email
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: dateemisisondevis
+        description: Search filter for Date Emission
+        required: false
+      - schema:
+          type: string
+          enum:
+          - E
+          - V
+          - R
+          - A
+        in: query
+        name: statut_devis
+        description: Search filter for Statut
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: prix_unitaire_devis
+        description: Search filter for Prix Unitaire
+        required: false
+      - schema:
+          type: integer
+        in: query
+        name: quantiteDevis
+        description: Search filter for Quantité
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: tvaDevis
+        description: Search filter for TVA
+        required: false
+      - schema:
+          type: integer
+        in: query
+        name: totalDevis
+        description: Search filter for Total
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: commentaireDevis
+        description: Search filter for Commentaire
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Devis_DF_Produit_Finis_id
+        description: Search filter for DF produit finis
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Devis_DF_Produit_Finis_id__idproduit
+        description: Search filter for DF produit finis Id Produit
+        required: false
+      tags:
+      - DF_Devis
+  /rest/DF_Produit_Finis/{row_id}:
+    post:
+      summary: Create a new DF_Produit_Finisbusiness object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DF_Produit_Finis'
+      operationId: obj-df_produit_finis-create
+      responses:
+        '200':
+          description: Success in creating a new business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DF_Produit_Finis'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_Produit_Finis
+    get:
+      summary: Get a DF_Produit_Finis business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-df_produit_finis-get
+      responses:
+        '200':
+          description: Success in getting a single business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DF_Produit_Finis'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: row ID (or empty or _ for all row IDs)
+        required: true
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_documents
+        description: Inline documents?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_objects
+        description: Inline objects?
+        required: false
+      tags:
+      - DF_Produit_Finis
+    delete:
+      summary: Delete a DF_Produit_Finis business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-df_produit_finis-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+          content:
+            application/json: {}
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_Produit_Finis
+    put:
+      summary: Update a DF_Produit_Finisbusiness object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DF_Produit_Finis'
+      operationId: obj-df_produit_finis-update
+      responses:
+        '200':
+          description: Success in updating a business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DF_Produit_Finis'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_Produit_Finis
+  /:
+    get:
+      summary: Get user session information
+      security:
+      - bearerAuth: []
+      operationId: info
+      responses:
+        '200':
+          description: Success in getting user session information
+          content:
+            application/json: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+      parameters:
+      - schema:
+          type: boolean
+        in: query
+        name: texts
+        description: Texts?
+        required: false
+      tags:
+      - session
+  /rest/DF_Fournisseurs:
+    get:
+      summary: Search DF_Fournisseurs business object records or get contextualized
+        metadata
+      security:
+      - bearerAuth: []
+      operationId: obj-df_fournisseurs-search
+      responses:
+        '200':
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArrayOfDF_Fournisseurs'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: boolean
+        in: query
+        name: _metadata
+        description: Metadata?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _count
+        description: Count?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _doc
+        description: Documentation?
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: idfournisseur
+        description: Search filter for IdFournisseur
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: nomfournisseur
+        description: Search filter for Nom
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: telfournisseur
+        description: Search filter for Telephone
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: emailfournisseur
+        description: Search filter for Email
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: descriptionfournisseur
+        description: Search filter for Description
+        required: false
+      tags:
+      - DF_Fournisseurs
+  /rest/DF_Commande/{row_id}:
+    post:
+      summary: Create a new DF_Commandebusiness object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DF_Commande'
+      operationId: obj-df_commande-create
+      responses:
+        '200':
+          description: Success in creating a new business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DF_Commande'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_Commande
+    get:
+      summary: Get a DF_Commande business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-df_commande-get
+      responses:
+        '200':
+          description: Success in getting a single business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DF_Commande'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: row ID (or empty or _ for all row IDs)
+        required: true
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_documents
+        description: Inline documents?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_objects
+        description: Inline objects?
+        required: false
+      tags:
+      - DF_Commande
+    delete:
+      summary: Delete a DF_Commande business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-df_commande-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+          content:
+            application/json: {}
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_Commande
+    put:
+      summary: Update a DF_Commandebusiness object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DF_Commande'
+      operationId: obj-df_commande-update
+      responses:
+        '200':
+          description: Success in updating a business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DF_Commande'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_Commande
+  /rest/DF_Devis/{row_id}:
+    post:
+      summary: Create a new DF_Devisbusiness object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DF_Devis'
+      operationId: obj-df_devis-create
+      responses:
+        '200':
+          description: Success in creating a new business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DF_Devis'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_Devis
+    get:
+      summary: Get a DF_Devis business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-df_devis-get
+      responses:
+        '200':
+          description: Success in getting a single business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DF_Devis'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: row ID (or empty or _ for all row IDs)
+        required: true
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_documents
+        description: Inline documents?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_objects
+        description: Inline objects?
+        required: false
+      tags:
+      - DF_Devis
+    delete:
+      summary: Delete a DF_Devis business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-df_devis-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+          content:
+            application/json: {}
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_Devis
+    put:
+      summary: Update a DF_Devisbusiness object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DF_Devis'
+      operationId: obj-df_devis-update
+      responses:
+        '200':
+          description: Success in updating a business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DF_Devis'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_Devis
+  /rest/DF_Client:
+    get:
+      summary: Search DF_Client business object records or get contextualized metadata
+      security:
+      - bearerAuth: []
+      operationId: obj-df_client-search
+      responses:
+        '200':
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArrayOfDF_Client'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: boolean
+        in: query
+        name: _metadata
+        description: Metadata?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _count
+        description: Count?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _doc
+        description: Documentation?
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: idclient
+        description: Search filter for IdClient
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: nmclient
+        description: Search filter for Raison Sociale
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: mailclient
+        description: Search filter for Email Client
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: telephoneclient
+        description: Search filter for Telephone Client
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: adresseclient
+        description: Search filter for Adresse 1
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: villeclient
+        description: Search filter for Ville
+        required: false
+      - schema:
+          type: integer
+        in: query
+        name: codepostclient
+        description: Search filter for ZipCode
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: descriptionclient
+        description: Search filter for Descirption
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: adresseclient2
+        description: Search filter for Adresse 2
+        required: false
+      - schema:
+          type: integer
+        in: query
+        name: id_sec_act_client
+        description: Search filter for Id Secteur Activité
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: reg_client
+        description: Search filter for Region
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: fax_client
+        description: Search filter for Fax Client
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: website_client
+        description: Search filter for Site Web
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Client_DF_Devis_id
+        description: Search filter for DF devis
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Client_DF_Devis_id__numerodevis
+        description: Search filter for DF devis Numero Devis
+        required: false
+      tags:
+      - DF_Client
+  /rest/DF_Contact/{row_id}:
+    post:
+      summary: Create a new DF_Contactbusiness object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DF_Contact'
+      operationId: obj-df_contact-create
+      responses:
+        '200':
+          description: Success in creating a new business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DF_Contact'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_Contact
+    get:
+      summary: Get a DF_Contact business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-df_contact-get
+      responses:
+        '200':
+          description: Success in getting a single business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DF_Contact'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: row ID (or empty or _ for all row IDs)
+        required: true
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_documents
+        description: Inline documents?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_objects
+        description: Inline objects?
+        required: false
+      tags:
+      - DF_Contact
+    delete:
+      summary: Delete a DF_Contact business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-df_contact-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+          content:
+            application/json: {}
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_Contact
+    put:
+      summary: Update a DF_Contactbusiness object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DF_Contact'
+      operationId: obj-df_contact-update
+      responses:
+        '200':
+          description: Success in updating a business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DF_Contact'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_Contact
+  /rest/DF_Commande:
+    get:
+      summary: Search DF_Commande business object records or get contextualized metadata
+      security:
+      - bearerAuth: []
+      operationId: obj-df_commande-search
+      responses:
+        '200':
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArrayOfDF_Commande'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: boolean
+        in: query
+        name: _metadata
+        description: Metadata?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _count
+        description: Count?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _doc
+        description: Documentation?
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: id_commande
+        description: Search filter for Id Commande
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: id_contact_commande
+        description: Search filter for Id Contact
+        required: false
+      - schema:
+          type: integer
+        in: query
+        name: id_livraison_commande
+        description: Search filter for Id Livraison
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: num_cde
+        description: Search filter for Num Cde
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: redacteur_cmd
+        description: Search filter for Rédacteur
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: tx_tva_cmd
+        description: Search filter for Taux TVA
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: prix_tonne_cmd
+        description: Search filter for Prix Tonne
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: tx_remise_cmd
+        description: Search filter for Taux Remise
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: livraison_detail_cmd
+        description: Search filter for Livraison Detail
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: date_cmd
+        description: Search filter for Date Commande
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: ref_chantier
+        description: Search filter for Réf Chantier
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: delai_cmd
+        description: Search filter for Délai
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: fact_cmd
+        description: Search filter for Facturation
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: paiement_cmd
+        description: Search filter for Paiement
+        required: false
+      - schema:
+          type: integer
+        in: query
+        name: validite_offre_cmd
+        description: Search filter for Valdiité de l'offre
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: idx_mon_cmd
+        description: Search filter for Indexation monétaire
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Commande_DF_Client_id
+        description: Search filter for DF client
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Commande_DF_Client_id__idclient
+        description: Search filter for DF client IdClient
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Commande_DF_Produit_Finis_id
+        description: Search filter for DF produit finis
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Commande_DF_Produit_Finis_id__idproduit
+        description: Search filter for DF produit finis Id Produit
+        required: false
+      tags:
+      - DF_Commande
+  /rest/DF_Fournisseurs/{row_id}:
+    post:
+      summary: Create a new DF_Fournisseursbusiness object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DF_Fournisseurs'
+      operationId: obj-df_fournisseurs-create
+      responses:
+        '200':
+          description: Success in creating a new business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DF_Fournisseurs'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_Fournisseurs
+    get:
+      summary: Get a DF_Fournisseurs business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-df_fournisseurs-get
+      responses:
+        '200':
+          description: Success in getting a single business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DF_Fournisseurs'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: row ID (or empty or _ for all row IDs)
+        required: true
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_documents
+        description: Inline documents?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_objects
+        description: Inline objects?
+        required: false
+      tags:
+      - DF_Fournisseurs
+    delete:
+      summary: Delete a DF_Fournisseurs business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-df_fournisseurs-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+          content:
+            application/json: {}
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_Fournisseurs
+    put:
+      summary: Update a DF_Fournisseursbusiness object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DF_Fournisseurs'
+      operationId: obj-df_fournisseurs-update
+      responses:
+        '200':
+          description: Success in updating a business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DF_Fournisseurs'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_Fournisseurs
+info:
+  license:
+    name: Simplicite license
+    url: http://www.simplicitesoftware.com
+  contact:
+    name: Simplicite Software
+    url: http://www.simplicitesoftware.com
+    email: contact@simplicitesoftware.com
+  description: API for module DeFilippis
+  title: DeFilippis
+  version: '0.1'
+tags:
+- name: DF_Client
+  description: DF client
+- name: DF_Commande
+  description: DF commande
+- name: DF_Contact
+  description: DF contact
+- name: DF_Devis
+  description: DF devis
+- name: DF_Fournisseurs
+  description: Suppliers
+- name: DF_Produit_Finis
+  description: DF produit finis
