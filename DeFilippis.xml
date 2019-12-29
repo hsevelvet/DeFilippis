@@ -3873,7 +3873,7 @@ Tout accés alloués.]]></grp_comment>
 		<obd_name>DF_sb</obd_name>
 		<obd_comment/>
 		<obd_type>D</obd_type>
-		<obd_view_id.viw_name>DeFilippis</obd_view_id.viw_name>
+		<obd_view_id.viw_name/>
 		<obd_nohome>0</obd_nohome>
 		<obd_icon/>
 		<obd_order>1110</obd_order>
@@ -7395,6 +7395,29 @@ Objet metier pour produit.]]></obo_comment>
 		<map_process_id.pcs_name/>
 		<map_order>1060</map_order>
 		<map_ext>0</map_ext>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+</object>
+<object>
+	<name>Agenda</name>
+	<action>upsert</action>
+	<data>
+		<agd_name>DF_Devis_Agenda</agd_name>
+		<agd_object_id.obo_name>DF_Devis</agd_object_id.obo_name>
+		<agd_opendays>1;2;3;4;5;6</agd_opendays>
+		<agd_start_hr>00:00</agd_start_hr>
+		<agd_end_hr>00:00</agd_end_hr>
+		<agd_quantum>30</agd_quantum>
+		<agd_flying>0</agd_flying>
+		<agd_date_id.fld_name>dateemisisondevis</agd_date_id.fld_name>
+		<agd_duration_id.fld_name>dateemisisondevis</agd_duration_id.fld_name>
+		<agd_group_id.fld_name/>
+		<agd_user_id.fld_name/>
+		<agd_label1_id.fld_name>dateemisisondevis</agd_label1_id.fld_name>
+		<agd_label2_id.fld_name/>
+		<agd_label3_id.fld_name/>
+		<agd_label4_id.fld_name/>
+		<agd_label5_id.fld_name/>
 		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
 	</data>
 </object>
