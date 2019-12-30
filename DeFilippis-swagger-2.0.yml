@@ -44,17 +44,17 @@ paths:
         required: false
       - in: query
         name: id_contact
-        description: Search filter for Id Contact
-        type: string
+        description: Search filter for id contact
+        type: integer
         required: false
       - in: query
         name: id_client_contact
-        description: Search filter for Id Client
+        description: Search filter for id client contact
         type: string
         required: false
       - in: query
         name: civilite_client_contact
-        description: Search filter for Civilité
+        description: Search filter for civilite client contact
         type: string
         required: false
         enum:
@@ -62,42 +62,42 @@ paths:
         - F
       - in: query
         name: nom_contact_c
-        description: Search filter for Nom Contact
+        description: Search filter for nom contact c
         type: string
         required: false
       - in: query
         name: prenom_contact_c
-        description: Search filter for Prénom Contact
+        description: Search filter for prenom contact c
         type: string
         required: false
       - in: query
         name: id_emploi
-        description: Search filter for Id Emploi
+        description: Search filter for id emploi
         type: integer
         required: false
       - in: query
         name: tel_contact
-        description: Search filter for Tel Conract
+        description: Search filter for tel contact
         type: string
         required: false
       - in: query
         name: portable_contact
-        description: Search filter for Portable Contact
+        description: Search filter for portable contact
         type: string
         required: false
       - in: query
         name: fax_contact
-        description: Search filter for Fax Contact
+        description: Search filter for fax contact
         type: string
         required: false
       - in: query
         name: mail_contact
-        description: Search filter for Mail Contact
+        description: Search filter for mail contact
         type: string
         required: false
       - in: query
         name: commentaire_contact
-        description: Search filter for Commentaire
+        description: Search filter for commentaire contact
         type: string
         required: false
       - in: query
@@ -112,8 +112,8 @@ paths:
         required: false
       - in: query
         name: DF_Contact_DF_Client_id__idclient
-        description: Search filter for DF client IdClient
-        type: string
+        description: Search filter for idclient DF client
+        type: integer
         required: false
       - in: query
         name: DF_Contact_DF_Commande_id
@@ -122,7 +122,7 @@ paths:
         required: false
       - in: query
         name: DF_Contact_DF_Commande_id__id_contact_commande
-        description: Search filter for DF commande Id Contact
+        description: Search filter for id contact commande DF commande
         type: string
         required: false
       tags:
@@ -213,93 +213,93 @@ paths:
         required: false
       - in: query
         name: idproduit
-        description: Search filter for Id Produit
-        type: string
+        description: Search filter for idproduit
+        type: integer
         required: false
       - in: query
         name: nomproduit
-        description: Search filter for Nom Produit
+        description: Search filter for nomproduit
         type: string
         required: false
       - in: query
         name: code_fournisseur
-        description: Search filter for Code Fournisseur
+        description: Search filter for fournisseur
         type: string
         required: false
       - in: query
         name: designation
-        description: Search filter for Designation
+        description: Search filter for designation
         type: string
         required: false
       - in: query
         name: longueur
-        description: Search filter for Longueur
+        description: Search filter for longueur
         type: number
         required: false
       - in: query
         name: largeur
-        description: Search filter for Largeur
+        description: Search filter for largeur
         type: number
         required: false
       - in: query
         name: heauteur
-        description: Search filter for Hauteur
+        description: Search filter for heauteur
         type: number
         required: false
       - in: query
         name: finition
-        description: Search filter for Finition
+        description: Search filter for finition
         type: string
         required: false
       - in: query
         name: commentaire
-        description: Search filter for Commentaire
+        description: Search filter for commentaire
         type: string
         required: false
       - in: query
         name: price
-        description: Search filter for Prix
+        description: Search filter for price
         type: string
         required: false
       - in: query
         name: unite
-        description: Search filter for Unité
+        description: Search filter for unite
         type: string
         required: false
       - in: query
         name: source
-        description: Search filter for Source
+        description: Search filter for source
         type: string
         required: false
       - in: query
         name: prd_price
-        description: Search filter for Prix Unitaire
+        description: Search filter for prd price
         type: number
         required: false
       - in: query
         name: quantite_stock
-        description: Search filter for Quanitité Stock
+        description: Search filter for quantite stock
         type: integer
         required: false
       - in: query
         name: dispo_produit
-        description: Search filter for Disponibilité
+        description: Search filter for dispo produit
         type: boolean
         required: false
       - in: query
         name: nom_fournisseur
-        description: Search filter for Nom Fournisseur
+        description: Search filter for nom fournisseur
         type: string
         required: false
       - in: query
         name: DF_Produit_Finis_DF_Fournisseurs_id
-        description: Search filter for Suppliers
+        description: Search filter for Fournisseurs
         type: string
         required: false
       - in: query
         name: DF_Produit_Finis_DF_Fournisseurs_id__idfournisseur
-        description: Search filter for Suppliers IdFournisseur
-        type: string
+        description: Search filter for idfournisseur Fournisseurs
+        type: integer
         required: false
       tags:
       - DF_Produit_Finis
@@ -505,52 +505,52 @@ paths:
         required: false
       - in: query
         name: numerodevis
-        description: Search filter for Numero Devis
-        type: string
+        description: Search filter for numerodevis
+        type: integer
         required: false
       - in: query
         name: titredevis
-        description: Search filter for Titre Devis
+        description: Search filter for titredevis
         type: string
         required: false
       - in: query
         name: titreprojet
-        description: Search filter for Titre Projet
+        description: Search filter for titreprojet
         type: string
         required: false
       - in: query
         name: lieuprojet
-        description: Search filter for Lieu Projet
+        description: Search filter for lieuprojet
         type: string
         required: false
       - in: query
         name: nomclientdevis
-        description: Search filter for NomClient
+        description: Search filter for nomclientdevis
         type: string
         required: false
       - in: query
         name: contactdevis
-        description: Search filter for Contact
+        description: Search filter for contactdevis
         type: string
         required: false
       - in: query
         name: teldevis
-        description: Search filter for Telephone
+        description: Search filter for teldevis
         type: string
         required: false
       - in: query
         name: emaildevis
-        description: Search filter for Email
+        description: Search filter for emaildevis
         type: string
         required: false
       - in: query
         name: dateemisisondevis
-        description: Search filter for Date Emission
+        description: Search filter for dateemisisondevis
         type: string
         required: false
       - in: query
         name: statut_devis
-        description: Search filter for Statut
+        description: Search filter for statut devis
         type: string
         required: false
         enum:
@@ -560,37 +560,42 @@ paths:
         - A
       - in: query
         name: prix_unitaire_devis
-        description: Search filter for Prix Unitaire
+        description: Search filter for prix unitaire devis
         type: number
         required: false
       - in: query
         name: quantiteDevis
-        description: Search filter for Quantité
+        description: Search filter for quantite devis
         type: integer
         required: false
       - in: query
         name: tvaDevis
-        description: Search filter for TVA
+        description: Search filter for tva devis
         type: number
         required: false
       - in: query
         name: totalDevis
-        description: Search filter for Total
+        description: Search filter for total devis
         type: integer
         required: false
       - in: query
         name: commentaireDevis
-        description: Search filter for Commentaire
+        description: Search filter for commentaire devis
         type: string
         required: false
       - in: query
-        name: DF_Devis_DF_Produit_Finis_id
-        description: Search filter for DF produit finis
+        name: DF_Devis_DF_Client_id
+        description: Search filter for DF client
         type: string
         required: false
       - in: query
-        name: DF_Devis_DF_Produit_Finis_id__idproduit
-        description: Search filter for DF produit finis Id Produit
+        name: DF_Devis_DF_Client_id__idclient
+        description: Search filter for idclient DF client
+        type: integer
+        required: false
+      - in: query
+        name: DF_Devis_DF_Client_id__nmclient
+        description: Search filter for nmclient DF client
         type: string
         required: false
       tags:
@@ -821,27 +826,27 @@ paths:
         required: false
       - in: query
         name: idfournisseur
-        description: Search filter for IdFournisseur
-        type: string
+        description: Search filter for idfournisseur
+        type: integer
         required: false
       - in: query
         name: nomfournisseur
-        description: Search filter for Nom
+        description: Search filter for nomfournisseur
         type: string
         required: false
       - in: query
         name: telfournisseur
-        description: Search filter for Telephone
+        description: Search filter for telfournisseur
         type: string
         required: false
       - in: query
         name: emailfournisseur
-        description: Search filter for Email
+        description: Search filter for emailfournisseur
         type: string
         required: false
       - in: query
         name: descriptionfournisseur
-        description: Search filter for Description
+        description: Search filter for descriptionfournisseur
         type: string
         required: false
       tags:
@@ -1008,6 +1013,40 @@ paths:
       - DF_Commande
       consumes:
       - application/json
+  /rest/DF_Devis/{row_id}/publication:df_devis_imp_1:
+    get:
+      summary: Call a custom publication for a DF_Devis business object record or
+        for all records
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-df_devis-publication-df_devis_imp_1
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/PublicationResult'
+          description: Success in calling the custom publication
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      tags:
+      - DF_Devis
   /rest/DF_Devis/{row_id}:
     post:
       summary: Create a new DF_Devisbusiness object record
@@ -1210,81 +1249,233 @@ paths:
         required: false
       - in: query
         name: idclient
-        description: Search filter for IdClient
-        type: string
+        description: Search filter for idclient
+        type: integer
         required: false
       - in: query
         name: nmclient
-        description: Search filter for Raison Sociale
+        description: Search filter for nmclient
         type: string
         required: false
       - in: query
         name: mailclient
-        description: Search filter for Email Client
+        description: Search filter for mailclient
         type: string
         required: false
       - in: query
         name: telephoneclient
-        description: Search filter for Telephone Client
+        description: Search filter for telephoneclient
         type: string
         required: false
       - in: query
         name: adresseclient
-        description: Search filter for Adresse 1
+        description: Search filter for adresseclient
         type: string
         required: false
       - in: query
         name: villeclient
-        description: Search filter for Ville
+        description: Search filter for villeclient
         type: string
         required: false
       - in: query
         name: codepostclient
-        description: Search filter for ZipCode
+        description: Search filter for codepostclient
         type: integer
         required: false
       - in: query
         name: descriptionclient
-        description: Search filter for Descirption
+        description: Search filter for descriptionclient
         type: string
         required: false
       - in: query
         name: adresseclient2
-        description: Search filter for Adresse 2
+        description: Search filter for adresseclient 2
         type: string
         required: false
       - in: query
         name: id_sec_act_client
-        description: Search filter for Id Secteur Activité
+        description: Search filter for id sec act client
         type: integer
         required: false
       - in: query
         name: reg_client
-        description: Search filter for Region
+        description: Search filter for reg client
         type: string
         required: false
       - in: query
         name: fax_client
-        description: Search filter for Fax Client
+        description: Search filter for fax client
         type: string
         required: false
       - in: query
         name: website_client
-        description: Search filter for Site Web
-        type: string
-        required: false
-      - in: query
-        name: DF_Client_DF_Devis_id
-        description: Search filter for DF devis
-        type: string
-        required: false
-      - in: query
-        name: DF_Client_DF_Devis_id__numerodevis
-        description: Search filter for DF devis Numero Devis
+        description: Search filter for website client
         type: string
         required: false
       tags:
       - DF_Client
+  /rest/DF_Ligne_Devis/{row_id}:
+    post:
+      summary: Create a new DF_Ligne_Devisbusiness object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-df_ligne_devis-create
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/DF_Ligne_Devis'
+          description: Success in creating a new business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+      parameters:
+      - in: path
+        name: row_id
+        description: row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - schema:
+          $ref: '#/definitions/DF_Ligne_Devis'
+        in: body
+        name: body
+      tags:
+      - DF_Ligne_Devis
+      consumes:
+      - application/json
+    get:
+      summary: Get a DF_Ligne_Devis business object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-df_ligne_devis-get
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/DF_Ligne_Devis'
+          description: Success in getting a single business object record
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - in: query
+        name: _inline_documents
+        description: Inline documents?
+        type: boolean
+        required: false
+      - in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        type: boolean
+        required: false
+      - in: query
+        name: _inline_objects
+        description: Inline objects?
+        type: boolean
+        required: false
+      tags:
+      - DF_Ligne_Devis
+    delete:
+      summary: Delete a DF_Ligne_Devis business object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-df_ligne_devis-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      tags:
+      - DF_Ligne_Devis
+    put:
+      summary: Update a DF_Ligne_Devisbusiness object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-df_ligne_devis-update
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/DF_Ligne_Devis'
+          description: Success in updating a business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - schema:
+          $ref: '#/definitions/DF_Ligne_Devis'
+        in: body
+        name: body
+      tags:
+      - DF_Ligne_Devis
+      consumes:
+      - application/json
   /rest/DF_Contact/{row_id}:
     post:
       summary: Create a new DF_Contactbusiness object record
@@ -1487,82 +1678,82 @@ paths:
         required: false
       - in: query
         name: id_commande
-        description: Search filter for Id Commande
-        type: string
+        description: Search filter for id commande
+        type: integer
         required: false
       - in: query
         name: id_contact_commande
-        description: Search filter for Id Contact
+        description: Search filter for id contact commande
         type: string
         required: false
       - in: query
         name: id_livraison_commande
-        description: Search filter for Id Livraison
+        description: Search filter for id livraison commande
         type: integer
         required: false
       - in: query
         name: num_cde
-        description: Search filter for Num Cde
+        description: Search filter for num cde
         type: string
         required: false
       - in: query
         name: redacteur_cmd
-        description: Search filter for Rédacteur
+        description: Search filter for redacteur cmd
         type: string
         required: false
       - in: query
         name: tx_tva_cmd
-        description: Search filter for Taux TVA
+        description: Search filter for tx tva cmd
         type: number
         required: false
       - in: query
         name: prix_tonne_cmd
-        description: Search filter for Prix Tonne
+        description: Search filter for prix tonne cmd
         type: number
         required: false
       - in: query
         name: tx_remise_cmd
-        description: Search filter for Taux Remise
+        description: Search filter for tx remise cmd
         type: number
         required: false
       - in: query
         name: livraison_detail_cmd
-        description: Search filter for Livraison Detail
+        description: Search filter for livraison detail cmd
         type: string
         required: false
       - in: query
         name: date_cmd
-        description: Search filter for Date Commande
+        description: Search filter for date cmd
         type: string
         required: false
       - in: query
         name: ref_chantier
-        description: Search filter for Réf Chantier
+        description: Search filter for ref chantier
         type: string
         required: false
       - in: query
         name: delai_cmd
-        description: Search filter for Délai
+        description: Search filter for delai cmd
         type: string
         required: false
       - in: query
         name: fact_cmd
-        description: Search filter for Facturation
+        description: Search filter for fact cmd
         type: string
         required: false
       - in: query
         name: paiement_cmd
-        description: Search filter for Paiement
+        description: Search filter for paiement cmd
         type: string
         required: false
       - in: query
         name: validite_offre_cmd
-        description: Search filter for Valdiité de l'offre
+        description: Search filter for validite offre cmd
         type: integer
         required: false
       - in: query
         name: idx_mon_cmd
-        description: Search filter for Indexation monétaire
+        description: Search filter for idx mon cmd
         type: string
         required: false
       - in: query
@@ -1572,8 +1763,8 @@ paths:
         required: false
       - in: query
         name: DF_Commande_DF_Client_id__idclient
-        description: Search filter for DF client IdClient
-        type: string
+        description: Search filter for idclient DF client
+        type: integer
         required: false
       - in: query
         name: DF_Commande_DF_Produit_Finis_id
@@ -1582,8 +1773,8 @@ paths:
         required: false
       - in: query
         name: DF_Commande_DF_Produit_Finis_id__idproduit
-        description: Search filter for DF produit finis Id Produit
-        type: string
+        description: Search filter for idproduit DF produit finis
+        type: integer
         required: false
       tags:
       - DF_Commande
@@ -1749,6 +1940,132 @@ paths:
       - DF_Fournisseurs
       consumes:
       - application/json
+  /rest/DF_Ligne_Devis:
+    get:
+      summary: Search DF_Ligne_Devis business object records or get contextualized
+        metadata
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-df_ligne_devis-search
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/ArrayOfDF_Ligne_Devis'
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+      parameters:
+      - in: query
+        name: _metadata
+        description: Metadata?
+        type: boolean
+        required: false
+      - in: query
+        name: _count
+        description: Count?
+        type: boolean
+        required: false
+      - in: query
+        name: _doc
+        description: Documentation?
+        type: boolean
+        required: false
+      - in: query
+        name: df_ligne_devis_id
+        description: Search filter for Ligne Devis ID
+        type: integer
+        required: false
+      - in: query
+        name: df_ligne_devis_quantite
+        description: Search filter for Quantité
+        type: integer
+        required: false
+      - in: query
+        name: df_ligne_devis_prix_total_ht
+        description: Search filter for Prix Total HT
+        type: number
+        required: false
+      - in: query
+        name: DF_Ligne_Devis_DF_Devis_id
+        description: Search filter for DF devis
+        type: string
+        required: false
+      - in: query
+        name: DF_Ligne_Devis_DF_Devis_id__numerodevis
+        description: Search filter for numerodevis DF devis
+        type: integer
+        required: false
+      - in: query
+        name: DF_Ligne_Devis_DF_Devis_id__titredevis
+        description: Search filter for titredevis DF devis
+        type: string
+        required: false
+      - in: query
+        name: DF_Ligne_Devis_DF_Devis_id__nomclientdevis
+        description: Search filter for nomclientdevis DF devis
+        type: string
+        required: false
+      - in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id
+        description: Search filter for DF produit finis
+        type: string
+        required: false
+      - in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__idproduit
+        description: Search filter for idproduit DF produit finis
+        type: integer
+        required: false
+      - in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__nomproduit
+        description: Search filter for nomproduit DF produit finis
+        type: string
+        required: false
+      - in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__longueur
+        description: Search filter for longueur DF produit finis
+        type: number
+        required: false
+      - in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__largeur
+        description: Search filter for largeur DF produit finis
+        type: number
+        required: false
+      - in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__designation
+        description: Search filter for designation DF produit finis
+        type: string
+        required: false
+      - in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__heauteur
+        description: Search filter for heauteur DF produit finis
+        type: number
+        required: false
+      - in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__finition
+        description: Search filter for finition DF produit finis
+        type: string
+        required: false
+      - in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__quantite_stock
+        description: Search filter for quantite stock DF produit finis
+        type: integer
+        required: false
+      - in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__prd_price
+        description: Search filter for prd price DF produit finis
+        type: number
+        required: false
+      tags:
+      - DF_Ligne_Devis
 securityDefinitions:
   basicAuth:
     type: basic
@@ -1789,204 +2106,262 @@ definitions:
     type: object
     properties:
       descriptionfournisseur:
-        description: Description
+        description: descriptionfournisseur
         type: string
       row_id:
-        description: ID
+        description: Id
         type: string
       idfournisseur:
-        description: IdFournisseur
-        type: string
+        description: idfournisseur
+        type: integer
       nomfournisseur:
-        description: Nom
+        description: nomfournisseur
         type: string
       telfournisseur:
-        description: Telephone
+        description: telfournisseur
         type: string
       emailfournisseur:
-        description: Email
+        description: emailfournisseur
         type: string
   ArrayOfDF_Fournisseurs:
     type: array
     items:
       $ref: '#/definitions/DF_Fournisseurs'
+  ArrayOfDF_Ligne_Devis:
+    type: array
+    items:
+      $ref: '#/definitions/DF_Ligne_Devis'
   DF_Devis:
     type: object
     properties:
       prix_unitaire_devis:
-        description: Prix Unitaire
+        description: prix unitaire devis
         type: number
-      dateemisisondevis:
-        description: 'Date Emission '
+      DF_Devis_DF_Client_id:
+        description: DF client
         type: string
-      DF_Devis_DF_Produit_Finis_id:
-        description: DF produit finis
+      dateemisisondevis:
+        description: dateemisisondevis
         type: string
       titreprojet:
-        description: Titre Projet
+        description: titreprojet
         type: string
       totalDevis:
-        description: Total
+        description: total devis
         type: integer
       nomclientdevis:
-        description: NomClient
+        description: nomclientdevis
         type: string
       lieuprojet:
-        description: Lieu Projet
+        description: lieuprojet
         type: string
       numerodevis:
-        description: Numero Devis
-        type: string
+        description: numerodevis
+        type: integer
       contactdevis:
-        description: Contact
-        type: string
-      DF_Devis_DF_Produit_Finis_id__idproduit:
-        description: DF produit finis Id Produit
+        description: contactdevis
         type: string
       emaildevis:
-        description: Email
+        description: emaildevis
         type: string
       tvaDevis:
-        description: TVA
+        description: tva devis
         type: number
       commentaireDevis:
-        description: Commentaire
+        description: commentaire devis
         type: string
       row_id:
-        description: ID
+        description: Id
         type: string
       titredevis:
-        description: Titre Devis
+        description: titredevis
         type: string
       quantiteDevis:
-        description: Quantité
+        description: quantite devis
         type: integer
       teldevis:
-        description: Telephone
+        description: teldevis
         type: string
       statut_devis:
-        description: 'Statut '
+        description: statut devis
         type: string
         enum:
         - E
         - V
         - R
         - A
+      DF_Devis_DF_Client_id__nmclient:
+        description: nmclient DF client
+        type: string
+      DF_Devis_DF_Client_id__idclient:
+        description: idclient DF client
+        type: integer
   DF_Client:
     type: object
     properties:
       mailclient:
-        description: Email Client
+        description: mailclient
         type: string
       reg_client:
-        description: Region
+        description: reg client
         type: string
       id_sec_act_client:
-        description: Id Secteur Activité
+        description: id sec act client
         type: integer
-      DF_Client_DF_Devis_id:
-        description: DF devis
-        type: string
       telephoneclient:
-        description: Telephone Client
+        description: telephoneclient
         type: string
       fax_client:
-        description: Fax Client
+        description: fax client
         type: string
       website_client:
-        description: 'Site Web '
+        description: website client
         type: string
       nmclient:
-        description: Raison Sociale
-        type: string
-      DF_Client_DF_Devis_id__numerodevis:
-        description: DF devis Numero Devis
+        description: nmclient
         type: string
       adresseclient:
-        description: Adresse 1
+        description: adresseclient
         type: string
       villeclient:
-        description: Ville
+        description: villeclient
         type: string
       adresseclient2:
-        description: Adresse 2
+        description: adresseclient 2
         type: string
       codepostclient:
-        description: ZipCode
+        description: codepostclient
         type: integer
       idclient:
-        description: IdClient
-        type: string
+        description: idclient
+        type: integer
       descriptionclient:
-        description: Descirption
+        description: descriptionclient
         type: string
       row_id:
-        description: ID
+        description: Id
         type: string
   DF_Produit_Finis:
     type: object
     properties:
       longueur:
-        description: Longueur
+        description: longueur
         type: number
       heauteur:
-        description: Hauteur
+        description: heauteur
         type: number
       largeur:
-        description: Largeur
+        description: largeur
         type: number
       unite:
-        description: Unité
+        description: unite
         type: string
       dispo_produit:
-        description: Disponibilité
+        description: dispo produit
         type: boolean
       finition:
-        description: Finition
+        description: finition
         type: string
       source:
-        description: Source
+        description: source
         type: string
       prd_price:
-        description: Prix Unitaire
+        description: prd price
         type: number
       quantite_stock:
-        description: Quanitité Stock
+        description: quantite stock
         type: integer
       nomproduit:
-        description: Nom Produit
+        description: nomproduit
         type: string
       DF_Produit_Finis_DF_Fournisseurs_id__idfournisseur:
-        description: Suppliers IdFournisseur
-        type: string
+        description: idfournisseur Fournisseurs
+        type: integer
       price:
-        description: Prix
+        description: price
         type: string
       idproduit:
-        description: Id Produit
-        type: string
+        description: idproduit
+        type: integer
       code_fournisseur:
-        description: Code Fournisseur
+        description: fournisseur
         type: string
       DF_Produit_Finis_DF_Fournisseurs_id:
-        description: Suppliers
+        description: Fournisseurs
         type: string
       designation:
-        description: Designation
+        description: designation
         type: string
       row_id:
-        description: ID
+        description: Id
         type: string
       commentaire:
-        description: Commentaire
+        description: commentaire
         type: string
       nom_fournisseur:
-        description: Nom Fournisseur
+        description: nom fournisseur
         type: string
   ArrayOfDF_Produit_Finis:
     type: array
     items:
       $ref: '#/definitions/DF_Produit_Finis'
+  DF_Ligne_Devis:
+    type: object
+    properties:
+      DF_Ligne_Devis_DF_Produit_Finis_id__largeur:
+        description: largeur DF produit finis
+        type: number
+      DF_Ligne_Devis_DF_Produit_Finis_id__quantite_stock:
+        description: quantite stock DF produit finis
+        type: integer
+      df_ligne_devis_id:
+        description: Ligne Devis ID
+        type: integer
+      DF_Ligne_Devis_DF_Devis_id__titredevis:
+        description: titredevis DF devis
+        type: string
+      DF_Ligne_Devis_DF_Devis_id__nomclientdevis:
+        description: nomclientdevis DF devis
+        type: string
+      DF_Ligne_Devis_DF_Produit_Finis_id__idproduit:
+        description: idproduit DF produit finis
+        type: integer
+      DF_Ligne_Devis_DF_Produit_Finis_id__finition:
+        description: finition DF produit finis
+        type: string
+      df_ligne_devis_prix_total_ht:
+        description: Prix Total HT
+        type: number
+      DF_Ligne_Devis_DF_Produit_Finis_id:
+        description: DF produit finis
+        type: string
+      DF_Ligne_Devis_DF_Produit_Finis_id__prd_price:
+        description: prd price DF produit finis
+        type: number
+      DF_Ligne_Devis_DF_Devis_id:
+        description: DF devis
+        type: string
+      DF_Ligne_Devis_DF_Produit_Finis_id__nomproduit:
+        description: nomproduit DF produit finis
+        type: string
+      DF_Ligne_Devis_DF_Produit_Finis_id__longueur:
+        description: longueur DF produit finis
+        type: number
+      DF_Ligne_Devis_DF_Produit_Finis_id__designation:
+        description: designation DF produit finis
+        type: string
+      DF_Ligne_Devis_DF_Produit_Finis_id__heauteur:
+        description: heauteur DF produit finis
+        type: number
+      df_ligne_devis_quantite:
+        description: 'Quantité '
+        type: integer
+      DF_Ligne_Devis_DF_Devis_id__numerodevis:
+        description: numerodevis DF devis
+        type: integer
+      row_id:
+        description: Id
+        type: string
   ActionResult:
     type: object
     properties:
@@ -2000,55 +2375,55 @@ definitions:
         description: DF client
         type: string
       nom_contact_c:
-        description: Nom Contact
+        description: nom contact c
         type: string
       id_emploi:
-        description: Id Emploi
+        description: id emploi
         type: integer
       DF_Contact_DF_Commande_id:
         description: DF commande
         type: string
       mail_contact:
-        description: Mail Contact
+        description: mail contact
         type: string
       civilite_client_contact:
-        description: Civilité
+        description: civilite client contact
         type: string
         enum:
         - M
         - F
       portable_contact:
-        description: Portable Contact
+        description: portable contact
         type: string
       DF_Contact_DF_Client_id__idclient:
-        description: DF client IdClient
-        type: string
+        description: idclient DF client
+        type: integer
       DF_Contact_DF_Commande_id__id_contact_commande:
-        description: DF commande Id Contact
+        description: id contact commande DF commande
         type: string
       fax_contact:
-        description: Fax Contact
+        description: fax contact
         type: string
       commentaire_contact:
-        description: Commentaire
+        description: commentaire contact
         type: string
       prenom_contact_c:
-        description: Prénom Contact
+        description: prenom contact c
         type: string
       __id:
         description: ' id'
         type: string
       row_id:
-        description: ID
+        description: Id
         type: string
       tel_contact:
-        description: Tel Conract
+        description: tel contact
         type: string
       id_contact:
-        description: Id Contact
-        type: string
+        description: id contact
+        type: integer
       id_client_contact:
-        description: Id Client
+        description: id client contact
         type: string
   TreeviewData:
     type: object
@@ -2101,67 +2476,67 @@ definitions:
     type: object
     properties:
       DF_Commande_DF_Client_id__idclient:
-        description: DF client IdClient
-        type: string
+        description: idclient DF client
+        type: integer
       tx_tva_cmd:
-        description: Taux TVA
+        description: tx tva cmd
         type: number
       prix_tonne_cmd:
-        description: Prix Tonne
+        description: prix tonne cmd
         type: number
       delai_cmd:
-        description: Délai
+        description: delai cmd
         type: string
       ref_chantier:
-        description: 'Réf Chantier '
+        description: ref chantier
         type: string
       DF_Commande_DF_Produit_Finis_id__idproduit:
-        description: DF produit finis Id Produit
-        type: string
+        description: idproduit DF produit finis
+        type: integer
       id_commande:
-        description: Id Commande
-        type: string
+        description: id commande
+        type: integer
       idx_mon_cmd:
-        description: Indexation monétaire
+        description: idx mon cmd
         type: string
       tx_remise_cmd:
-        description: Taux Remise
+        description: tx remise cmd
         type: number
       date_cmd:
-        description: Date Commande
+        description: date cmd
         type: string
       num_cde:
-        description: Num Cde
+        description: num cde
         type: string
       livraison_detail_cmd:
-        description: 'Livraison Detail '
+        description: livraison detail cmd
         type: string
       DF_Commande_DF_Produit_Finis_id:
         description: DF produit finis
         type: string
       id_livraison_commande:
-        description: Id Livraison
+        description: id livraison commande
         type: integer
       fact_cmd:
-        description: 'Facturation '
+        description: fact cmd
         type: string
       redacteur_cmd:
-        description: Rédacteur
+        description: redacteur cmd
         type: string
       row_id:
-        description: ID
+        description: Id
         type: string
       validite_offre_cmd:
-        description: Valdiité de l'offre
+        description: validite offre cmd
         type: integer
       DF_Commande_DF_Client_id:
         description: DF client
         type: string
       id_contact_commande:
-        description: Id Contact
+        description: id contact commande
         type: string
       paiement_cmd:
-        description: Paiement
+        description: paiement cmd
         type: string
   Error403:
     type: object
@@ -2196,6 +2571,8 @@ tags:
 - name: DF_Devis
   description: DF devis
 - name: DF_Fournisseurs
-  description: Suppliers
+  description: Fournisseurs
+- name: DF_Ligne_Devis
+  description: DF ligne devis
 - name: DF_Produit_Finis
   description: DF produit finis

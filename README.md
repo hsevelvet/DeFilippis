@@ -23,7 +23,7 @@ Objet metier pour client.
 
 | Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
-| `idclient`                                                   | id                                       | yes*     | yes       |          | -                                                                                |
+| `idclient`                                                   | int(11)                                  | yes*     |           |          | -                                                                                |
 | `nmclient`                                                   | char(20)                                 | yes      | yes       |          | -                                                                                |
 | `mailclient`                                                 | email(100)                               | yes      | yes       |          | -                                                                                |
 | `telephoneclient`                                            | phone(100)                               | yes      | yes       |          | -                                                                                |
@@ -36,8 +36,6 @@ Objet metier pour client.
 | `reg_client`                                                 | char(15)                                 |          | yes       |          | -                                                                                |
 | `fax_client`                                                 | phone(100)                               |          | yes       |          | -                                                                                |
 | `website_client`                                             | char(20)                                 |          | yes       |          | -                                                                                |
-| `DF_Client_DF_Devis_id` link to **`DF_Devis`**               | id                                       |          | yes       |          | -                                                                                |
-| _Ref. `DF_Client_DF_Devis_id.numerodevis`_                   | _id_                                     |          |           |          | -                                                                                |
 
 ### Custom actions
 
@@ -53,7 +51,7 @@ objet metier pour commande.
 
 | Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
-| `id_commande`                                                | id                                       | yes*     | yes       |          | -                                                                                |
+| `id_commande`                                                | int(11)                                  | yes*     | yes       |          | -                                                                                |
 | `id_contact_commande`                                        | char(15)                                 | yes      | yes       |          | -                                                                                |
 | `id_livraison_commande`                                      | int(5)                                   |          | yes       |          | -                                                                                |
 | `num_cde`                                                    | char(10)                                 |          | yes       |          | -                                                                                |
@@ -70,9 +68,9 @@ objet metier pour commande.
 | `validite_offre_cmd`                                         | int(5)                                   |          | yes       |          | -                                                                                |
 | `idx_mon_cmd`                                                | char(10)                                 |          | yes       |          | -                                                                                |
 | `DF_Commande_DF_Client_id` link to **`DF_Client`**           | id                                       |          | yes       |          | -                                                                                |
-| _Ref. `DF_Commande_DF_Client_id.idclient`_                   | _id_                                     |          |           |          | -                                                                                |
+| _Ref. `DF_Commande_DF_Client_id.idclient`_                   | _int(11)_                                |          |           |          | -                                                                                |
 | `DF_Commande_DF_Produit_Finis_id` link to **`DF_Produit_Finis`** | id                                       |          | yes       |          | -                                                                                |
-| _Ref. `DF_Commande_DF_Produit_Finis_id.idproduit`_           | _id_                                     |          |           |          | -                                                                                |
+| _Ref. `DF_Commande_DF_Produit_Finis_id.idproduit`_           | _int(11)_                                |          |           |          | -                                                                                |
 
 ### Custom actions
 
@@ -88,7 +86,7 @@ Objet metier pour contact.
 
 | Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
-| `id_contact`                                                 | id                                       | yes*     | yes       |          | -                                                                                |
+| `id_contact`                                                 | int(11)                                  | yes*     | yes       |          | -                                                                                |
 | `id_client_contact`                                          | id                                       | yes      | yes       |          | -                                                                                |
 | `civilite_client_contact`                                    | enum(7) using `CIVILITE_CLIENT_CONTACT` list |          | yes       |          | -                                                                                |
 | `nom_contact_c`                                              | char(20)                                 | yes      | yes       |          | -                                                                                |
@@ -101,7 +99,7 @@ Objet metier pour contact.
 | `commentaire_contact`                                        | text(100)                                |          | yes       |          | -                                                                                |
 | `__id` link to **`DF_Client`**                               | id                                       |          | yes       |          | -                                                                                |
 | `DF_Contact_DF_Client_id` link to **`DF_Client`**            | id                                       |          | yes       |          | -                                                                                |
-| _Ref. `DF_Contact_DF_Client_id.idclient`_                    | _id_                                     |          |           |          | -                                                                                |
+| _Ref. `DF_Contact_DF_Client_id.idclient`_                    | _int(11)_                                |          |           |          | -                                                                                |
 | `DF_Contact_DF_Commande_id` link to **`DF_Commande`**        | id                                       |          | yes       |          | -                                                                                |
 | _Ref. `DF_Contact_DF_Commande_id.id_contact_commande`_       | _char(15)_                               |          |           |          | -                                                                                |
 
@@ -125,7 +123,7 @@ Objet metier pour devis.
 
 | Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
-| `numerodevis`                                                | id                                       | yes*     | yes       |          | -                                                                                |
+| `numerodevis`                                                | int(11)                                  | yes*     | yes       |          | -                                                                                |
 | `titredevis`                                                 | char(30)                                 | yes      | yes       |          | -                                                                                |
 | `titreprojet`                                                | char(30)                                 | yes      | yes       |          | -                                                                                |
 | `lieuprojet`                                                 | char(20)                                 | yes      | yes       |          | -                                                                                |
@@ -140,8 +138,9 @@ Objet metier pour devis.
 | `tvaDevis`                                                   | float(11, 2)                             |          |           |          | -                                                                                |
 | `totalDevis`                                                 | int(11)                                  |          |           |          | -                                                                                |
 | `commentaireDevis`                                           | text(100)                                |          | yes       |          | -                                                                                |
-| `DF_Devis_DF_Produit_Finis_id` link to **`DF_Produit_Finis`** | id                                       |          | yes       |          | -                                                                                |
-| _Ref. `DF_Devis_DF_Produit_Finis_id.idproduit`_              | _id_                                     |          |           |          | -                                                                                |
+| `DF_Devis_DF_Client_id` link to **`DF_Client`**              | id                                       |          | yes       |          | -                                                                                |
+| _Ref. `DF_Devis_DF_Client_id.idclient`_                      | _int(11)_                                |          |           |          | -                                                                                |
+| _Ref. `DF_Devis_DF_Client_id.nmclient`_                      | _char(20)_                               |          |           |          | -                                                                                |
 
 ### Lists
 
@@ -149,7 +148,7 @@ Objet metier pour devis.
     - `E` En Cours
     - `V` Validé
     - `R` Refusé
-    - `A` A
+    - `A` Abandon
 
 ### Custom actions
 
@@ -165,11 +164,42 @@ Objet métier pour fournisseur.
 
 | Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
-| `idfournisseur`                                              | id                                       | yes*     | yes       |          | -                                                                                |
+| `idfournisseur`                                              | int(11)                                  | yes*     | yes       |          | -                                                                                |
 | `nomfournisseur`                                             | char(20)                                 | yes      | yes       |          | -                                                                                |
 | `telfournisseur`                                             | phone(100)                               | yes      | yes       |          | -                                                                                |
 | `emailfournisseur`                                           | email(100)                               | yes      | yes       |          | -                                                                                |
 | `descriptionfournisseur`                                     | text(100)                                |          | yes       |          | -                                                                                |
+
+### Custom actions
+
+No custom action
+
+`DF_Ligne_Devis` business object definition
+-------------------------------------------
+
+
+
+### Fields
+
+| Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
+| ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
+| `df_ligne_devis_id`                                          | int(11)                                  | yes*     | yes       |          | -                                                                                |
+| `df_ligne_devis_quantite`                                    | int(11)                                  | yes      | yes       |          | -                                                                                |
+| `df_ligne_devis_prix_total_ht`                               | float(100, 2)                            |          |           |          | -                                                                                |
+| `DF_Ligne_Devis_DF_Devis_id` link to **`DF_Devis`**          | id                                       |          | yes       |          | -                                                                                |
+| _Ref. `DF_Ligne_Devis_DF_Devis_id.numerodevis`_              | _int(11)_                                |          |           |          | -                                                                                |
+| _Ref. `DF_Ligne_Devis_DF_Devis_id.titredevis`_               | _char(30)_                               |          |           |          | -                                                                                |
+| _Ref. `DF_Ligne_Devis_DF_Devis_id.nomclientdevis`_           | _char(20)_                               |          |           |          | -                                                                                |
+| `DF_Ligne_Devis_DF_Produit_Finis_id` link to **`DF_Produit_Finis`** | id                                       |          | yes       |          | -                                                                                |
+| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.idproduit`_        | _int(11)_                                |          |           |          | -                                                                                |
+| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.nomproduit`_       | _char(15)_                               |          |           |          | -                                                                                |
+| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.longueur`_         | _float(5, 2)_                            |          |           |          | -                                                                                |
+| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.largeur`_          | _float(5, 2)_                            |          |           |          | -                                                                                |
+| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.designation`_      | _char(20)_                               |          |           |          | -                                                                                |
+| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.heauteur`_         | _float(5, 2)_                            |          |           |          | -                                                                                |
+| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.finition`_         | _char(20)_                               |          |           |          | -                                                                                |
+| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.quantite_stock`_   | _int(20000)_                             |          |           |          | -                                                                                |
+| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.prd_price`_        | _float(100, 2)_                          |          |           |          | -                                                                                |
 
 ### Custom actions
 
@@ -185,7 +215,7 @@ Objet metier pour produit.
 
 | Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
-| `idproduit`                                                  | id                                       | yes*     | yes       |          | -                                                                                |
+| `idproduit`                                                  | int(11)                                  | yes*     | yes       |          | -                                                                                |
 | `nomproduit`                                                 | char(15)                                 | yes      | yes       |          | -                                                                                |
 | `code_fournisseur`                                           | char(50)                                 | yes      | yes       |          | -                                                                                |
 | `designation`                                                | char(20)                                 | yes      | yes       |          | -                                                                                |
@@ -202,7 +232,7 @@ Objet metier pour produit.
 | `dispo_produit`                                              | boolean                                  |          | yes       |          | -                                                                                |
 | `nom_fournisseur`                                            | char(100)                                | yes      | yes       |          | -                                                                                |
 | `DF_Produit_Finis_DF_Fournisseurs_id` link to **`DF_Fournisseurs`** | id                                       |          | yes       |          | -                                                                                |
-| _Ref. `DF_Produit_Finis_DF_Fournisseurs_id.idfournisseur`_   | _id_                                     |          |           |          | -                                                                                |
+| _Ref. `DF_Produit_Finis_DF_Fournisseurs_id.idfournisseur`_   | _int(11)_                                |          |           |          | -                                                                                |
 
 ### Custom actions
 
