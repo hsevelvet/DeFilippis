@@ -24,6 +24,67 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/DF_Devis'
+    DF_ligne_commande:
+      type: object
+      properties:
+        DF_ligne_commande_DF_Commande_id__df_commande_ref_chantier:
+          description: Référence de chantier DF commande
+          type: string
+        DF_ligne_commande_DF_Produit_Finis_id__df_produit_nom:
+          description: Nom Produit DF produit finis
+          type: string
+        DF_ligne_commande_DF_Produit_Finis_id__df_produit_larg:
+          description: Largeur DF produit finis
+          type: number
+        DF_ligne_commande_DF_Commande_id__df_commande_date:
+          description: Date de commande DF commande
+          type: string
+        DF_ligne_commande_DF_Commande_id:
+          description: DF commande
+          type: string
+        DF_ligne_commande_DF_Produit_Finis_id__df_produit_id:
+          description: Id Produit DF produit finis
+          type: integer
+        DF_ligne_commande_DF_Produit_Finis_id__df_produit_long:
+          description: Longueur DF produit finis
+          type: number
+        DF_ligne_commande_DF_Commande_id__df_commande_numero:
+          description: Numéro de Commande DF commande
+          type: string
+        df_ligne_commande_prix_total_ht:
+          description: Prixt Total HT
+          type: number
+        DF_ligne_commande_DF_Produit_Finis_id__df_produit_unite:
+          description: Unité DF produit finis
+          type: string
+        DF_ligne_commande_DF_Commande_id__df_commande_id:
+          description: Id Commande DF commande
+          type: integer
+        df_ligne_commande_qte:
+          description: Quantité
+          type: integer
+        DF_ligne_commande_DF_Produit_Finis_id__df_produit_haut:
+          description: Hauteur DF produit finis
+          type: number
+        df_ligne_commande_id:
+          description: Id ligne commande
+          type: integer
+        DF_ligne_commande_DF_Produit_Finis_id__df_produit_prix:
+          description: Prix DF produit finis
+          type: number
+        DF_ligne_commande_DF_Produit_Finis_id:
+          description: DF produit finis
+          type: string
+        row_id:
+          description: Id
+          type: string
+        DF_ligne_commande_DF_Produit_Finis_id__df_produit_finition:
+          description: Finition DF produit finis
+          type: string
+    ArrayOfDF_ligne_commande:
+      type: array
+      items:
+        $ref: '#/components/schemas/DF_ligne_commande'
     PublicationResult:
       type: object
       properties:
@@ -36,23 +97,23 @@ components:
     DF_Fournisseurs:
       type: object
       properties:
-        descriptionfournisseur:
-          description: descriptionfournisseur
+        df_fournisseur_telephone:
+          description: Téléphone
+          type: string
+        df_fournisseur_nom:
+          description: Nom Fournisseur
+          type: string
+        df_fournisseur_description:
+          description: Description
+          type: string
+        df_fournisseur_id:
+          description: Id Fournisseur
+          type: integer
+        df_fournisseur_email:
+          description: E-mail
           type: string
         row_id:
           description: Id
-          type: string
-        idfournisseur:
-          description: idfournisseur
-          type: integer
-        nomfournisseur:
-          description: nomfournisseur
-          type: string
-        telfournisseur:
-          description: telfournisseur
-          type: string
-        emailfournisseur:
-          description: emailfournisseur
           type: string
     ArrayOfDF_Fournisseurs:
       type: array
@@ -65,172 +126,169 @@ components:
     DF_Devis:
       type: object
       properties:
-        prix_unitaire_devis:
-          description: prix unitaire devis
-          type: number
+        df_devis_titre:
+          description: Titre Devis
+          type: string
         DF_Devis_DF_Client_id:
           description: DF client
           type: string
-        dateemisisondevis:
-          description: dateemisisondevis
-          type: string
-        titreprojet:
-          description: titreprojet
-          type: string
-        totalDevis:
-          description: total devis
-          type: integer
-        nomclientdevis:
-          description: nomclientdevis
-          type: string
-        lieuprojet:
-          description: lieuprojet
-          type: string
-        numerodevis:
-          description: numerodevis
-          type: integer
-        contactdevis:
-          description: contactdevis
-          type: string
-        emaildevis:
-          description: emaildevis
-          type: string
-        tvaDevis:
-          description: tva devis
+        df_devis_tva:
+          description: TVA
           type: number
-        commentaireDevis:
-          description: commentaire devis
-          type: string
-        row_id:
-          description: Id
-          type: string
-        titredevis:
-          description: titredevis
-          type: string
-        quantiteDevis:
-          description: quantite devis
+        DF_Devis_DF_Client_id__df_client_id:
+          description: Id Client DF client
           type: integer
-        teldevis:
-          description: teldevis
+        df_devis_telephone:
+          description: Téléphone
           type: string
-        statut_devis:
-          description: statut devis
+        df_devis_titre_projet:
+          description: Titre Projet
+          type: string
+        df_devis_contact:
+          description: Contact
+          type: string
+        df_devis_prix_total:
+          description: Prix Total
+          type: integer
+        df_devis_date_emission:
+          description: Date Emission
+          type: string
+        df_devis_commentaire:
+          description: Commentaire
+          type: string
+        df_devis_statut:
+          description: Statut
           type: string
           enum:
           - E
           - V
           - R
           - A
-        DF_Devis_DF_Client_id__nmclient:
-          description: nmclient DF client
+        df_devis_lieu_projet:
+          description: Lieu Projet
           type: string
-        DF_Devis_DF_Client_id__idclient:
-          description: idclient DF client
+        df_devis_numero:
+          description: Numéro Devis
           type: integer
-    DF_Client:
-      type: object
-      properties:
-        mailclient:
-          description: mailclient
+        DF_Devis_DF_Client_id__df_client_nom:
+          description: Nom Client DF client
           type: string
-        reg_client:
-          description: reg client
-          type: string
-        id_sec_act_client:
-          description: id sec act client
-          type: integer
-        telephoneclient:
-          description: telephoneclient
-          type: string
-        fax_client:
-          description: fax client
-          type: string
-        website_client:
-          description: website client
-          type: string
-        nmclient:
-          description: nmclient
-          type: string
-        adresseclient:
-          description: adresseclient
-          type: string
-        villeclient:
-          description: villeclient
-          type: string
-        adresseclient2:
-          description: adresseclient 2
-          type: string
-        codepostclient:
-          description: codepostclient
-          type: integer
-        idclient:
-          description: idclient
-          type: integer
-        descriptionclient:
-          description: descriptionclient
+        df_devis_email:
+          description: Email
           type: string
         row_id:
           description: Id
           type: string
+    DF_Client:
+      type: object
+      properties:
+        df_client_code_postal:
+          description: Code Postal
+          type: integer
+        df_client_id_secteur_activite:
+          description: Id Secteur Activité
+          type: string
+          enum:
+          - T
+          - V
+          - N
+          - P
+          - A
+        df_client_pays:
+          description: Pays
+          type: string
+        df_client_fax:
+          description: Fax
+          type: string
+        df_client_region:
+          description: Region
+          type: string
+        df_client_telephone:
+          description: Téképhone
+          type: string
+        df_client_cedex:
+          description: CEDEX
+          type: string
+        df_client_site_web:
+          description: Site Web
+          type: string
+        df_client_adresse_3:
+          description: Adresse 3
+          type: string
+        df_client_id:
+          description: Id Client
+          type: integer
+        df_client_adresse_2:
+          description: Adresse 2
+          type: string
+        df_client_email:
+          description: E-mail
+          type: string
+        df_client_adresse:
+          description: Adresse
+          type: string
+        df_client_description:
+          description: Description
+          type: string
+        df_client_nom:
+          description: Nom Client
+          type: string
+        df_client_ville:
+          description: Ville
+          type: string
+        row_id:
+          description: Id
+          type: string
+        df_client_tx_remise:
+          description: Taux de remise
+          type: number
     DF_Produit_Finis:
       type: object
       properties:
-        longueur:
-          description: longueur
-          type: number
-        heauteur:
-          description: heauteur
-          type: number
-        largeur:
-          description: largeur
-          type: number
-        unite:
-          description: unite
+        df_produit_source:
+          description: Source
           type: string
-        dispo_produit:
-          description: dispo produit
-          type: boolean
-        finition:
-          description: finition
-          type: string
-        source:
-          description: source
-          type: string
-        prd_price:
-          description: prd price
+        df_produit_long:
+          description: Longueur
           type: number
-        quantite_stock:
-          description: quantite stock
+        df_produit_nom:
+          description: Nom Produit
+          type: string
+        DF_Produit_Finis_DF_Fournisseurs_id__df_fournisseur_id:
+          description: Id Fournisseur Fournisseurs
           type: integer
-        nomproduit:
-          description: nomproduit
+        DF_Produit_Finis_DF_Fournisseurs_id__df_fournisseur_nom:
+          description: Nom Fournisseur Fournisseurs
           type: string
-        DF_Produit_Finis_DF_Fournisseurs_id__idfournisseur:
-          description: idfournisseur Fournisseurs
+        df_produit_haut:
+          description: Hauteur
+          type: number
+        df_produit_id:
+          description: Id Produit
           type: integer
-        price:
-          description: price
-          type: string
-        idproduit:
-          description: idproduit
-          type: integer
-        code_fournisseur:
-          description: fournisseur
+        df_produit_prix:
+          description: Prix
+          type: number
+        df_produit_larg:
+          description: Largeur
+          type: number
+        df_produit_commentaire:
+          description: Commentaire
           type: string
         DF_Produit_Finis_DF_Fournisseurs_id:
           description: Fournisseurs
           type: string
-        designation:
-          description: designation
-          type: string
         row_id:
           description: Id
           type: string
-        commentaire:
-          description: commentaire
+        df_produit_designation:
+          description: Designation
           type: string
-        nom_fournisseur:
-          description: nom fournisseur
+        df_produit_unite:
+          description: Unité
+          type: string
+        df_produit_finition:
+          description: Finition
           type: string
     ArrayOfDF_Produit_Finis:
       type: array
@@ -239,60 +297,54 @@ components:
     DF_Ligne_Devis:
       type: object
       properties:
-        DF_Ligne_Devis_DF_Produit_Finis_id__largeur:
-          description: largeur DF produit finis
-          type: number
-        DF_Ligne_Devis_DF_Produit_Finis_id__quantite_stock:
-          description: quantite stock DF produit finis
-          type: integer
         df_ligne_devis_id:
           description: Ligne Devis ID
           type: integer
-        DF_Ligne_Devis_DF_Devis_id__titredevis:
-          description: titredevis DF devis
-          type: string
-        DF_Ligne_Devis_DF_Devis_id__nomclientdevis:
-          description: nomclientdevis DF devis
-          type: string
-        DF_Ligne_Devis_DF_Produit_Finis_id__idproduit:
-          description: idproduit DF produit finis
-          type: integer
-        DF_Ligne_Devis_DF_Produit_Finis_id__finition:
-          description: finition DF produit finis
-          type: string
+        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_haut:
+          description: Hauteur DF produit finis
+          type: number
         df_ligne_devis_prix_total_ht:
           description: Prix Total HT
           type: number
         DF_Ligne_Devis_DF_Produit_Finis_id:
           description: DF produit finis
           type: string
-        DF_Ligne_Devis_DF_Produit_Finis_id__prd_price:
-          description: prd price DF produit finis
+        DF_Ligne_Devis_DF_Devis_id__df_devis_numero:
+          description: Numéro Devis DF devis
+          type: integer
+        DF_Ligne_Devis_DF_Devis_id__df_devis_titre:
+          description: Titre Devis DF devis
+          type: string
+        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_larg:
+          description: Largeur DF produit finis
           type: number
         DF_Ligne_Devis_DF_Devis_id:
           description: DF devis
           type: string
-        DF_Ligne_Devis_DF_Produit_Finis_id__nomproduit:
-          description: nomproduit DF produit finis
+        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_id:
+          description: Id Produit DF produit finis
+          type: integer
+        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_designation:
+          description: Designation DF produit finis
           type: string
-        DF_Ligne_Devis_DF_Produit_Finis_id__longueur:
-          description: longueur DF produit finis
-          type: number
-        DF_Ligne_Devis_DF_Produit_Finis_id__designation:
-          description: designation DF produit finis
+        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_finition:
+          description: Finition DF produit finis
           type: string
-        DF_Ligne_Devis_DF_Produit_Finis_id__heauteur:
-          description: heauteur DF produit finis
+        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_prix:
+          description: Prix DF produit finis
           type: number
         df_ligne_devis_quantite:
           description: 'Quantité '
           type: integer
-        DF_Ligne_Devis_DF_Devis_id__numerodevis:
-          description: numerodevis DF devis
-          type: integer
+        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_nom:
+          description: Nom Produit DF produit finis
+          type: string
         row_id:
           description: Id
           type: string
+        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_long:
+          description: Longueur DF produit finis
+          type: number
     ActionResult:
       type: object
       properties:
@@ -305,57 +357,80 @@ components:
         DF_Contact_DF_Client_id:
           description: DF client
           type: string
-        nom_contact_c:
-          description: nom contact c
+        df_contact_email:
+          description: E-mail
           type: string
-        id_emploi:
-          description: id emploi
-          type: integer
         DF_Contact_DF_Commande_id:
           description: DF commande
           type: string
-        mail_contact:
-          description: mail contact
+        df_contact_nom:
+          description: Nom
           type: string
-        civilite_client_contact:
-          description: civilite client contact
+        df_contact_type:
+          description: Type Contact
+          type: string
+          enum:
+          - INF
+          - DEM
+          - REC
+          - AUT
+        df_contact_commentaire:
+          description: Commentaire
+          type: string
+        df_contact_prenom:
+          description: Prénom
+          type: string
+        df_contact_statut:
+          description: Statut
+          type: string
+          enum:
+          - O
+          - F
+          - ET
+        df_contact_id_emploi:
+          description: Id Emploi
+          type: string
+          enum:
+          - AS
+          - CT
+          - CE
+          - D
+          - C
+          - P
+        DF_Contact_DF_Client_id__df_client_id:
+          description: Id Client DF client
+          type: integer
+        df_contact_sous_type:
+          description: Sous Type
+          type: string
+          enum:
+          - ETATCMD
+          - INFPRD
+          - ETATLVR
+        df_contact_telephone:
+          description: Téléphone
+          type: string
+        df_contact_civilite:
+          description: Civilité
           type: string
           enum:
           - M
           - F
-        portable_contact:
-          description: portable contact
-          type: string
-        DF_Contact_DF_Client_id__idclient:
-          description: idclient DF client
-          type: integer
-        DF_Contact_DF_Commande_id__id_contact_commande:
-          description: id contact commande DF commande
-          type: string
-        fax_contact:
-          description: fax contact
-          type: string
-        commentaire_contact:
-          description: commentaire contact
-          type: string
-        prenom_contact_c:
-          description: prenom contact c
-          type: string
         __id:
           description: ' id'
+          type: string
+        df_contact_fax:
+          description: Fax
+          type: string
+        df_contact_portable:
+          description: Portable
           type: string
         row_id:
           description: Id
           type: string
-        tel_contact:
-          description: tel contact
-          type: string
-        id_contact:
-          description: id contact
+        df_contact_id:
+          description: Id Contact
           type: integer
-        id_client_contact:
-          description: id client contact
-          type: string
     TreeviewData:
       type: object
       properties:
@@ -406,68 +481,59 @@ components:
     DF_Commande:
       type: object
       properties:
-        DF_Commande_DF_Client_id__idclient:
-          description: idclient DF client
+        df_commande_indexation_monetaire:
+          description: Indexation monétaire
+          type: string
+        df_commande_ref_chantier:
+          description: Référence de chantier
+          type: string
+        df_commande_validite_offre:
+          description: Validité de l'offre
           type: integer
-        tx_tva_cmd:
-          description: tx tva cmd
+        df_commande_numero:
+          description: Numéro de Commande
+          type: string
+        df_commande_taux_de_remise:
+          description: Taux de remise
           type: number
-        prix_tonne_cmd:
-          description: prix tonne cmd
+        df_commande_id_livraison:
+          description: Id Livraison
+          type: integer
+        df_commande_redacteur:
+          description: 'Rédacteur '
+          type: string
+        df_commande_facture:
+          description: Facture
+          type: string
+        df_commande_detail_livraison:
+          description: Détail de livraison
+          type: string
+        df_commande_id:
+          description: Id Commande
+          type: integer
+        df_commande_taux_tva:
+          description: Taux TVA
           type: number
-        delai_cmd:
-          description: delai cmd
+        df_commande_paiement:
+          description: Paiement
           type: string
-        ref_chantier:
-          description: ref chantier
+        df_commande_delai:
+          description: Délai de commande
           type: string
-        DF_Commande_DF_Produit_Finis_id__idproduit:
-          description: idproduit DF produit finis
-          type: integer
-        id_commande:
-          description: id commande
-          type: integer
-        idx_mon_cmd:
-          description: idx mon cmd
-          type: string
-        tx_remise_cmd:
-          description: tx remise cmd
-          type: number
-        date_cmd:
-          description: date cmd
-          type: string
-        num_cde:
-          description: num cde
-          type: string
-        livraison_detail_cmd:
-          description: livraison detail cmd
-          type: string
-        DF_Commande_DF_Produit_Finis_id:
-          description: DF produit finis
-          type: string
-        id_livraison_commande:
-          description: id livraison commande
-          type: integer
-        fact_cmd:
-          description: fact cmd
-          type: string
-        redacteur_cmd:
-          description: redacteur cmd
+        df_commande_date:
+          description: Date de commande
           type: string
         row_id:
           description: Id
           type: string
-        validite_offre_cmd:
-          description: validite offre cmd
+        DF_Commande_DF_Client_id__df_client_id:
+          description: Id Client DF client
           type: integer
+        df_commande_prix_tonne:
+          description: Prix Tonne
+          type: number
         DF_Commande_DF_Client_id:
           description: DF client
-          type: string
-        id_contact_commande:
-          description: id contact commande
-          type: string
-        paiement_cmd:
-          description: paiement cmd
           type: string
     Error403:
       type: object
@@ -538,14 +604,8 @@ paths:
       - schema:
           type: integer
         in: query
-        name: id_contact
-        description: Search filter for id contact
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: id_client_contact
-        description: Search filter for id client contact
+        name: df_contact_id
+        description: Search filter for Id Contact
         required: false
       - schema:
           type: string
@@ -553,56 +613,63 @@ paths:
           - M
           - F
         in: query
-        name: civilite_client_contact
-        description: Search filter for civilite client contact
+        name: df_contact_civilite
+        description: Search filter for Civilité
         required: false
       - schema:
           type: string
         in: query
-        name: nom_contact_c
-        description: Search filter for nom contact c
+        name: df_contact_nom
+        description: Search filter for Nom
         required: false
       - schema:
           type: string
         in: query
-        name: prenom_contact_c
-        description: Search filter for prenom contact c
+        name: df_contact_prenom
+        description: Search filter for Prénom
         required: false
       - schema:
-          type: integer
+          type: string
+          enum:
+          - AS
+          - CT
+          - CE
+          - D
+          - C
+          - P
         in: query
-        name: id_emploi
-        description: Search filter for id emploi
+        name: df_contact_id_emploi
+        description: Search filter for Id Emploi
         required: false
       - schema:
           type: string
         in: query
-        name: tel_contact
-        description: Search filter for tel contact
+        name: df_contact_telephone
+        description: Search filter for Téléphone
         required: false
       - schema:
           type: string
         in: query
-        name: portable_contact
-        description: Search filter for portable contact
+        name: df_contact_portable
+        description: Search filter for Portable
         required: false
       - schema:
           type: string
         in: query
-        name: fax_contact
-        description: Search filter for fax contact
+        name: df_contact_fax
+        description: Search filter for Fax
         required: false
       - schema:
           type: string
         in: query
-        name: mail_contact
-        description: Search filter for mail contact
+        name: df_contact_email
+        description: Search filter for E-mail
         required: false
       - schema:
           type: string
         in: query
-        name: commentaire_contact
-        description: Search filter for commentaire contact
+        name: df_contact_commentaire
+        description: Search filter for Commentaire
         required: false
       - schema:
           type: string
@@ -619,8 +686,8 @@ paths:
       - schema:
           type: integer
         in: query
-        name: DF_Contact_DF_Client_id__idclient
-        description: Search filter for idclient DF client
+        name: DF_Contact_DF_Client_id__df_client_id
+        description: Search filter for Id Client DF client
         required: false
       - schema:
           type: string
@@ -630,9 +697,34 @@ paths:
         required: false
       - schema:
           type: string
+          enum:
+          - O
+          - F
+          - ET
         in: query
-        name: DF_Contact_DF_Commande_id__id_contact_commande
-        description: Search filter for id contact commande DF commande
+        name: df_contact_statut
+        description: Search filter for Statut
+        required: false
+      - schema:
+          type: string
+          enum:
+          - INF
+          - DEM
+          - REC
+          - AUT
+        in: query
+        name: df_contact_type
+        description: Search filter for Type Contact
+        required: false
+      - schema:
+          type: string
+          enum:
+          - ETATCMD
+          - INFPRD
+          - ETATLVR
+        in: query
+        name: df_contact_sous_type
+        description: Search filter for Sous Type
         required: false
       tags:
       - DF_Contact
@@ -735,98 +827,68 @@ paths:
       - schema:
           type: integer
         in: query
-        name: idproduit
-        description: Search filter for idproduit
+        name: df_produit_id
+        description: Search filter for Id Produit
         required: false
       - schema:
           type: string
         in: query
-        name: nomproduit
-        description: Search filter for nomproduit
+        name: df_produit_nom
+        description: Search filter for Nom Produit
         required: false
       - schema:
           type: string
         in: query
-        name: code_fournisseur
-        description: Search filter for fournisseur
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: designation
-        description: Search filter for designation
+        name: df_produit_designation
+        description: Search filter for Designation
         required: false
       - schema:
           type: number
         in: query
-        name: longueur
-        description: Search filter for longueur
+        name: df_produit_long
+        description: Search filter for Longueur
         required: false
       - schema:
           type: number
         in: query
-        name: largeur
-        description: Search filter for largeur
+        name: df_produit_larg
+        description: Search filter for Largeur
         required: false
       - schema:
           type: number
         in: query
-        name: heauteur
-        description: Search filter for heauteur
+        name: df_produit_haut
+        description: Search filter for Hauteur
         required: false
       - schema:
           type: string
         in: query
-        name: finition
-        description: Search filter for finition
+        name: df_produit_finition
+        description: Search filter for Finition
         required: false
       - schema:
           type: string
         in: query
-        name: commentaire
-        description: Search filter for commentaire
+        name: df_produit_commentaire
+        description: Search filter for Commentaire
         required: false
       - schema:
           type: string
         in: query
-        name: price
-        description: Search filter for price
+        name: df_produit_unite
+        description: Search filter for Unité
         required: false
       - schema:
           type: string
         in: query
-        name: unite
-        description: Search filter for unite
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: source
-        description: Search filter for source
+        name: df_produit_source
+        description: Search filter for Source
         required: false
       - schema:
           type: number
         in: query
-        name: prd_price
-        description: Search filter for prd price
-        required: false
-      - schema:
-          type: integer
-        in: query
-        name: quantite_stock
-        description: Search filter for quantite stock
-        required: false
-      - schema:
-          type: boolean
-        in: query
-        name: dispo_produit
-        description: Search filter for dispo produit
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: nom_fournisseur
-        description: Search filter for nom fournisseur
+        name: df_produit_prix
+        description: Search filter for Prix
         required: false
       - schema:
           type: string
@@ -837,8 +899,14 @@ paths:
       - schema:
           type: integer
         in: query
-        name: DF_Produit_Finis_DF_Fournisseurs_id__idfournisseur
-        description: Search filter for idfournisseur Fournisseurs
+        name: DF_Produit_Finis_DF_Fournisseurs_id__df_fournisseur_id
+        description: Search filter for Id Fournisseur Fournisseurs
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Produit_Finis_DF_Fournisseurs_id__df_fournisseur_nom
+        description: Search filter for Nom Fournisseur Fournisseurs
         required: false
       tags:
       - DF_Produit_Finis
@@ -1085,56 +1153,50 @@ paths:
       - schema:
           type: integer
         in: query
-        name: numerodevis
-        description: Search filter for numerodevis
+        name: df_devis_numero
+        description: Search filter for Numéro Devis
         required: false
       - schema:
           type: string
         in: query
-        name: titredevis
-        description: Search filter for titredevis
+        name: df_devis_titre
+        description: Search filter for Titre Devis
         required: false
       - schema:
           type: string
         in: query
-        name: titreprojet
-        description: Search filter for titreprojet
+        name: df_devis_titre_projet
+        description: Search filter for Titre Projet
         required: false
       - schema:
           type: string
         in: query
-        name: lieuprojet
-        description: Search filter for lieuprojet
+        name: df_devis_lieu_projet
+        description: Search filter for Lieu Projet
         required: false
       - schema:
           type: string
         in: query
-        name: nomclientdevis
-        description: Search filter for nomclientdevis
+        name: df_devis_contact
+        description: Search filter for Contact
         required: false
       - schema:
           type: string
         in: query
-        name: contactdevis
-        description: Search filter for contactdevis
+        name: df_devis_telephone
+        description: Search filter for Téléphone
         required: false
       - schema:
           type: string
         in: query
-        name: teldevis
-        description: Search filter for teldevis
+        name: df_devis_email
+        description: Search filter for Email
         required: false
       - schema:
           type: string
         in: query
-        name: emaildevis
-        description: Search filter for emaildevis
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: dateemisisondevis
-        description: Search filter for dateemisisondevis
+        name: df_devis_date_emission
+        description: Search filter for Date Emission
         required: false
       - schema:
           type: string
@@ -1144,38 +1206,26 @@ paths:
           - R
           - A
         in: query
-        name: statut_devis
-        description: Search filter for statut devis
+        name: df_devis_statut
+        description: Search filter for Statut
         required: false
       - schema:
           type: number
         in: query
-        name: prix_unitaire_devis
-        description: Search filter for prix unitaire devis
+        name: df_devis_tva
+        description: Search filter for TVA
         required: false
       - schema:
           type: integer
         in: query
-        name: quantiteDevis
-        description: Search filter for quantite devis
-        required: false
-      - schema:
-          type: number
-        in: query
-        name: tvaDevis
-        description: Search filter for tva devis
-        required: false
-      - schema:
-          type: integer
-        in: query
-        name: totalDevis
-        description: Search filter for total devis
+        name: df_devis_prix_total
+        description: Search filter for Prix Total
         required: false
       - schema:
           type: string
         in: query
-        name: commentaireDevis
-        description: Search filter for commentaire devis
+        name: df_devis_commentaire
+        description: Search filter for Commentaire
         required: false
       - schema:
           type: string
@@ -1186,14 +1236,14 @@ paths:
       - schema:
           type: integer
         in: query
-        name: DF_Devis_DF_Client_id__idclient
-        description: Search filter for idclient DF client
+        name: DF_Devis_DF_Client_id__df_client_id
+        description: Search filter for Id Client DF client
         required: false
       - schema:
           type: string
         in: query
-        name: DF_Devis_DF_Client_id__nmclient
-        description: Search filter for nmclient DF client
+        name: DF_Devis_DF_Client_id__df_client_nom
+        description: Search filter for Nom Client DF client
         required: false
       tags:
       - DF_Devis
@@ -1392,6 +1442,156 @@ paths:
         required: true
       tags:
       - DF_Produit_Finis
+  /rest/DF_ligne_commande:
+    get:
+      summary: Search DF_ligne_commande business object records or get contextualized
+        metadata
+      security:
+      - bearerAuth: []
+      operationId: obj-df_ligne_commande-search
+      responses:
+        '200':
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArrayOfDF_ligne_commande'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: boolean
+        in: query
+        name: _metadata
+        description: Metadata?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _count
+        description: Count?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _doc
+        description: Documentation?
+        required: false
+      - schema:
+          type: integer
+        in: query
+        name: df_ligne_commande_id
+        description: Search filter for Id ligne commande
+        required: false
+      - schema:
+          type: integer
+        in: query
+        name: df_ligne_commande_qte
+        description: Search filter for Quantité
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: df_ligne_commande_prix_total_ht
+        description: Search filter for Prixt Total HT
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_ligne_commande_DF_Produit_Finis_id
+        description: Search filter for DF produit finis
+        required: false
+      - schema:
+          type: integer
+        in: query
+        name: DF_ligne_commande_DF_Produit_Finis_id__df_produit_id
+        description: Search filter for Id Produit DF produit finis
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_ligne_commande_DF_Produit_Finis_id__df_produit_nom
+        description: Search filter for Nom Produit DF produit finis
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: DF_ligne_commande_DF_Produit_Finis_id__df_produit_long
+        description: Search filter for Longueur DF produit finis
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: DF_ligne_commande_DF_Produit_Finis_id__df_produit_larg
+        description: Search filter for Largeur DF produit finis
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: DF_ligne_commande_DF_Produit_Finis_id__df_produit_haut
+        description: Search filter for Hauteur DF produit finis
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_ligne_commande_DF_Produit_Finis_id__df_produit_finition
+        description: Search filter for Finition DF produit finis
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_ligne_commande_DF_Produit_Finis_id__df_produit_unite
+        description: Search filter for Unité DF produit finis
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: DF_ligne_commande_DF_Produit_Finis_id__df_produit_prix
+        description: Search filter for Prix DF produit finis
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_ligne_commande_DF_Commande_id
+        description: Search filter for DF commande
+        required: false
+      - schema:
+          type: integer
+        in: query
+        name: DF_ligne_commande_DF_Commande_id__df_commande_id
+        description: Search filter for Id Commande DF commande
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_ligne_commande_DF_Commande_id__df_commande_numero
+        description: Search filter for Numéro de Commande DF commande
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_ligne_commande_DF_Commande_id__df_commande_ref_chantier
+        description: Search filter for Référence de chantier DF commande
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_ligne_commande_DF_Commande_id__df_commande_date
+        description: Search filter for Date de commande DF commande
+        required: false
+      tags:
+      - DF_ligne_commande
   /:
     get:
       summary: Get user session information
@@ -1467,32 +1667,32 @@ paths:
       - schema:
           type: integer
         in: query
-        name: idfournisseur
-        description: Search filter for idfournisseur
+        name: df_fournisseur_id
+        description: Search filter for Id Fournisseur
         required: false
       - schema:
           type: string
         in: query
-        name: nomfournisseur
-        description: Search filter for nomfournisseur
+        name: df_fournisseur_nom
+        description: Search filter for Nom Fournisseur
         required: false
       - schema:
           type: string
         in: query
-        name: telfournisseur
-        description: Search filter for telfournisseur
+        name: df_fournisseur_telephone
+        description: Search filter for Téléphone
         required: false
       - schema:
           type: string
         in: query
-        name: emailfournisseur
-        description: Search filter for emailfournisseur
+        name: df_fournisseur_email
+        description: Search filter for E-mail
         required: false
       - schema:
           type: string
         in: query
-        name: descriptionfournisseur
-        description: Search filter for descriptionfournisseur
+        name: df_fournisseur_description
+        description: Search filter for Description
         required: false
       tags:
       - DF_Fournisseurs
@@ -1975,83 +2175,308 @@ paths:
       - schema:
           type: integer
         in: query
-        name: idclient
-        description: Search filter for idclient
+        name: df_client_id
+        description: Search filter for Id Client
         required: false
       - schema:
           type: string
         in: query
-        name: nmclient
-        description: Search filter for nmclient
+        name: df_client_nom
+        description: Search filter for Nom Client
         required: false
       - schema:
           type: string
         in: query
-        name: mailclient
-        description: Search filter for mailclient
+        name: df_client_email
+        description: Search filter for E-mail
         required: false
       - schema:
           type: string
         in: query
-        name: telephoneclient
-        description: Search filter for telephoneclient
+        name: df_client_telephone
+        description: Search filter for Téképhone
         required: false
       - schema:
           type: string
         in: query
-        name: adresseclient
-        description: Search filter for adresseclient
+        name: df_client_adresse
+        description: Search filter for Adresse
         required: false
       - schema:
           type: string
         in: query
-        name: villeclient
-        description: Search filter for villeclient
+        name: df_client_ville
+        description: Search filter for Ville
         required: false
       - schema:
           type: integer
         in: query
-        name: codepostclient
-        description: Search filter for codepostclient
+        name: df_client_code_postal
+        description: Search filter for Code Postal
         required: false
       - schema:
           type: string
         in: query
-        name: descriptionclient
-        description: Search filter for descriptionclient
+        name: df_client_description
+        description: Search filter for Description
         required: false
       - schema:
           type: string
         in: query
-        name: adresseclient2
-        description: Search filter for adresseclient 2
+        name: df_client_adresse_2
+        description: Search filter for Adresse 2
         required: false
       - schema:
-          type: integer
+          type: string
+          enum:
+          - T
+          - V
+          - N
+          - P
+          - A
         in: query
-        name: id_sec_act_client
-        description: Search filter for id sec act client
+        name: df_client_id_secteur_activite
+        description: Search filter for Id Secteur Activité
         required: false
       - schema:
           type: string
         in: query
-        name: reg_client
-        description: Search filter for reg client
+        name: df_client_region
+        description: Search filter for Region
         required: false
       - schema:
           type: string
         in: query
-        name: fax_client
-        description: Search filter for fax client
+        name: df_client_fax
+        description: Search filter for Fax
         required: false
       - schema:
           type: string
         in: query
-        name: website_client
-        description: Search filter for website client
+        name: df_client_site_web
+        description: Search filter for Site Web
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: df_client_adresse_3
+        description: Search filter for Adresse 3
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: df_client_cedex
+        description: Search filter for CEDEX
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: df_client_pays
+        description: Search filter for Pays
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: df_client_tx_remise
+        description: Search filter for Taux de remise
         required: false
       tags:
       - DF_Client
+  /rest/DF_ligne_commande/{row_id}:
+    post:
+      summary: Create a new DF_ligne_commandebusiness object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DF_ligne_commande'
+      operationId: obj-df_ligne_commande-create
+      responses:
+        '200':
+          description: Success in creating a new business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DF_ligne_commande'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_ligne_commande
+    get:
+      summary: Get a DF_ligne_commande business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-df_ligne_commande-get
+      responses:
+        '200':
+          description: Success in getting a single business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DF_ligne_commande'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: row ID (or empty or _ for all row IDs)
+        required: true
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_documents
+        description: Inline documents?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_objects
+        description: Inline objects?
+        required: false
+      tags:
+      - DF_ligne_commande
+    delete:
+      summary: Delete a DF_ligne_commande business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-df_ligne_commande-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+          content:
+            application/json: {}
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_ligne_commande
+    put:
+      summary: Update a DF_ligne_commandebusiness object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DF_ligne_commande'
+      operationId: obj-df_ligne_commande-update
+      responses:
+        '200':
+          description: Success in updating a business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DF_ligne_commande'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_ligne_commande
   /rest/DF_Ligne_Devis/{row_id}:
     post:
       summary: Create a new DF_Ligne_Devisbusiness object record
@@ -2490,98 +2915,92 @@ paths:
       - schema:
           type: integer
         in: query
-        name: id_commande
-        description: Search filter for id commande
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: id_contact_commande
-        description: Search filter for id contact commande
+        name: df_commande_id
+        description: Search filter for Id Commande
         required: false
       - schema:
           type: integer
         in: query
-        name: id_livraison_commande
-        description: Search filter for id livraison commande
+        name: df_commande_id_livraison
+        description: Search filter for Id Livraison
         required: false
       - schema:
           type: string
         in: query
-        name: num_cde
-        description: Search filter for num cde
+        name: df_commande_numero
+        description: Search filter for Numéro de Commande
         required: false
       - schema:
           type: string
         in: query
-        name: redacteur_cmd
-        description: Search filter for redacteur cmd
+        name: df_commande_redacteur
+        description: Search filter for Rédacteur
         required: false
       - schema:
           type: number
         in: query
-        name: tx_tva_cmd
-        description: Search filter for tx tva cmd
+        name: df_commande_taux_tva
+        description: Search filter for Taux TVA
         required: false
       - schema:
           type: number
         in: query
-        name: prix_tonne_cmd
-        description: Search filter for prix tonne cmd
+        name: df_commande_prix_tonne
+        description: Search filter for Prix Tonne
         required: false
       - schema:
           type: number
         in: query
-        name: tx_remise_cmd
-        description: Search filter for tx remise cmd
+        name: df_commande_taux_de_remise
+        description: Search filter for Taux de remise
         required: false
       - schema:
           type: string
         in: query
-        name: livraison_detail_cmd
-        description: Search filter for livraison detail cmd
+        name: df_commande_detail_livraison
+        description: Search filter for Détail de livraison
         required: false
       - schema:
           type: string
         in: query
-        name: date_cmd
-        description: Search filter for date cmd
+        name: df_commande_date
+        description: Search filter for Date de commande
         required: false
       - schema:
           type: string
         in: query
-        name: ref_chantier
-        description: Search filter for ref chantier
+        name: df_commande_ref_chantier
+        description: Search filter for Référence de chantier
         required: false
       - schema:
           type: string
         in: query
-        name: delai_cmd
-        description: Search filter for delai cmd
+        name: df_commande_delai
+        description: Search filter for Délai de commande
         required: false
       - schema:
           type: string
         in: query
-        name: fact_cmd
-        description: Search filter for fact cmd
+        name: df_commande_facture
+        description: Search filter for Facture
         required: false
       - schema:
           type: string
         in: query
-        name: paiement_cmd
-        description: Search filter for paiement cmd
+        name: df_commande_paiement
+        description: Search filter for Paiement
         required: false
       - schema:
           type: integer
         in: query
-        name: validite_offre_cmd
-        description: Search filter for validite offre cmd
+        name: df_commande_validite_offre
+        description: Search filter for Validité de l'offre
         required: false
       - schema:
           type: string
         in: query
-        name: idx_mon_cmd
-        description: Search filter for idx mon cmd
+        name: df_commande_indexation_monetaire
+        description: Search filter for Indexation monétaire
         required: false
       - schema:
           type: string
@@ -2592,20 +3011,8 @@ paths:
       - schema:
           type: integer
         in: query
-        name: DF_Commande_DF_Client_id__idclient
-        description: Search filter for idclient DF client
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: DF_Commande_DF_Produit_Finis_id
-        description: Search filter for DF produit finis
-        required: false
-      - schema:
-          type: integer
-        in: query
-        name: DF_Commande_DF_Produit_Finis_id__idproduit
-        description: Search filter for idproduit DF produit finis
+        name: DF_Commande_DF_Client_id__df_client_id
+        description: Search filter for Id Client DF client
         required: false
       tags:
       - DF_Commande
@@ -2877,20 +3284,14 @@ paths:
       - schema:
           type: integer
         in: query
-        name: DF_Ligne_Devis_DF_Devis_id__numerodevis
-        description: Search filter for numerodevis DF devis
+        name: DF_Ligne_Devis_DF_Devis_id__df_devis_numero
+        description: Search filter for Numéro Devis DF devis
         required: false
       - schema:
           type: string
         in: query
-        name: DF_Ligne_Devis_DF_Devis_id__titredevis
-        description: Search filter for titredevis DF devis
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: DF_Ligne_Devis_DF_Devis_id__nomclientdevis
-        description: Search filter for nomclientdevis DF devis
+        name: DF_Ligne_Devis_DF_Devis_id__df_devis_titre
+        description: Search filter for Titre Devis DF devis
         required: false
       - schema:
           type: string
@@ -2901,56 +3302,50 @@ paths:
       - schema:
           type: integer
         in: query
-        name: DF_Ligne_Devis_DF_Produit_Finis_id__idproduit
-        description: Search filter for idproduit DF produit finis
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_id
+        description: Search filter for Id Produit DF produit finis
         required: false
       - schema:
           type: string
         in: query
-        name: DF_Ligne_Devis_DF_Produit_Finis_id__nomproduit
-        description: Search filter for nomproduit DF produit finis
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_nom
+        description: Search filter for Nom Produit DF produit finis
         required: false
       - schema:
           type: number
         in: query
-        name: DF_Ligne_Devis_DF_Produit_Finis_id__longueur
-        description: Search filter for longueur DF produit finis
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_long
+        description: Search filter for Longueur DF produit finis
         required: false
       - schema:
           type: number
         in: query
-        name: DF_Ligne_Devis_DF_Produit_Finis_id__largeur
-        description: Search filter for largeur DF produit finis
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_larg
+        description: Search filter for Largeur DF produit finis
         required: false
       - schema:
           type: string
         in: query
-        name: DF_Ligne_Devis_DF_Produit_Finis_id__designation
-        description: Search filter for designation DF produit finis
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_designation
+        description: Search filter for Designation DF produit finis
         required: false
       - schema:
           type: number
         in: query
-        name: DF_Ligne_Devis_DF_Produit_Finis_id__heauteur
-        description: Search filter for heauteur DF produit finis
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_haut
+        description: Search filter for Hauteur DF produit finis
         required: false
       - schema:
           type: string
         in: query
-        name: DF_Ligne_Devis_DF_Produit_Finis_id__finition
-        description: Search filter for finition DF produit finis
-        required: false
-      - schema:
-          type: integer
-        in: query
-        name: DF_Ligne_Devis_DF_Produit_Finis_id__quantite_stock
-        description: Search filter for quantite stock DF produit finis
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_finition
+        description: Search filter for Finition DF produit finis
         required: false
       - schema:
           type: number
         in: query
-        name: DF_Ligne_Devis_DF_Produit_Finis_id__prd_price
-        description: Search filter for prd price DF produit finis
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_prix
+        description: Search filter for Prix DF produit finis
         required: false
       tags:
       - DF_Ligne_Devis
@@ -2976,6 +3371,8 @@ tags:
   description: DF devis
 - name: DF_Fournisseurs
   description: Fournisseurs
+- name: DF_ligne_commande
+  description: DF ligne commande
 - name: DF_Ligne_Devis
   description: DF ligne devis
 - name: DF_Produit_Finis

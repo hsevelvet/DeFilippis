@@ -23,19 +23,32 @@ Objet metier pour client.
 
 | Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
-| `idclient`                                                   | int(11)                                  | yes*     |           |          | -                                                                                |
-| `nmclient`                                                   | char(20)                                 | yes      | yes       |          | -                                                                                |
-| `mailclient`                                                 | email(100)                               | yes      | yes       |          | -                                                                                |
-| `telephoneclient`                                            | phone(100)                               | yes      | yes       |          | -                                                                                |
-| `adresseclient`                                              | char(30)                                 | yes      | yes       |          | -                                                                                |
-| `villeclient`                                                | char(10)                                 | yes      | yes       |          | -                                                                                |
-| `codepostclient`                                             | int(6)                                   | yes      | yes       |          | -                                                                                |
-| `descriptionclient`                                          | text(100)                                |          | yes       |          | -                                                                                |
-| `adresseclient2`                                             | char(30)                                 |          | yes       |          | -                                                                                |
-| `id_sec_act_client`                                          | int(5)                                   |          | yes       |          | -                                                                                |
-| `reg_client`                                                 | char(15)                                 |          | yes       |          | -                                                                                |
-| `fax_client`                                                 | phone(100)                               |          | yes       |          | -                                                                                |
-| `website_client`                                             | char(20)                                 |          | yes       |          | -                                                                                |
+| `df_client_id`                                               | int(11)                                  | yes*     |           |          | -                                                                                |
+| `df_client_nom`                                              | char(36)                                 | yes      | yes       |          | -                                                                                |
+| `df_client_email`                                            | email(100)                               | yes      | yes       |          | -                                                                                |
+| `df_client_telephone`                                        | phone(100)                               | yes      | yes       |          | -                                                                                |
+| `df_client_adresse`                                          | char(32)                                 | yes      | yes       |          | -                                                                                |
+| `df_client_ville`                                            | char(32)                                 | yes      | yes       |          | -                                                                                |
+| `df_client_code_postal`                                      | int(8)                                   | yes      | yes       |          | -                                                                                |
+| `df_client_description`                                      | text(100)                                |          | yes       |          | -                                                                                |
+| `df_client_adresse_2`                                        | char(32)                                 |          | yes       |          | -                                                                                |
+| `df_client_id_secteur_activite`                              | enum(7) using `DF_CLIENT_ID_SECTEUR_ACTIVITE` list |          | yes       |          | -                                                                                |
+| `df_client_region`                                           | char(32)                                 |          | yes       |          | -                                                                                |
+| `df_client_fax`                                              | phone(100)                               |          | yes       |          | -                                                                                |
+| `df_client_site_web`                                         | char(255)                                |          | yes       |          | -                                                                                |
+| `df_client_adresse_3`                                        | char(32)                                 |          | yes       |          | -                                                                                |
+| `df_client_cedex`                                            | char(32)                                 |          | yes       |          | -                                                                                |
+| `df_client_pays`                                             | char(32)                                 |          | yes       |          | -                                                                                |
+| `df_client_tx_remise`                                        | float(100, 2)                            | yes      | yes       |          | -                                                                                |
+
+### Lists
+
+* `DF_CLIENT_ID_SECTEUR_ACTIVITE`
+    - `T` Travaux
+    - `V` VRD
+    - `N` Négociant
+    - `P` Pierre
+    - `A` Aucun
 
 ### Custom actions
 
@@ -51,26 +64,23 @@ objet metier pour commande.
 
 | Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
-| `id_commande`                                                | int(11)                                  | yes*     | yes       |          | -                                                                                |
-| `id_contact_commande`                                        | char(15)                                 | yes      | yes       |          | -                                                                                |
-| `id_livraison_commande`                                      | int(5)                                   |          | yes       |          | -                                                                                |
-| `num_cde`                                                    | char(10)                                 |          | yes       |          | -                                                                                |
-| `redacteur_cmd`                                              | char(20)                                 |          | yes       |          | -                                                                                |
-| `tx_tva_cmd`                                                 | float(100, 2)                            |          |           |          | -                                                                                |
-| `prix_tonne_cmd`                                             | float(100, 2)                            |          |           |          | -                                                                                |
-| `tx_remise_cmd`                                              | float(100, 2)                            |          |           |          | -                                                                                |
-| `livraison_detail_cmd`                                       | char(100)                                |          |           |          | -                                                                                |
-| `date_cmd`                                                   | datetime                                 | yes      |           |          | -                                                                                |
-| `ref_chantier`                                               | char(15)                                 |          | yes       |          | -                                                                                |
-| `delai_cmd`                                                  | char(10)                                 |          | yes       |          | -                                                                                |
-| `fact_cmd`                                                   | char(10)                                 |          | yes       |          | -                                                                                |
-| `paiement_cmd`                                               | char(10)                                 |          | yes       |          | -                                                                                |
-| `validite_offre_cmd`                                         | int(5)                                   |          | yes       |          | -                                                                                |
-| `idx_mon_cmd`                                                | char(10)                                 |          | yes       |          | -                                                                                |
+| `df_commande_id`                                             | int(11)                                  | yes*     | yes       |          | -                                                                                |
+| `df_commande_id_livraison`                                   | int(5)                                   |          | yes       |          | -                                                                                |
+| `df_commande_numero`                                         | char(32)                                 |          | yes       |          | -                                                                                |
+| `df_commande_redacteur`                                      | char(70)                                 |          | yes       |          | -                                                                                |
+| `df_commande_taux_tva`                                       | float(100, 2)                            |          |           |          | -                                                                                |
+| `df_commande_prix_tonne`                                     | float(100, 2)                            |          |           |          | -                                                                                |
+| `df_commande_taux_de_remise`                                 | float(100, 2)                            |          |           |          | -                                                                                |
+| `df_commande_detail_livraison`                               | char(100)                                |          |           |          | -                                                                                |
+| `df_commande_date`                                           | datetime                                 | yes      |           |          | -                                                                                |
+| `df_commande_ref_chantier`                                   | char(32)                                 |          | yes       |          | -                                                                                |
+| `df_commande_delai`                                          | char(10)                                 |          | yes       |          | -                                                                                |
+| `df_commande_facture`                                        | char(10)                                 |          | yes       |          | -                                                                                |
+| `df_commande_paiement`                                       | char(10)                                 |          | yes       |          | -                                                                                |
+| `df_commande_validite_offre`                                 | int(5)                                   |          | yes       |          | -                                                                                |
+| `df_commande_indexation_monetaire`                           | char(10)                                 |          | yes       |          | -                                                                                |
 | `DF_Commande_DF_Client_id` link to **`DF_Client`**           | id                                       |          | yes       |          | -                                                                                |
-| _Ref. `DF_Commande_DF_Client_id.idclient`_                   | _int(11)_                                |          |           |          | -                                                                                |
-| `DF_Commande_DF_Produit_Finis_id` link to **`DF_Produit_Finis`** | id                                       |          | yes       |          | -                                                                                |
-| _Ref. `DF_Commande_DF_Produit_Finis_id.idproduit`_           | _int(11)_                                |          |           |          | -                                                                                |
+| _Ref. `DF_Commande_DF_Client_id.df_client_id`_               | _int(11)_                                |          |           |          | -                                                                                |
 
 ### Custom actions
 
@@ -86,28 +96,49 @@ Objet metier pour contact.
 
 | Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
-| `id_contact`                                                 | int(11)                                  | yes*     | yes       |          | -                                                                                |
-| `id_client_contact`                                          | id                                       | yes      | yes       |          | -                                                                                |
-| `civilite_client_contact`                                    | enum(7) using `CIVILITE_CLIENT_CONTACT` list |          | yes       |          | -                                                                                |
-| `nom_contact_c`                                              | char(20)                                 | yes      | yes       |          | -                                                                                |
-| `prenom_contact_c`                                           | char(20)                                 | yes      | yes       |          | -                                                                                |
-| `id_emploi`                                                  | int(100)                                 |          | yes       |          | -                                                                                |
-| `tel_contact`                                                | phone(100)                               |          | yes       |          | -                                                                                |
-| `portable_contact`                                           | phone(100)                               |          | yes       |          | -                                                                                |
-| `fax_contact`                                                | phone(100)                               |          | yes       |          | -                                                                                |
-| `mail_contact`                                               | email(100)                               |          | yes       |          | -                                                                                |
-| `commentaire_contact`                                        | text(100)                                |          | yes       |          | -                                                                                |
+| `df_contact_id`                                              | int(11)                                  | yes*     | yes       |          | -                                                                                |
+| `df_contact_civilite`                                        | enum(7) using `CIVILITE_CLIENT_CONTACT` list |          | yes       |          | -                                                                                |
+| `df_contact_nom`                                             | char(36)                                 | yes      | yes       |          | -                                                                                |
+| `df_contact_prenom`                                          | char(32)                                 | yes      | yes       |          | -                                                                                |
+| `df_contact_id_emploi`                                       | enum(7) using `DF_CONTACT_ID_EMPLOI` list |          | yes       |          | -                                                                                |
+| `df_contact_telephone`                                       | phone(100)                               |          | yes       |          | -                                                                                |
+| `df_contact_portable`                                        | phone(100)                               |          | yes       |          | -                                                                                |
+| `df_contact_fax`                                             | phone(100)                               |          | yes       |          | -                                                                                |
+| `df_contact_email`                                           | email(100)                               |          | yes       |          | -                                                                                |
+| `df_contact_commentaire`                                     | text(100)                                |          | yes       |          | -                                                                                |
 | `__id` link to **`DF_Client`**                               | id                                       |          | yes       |          | -                                                                                |
 | `DF_Contact_DF_Client_id` link to **`DF_Client`**            | id                                       |          | yes       |          | -                                                                                |
-| _Ref. `DF_Contact_DF_Client_id.idclient`_                    | _int(11)_                                |          |           |          | -                                                                                |
+| _Ref. `DF_Contact_DF_Client_id.df_client_id`_                | _int(11)_                                |          |           |          | -                                                                                |
 | `DF_Contact_DF_Commande_id` link to **`DF_Commande`**        | id                                       |          | yes       |          | -                                                                                |
-| _Ref. `DF_Contact_DF_Commande_id.id_contact_commande`_       | _char(15)_                               |          |           |          | -                                                                                |
+| `df_contact_statut`                                          | enum(7) using `DF_CONTACT_STATUT` list   | yes      | yes       |          | -                                                                                |
+| `df_contact_type`                                            | enum(7) using `DF_CONTACT_TYPE` list     | yes      | yes       |          | -                                                                                |
+| `df_contact_sous_type`                                       | enum(7) using `DF_CONTACT_SOUS_TYPE` list |          | yes       |          | -                                                                                |
 
 ### Lists
 
 * `CIVILITE_CLIENT_CONTACT`
     - `M` M
     - `F` F
+* `DF_CONTACT_ID_EMPLOI`
+    - `AS` Assistant
+    - `CT` Conducteur de Travaux
+    - `CE` Chargé d'études
+    - `D` Directeur
+    - `C` Commercial
+    - `P` PDG
+* `DF_CONTACT_STATUT`
+    - `O` Ouvert
+    - `F` Fermé
+    - `ET` En Traitement
+* `DF_CONTACT_TYPE`
+    - `INF` Information
+    - `DEM` Demande
+    - `REC` Réclamation
+    - `AUT` Autre
+* `DF_CONTACT_SOUS_TYPE`
+    - `ETATCMD` Etat de commande
+    - `INFPRD` Information Produit
+    - `ETATLVR` Etat de livraison
 
 ### Custom actions
 
@@ -123,24 +154,21 @@ Objet metier pour devis.
 
 | Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
-| `numerodevis`                                                | int(11)                                  | yes*     | yes       |          | -                                                                                |
-| `titredevis`                                                 | char(30)                                 | yes      | yes       |          | -                                                                                |
-| `titreprojet`                                                | char(30)                                 | yes      | yes       |          | -                                                                                |
-| `lieuprojet`                                                 | char(20)                                 | yes      | yes       |          | -                                                                                |
-| `nomclientdevis`                                             | char(20)                                 | yes      | yes       |          | -                                                                                |
-| `contactdevis`                                               | char(30)                                 | yes      | yes       |          | -                                                                                |
-| `teldevis`                                                   | phone(100)                               | yes      | yes       |          | -                                                                                |
-| `emaildevis`                                                 | email(100)                               | yes      | yes       |          | -                                                                                |
-| `dateemisisondevis`                                          | datetime                                 | yes      | yes       |          | -                                                                                |
-| `statut_devis`                                               | enum(7) using `STATUT_DEVIS` list        | yes      | yes       |          | -                                                                                |
-| `prix_unitaire_devis`                                        | float(11, 2)                             |          |           |          | -                                                                                |
-| `quantiteDevis`                                              | int(11)                                  | yes      | yes       |          | -                                                                                |
-| `tvaDevis`                                                   | float(11, 2)                             |          |           |          | -                                                                                |
-| `totalDevis`                                                 | int(11)                                  |          |           |          | -                                                                                |
-| `commentaireDevis`                                           | text(100)                                |          | yes       |          | -                                                                                |
+| `df_devis_numero`                                            | int(11)                                  | yes*     | yes       |          | -                                                                                |
+| `df_devis_titre`                                             | char(100)                                | yes      | yes       |          | -                                                                                |
+| `df_devis_titre_projet`                                      | char(100)                                | yes      | yes       |          | -                                                                                |
+| `df_devis_lieu_projet`                                       | char(32)                                 | yes      | yes       |          | -                                                                                |
+| `df_devis_contact`                                           | char(70)                                 | yes      | yes       |          | -                                                                                |
+| `df_devis_telephone`                                         | phone(100)                               | yes      | yes       |          | -                                                                                |
+| `df_devis_email`                                             | email(100)                               | yes      | yes       |          | -                                                                                |
+| `df_devis_date_emission`                                     | datetime                                 | yes      | yes       |          | -                                                                                |
+| `df_devis_statut`                                            | enum(7) using `STATUT_DEVIS` list        | yes      | yes       |          | -                                                                                |
+| `df_devis_tva`                                               | float(11, 2)                             |          |           |          | -                                                                                |
+| `df_devis_prix_total`                                        | int(11)                                  |          |           |          | -                                                                                |
+| `df_devis_commentaire`                                       | text(100)                                |          | yes       |          | -                                                                                |
 | `DF_Devis_DF_Client_id` link to **`DF_Client`**              | id                                       |          | yes       |          | -                                                                                |
-| _Ref. `DF_Devis_DF_Client_id.idclient`_                      | _int(11)_                                |          |           |          | -                                                                                |
-| _Ref. `DF_Devis_DF_Client_id.nmclient`_                      | _char(20)_                               |          |           |          | -                                                                                |
+| _Ref. `DF_Devis_DF_Client_id.df_client_id`_                  | _int(11)_                                |          |           |          | -                                                                                |
+| _Ref. `DF_Devis_DF_Client_id.df_client_nom`_                 | _char(36)_                               |          |           |          | -                                                                                |
 
 ### Lists
 
@@ -164,11 +192,42 @@ Objet métier pour fournisseur.
 
 | Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
-| `idfournisseur`                                              | int(11)                                  | yes*     | yes       |          | -                                                                                |
-| `nomfournisseur`                                             | char(20)                                 | yes      | yes       |          | -                                                                                |
-| `telfournisseur`                                             | phone(100)                               | yes      | yes       |          | -                                                                                |
-| `emailfournisseur`                                           | email(100)                               | yes      | yes       |          | -                                                                                |
-| `descriptionfournisseur`                                     | text(100)                                |          | yes       |          | -                                                                                |
+| `df_fournisseur_id`                                          | int(11)                                  | yes*     | yes       |          | -                                                                                |
+| `df_fournisseur_nom`                                         | char(36)                                 | yes      | yes       |          | -                                                                                |
+| `df_fournisseur_telephone`                                   | phone(100)                               | yes      | yes       |          | -                                                                                |
+| `df_fournisseur_email`                                       | email(100)                               | yes      | yes       |          | -                                                                                |
+| `df_fournisseur_description`                                 | text(100)                                |          | yes       |          | -                                                                                |
+
+### Custom actions
+
+No custom action
+
+`DF_ligne_commande` business object definition
+----------------------------------------------
+
+
+
+### Fields
+
+| Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
+| ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
+| `df_ligne_commande_id`                                       | int(11)                                  | yes*     | yes       |          | -                                                                                |
+| `df_ligne_commande_qte`                                      | int(11)                                  | yes      | yes       |          | -                                                                                |
+| `df_ligne_commande_prix_total_ht`                            | float(100, 2)                            |          | yes       |          | -                                                                                |
+| `DF_ligne_commande_DF_Produit_Finis_id` link to **`DF_Produit_Finis`** | id                                       |          | yes       |          | -                                                                                |
+| _Ref. `DF_ligne_commande_DF_Produit_Finis_id.df_produit_id`_ | _int(11)_                                |          |           |          | -                                                                                |
+| _Ref. `DF_ligne_commande_DF_Produit_Finis_id.df_produit_nom`_ | _char(15)_                               |          |           |          | -                                                                                |
+| _Ref. `DF_ligne_commande_DF_Produit_Finis_id.df_produit_long`_ | _float(5, 2)_                            |          |           |          | -                                                                                |
+| _Ref. `DF_ligne_commande_DF_Produit_Finis_id.df_produit_larg`_ | _float(5, 2)_                            |          |           |          | -                                                                                |
+| _Ref. `DF_ligne_commande_DF_Produit_Finis_id.df_produit_haut`_ | _float(5, 2)_                            |          |           |          | -                                                                                |
+| _Ref. `DF_ligne_commande_DF_Produit_Finis_id.df_produit_finition`_ | _char(20)_                               |          |           |          | -                                                                                |
+| _Ref. `DF_ligne_commande_DF_Produit_Finis_id.df_produit_unite`_ | _char(4)_                                |          |           |          | -                                                                                |
+| _Ref. `DF_ligne_commande_DF_Produit_Finis_id.df_produit_prix`_ | _float(100, 2)_                          |          |           |          | -                                                                                |
+| `DF_ligne_commande_DF_Commande_id` link to **`DF_Commande`** | id                                       |          | yes       |          | -                                                                                |
+| _Ref. `DF_ligne_commande_DF_Commande_id.df_commande_id`_     | _int(11)_                                |          |           |          | -                                                                                |
+| _Ref. `DF_ligne_commande_DF_Commande_id.df_commande_numero`_ | _char(32)_                               |          |           |          | -                                                                                |
+| _Ref. `DF_ligne_commande_DF_Commande_id.df_commande_ref_chantier`_ | _char(32)_                               |          |           |          | -                                                                                |
+| _Ref. `DF_ligne_commande_DF_Commande_id.df_commande_date`_   | _datetime_                               |          |           |          | -                                                                                |
 
 ### Custom actions
 
@@ -187,19 +246,17 @@ No custom action
 | `df_ligne_devis_quantite`                                    | int(11)                                  | yes      | yes       |          | -                                                                                |
 | `df_ligne_devis_prix_total_ht`                               | float(100, 2)                            |          |           |          | -                                                                                |
 | `DF_Ligne_Devis_DF_Devis_id` link to **`DF_Devis`**          | id                                       |          | yes       |          | -                                                                                |
-| _Ref. `DF_Ligne_Devis_DF_Devis_id.numerodevis`_              | _int(11)_                                |          |           |          | -                                                                                |
-| _Ref. `DF_Ligne_Devis_DF_Devis_id.titredevis`_               | _char(30)_                               |          |           |          | -                                                                                |
-| _Ref. `DF_Ligne_Devis_DF_Devis_id.nomclientdevis`_           | _char(20)_                               |          |           |          | -                                                                                |
+| _Ref. `DF_Ligne_Devis_DF_Devis_id.df_devis_numero`_          | _int(11)_                                |          |           |          | -                                                                                |
+| _Ref. `DF_Ligne_Devis_DF_Devis_id.df_devis_titre`_           | _char(100)_                              |          |           |          | -                                                                                |
 | `DF_Ligne_Devis_DF_Produit_Finis_id` link to **`DF_Produit_Finis`** | id                                       |          | yes       |          | -                                                                                |
-| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.idproduit`_        | _int(11)_                                |          |           |          | -                                                                                |
-| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.nomproduit`_       | _char(15)_                               |          |           |          | -                                                                                |
-| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.longueur`_         | _float(5, 2)_                            |          |           |          | -                                                                                |
-| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.largeur`_          | _float(5, 2)_                            |          |           |          | -                                                                                |
-| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.designation`_      | _char(20)_                               |          |           |          | -                                                                                |
-| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.heauteur`_         | _float(5, 2)_                            |          |           |          | -                                                                                |
-| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.finition`_         | _char(20)_                               |          |           |          | -                                                                                |
-| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.quantite_stock`_   | _int(20000)_                             |          |           |          | -                                                                                |
-| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.prd_price`_        | _float(100, 2)_                          |          |           |          | -                                                                                |
+| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.df_produit_id`_    | _int(11)_                                |          |           |          | -                                                                                |
+| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.df_produit_nom`_   | _char(15)_                               |          |           |          | -                                                                                |
+| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.df_produit_long`_  | _float(5, 2)_                            |          |           |          | -                                                                                |
+| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.df_produit_larg`_  | _float(5, 2)_                            |          |           |          | -                                                                                |
+| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.df_produit_designation`_ | _char(20)_                               |          |           |          | -                                                                                |
+| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.df_produit_haut`_  | _float(5, 2)_                            |          |           |          | -                                                                                |
+| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.df_produit_finition`_ | _char(20)_                               |          |           |          | -                                                                                |
+| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.df_produit_prix`_  | _float(100, 2)_                          |          |           |          | -                                                                                |
 
 ### Custom actions
 
@@ -215,24 +272,20 @@ Objet metier pour produit.
 
 | Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
-| `idproduit`                                                  | int(11)                                  | yes*     | yes       |          | -                                                                                |
-| `nomproduit`                                                 | char(15)                                 | yes      | yes       |          | -                                                                                |
-| `code_fournisseur`                                           | char(50)                                 | yes      | yes       |          | -                                                                                |
-| `designation`                                                | char(20)                                 | yes      | yes       |          | -                                                                                |
-| `longueur`                                                   | float(5, 2)                              | yes      | yes       |          | -                                                                                |
-| `largeur`                                                    | float(5, 2)                              | yes      | yes       |          | -                                                                                |
-| `heauteur`                                                   | float(5, 2)                              | yes      | yes       |          | -                                                                                |
-| `finition`                                                   | char(20)                                 |          | yes       |          | -                                                                                |
-| `commentaire`                                                | char(30)                                 |          | yes       |          | -                                                                                |
-| `price`                                                      | bigdec(10, 2)                            | yes      | yes       |          | -                                                                                |
-| `unite`                                                      | char(4)                                  | yes      | yes       |          | -                                                                                |
-| `source`                                                     | char(10)                                 | yes      | yes       |          | -                                                                                |
-| `prd_price`                                                  | float(100, 2)                            | yes      | yes       |          | -                                                                                |
-| `quantite_stock`                                             | int(20000)                               | yes      | yes       |          | -                                                                                |
-| `dispo_produit`                                              | boolean                                  |          | yes       |          | -                                                                                |
-| `nom_fournisseur`                                            | char(100)                                | yes      | yes       |          | -                                                                                |
+| `df_produit_id`                                              | int(11)                                  | yes*     | yes       |          | -                                                                                |
+| `df_produit_nom`                                             | char(15)                                 | yes      | yes       |          | -                                                                                |
+| `df_produit_designation`                                     | char(20)                                 | yes      | yes       |          | -                                                                                |
+| `df_produit_long`                                            | float(5, 2)                              | yes      | yes       |          | -                                                                                |
+| `df_produit_larg`                                            | float(5, 2)                              | yes      | yes       |          | -                                                                                |
+| `df_produit_haut`                                            | float(5, 2)                              | yes      | yes       |          | -                                                                                |
+| `df_produit_finition`                                        | char(20)                                 |          | yes       |          | -                                                                                |
+| `df_produit_commentaire`                                     | char(30)                                 |          | yes       |          | -                                                                                |
+| `df_produit_unite`                                           | char(4)                                  | yes      | yes       |          | -                                                                                |
+| `df_produit_source`                                          | char(10)                                 | yes      | yes       |          | -                                                                                |
+| `df_produit_prix`                                            | float(100, 2)                            | yes      | yes       |          | -                                                                                |
 | `DF_Produit_Finis_DF_Fournisseurs_id` link to **`DF_Fournisseurs`** | id                                       |          | yes       |          | -                                                                                |
-| _Ref. `DF_Produit_Finis_DF_Fournisseurs_id.idfournisseur`_   | _int(11)_                                |          |           |          | -                                                                                |
+| _Ref. `DF_Produit_Finis_DF_Fournisseurs_id.df_fournisseur_id`_ | _int(11)_                                |          |           |          | -                                                                                |
+| _Ref. `DF_Produit_Finis_DF_Fournisseurs_id.df_fournisseur_nom`_ | _char(36)_                               |          |           |          | -                                                                                |
 
 ### Custom actions
 
