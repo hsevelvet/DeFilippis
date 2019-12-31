@@ -8,7 +8,7 @@
 		<mdl_version>0.1</mdl_version>
 		<mdl_prefix/>
 		<mdl_url/>
-		<mdl_lastupd>2019-12-31 12:19:56</mdl_lastupd>
+		<mdl_lastupd>2019-12-31 14:55:29</mdl_lastupd>
 		<mdl_comment/>
 	</data>
 </object>
@@ -873,6 +873,150 @@ Tout accés alloués.]]></grp_comment>
 		<fld_list_id.lov_name/>
 		<fld_copy>1</fld_copy>
 		<fld_size>6</fld_size>
+		<fld_minsize/>
+		<fld_precision/>
+		<fld_fromdate_id.fld_name/>
+		<fld_dfault/>
+		<fld_indexable>0</fld_indexable>
+		<fld_autocomp>0</fld_autocomp>
+		<fld_groupby>0</fld_groupby>
+		<fld_updall>1</fld_updall>
+		<fld_case/>
+		<fld_righttoleft>0</fld_righttoleft>
+		<fld_rendering/>
+		<fld_calc/>
+		<fld_objlist/>
+		<fld_comment/>
+		<fld_classification/>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<fld_name>df_chantier_date_debut</fld_name>
+		<fld_dbname>DF_chantier_date_debut</fld_dbname>
+		<fld_visible>3</fld_visible>
+		<fld_updatable>1</fld_updatable>
+		<fld_required>0</fld_required>
+		<fld_fonctid>0</fld_fonctid>
+		<fld_research>1</fld_research>
+		<fld_researchreq>0</fld_researchreq>
+		<fld_sort>C</fld_sort>
+		<fld_more>0</fld_more>
+		<fld_listmore>0</fld_listmore>
+		<fld_listsum/>
+		<fld_type>4</fld_type>
+		<fld_type_id.flt_code/>
+		<fld_enumlist/>
+		<fld_list_id.lov_name/>
+		<fld_copy>1</fld_copy>
+		<fld_size>10</fld_size>
+		<fld_minsize/>
+		<fld_precision/>
+		<fld_fromdate_id.fld_name/>
+		<fld_dfault/>
+		<fld_indexable>0</fld_indexable>
+		<fld_autocomp>0</fld_autocomp>
+		<fld_groupby>0</fld_groupby>
+		<fld_updall>1</fld_updall>
+		<fld_case/>
+		<fld_righttoleft>0</fld_righttoleft>
+		<fld_rendering/>
+		<fld_calc/>
+		<fld_objlist/>
+		<fld_comment/>
+		<fld_classification/>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<fld_name>DF_Chantier_DF_Client_id</fld_name>
+		<fld_dbname>df_chantier_df_client_id</fld_dbname>
+		<fld_visible>3</fld_visible>
+		<fld_updatable>1</fld_updatable>
+		<fld_required>0</fld_required>
+		<fld_fonctid>0</fld_fonctid>
+		<fld_research/>
+		<fld_researchreq>0</fld_researchreq>
+		<fld_sort>C</fld_sort>
+		<fld_more>0</fld_more>
+		<fld_listmore>0</fld_listmore>
+		<fld_listsum/>
+		<fld_type>0</fld_type>
+		<fld_type_id.flt_code/>
+		<fld_enumlist/>
+		<fld_list_id.lov_name/>
+		<fld_copy>1</fld_copy>
+		<fld_size>11</fld_size>
+		<fld_minsize/>
+		<fld_precision/>
+		<fld_fromdate_id.fld_name/>
+		<fld_dfault/>
+		<fld_indexable>0</fld_indexable>
+		<fld_autocomp>0</fld_autocomp>
+		<fld_groupby>0</fld_groupby>
+		<fld_updall>1</fld_updall>
+		<fld_case/>
+		<fld_righttoleft>0</fld_righttoleft>
+		<fld_rendering/>
+		<fld_calc/>
+		<fld_objlist/>
+		<fld_comment/>
+		<fld_classification/>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<fld_name>df_chantier_id</fld_name>
+		<fld_dbname>DF_chantier_id</fld_dbname>
+		<fld_visible>3</fld_visible>
+		<fld_updatable>3</fld_updatable>
+		<fld_required>1</fld_required>
+		<fld_fonctid>1</fld_fonctid>
+		<fld_research>1</fld_research>
+		<fld_researchreq>0</fld_researchreq>
+		<fld_sort>C</fld_sort>
+		<fld_more>0</fld_more>
+		<fld_listmore>0</fld_listmore>
+		<fld_listsum/>
+		<fld_type>1</fld_type>
+		<fld_type_id.flt_code/>
+		<fld_enumlist/>
+		<fld_list_id.lov_name/>
+		<fld_copy>1</fld_copy>
+		<fld_size>9</fld_size>
+		<fld_minsize/>
+		<fld_precision/>
+		<fld_fromdate_id.fld_name/>
+		<fld_dfault/>
+		<fld_indexable>0</fld_indexable>
+		<fld_autocomp>0</fld_autocomp>
+		<fld_groupby>0</fld_groupby>
+		<fld_updall>1</fld_updall>
+		<fld_case/>
+		<fld_righttoleft>0</fld_righttoleft>
+		<fld_rendering/>
+		<fld_calc/>
+		<fld_objlist/>
+		<fld_comment/>
+		<fld_classification/>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<fld_name>df_chantier_reference</fld_name>
+		<fld_dbname>DF_chantier_reference</fld_dbname>
+		<fld_visible>3</fld_visible>
+		<fld_updatable>3</fld_updatable>
+		<fld_required>1</fld_required>
+		<fld_fonctid>0</fld_fonctid>
+		<fld_research>1</fld_research>
+		<fld_researchreq>0</fld_researchreq>
+		<fld_sort>C</fld_sort>
+		<fld_more>0</fld_more>
+		<fld_listmore>0</fld_listmore>
+		<fld_listsum/>
+		<fld_type>3</fld_type>
+		<fld_type_id.flt_code/>
+		<fld_enumlist/>
+		<fld_list_id.lov_name/>
+		<fld_copy>1</fld_copy>
+		<fld_size>36</fld_size>
 		<fld_minsize/>
 		<fld_precision/>
 		<fld_fromdate_id.fld_name/>
@@ -2799,6 +2943,42 @@ Tout accés alloués.]]></grp_comment>
 		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
 	</data>
 	<data>
+		<fld_name>DF_Devis_DF_Chantier_id</fld_name>
+		<fld_dbname>df_devis_df_chantier_id</fld_dbname>
+		<fld_visible>3</fld_visible>
+		<fld_updatable>1</fld_updatable>
+		<fld_required>0</fld_required>
+		<fld_fonctid>0</fld_fonctid>
+		<fld_research/>
+		<fld_researchreq>0</fld_researchreq>
+		<fld_sort>C</fld_sort>
+		<fld_more>0</fld_more>
+		<fld_listmore>0</fld_listmore>
+		<fld_listsum/>
+		<fld_type>0</fld_type>
+		<fld_type_id.flt_code/>
+		<fld_enumlist/>
+		<fld_list_id.lov_name/>
+		<fld_copy>1</fld_copy>
+		<fld_size>11</fld_size>
+		<fld_minsize/>
+		<fld_precision/>
+		<fld_fromdate_id.fld_name/>
+		<fld_dfault/>
+		<fld_indexable>0</fld_indexable>
+		<fld_autocomp>0</fld_autocomp>
+		<fld_groupby>0</fld_groupby>
+		<fld_updall>1</fld_updall>
+		<fld_case/>
+		<fld_righttoleft>0</fld_righttoleft>
+		<fld_rendering/>
+		<fld_calc/>
+		<fld_objlist/>
+		<fld_comment/>
+		<fld_classification/>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
 		<fld_name>DF_Devis_DF_Client_id</fld_name>
 		<fld_dbname>df_devis_df_client_id</fld_dbname>
 		<fld_visible>3</fld_visible>
@@ -4387,6 +4567,17 @@ Tout accés alloués.]]></grp_comment>
 	<name>Template</name>
 	<action>upsert</action>
 	<data>
+		<tpl_name>DF_Chantier</tpl_name>
+		<tpl_ui><![CDATA[<div>
+  <div class="area" data-area="1"></div>
+  <div class="area" data-area="2"></div>
+</div>
+]]></tpl_ui>
+		<tpl_min/>
+		<tpl_image/>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
 		<tpl_name>DF_Client</tpl_name>
 		<tpl_ui><![CDATA[<div>
   <div class="area" data-area="1"></div>
@@ -4496,6 +4687,27 @@ Tout accés alloués.]]></grp_comment>
 <object>
 	<name>ObjectFieldArea</name>
 	<action>upsert</action>
+	<data>
+		<ofa_name>DF_Chantier-1</ofa_name>
+		<ofa_position>1</ofa_position>
+		<ofa_title>1</ofa_title>
+		<ofa_ui><![CDATA[<div>
+  <div class="field" data-field="df_chantier_id"></div>
+  <div class="field" data-field="df_chantier_reference"></div>
+  <div class="field" data-field="df_chantier_date_debut"></div>
+</div>
+]]></ofa_ui>
+		<ofa_icon>star</ofa_icon>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<ofa_name>DF_Chantier-2</ofa_name>
+		<ofa_position>2</ofa_position>
+		<ofa_title>1</ofa_title>
+		<ofa_ui/>
+		<ofa_icon>star</ofa_icon>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
 	<data>
 		<ofa_name>DF_Client-1</ofa_name>
 		<ofa_position>1</ofa_position>
@@ -4848,6 +5060,66 @@ Tout accés alloués.]]></grp_comment>
 <object>
 	<name>ObjectInternal</name>
 	<action>upsert</action>
+	<data>
+		<obo_name>DF_Chantier</obo_name>
+		<obo_dbtable>df_chantier</obo_dbtable>
+		<obo_class/>
+		<obo_script_id/>
+		<obo_usets>1</obo_usets>
+		<obo_nosearch>1</obo_nosearch>
+		<obo_comment/>
+		<obo_type>O</obo_type>
+		<obo_searchspec/>
+		<obo_delspec/>
+		<obo_exportorder/>
+		<obo_distinct>0</obo_distinct>
+		<obo_indexable>0</obo_indexable>
+		<obo_groupby>0</obo_groupby>
+		<obo_dfltref/>
+		<obo_template_id.tpl_name>DF_Chantier</obo_template_id.tpl_name>
+		<obo_cache>D</obo_cache>
+		<obo_copy>1</obo_copy>
+		<obo_export>1</obo_export>
+		<obo_pagine>1</obo_pagine>
+		<obo_srh_predef>1</obo_srh_predef>
+		<obo_selrow>1</obo_selrow>
+		<obo_updall>1</obo_updall>
+		<obo_delall>1</obo_delall>
+		<obo_listsearch>1</obo_listsearch>
+		<obo_list_edit>N;L;E</obo_list_edit>
+		<obo_useform>1</obo_useform>
+		<obo_title/>
+		<obo_icon/>
+		<obo_refcount>0</obo_refcount>
+		<obo_tree>0</obo_tree>
+		<obo_viewmode>T</obo_viewmode>
+		<obo_historic/>
+		<obo_printable>1</obo_printable>
+		<obo_followlink>1</obo_followlink>
+		<obo_mergeable>0</obo_mergeable>
+		<obo_social>1</obo_social>
+		<obo_rowid_id.fld_name/>
+		<obo_extend_id.obj_name/>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+		<obo_btn_reload>P</obo_btn_reload>
+		<obo_btn_prefs>P</obo_btn_prefs>
+		<obo_btn_del>P</obo_btn_del>
+		<obo_btn_copy>P</obo_btn_copy>
+		<obo_btn_export>P</obo_btn_export>
+		<obo_btn_listadd>1</obo_btn_listadd>
+		<obo_btn_listedit>1</obo_btn_listedit>
+		<obo_btn_listupsert>1</obo_btn_listupsert>
+		<obo_btn_updall>P</obo_btn_updall>
+		<obo_btn_delall>P</obo_btn_delall>
+		<obo_btn_merge>P</obo_btn_merge>
+		<obo_btn_save>1</obo_btn_save>
+		<obo_btn_saveclose>1</obo_btn_saveclose>
+		<obo_btn_close>1</obo_btn_close>
+		<obo_tray>1</obo_tray>
+		<obo_dashboard>1</obo_dashboard>
+		<obo_prefix/>
+		<obo_search_ts/>
+	</data>
 	<data>
 		<obo_name>DF_Client</obo_name>
 		<obo_dbtable>df_client</obo_dbtable>
@@ -5338,6 +5610,499 @@ Objet metier pour produit.]]></obo_comment>
 <object>
 	<name>ObjectFieldSystem</name>
 	<action>upsert</action>
+	<data>
+		<obf_object_id.obo_name>DF_Chantier</obf_object_id.obo_name>
+		<obf_field_id.fld_name>df_chantier_id</obf_field_id.fld_name>
+		<obf_field_id.fld_type>1</obf_field_id.fld_type>
+		<obf_order>10</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order>1</obf_dfault_order>
+		<obf_input/>
+		<obf_ref_field_id.fld_name/>
+		<obf_ref_object_id.obo_name/>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_visible/>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more/>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_field_id.fld_dfault/>
+		<obf_area_id.ofa_name>DF_Chantier-1</obf_area_id.ofa_name>
+		<obf_area_id.ofa_position>1</obf_area_id.ofa_position>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<obf_object_id.obo_name>DF_Chantier</obf_object_id.obo_name>
+		<obf_field_id.fld_name>df_chantier_reference</obf_field_id.fld_name>
+		<obf_field_id.fld_type>3</obf_field_id.fld_type>
+		<obf_order>20</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name/>
+		<obf_ref_object_id.obo_name/>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_visible/>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more/>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_field_id.fld_dfault/>
+		<obf_area_id.ofa_name>DF_Chantier-1</obf_area_id.ofa_name>
+		<obf_area_id.ofa_position>1</obf_area_id.ofa_position>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<obf_object_id.obo_name>DF_Chantier</obf_object_id.obo_name>
+		<obf_field_id.fld_name>df_chantier_date_debut</obf_field_id.fld_name>
+		<obf_field_id.fld_type>4</obf_field_id.fld_type>
+		<obf_order>30</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name/>
+		<obf_ref_object_id.obo_name/>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_visible/>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more/>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_field_id.fld_dfault/>
+		<obf_area_id.ofa_name>DF_Chantier-1</obf_area_id.ofa_name>
+		<obf_area_id.ofa_position>1</obf_area_id.ofa_position>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<obf_object_id.obo_name>DF_Chantier</obf_object_id.obo_name>
+		<obf_field_id.fld_name>DF_Chantier_DF_Client_id</obf_field_id.fld_name>
+		<obf_field_id.fld_type>0</obf_field_id.fld_type>
+		<obf_order>100</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name/>
+		<obf_ref_object_id.obo_name>DF_Client</obf_ref_object_id.obo_name>
+		<obf_cascad>R</obf_cascad>
+		<obf_card>0,n</obf_card>
+		<obf_visible>1</obf_visible>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy>0</obf_copy>
+		<obf_ref_order/>
+		<obf_fld_visible/>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more/>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_field_id.fld_dfault/>
+		<obf_area_id.ofa_name>DF_Chantier-1</obf_area_id.ofa_name>
+		<obf_area_id.ofa_position>1</obf_area_id.ofa_position>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<obf_object_id.obo_name>DF_Chantier</obf_object_id.obo_name>
+		<obf_field_id.fld_name>df_client_id</obf_field_id.fld_name>
+		<obf_field_id.fld_type>1</obf_field_id.fld_type>
+		<obf_order>110</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name>DF_Chantier_DF_Client_id</obf_ref_field_id.fld_name>
+		<obf_ref_object_id.obo_name>DF_Client</obf_ref_object_id.obo_name>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_visible/>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more/>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_field_id.fld_dfault/>
+		<obf_area_id.ofa_name>DF_Chantier-1</obf_area_id.ofa_name>
+		<obf_area_id.ofa_position>1</obf_area_id.ofa_position>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<obf_object_id.obo_name>DF_Chantier</obf_object_id.obo_name>
+		<obf_field_id.fld_name>df_client_nom</obf_field_id.fld_name>
+		<obf_field_id.fld_type>3</obf_field_id.fld_type>
+		<obf_order>120</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name>DF_Chantier_DF_Client_id</obf_ref_field_id.fld_name>
+		<obf_ref_object_id.obo_name>DF_Client</obf_ref_object_id.obo_name>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_visible/>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more/>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_field_id.fld_dfault/>
+		<obf_area_id.ofa_name>DF_Chantier-1</obf_area_id.ofa_name>
+		<obf_area_id.ofa_position>1</obf_area_id.ofa_position>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<obf_object_id.obo_name>DF_Chantier</obf_object_id.obo_name>
+		<obf_field_id.fld_name>df_client_telephone</obf_field_id.fld_name>
+		<obf_field_id.fld_type>22</obf_field_id.fld_type>
+		<obf_order>130</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name>DF_Chantier_DF_Client_id</obf_ref_field_id.fld_name>
+		<obf_ref_object_id.obo_name>DF_Client</obf_ref_object_id.obo_name>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_visible/>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more/>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_field_id.fld_dfault/>
+		<obf_area_id.ofa_name>DF_Chantier-1</obf_area_id.ofa_name>
+		<obf_area_id.ofa_position>1</obf_area_id.ofa_position>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<obf_object_id.obo_name>DF_Chantier</obf_object_id.obo_name>
+		<obf_field_id.fld_name>df_client_ville</obf_field_id.fld_name>
+		<obf_field_id.fld_type>3</obf_field_id.fld_type>
+		<obf_order>140</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name>DF_Chantier_DF_Client_id</obf_ref_field_id.fld_name>
+		<obf_ref_object_id.obo_name>DF_Client</obf_ref_object_id.obo_name>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_visible/>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more/>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_field_id.fld_dfault/>
+		<obf_area_id.ofa_name>DF_Chantier-1</obf_area_id.ofa_name>
+		<obf_area_id.ofa_position>1</obf_area_id.ofa_position>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<obf_object_id.obo_name>DF_Chantier</obf_object_id.obo_name>
+		<obf_field_id.fld_name>df_client_pays</obf_field_id.fld_name>
+		<obf_field_id.fld_type>3</obf_field_id.fld_type>
+		<obf_order>150</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name>DF_Chantier_DF_Client_id</obf_ref_field_id.fld_name>
+		<obf_ref_object_id.obo_name>DF_Client</obf_ref_object_id.obo_name>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_visible/>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more/>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_field_id.fld_dfault/>
+		<obf_area_id.ofa_name>DF_Chantier-1</obf_area_id.ofa_name>
+		<obf_area_id.ofa_position>1</obf_area_id.ofa_position>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<obf_object_id.obo_name>DF_Chantier</obf_object_id.obo_name>
+		<obf_field_id.fld_name>df_client_cedex</obf_field_id.fld_name>
+		<obf_field_id.fld_type>3</obf_field_id.fld_type>
+		<obf_order>160</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name>DF_Chantier_DF_Client_id</obf_ref_field_id.fld_name>
+		<obf_ref_object_id.obo_name>DF_Client</obf_ref_object_id.obo_name>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_visible/>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more/>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_field_id.fld_dfault/>
+		<obf_area_id.ofa_name>DF_Chantier-1</obf_area_id.ofa_name>
+		<obf_area_id.ofa_position>1</obf_area_id.ofa_position>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<obf_object_id.obo_name>DF_Chantier</obf_object_id.obo_name>
+		<obf_field_id.fld_name>df_client_adresse_3</obf_field_id.fld_name>
+		<obf_field_id.fld_type>3</obf_field_id.fld_type>
+		<obf_order>170</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name>DF_Chantier_DF_Client_id</obf_ref_field_id.fld_name>
+		<obf_ref_object_id.obo_name>DF_Client</obf_ref_object_id.obo_name>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_visible/>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more/>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_field_id.fld_dfault/>
+		<obf_area_id.ofa_name>DF_Chantier-1</obf_area_id.ofa_name>
+		<obf_area_id.ofa_position>1</obf_area_id.ofa_position>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<obf_object_id.obo_name>DF_Chantier</obf_object_id.obo_name>
+		<obf_field_id.fld_name>df_client_adresse_2</obf_field_id.fld_name>
+		<obf_field_id.fld_type>3</obf_field_id.fld_type>
+		<obf_order>180</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name>DF_Chantier_DF_Client_id</obf_ref_field_id.fld_name>
+		<obf_ref_object_id.obo_name>DF_Client</obf_ref_object_id.obo_name>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_visible/>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more/>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_field_id.fld_dfault/>
+		<obf_area_id.ofa_name>DF_Chantier-1</obf_area_id.ofa_name>
+		<obf_area_id.ofa_position>1</obf_area_id.ofa_position>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<obf_object_id.obo_name>DF_Chantier</obf_object_id.obo_name>
+		<obf_field_id.fld_name>df_client_code_postal</obf_field_id.fld_name>
+		<obf_field_id.fld_type>1</obf_field_id.fld_type>
+		<obf_order>190</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name>DF_Chantier_DF_Client_id</obf_ref_field_id.fld_name>
+		<obf_ref_object_id.obo_name>DF_Client</obf_ref_object_id.obo_name>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_visible/>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more/>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_field_id.fld_dfault/>
+		<obf_area_id.ofa_name>DF_Chantier-1</obf_area_id.ofa_name>
+		<obf_area_id.ofa_position>1</obf_area_id.ofa_position>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<obf_object_id.obo_name>DF_Chantier</obf_object_id.obo_name>
+		<obf_field_id.fld_name>df_client_description</obf_field_id.fld_name>
+		<obf_field_id.fld_type>13</obf_field_id.fld_type>
+		<obf_order>200</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name>DF_Chantier_DF_Client_id</obf_ref_field_id.fld_name>
+		<obf_ref_object_id.obo_name>DF_Client</obf_ref_object_id.obo_name>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_visible/>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more/>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_field_id.fld_dfault/>
+		<obf_area_id.ofa_name>DF_Chantier-1</obf_area_id.ofa_name>
+		<obf_area_id.ofa_position>1</obf_area_id.ofa_position>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<obf_object_id.obo_name>DF_Chantier</obf_object_id.obo_name>
+		<obf_field_id.fld_name>df_client_id_secteur_activite</obf_field_id.fld_name>
+		<obf_field_id.fld_type>7</obf_field_id.fld_type>
+		<obf_order>210</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name>DF_Chantier_DF_Client_id</obf_ref_field_id.fld_name>
+		<obf_ref_object_id.obo_name>DF_Client</obf_ref_object_id.obo_name>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_visible/>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more/>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_field_id.fld_dfault/>
+		<obf_area_id.ofa_name>DF_Chantier-1</obf_area_id.ofa_name>
+		<obf_area_id.ofa_position>1</obf_area_id.ofa_position>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<obf_object_id.obo_name>DF_Chantier</obf_object_id.obo_name>
+		<obf_field_id.fld_name>df_client_adresse</obf_field_id.fld_name>
+		<obf_field_id.fld_type>3</obf_field_id.fld_type>
+		<obf_order>220</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name>DF_Chantier_DF_Client_id</obf_ref_field_id.fld_name>
+		<obf_ref_object_id.obo_name>DF_Client</obf_ref_object_id.obo_name>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_visible/>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more/>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_field_id.fld_dfault/>
+		<obf_area_id.ofa_name>DF_Chantier-1</obf_area_id.ofa_name>
+		<obf_area_id.ofa_position>1</obf_area_id.ofa_position>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<obf_object_id.obo_name>DF_Chantier</obf_object_id.obo_name>
+		<obf_field_id.fld_name>df_client_region</obf_field_id.fld_name>
+		<obf_field_id.fld_type>3</obf_field_id.fld_type>
+		<obf_order>230</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name>DF_Chantier_DF_Client_id</obf_ref_field_id.fld_name>
+		<obf_ref_object_id.obo_name>DF_Client</obf_ref_object_id.obo_name>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_visible/>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more/>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_field_id.fld_dfault/>
+		<obf_area_id.ofa_name>DF_Chantier-1</obf_area_id.ofa_name>
+		<obf_area_id.ofa_position>1</obf_area_id.ofa_position>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
 	<data>
 		<obf_object_id.obo_name>DF_Client</obf_object_id.obo_name>
 		<obf_field_id.fld_name>df_client_id</obf_field_id.fld_name>
@@ -7224,6 +7989,122 @@ Objet metier pour produit.]]></obo_comment>
 		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
 	</data>
 	<data>
+		<obf_object_id.obo_name>DF_Devis</obf_object_id.obo_name>
+		<obf_field_id.fld_name>DF_Devis_DF_Chantier_id</obf_field_id.fld_name>
+		<obf_field_id.fld_type>0</obf_field_id.fld_type>
+		<obf_order>300</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name/>
+		<obf_ref_object_id.obo_name>DF_Chantier</obf_ref_object_id.obo_name>
+		<obf_cascad>R</obf_cascad>
+		<obf_card>0,n</obf_card>
+		<obf_visible>1</obf_visible>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy>0</obf_copy>
+		<obf_ref_order/>
+		<obf_fld_visible/>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more/>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_field_id.fld_dfault/>
+		<obf_area_id.ofa_name>DF_Devis-1</obf_area_id.ofa_name>
+		<obf_area_id.ofa_position>1</obf_area_id.ofa_position>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<obf_object_id.obo_name>DF_Devis</obf_object_id.obo_name>
+		<obf_field_id.fld_name>df_chantier_id</obf_field_id.fld_name>
+		<obf_field_id.fld_type>1</obf_field_id.fld_type>
+		<obf_order>310</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name>DF_Devis_DF_Chantier_id</obf_ref_field_id.fld_name>
+		<obf_ref_object_id.obo_name>DF_Chantier</obf_ref_object_id.obo_name>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_visible/>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more/>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_field_id.fld_dfault/>
+		<obf_area_id.ofa_name>DF_Devis-1</obf_area_id.ofa_name>
+		<obf_area_id.ofa_position>1</obf_area_id.ofa_position>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<obf_object_id.obo_name>DF_Devis</obf_object_id.obo_name>
+		<obf_field_id.fld_name>df_chantier_reference</obf_field_id.fld_name>
+		<obf_field_id.fld_type>3</obf_field_id.fld_type>
+		<obf_order>320</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name>DF_Devis_DF_Chantier_id</obf_ref_field_id.fld_name>
+		<obf_ref_object_id.obo_name>DF_Chantier</obf_ref_object_id.obo_name>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_visible/>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more/>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_field_id.fld_dfault/>
+		<obf_area_id.ofa_name>DF_Devis-1</obf_area_id.ofa_name>
+		<obf_area_id.ofa_position>1</obf_area_id.ofa_position>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<obf_object_id.obo_name>DF_Devis</obf_object_id.obo_name>
+		<obf_field_id.fld_name>df_chantier_date_debut</obf_field_id.fld_name>
+		<obf_field_id.fld_type>4</obf_field_id.fld_type>
+		<obf_order>330</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name>DF_Devis_DF_Chantier_id</obf_ref_field_id.fld_name>
+		<obf_ref_object_id.obo_name>DF_Chantier</obf_ref_object_id.obo_name>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_visible/>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more/>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_field_id.fld_dfault/>
+		<obf_area_id.ofa_name>DF_Devis-1</obf_area_id.ofa_name>
+		<obf_area_id.ofa_position>1</obf_area_id.ofa_position>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
 		<obf_object_id.obo_name>DF_Fournisseurs</obf_object_id.obo_name>
 		<obf_field_id.fld_name>df_fournisseur_id</obf_field_id.fld_name>
 		<obf_field_id.fld_type>1</obf_field_id.fld_type>
@@ -8707,6 +9588,30 @@ Objet metier pour produit.]]></obo_comment>
 	<name>Link</name>
 	<action>upsert</action>
 	<data>
+		<obf_ref_object_id.obo_name>DF_Chantier</obf_ref_object_id.obo_name>
+		<obf_order>300</obf_order>
+		<obf_ref_order/>
+		<obf_object_id.obj_name>DF_Devis</obf_object_id.obj_name>
+		<obf_field_id.fld_name>DF_Devis_DF_Chantier_id</obf_field_id.fld_name>
+		<obf_field_id.fld_dbname>df_devis_df_chantier_id</obf_field_id.fld_dbname>
+		<obf_field_id.fld_updatable>1</obf_field_id.fld_updatable>
+		<obf_field_id.fld_required>0</obf_field_id.fld_required>
+		<obf_field_id.fld_fonctid>0</obf_field_id.fld_fonctid>
+		<obf_cascad>R</obf_cascad>
+		<obf_card>0,n</obf_card>
+		<obf_query/>
+		<obf_visible>1</obf_visible>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy>0</obf_copy>
+		<obf_associate/>
+		<obf_inline>0</obf_inline>
+		<obf_rendering/>
+		<obf_treedepth/>
+		<obf_area_id.ofa_name>DF_Devis-1</obf_area_id.ofa_name>
+		<obf_area_id.ofa_position>1</obf_area_id.ofa_position>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
 		<obf_ref_object_id.obo_name>DF_Client</obf_ref_object_id.obo_name>
 		<obf_order>300</obf_order>
 		<obf_ref_order/>
@@ -8775,6 +9680,30 @@ Objet metier pour produit.]]></obo_comment>
 		<obf_rendering/>
 		<obf_treedepth/>
 		<obf_area_id.ofa_name>DF_Devis-1</obf_area_id.ofa_name>
+		<obf_area_id.ofa_position>1</obf_area_id.ofa_position>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<obf_ref_object_id.obo_name>DF_Client</obf_ref_object_id.obo_name>
+		<obf_order>100</obf_order>
+		<obf_ref_order/>
+		<obf_object_id.obj_name>DF_Chantier</obf_object_id.obj_name>
+		<obf_field_id.fld_name>DF_Chantier_DF_Client_id</obf_field_id.fld_name>
+		<obf_field_id.fld_dbname>df_chantier_df_client_id</obf_field_id.fld_dbname>
+		<obf_field_id.fld_updatable>1</obf_field_id.fld_updatable>
+		<obf_field_id.fld_required>0</obf_field_id.fld_required>
+		<obf_field_id.fld_fonctid>0</obf_field_id.fld_fonctid>
+		<obf_cascad>R</obf_cascad>
+		<obf_card>0,n</obf_card>
+		<obf_query/>
+		<obf_visible>1</obf_visible>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy>0</obf_copy>
+		<obf_associate/>
+		<obf_inline>0</obf_inline>
+		<obf_rendering/>
+		<obf_treedepth/>
+		<obf_area_id.ofa_name>DF_Chantier-1</obf_area_id.ofa_name>
 		<obf_area_id.ofa_position>1</obf_area_id.ofa_position>
 		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
 	</data>
@@ -8927,6 +9856,15 @@ Objet metier pour produit.]]></obo_comment>
 	<name>Function</name>
 	<action>upsert</action>
 	<data>
+		<fct_name>DF_Chantier-CUD</fct_name>
+		<fct_object_id.obj_type>O</fct_object_id.obj_type>
+		<fct_object_id.obj_name>DF_Chantier</fct_object_id.obj_name>
+		<fct_function>CMS</fct_function>
+		<fct_action_id.act_name/>
+		<fct_view_id.viw_name/>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
 		<fct_name>DF_Client-CUD</fct_name>
 		<fct_object_id.obj_type>O</fct_object_id.obj_type>
 		<fct_object_id.obj_name>DF_Client</fct_object_id.obj_name>
@@ -9042,6 +9980,16 @@ Objet metier pour produit.]]></obo_comment>
 	</data>
 	<data>
 		<grt_group_id.grp_name>DeFilippisDev</grt_group_id.grp_name>
+		<grt_function_id.fct_name>DF_Chantier-CUD</grt_function_id.fct_name>
+		<grt_function_id.fct_object_id.obj_type>O</grt_function_id.fct_object_id.obj_type>
+		<grt_function_id.fct_object_id.obj_name>DF_Chantier</grt_function_id.fct_object_id.obj_name>
+		<grt_function_id.fct_action_id.act_name/>
+		<grt_function_id.fct_function>CMS</grt_function_id.fct_function>
+		<grt_activ>1</grt_activ>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<grt_group_id.grp_name>DeFilippisDev</grt_group_id.grp_name>
 		<grt_function_id.fct_name>DF_Client-CUD</grt_function_id.fct_name>
 		<grt_function_id.fct_object_id.obj_type>O</grt_function_id.fct_object_id.obj_type>
 		<grt_function_id.fct_object_id.obj_name>DF_Client</grt_function_id.fct_object_id.obj_name>
@@ -9122,6 +10070,16 @@ Objet metier pour produit.]]></obo_comment>
 	</data>
 	<data>
 		<grt_group_id.grp_name>DEMO_ADMIN</grt_group_id.grp_name>
+		<grt_function_id.fct_name>DF_Chantier-CUD</grt_function_id.fct_name>
+		<grt_function_id.fct_object_id.obj_type>O</grt_function_id.fct_object_id.obj_type>
+		<grt_function_id.fct_object_id.obj_name>DF_Chantier</grt_function_id.fct_object_id.obj_name>
+		<grt_function_id.fct_action_id.act_name/>
+		<grt_function_id.fct_function>CMS</grt_function_id.fct_function>
+		<grt_activ>1</grt_activ>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<grt_group_id.grp_name>DEMO_ADMIN</grt_group_id.grp_name>
 		<grt_function_id.fct_name>DF_Client-CUD</grt_function_id.fct_name>
 		<grt_function_id.fct_object_id.obj_type>O</grt_function_id.fct_object_id.obj_type>
 		<grt_function_id.fct_object_id.obj_name>DF_Client</grt_function_id.fct_object_id.obj_name>
@@ -9162,6 +10120,16 @@ Objet metier pour produit.]]></obo_comment>
 	</data>
 	<data>
 		<grt_group_id.grp_name>DEMO_PUBLIC</grt_group_id.grp_name>
+		<grt_function_id.fct_name>DF_Chantier-CUD</grt_function_id.fct_name>
+		<grt_function_id.fct_object_id.obj_type>O</grt_function_id.fct_object_id.obj_type>
+		<grt_function_id.fct_object_id.obj_name>DF_Chantier</grt_function_id.fct_object_id.obj_name>
+		<grt_function_id.fct_action_id.act_name/>
+		<grt_function_id.fct_function>CMS</grt_function_id.fct_function>
+		<grt_activ>1</grt_activ>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<grt_group_id.grp_name>DEMO_PUBLIC</grt_group_id.grp_name>
 		<grt_function_id.fct_name>DF_Client-CUD</grt_function_id.fct_name>
 		<grt_function_id.fct_object_id.obj_type>O</grt_function_id.fct_object_id.obj_type>
 		<grt_function_id.fct_object_id.obj_name>DF_Client</grt_function_id.fct_object_id.obj_name>
@@ -9202,6 +10170,16 @@ Objet metier pour produit.]]></obo_comment>
 	</data>
 	<data>
 		<grt_group_id.grp_name>DEMO_USER</grt_group_id.grp_name>
+		<grt_function_id.fct_name>DF_Chantier-CUD</grt_function_id.fct_name>
+		<grt_function_id.fct_object_id.obj_type>O</grt_function_id.fct_object_id.obj_type>
+		<grt_function_id.fct_object_id.obj_name>DF_Chantier</grt_function_id.fct_object_id.obj_name>
+		<grt_function_id.fct_action_id.act_name/>
+		<grt_function_id.fct_function>CMS</grt_function_id.fct_function>
+		<grt_activ>1</grt_activ>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<grt_group_id.grp_name>DEMO_USER</grt_group_id.grp_name>
 		<grt_function_id.fct_name>DF_Client-CUD</grt_function_id.fct_name>
 		<grt_function_id.fct_object_id.obj_type>O</grt_function_id.fct_object_id.obj_type>
 		<grt_function_id.fct_object_id.obj_name>DF_Client</grt_function_id.fct_object_id.obj_name>
@@ -9235,6 +10213,16 @@ Objet metier pour produit.]]></obo_comment>
 		<grt_function_id.fct_name>DF_Produit_Finis-CUD</grt_function_id.fct_name>
 		<grt_function_id.fct_object_id.obj_type>O</grt_function_id.fct_object_id.obj_type>
 		<grt_function_id.fct_object_id.obj_name>DF_Produit_Finis</grt_function_id.fct_object_id.obj_name>
+		<grt_function_id.fct_action_id.act_name/>
+		<grt_function_id.fct_function>CMS</grt_function_id.fct_function>
+		<grt_activ>1</grt_activ>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<grt_group_id.grp_name>DEMO_WEBSITE</grt_group_id.grp_name>
+		<grt_function_id.fct_name>DF_Chantier-CUD</grt_function_id.fct_name>
+		<grt_function_id.fct_object_id.obj_type>O</grt_function_id.fct_object_id.obj_type>
+		<grt_function_id.fct_object_id.obj_name>DF_Chantier</grt_function_id.fct_object_id.obj_name>
 		<grt_function_id.fct_action_id.act_name/>
 		<grt_function_id.fct_function>CMS</grt_function_id.fct_function>
 		<grt_activ>1</grt_activ>
@@ -9522,6 +10510,54 @@ Objet metier pour produit.]]></obo_comment>
 		<tsl_id.fld_name>codepostal</tsl_id.fld_name>
 		<tsl_lang>ENU</tsl_lang>
 		<tsl_value>CodePostal</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+		<tsl_tooltip/>
+	</data>
+	<data>
+		<tsl_typeField>F</tsl_typeField>
+		<tsl_id.fld_name>df_chantier_date_debut</tsl_id.fld_name>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>df chantier date debut</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+		<tsl_tooltip/>
+	</data>
+	<data>
+		<tsl_typeField>F</tsl_typeField>
+		<tsl_id.fld_name>DF_Chantier_DF_Client_id</tsl_id.fld_name>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>DF client</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+		<tsl_tooltip/>
+	</data>
+	<data>
+		<tsl_typeField>F</tsl_typeField>
+		<tsl_id.fld_name>df_chantier_id</tsl_id.fld_name>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>df chantier id</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+		<tsl_tooltip/>
+	</data>
+	<data>
+		<tsl_typeField>F</tsl_typeField>
+		<tsl_id.fld_name>df_chantier_reference</tsl_id.fld_name>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>df chantier reference</tsl_value>
 		<tsl_simplehelp/>
 		<tsl_short_value/>
 		<tsl_placeholder/>
@@ -10167,6 +11203,18 @@ Objet metier pour produit.]]></obo_comment>
 	</data>
 	<data>
 		<tsl_typeField>F</tsl_typeField>
+		<tsl_id.fld_name>DF_Devis_DF_Chantier_id</tsl_id.fld_name>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>DF chantier</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+		<tsl_tooltip/>
+	</data>
+	<data>
+		<tsl_typeField>F</tsl_typeField>
 		<tsl_id.fld_name>DF_Devis_DF_Client_id</tsl_id.fld_name>
 		<tsl_lang>ENU</tsl_lang>
 		<tsl_value>DF client</tsl_value>
@@ -10698,6 +11746,54 @@ Objet metier pour produit.]]></obo_comment>
 		<tsl_id.fld_name>codepostal</tsl_id.fld_name>
 		<tsl_lang>FRA</tsl_lang>
 		<tsl_value>codepostal</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+		<tsl_tooltip/>
+	</data>
+	<data>
+		<tsl_typeField>F</tsl_typeField>
+		<tsl_id.fld_name>df_chantier_date_debut</tsl_id.fld_name>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>Date début</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+		<tsl_tooltip/>
+	</data>
+	<data>
+		<tsl_typeField>F</tsl_typeField>
+		<tsl_id.fld_name>DF_Chantier_DF_Client_id</tsl_id.fld_name>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>DF client</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+		<tsl_tooltip/>
+	</data>
+	<data>
+		<tsl_typeField>F</tsl_typeField>
+		<tsl_id.fld_name>df_chantier_id</tsl_id.fld_name>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>Id chantier</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+		<tsl_tooltip/>
+	</data>
+	<data>
+		<tsl_typeField>F</tsl_typeField>
+		<tsl_id.fld_name>df_chantier_reference</tsl_id.fld_name>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>Référence chantier</tsl_value>
 		<tsl_simplehelp/>
 		<tsl_short_value/>
 		<tsl_placeholder/>
@@ -11343,6 +12439,18 @@ Objet metier pour produit.]]></obo_comment>
 	</data>
 	<data>
 		<tsl_typeField>F</tsl_typeField>
+		<tsl_id.fld_name>DF_Devis_DF_Chantier_id</tsl_id.fld_name>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>DF chantier</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+		<tsl_tooltip/>
+	</data>
+	<data>
+		<tsl_typeField>F</tsl_typeField>
 		<tsl_id.fld_name>DF_Devis_DF_Client_id</tsl_id.fld_name>
 		<tsl_lang>FRA</tsl_lang>
 		<tsl_value>DF client</tsl_value>
@@ -11875,6 +12983,20 @@ Objet metier pour produit.]]></obo_comment>
 	<action>upsert</action>
 	<data>
 		<tsl_typeFieldArea>Z</tsl_typeFieldArea>
+		<tsl_id.ofa_name>DF_Chantier-1</tsl_id.ofa_name>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>DF_Chantier-1</tsl_value>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_typeFieldArea>Z</tsl_typeFieldArea>
+		<tsl_id.ofa_name>DF_Chantier-2</tsl_id.ofa_name>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>DF_Chantier-2</tsl_value>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_typeFieldArea>Z</tsl_typeFieldArea>
 		<tsl_id.ofa_name>DF_Client-1</tsl_id.ofa_name>
 		<tsl_lang>ENU</tsl_lang>
 		<tsl_value>Identification</tsl_value>
@@ -12046,6 +13168,20 @@ Objet metier pour produit.]]></obo_comment>
 		<tsl_id.ofa_name>DF_Produit_Finis-4</tsl_id.ofa_name>
 		<tsl_lang>ENU</tsl_lang>
 		<tsl_value>Détails Produit</tsl_value>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_typeFieldArea>Z</tsl_typeFieldArea>
+		<tsl_id.ofa_name>DF_Chantier-1</tsl_id.ofa_name>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>DF_Chantier-1</tsl_value>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_typeFieldArea>Z</tsl_typeFieldArea>
+		<tsl_id.ofa_name>DF_Chantier-2</tsl_id.ofa_name>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>DF_Chantier-2</tsl_value>
 		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
 	</data>
 	<data>
@@ -12265,6 +13401,14 @@ Objet metier pour produit.]]></obo_comment>
 	<action>upsert</action>
 	<data>
 		<tsl_typeObject>O</tsl_typeObject>
+		<tsl_id.obo_name>DF_Chantier</tsl_id.obo_name>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>DF chantier</tsl_value>
+		<tsl_help/>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_typeObject>O</tsl_typeObject>
 		<tsl_id.obo_name>DF_Client</tsl_id.obo_name>
 		<tsl_lang>ENU</tsl_lang>
 		<tsl_value>DF client</tsl_value>
@@ -12324,6 +13468,14 @@ Objet metier pour produit.]]></obo_comment>
 		<tsl_id.obo_name>DF_Produit_Finis</tsl_id.obo_name>
 		<tsl_lang>ENU</tsl_lang>
 		<tsl_value>DF produit finis</tsl_value>
+		<tsl_help/>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_typeObject>O</tsl_typeObject>
+		<tsl_id.obo_name>DF_Chantier</tsl_id.obo_name>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>DF chantier</tsl_value>
 		<tsl_help/>
 		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
 	</data>

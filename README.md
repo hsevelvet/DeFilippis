@@ -13,6 +13,46 @@
 
 
 
+`DF_Chantier` business object definition
+----------------------------------------
+
+
+
+### Fields
+
+| Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
+| ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
+| `df_chantier_id`                                             | int(9)                                   | yes*     | yes       |          | -                                                                                |
+| `df_chantier_reference`                                      | char(36)                                 | yes      | yes       |          | -                                                                                |
+| `df_chantier_date_debut`                                     | date                                     |          | yes       |          | -                                                                                |
+| `DF_Chantier_DF_Client_id` link to **`DF_Client`**           | id                                       |          | yes       |          | -                                                                                |
+| _Ref. `DF_Chantier_DF_Client_id.df_client_id`_               | _int(11)_                                |          |           |          | -                                                                                |
+| _Ref. `DF_Chantier_DF_Client_id.df_client_nom`_              | _char(36)_                               |          |           |          | -                                                                                |
+| _Ref. `DF_Chantier_DF_Client_id.df_client_telephone`_        | _phone(100)_                             |          |           |          | -                                                                                |
+| _Ref. `DF_Chantier_DF_Client_id.df_client_ville`_            | _char(32)_                               |          |           |          | -                                                                                |
+| _Ref. `DF_Chantier_DF_Client_id.df_client_pays`_             | _char(32)_                               |          |           |          | -                                                                                |
+| _Ref. `DF_Chantier_DF_Client_id.df_client_cedex`_            | _char(32)_                               |          |           |          | -                                                                                |
+| _Ref. `DF_Chantier_DF_Client_id.df_client_adresse_3`_        | _char(32)_                               |          |           |          | -                                                                                |
+| _Ref. `DF_Chantier_DF_Client_id.df_client_adresse_2`_        | _char(32)_                               |          |           |          | -                                                                                |
+| _Ref. `DF_Chantier_DF_Client_id.df_client_code_postal`_      | _int(8)_                                 |          |           |          | -                                                                                |
+| _Ref. `DF_Chantier_DF_Client_id.df_client_description`_      | _text(100)_                              |          |           |          | -                                                                                |
+| _Ref. `DF_Chantier_DF_Client_id.df_client_id_secteur_activite`_ | _enum(7) using `DF_CLIENT_ID_SECTEUR_ACTIVITE` list_ |          |           |          | -                                                                                |
+| _Ref. `DF_Chantier_DF_Client_id.df_client_adresse`_          | _char(32)_                               |          |           |          | -                                                                                |
+| _Ref. `DF_Chantier_DF_Client_id.df_client_region`_           | _char(32)_                               |          |           |          | -                                                                                |
+
+### Lists
+
+* `DF_CLIENT_ID_SECTEUR_ACTIVITE`
+    - `T` Travaux
+    - `V` VRD
+    - `N` Négociant
+    - `P` Pierre
+    - `A` Aucun
+
+### Custom actions
+
+No custom action
+
 `DF_Client` business object definition
 --------------------------------------
 
@@ -169,6 +209,10 @@ Objet metier pour devis.
 | `DF_Devis_DF_Client_id` link to **`DF_Client`**              | id                                       |          | yes       |          | -                                                                                |
 | _Ref. `DF_Devis_DF_Client_id.df_client_id`_                  | _int(11)_                                |          |           |          | -                                                                                |
 | _Ref. `DF_Devis_DF_Client_id.df_client_nom`_                 | _char(36)_                               |          |           |          | -                                                                                |
+| `DF_Devis_DF_Chantier_id` link to **`DF_Chantier`**          | id                                       |          | yes       |          | -                                                                                |
+| _Ref. `DF_Devis_DF_Chantier_id.df_chantier_id`_              | _int(9)_                                 |          |           |          | -                                                                                |
+| _Ref. `DF_Devis_DF_Chantier_id.df_chantier_reference`_       | _char(36)_                               |          |           |          | -                                                                                |
+| _Ref. `DF_Devis_DF_Chantier_id.df_chantier_date_debut`_      | _date_                                   |          |           |          | -                                                                                |
 
 ### Lists
 

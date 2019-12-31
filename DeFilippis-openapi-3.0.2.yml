@@ -20,6 +20,246 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/DF_Client'
+    ArrayOfDF_ligne_commande:
+      type: array
+      items:
+        $ref: '#/components/schemas/DF_ligne_commande'
+    PublicationResult:
+      type: object
+      properties:
+        mime:
+          description: MIME type
+          type: string
+        content:
+          description: Content (plain text or base64 encoded)
+          type: string
+    DF_Chantier:
+      type: object
+      properties:
+        DF_Chantier_DF_Client_id__df_client_cedex:
+          description: CEDEX DF client
+          type: string
+        DF_Chantier_DF_Client_id__df_client_id_secteur_activite:
+          description: Id Secteur Activité DF client
+          type: string
+          enum:
+          - T
+          - V
+          - N
+          - P
+          - A
+        DF_Chantier_DF_Client_id__df_client_id:
+          description: Id Client DF client
+          type: integer
+        df_chantier_reference:
+          description: Référence chantier
+          type: string
+        DF_Chantier_DF_Client_id__df_client_adresse:
+          description: Adresse DF client
+          type: string
+        DF_Chantier_DF_Client_id:
+          description: DF client
+          type: string
+        DF_Chantier_DF_Client_id__df_client_description:
+          description: Description DF client
+          type: string
+        DF_Chantier_DF_Client_id__df_client_region:
+          description: Region DF client
+          type: string
+        DF_Chantier_DF_Client_id__df_client_code_postal:
+          description: Code Postal DF client
+          type: integer
+        df_chantier_id:
+          description: Id chantier
+          type: integer
+        DF_Chantier_DF_Client_id__df_client_ville:
+          description: Ville DF client
+          type: string
+        DF_Chantier_DF_Client_id__df_client_nom:
+          description: Nom Client DF client
+          type: string
+        DF_Chantier_DF_Client_id__df_client_pays:
+          description: Pays DF client
+          type: string
+        DF_Chantier_DF_Client_id__df_client_adresse_2:
+          description: Adresse 2 DF client
+          type: string
+        DF_Chantier_DF_Client_id__df_client_telephone:
+          description: Téképhone DF client
+          type: string
+        df_chantier_date_debut:
+          description: Date début
+          type: string
+        row_id:
+          description: Id
+          type: string
+        DF_Chantier_DF_Client_id__df_client_adresse_3:
+          description: Adresse 3 DF client
+          type: string
+    ArrayOfDF_Fournisseurs:
+      type: array
+      items:
+        $ref: '#/components/schemas/DF_Fournisseurs'
+    ArrayOfDF_Chantier:
+      type: array
+      items:
+        $ref: '#/components/schemas/DF_Chantier'
+    DF_Ligne_Devis:
+      type: object
+      properties:
+        df_ligne_devis_id:
+          description: Ligne Devis ID
+          type: integer
+        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_haut:
+          description: Hauteur DF produit finis
+          type: number
+        df_ligne_devis_prix_total_ht:
+          description: Prix Total HT
+          type: number
+        DF_Ligne_Devis_DF_Produit_Finis_id:
+          description: DF produit finis
+          type: string
+        DF_Ligne_Devis_DF_Devis_id__df_devis_numero:
+          description: Numéro Devis DF devis
+          type: integer
+        DF_Ligne_Devis_DF_Devis_id__df_devis_titre:
+          description: Titre Devis DF devis
+          type: string
+        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_larg:
+          description: Largeur DF produit finis
+          type: number
+        DF_Ligne_Devis_DF_Devis_id:
+          description: DF devis
+          type: string
+        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_id:
+          description: Id Produit DF produit finis
+          type: integer
+        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_designation:
+          description: Designation DF produit finis
+          type: string
+        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_finition:
+          description: Finition DF produit finis
+          type: string
+        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_prix:
+          description: Prix DF produit finis
+          type: number
+        df_ligne_devis_quantite:
+          description: 'Quantité '
+          type: integer
+        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_nom:
+          description: Nom Produit DF produit finis
+          type: string
+        row_id:
+          description: Id
+          type: string
+        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_long:
+          description: Longueur DF produit finis
+          type: number
+    ArrayOfDF_Contact:
+      type: array
+      items:
+        $ref: '#/components/schemas/DF_Contact'
+    Error400:
+      type: object
+      properties:
+        error:
+          description: Error message
+          type: string
+        status:
+          description: Error status
+          type: integer
+          enum:
+          - 400
+    Error401:
+      type: object
+      properties:
+        error:
+          description: Error message
+          type: string
+        status:
+          description: Error status
+          type: integer
+          enum:
+          - 401
+    Error500:
+      type: object
+      properties:
+        error:
+          description: Error message
+          type: string
+        status:
+          description: Error status
+          type: integer
+          enum:
+          - 500
+    DF_Commande:
+      type: object
+      properties:
+        df_commande_indexation_monetaire:
+          description: Indexation monétaire
+          type: string
+        df_commande_ref_chantier:
+          description: Référence de chantier
+          type: string
+        df_commande_validite_offre:
+          description: Validité de l'offre
+          type: integer
+        df_commande_numero:
+          description: Numéro de Commande
+          type: string
+        df_commande_taux_de_remise:
+          description: Taux de remise
+          type: number
+        df_commande_id_livraison:
+          description: Id Livraison
+          type: integer
+        df_commande_redacteur:
+          description: 'Rédacteur '
+          type: string
+        df_commande_facture:
+          description: Facture
+          type: string
+        df_commande_detail_livraison:
+          description: Détail de livraison
+          type: string
+        df_commande_id:
+          description: Id Commande
+          type: integer
+        df_commande_taux_tva:
+          description: Taux TVA
+          type: number
+        df_commande_paiement:
+          description: Paiement
+          type: string
+        df_commande_delai:
+          description: Délai de commande
+          type: string
+        df_commande_date:
+          description: Date de commande
+          type: string
+        row_id:
+          description: Id
+          type: string
+        DF_Commande_DF_Client_id__df_client_id:
+          description: Id Client DF client
+          type: integer
+        df_commande_prix_tonne:
+          description: Prix Tonne
+          type: number
+        DF_Commande_DF_Client_id:
+          description: DF client
+          type: string
+    Error403:
+      type: object
+      properties:
+        error:
+          description: Error message
+          type: string
+        status:
+          description: Error status
+          type: integer
+          enum:
+          - 403
     ArrayOfDF_Devis:
       type: array
       items:
@@ -81,19 +321,6 @@ components:
         DF_ligne_commande_DF_Produit_Finis_id__df_produit_finition:
           description: Finition DF produit finis
           type: string
-    ArrayOfDF_ligne_commande:
-      type: array
-      items:
-        $ref: '#/components/schemas/DF_ligne_commande'
-    PublicationResult:
-      type: object
-      properties:
-        mime:
-          description: MIME type
-          type: string
-        content:
-          description: Content (plain text or base64 encoded)
-          type: string
     DF_Fournisseurs:
       type: object
       properties:
@@ -115,10 +342,6 @@ components:
         row_id:
           description: Id
           type: string
-    ArrayOfDF_Fournisseurs:
-      type: array
-      items:
-        $ref: '#/components/schemas/DF_Fournisseurs'
     ArrayOfDF_Ligne_Devis:
       type: array
       items:
@@ -138,6 +361,9 @@ components:
         DF_Devis_DF_Client_id__df_client_id:
           description: Id Client DF client
           type: integer
+        DF_Devis_DF_Chantier_id:
+          description: DF chantier
+          type: string
         df_devis_telephone:
           description: Téléphone
           type: string
@@ -153,6 +379,9 @@ components:
         df_devis_date_emission:
           description: Date Emission
           type: string
+        DF_Devis_DF_Chantier_id__df_chantier_reference:
+          description: Référence chantier DF chantier
+          type: string
         df_devis_commentaire:
           description: Commentaire
           type: string
@@ -167,6 +396,9 @@ components:
         df_devis_lieu_projet:
           description: Lieu Projet
           type: string
+        DF_Devis_DF_Chantier_id__df_chantier_date_debut:
+          description: Date début DF chantier
+          type: string
         df_devis_numero:
           description: Numéro Devis
           type: integer
@@ -179,6 +411,9 @@ components:
         row_id:
           description: Id
           type: string
+        DF_Devis_DF_Chantier_id__df_chantier_id:
+          description: Id chantier DF chantier
+          type: integer
     DF_Client:
       type: object
       properties:
@@ -294,57 +529,6 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/DF_Produit_Finis'
-    DF_Ligne_Devis:
-      type: object
-      properties:
-        df_ligne_devis_id:
-          description: Ligne Devis ID
-          type: integer
-        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_haut:
-          description: Hauteur DF produit finis
-          type: number
-        df_ligne_devis_prix_total_ht:
-          description: Prix Total HT
-          type: number
-        DF_Ligne_Devis_DF_Produit_Finis_id:
-          description: DF produit finis
-          type: string
-        DF_Ligne_Devis_DF_Devis_id__df_devis_numero:
-          description: Numéro Devis DF devis
-          type: integer
-        DF_Ligne_Devis_DF_Devis_id__df_devis_titre:
-          description: Titre Devis DF devis
-          type: string
-        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_larg:
-          description: Largeur DF produit finis
-          type: number
-        DF_Ligne_Devis_DF_Devis_id:
-          description: DF devis
-          type: string
-        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_id:
-          description: Id Produit DF produit finis
-          type: integer
-        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_designation:
-          description: Designation DF produit finis
-          type: string
-        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_finition:
-          description: Finition DF produit finis
-          type: string
-        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_prix:
-          description: Prix DF produit finis
-          type: number
-        df_ligne_devis_quantite:
-          description: 'Quantité '
-          type: integer
-        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_nom:
-          description: Nom Produit DF produit finis
-          type: string
-        row_id:
-          description: Id
-          type: string
-        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_long:
-          description: Longueur DF produit finis
-          type: number
     ActionResult:
       type: object
       properties:
@@ -437,115 +621,10 @@ components:
         item:
           description: Object item with lists of linked objects' items
           type: object
-    ArrayOfDF_Contact:
-      type: array
-      items:
-        $ref: '#/components/schemas/DF_Contact'
     ArrayOfDF_Commande:
       type: array
       items:
         $ref: '#/components/schemas/DF_Commande'
-    Error400:
-      type: object
-      properties:
-        error:
-          description: Error message
-          type: string
-        status:
-          description: Error status
-          type: integer
-          enum:
-          - 400
-    Error401:
-      type: object
-      properties:
-        error:
-          description: Error message
-          type: string
-        status:
-          description: Error status
-          type: integer
-          enum:
-          - 401
-    Error500:
-      type: object
-      properties:
-        error:
-          description: Error message
-          type: string
-        status:
-          description: Error status
-          type: integer
-          enum:
-          - 500
-    DF_Commande:
-      type: object
-      properties:
-        df_commande_indexation_monetaire:
-          description: Indexation monétaire
-          type: string
-        df_commande_ref_chantier:
-          description: Référence de chantier
-          type: string
-        df_commande_validite_offre:
-          description: Validité de l'offre
-          type: integer
-        df_commande_numero:
-          description: Numéro de Commande
-          type: string
-        df_commande_taux_de_remise:
-          description: Taux de remise
-          type: number
-        df_commande_id_livraison:
-          description: Id Livraison
-          type: integer
-        df_commande_redacteur:
-          description: 'Rédacteur '
-          type: string
-        df_commande_facture:
-          description: Facture
-          type: string
-        df_commande_detail_livraison:
-          description: Détail de livraison
-          type: string
-        df_commande_id:
-          description: Id Commande
-          type: integer
-        df_commande_taux_tva:
-          description: Taux TVA
-          type: number
-        df_commande_paiement:
-          description: Paiement
-          type: string
-        df_commande_delai:
-          description: Délai de commande
-          type: string
-        df_commande_date:
-          description: Date de commande
-          type: string
-        row_id:
-          description: Id
-          type: string
-        DF_Commande_DF_Client_id__df_client_id:
-          description: Id Client DF client
-          type: integer
-        df_commande_prix_tonne:
-          description: Prix Tonne
-          type: number
-        DF_Commande_DF_Client_id:
-          description: DF client
-          type: string
-    Error403:
-      type: object
-      properties:
-        error:
-          description: Error message
-          type: string
-        status:
-          description: Error status
-          type: integer
-          enum:
-          - 403
   securitySchemes:
     basicAuth:
       scheme: basic
@@ -556,6 +635,201 @@ components:
       type: http
 openapi: 3.0.2
 paths:
+  /rest/DF_Chantier/{row_id}:
+    post:
+      summary: Create a new DF_Chantierbusiness object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DF_Chantier'
+      operationId: obj-df_chantier-create
+      responses:
+        '200':
+          description: Success in creating a new business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DF_Chantier'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_Chantier
+    get:
+      summary: Get a DF_Chantier business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-df_chantier-get
+      responses:
+        '200':
+          description: Success in getting a single business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DF_Chantier'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: row ID (or empty or _ for all row IDs)
+        required: true
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_documents
+        description: Inline documents?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_objects
+        description: Inline objects?
+        required: false
+      tags:
+      - DF_Chantier
+    delete:
+      summary: Delete a DF_Chantier business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-df_chantier-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+          content:
+            application/json: {}
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_Chantier
+    put:
+      summary: Update a DF_Chantierbusiness object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DF_Chantier'
+      operationId: obj-df_chantier-update
+      responses:
+        '200':
+          description: Success in updating a business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DF_Chantier'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_Chantier
   /rest/DF_Contact:
     get:
       summary: Search DF_Contact business object records or get contextualized metadata
@@ -1245,6 +1519,30 @@ paths:
         name: DF_Devis_DF_Client_id__df_client_nom
         description: Search filter for Nom Client DF client
         required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Devis_DF_Chantier_id
+        description: Search filter for DF chantier
+        required: false
+      - schema:
+          type: integer
+        in: query
+        name: DF_Devis_DF_Chantier_id__df_chantier_id
+        description: Search filter for Id chantier DF chantier
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Devis_DF_Chantier_id__df_chantier_reference
+        description: Search filter for Référence chantier DF chantier
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Devis_DF_Chantier_id__df_chantier_date_debut
+        description: Search filter for Date début DF chantier
+        required: false
       tags:
       - DF_Devis
   /rest/DF_Produit_Finis/{row_id}:
@@ -1592,6 +1890,161 @@ paths:
         required: false
       tags:
       - DF_ligne_commande
+  /rest/DF_Chantier:
+    get:
+      summary: Search DF_Chantier business object records or get contextualized metadata
+      security:
+      - bearerAuth: []
+      operationId: obj-df_chantier-search
+      responses:
+        '200':
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArrayOfDF_Chantier'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: boolean
+        in: query
+        name: _metadata
+        description: Metadata?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _count
+        description: Count?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _doc
+        description: Documentation?
+        required: false
+      - schema:
+          type: integer
+        in: query
+        name: df_chantier_id
+        description: Search filter for Id chantier
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: df_chantier_reference
+        description: Search filter for Référence chantier
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: df_chantier_date_debut
+        description: Search filter for Date début
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Chantier_DF_Client_id
+        description: Search filter for DF client
+        required: false
+      - schema:
+          type: integer
+        in: query
+        name: DF_Chantier_DF_Client_id__df_client_id
+        description: Search filter for Id Client DF client
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Chantier_DF_Client_id__df_client_nom
+        description: Search filter for Nom Client DF client
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Chantier_DF_Client_id__df_client_telephone
+        description: Search filter for Téképhone DF client
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Chantier_DF_Client_id__df_client_ville
+        description: Search filter for Ville DF client
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Chantier_DF_Client_id__df_client_pays
+        description: Search filter for Pays DF client
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Chantier_DF_Client_id__df_client_cedex
+        description: Search filter for CEDEX DF client
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Chantier_DF_Client_id__df_client_adresse_3
+        description: Search filter for Adresse 3 DF client
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Chantier_DF_Client_id__df_client_adresse_2
+        description: Search filter for Adresse 2 DF client
+        required: false
+      - schema:
+          type: integer
+        in: query
+        name: DF_Chantier_DF_Client_id__df_client_code_postal
+        description: Search filter for Code Postal DF client
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Chantier_DF_Client_id__df_client_description
+        description: Search filter for Description DF client
+        required: false
+      - schema:
+          type: string
+          enum:
+          - T
+          - V
+          - N
+          - P
+          - A
+        in: query
+        name: DF_Chantier_DF_Client_id__df_client_id_secteur_activite
+        description: Search filter for Id Secteur Activité DF client
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Chantier_DF_Client_id__df_client_adresse
+        description: Search filter for Adresse DF client
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Chantier_DF_Client_id__df_client_region
+        description: Search filter for Region DF client
+        required: false
+      tags:
+      - DF_Chantier
   /:
     get:
       summary: Get user session information
@@ -3361,6 +3814,8 @@ info:
   title: DeFilippis
   version: '0.1'
 tags:
+- name: DF_Chantier
+  description: DF chantier
 - name: DF_Client
   description: DF client
 - name: DF_Commande
