@@ -335,3 +335,34 @@ Objet metier pour produit.
 
 No custom action
 
+`DF_Transport` business object definition
+-----------------------------------------
+
+
+
+### Fields
+
+| Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
+| ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
+| `df_transport_id`                                            | int(11)                                  | yes*     | yes       |          | -                                                                                |
+| `df_transport_nom`                                           | char(36)                                 | yes      | yes       |          | -                                                                                |
+| `DF_Transport_DF_Client_id` link to **`DF_Client`**          | id                                       |          | yes       |          | -                                                                                |
+| _Ref. `DF_Transport_DF_Client_id.df_client_id`_              | _int(11)_                                |          |           |          | -                                                                                |
+| _Ref. `DF_Transport_DF_Client_id.df_client_nom`_             | _char(36)_                               |          |           |          | -                                                                                |
+| _Ref. `DF_Transport_DF_Client_id.df_client_telephone`_       | _phone(100)_                             |          |           |          | -                                                                                |
+| _Ref. `DF_Transport_DF_Client_id.df_client_adresse`_         | _char(32)_                               |          |           |          | -                                                                                |
+| _Ref. `DF_Transport_DF_Client_id.df_client_ville`_           | _char(32)_                               |          |           |          | -                                                                                |
+| _Ref. `DF_Transport_DF_Client_id.df_client_code_postal`_     | _int(8)_                                 |          |           |          | -                                                                                |
+| _Ref. `DF_Transport_DF_Client_id.df_client_adresse_2`_       | _char(32)_                               |          |           |          | -                                                                                |
+| _Ref. `DF_Transport_DF_Client_id.df_client_region`_          | _char(32)_                               |          |           |          | -                                                                                |
+| _Ref. `DF_Transport_DF_Client_id.df_client_adresse_3`_       | _char(32)_                               |          |           |          | -                                                                                |
+| _Ref. `DF_Transport_DF_Client_id.df_client_cedex`_           | _char(32)_                               |          |           |          | -                                                                                |
+| _Ref. `DF_Transport_DF_Client_id.df_client_pays`_            | _char(32)_                               |          |           |          | -                                                                                |
+| `DF_Transport_DF_Chantier_id` link to **`DF_Chantier`**      | id                                       |          | yes       |          | -                                                                                |
+| _Ref. `DF_Transport_DF_Chantier_id.df_chantier_id`_          | _int(9)_                                 |          |           |          | -                                                                                |
+| _Ref. `DF_Transport_DF_Chantier_id.df_chantier_reference`_   | _char(36)_                               |          |           |          | -                                                                                |
+
+### Custom actions
+
+No custom action
+

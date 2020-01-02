@@ -104,6 +104,10 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/DF_Chantier'
+    ArrayOfDF_Transport:
+      type: array
+      items:
+        $ref: '#/components/schemas/DF_Transport'
     DF_Ligne_Devis:
       type: object
       properties:
@@ -260,6 +264,63 @@ components:
           type: integer
           enum:
           - 403
+    DF_Transport:
+      type: object
+      properties:
+        DF_Transport_DF_Client_id__df_client_adresse_2:
+          description: Adresse 2 DF client
+          type: string
+        DF_Transport_DF_Client_id__df_client_adresse_3:
+          description: Adresse 3 DF client
+          type: string
+        df_transport_id:
+          description: Id Transport
+          type: integer
+        DF_Transport_DF_Client_id__df_client_adresse:
+          description: Adresse DF client
+          type: string
+        DF_Transport_DF_Client_id__df_client_cedex:
+          description: CEDEX DF client
+          type: string
+        DF_Transport_DF_Client_id__df_client_nom:
+          description: Nom Client DF client
+          type: string
+        df_transport_nom:
+          description: Nom
+          type: string
+        DF_Transport_DF_Chantier_id:
+          description: DF chantier
+          type: string
+        DF_Transport_DF_Client_id__df_client_region:
+          description: Region DF client
+          type: string
+        DF_Transport_DF_Client_id__df_client_id:
+          description: Id Client DF client
+          type: integer
+        DF_Transport_DF_Client_id__df_client_code_postal:
+          description: Code Postal DF client
+          type: integer
+        DF_Transport_DF_Client_id:
+          description: DF client
+          type: string
+        DF_Transport_DF_Client_id__df_client_telephone:
+          description: Téképhone DF client
+          type: string
+        DF_Transport_DF_Chantier_id__df_chantier_reference:
+          description: Référence chantier DF chantier
+          type: string
+        DF_Transport_DF_Chantier_id__df_chantier_id:
+          description: Id chantier DF chantier
+          type: integer
+        DF_Transport_DF_Client_id__df_client_pays:
+          description: Pays DF client
+          type: string
+        row_id:
+          description: Id
+          type: string
+        DF_Transport_DF_Client_id__df_client_ville:
+          description: Ville DF client
+          type: string
     ArrayOfDF_Devis:
       type: array
       items:
@@ -3802,6 +3863,350 @@ paths:
         required: false
       tags:
       - DF_Ligne_Devis
+  /rest/DF_Transport/{row_id}:
+    post:
+      summary: Create a new DF_Transportbusiness object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DF_Transport'
+      operationId: obj-df_transport-create
+      responses:
+        '200':
+          description: Success in creating a new business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DF_Transport'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_Transport
+    get:
+      summary: Get a DF_Transport business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-df_transport-get
+      responses:
+        '200':
+          description: Success in getting a single business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DF_Transport'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: row ID (or empty or _ for all row IDs)
+        required: true
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_documents
+        description: Inline documents?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_objects
+        description: Inline objects?
+        required: false
+      tags:
+      - DF_Transport
+    delete:
+      summary: Delete a DF_Transport business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-df_transport-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+          content:
+            application/json: {}
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_Transport
+    put:
+      summary: Update a DF_Transportbusiness object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DF_Transport'
+      operationId: obj-df_transport-update
+      responses:
+        '200':
+          description: Success in updating a business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DF_Transport'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_Transport
+  /rest/DF_Transport:
+    get:
+      summary: Search DF_Transport business object records or get contextualized metadata
+      security:
+      - bearerAuth: []
+      operationId: obj-df_transport-search
+      responses:
+        '200':
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArrayOfDF_Transport'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: boolean
+        in: query
+        name: _metadata
+        description: Metadata?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _count
+        description: Count?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _doc
+        description: Documentation?
+        required: false
+      - schema:
+          type: integer
+        in: query
+        name: df_transport_id
+        description: Search filter for Id Transport
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: df_transport_nom
+        description: Search filter for Nom
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Transport_DF_Client_id
+        description: Search filter for DF client
+        required: false
+      - schema:
+          type: integer
+        in: query
+        name: DF_Transport_DF_Client_id__df_client_id
+        description: Search filter for Id Client DF client
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Transport_DF_Client_id__df_client_nom
+        description: Search filter for Nom Client DF client
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Transport_DF_Client_id__df_client_telephone
+        description: Search filter for Téképhone DF client
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Transport_DF_Client_id__df_client_adresse
+        description: Search filter for Adresse DF client
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Transport_DF_Client_id__df_client_ville
+        description: Search filter for Ville DF client
+        required: false
+      - schema:
+          type: integer
+        in: query
+        name: DF_Transport_DF_Client_id__df_client_code_postal
+        description: Search filter for Code Postal DF client
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Transport_DF_Client_id__df_client_adresse_2
+        description: Search filter for Adresse 2 DF client
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Transport_DF_Client_id__df_client_region
+        description: Search filter for Region DF client
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Transport_DF_Client_id__df_client_adresse_3
+        description: Search filter for Adresse 3 DF client
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Transport_DF_Client_id__df_client_cedex
+        description: Search filter for CEDEX DF client
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Transport_DF_Client_id__df_client_pays
+        description: Search filter for Pays DF client
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Transport_DF_Chantier_id
+        description: Search filter for DF chantier
+        required: false
+      - schema:
+          type: integer
+        in: query
+        name: DF_Transport_DF_Chantier_id__df_chantier_id
+        description: Search filter for Id chantier DF chantier
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Transport_DF_Chantier_id__df_chantier_reference
+        description: Search filter for Référence chantier DF chantier
+        required: false
+      tags:
+      - DF_Transport
 info:
   license:
     name: Simplicite license
@@ -3832,3 +4237,5 @@ tags:
   description: DF ligne devis
 - name: DF_Produit_Finis
   description: DF produit finis
+- name: DF_Transport
+  description: DF transport
