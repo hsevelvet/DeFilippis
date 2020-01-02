@@ -5664,7 +5664,7 @@ Objet métier pour fournisseur.]]></obo_comment>
 		<obo_name>DF_Ligne_Devis</obo_name>
 		<obo_dbtable>df_ligne_devis</obo_dbtable>
 		<obo_class/>
-		<obo_script_id/>
+		<obo_script_id>src/com/simplicite/objects/DeFilippis/DF_Ligne_Devis.java</obo_script_id>
 		<obo_usets>1</obo_usets>
 		<obo_nosearch>1</obo_nosearch>
 		<obo_comment/>
