@@ -63,7 +63,7 @@ Objet metier pour client.
 
 | Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
-| `df_client_id`                                               | int(11)                                  | yes*     |           |          | -                                                                                |
+| `df_client_id`                                               | int(11)                                  | yes*     | yes       |          | -                                                                                |
 | `df_client_nom`                                              | char(36)                                 | yes      | yes       |          | -                                                                                |
 | `df_client_email`                                            | email(100)                               | yes      | yes       |          | -                                                                                |
 | `df_client_telephone`                                        | phone(100)                               | yes      | yes       |          | -                                                                                |
@@ -203,8 +203,8 @@ Objet metier pour devis.
 | `df_devis_email`                                             | email(100)                               | yes      | yes       |          | -                                                                                |
 | `df_devis_date_emission`                                     | datetime                                 | yes      | yes       |          | -                                                                                |
 | `df_devis_statut`                                            | enum(7) using `STATUT_DEVIS` list        | yes      | yes       |          | -                                                                                |
-| `df_devis_tva`                                               | float(11, 2)                             |          |           |          | -                                                                                |
-| `df_devis_prix_total`                                        | int(11)                                  |          |           |          | -                                                                                |
+| `df_devis_tva`                                               | float(11, 2)                             |          | yes       |          | -                                                                                |
+| `df_devis_prix_total`                                        | float(11, 0)                             |          |           |          | -                                                                                |
 | `df_devis_commentaire`                                       | text(100)                                |          | yes       |          | -                                                                                |
 | `DF_Devis_DF_Client_id` link to **`DF_Client`**              | id                                       |          | yes       |          | -                                                                                |
 | _Ref. `DF_Devis_DF_Client_id.df_client_id`_                  | _int(11)_                                |          |           |          | -                                                                                |

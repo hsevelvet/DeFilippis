@@ -728,7 +728,7 @@ paths:
       - in: query
         name: df_devis_prix_total
         description: Search filter for Prix Total
-        type: integer
+        type: number
         required: false
       - in: query
         name: df_devis_commentaire
@@ -3384,7 +3384,7 @@ definitions:
         type: string
       df_devis_prix_total:
         description: Prix Total
-        type: integer
+        type: number
       df_devis_date_emission:
         description: Date Emission
         type: string
