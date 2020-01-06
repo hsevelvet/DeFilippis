@@ -2,6 +2,8 @@ package com.simplicite.objects.DeFilippis;
 
 import java.util.*;
 import com.simplicite.util.*;
+import com.simplicite.util.ObjectDB;
+import com.simplicite.objects.DeFilippis.DF_Ligne_Devis;
 import com.simplicite.util.tools.*;
 
 /**
@@ -12,27 +14,14 @@ import com.simplicite.util.tools.*;
 public class DF_Devis extends ObjectDB {
     private static final long serialVersionUID = 1L;
     
-    public static double sum(List<Double> list) {
-    	int sum = 0;
-    	for (double i: list) {
-        	sum += i;
-		}
-    	return sum;
-	}
-	
 	
 
 	@Override
 	public void initUpdate(){
+		ObjectDB o = getGrant().getTmpObject("DF_Ligne_Devis");
 		
-		List<Double> pricel = new ArrayList<>();
-    
-    	while (getField("df_produit_id").getInt(0) == 1){
-    		pricel.add(getField("df_ligne_devis_prix_total_ht").getDouble(0));
-		}
-
- 
-		double t = sum(pricel);
+		double c = o.getCount();
+		double t = Double.parseDouble(o.getField("df_ligne_devis_prix_total_ht").getListOperatorValue());
 		
 		double tva = getField("df_devis_tva").getDouble(0);
 		
