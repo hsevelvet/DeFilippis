@@ -14,8 +14,9 @@ public class DF_Ligne_Devis extends ObjectDB {
 	public void initUpdate(){
 		
 		int q = getField("df_ligne_devis_quantite").getInt(0);
+		double c = getField("df_ligne_devis_cout_transport").getDouble(0);
         double p = getField("df_produit_prix").getDouble(0);
-        double total = p*q;
+        double total = p*q + c;
         setFieldValue("df_ligne_devis_prix_total_ht", total);
         
         
