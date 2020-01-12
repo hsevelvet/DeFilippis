@@ -303,6 +303,23 @@ No custom action
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.df_produit_prix`_  | _float(100, 2)_                          |          |           |          | -                                                                                |
 | _Ref. `df_devis_numero.df_ligne_devis_id_devis`_             | _int(100)_                               |          |           |          | -                                                                                |
 | `df_ligne_devis_cout_transport`                              | float(100, 2)                            | yes      | yes       |          | -                                                                                |
+| `df_ligne_devis_longueur`                                    | float(100, 2)                            | yes      | yes       |          | -                                                                                |
+| `df_ligne_devis_laregur`                                     | float(100, 2)                            | yes      | yes       |          | -                                                                                |
+| `df_ligne_devis_epaisseur`                                   | float(100, 2)                            | yes      | yes       |          | -                                                                                |
+| `df_ligne_devis_dim_joints`                                  | float(4, 2)                              | yes      | yes       |          | -                                                                                |
+| `df_ligne_devis_poids_total`                                 | float(100, 2)                            | yes      | yes       |          | -                                                                                |
+| `df_ligne_devis_poids_total_reference`                       | float(100, 2)                            | yes      | yes       |          | -                                                                                |
+| `df_ligne_devis_nombre_camions`                              | float(4, 2)                              | yes      | yes       |          | -                                                                                |
+| `df_ligne_devis_masse_unitaire_ac_joint`                     | float(4, 2)                              | yes      | yes       |          | -                                                                                |
+| `df_ligne_devis_masse_unitaire_ss_joint`                     | float(4, 2)                              | yes      | yes       |          | -                                                                                |
+| `df_ligne_devis_prix_debourse_sec`                           | float(10, 2)                             | yes      | yes       |          | -                                                                                |
+| `df_ligne_devis_prix_transport_unitaire`                     | float(10, 2)                             | yes      | yes       |          | -                                                                                |
+| `df_ligne_devis_total_achat_reference_ht`                    | float(11, 2)                             | yes      | yes       |          | -                                                                                |
+| `df_ligne_devis_total_achat_ht`                              | float(11, 2)                             | yes      | yes       |          | -                                                                                |
+| `df_ligne_devis_coef`                                        | float(3, 2)                              | yes      | yes       |          | -                                                                                |
+| `df_ligne_devis_coef_global`                                 | bigdec(3, 2)                             | yes      | yes       |          | -                                                                                |
+| `df_ligne_devis_prix_vente_calcule`                          | float(6, 2)                              | yes      | yes       |          | -                                                                                |
+| `df_ligne_devis_prix_vente_impose`                           | float(6, 2)                              | yes      | yes       |          | -                                                                                |
 
 ### Custom actions
 
@@ -448,6 +465,12 @@ No custom action
 * `SelectionClient`: 
 * `SelectionProduit`: 
 * `CreationLigneDevis`: 
+* `SelectionDevis`: 
 * `CreationDevis`: 
-* `CreationDevis`: 
+
+`Test_1` external object definition
+-----------------------------------
+
+
+
 

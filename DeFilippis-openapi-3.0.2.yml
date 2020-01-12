@@ -94,7 +94,7 @@ components:
           description: Date début
           type: string
         row_id:
-          description: Id
+          description: Unique technical row ID
           type: string
         DF_Chantier_DF_Client_id__df_client_adresse_3:
           description: Adresse 3 DF client
@@ -118,17 +118,35 @@ components:
     DF_Ligne_Devis:
       type: object
       properties:
+        df_ligne_devis_epaisseur:
+          description: Epaisseur
+          type: number
         df_ligne_devis_id:
           description: Ligne Devis ID
           type: integer
         DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_haut:
           description: Hauteur DF produit finis
           type: number
+        df_ligne_devis_total_achat_ht:
+          description: Total Achat HT
+          type: number
+        df_ligne_devis_longueur:
+          description: Longueur
+          type: number
+        df_ligne_devis_total_achat_reference_ht:
+          description: Total Achat Référence HT
+          type: number
         df_ligne_devis_prix_total_ht:
           description: Prix Total HT
           type: number
-        DF_Ligne_Devis_DF_Produit_Finis_id:
-          description: DF produit finis
+        df_ligne_devis_masse_unitaire_ss_joint:
+          description: Masse Unitaire sans Joints
+          type: number
+        df_ligne_devis_masse_unitaire_ac_joint:
+          description: Masse Unitaire avec Joints
+          type: number
+        df_ligne_devis_coef_global:
+          description: Coefficient Global
           type: string
         df_ligne_devis_id_devis:
           description: Devis
@@ -136,38 +154,71 @@ components:
         DF_Ligne_Devis_DF_Devis_id__df_devis_titre:
           description: Titre Devis DF devis
           type: string
-        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_larg:
-          description: Largeur DF produit finis
-          type: number
         DF_Ligne_Devis_DF_Devis_id:
           description: DF devis
           type: string
         df_ligne_devis_cout_transport:
           description: Coût Transport
           type: number
-        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_id:
-          description: Id Produit DF produit finis
-          type: integer
         DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_designation:
           description: Designation DF produit finis
           type: string
         DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_finition:
           description: Finition DF produit finis
           type: string
-        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_prix:
-          description: Prix DF produit finis
-          type: number
         df_ligne_devis_quantite:
-          description: 'Quantité '
+          description: Quantité
           type: integer
         DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_nom:
           description: Nom Produit DF produit finis
           type: string
+        df_ligne_devis_prix_vente_calcule:
+          description: Prix Vente Calculé
+          type: number
+        df_ligne_devis_prix_transport_unitaire:
+          description: Prix transport unitaire
+          type: number
+        df_ligne_devis_coef:
+          description: Coef
+          type: number
+        df_ligne_devis_poids_total:
+          description: Poids Total
+          type: number
+        DF_Ligne_Devis_DF_Produit_Finis_id:
+          description: DF produit finis
+          type: string
+        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_larg:
+          description: Largeur DF produit finis
+          type: number
+        df_ligne_devis_laregur:
+          description: Largeur
+          type: number
+        df_ligne_devis_dim_joints:
+          description: Dimension des joints
+          type: number
+        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_id:
+          description: Id Produit DF produit finis
+          type: integer
+        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_prix:
+          description: Prix DF produit finis
+          type: number
+        df_ligne_devis_prix_vente_impose:
+          description: Prix Vente Imposé
+          type: number
+        df_ligne_devis_nombre_camions:
+          description: Nombre Camions
+          type: number
         row_id:
-          description: Id
+          description: Unique technical row ID
           type: string
         DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_long:
           description: Longueur DF produit finis
+          type: number
+        df_ligne_devis_poids_total_reference:
+          description: Poids Total Référence
+          type: number
+        df_ligne_devis_prix_debourse_sec:
+          description: Prix déboursé sec
           type: number
     ArrayOfDF_Contact:
       type: array
@@ -228,7 +279,7 @@ components:
           description: Id Livraison
           type: integer
         df_commande_redacteur:
-          description: 'Rédacteur '
+          description: Rédacteur
           type: string
         df_commande_facture:
           description: Facture
@@ -252,7 +303,7 @@ components:
           description: Date de commande
           type: string
         row_id:
-          description: Id
+          description: Unique technical row ID
           type: string
         DF_Commande_DF_Client_id__df_client_id:
           description: Id Client DF client
@@ -293,7 +344,7 @@ components:
           description: DF chantier
           type: string
         row_id:
-          description: Id
+          description: Unique technical row ID
           type: string
         DF_Livraison_DF_Plan_Livraison_id:
           description: DF plan livraison
@@ -350,7 +401,7 @@ components:
           description: Pays DF client
           type: string
         row_id:
-          description: Id
+          description: Unique technical row ID
           type: string
         DF_Transport_DF_Client_id__df_client_ville:
           description: Ville DF client
@@ -414,7 +465,7 @@ components:
           description: DF produit finis
           type: string
         row_id:
-          description: Id
+          description: Unique technical row ID
           type: string
         DF_ligne_commande_DF_Produit_Finis_id__df_produit_finition:
           description: Finition DF produit finis
@@ -442,7 +493,7 @@ components:
           description: E-mail
           type: string
         row_id:
-          description: Id
+          description: Unique technical row ID
           type: string
     ArrayOfDF_Ligne_Devis:
       type: array
@@ -461,7 +512,7 @@ components:
           description: TVA
           type: number
         DF_Devis_DF_Client_id__df_client_id:
-          description: 'Id Client '
+          description: Id Client
           type: integer
         DF_Devis_DF_Chantier_id:
           description: DF chantier
@@ -508,7 +559,7 @@ components:
           description: Nom Client
           type: string
         row_id:
-          description: Id
+          description: Unique technical row ID
           type: string
     DF_Plan_Livraison:
       type: object
@@ -520,7 +571,7 @@ components:
           description: Id Plan Livraison
           type: integer
         row_id:
-          description: Id
+          description: Unique technical row ID
           type: string
         df_plan_livraison_date_chargement:
           description: Date de chargement
@@ -583,7 +634,7 @@ components:
           description: Ville
           type: string
         row_id:
-          description: Id
+          description: Unique technical row ID
           type: string
         df_client_tx_remise:
           description: Taux de remise
@@ -639,7 +690,7 @@ components:
           description: Fournisseurs
           type: string
         row_id:
-          description: Id
+          description: Unique technical row ID
           type: string
         df_produit_designation:
           description: Designation
@@ -671,7 +722,7 @@ components:
           description: df test name
           type: string
         row_id:
-          description: Id
+          description: Unique technical row ID
           type: string
     ActionResult:
       type: object
@@ -745,7 +796,7 @@ components:
           - M
           - F
         __id:
-          description: ' id'
+          description: id
           type: string
         df_contact_fax:
           description: Fax
@@ -754,7 +805,7 @@ components:
           description: Portable
           type: string
         row_id:
-          description: Id
+          description: Unique technical row ID
           type: string
         df_contact_id:
           description: Id Contact
@@ -826,7 +877,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       tags:
       - DF_Livraison
@@ -865,7 +916,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       - schema:
           type: boolean
@@ -926,7 +977,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       tags:
       - DF_Livraison
@@ -976,7 +1027,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       tags:
       - DF_Livraison
@@ -1021,7 +1072,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       tags:
       - DF_Chantier
@@ -1060,7 +1111,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       - schema:
           type: boolean
@@ -1121,7 +1172,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       tags:
       - DF_Chantier
@@ -1171,7 +1222,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       tags:
       - DF_Chantier
@@ -1589,7 +1640,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       tags:
       - DF_Produit_Finis
@@ -1628,7 +1679,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       - schema:
           type: boolean
@@ -1689,7 +1740,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       tags:
       - DF_Produit_Finis
@@ -1739,7 +1790,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       tags:
       - DF_Produit_Finis
@@ -1784,7 +1835,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       tags:
       - DF_Plan_Livraison
@@ -1823,7 +1874,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       - schema:
           type: boolean
@@ -1884,7 +1935,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       tags:
       - DF_Plan_Livraison
@@ -1934,7 +1985,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       tags:
       - DF_Plan_Livraison
@@ -2057,7 +2108,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       tags:
       - DF_Commande
@@ -2096,7 +2147,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       - schema:
           type: boolean
@@ -2157,7 +2208,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       tags:
       - DF_Commande
@@ -2207,7 +2258,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       tags:
       - DF_Commande
@@ -2252,7 +2303,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       tags:
       - DF_Devis
@@ -2291,7 +2342,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       - schema:
           type: boolean
@@ -2352,7 +2403,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       tags:
       - DF_Devis
@@ -2402,7 +2453,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       tags:
       - DF_Devis
@@ -2447,7 +2498,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       tags:
       - DF_ligne_commande
@@ -2486,7 +2537,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       - schema:
           type: boolean
@@ -2547,7 +2598,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       tags:
       - DF_ligne_commande
@@ -2597,7 +2648,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       tags:
       - DF_ligne_commande
@@ -2642,7 +2693,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       tags:
       - DF_Contact
@@ -2681,7 +2732,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       - schema:
           type: boolean
@@ -2742,7 +2793,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       tags:
       - DF_Contact
@@ -2792,7 +2843,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       tags:
       - DF_Contact
@@ -3160,7 +3211,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       tags:
       - DF_Client
@@ -3199,7 +3250,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       - schema:
           type: boolean
@@ -3260,7 +3311,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       tags:
       - DF_Client
@@ -3310,7 +3361,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       tags:
       - DF_Client
@@ -3659,7 +3710,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       tags:
       - DF_Test
@@ -3698,7 +3749,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       - schema:
           type: boolean
@@ -3759,7 +3810,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       tags:
       - DF_Test
@@ -3809,7 +3860,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       tags:
       - DF_Test
@@ -4345,7 +4396,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       tags:
       - DF_Ligne_Devis
@@ -4384,7 +4435,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       - schema:
           type: boolean
@@ -4445,7 +4496,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       tags:
       - DF_Ligne_Devis
@@ -4495,7 +4546,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       tags:
       - DF_Ligne_Devis
@@ -4540,7 +4591,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       tags:
       - DF_Fournisseurs
@@ -4579,7 +4630,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       - schema:
           type: boolean
@@ -4640,7 +4691,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       tags:
       - DF_Fournisseurs
@@ -4690,7 +4741,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       tags:
       - DF_Fournisseurs
@@ -4895,6 +4946,108 @@ paths:
         name: df_ligne_devis_cout_transport
         description: Search filter for Coût Transport
         required: false
+      - schema:
+          type: number
+        in: query
+        name: df_ligne_devis_longueur
+        description: Search filter for Longueur
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: df_ligne_devis_laregur
+        description: Search filter for Largeur
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: df_ligne_devis_epaisseur
+        description: Search filter for Epaisseur
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: df_ligne_devis_dim_joints
+        description: Search filter for Dimension des joints
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: df_ligne_devis_poids_total
+        description: Search filter for Poids Total
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: df_ligne_devis_poids_total_reference
+        description: Search filter for Poids Total Référence
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: df_ligne_devis_nombre_camions
+        description: Search filter for Nombre Camions
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: df_ligne_devis_masse_unitaire_ac_joint
+        description: Search filter for Masse Unitaire avec Joints
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: df_ligne_devis_masse_unitaire_ss_joint
+        description: Search filter for Masse Unitaire sans Joints
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: df_ligne_devis_prix_debourse_sec
+        description: Search filter for Prix déboursé sec
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: df_ligne_devis_prix_transport_unitaire
+        description: Search filter for Prix transport unitaire
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: df_ligne_devis_total_achat_reference_ht
+        description: Search filter for Total Achat Référence HT
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: df_ligne_devis_total_achat_ht
+        description: Search filter for Total Achat HT
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: df_ligne_devis_coef
+        description: Search filter for Coef
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: df_ligne_devis_coef_global
+        description: Search filter for Coefficient Global
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: df_ligne_devis_prix_vente_calcule
+        description: Search filter for Prix Vente Calculé
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: df_ligne_devis_prix_vente_impose
+        description: Search filter for Prix Vente Imposé
+        required: false
       tags:
       - DF_Ligne_Devis
   /rest/DF_Transport/{row_id}:
@@ -4938,7 +5091,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       tags:
       - DF_Transport
@@ -4977,7 +5130,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       - schema:
           type: boolean
@@ -5038,7 +5191,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       tags:
       - DF_Transport
@@ -5088,7 +5241,7 @@ paths:
           type: string
         in: path
         name: row_id
-        description: row ID (or empty or _ for all row IDs)
+        description: Row ID (or empty or _ for all row IDs)
         required: true
       tags:
       - DF_Transport
