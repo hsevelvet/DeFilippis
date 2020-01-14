@@ -29,6 +29,15 @@ import java.net.URL;
 import java.util.Scanner;
 
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import com.simplicite.util.exceptions.APIException;
+import com.simplicite.util.tools.Parameters;
+import com.simplicite.util.tools.TrelloTool;
+
+
+
 /**
  * Business object DF_Livraison
  */
@@ -38,6 +47,12 @@ public class DF_Livraison extends ObjectDB {
 	private static final String token = "d21e3ce0d931ba69fb1f6dcd971bd182cfe8e4ca84e00f6c4a46792e6bf967b7";
 	private static final String boardNameValue = "DefilippisLivraison";
 	private static final String listNameValue = "À faire";
+
+
+
+	public static final String BOARD_ID = "SFldG59G";
+	private TrelloTool tt = null;
+	private JSONObject settings = null;
 
 	
 	
@@ -63,7 +78,7 @@ public class DF_Livraison extends ObjectDB {
 	    }
 	    return json;
 	}
-	
+	/*
 	public String test(){
 		 // Create Client
 		String urlBoard = "https://api.trello.com/1/members/me/boards?key="+key+"&token="+token;
@@ -110,20 +125,115 @@ public class DF_Livraison extends ObjectDB {
 
 		
 		return result;
+	}*/
+	
+	
+	public String descriptionCreate(){
+		String desc = "";
+		desc =  "\n **Livraison ID** :"+ getFieldValue("df_livraison_id");
+		desc += "\n **Adresse de Livraison** :"+ getFieldValue("df_livraison_adresse");
+		desc += "\n **MAJ Statut** :[De Filippis]("+ getFieldValue("df_livraison_adresse")+")";
+
+		return desc;
+	}
+	public String test(){
+		if (tt == null) return null;
+		try {
+				JSONObject card = new JSONObject()
+				.put("name", getFieldValue("df_livraison_id"))
+				.put("desc", descriptionCreate());
+			card = tt.addCard(settings.getString("defaultListId"), card);
+			AppLog.info(getClass(), "preCreate", card.toString(2), getGrant());
+			setFieldValue("df_livraison_trellocardid", "123");
+			setFieldValue("df_livraison_adresse","1233333");
+
+			return Message.formatSimpleInfo("Trello card created"  + card.getString("id"));
+		/*if (getFieldValue("df_livraison_trellocardid").length()>0){
+			String id = getFieldValue("df_livraison_trellocardid");
+			JSONObject card = tt.getCard(id);
+			card.put("name", getFieldValue("df_livraison_id"));
+			card.put("desc", descriptionCreate());
+			tt.updateCard(id, card);
+			//setFieldValue("df_livraison_trellocardid", card.getString("id"));
+
+			AppLog.info(getClass(), "preUpdate", card.toString(2), getGrant());
+			return Message.formatSimpleInfo("Trello card updated");
+			}
+			else {
+			JSONObject card = new JSONObject()
+				.put("name", getFieldValue("df_livraison_id"))
+				.put("desc", descriptionCreate());
+			card = tt.addCard(settings.getString("defaultListId"), card);
+			AppLog.info(getClass(), "preCreate", card.toString(2), getGrant());
+			setFieldValue("df_livraison_trellocardid", card.getString("id"));
+
+			return Message.formatSimpleInfo("Trello card created");
+			}*/
+		} catch (APIException e) { // Prevents creation if card creation fails
+			AppLog.error(getClass(), "preCreate", null, e, getGrant());
+			return Message.formatSimpleError("Card creation error: " + e.getMessage());
+		}
+		
 	}
 	
 	
-	
-	
-	
-	
 	@Override
-	public String postUpdate() {
-		
-		
-		//return Message.formatInfo("INFO_CODE", "Message", "fieldName");
-		//return Message.formatWarning("WARNING_CODE", "Message", "fieldName");
-		//return Message.formatError("ERROR_CODE", "Message", "fieldName");
-		return null;
+	public void postLoad() {
+		AppLog.info(getClass(), "postLoad", "Instance: " + getInstanceName(), getGrant());
+		if (!getInstanceName().startsWith("webhook_")) {
+			tt = new TrelloTool(getGrant());
+			AppLog.info(getClass(), "postLoad", "Trello tool API key: " + tt.getKey(), getGrant());
+			settings = getGrant().getJSONObjectParameter("TRELLO_CARDEX_SETTINGS");
+			AppLog.info(getClass(), "postLoad", "Settings: " + settings.toString(2), getGrant());
+		}
+	}
+
+	@Override
+	public String preCreate() {
+		if (tt == null) return null;
+		try {
+			JSONObject card = new JSONObject()
+				.put("name", getFieldValue("df_livraison_id"))
+				.put("desc", getFieldValue("df_livraison_id"));
+			card = tt.addCard(settings.getString("defaultListId"), card);
+			AppLog.info(getClass(), "preCreate", card.toString(2), getGrant());
+			setFieldValue("df_livraison_trellocardid", card.getString("id"));
+
+			return Message.formatSimpleInfo("Trello card created");
+		} catch (APIException e) { // Prevents creation if card creation fails
+			AppLog.error(getClass(), "preCreate", null, e, getGrant());
+			return Message.formatSimpleError("Card creation error: " + e.getMessage());
+		}
+	}
+
+	@Override
+	public String preUpdate() {
+		if (tt == null) return null;
+		try {
+			String id = getFieldValue("df_livraison_trellocardid");
+			JSONObject card = tt.getCard(id);
+
+			card.put("name", getFieldValue("df_livraison_id"));
+			card.put("desc", getFieldValue("df_livraison_id"));
+			tt.updateCard(id, card);
+			AppLog.info(getClass(), "preUpdate", card.toString(2), getGrant());
+
+			return Message.formatSimpleInfo("Trello card updated");
+		} catch (APIException e) { // Prevents deletion if card creation fails
+			AppLog.error(getClass(), "postUpdate", null, e, getGrant());
+			return Message.formatSimpleError("Card update error: " + e.getMessage());
+		}
+	}
+
+	@Override
+	public String preDelete() {
+		if (tt == null) return null;
+		try {
+			tt.deleteCard(getFieldValue("df_livraison_trellocardid"));
+			return null;
+		} catch (APIException e) { // Prevents deletion if card creation fails
+			AppLog.error(getClass(), "postLoad", null, e, getGrant());
+			return Message.formatSimpleError("Card deletion error: " + e.getMessage());
+		}
 	}
 }

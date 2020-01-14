@@ -267,7 +267,7 @@ No custom action
 | _Ref. `DF_ligne_commande_DF_Produit_Finis_id.df_produit_haut`_ | _float(5, 2)_                            |          |           |          | -                                                                                |
 | _Ref. `DF_ligne_commande_DF_Produit_Finis_id.df_produit_finition`_ | _char(20)_                               |          |           |          | -                                                                                |
 | _Ref. `DF_ligne_commande_DF_Produit_Finis_id.df_produit_unite`_ | _char(4)_                                |          |           |          | -                                                                                |
-| _Ref. `DF_ligne_commande_DF_Produit_Finis_id.df_produit_prix`_ | _float(100, 2)_                          |          |           |          | -                                                                                |
+| _Ref. `DF_ligne_commande_DF_Produit_Finis_id.df_produit_prix`_ | _float(10, 2)_                           |          |           |          | -                                                                                |
 | `DF_ligne_commande_DF_Commande_id` link to **`DF_Commande`** | id                                       |          | yes       |          | -                                                                                |
 | _Ref. `DF_ligne_commande_DF_Commande_id.df_commande_id`_     | _int(11)_                                |          |           |          | -                                                                                |
 | _Ref. `DF_ligne_commande_DF_Commande_id.df_commande_numero`_ | _char(32)_                               |          |           |          | -                                                                                |
@@ -292,26 +292,16 @@ No custom action
 | `df_ligne_devis_prix_total_ht`                               | float(100, 2)                            |          |           |          | -                                                                                |
 | `DF_Ligne_Devis_DF_Devis_id` link to **`DF_Devis`**          | id                                       |          | yes       |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Devis_id.df_devis_titre`_           | _char(100)_                              |          |           |          | -                                                                                |
-| `DF_Ligne_Devis_DF_Produit_Finis_id` link to **`DF_Produit_Finis`** | id                                       | *        | yes       |          | -                                                                                |
-| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.df_produit_id`_    | _int(11)_                                |          |           |          | -                                                                                |
-| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.df_produit_nom`_   | _char(15)_                               |          |           |          | -                                                                                |
-| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.df_produit_long`_  | _float(5, 2)_                            |          |           |          | -                                                                                |
-| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.df_produit_larg`_  | _float(5, 2)_                            |          |           |          | -                                                                                |
-| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.df_produit_designation`_ | _char(20)_                               |          |           |          | -                                                                                |
-| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.df_produit_haut`_  | _float(5, 2)_                            |          |           |          | -                                                                                |
-| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.df_produit_finition`_ | _char(20)_                               |          |           |          | -                                                                                |
-| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.df_produit_prix`_  | _float(100, 2)_                          |          |           |          | -                                                                                |
-| _Ref. `df_devis_numero.df_ligne_devis_id_devis`_             | _int(100)_                               |          |           |          | -                                                                                |
 | `df_ligne_devis_cout_transport`                              | float(100, 2)                            | yes      | yes       |          | -                                                                                |
-| `df_ligne_devis_longueur`                                    | float(100, 2)                            | yes      | yes       |          | -                                                                                |
-| `df_ligne_devis_laregur`                                     | float(100, 2)                            | yes      | yes       |          | -                                                                                |
-| `df_ligne_devis_epaisseur`                                   | float(100, 2)                            | yes      | yes       |          | -                                                                                |
+| `df_ligne_devis_longueur`                                    | float(6, 2)                              |          | yes       |          | -                                                                                |
+| `df_ligne_devis_laregur`                                     | float(6, 2)                              | yes      | yes       |          | -                                                                                |
+| `df_ligne_devis_epaisseur`                                   | float(6, 2)                              | yes      | yes       |          | -                                                                                |
 | `df_ligne_devis_dim_joints`                                  | float(4, 2)                              | yes      | yes       |          | -                                                                                |
-| `df_ligne_devis_poids_total`                                 | float(100, 2)                            | yes      | yes       |          | -                                                                                |
-| `df_ligne_devis_poids_total_reference`                       | float(100, 2)                            | yes      | yes       |          | -                                                                                |
-| `df_ligne_devis_nombre_camions`                              | float(4, 2)                              | yes      | yes       |          | -                                                                                |
-| `df_ligne_devis_masse_unitaire_ac_joint`                     | float(4, 2)                              | yes      | yes       |          | -                                                                                |
-| `df_ligne_devis_masse_unitaire_ss_joint`                     | float(4, 2)                              | yes      | yes       |          | -                                                                                |
+| `df_ligne_devis_poids_total`                                 | float(9, 2)                              | yes      | yes       |          | -                                                                                |
+| `df_ligne_devis_poids_total_reference`                       | float(9, 2)                              | yes      | yes       |          | -                                                                                |
+| `df_ligne_devis_nombre_camions`                              | float(9, 2)                              | yes      | yes       |          | -                                                                                |
+| `df_ligne_devis_masse_unitaire_ac_joint`                     | float(8, 2)                              |          | yes       |          | -                                                                                |
+| `df_ligne_devis_masse_unitaire_ss_joint`                     | float(8, 2)                              |          | yes       |          | -                                                                                |
 | `df_ligne_devis_prix_debourse_sec`                           | float(10, 2)                             | yes      | yes       |          | -                                                                                |
 | `df_ligne_devis_prix_transport_unitaire`                     | float(10, 2)                             | yes      | yes       |          | -                                                                                |
 | `df_ligne_devis_total_achat_reference_ht`                    | float(11, 2)                             | yes      | yes       |          | -                                                                                |
@@ -320,6 +310,32 @@ No custom action
 | `df_ligne_devis_coef_global`                                 | bigdec(3, 2)                             | yes      | yes       |          | -                                                                                |
 | `df_ligne_devis_prix_vente_calcule`                          | float(6, 2)                              | yes      | yes       |          | -                                                                                |
 | `df_ligne_devis_prix_vente_impose`                           | float(6, 2)                              | yes      | yes       |          | -                                                                                |
+| `df_ligne_devis_masse_volumique`                             | float(8, 2)                              | yes      | yes       |          | -                                                                                |
+| `df_ligne_devis_bdd`                                         | enum(7) using `DF_LIGNE_DEVIS_BDD` list  | yes      | yes       |          | -                                                                                |
+| `df_ligne_devis_famille`                                     | enum(7) using `DF_LIGNE_DEVIS_FAMILLE` list | yes      | yes       |          | -                                                                                |
+| `df_ligne_devis_ref`                                         | char(30)                                 |          | yes       |          | -                                                                                |
+| `df_ligne_devis_designation`                                 | text(100)                                | yes      | yes       |          | -                                                                                |
+| `df_ligne_devis_unite`                                       | char(5) using `DF_LIGNE_DEVIS_UNITE` list | yes      | yes       |          | -                                                                                |
+| `df_ligne_devis_id_produit`                                  | int(11)                                  |          | yes       |          | -                                                                                |
+| `df_ligne_devis_nom_produit`                                 | char(70)                                 |          | yes       |          | -                                                                                |
+| `df_ligne_devis_prix_produit`                                | float(10, 2)                             |          | yes       |          | -                                                                                |
+
+### Lists
+
+* `DF_LIGNE_DEVIS_BDD`
+    - `CF` CFPM
+    - `PY` PORPHYRE
+    - `GR` GRES
+    - `GG` GRANIT GRIS
+    - `LU` LUZERNE
+    - `AN` ANDESITA
+* `DF_LIGNE_DEVIS_FAMILLE`
+    - `BO` BORDURE
+    - `PA` PAVE
+    - `DA` DALLE
+    - `MA` MARCHE
+    - `BR` BORNE
+    - `CA` CANIVEAU
 
 ### Custom actions
 
@@ -337,6 +353,7 @@ No custom action
 | `df_livraison_id`                                            | int(100)                                 | yes*     | yes       |          | -                                                                                |
 | `DF_Livraison_DF_Plan_Livraison_id` link to **`DF_Plan_Livraison`** | id                                       |          | yes       |          | -                                                                                |
 | _Ref. `DF_Livraison_DF_Plan_Livraison_id.df_plan_lvr_id`_    | _int(11)_                                |          |           |          | -                                                                                |
+| `df_livraison_trellocardid`                                  | char(30)                                 |          | yes       |          | -                                                                                |
 | `df_livraison_statut`                                        | boolean                                  | yes      | yes       |          | -                                                                                |
 | `df_livraison_adresse`                                       | char(200)                                |          | yes       |          | -                                                                                |
 | `DF_Livraison_DF_Chantier_id` link to **`DF_Chantier`**      | id                                       |          | yes       |          | -                                                                                |
@@ -382,7 +399,7 @@ Objet metier pour produit.
 | `df_produit_commentaire`                                     | char(30)                                 |          | yes       |          | -                                                                                |
 | `df_produit_unite`                                           | char(4)                                  | yes      | yes       |          | -                                                                                |
 | `df_produit_source`                                          | char(10)                                 | yes      | yes       |          | -                                                                                |
-| `df_produit_prix`                                            | float(100, 2)                            | yes      | yes       |          | -                                                                                |
+| `df_produit_prix`                                            | float(10, 2)                             | yes      | yes       |          | -                                                                                |
 | `df_produit_type_geologique`                                 | enum(7) using `DF_PRODUIT_TYPE_GEOLOGIQUE` list |          | yes       |          | -                                                                                |
 | `df_produit_couleur`                                         | enum(7) using `DF_PRODUIT_COULEUR` list  |          | yes       |          | -                                                                                |
 | `DF_Produit_Finis_DF_Fournisseurs_id` link to **`DF_Fournisseurs`** | id                                       |          | yes       |          | -                                                                                |
