@@ -293,15 +293,15 @@ No custom action
 | `DF_Ligne_Devis_DF_Devis_id` link to **`DF_Devis`**          | id                                       |          | yes       |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Devis_id.df_devis_titre`_           | _char(100)_                              |          |           |          | -                                                                                |
 | `df_ligne_devis_cout_transport`                              | float(100, 2)                            | yes      | yes       |          | -                                                                                |
-| `df_ligne_devis_longueur`                                    | float(6, 2)                              |          | yes       |          | -                                                                                |
+| `df_ligne_devis_longueur`                                    | float(6, 2)                              | yes      | yes       |          | -                                                                                |
 | `df_ligne_devis_laregur`                                     | float(6, 2)                              | yes      | yes       |          | -                                                                                |
 | `df_ligne_devis_epaisseur`                                   | float(6, 2)                              | yes      | yes       |          | -                                                                                |
 | `df_ligne_devis_dim_joints`                                  | float(4, 2)                              | yes      | yes       |          | -                                                                                |
 | `df_ligne_devis_poids_total`                                 | float(9, 2)                              | yes      | yes       |          | -                                                                                |
-| `df_ligne_devis_poids_total_reference`                       | float(9, 2)                              | yes      | yes       |          | -                                                                                |
+| `df_ligne_devis_prix_transport_reference`                    | float(9, 2)                              | yes      | yes       |          | -                                                                                |
 | `df_ligne_devis_nombre_camions`                              | float(9, 2)                              | yes      | yes       |          | -                                                                                |
-| `df_ligne_devis_masse_unitaire_ac_joint`                     | float(8, 2)                              |          | yes       |          | -                                                                                |
-| `df_ligne_devis_masse_unitaire_ss_joint`                     | float(8, 2)                              |          | yes       |          | -                                                                                |
+| `df_ligne_devis_masse_unitaire_ac_joint`                     | float(8, 2)                              | yes      | yes       |          | -                                                                                |
+| `df_ligne_devis_masse_unitaire_ss_joint`                     | float(8, 2)                              | yes      | yes       |          | -                                                                                |
 | `df_ligne_devis_prix_debourse_sec`                           | float(10, 2)                             | yes      | yes       |          | -                                                                                |
 | `df_ligne_devis_prix_transport_unitaire`                     | float(10, 2)                             | yes      | yes       |          | -                                                                                |
 | `df_ligne_devis_total_achat_reference_ht`                    | float(11, 2)                             | yes      | yes       |          | -                                                                                |
@@ -319,6 +319,11 @@ No custom action
 | `df_ligne_devis_id_produit`                                  | int(11)                                  |          | yes       |          | -                                                                                |
 | `df_ligne_devis_nom_produit`                                 | char(70)                                 |          | yes       |          | -                                                                                |
 | `df_ligne_devis_prix_produit`                                | float(10, 2)                             |          | yes       |          | -                                                                                |
+| `df_ligne_devis_nb_elt_ss_joint`                             | float(5, 2)                              | yes      | yes       |          | -                                                                                |
+| `df_ligne_devis_nb_elt_ac_joint`                             | float(5, 2)                              | yes      | yes       |          | -                                                                                |
+| `df_ligne_devis_prix_exw_u`                                  | float(9, 2)                              | yes      | yes       |          | -                                                                                |
+| `df_ligne_devis_prix_exw_unite`                              | float(10, 2)                             | yes      | yes       |          | -                                                                                |
+| `df_ligne_devis_prix_exw_t`                                  | float(9, 2)                              | yes      | yes       |          | -                                                                                |
 
 ### Lists
 

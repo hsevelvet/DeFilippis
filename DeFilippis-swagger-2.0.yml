@@ -3428,8 +3428,8 @@ paths:
         type: number
         required: false
       - in: query
-        name: df_ligne_devis_poids_total_reference
-        description: Search filter for Poids Total Référence
+        name: df_ligne_devis_prix_transport_reference
+        description: Search filter for Prix Transport Référence
         type: number
         required: false
       - in: query
@@ -3544,6 +3544,31 @@ paths:
       - in: query
         name: df_ligne_devis_prix_produit
         description: Search filter for Prix Produit
+        type: number
+        required: false
+      - in: query
+        name: df_ligne_devis_nb_elt_ss_joint
+        description: Search filter for Nombre d'éléments sans joint
+        type: number
+        required: false
+      - in: query
+        name: df_ligne_devis_nb_elt_ac_joint
+        description: Search filter for Nombre d'éléments avec joint
+        type: number
+        required: false
+      - in: query
+        name: df_ligne_devis_prix_exw_u
+        description: Search filter for Prix EXW / U
+        type: number
+        required: false
+      - in: query
+        name: df_ligne_devis_prix_exw_unite
+        description: Search filter for Prix EXW / Unité
+        type: number
+        required: false
+      - in: query
+        name: df_ligne_devis_prix_exw_t
+        description: Search filter for Prix EXW / Tonne
         type: number
         required: false
       tags:
@@ -3834,14 +3859,23 @@ definitions:
       df_ligne_devis_epaisseur:
         description: Epaisseur
         type: number
+      df_ligne_devis_prix_transport_reference:
+        description: Prix Transport Référence
+        type: number
       df_ligne_devis_id:
         description: Ligne Devis ID
         type: integer
       df_ligne_devis_total_achat_ht:
         description: Total Achat HT
         type: number
+      df_ligne_devis_nb_elt_ss_joint:
+        description: Nombre d'éléments sans joint
+        type: number
       df_ligne_devis_longueur:
         description: Longueur
+        type: number
+      df_ligne_devis_prix_exw_unite:
+        description: Prix EXW / Unité
         type: number
       df_ligne_devis_total_achat_reference_ht:
         description: Total Achat Référence HT
@@ -3852,12 +3886,18 @@ definitions:
       df_ligne_devis_masse_unitaire_ss_joint:
         description: Masse Unitaire sans Joints
         type: number
+      df_ligne_devis_prix_exw_u:
+        description: Prix EXW / U
+        type: number
       df_ligne_devis_masse_unitaire_ac_joint:
         description: Masse Unitaire avec Joints
         type: number
       df_ligne_devis_coef_global:
         description: Coefficient Global
         type: string
+      df_ligne_devis_prix_exw_t:
+        description: Prix EXW / Tonne
+        type: number
       DF_Ligne_Devis_DF_Devis_id__df_devis_titre:
         description: Titre Devis DF devis
         type: string
@@ -3896,6 +3936,9 @@ definitions:
         - GG
         - LU
         - AN
+      df_ligne_devis_nb_elt_ac_joint:
+        description: Nombre d'éléments avec joint
+        type: number
       df_ligne_devis_prix_transport_unitaire:
         description: Prix transport unitaire
         type: number
@@ -3932,9 +3975,6 @@ definitions:
       row_id:
         description: Unique technical row ID
         type: string
-      df_ligne_devis_poids_total_reference:
-        description: Poids Total Référence
-        type: number
       df_ligne_devis_prix_debourse_sec:
         description: Prix déboursé sec
         type: number

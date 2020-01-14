@@ -139,16 +139,8 @@ public class DF_Livraison extends ObjectDB {
 	public String test(){
 		if (tt == null) return null;
 		try {
-				JSONObject card = new JSONObject()
-				.put("name", getFieldValue("df_livraison_id"))
-				.put("desc", descriptionCreate());
-			card = tt.addCard(settings.getString("defaultListId"), card);
-			AppLog.info(getClass(), "preCreate", card.toString(2), getGrant());
-			setFieldValue("df_livraison_trellocardid", "123");
-			setFieldValue("df_livraison_adresse","1233333");
 
-			return Message.formatSimpleInfo("Trello card created"  + card.getString("id"));
-		/*if (getFieldValue("df_livraison_trellocardid").length()>0){
+		if (getFieldValue("df_livraison_trellocardid").length()>0){
 			String id = getFieldValue("df_livraison_trellocardid");
 			JSONObject card = tt.getCard(id);
 			card.put("name", getFieldValue("df_livraison_id"));
@@ -168,7 +160,7 @@ public class DF_Livraison extends ObjectDB {
 			setFieldValue("df_livraison_trellocardid", card.getString("id"));
 
 			return Message.formatSimpleInfo("Trello card created");
-			}*/
+			}
 		} catch (APIException e) { // Prevents creation if card creation fails
 			AppLog.error(getClass(), "preCreate", null, e, getGrant());
 			return Message.formatSimpleError("Card creation error: " + e.getMessage());
@@ -194,7 +186,7 @@ public class DF_Livraison extends ObjectDB {
 		try {
 			JSONObject card = new JSONObject()
 				.put("name", getFieldValue("df_livraison_id"))
-				.put("desc", getFieldValue("df_livraison_id"));
+				.put("desc", descriptionCreate());
 			card = tt.addCard(settings.getString("defaultListId"), card);
 			AppLog.info(getClass(), "preCreate", card.toString(2), getGrant());
 			setFieldValue("df_livraison_trellocardid", card.getString("id"));
@@ -214,7 +206,7 @@ public class DF_Livraison extends ObjectDB {
 			JSONObject card = tt.getCard(id);
 
 			card.put("name", getFieldValue("df_livraison_id"));
-			card.put("desc", getFieldValue("df_livraison_id"));
+			card.put("desc", descriptionCreate());
 			tt.updateCard(id, card);
 			AppLog.info(getClass(), "preUpdate", card.toString(2), getGrant());
 
