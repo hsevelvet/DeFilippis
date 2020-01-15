@@ -13,13 +13,7 @@ public class DF_Ligne_Devis extends ObjectDB {
 	
 	@Override
 	public void initUpdate(){
-		// calcul total
-		//int q = getField("df_ligne_devis_quantite").getInt(0);
-		//double c = getField("df_ligne_devis_cout_transport").getDouble(0);
-        //double p = getField("df_produit_prix").getDouble(0);
-        //double total = p*q + c;
-        
-        //setFieldValue("df_ligne_devis_prix_total_ht", total);
+		
         
         // accès aux valeurs 
         String unite = getField("df_ligne_devis_unite").getValue();
@@ -141,7 +135,12 @@ public class DF_Ligne_Devis extends ObjectDB {
        else{
        	setFieldValue("df_ligne_devis_prix_vente_impose", pvi);
        }
+       
+       // calcul total
+		double total = pvi * qte;
+    	setFieldValue("df_ligne_devis_prix_total_ht", total);
 	}
+	
  
 	
 }

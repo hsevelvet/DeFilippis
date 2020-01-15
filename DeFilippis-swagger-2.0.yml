@@ -2789,6 +2789,11 @@ paths:
         type: string
         required: false
       - in: query
+        name: DF_Contact_DF_Livraison_id
+        description: Search filter for DF livraison
+        type: string
+        required: false
+      - in: query
         name: df_livraison_statut
         description: Search filter for Statut Livraison
         type: boolean
@@ -4112,6 +4117,9 @@ definitions:
         type: string
       row_id:
         description: Unique technical row ID
+        type: string
+      DF_Contact_DF_Livraison_id:
+        description: DF livraison
         type: string
       DF_Livraison_DF_Plan_Livraison_id:
         description: DF plan livraison
