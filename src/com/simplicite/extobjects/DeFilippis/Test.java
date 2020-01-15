@@ -13,11 +13,11 @@ import com.simplicite.util.tools.Parameters;
 import com.simplicite.util.exceptions.HTTPException;
 
 /**
- * External object Test_1
+ * Trello webhook
  */
-public class Test_1 extends com.simplicite.webapp.services.RESTServiceExternalObject {
+public class Test extends com.simplicite.webapp.services.RESTServiceExternalObject {
 	private static final long serialVersionUID = 1L;
-
+	
 	private static final JSONObject OK = new JSONObject().put("result", "ok");
 	
     @Override
@@ -32,19 +32,28 @@ public class Test_1 extends com.simplicite.webapp.services.RESTServiceExternalOb
 
 	private void updateCard(JSONObject card) {
 		try {
-			AppLog.info(getClass(), "updateCard", card.toString(2), getGrant());
+		/*	AppLog.info(getClass(), "updateCard", card.toString(2), getGrant());
 			String o = "TrelloCardExample";
 			ObjectDB obj = Grant.getSystemAdmin().getObject("webhook_" + o, o);
 			BusinessObjectTool objt = new BusinessObjectTool(obj);
 			obj.resetFilters();
 			obj.getField("trelloCardExCardId").setFilter(card.getString("id"));
+			List<String[]> rows = objt.search();*/
+			AppLog.info(getClass(), "updateCard",card.getString("name"), getGrant());
+			String o = "DF_Livraison";
+			ObjectDB obj = Grant.getSystemAdmin().getObject("webhook_" + o, o);
+			BusinessObjectTool objt = new BusinessObjectTool(obj);
+			obj.resetFilters();
+			obj.getField("df_livraison_id").setFilter(card.getString("name"));
 			List<String[]> rows = objt.search();
+			
+			
 			if (rows.size() == 1) {
 				obj.setValues(rows.get(0), true);
 				if (card.has("name"))
 					obj.setFieldValue("trelloCardExName", card.getString("name"));
 				if (card.has("desc"))
-					obj.setFieldValue("trelloCardExDescription", card.getString("idList")+card.getString("desc"));
+					obj.setFieldValue("trelloCardExDescription", card.getString("desc"));
 				objt.validateAndSave();
 			}
 		} catch (Exception e) {

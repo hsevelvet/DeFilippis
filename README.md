@@ -154,8 +154,6 @@ Objet metier pour contact.
 | `df_contact_statut`                                          | enum(7) using `DF_CONTACT_STATUT` list   | yes      | yes       |          | -                                                                                |
 | `df_contact_type`                                            | enum(7) using `DF_CONTACT_TYPE` list     | yes      | yes       |          | -                                                                                |
 | `df_contact_sous_type`                                       | enum(7) using `DF_CONTACT_SOUS_TYPE` list |          | yes       |          | -                                                                                |
-| `DF_Contact_DF_Livraison_id` link to **`DF_Livraison`**      | id                                       |          | yes       |          | -                                                                                |
-| _Ref. `DF_Contact_DF_Livraison_id.df_livraison_id`_          | _int(100)_                               |          |           |          | -                                                                                |
 
 ### Lists
 
@@ -491,8 +489,8 @@ No custom action
 * `SelectionDevis`: 
 * `CreationDevis`: 
 
-`Test_1` external object definition
------------------------------------
+`Test` external object definition
+---------------------------------
 
 
 

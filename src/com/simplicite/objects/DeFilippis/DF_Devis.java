@@ -18,8 +18,11 @@ public class DF_Devis extends ObjectDB {
 	@Override
 	public void initUpdate(){
 		ObjectDB o = getGrant().getTmpObject("DF_Ligne_Devis");
+		o.resetFilters();
+		o.getField("DF_Ligne_Devis_DF_Devis_id").setFilter(getRowId());
 		
-			
+		List<String[]> rows = o.search(false);
+		if (rows.size() > 0){
 		double c = o.getCount();
 			
 		double t = Double.parseDouble(o.getField("df_ligne_devis_prix_total_ht").getListOperatorValue());
@@ -28,6 +31,8 @@ public class DF_Devis extends ObjectDB {
 		
 		
 		setFieldValue("df_devis_prix_total", t + t*tva);
+		}
+		
 		}
 		
 			

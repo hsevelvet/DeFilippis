@@ -168,15 +168,27 @@ public class DF_Livraison extends ObjectDB {
 		
 	}
 	
-	
+
 	@Override
 	public void postLoad() {
 		AppLog.info(getClass(), "postLoad", "Instance: " + getInstanceName(), getGrant());
 		if (!getInstanceName().startsWith("webhook_")) {
 			tt = new TrelloTool(getGrant());
+			//tt.setDebug(true);
 			AppLog.info(getClass(), "postLoad", "Trello tool API key: " + tt.getKey(), getGrant());
 			settings = getGrant().getJSONObjectParameter("TRELLO_CARDEX_SETTINGS");
 			AppLog.info(getClass(), "postLoad", "Settings: " + settings.toString(2), getGrant());
+
+			String contextURL = getGrant().getContextURL();
+			if (!Tool.isEmpty(contextURL)) {
+				String webhookURL = contextURL + HTMLTool.getPublicExternalObjectURL("Test");
+				try {
+					String webhookId = tt.registerWebhook(settings.getString("boardId"), webhookURL, "Webhook for " + Globals.getPlatformName());
+					AppLog.info(getClass(), "postLoad", "Registered webhook: " + webhookId, getGrant());
+				} catch (APIException e) {
+					AppLog.error(getClass(), "postLoad", "Unable to register the webhook: " + webhookURL, e, getGrant());
+				}
+			}
 		}
 	}
 
@@ -186,7 +198,7 @@ public class DF_Livraison extends ObjectDB {
 		try {
 			JSONObject card = new JSONObject()
 				.put("name", getFieldValue("df_livraison_id"))
-				.put("desc", descriptionCreate());
+				.put("desc", getFieldValue("df_livraison_adresse"));
 			card = tt.addCard(settings.getString("defaultListId"), card);
 			AppLog.info(getClass(), "preCreate", card.toString(2), getGrant());
 			setFieldValue("df_livraison_trellocardid", card.getString("id"));
@@ -206,7 +218,7 @@ public class DF_Livraison extends ObjectDB {
 			JSONObject card = tt.getCard(id);
 
 			card.put("name", getFieldValue("df_livraison_id"));
-			card.put("desc", descriptionCreate());
+			card.put("desc", getFieldValue("df_livraison_adresse"));
 			tt.updateCard(id, card);
 			AppLog.info(getClass(), "preUpdate", card.toString(2), getGrant());
 
@@ -225,7 +237,7 @@ public class DF_Livraison extends ObjectDB {
 			return null;
 		} catch (APIException e) { // Prevents deletion if card creation fails
 			AppLog.error(getClass(), "postLoad", null, e, getGrant());
-			return Message.formatSimpleError("Card deletion error: " + e.getMessage());
+			return null;//Message.formatSimpleError("Card deletion error: " + e.getMessage());
 		}
 	}
 }

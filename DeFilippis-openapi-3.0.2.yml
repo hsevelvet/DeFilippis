@@ -842,12 +842,6 @@ components:
         df_contact_id:
           description: Id Contact
           type: integer
-        DF_Contact_DF_Livraison_id__df_livraison_id:
-          description: Id Livraison DF livraison
-          type: integer
-        DF_Contact_DF_Livraison_id:
-          description: DF livraison
-          type: string
     TreeviewData:
       type: object
       properties:
@@ -1427,18 +1421,6 @@ paths:
         in: query
         name: df_contact_sous_type
         description: Search filter for Sous Type
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: DF_Contact_DF_Livraison_id
-        description: Search filter for DF livraison
-        required: false
-      - schema:
-          type: integer
-        in: query
-        name: DF_Contact_DF_Livraison_id__df_livraison_id
-        description: Search filter for Id Livraison DF livraison
         required: false
       tags:
       - DF_Contact
