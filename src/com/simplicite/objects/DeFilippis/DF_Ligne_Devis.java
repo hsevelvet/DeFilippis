@@ -9,7 +9,7 @@ import com.simplicite.util.tools.*;
  */
 public class DF_Ligne_Devis extends ObjectDB {
 	private static final long serialVersionUID = 1L;
-	
+
 	
 	@Override
 	public void initUpdate(){
@@ -141,6 +141,6 @@ public class DF_Ligne_Devis extends ObjectDB {
     	setFieldValue("df_ligne_devis_prix_total_ht", total);
 	}
 	
- 
+
 	
 }

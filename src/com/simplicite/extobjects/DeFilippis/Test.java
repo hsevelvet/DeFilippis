@@ -40,11 +40,11 @@ public class Test extends com.simplicite.webapp.services.RESTServiceExternalObje
 			obj.getField("trelloCardExCardId").setFilter(card.getString("id"));
 			List<String[]> rows = objt.search();*/
 			AppLog.info(getClass(), "updateCard",card.getString("name"), getGrant());
-			String o = "DF_Livraison";
+			String o = "DF_test";
 			ObjectDB obj = Grant.getSystemAdmin().getObject("webhook_" + o, o);
 			BusinessObjectTool objt = new BusinessObjectTool(obj);
 			obj.resetFilters();
-			obj.getField("df_livraison_id").setFilter(card.getString("name"));
+			obj.getField("DF_test_id").setFilter();
 			List<String[]> rows = objt.search();
 			
 			

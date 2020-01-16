@@ -441,6 +441,21 @@ components:
         DF_Transport_DF_Livraison_id:
           description: DF livraison
           type: string
+    DF_test:
+      type: object
+      properties:
+        df_test_id:
+          description: df test id
+          type: integer
+        df_test_name:
+          description: df test name
+          type: string
+        row_id:
+          description: Unique technical row ID
+          type: string
+        df_test_trellocardid:
+          description: df test trellocardid
+          type: string
     ArrayOfDF_Devis:
       type: array
       items:
@@ -502,10 +517,6 @@ components:
         DF_ligne_commande_DF_Produit_Finis_id__df_produit_finition:
           description: Finition DF produit finis
           type: string
-    ArrayOfDF_Test:
-      type: array
-      items:
-        $ref: '#/components/schemas/DF_Test'
     DF_Fournisseurs:
       type: object
       properties:
@@ -744,18 +755,6 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/DF_Produit_Finis'
-    DF_Test:
-      type: object
-      properties:
-        df_test_id:
-          description: df test id
-          type: integer
-        df_test_name:
-          description: df test name
-          type: string
-        row_id:
-          description: Unique technical row ID
-          type: string
     ActionResult:
       type: object
       properties:
@@ -848,6 +847,10 @@ components:
         item:
           description: Object item with lists of linked objects' items
           type: object
+    ArrayOfDF_test:
+      type: array
+      items:
+        $ref: '#/components/schemas/DF_test'
     ArrayOfDF_Commande:
       type: array
       items:
@@ -3165,6 +3168,71 @@ paths:
         required: false
       tags:
       - DF_Transport
+  /rest/DF_test:
+    get:
+      summary: Search DF_test business object records or get contextualized metadata
+      security:
+      - bearerAuth: []
+      operationId: obj-df_test-search
+      responses:
+        '200':
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArrayOfDF_test'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: boolean
+        in: query
+        name: _metadata
+        description: Metadata?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _count
+        description: Count?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _doc
+        description: Documentation?
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: df_test_trellocardid
+        description: Search filter for df test trellocardid
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: df_test_name
+        description: Search filter for df test name
+        required: false
+      - schema:
+          type: integer
+        in: query
+        name: df_test_id
+        description: Search filter for df test id
+        required: false
+      tags:
+      - DF_test
   /logout:
     get:
       summary: Logout (revoke bearer token)
@@ -3683,16 +3751,16 @@ paths:
         required: false
       tags:
       - DF_ligne_commande
-  /rest/DF_Test/{row_id}:
+  /rest/DF_test/{row_id}:
     post:
-      summary: Create a new DF_Testbusiness object record
+      summary: Create a new DF_testbusiness object record
       security:
       - bearerAuth: []
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/DF_Test'
+              $ref: '#/components/schemas/DF_test'
       operationId: obj-df_test-create
       responses:
         '200':
@@ -3700,7 +3768,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DF_Test'
+                $ref: '#/components/schemas/DF_test'
         '400':
           description: Bad request
           content:
@@ -3727,9 +3795,9 @@ paths:
         description: Row ID (or empty or _ for all row IDs)
         required: true
       tags:
-      - DF_Test
+      - DF_test
     get:
-      summary: Get a DF_Test business object record
+      summary: Get a DF_test business object record
       security:
       - bearerAuth: []
       operationId: obj-df_test-get
@@ -3739,7 +3807,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DF_Test'
+                $ref: '#/components/schemas/DF_test'
         '401':
           description: Unauthorized
           content:
@@ -3784,9 +3852,9 @@ paths:
         description: Inline objects?
         required: false
       tags:
-      - DF_Test
+      - DF_test
     delete:
-      summary: Delete a DF_Test business object record
+      summary: Delete a DF_test business object record
       security:
       - bearerAuth: []
       operationId: obj-df_test-delete
@@ -3827,16 +3895,16 @@ paths:
         description: Row ID (or empty or _ for all row IDs)
         required: true
       tags:
-      - DF_Test
+      - DF_test
     put:
-      summary: Update a DF_Testbusiness object record
+      summary: Update a DF_testbusiness object record
       security:
       - bearerAuth: []
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/DF_Test'
+              $ref: '#/components/schemas/DF_test'
       operationId: obj-df_test-update
       responses:
         '200':
@@ -3844,7 +3912,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DF_Test'
+                $ref: '#/components/schemas/DF_test'
         '400':
           description: Bad request
           content:
@@ -3877,7 +3945,7 @@ paths:
         description: Row ID (or empty or _ for all row IDs)
         required: true
       tags:
-      - DF_Test
+      - DF_test
   /rest/DF_Plan_Livraison:
     get:
       summary: Search DF_Plan_Livraison business object records or get contextualized
@@ -4771,65 +4839,6 @@ paths:
         required: true
       tags:
       - DF_Fournisseurs
-  /rest/DF_Test:
-    get:
-      summary: Search DF_Test business object records or get contextualized metadata
-      security:
-      - bearerAuth: []
-      operationId: obj-df_test-search
-      responses:
-        '200':
-          description: Success in searching business object records (or in getting
-            contextualized business object metadata, documentation, ...)
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ArrayOfDF_Test'
-        '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error401'
-        '500':
-          description: Internal server error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error500'
-      parameters:
-      - schema:
-          type: boolean
-        in: query
-        name: _metadata
-        description: Metadata?
-        required: false
-      - schema:
-          type: boolean
-        in: query
-        name: _count
-        description: Count?
-        required: false
-      - schema:
-          type: boolean
-        in: query
-        name: _doc
-        description: Documentation?
-        required: false
-      - schema:
-          type: integer
-        in: query
-        name: df_test_id
-        description: Search filter for df test id
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: df_test_name
-        description: Search filter for df test name
-        required: false
-      tags:
-      - DF_Test
   /rest/DF_Ligne_Devis:
     get:
       summary: Search DF_Ligne_Devis business object records or get contextualized
@@ -5343,7 +5352,7 @@ tags:
   description: DF plan livraison
 - name: DF_Produit_Finis
   description: DF produit finis
-- name: DF_Test
+- name: DF_test
   description: DF test
 - name: DF_Transport
   description: DF transport

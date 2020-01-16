@@ -7,8 +7,16 @@
 		<mdl_name>DeFilippis</mdl_name>
 		<mdl_version>0.1</mdl_version>
 		<mdl_prefix/>
-		<mdl_url/>
-		<mdl_lastupd>2020-01-14 15:45:52</mdl_lastupd>
+		<mdl_url><![CDATA[{
+	"type": "git",
+	"origin": {
+		"uri": "https://github.com/hsevelvet/DeFilippis.git",
+		"username": "hsevelvet",
+		"password": "Tevlev@9607"
+	}
+}
+]]></mdl_url>
+		<mdl_lastupd>2020-01-16 16:07:19</mdl_lastupd>
 		<mdl_comment/>
 	</data>
 </object>
@@ -7159,6 +7167,43 @@ Tout accés alloués.]]></grp_comment>
 		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
 	</data>
 	<data>
+		<fld_name>df_test_trellocardid</fld_name>
+		<fld_dbname>df_test_trellocardid</fld_dbname>
+		<fld_visible>3</fld_visible>
+		<fld_updatable>1</fld_updatable>
+		<fld_required>0</fld_required>
+		<fld_fonctid>0</fld_fonctid>
+		<fld_research/>
+		<fld_researchreq>0</fld_researchreq>
+		<fld_sort>C</fld_sort>
+		<fld_more>0</fld_more>
+		<fld_listmore>0</fld_listmore>
+		<fld_listsum/>
+		<fld_tray>0</fld_tray>
+		<fld_type>13</fld_type>
+		<fld_type_id.flt_code/>
+		<fld_enumlist/>
+		<fld_list_id.lov_name/>
+		<fld_copy>1</fld_copy>
+		<fld_size>30</fld_size>
+		<fld_minsize/>
+		<fld_precision/>
+		<fld_fromdate_id.fld_name/>
+		<fld_dfault/>
+		<fld_indexable>0</fld_indexable>
+		<fld_autocomp>0</fld_autocomp>
+		<fld_groupby>0</fld_groupby>
+		<fld_updall>1</fld_updall>
+		<fld_case/>
+		<fld_righttoleft>0</fld_righttoleft>
+		<fld_rendering/>
+		<fld_calc/>
+		<fld_objlist/>
+		<fld_comment/>
+		<fld_classification/>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
 		<fld_name>DF_Transport_DF_Chantier_id</fld_name>
 		<fld_dbname>df_transport_df_chantier_id</fld_dbname>
 		<fld_visible>3</fld_visible>
@@ -7700,7 +7745,7 @@ Tout accés alloués.]]></grp_comment>
 		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
 	</data>
 	<data>
-		<tpl_name>DF_Test</tpl_name>
+		<tpl_name>DF_test</tpl_name>
 		<tpl_ui><![CDATA[<div class="area" data-area="1:="></div>
 ]]></tpl_ui>
 		<tpl_min/>
@@ -8229,12 +8274,13 @@ Tout accés alloués.]]></grp_comment>
 		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
 	</data>
 	<data>
-		<ofa_name>DF_Test-1</ofa_name>
+		<ofa_name>DF_test-1</ofa_name>
 		<ofa_position>1</ofa_position>
 		<ofa_title>1</ofa_title>
 		<ofa_ui><![CDATA[<div>
   <div class="field" data-field="df_test_id"></div>
   <div class="field" data-field="df_test_name"></div>
+  <div class="field" data-field="df_test_trellocardid"></div>
 </div>
 ]]></ofa_ui>
 		<ofa_icon>star</ofa_icon>
@@ -8972,8 +9018,8 @@ Objet metier pour produit.]]></obo_comment>
 		<obo_search_ts/>
 	</data>
 	<data>
-		<obo_name>DF_Test</obo_name>
-		<obo_dbtable>df_test</obo_dbtable>
+		<obo_name>DF_test</obo_name>
+		<obo_dbtable>DF_test</obo_dbtable>
 		<obo_class/>
 		<obo_script_id/>
 		<obo_usets>1</obo_usets>
@@ -8987,7 +9033,7 @@ Objet metier pour produit.]]></obo_comment>
 		<obo_indexable>0</obo_indexable>
 		<obo_groupby>0</obo_groupby>
 		<obo_dfltref/>
-		<obo_template_id.tpl_name>DF_Test</obo_template_id.tpl_name>
+		<obo_template_id.tpl_name>DF_test</obo_template_id.tpl_name>
 		<obo_cache>D</obo_cache>
 		<obo_copy>1</obo_copy>
 		<obo_export>1</obo_export>
@@ -14084,64 +14130,6 @@ Objet metier pour produit.]]></obo_comment>
 		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
 	</data>
 	<data>
-		<obf_object_id.obo_name>DF_Test</obf_object_id.obo_name>
-		<obf_field_id.fld_name>df_test_id</obf_field_id.fld_name>
-		<obf_field_id.fld_type>1</obf_field_id.fld_type>
-		<obf_order>10</obf_order>
-		<obf_group_by/>
-		<obf_dfault_order/>
-		<obf_input/>
-		<obf_ref_field_id.fld_name/>
-		<obf_ref_object_id.obo_name/>
-		<obf_cascad/>
-		<obf_card/>
-		<obf_visible/>
-		<obf_ref_export>1</obf_ref_export>
-		<obf_copy/>
-		<obf_ref_order/>
-		<obf_fld_visible/>
-		<obf_fld_required/>
-		<obf_fld_updatable/>
-		<obf_fld_research/>
-		<obf_fld_more/>
-		<obf_fld_listmore/>
-		<obf_fld_researchreq/>
-		<obf_fld_dfault/>
-		<obf_field_id.fld_dfault/>
-		<obf_area_id.ofa_name>DF_Test-1</obf_area_id.ofa_name>
-		<obf_area_id.ofa_position>1</obf_area_id.ofa_position>
-		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
-	</data>
-	<data>
-		<obf_object_id.obo_name>DF_Test</obf_object_id.obo_name>
-		<obf_field_id.fld_name>df_test_name</obf_field_id.fld_name>
-		<obf_field_id.fld_type>3</obf_field_id.fld_type>
-		<obf_order>20</obf_order>
-		<obf_group_by/>
-		<obf_dfault_order/>
-		<obf_input/>
-		<obf_ref_field_id.fld_name/>
-		<obf_ref_object_id.obo_name/>
-		<obf_cascad/>
-		<obf_card/>
-		<obf_visible/>
-		<obf_ref_export>1</obf_ref_export>
-		<obf_copy/>
-		<obf_ref_order/>
-		<obf_fld_visible/>
-		<obf_fld_required/>
-		<obf_fld_updatable/>
-		<obf_fld_research/>
-		<obf_fld_more/>
-		<obf_fld_listmore/>
-		<obf_fld_researchreq/>
-		<obf_fld_dfault/>
-		<obf_field_id.fld_dfault/>
-		<obf_area_id.ofa_name>DF_Test-1</obf_area_id.ofa_name>
-		<obf_area_id.ofa_position>1</obf_area_id.ofa_position>
-		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
-	</data>
-	<data>
 		<obf_object_id.obo_name>DF_Transport</obf_object_id.obo_name>
 		<obf_field_id.fld_name>df_transport_id</obf_field_id.fld_name>
 		<obf_field_id.fld_type>1</obf_field_id.fld_type>
@@ -15288,15 +15276,6 @@ Objet metier pour produit.]]></obo_comment>
 		<fct_view_id.viw_name/>
 		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
 	</data>
-	<data>
-		<fct_name>TrelloTest</fct_name>
-		<fct_object_id.obj_type>O</fct_object_id.obj_type>
-		<fct_object_id.obj_name>DF_Test</fct_object_id.obj_name>
-		<fct_function>A</fct_function>
-		<fct_action_id.act_name>ActionTrello</fct_action_id.act_name>
-		<fct_view_id.viw_name/>
-		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
-	</data>
 </object>
 <object>
 	<name>Grant</name>
@@ -15307,16 +15286,6 @@ Objet metier pour produit.]]></obo_comment>
 		<grt_function_id.fct_object_id.obj_type>O</grt_function_id.fct_object_id.obj_type>
 		<grt_function_id.fct_object_id.obj_name>DF_Livraison</grt_function_id.fct_object_id.obj_name>
 		<grt_function_id.fct_action_id.act_name>Livraison-CreateTicketTrello</grt_function_id.fct_action_id.act_name>
-		<grt_function_id.fct_function>A</grt_function_id.fct_function>
-		<grt_activ>1</grt_activ>
-		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
-	</data>
-	<data>
-		<grt_group_id.grp_name>DEFI_ADMIN</grt_group_id.grp_name>
-		<grt_function_id.fct_name>TrelloTest</grt_function_id.fct_name>
-		<grt_function_id.fct_object_id.obj_type>O</grt_function_id.fct_object_id.obj_type>
-		<grt_function_id.fct_object_id.obj_name>DF_Test</grt_function_id.fct_object_id.obj_name>
-		<grt_function_id.fct_action_id.act_name>ActionTrello</grt_function_id.fct_action_id.act_name>
 		<grt_function_id.fct_function>A</grt_function_id.fct_function>
 		<grt_activ>1</grt_activ>
 		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
@@ -15858,7 +15827,7 @@ Objet metier pour produit.]]></obo_comment>
 	<data>
 		<prt_object_id.obo_name>DF_Devis</prt_object_id.obo_name>
 		<prt_name>df_devis_imp_1</prt_name>
-		<prt_usage>OLM</prt_usage>
+		<prt_usage>L</prt_usage>
 		<prt_visible>1</prt_visible>
 		<prt_grantable>1</prt_grantable>
 		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
@@ -15866,7 +15835,7 @@ Objet metier pour produit.]]></obo_comment>
 		<prt_translation>Quote print</prt_translation>
 		<prt_filename>defi_devis_tmp.pdf</prt_filename>
 		<prt_mimetype>pdf</prt_mimetype>
-		<prt_type>TMPL</prt_type>
+		<prt_type>DEFAULT</prt_type>
 		<prt_method/>
 		<prt_file/>
 		<prt_template_id.tpl_name/>
@@ -16546,6 +16515,14 @@ Objet metier pour produit.]]></obo_comment>
 	</data>
 	<data>
 		<map_domain_id.obd_name>DeFilippisDomain</map_domain_id.obd_name>
+		<map_object_id.obj_name>DF_test</map_object_id.obj_name>
+		<map_process_id.pcs_name/>
+		<map_order>999</map_order>
+		<map_ext>0</map_ext>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<map_domain_id.obd_name>DeFilippisDomain</map_domain_id.obd_name>
 		<map_object_id.obj_name>DF_Produit_Finis</map_object_id.obj_name>
 		<map_process_id.pcs_name/>
 		<map_order>1000</map_order>
@@ -16597,14 +16574,6 @@ Objet metier pour produit.]]></obo_comment>
 		<map_object_id.obj_name>DF_Contact</map_object_id.obj_name>
 		<map_process_id.pcs_name/>
 		<map_order>1060</map_order>
-		<map_ext>0</map_ext>
-		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
-	</data>
-	<data>
-		<map_domain_id.obd_name>DeFilippisDomain</map_domain_id.obd_name>
-		<map_object_id.obj_name>DF_Test</map_object_id.obj_name>
-		<map_process_id.pcs_name/>
-		<map_order>100000</map_order>
 		<map_ext>0</map_ext>
 		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
 	</data>
@@ -18502,6 +18471,18 @@ Objet metier pour produit.]]></obo_comment>
 		<tsl_id.fld_name>df_test_name</tsl_id.fld_name>
 		<tsl_lang>ENU</tsl_lang>
 		<tsl_value>df test name</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+		<tsl_tooltip/>
+	</data>
+	<data>
+		<tsl_typeField>F</tsl_typeField>
+		<tsl_id.fld_name>df_test_trellocardid</tsl_id.fld_name>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>df test trellocardid</tsl_value>
 		<tsl_simplehelp/>
 		<tsl_short_value/>
 		<tsl_placeholder/>
@@ -20443,6 +20424,18 @@ Objet metier pour produit.]]></obo_comment>
 	</data>
 	<data>
 		<tsl_typeField>F</tsl_typeField>
+		<tsl_id.fld_name>df_test_trellocardid</tsl_id.fld_name>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>df test trellocardid</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+		<tsl_tooltip/>
+	</data>
+	<data>
+		<tsl_typeField>F</tsl_typeField>
 		<tsl_id.fld_name>DF_Transport_DF_Chantier_id</tsl_id.fld_name>
 		<tsl_lang>FRA</tsl_lang>
 		<tsl_value>DF chantier</tsl_value>
@@ -20831,7 +20824,7 @@ Objet metier pour produit.]]></obo_comment>
 	</data>
 	<data>
 		<tsl_typeFieldArea>Z</tsl_typeFieldArea>
-		<tsl_id.ofa_name>DF_Test-1</tsl_id.ofa_name>
+		<tsl_id.ofa_name>DF_test-1</tsl_id.ofa_name>
 		<tsl_lang>ENU</tsl_lang>
 		<tsl_value>DF_Test-1</tsl_value>
 		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
@@ -21104,7 +21097,7 @@ Objet metier pour produit.]]></obo_comment>
 	</data>
 	<data>
 		<tsl_typeFieldArea>Z</tsl_typeFieldArea>
-		<tsl_id.ofa_name>DF_Test-1</tsl_id.ofa_name>
+		<tsl_id.ofa_name>DF_test-1</tsl_id.ofa_name>
 		<tsl_lang>FRA</tsl_lang>
 		<tsl_value>DF_Test-1</tsl_value>
 		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
@@ -21253,14 +21246,6 @@ Objet metier pour produit.]]></obo_comment>
 	</data>
 	<data>
 		<tsl_typeObject>O</tsl_typeObject>
-		<tsl_id.obo_name>DF_Test</tsl_id.obo_name>
-		<tsl_lang>ENU</tsl_lang>
-		<tsl_value>DF test</tsl_value>
-		<tsl_help/>
-		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
-	</data>
-	<data>
-		<tsl_typeObject>O</tsl_typeObject>
 		<tsl_id.obo_name>DF_Transport</tsl_id.obo_name>
 		<tsl_lang>ENU</tsl_lang>
 		<tsl_value>DF transport</tsl_value>
@@ -21352,14 +21337,6 @@ Objet metier pour produit.]]></obo_comment>
 		<tsl_id.obo_name>DF_Produit_Finis</tsl_id.obo_name>
 		<tsl_lang>FRA</tsl_lang>
 		<tsl_value>DF produit finis</tsl_value>
-		<tsl_help/>
-		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
-	</data>
-	<data>
-		<tsl_typeObject>O</tsl_typeObject>
-		<tsl_id.obo_name>DF_Test</tsl_id.obo_name>
-		<tsl_lang>FRA</tsl_lang>
-		<tsl_value>DF test</tsl_value>
 		<tsl_help/>
 		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
 	</data>

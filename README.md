@@ -426,7 +426,7 @@ Objet metier pour produit.
 
 No custom action
 
-`DF_Test` business object definition
+`DF_test` business object definition
 ------------------------------------
 
 
@@ -435,12 +435,13 @@ No custom action
 
 | Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
-| `df_test_id`                                                 | int(2)                                   | *        | yes       |          | -                                                                                |
+| `df_test_trellocardid`                                       | text(30)                                 |          | yes       |          | -                                                                                |
 | `df_test_name`                                               | char(30)                                 |          | yes       |          | -                                                                                |
+| `df_test_id`                                                 | int(2)                                   | *        | yes       |          | -                                                                                |
 
 ### Custom actions
 
-* `ActionTrello`: 
+No custom action
 
 `DF_Transport` business object definition
 -----------------------------------------
