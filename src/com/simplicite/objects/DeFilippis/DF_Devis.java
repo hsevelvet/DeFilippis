@@ -9,7 +9,6 @@ import com.simplicite.util.tools.*;
 /**
  * Business object DF_Devis
 */
-	
 
 public class DF_Devis extends ObjectDB {
 
@@ -27,10 +26,8 @@ public class DF_Devis extends ObjectDB {
 			
 		double t = Double.parseDouble(o.getField("df_ligne_devis_prix_vente_impose").getListOperatorValue());
 		
-		double tva = getField("df_devis_tva").getDouble(0);
 		
-		
-		setFieldValue("df_devis_prix_total", t + t*tva);
+		setFieldValue("df_devis_prix_total", t + t*0.2);
 		}
 		
 		}
@@ -39,3 +36,4 @@ public class DF_Devis extends ObjectDB {
 	}
 
 
+	

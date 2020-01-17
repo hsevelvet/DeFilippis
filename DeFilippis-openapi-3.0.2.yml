@@ -283,44 +283,20 @@ components:
     DF_Commande:
       type: object
       properties:
-        df_commande_indexation_monetaire:
-          description: Indexation monétaire
-          type: string
-        df_commande_ref_chantier:
-          description: Référence de chantier
-          type: string
-        df_commande_validite_offre:
-          description: Validité de l'offre
-          type: integer
-        df_commande_numero:
-          description: Numéro de Commande
-          type: string
-        df_commande_taux_de_remise:
-          description: Taux de remise
-          type: number
-        df_commande_id_livraison:
-          description: Id Livraison
-          type: integer
-        df_commande_redacteur:
-          description: Rédacteur
-          type: string
-        df_commande_facture:
-          description: Facture
-          type: string
-        df_commande_detail_livraison:
-          description: Détail de livraison
-          type: string
         df_commande_id:
           description: Id Commande
           type: integer
-        df_commande_taux_tva:
-          description: Taux TVA
-          type: number
-        df_commande_paiement:
-          description: Paiement
+        DF_Commande_DF_Contact_id__df_contact_id:
+          description: Id Contact DF contact
+          type: integer
+        df_commande_detail:
+          description: Détail de commande
           type: string
-        df_commande_delai:
-          description: Délai de commande
+        df_commande_numero:
+          description: Numéro de Commande
+          type: string
+        DF_Commande_DF_Contact_id:
+          description: DF contact
           type: string
         df_commande_date:
           description: Date de commande
@@ -331,9 +307,15 @@ components:
         DF_Commande_DF_Client_id__df_client_id:
           description: Id Client DF client
           type: integer
-        df_commande_prix_tonne:
-          description: Prix Tonne
-          type: number
+        df_commande_id_livraison:
+          description: Id Livraison
+          type: integer
+        df_commande_redacteur:
+          description: Rédacteur
+          type: string
+        df_commande_intitule:
+          description: Intitulé de commande
+          type: string
         DF_Commande_DF_Client_id:
           description: DF client
           type: string
@@ -545,32 +527,14 @@ components:
         df_devis_titre:
           description: Titre Devis
           type: string
-        DF_Devis_DF_Client_id:
-          description: DF client
-          type: string
-        df_devis_tva:
-          description: TVA
-          type: number
         DF_Devis_DF_Client_id__df_client_id:
           description: Id Client
           type: integer
         DF_Devis_DF_Chantier_id:
           description: DF chantier
           type: string
-        df_devis_titre_projet:
-          description: Titre Projet
-          type: string
-        DF_Devis_DF_Client_id__df_client_telephone:
-          description: Téképhone client
-          type: string
-        df_devis_prix_total:
-          description: Prix Total
-          type: number
         df_devis_date_emission:
           description: Date Emission
-          type: string
-        DF_Devis_DF_Chantier_id__df_chantier_reference:
-          description: Référence chantier DF chantier
           type: string
         DF_Devis_DF_Client_id__df_client_email:
           description: E-mail client
@@ -578,28 +542,99 @@ components:
         df_devis_commentaire:
           description: Commentaire
           type: string
+        df_devis_numero:
+          description: Numéro Devis
+          type: integer
+        df_devis_delais_previsionnel:
+          description: Délais prévisionnel
+          type: string
+        df_devis_accompte:
+          description: Accompte
+          type: string
+          enum:
+          - '000'
+          - '030'
+          - '050'
+          - '100'
+        df_devis_cadence_de_livraison:
+          description: Cadence de livraison
+          type: string
+        df_devi_prix_total_ht:
+          description: Prix Total HT
+          type: string
+        df_devis_contenance:
+          description: Contenance
+          type: string
+          enum:
+          - CC
+          - PC
+          - GT
+        DF_Devis_DF_Client_id:
+          description: DF client
+          type: string
+        df_devis_fiche_technique:
+          description: Fiche Technique
+          type: string
+        df_devis_nombre_camions:
+          description: Nombre camions estimé
+          type: number
+        df_devis_titre_projet:
+          description: Titre Projet
+          type: string
+        df_devis_redacteur:
+          description: Rédacteur
+          type: string
+        DF_Devis_DF_Client_id__df_client_telephone:
+          description: Téképhone client
+          type: string
+        df_devis_prix_total:
+          description: Prix Total
+          type: number
+        DF_Devis_DF_Chantier_id__df_chantier_reference:
+          description: Référence chantier DF chantier
+          type: string
         df_devis_statut:
           description: Statut
           type: string
           enum:
-          - E
-          - V
-          - R
-          - A
+          - ES
+          - ET
+          - NE
+          - CH
+        df_devis_packaging_transport:
+          description: Packaging transport
+          type: string
+          enum:
+          - EI
+          - HE
         df_devis_lieu_projet:
           description: Lieu Projet
           type: string
         DF_Devis_DF_Chantier_id__df_chantier_date_debut:
           description: Date début DF chantier
           type: string
-        df_devis_numero:
-          description: Numéro Devis
-          type: integer
+        df_devis_incoterm_prix:
+          description: Incoterm Prix
+          type: string
+          enum:
+          - FCD
+          - FCN
+          - EXW
+          - FOB
+        df_devis_poids_total:
+          description: Poids total [Tonne]
+          type: number
+        df_devis_ordre_facturation:
+          description: Ordre facturation
+          type: string
         DF_Devis_DF_Client_id__df_client_nom:
           description: Nom Client
           type: string
         row_id:
           description: Unique technical row ID
+          type: string
+        df_devis_validite_offre:
+          description: Date Valdiité offre
           type: string
     DF_Plan_Livraison:
       type: object
@@ -769,9 +804,6 @@ components:
           type: string
         df_contact_email:
           description: E-mail
-          type: string
-        DF_Contact_DF_Commande_id:
-          description: DF commande
           type: string
         df_contact_nom:
           description: Nom
@@ -1387,12 +1419,6 @@ paths:
         in: query
         name: DF_Contact_DF_Client_id__df_client_id
         description: Search filter for Id Client DF client
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: DF_Contact_DF_Commande_id
-        description: Search filter for DF commande
         required: false
       - schema:
           type: string
@@ -2940,72 +2966,6 @@ paths:
         description: Search filter for Rédacteur
         required: false
       - schema:
-          type: number
-        in: query
-        name: df_commande_taux_tva
-        description: Search filter for Taux TVA
-        required: false
-      - schema:
-          type: number
-        in: query
-        name: df_commande_prix_tonne
-        description: Search filter for Prix Tonne
-        required: false
-      - schema:
-          type: number
-        in: query
-        name: df_commande_taux_de_remise
-        description: Search filter for Taux de remise
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: df_commande_detail_livraison
-        description: Search filter for Détail de livraison
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: df_commande_date
-        description: Search filter for Date de commande
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: df_commande_ref_chantier
-        description: Search filter for Référence de chantier
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: df_commande_delai
-        description: Search filter for Délai de commande
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: df_commande_facture
-        description: Search filter for Facture
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: df_commande_paiement
-        description: Search filter for Paiement
-        required: false
-      - schema:
-          type: integer
-        in: query
-        name: df_commande_validite_offre
-        description: Search filter for Validité de l'offre
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: df_commande_indexation_monetaire
-        description: Search filter for Indexation monétaire
-        required: false
-      - schema:
           type: string
         in: query
         name: DF_Commande_DF_Client_id
@@ -3016,6 +2976,36 @@ paths:
         in: query
         name: DF_Commande_DF_Client_id__df_client_id
         description: Search filter for Id Client DF client
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Commande_DF_Contact_id
+        description: Search filter for DF contact
+        required: false
+      - schema:
+          type: integer
+        in: query
+        name: DF_Commande_DF_Contact_id__df_contact_id
+        description: Search filter for Id Contact DF contact
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: df_commande_detail
+        description: Search filter for Détail de commande
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: df_commande_date
+        description: Search filter for Date de commande
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: df_commande_intitule
+        description: Search filter for Intitulé de commande
         required: false
       tags:
       - DF_Commande
@@ -3501,18 +3491,6 @@ paths:
       - schema:
           type: string
         in: query
-        name: DF_Devis_DF_Client_id__df_client_telephone
-        description: Search filter for Téképhone client
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: DF_Devis_DF_Client_id__df_client_email
-        description: Search filter for E-mail client
-        required: false
-      - schema:
-          type: string
-        in: query
         name: df_devis_titre
         description: Search filter for Titre Devis
         required: false
@@ -3537,49 +3515,13 @@ paths:
       - schema:
           type: string
           enum:
-          - E
-          - V
-          - R
-          - A
+          - ES
+          - ET
+          - NE
+          - CH
         in: query
         name: df_devis_statut
         description: Search filter for Statut
-        required: false
-      - schema:
-          type: number
-        in: query
-        name: df_devis_tva
-        description: Search filter for TVA
-        required: false
-      - schema:
-          type: number
-        in: query
-        name: df_devis_prix_total
-        description: Search filter for Prix Total
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: df_devis_commentaire
-        description: Search filter for Commentaire
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: DF_Devis_DF_Client_id
-        description: Search filter for DF client
-        required: false
-      - schema:
-          type: integer
-        in: query
-        name: DF_Devis_DF_Client_id__df_client_id
-        description: Search filter for Id Client
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: DF_Devis_DF_Client_id__df_client_nom
-        description: Search filter for Nom Client
         required: false
       - schema:
           type: string
@@ -3604,6 +3546,143 @@ paths:
         in: query
         name: df_devis_numero
         description: Search filter for Numéro Devis
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: df_devis_prix_total
+        description: Search filter for Prix Total
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Devis_DF_Client_id
+        description: Search filter for DF client
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Devis_DF_Client_id__df_client_telephone
+        description: Search filter for Téképhone client
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Devis_DF_Client_id__df_client_email
+        description: Search filter for E-mail client
+        required: false
+      - schema:
+          type: integer
+        in: query
+        name: DF_Devis_DF_Client_id__df_client_id
+        description: Search filter for Id Client
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Devis_DF_Client_id__df_client_nom
+        description: Search filter for Nom Client
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: df_devis_commentaire
+        description: Search filter for Commentaire
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: df_devis_redacteur
+        description: Search filter for Rédacteur
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: df_devi_prix_total_ht
+        description: Search filter for Prix Total HT
+        required: false
+      - schema:
+          type: string
+          enum:
+          - EI
+          - HE
+        in: query
+        name: df_devis_packaging_transport
+        description: Search filter for Packaging transport
+        required: false
+      - schema:
+          type: string
+          enum:
+          - FCD
+          - FCN
+          - EXW
+          - FOB
+        in: query
+        name: df_devis_incoterm_prix
+        description: Search filter for Incoterm Prix
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: df_devis_poids_total
+        description: Search filter for Poids total [Tonne]
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: df_devis_nombre_camions
+        description: Search filter for Nombre camions estimé
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: df_devis_fiche_technique
+        description: Search filter for Fiche Technique
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: df_devis_delais_previsionnel
+        description: Search filter for Délais prévisionnel
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: df_devis_cadence_de_livraison
+        description: Search filter for Cadence de livraison
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: df_devis_ordre_facturation
+        description: Search filter for Ordre facturation
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: df_devis_validite_offre
+        description: Search filter for Date Valdiité offre
+        required: false
+      - schema:
+          type: string
+          enum:
+          - '000'
+          - '030'
+          - '050'
+          - '100'
+        in: query
+        name: df_devis_accompte
+        description: Search filter for Accompte
+        required: false
+      - schema:
+          type: string
+          enum:
+          - CC
+          - PC
+          - GT
+        in: query
+        name: df_devis_contenance
+        description: Search filter for Contenance
         required: false
       tags:
       - DF_Devis
