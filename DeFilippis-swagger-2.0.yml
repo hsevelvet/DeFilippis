@@ -636,6 +636,11 @@ paths:
         description: Search filter for Appellation Commerciale
         type: string
         required: false
+      - in: query
+        name: df_produit_masse_volumique
+        description: Search filter for Masse Volumique
+        type: string
+        required: false
       tags:
       - DF_Produit_Finis
   /rest/DF_Produit_Finis/{row_id}:
@@ -3383,11 +3388,6 @@ paths:
         type: integer
         required: false
       - in: query
-        name: df_ligne_devis_prix_total_ht
-        description: Search filter for Prix Total HT
-        type: number
-        required: false
-      - in: query
         name: DF_Ligne_Devis_DF_Devis_id
         description: Search filter for DF devis
         type: string
@@ -3879,9 +3879,6 @@ definitions:
         type: number
       df_ligne_devis_total_achat_reference_ht:
         description: Total Achat Référence HT
-        type: number
-      df_ligne_devis_prix_total_ht:
-        description: Prix Total HT
         type: number
       df_ligne_devis_masse_unitaire_ss_joint:
         description: Masse Unitaire sans Joints
@@ -4464,6 +4461,9 @@ definitions:
         - A
         - B
         - C
+      df_produit_masse_volumique:
+        description: Masse Volumique
+        type: string
       df_produit_commentaire:
         description: Commentaire
         type: string

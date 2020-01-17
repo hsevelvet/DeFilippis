@@ -14,7 +14,7 @@ import com.simplicite.util.exceptions.HTTPException;
 
 /**
  * Trello webhook
- */
+
 public class Test extends com.simplicite.webapp.services.RESTServiceExternalObject {
 	private static final long serialVersionUID = 1L;
 	
@@ -38,7 +38,7 @@ public class Test extends com.simplicite.webapp.services.RESTServiceExternalObje
 			BusinessObjectTool objt = new BusinessObjectTool(obj);
 			obj.resetFilters();
 			obj.getField("trelloCardExCardId").setFilter(card.getString("id"));
-			List<String[]> rows = objt.search();*/
+			List<String[]> rows = objt.search();
 			AppLog.info(getClass(), "updateCard",card.getString("name"), getGrant());
 			String o = "DF_test";
 			ObjectDB obj = Grant.getSystemAdmin().getObject("webhook_" + o, o);
@@ -88,3 +88,5 @@ public class Test extends com.simplicite.webapp.services.RESTServiceExternalObje
         }
     }
 }
+
+*/

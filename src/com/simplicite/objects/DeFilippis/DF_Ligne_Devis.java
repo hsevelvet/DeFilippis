@@ -6,7 +6,8 @@ import com.simplicite.util.tools.*;
 
 /**
  * Business object DF_Ligne_Devis
- */
+*/
+
 public class DF_Ligne_Devis extends ObjectDB {
 	private static final long serialVersionUID = 1L;
 
@@ -140,7 +141,7 @@ public class DF_Ligne_Devis extends ObjectDB {
 		double total = pvi * qte;
     	setFieldValue("df_ligne_devis_prix_total_ht", total);
 	}
-	
+
 
 	
 }

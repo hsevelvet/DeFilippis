@@ -142,9 +142,6 @@ components:
         df_ligne_devis_total_achat_reference_ht:
           description: Total Achat Référence HT
           type: number
-        df_ligne_devis_prix_total_ht:
-          description: Prix Total HT
-          type: number
         df_ligne_devis_masse_unitaire_ss_joint:
           description: Masse Unitaire sans Joints
           type: number
@@ -726,6 +723,9 @@ components:
           - A
           - B
           - C
+        df_produit_masse_volumique:
+          description: Masse Volumique
+          type: string
         df_produit_commentaire:
           description: Commentaire
           type: string
@@ -1613,6 +1613,12 @@ paths:
         in: query
         name: df_produit_appellation_co
         description: Search filter for Appellation Commerciale
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: df_produit_masse_volumique
+        description: Search filter for Masse Volumique
         required: false
       tags:
       - DF_Produit_Finis
@@ -4896,12 +4902,6 @@ paths:
         in: query
         name: df_ligne_devis_quantite
         description: Search filter for Quantité
-        required: false
-      - schema:
-          type: number
-        in: query
-        name: df_ligne_devis_prix_total_ht
-        description: Search filter for Prix Total HT
         required: false
       - schema:
           type: string
