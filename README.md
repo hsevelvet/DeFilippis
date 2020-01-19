@@ -108,7 +108,6 @@ objet metier pour commande.
 | `df_commande_id`                                             | int(11)                                  | yes*     | yes       |          | -                                                                                |
 | `df_commande_id_livraison`                                   | int(11)                                  |          | yes       |          | -                                                                                |
 | `df_commande_numero`                                         | char(32)                                 |          | yes       |          | -                                                                                |
-| `df_commande_redacteur`                                      | char(70)                                 |          | yes       |          | -                                                                                |
 | `DF_Commande_DF_Client_id` link to **`DF_Client`**           | id                                       |          | yes       |          | -                                                                                |
 | _Ref. `DF_Commande_DF_Client_id.df_client_id`_               | _int(11)_                                |          |           |          | -                                                                                |
 | `DF_Commande_DF_Contact_id` link to **`DF_Contact`**         | id                                       |          | yes       |          | -                                                                                |
@@ -116,6 +115,8 @@ objet metier pour commande.
 | `df_commande_detail`                                         | char(100)                                |          | yes       |          | -                                                                                |
 | `df_commande_date`                                           | datetime                                 | yes      | yes       |          | -                                                                                |
 | `df_commande_intitule`                                       | char(70)                                 |          | yes       |          | -                                                                                |
+| `DF_Commande_DF_utilisateur_interne_id` link to **`DF_utilisateur_interne`** | id                                       |          | yes       |          | -                                                                                |
+| _Ref. `DF_Commande_DF_utilisateur_interne_id.df_utilisateur_interne_nc`_ | _char(70)_                               |          |           |          | -                                                                                |
 
 ### Custom actions
 
@@ -204,7 +205,6 @@ Objet metier pour devis.
 | _Ref. `DF_Devis_DF_Client_id.df_client_id`_                  | _int(11)_                                |          |           |          | -                                                                                |
 | _Ref. `DF_Devis_DF_Client_id.df_client_nom`_                 | _char(36)_                               |          |           |          | -                                                                                |
 | `df_devis_commentaire`                                       | text(100)                                |          | yes       |          | -                                                                                |
-| `df_devis_redacteur`                                         | char(70)                                 | yes      | yes       |          | -                                                                                |
 | `df_devi_prix_total_ht`                                      | bigdec(10, 2)                            |          | yes       |          | -                                                                                |
 | `df_devis_packaging_transport`                               | enum(7) using `DF_DEVIS_PACKAGING_TRANSPORT` list |          | yes       |          | -                                                                                |
 | `df_devis_incoterm_prix`                                     | enum(7) using `DF_DEVIS_INCOTERM_PRIX` list |          | yes       |          | -                                                                                |
@@ -217,12 +217,14 @@ Objet metier pour devis.
 | `df_devis_validite_offre`                                    | date                                     |          | yes       |          | -                                                                                |
 | `df_devis_accompte`                                          | enum(7) using `DF_DEVIS_ACCOMPTE` list   |          | yes       |          | -                                                                                |
 | `df_devis_contenance`                                        | enum(7) using `DF_DEVIS_CONTENANCE` list |          | yes       |          | -                                                                                |
+| `DF_Devis_DF_utilisateur_interne_id` link to **`DF_utilisateur_interne`** | id                                       |          | yes       |          | -                                                                                |
+| _Ref. `DF_Devis_DF_utilisateur_interne_id.df_utilisateur_interne_nc`_ | _char(70)_                               |          |           |          | -                                                                                |
 
 ### Lists
 
 * `STATUT_DEVIS`
     - `ES` Estimation
-    - `ET` Etude
+    - `ET` Eude
     - `NE` Négociation
     - `CH` Chantier
 * `DF_DEVIS_PACKAGING_TRANSPORT`
@@ -404,6 +406,24 @@ No custom action
 
 No custom action
 
+`DF_Prix_Transport` business object definition
+----------------------------------------------
+
+
+
+### Fields
+
+| Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
+| ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
+| `DF_Prix_Transport_DF_Transport_id` link to **`DF_Transport`** | id                                       |          | yes       |          | -                                                                                |
+| _Ref. `DF_Prix_Transport_DF_Transport_id.df_transport_id`_   | _int(11)_                                |          |           |          | -                                                                                |
+| _Ref. `DF_Prix_Transport_DF_Transport_id.df_transport_nom`_  | _char(36)_                               |          |           |          | -                                                                                |
+| `df_prix_transport_prix`                                     | float(9, 2)                              | yes      | yes       |          | -                                                                                |
+
+### Custom actions
+
+No custom action
+
 `DF_Produit_Finis` business object definition
 ---------------------------------------------
 
@@ -492,6 +512,21 @@ No custom action
 | _Ref. `DF_Transport_DF_Chantier_id.df_chantier_reference`_   | _char(36)_                               |          |           |          | -                                                                                |
 | `DF_Transport_DF_Livraison_id` link to **`DF_Livraison`**    | id                                       |          | yes       |          | -                                                                                |
 | _Ref. `DF_Transport_DF_Livraison_id.df_livraison_id`_        | _int(100)_                               |          |           |          | -                                                                                |
+
+### Custom actions
+
+No custom action
+
+`DF_utilisateur_interne` business object definition
+---------------------------------------------------
+
+
+
+### Fields
+
+| Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
+| ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
+| `df_utilisateur_interne_nc`                                  | char(70)                                 | yes*     | yes       |          | -                                                                                |
 
 ### Custom actions
 

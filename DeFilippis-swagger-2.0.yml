@@ -962,6 +962,168 @@ paths:
       - DF_Plan_Livraison
       consumes:
       - application/json
+  /rest/DF_utilisateur_interne/{row_id}:
+    post:
+      summary: Create a new DF_utilisateur_internebusiness object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-df_utilisateur_interne-create
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/DF_utilisateur_interne'
+          description: Success in creating a new business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - schema:
+          $ref: '#/definitions/DF_utilisateur_interne'
+        in: body
+        name: body
+      tags:
+      - DF_utilisateur_interne
+      consumes:
+      - application/json
+    get:
+      summary: Get a DF_utilisateur_interne business object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-df_utilisateur_interne-get
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/DF_utilisateur_interne'
+          description: Success in getting a single business object record
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - in: query
+        name: _inline_documents
+        description: Inline documents?
+        type: boolean
+        required: false
+      - in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        type: boolean
+        required: false
+      - in: query
+        name: _inline_objects
+        description: Inline objects?
+        type: boolean
+        required: false
+      tags:
+      - DF_utilisateur_interne
+    delete:
+      summary: Delete a DF_utilisateur_interne business object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-df_utilisateur_interne-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      tags:
+      - DF_utilisateur_interne
+    put:
+      summary: Update a DF_utilisateur_internebusiness object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-df_utilisateur_interne-update
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/DF_utilisateur_interne'
+          description: Success in updating a business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - schema:
+          $ref: '#/definitions/DF_utilisateur_interne'
+        in: body
+        name: body
+      tags:
+      - DF_utilisateur_interne
+      consumes:
+      - application/json
   /rest/DF_Fournisseurs:
     get:
       summary: Search DF_Fournisseurs business object records or get contextualized
@@ -1730,11 +1892,6 @@ paths:
         type: string
         required: false
       - in: query
-        name: df_commande_redacteur
-        description: Search filter for Rédacteur
-        type: string
-        required: false
-      - in: query
         name: DF_Commande_DF_Client_id
         description: Search filter for DF client
         type: string
@@ -1769,8 +1926,180 @@ paths:
         description: Search filter for Intitulé de commande
         type: string
         required: false
+      - in: query
+        name: DF_Commande_DF_utilisateur_interne_id
+        description: Search filter for Rédacteur
+        type: string
+        required: false
+      - in: query
+        name: DF_Commande_DF_utilisateur_interne_id__df_utilisateur_interne_nc
+        description: Search filter for Rédacteur
+        type: string
+        required: false
       tags:
       - DF_Commande
+  /rest/DF_Prix_Transport/{row_id}:
+    post:
+      summary: Create a new DF_Prix_Transportbusiness object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-df_prix_transport-create
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/DF_Prix_Transport'
+          description: Success in creating a new business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - schema:
+          $ref: '#/definitions/DF_Prix_Transport'
+        in: body
+        name: body
+      tags:
+      - DF_Prix_Transport
+      consumes:
+      - application/json
+    get:
+      summary: Get a DF_Prix_Transport business object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-df_prix_transport-get
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/DF_Prix_Transport'
+          description: Success in getting a single business object record
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - in: query
+        name: _inline_documents
+        description: Inline documents?
+        type: boolean
+        required: false
+      - in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        type: boolean
+        required: false
+      - in: query
+        name: _inline_objects
+        description: Inline objects?
+        type: boolean
+        required: false
+      tags:
+      - DF_Prix_Transport
+    delete:
+      summary: Delete a DF_Prix_Transport business object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-df_prix_transport-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      tags:
+      - DF_Prix_Transport
+    put:
+      summary: Update a DF_Prix_Transportbusiness object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-df_prix_transport-update
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/DF_Prix_Transport'
+          description: Success in updating a business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - schema:
+          $ref: '#/definitions/DF_Prix_Transport'
+        in: body
+        name: body
+      tags:
+      - DF_Prix_Transport
+      consumes:
+      - application/json
   /rest/DF_Transport:
     get:
       summary: Search DF_Transport business object records or get contextualized metadata
@@ -1901,6 +2230,67 @@ paths:
         required: false
       tags:
       - DF_Transport
+  /rest/DF_Prix_Transport:
+    get:
+      summary: Search DF_Prix_Transport business object records or get contextualized
+        metadata
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-df_prix_transport-search
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/ArrayOfDF_Prix_Transport'
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+      parameters:
+      - in: query
+        name: _metadata
+        description: Metadata?
+        type: boolean
+        required: false
+      - in: query
+        name: _count
+        description: Count?
+        type: boolean
+        required: false
+      - in: query
+        name: _doc
+        description: Documentation?
+        type: boolean
+        required: false
+      - in: query
+        name: DF_Prix_Transport_DF_Transport_id
+        description: Search filter for DF transport
+        type: string
+        required: false
+      - in: query
+        name: DF_Prix_Transport_DF_Transport_id__df_transport_id
+        description: Search filter for Id Transport DF transport
+        type: integer
+        required: false
+      - in: query
+        name: DF_Prix_Transport_DF_Transport_id__df_transport_nom
+        description: Search filter for Nom DF transport
+        type: string
+        required: false
+      - in: query
+        name: df_prix_transport_prix
+        description: Search filter for Prix Transport
+        type: number
+        required: false
+      tags:
+      - DF_Prix_Transport
   /rest/DF_test:
     get:
       summary: Search DF_test business object records or get contextualized metadata
@@ -2259,11 +2649,6 @@ paths:
         type: string
         required: false
       - in: query
-        name: df_devis_redacteur
-        description: Search filter for Rédacteur
-        type: string
-        required: false
-      - in: query
         name: df_devi_prix_total_ht
         description: Search filter for Prix Total HT
         type: string
@@ -2340,6 +2725,16 @@ paths:
         - CC
         - PC
         - GT
+      - in: query
+        name: DF_Devis_DF_utilisateur_interne_id
+        description: Search filter for DF utilisateur interne
+        type: string
+        required: false
+      - in: query
+        name: DF_Devis_DF_utilisateur_interne_id__df_utilisateur_interne_nc
+        description: Search filter for Rédacteur
+        type: string
+        required: false
       tags:
       - DF_Devis
   /rest/DF_ligne_commande:
@@ -3380,6 +3775,52 @@ paths:
       - DF_Fournisseurs
       consumes:
       - application/json
+  /rest/DF_utilisateur_interne:
+    get:
+      summary: Search DF_utilisateur_interne business object records or get contextualized
+        metadata
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-df_utilisateur_interne-search
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/ArrayOfDF_utilisateur_interne'
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+      parameters:
+      - in: query
+        name: _metadata
+        description: Metadata?
+        type: boolean
+        required: false
+      - in: query
+        name: _count
+        description: Count?
+        type: boolean
+        required: false
+      - in: query
+        name: _doc
+        description: Documentation?
+        type: boolean
+        required: false
+      - in: query
+        name: df_utilisateur_interne_nc
+        description: Search filter for Nom Complet
+        type: string
+        required: false
+      tags:
+      - DF_utilisateur_interne
   /rest/DF_Ligne_Devis:
     get:
       summary: Search DF_Ligne_Devis business object records or get contextualized
@@ -3800,6 +4241,10 @@ definitions:
     type: array
     items:
       $ref: '#/definitions/DF_Client'
+  ArrayOfDF_Prix_Transport:
+    type: array
+    items:
+      $ref: '#/definitions/DF_Prix_Transport'
   ArrayOfDF_ligne_commande:
     type: array
     items:
@@ -3887,6 +4332,10 @@ definitions:
     type: array
     items:
       $ref: '#/definitions/DF_Chantier'
+  ArrayOfDF_utilisateur_interne:
+    type: array
+    items:
+      $ref: '#/definitions/DF_utilisateur_interne'
   ArrayOfDF_Plan_Livraison:
     type: array
     items:
@@ -4063,17 +4512,29 @@ definitions:
   DF_Commande:
     type: object
     properties:
+      df_commande_numero:
+        description: Numéro de Commande
+        type: string
+      DF_Commande_DF_utilisateur_interne_id__df_utilisateur_interne_nc:
+        description: Rédacteur
+        type: string
+      df_commande_id_livraison:
+        description: Id Livraison
+        type: integer
+      df_commande_intitule:
+        description: Intitulé de commande
+        type: string
       df_commande_id:
         description: Id Commande
         type: integer
+      DF_Commande_DF_utilisateur_interne_id:
+        description: Rédacteur
+        type: string
       DF_Commande_DF_Contact_id__df_contact_id:
         description: Id Contact DF contact
         type: integer
       df_commande_detail:
         description: Détail de commande
-        type: string
-      df_commande_numero:
-        description: Numéro de Commande
         type: string
       DF_Commande_DF_Contact_id:
         description: DF contact
@@ -4087,15 +4548,6 @@ definitions:
       DF_Commande_DF_Client_id__df_client_id:
         description: Id Client DF client
         type: integer
-      df_commande_id_livraison:
-        description: Id Livraison
-        type: integer
-      df_commande_redacteur:
-        description: Rédacteur
-        type: string
-      df_commande_intitule:
-        description: Intitulé de commande
-        type: string
       DF_Commande_DF_Client_id:
         description: DF client
         type: string
@@ -4199,6 +4651,24 @@ definitions:
         type: string
       DF_Transport_DF_Livraison_id:
         description: DF livraison
+        type: string
+  DF_Prix_Transport:
+    type: object
+    properties:
+      df_prix_transport_prix:
+        description: Prix Transport
+        type: number
+      DF_Prix_Transport_DF_Transport_id:
+        description: DF transport
+        type: string
+      DF_Prix_Transport_DF_Transport_id__df_transport_id:
+        description: Id Transport DF transport
+        type: integer
+      row_id:
+        description: Unique technical row ID
+        type: string
+      DF_Prix_Transport_DF_Transport_id__df_transport_nom:
+        description: Nom DF transport
         type: string
   DF_test:
     type: object
@@ -4313,6 +4783,9 @@ definitions:
       DF_Devis_DF_Chantier_id:
         description: DF chantier
         type: string
+      DF_Devis_DF_utilisateur_interne_id__df_utilisateur_interne_nc:
+        description: Rédacteur
+        type: string
       df_devis_date_emission:
         description: Date Emission
         type: string
@@ -4336,6 +4809,9 @@ definitions:
         - '030'
         - '050'
         - '100'
+      DF_Devis_DF_utilisateur_interne_id:
+        description: DF utilisateur interne
+        type: string
       df_devis_cadence_de_livraison:
         description: Cadence de livraison
         type: string
@@ -4360,9 +4836,6 @@ definitions:
         type: number
       df_devis_titre_projet:
         description: Titre Projet
-        type: string
-      df_devis_redacteur:
-        description: Rédacteur
         type: string
       DF_Devis_DF_Client_id__df_client_telephone:
         description: Téképhone client
@@ -4667,6 +5140,15 @@ definitions:
     type: array
     items:
       $ref: '#/definitions/DF_Commande'
+  DF_utilisateur_interne:
+    type: object
+    properties:
+      df_utilisateur_interne_nc:
+        description: Nom Complet
+        type: string
+      row_id:
+        description: Unique technical row ID
+        type: string
 swagger: '2.0'
 info:
   license:
@@ -4700,9 +5182,13 @@ tags:
   description: DF livraison
 - name: DF_Plan_Livraison
   description: DF plan livraison
+- name: DF_Prix_Transport
+  description: DF prix transport
 - name: DF_Produit_Finis
   description: DF produit finis
 - name: DF_test
   description: DF test
 - name: DF_Transport
   description: DF transport
+- name: DF_utilisateur_interne
+  description: DF utilisateur interne

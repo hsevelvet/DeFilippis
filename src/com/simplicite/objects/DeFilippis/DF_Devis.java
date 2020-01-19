@@ -30,17 +30,8 @@ public class DF_Devis extends ObjectDB {
 		setFieldValue("df_devis_prix_total", t + t*0.2);
 		}
 		
-		}
-	
-	public void genArc(){
-		ObjectField commande = getField("df_commande_id");
-		commande.setValue(2);
-		save();
-		}
-		
-		
-			
 	}
 
+}
 
 	
