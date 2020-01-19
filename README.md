@@ -245,7 +245,7 @@ Objet metier pour devis.
 
 ### Custom actions
 
-No custom action
+* `Generation-ARC`: 
 
 `DF_Fournisseurs` business object definition
 --------------------------------------------

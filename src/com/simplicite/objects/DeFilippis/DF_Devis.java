@@ -31,6 +31,13 @@ public class DF_Devis extends ObjectDB {
 		}
 		
 		}
+	
+	public void genArc(){
+		ObjectField commande = getField("df_commande_id");
+		commande.setValue(2);
+		save();
+		}
+		
 		
 			
 	}
