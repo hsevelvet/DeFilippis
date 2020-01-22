@@ -5,6 +5,7 @@ import java.util.List;
 import org.json.JSONObject;
 
 import com.simplicite.util.AppLog;
+import com.simplicite.objects.DeFilippis.DF_Livraison;
 import com.simplicite.util.tools.BusinessObjectTool;
 import com.simplicite.util.Grant;
 import com.simplicite.util.ObjectDB;
@@ -12,12 +13,13 @@ import com.simplicite.util.Tool;
 import com.simplicite.util.tools.Parameters;
 import com.simplicite.util.exceptions.HTTPException;
 
-/**
- * Trello webhook
 
-public class Test extends com.simplicite.webapp.services.RESTServiceExternalObject {
+/**
+ * External object WebhoonkLivraisonTrello
+ */
+public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTServiceExternalObject {
 	private static final long serialVersionUID = 1L;
-	
+
 	private static final JSONObject OK = new JSONObject().put("result", "ok");
 	
     @Override
@@ -29,31 +31,32 @@ public class Test extends com.simplicite.webapp.services.RESTServiceExternalObje
     public Object get(Parameters params) throws HTTPException {
         return error(400, "Call me in POST please!");
     }
+    
 
-	private void updateCard(JSONObject card) {
+	private void updateCard(JSONObject card,JSONObject listAfter) {
 		try {
-		/*	AppLog.info(getClass(), "updateCard", card.toString(2), getGrant());
-			String o = "TrelloCardExample";
+			AppLog.info(getClass(), "updateCard", card.toString(2), getGrant());
+			String o = "DF_Livraison";
 			ObjectDB obj = Grant.getSystemAdmin().getObject("webhook_" + o, o);
 			BusinessObjectTool objt = new BusinessObjectTool(obj);
 			obj.resetFilters();
-			obj.getField("trelloCardExCardId").setFilter(card.getString("id"));
+			obj.getField("df_livraison_trellocardid").setFilter(card.getString("id"));
+
 			List<String[]> rows = objt.search();
-			AppLog.info(getClass(), "updateCard",card.getString("name"), getGrant());
-			String o = "DF_test";
-			ObjectDB obj = Grant.getSystemAdmin().getObject("webhook_" + o, o);
-			BusinessObjectTool objt = new BusinessObjectTool(obj);
-			obj.resetFilters();
-			obj.getField("DF_test_id").setFilter();
-			List<String[]> rows = objt.search();
-			
-			
 			if (rows.size() == 1) {
 				obj.setValues(rows.get(0), true);
 				if (card.has("name"))
-					obj.setFieldValue("trelloCardExName", card.getString("name"));
+					obj.setFieldValue("df_livraison_id", card.getString("name"));
 				if (card.has("desc"))
-					obj.setFieldValue("trelloCardExDescription", card.getString("desc"));
+					obj.setFieldValue("df_livraison_adresse", card.getString("desc"));
+					String status = listAfter.getString("name").split("-")[0].trim();
+									AppLog.info(getClass(), "updateCard Dang",status, getGrant());
+				if (listAfter.has("name")){
+					//String status = listAfter.getString("name").split(".")[1].trim();
+									AppLog.info(getClass(), "updateCard Dang",status, getGrant());
+
+					obj.setFieldValue("df_livraison_statut", listAfter.getString("name"));
+				}
 				objt.validateAndSave();
 			}
 		} catch (Exception e) {
@@ -66,16 +69,22 @@ public class Test extends com.simplicite.webapp.services.RESTServiceExternalObje
         try {
             JSONObject req = params.getJSONObject();
             if (req != null) {
-            	AppLog.info(getClass(), "post", req.toString(2), getGrant());
+            	//AppLog.info(getClass(), "post", req.toString(2), getGrant());
             	if (req.has("action")) {
             		JSONObject action = req.getJSONObject("action");
             		String type = action.optString("type");
             		if ("updateCard".equals(type)) {
             			if (action.has("data")) {
             				JSONObject data = action.getJSONObject("data");
+            				
+            				JSONObject card = data.getJSONObject("card");
+            				JSONObject listAfter = data.getJSONObject("listAfter");
+            				AppLog.info(getClass(), "updateCard Dang",data.toString(2), getGrant());
+
             				if (data.has("card")) {
-            					updateCard(data.getJSONObject("card"));
+            					updateCard(data.getJSONObject("card"),listAfter);
             				}
+            				
             			}
             		}
             	}
@@ -88,5 +97,3 @@ public class Test extends com.simplicite.webapp.services.RESTServiceExternalObje
         }
     }
 }
-
-*/

@@ -40,59 +40,41 @@ components:
     DF_Chantier:
       type: object
       properties:
-        DF_Chantier_DF_Client_id__df_client_cedex:
-          description: CEDEX DF client
-          type: string
         DF_Chantier_DF_Plan_Livraison_id:
-          description: DF plan livraison
+          description: Plan Livraison
           type: string
-        DF_Chantier_DF_Client_id__df_client_id_secteur_activite:
-          description: Id Secteur Activité DF client
-          type: string
-          enum:
-          - T
-          - V
-          - N
-          - P
-          - A
+        df_chantier_coefficient_initial:
+          description: Coefficient de vente initial
+          type: number
         DF_Chantier_DF_Client_id__df_client_id:
-          description: Id Client DF client
+          description: Id Client
           type: integer
+        df_client_region:
+          description: Region
+          type: string
         df_chantier_reference:
           description: Référence chantier
           type: string
-        DF_Chantier_DF_Client_id__df_client_adresse:
-          description: Adresse DF client
+        df_chantier_nature_travaux:
+          description: Nature travaux
           type: string
         DF_Chantier_DF_Client_id:
-          description: DF client
-          type: string
-        DF_Chantier_DF_Client_id__df_client_description:
-          description: Description DF client
+          description: Client
           type: string
         DF_Chantier_DF_Plan_Livraison_id__df_plan_lvr_id:
-          description: Id Plan Livraison DF plan livraison
-          type: integer
-        DF_Chantier_DF_Client_id__df_client_region:
-          description: Region DF client
-          type: string
-        DF_Chantier_DF_Client_id__df_client_code_postal:
-          description: Code Postal DF client
+          description: Plan Livraison
           type: integer
         DF_Chantier_DF_Client_id__df_client_ville:
-          description: Ville DF client
+          description: Ville Client
           type: string
         DF_Chantier_DF_Client_id__df_client_nom:
-          description: Nom Client DF client
+          description: Nom Client
           type: string
         DF_Chantier_DF_Client_id__df_client_pays:
-          description: Pays DF client
-          type: string
-        DF_Chantier_DF_Client_id__df_client_adresse_2:
-          description: Adresse 2 DF client
+          description: Pays Client
           type: string
         DF_Chantier_DF_Client_id__df_client_telephone:
-          description: Téképhone DF client
+          description: Téléphone Client
           type: string
         df_chantier_date_debut:
           description: Date début
@@ -100,9 +82,12 @@ components:
         row_id:
           description: Unique technical row ID
           type: string
-        DF_Chantier_DF_Client_id__df_client_adresse_3:
-          description: Adresse 3 DF client
+        df_chantier_libelle:
+          description: Libellé de chantier
           type: string
+        df_chantier_montant_initial:
+          description: Montant initial commande HT
+          type: number
     ArrayOfDF_Fournisseurs:
       type: array
       items:
@@ -126,38 +111,14 @@ components:
     DF_Ligne_Devis:
       type: object
       properties:
-        df_ligne_devis_epaisseur:
-          description: Epaisseur
-          type: number
-        df_ligne_devis_prix_transport_reference:
-          description: Prix Transport Référence
-          type: number
         df_ligne_devis_id:
           description: Ligne Devis ID
           type: integer
-        df_ligne_devis_total_achat_ht:
-          description: Total Achat HT
-          type: number
-        df_ligne_devis_nb_elt_ss_joint:
-          description: Nombre d'éléments sans joint
-          type: number
-        df_ligne_devis_longueur:
-          description: Longueur
-          type: number
         df_ligne_devis_prix_exw_unite:
           description: Prix EXW / Unité
           type: number
-        df_ligne_devis_total_achat_reference_ht:
-          description: Total Achat Référence HT
-          type: number
-        df_ligne_devis_masse_unitaire_ss_joint:
-          description: Masse Unitaire sans Joints
-          type: number
         df_ligne_devis_prix_exw_u:
           description: Prix EXW / U
-          type: number
-        df_ligne_devis_masse_unitaire_ac_joint:
-          description: Masse Unitaire avec Joints
           type: number
         df_ligne_devis_coef_global:
           description: Coefficient Global
@@ -168,58 +129,121 @@ components:
         DF_Ligne_Devis_DF_Devis_id__df_devis_titre:
           description: Titre Devis DF devis
           type: string
+        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_masse_volumique:
+          description: Masse Volumique Produit
+          type: string
         DF_Ligne_Devis_DF_Devis_id:
           description: DF devis
           type: string
-        df_ligne_devis_cout_transport:
-          description: Coût Transport
-          type: number
         df_ligne_devis_prix_produit:
           description: Prix Produit
           type: number
-        df_ligne_devis_famille:
-          description: Famille
+        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_appellation_co:
+          description: Appellation Commerciale Produits Finis
           type: string
-          enum:
-          - BO
-          - PA
-          - DA
-          - MA
-          - BR
-          - CA
         df_ligne_devis_quantite:
           description: Quantité
           type: integer
+        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_nom:
+          description: Nom Produit
+          type: string
+        df_ligne_devis_ref:
+          description: Réf.
+          type: string
+        df_ligne_devis_poids_total:
+          description: Poids Total
+          type: number
+        df_ligne_devis_nom_produit:
+          description: Nom Produit
+          type: string
+        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_larg:
+          description: Largeur Produit
+          type: number
+        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_source:
+          description: Source Produits Finis
+          type: string
+        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_id:
+          description: Id Produit
+          type: integer
+        df_ligne_devis_prix_vente_impose:
+          description: Prix Vente Imposé
+          type: number
+        df_ligne_devis_nombre_camions:
+          description: Nombre Camions
+          type: number
+        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_unite:
+          description: Unité Produit
+          type: string
+        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_long:
+          description: Longueur Produit
+          type: number
+        df_ligne_devis_masse_volumique:
+          description: Masse Volumique Pierre
+          type: number
+        df_ligne_devis_epaisseur:
+          description: Epaisseur
+          type: number
+        df_ligne_devis_prix_transport_reference:
+          description: Prix Transport Référence
+          type: number
+        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_haut:
+          description: Epaisseur Produit
+          type: number
+        df_ligne_devis_total_achat_ht:
+          description: Total Achat HT
+          type: number
+        df_ligne_devis_nb_elt_ss_joint:
+          description: Nombre d'éléments sans joint
+          type: number
+        df_ligne_devis_longueur:
+          description: Longueur
+          type: number
+        df_ligne_devis_total_achat_reference_ht:
+          description: Total Achat Référence HT
+          type: number
+        df_ligne_devis_masse_unitaire_ss_joint:
+          description: Masse Unitaire sans Joints
+          type: number
+        df_ligne_devis_masse_unitaire_ac_joint:
+          description: Masse Unitaire avec Joints
+          type: number
+        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_type_geologique:
+          description: Type Géologique Produits Finis
+          type: string
+          enum:
+          - A
+          - B
+          - C
+        df_ligne_devis_t_prod:
+          description: Type Produit
+          type: string
+        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_designation:
+          description: Designation Produits Finis
+          type: string
+        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_finition:
+          description: Finition Produits Finis
+          type: string
         df_ligne_devis_prix_vente_calcule:
           description: Prix Vente Calculé
           type: number
-        df_ligne_devis_bdd:
-          description: Base de données
+        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_couleur:
+          description: Couleur Produits Finis
           type: string
           enum:
-          - CF
-          - PY
-          - GR
-          - GG
-          - LU
-          - AN
+          - A
+          - B
+          - C
         df_ligne_devis_nb_elt_ac_joint:
           description: Nombre d'éléments avec joint
           type: number
         df_ligne_devis_prix_transport_unitaire:
           description: Prix transport unitaire
           type: number
-        df_ligne_devis_ref:
-          description: Réf.
-          type: string
         df_ligne_devis_coef:
           description: Coef
           type: number
-        df_ligne_devis_poids_total:
-          description: Poids Total
-          type: number
-        df_ligne_devis_nom_produit:
-          description: Nom Produit
+        DF_Ligne_Devis_DF_Produit_Finis_id:
+          description: Produits Finis
           type: string
         df_ligne_devis_laregur:
           description: Largeur
@@ -227,26 +251,23 @@ components:
         df_ligne_devis_dim_joints:
           description: Dimension des joints
           type: number
+        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_commentaire:
+          description: Commentaire Produits Finis
+          type: string
         df_ligne_devis_unite:
           description: Unité
           type: string
-        df_ligne_devis_prix_vente_impose:
-          description: Prix Vente Imposé
+        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_prix:
+          description: Prix Produit
           type: number
         df_ligne_devis_designation:
           description: Désignation
           type: string
-        df_ligne_devis_nombre_camions:
-          description: Nombre Camions
-          type: number
         row_id:
           description: Unique technical row ID
           type: string
         df_ligne_devis_prix_debourse_sec:
           description: Prix déboursé sec
-          type: number
-        df_ligne_devis_masse_volumique:
-          description: Masse Volumique Pierre
           type: number
         df_ligne_devis_id_produit:
           description: Id Produit
@@ -305,7 +326,7 @@ components:
           type: string
         df_commande_id:
           description: Id Commande
-          type: integer
+          type: string
         DF_Commande_DF_utilisateur_interne_id:
           description: Rédacteur
           type: string
@@ -344,9 +365,43 @@ components:
     DF_Livraison:
       type: object
       properties:
-        df_livraison_adresse:
-          description: Adresse livraison
+        df_livraison_adresse_de_livraison_confirmee:
+          description: Adresse De Livraison Confirmée
           type: string
+        df_livraison_date_livraison_estimee:
+          description: Date Livraison Estimée
+          type: string
+        df_livraison_adresse:
+          description: Adresse Livraison
+          type: string
+        df_livraison_num_bl_fournisseur:
+          description: Num BL Fournisseur
+          type: string
+        df_livraison_statut:
+          description: Statut Livraison
+          type: string
+          enum:
+          - '1'
+          - '2'
+          - '3'
+          - '4'
+          - '5'
+          - '6'
+        df_livraison_id_ligne_commande:
+          description: Id Ligne Commande
+          type: integer
+        DF_Livraison_DF_Chantier_id:
+          description: DF chantier
+          type: string
+        df_livraison_adresse_enlevement:
+          description: Adresse Enlevement
+          type: string
+        DF_Livraison_DF_Plan_Livraison_id:
+          description: DF plan livraison
+          type: string
+        df_livraison_quantite_chargee:
+          description: Quantité Chargée
+          type: number
         df_livraison_trellocardid:
           description: df livraison trellocardid
           type: string
@@ -356,11 +411,20 @@ components:
         DF_Livraison_DF_Plan_Livraison_id__df_plan_lvr_id:
           description: Id Plan Livraison DF plan livraison
           type: integer
-        df_livraison_statut:
-          description: Statut Livraison
-          type: boolean
-        DF_Livraison_DF_Chantier_id:
-          description: DF chantier
+        df_livraison_num_bl_client:
+          description: Num BL Client
+          type: string
+        df_livraison_num_zeepo_transporteur:
+          description: Num ZEEPO Transporteur
+          type: string
+        df_livraison_contact_dechargement_privilegie:
+          description: Contact Déchargement Privilégié
+          type: string
+        df_livraison_nom_transporteur:
+          description: Nom Transporteur
+          type: string
+        df_livraison_contact_en_cas_de_probleme:
+          description: Contact En Cas De Problème
           type: string
         row_id:
           description: Unique technical row ID
@@ -368,8 +432,8 @@ components:
         DF_Contact_DF_Livraison_id:
           description: DF livraison
           type: string
-        DF_Livraison_DF_Plan_Livraison_id:
-          description: DF plan livraison
+        df_livraison_contact_transporteur:
+          description: Contact Transporteur
           type: string
     DF_Transport:
       type: object
@@ -434,6 +498,9 @@ components:
     DF_Prix_Transport:
       type: object
       properties:
+        df_prix_transport_origine:
+          description: Origine
+          type: string
         df_prix_transport_prix:
           description: Prix Transport
           type: number
@@ -443,26 +510,17 @@ components:
         DF_Prix_Transport_DF_Transport_id__df_transport_id:
           description: Id Transport DF transport
           type: integer
+        DF_Prix_Transport_DF_Transport_id__DF_Transport_DF_Client_id:
+          description: DF client DF transport
+          type: string
         row_id:
           description: Unique technical row ID
           type: string
         DF_Prix_Transport_DF_Transport_id__df_transport_nom:
           description: Nom DF transport
           type: string
-    DF_test:
-      type: object
-      properties:
-        df_test_id:
-          description: df test id
-          type: integer
-        df_test_name:
-          description: df test name
-          type: string
-        row_id:
-          description: Unique technical row ID
-          type: string
-        df_test_trellocardid:
-          description: df test trellocardid
+        DF_Prix_Transport_DF_Transport_id__DF_Transport_DF_Client_id__df_client_region:
+          description: Destination
           type: string
     ArrayOfDF_Devis:
       type: array
@@ -503,7 +561,7 @@ components:
           type: string
         DF_ligne_commande_DF_Commande_id__df_commande_id:
           description: Id Commande DF commande
-          type: integer
+          type: string
         df_ligne_commande_qte:
           description: Quantité
           type: integer
@@ -563,7 +621,7 @@ components:
           description: DF chantier
           type: string
         DF_Devis_DF_utilisateur_interne_id__df_utilisateur_interne_nc:
-          description: Rédacteur
+          description: Responsable de devis
           type: string
         df_devis_date_emission:
           description: Date Emission
@@ -576,7 +634,7 @@ components:
           type: string
         df_devis_numero:
           description: Numéro Devis
-          type: integer
+          type: string
         df_devis_delais_previsionnel:
           description: Délais prévisionnel
           type: string
@@ -613,9 +671,6 @@ components:
         df_devis_nombre_camions:
           description: Nombre camions estimé
           type: number
-        df_devis_titre_projet:
-          description: Titre Projet
-          type: string
         DF_Devis_DF_Client_id__df_client_telephone:
           description: Téképhone client
           type: string
@@ -693,11 +748,14 @@ components:
           description: Id Secteur Activité
           type: string
           enum:
-          - T
-          - V
+          - AR
+          - MDO
+          - MO
+          - ATPG
+          - ATP
           - N
+          - EA
           - P
-          - A
         df_client_pays:
           description: Pays
           type: string
@@ -743,9 +801,6 @@ components:
         row_id:
           description: Unique technical row ID
           type: string
-        df_client_tx_remise:
-          description: Taux de remise
-          type: number
     ArrayOfDF_Livraison:
       type: array
       items:
@@ -815,6 +870,12 @@ components:
           - A
           - B
           - C
+        df_produit_type:
+          description: Type Produit
+          type: string
+          enum:
+          - Pierre
+          - FFT
         df_produit_finition:
           description: Finition
           type: string
@@ -832,7 +893,7 @@ components:
       type: object
       properties:
         DF_Contact_DF_Client_id:
-          description: DF client
+          description: Clients
           type: string
         df_contact_email:
           description: E-mail
@@ -861,6 +922,9 @@ components:
           - O
           - F
           - ET
+        DF_Contact_DF_Client_id__df_client_nom:
+          description: Nom Client Clients
+          type: string
         df_contact_id_emploi:
           description: Id Emploi
           type: string
@@ -871,9 +935,6 @@ components:
           - D
           - C
           - P
-        DF_Contact_DF_Client_id__df_client_id:
-          description: Id Client DF client
-          type: integer
         df_contact_sous_type:
           description: Sous Type
           type: string
@@ -911,10 +972,6 @@ components:
         item:
           description: Object item with lists of linked objects' items
           type: object
-    ArrayOfDF_test:
-      type: array
-      items:
-        $ref: '#/components/schemas/DF_test'
     ArrayOfDF_Commande:
       type: array
       items:
@@ -922,12 +979,773 @@ components:
     DF_utilisateur_interne:
       type: object
       properties:
+        usr_timezone:
+          description: Time zone
+          type: string
+          enum:
+          - Etc/GMT+12
+          - Etc/GMT+11
+          - Pacific/Midway
+          - Pacific/Niue
+          - Pacific/Pago_Pago
+          - Pacific/Samoa
+          - US/Samoa
+          - America/Adak
+          - America/Atka
+          - Etc/GMT+10
+          - Pacific/Honolulu
+          - Pacific/Johnston
+          - Pacific/Rarotonga
+          - Pacific/Tahiti
+          - SystemV/HST10
+          - US/Aleutian
+          - US/Hawaii
+          - HST
+          - Pacific/Marquesas
+          - America/Anchorage
+          - America/Juneau
+          - America/Metlakatla
+          - America/Nome
+          - America/Sitka
+          - America/Yakutat
+          - Etc/GMT+9
+          - Pacific/Gambier
+          - SystemV/YST9
+          - SystemV/YST9YDT
+          - US/Alaska
+          - AST
+          - America/Dawson
+          - America/Ensenada
+          - America/Los_Angeles
+          - America/Santa_Isabel
+          - America/Tijuana
+          - America/Vancouver
+          - America/Whitehorse
+          - Canada/Pacific
+          - Canada/Yukon
+          - Etc/GMT+8
+          - Mexico/BajaNorte
+          - PST8PDT
+          - Pacific/Pitcairn
+          - SystemV/PST8
+          - SystemV/PST8PDT
+          - US/Pacific
+          - US/Pacific-New
+          - PST
+          - America/Boise
+          - America/Cambridge_Bay
+          - America/Chihuahua
+          - America/Creston
+          - America/Dawson_Creek
+          - America/Denver
+          - America/Edmonton
+          - America/Fort_Nelson
+          - America/Hermosillo
+          - America/Inuvik
+          - America/Mazatlan
+          - America/Ojinaga
+          - America/Phoenix
+          - America/Shiprock
+          - America/Yellowknife
+          - Canada/Mountain
+          - Etc/GMT+7
+          - MST7MDT
+          - Mexico/BajaSur
+          - Navajo
+          - SystemV/MST7
+          - SystemV/MST7MDT
+          - US/Arizona
+          - US/Mountain
+          - MST
+          - PNT
+          - America/Bahia_Banderas
+          - America/Belize
+          - America/Chicago
+          - America/Costa_Rica
+          - America/El_Salvador
+          - America/Guatemala
+          - America/Indiana/Knox
+          - America/Indiana/Tell_City
+          - America/Knox_IN
+          - America/Managua
+          - America/Matamoros
+          - America/Menominee
+          - America/Merida
+          - America/Mexico_City
+          - America/Monterrey
+          - America/North_Dakota/Beulah
+          - America/North_Dakota/Center
+          - America/North_Dakota/New_Salem
+          - America/Rainy_River
+          - America/Rankin_Inlet
+          - America/Regina
+          - America/Resolute
+          - America/Swift_Current
+          - America/Tegucigalpa
+          - America/Winnipeg
+          - CST6CDT
+          - Canada/Central
+          - Canada/Saskatchewan
+          - Chile/EasterIsland
+          - Etc/GMT+6
+          - Mexico/General
+          - Pacific/Easter
+          - Pacific/Galapagos
+          - SystemV/CST6
+          - SystemV/CST6CDT
+          - US/Central
+          - US/Indiana-Starke
+          - CST
+          - America/Atikokan
+          - America/Bogota
+          - America/Cancun
+          - America/Cayman
+          - America/Coral_Harbour
+          - America/Detroit
+          - America/Eirunepe
+          - America/Fort_Wayne
+          - America/Grand_Turk
+          - America/Guayaquil
+          - America/Havana
+          - America/Indiana/Indianapolis
+          - America/Indiana/Marengo
+          - America/Indiana/Petersburg
+          - America/Indiana/Vevay
+          - America/Indiana/Vincennes
+          - America/Indiana/Winamac
+          - America/Indianapolis
+          - America/Iqaluit
+          - America/Jamaica
+          - America/Kentucky/Louisville
+          - America/Kentucky/Monticello
+          - America/Lima
+          - America/Louisville
+          - America/Montreal
+          - America/Nassau
+          - America/New_York
+          - America/Nipigon
+          - America/Panama
+          - America/Pangnirtung
+          - America/Port-au-Prince
+          - America/Porto_Acre
+          - America/Rio_Branco
+          - America/Thunder_Bay
+          - America/Toronto
+          - Brazil/Acre
+          - Canada/Eastern
+          - Cuba
+          - EST5EDT
+          - Etc/GMT+5
+          - Jamaica
+          - SystemV/EST5
+          - SystemV/EST5EDT
+          - US/East-Indiana
+          - US/Eastern
+          - US/Michigan
+          - EST
+          - IET
+          - America/Anguilla
+          - America/Antigua
+          - America/Aruba
+          - America/Asuncion
+          - America/Barbados
+          - America/Blanc-Sablon
+          - America/Boa_Vista
+          - America/Campo_Grande
+          - America/Caracas
+          - America/Cuiaba
+          - America/Curacao
+          - America/Dominica
+          - America/Glace_Bay
+          - America/Goose_Bay
+          - America/Grenada
+          - America/Guadeloupe
+          - America/Guyana
+          - America/Halifax
+          - America/Kralendijk
+          - America/La_Paz
+          - America/Lower_Princes
+          - America/Manaus
+          - America/Marigot
+          - America/Martinique
+          - America/Moncton
+          - America/Montserrat
+          - America/Port_of_Spain
+          - America/Porto_Velho
+          - America/Puerto_Rico
+          - America/Santiago
+          - America/Santo_Domingo
+          - America/St_Barthelemy
+          - America/St_Kitts
+          - America/St_Lucia
+          - America/St_Thomas
+          - America/St_Vincent
+          - America/Thule
+          - America/Tortola
+          - America/Virgin
+          - Atlantic/Bermuda
+          - Brazil/West
+          - Canada/Atlantic
+          - Chile/Continental
+          - Etc/GMT+4
+          - SystemV/AST4
+          - SystemV/AST4ADT
+          - PRT
+          - America/St_Johns
+          - Canada/Newfoundland
+          - CNT
+          - America/Araguaina
+          - America/Argentina/Buenos_Aires
+          - America/Argentina/Catamarca
+          - America/Argentina/ComodRivadavia
+          - America/Argentina/Cordoba
+          - America/Argentina/Jujuy
+          - America/Argentina/La_Rioja
+          - America/Argentina/Mendoza
+          - America/Argentina/Rio_Gallegos
+          - America/Argentina/Salta
+          - America/Argentina/San_Juan
+          - America/Argentina/San_Luis
+          - America/Argentina/Tucuman
+          - America/Argentina/Ushuaia
+          - America/Bahia
+          - America/Belem
+          - America/Buenos_Aires
+          - America/Catamarca
+          - America/Cayenne
+          - America/Cordoba
+          - America/Fortaleza
+          - America/Godthab
+          - America/Jujuy
+          - America/Maceio
+          - America/Mendoza
+          - America/Miquelon
+          - America/Montevideo
+          - America/Paramaribo
+          - America/Punta_Arenas
+          - America/Recife
+          - America/Rosario
+          - America/Santarem
+          - America/Sao_Paulo
+          - Antarctica/Palmer
+          - Antarctica/Rothera
+          - Atlantic/Stanley
+          - Brazil/East
+          - Etc/GMT+3
+          - AGT
+          - BET
+          - America/Noronha
+          - Atlantic/South_Georgia
+          - Brazil/DeNoronha
+          - Etc/GMT+2
+          - America/Scoresbysund
+          - Atlantic/Azores
+          - Atlantic/Cape_Verde
+          - Etc/GMT+1
+          - Africa/Abidjan
+          - Africa/Accra
+          - Africa/Bamako
+          - Africa/Banjul
+          - Africa/Bissau
+          - Africa/Casablanca
+          - Africa/Conakry
+          - Africa/Dakar
+          - Africa/El_Aaiun
+          - Africa/Freetown
+          - Africa/Lome
+          - Africa/Monrovia
+          - Africa/Nouakchott
+          - Africa/Ouagadougou
+          - Africa/Sao_Tome
+          - Africa/Timbuktu
+          - America/Danmarkshavn
+          - Antarctica/Troll
+          - Atlantic/Canary
+          - Atlantic/Faeroe
+          - Atlantic/Faroe
+          - Atlantic/Madeira
+          - Atlantic/Reykjavik
+          - Atlantic/St_Helena
+          - Eire
+          - Etc/GMT
+          - Etc/GMT+0
+          - Etc/GMT-0
+          - Etc/GMT0
+          - Etc/Greenwich
+          - Etc/UCT
+          - Etc/UTC
+          - Etc/Universal
+          - Etc/Zulu
+          - Europe/Belfast
+          - Europe/Dublin
+          - Europe/Guernsey
+          - Europe/Isle_of_Man
+          - Europe/Jersey
+          - Europe/Lisbon
+          - Europe/London
+          - GB
+          - GB-Eire
+          - GMT
+          - GMT0
+          - Greenwich
+          - Iceland
+          - Portugal
+          - UCT
+          - UTC
+          - Universal
+          - WET
+          - Zulu
+          - Africa/Algiers
+          - Africa/Bangui
+          - Africa/Brazzaville
+          - Africa/Ceuta
+          - Africa/Douala
+          - Africa/Kinshasa
+          - Africa/Lagos
+          - Africa/Libreville
+          - Africa/Luanda
+          - Africa/Malabo
+          - Africa/Ndjamena
+          - Africa/Niamey
+          - Africa/Porto-Novo
+          - Africa/Tunis
+          - Arctic/Longyearbyen
+          - Atlantic/Jan_Mayen
+          - CET
+          - Etc/GMT-1
+          - Europe/Amsterdam
+          - Europe/Andorra
+          - Europe/Belgrade
+          - Europe/Berlin
+          - Europe/Bratislava
+          - Europe/Brussels
+          - Europe/Budapest
+          - Europe/Busingen
+          - Europe/Copenhagen
+          - Europe/Gibraltar
+          - Europe/Ljubljana
+          - Europe/Luxembourg
+          - Europe/Madrid
+          - Europe/Malta
+          - Europe/Monaco
+          - Europe/Oslo
+          - Europe/Paris
+          - Europe/Podgorica
+          - Europe/Prague
+          - Europe/Rome
+          - Europe/San_Marino
+          - Europe/Sarajevo
+          - Europe/Skopje
+          - Europe/Stockholm
+          - Europe/Tirane
+          - Europe/Vaduz
+          - Europe/Vatican
+          - Europe/Vienna
+          - Europe/Warsaw
+          - Europe/Zagreb
+          - Europe/Zurich
+          - MET
+          - Poland
+          - ECT
+          - Africa/Blantyre
+          - Africa/Bujumbura
+          - Africa/Cairo
+          - Africa/Gaborone
+          - Africa/Harare
+          - Africa/Johannesburg
+          - Africa/Khartoum
+          - Africa/Kigali
+          - Africa/Lubumbashi
+          - Africa/Lusaka
+          - Africa/Maputo
+          - Africa/Maseru
+          - Africa/Mbabane
+          - Africa/Tripoli
+          - Africa/Windhoek
+          - Asia/Amman
+          - Asia/Beirut
+          - Asia/Damascus
+          - Asia/Famagusta
+          - Asia/Gaza
+          - Asia/Hebron
+          - Asia/Jerusalem
+          - Asia/Nicosia
+          - Asia/Tel_Aviv
+          - EET
+          - Egypt
+          - Etc/GMT-2
+          - Europe/Athens
+          - Europe/Bucharest
+          - Europe/Chisinau
+          - Europe/Helsinki
+          - Europe/Kaliningrad
+          - Europe/Kiev
+          - Europe/Mariehamn
+          - Europe/Nicosia
+          - Europe/Riga
+          - Europe/Sofia
+          - Europe/Tallinn
+          - Europe/Tiraspol
+          - Europe/Uzhgorod
+          - Europe/Vilnius
+          - Europe/Zaporozhye
+          - Israel
+          - Libya
+          - ART
+          - CAT
+          - Africa/Addis_Ababa
+          - Africa/Asmara
+          - Africa/Asmera
+          - Africa/Dar_es_Salaam
+          - Africa/Djibouti
+          - Africa/Juba
+          - Africa/Kampala
+          - Africa/Mogadishu
+          - Africa/Nairobi
+          - Antarctica/Syowa
+          - Asia/Aden
+          - Asia/Baghdad
+          - Asia/Bahrain
+          - Asia/Istanbul
+          - Asia/Kuwait
+          - Asia/Qatar
+          - Asia/Riyadh
+          - Etc/GMT-3
+          - Europe/Istanbul
+          - Europe/Kirov
+          - Europe/Minsk
+          - Europe/Moscow
+          - Europe/Simferopol
+          - Indian/Antananarivo
+          - Indian/Comoro
+          - Indian/Mayotte
+          - Turkey
+          - W-SU
+          - EAT
+          - Asia/Tehran
+          - Iran
+          - Asia/Baku
+          - Asia/Dubai
+          - Asia/Muscat
+          - Asia/Tbilisi
+          - Asia/Yerevan
+          - Etc/GMT-4
+          - Europe/Astrakhan
+          - Europe/Samara
+          - Europe/Saratov
+          - Europe/Ulyanovsk
+          - Europe/Volgograd
+          - Indian/Mahe
+          - Indian/Mauritius
+          - Indian/Reunion
+          - NET
+          - Asia/Kabul
+          - Antarctica/Mawson
+          - Asia/Aqtau
+          - Asia/Aqtobe
+          - Asia/Ashgabat
+          - Asia/Ashkhabad
+          - Asia/Atyrau
+          - Asia/Dushanbe
+          - Asia/Karachi
+          - Asia/Oral
+          - Asia/Qyzylorda
+          - Asia/Samarkand
+          - Asia/Tashkent
+          - Asia/Yekaterinburg
+          - Etc/GMT-5
+          - Indian/Kerguelen
+          - Indian/Maldives
+          - PLT
+          - Asia/Calcutta
+          - Asia/Colombo
+          - Asia/Kolkata
+          - IST
+          - Asia/Kathmandu
+          - Asia/Katmandu
+          - Antarctica/Vostok
+          - Asia/Almaty
+          - Asia/Bishkek
+          - Asia/Dacca
+          - Asia/Dhaka
+          - Asia/Kashgar
+          - Asia/Omsk
+          - Asia/Qostanay
+          - Asia/Thimbu
+          - Asia/Thimphu
+          - Asia/Urumqi
+          - Etc/GMT-6
+          - Indian/Chagos
+          - BST
+          - Asia/Rangoon
+          - Asia/Yangon
+          - Indian/Cocos
+          - Antarctica/Davis
+          - Asia/Bangkok
+          - Asia/Barnaul
+          - Asia/Ho_Chi_Minh
+          - Asia/Hovd
+          - Asia/Jakarta
+          - Asia/Krasnoyarsk
+          - Asia/Novokuznetsk
+          - Asia/Novosibirsk
+          - Asia/Phnom_Penh
+          - Asia/Pontianak
+          - Asia/Saigon
+          - Asia/Tomsk
+          - Asia/Vientiane
+          - Etc/GMT-7
+          - Indian/Christmas
+          - VST
+          - Antarctica/Casey
+          - Asia/Brunei
+          - Asia/Choibalsan
+          - Asia/Chongqing
+          - Asia/Chungking
+          - Asia/Harbin
+          - Asia/Hong_Kong
+          - Asia/Irkutsk
+          - Asia/Kuala_Lumpur
+          - Asia/Kuching
+          - Asia/Macao
+          - Asia/Macau
+          - Asia/Makassar
+          - Asia/Manila
+          - Asia/Shanghai
+          - Asia/Singapore
+          - Asia/Taipei
+          - Asia/Ujung_Pandang
+          - Asia/Ulaanbaatar
+          - Asia/Ulan_Bator
+          - Australia/Perth
+          - Australia/West
+          - Etc/GMT-8
+          - Hongkong
+          - PRC
+          - Singapore
+          - CTT
+          - Australia/Eucla
+          - Asia/Chita
+          - Asia/Dili
+          - Asia/Jayapura
+          - Asia/Khandyga
+          - Asia/Pyongyang
+          - Asia/Seoul
+          - Asia/Tokyo
+          - Asia/Yakutsk
+          - Etc/GMT-9
+          - Japan
+          - Pacific/Palau
+          - ROK
+          - JST
+          - Australia/Adelaide
+          - Australia/Broken_Hill
+          - Australia/Darwin
+          - Australia/North
+          - Australia/South
+          - Australia/Yancowinna
+          - ACT
+          - Antarctica/DumontDUrville
+          - Asia/Ust-Nera
+          - Asia/Vladivostok
+          - Australia/ACT
+          - Australia/Brisbane
+          - Australia/Canberra
+          - Australia/Currie
+          - Australia/Hobart
+          - Australia/Lindeman
+          - Australia/Melbourne
+          - Australia/NSW
+          - Australia/Queensland
+          - Australia/Sydney
+          - Australia/Tasmania
+          - Australia/Victoria
+          - Etc/GMT-10
+          - Pacific/Chuuk
+          - Pacific/Guam
+          - Pacific/Port_Moresby
+          - Pacific/Saipan
+          - Pacific/Truk
+          - Pacific/Yap
+          - AET
+          - Australia/LHI
+          - Australia/Lord_Howe
+          - Antarctica/Macquarie
+          - Asia/Magadan
+          - Asia/Sakhalin
+          - Asia/Srednekolymsk
+          - Etc/GMT-11
+          - Pacific/Bougainville
+          - Pacific/Efate
+          - Pacific/Guadalcanal
+          - Pacific/Kosrae
+          - Pacific/Norfolk
+          - Pacific/Noumea
+          - Pacific/Pohnpei
+          - Pacific/Ponape
+          - SST
+          - Antarctica/McMurdo
+          - Antarctica/South_Pole
+          - Asia/Anadyr
+          - Asia/Kamchatka
+          - Etc/GMT-12
+          - Kwajalein
+          - NZ
+          - Pacific/Auckland
+          - Pacific/Fiji
+          - Pacific/Funafuti
+          - Pacific/Kwajalein
+          - Pacific/Majuro
+          - Pacific/Nauru
+          - Pacific/Tarawa
+          - Pacific/Wake
+          - Pacific/Wallis
+          - NST
+          - NZ-CHAT
+          - Pacific/Chatham
+          - Etc/GMT-13
+          - Pacific/Apia
+          - Pacific/Enderbury
+          - Pacific/Fakaofo
+          - Pacific/Tongatapu
+          - MIT
+          - Etc/GMT-14
+          - Pacific/Kiritimati
+        row_module_id__mdl_name:
+          description: Nom Module
+          type: string
+        usr_image_id:
+          description: Picture
+          type: object
+        usr_subhead:
+          description: Sous-entête visible
+          type: boolean
+        usr_minrows:
+          description: Taille minimale des listes
+          type: integer
+        row_module_id:
+          description: Module
+          type: string
+        usr_login:
+          description: Login
+          type: string
+        usr_country:
+          description: Country
+          type: string
+          enum:
+          - FR
+          - UK
+          - ES
+          - DE
+          - BE
+          - CH
+          - IE
+          - US
+          - CA
+        usr_title:
+          description: Title
+          type: string
+          enum:
+          - MR
+          - MRS
+          - MS
+        usr_logout:
+          description: Logout
+          type: string
+        usr_home_id__viw_name:
+          description: Page d'accueil
+          type: string
         df_utilisateur_interne_nc:
           description: Nom Complet
           type: string
+        usr_menu_defdomain_id:
+          description: Domain ouvert par défaut
+          type: string
+        usr_menu_defhidden:
+          description: deprecated
+          type: boolean
+        usr_menu_defcollapsed:
+          description: Menu ouvert par défaut
+          type: boolean
+        usr_uuid:
+          description: UUID
+          type: string
+        usr_last_logon:
+          description: Dernière connexion
+          type: string
+        usr_first_name:
+          description: First name
+          type: string
+        usr_home_num:
+          description: Tél. domicile
+          type: string
+        usr_email:
+          description: Email address
+          type: string
+        usr_active:
+          description: Actif
+          type: string
+          enum:
+          - '0'
+          - '1'
+          - '2'
+          - '3'
+        usr_menu:
+          description: Menu visible
+          type: boolean
+        usr_zipcode:
+          description: Postal/ZIP code
+          type: string
+        usr_address1:
+          description: Address line 1
+          type: string
+        usr_address2:
+          description: Address line 2
+          type: string
+        usr_last_name:
+          description: Last name
+          type: string
+        usr_cell_num:
+          description: Mobile/cellular phone number
+          type: string
+        usr_menu_defdomain_id__obd_name:
+          description: Domaine ouvert par défaut
+          type: string
+        usr_city:
+          description: City
+          type: string
+        usr_lang:
+          description: Language
+          type: string
+          enum:
+          - ENU
+          - FRA
+        usr_maxrows:
+          description: Taille maximale des listes
+          type: integer
         row_id:
           description: Unique technical row ID
           type: string
+        usr_work_num:
+          description: Work phone number
+          type: string
+        usr_home_id:
+          description: Page d'accueil
+          type: string
+        usr_state:
+          description: State
+          type: string
+        usr_extra:
+          description: Zone d'extras visible
+          type: boolean
+        usr_dateformat:
+          description: Format de date
+          type: string
+          enum:
+          - YMD
+          - DMY
+          - MDY
+          - CHF
   securitySchemes:
     basicAuth:
       scheme: basic
@@ -1451,18 +2269,6 @@ paths:
         required: false
       - schema:
           type: string
-        in: query
-        name: DF_Contact_DF_Client_id
-        description: Search filter for DF client
-        required: false
-      - schema:
-          type: integer
-        in: query
-        name: DF_Contact_DF_Client_id__df_client_id
-        description: Search filter for Id Client DF client
-        required: false
-      - schema:
-          type: string
           enum:
           - O
           - F
@@ -1491,6 +2297,18 @@ paths:
         in: query
         name: df_contact_sous_type
         description: Search filter for Sous Type
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Contact_DF_Client_id
+        description: Search filter for Clients
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Contact_DF_Client_id__df_client_nom
+        description: Search filter for Nom Client Clients
         required: false
       tags:
       - DF_Contact
@@ -1686,6 +2504,15 @@ paths:
         in: query
         name: df_produit_masse_volumique
         description: Search filter for Masse Volumique
+        required: false
+      - schema:
+          type: string
+          enum:
+          - Pierre
+          - FFT
+        in: query
+        name: df_produit_type
+        description: Search filter for Type Produit
         required: false
       tags:
       - DF_Produit_Finis
@@ -2079,6 +2906,53 @@ paths:
         required: true
       tags:
       - DF_Plan_Livraison
+  /rest/DF_Devis/{row_id}/action:Generation-ARC:
+    get:
+      summary: Call a custom action for a DF_Devis business object record or for all
+        records
+      security:
+      - bearerAuth: []
+      operationId: obj-df_devis-action-generation-arc
+      responses:
+        '200':
+          description: Success in calling the custom action
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActionResult'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_Devis
   /rest/DF_utilisateur_interne/{row_id}:
     post:
       summary: Create a new DF_utilisateur_internebusiness object record
@@ -2352,6 +3226,47 @@ paths:
         required: false
       tags:
       - DF_Fournisseurs
+  /rest/DF_utilisateur_interne/{row_id}/publication:User-DEFAULT:
+    get:
+      summary: Call a custom publication for a DF_utilisateur_interne business object
+        record or for all records
+      security:
+      - bearerAuth: []
+      operationId: obj-df_utilisateur_interne-publication-user-default
+      responses:
+        '200':
+          description: Success in calling the custom publication
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublicationResult'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_utilisateur_interne
   /rest/DF_Commande/{row_id}:
     post:
       summary: Create a new DF_Commandebusiness object record
@@ -3178,7 +4093,7 @@ paths:
         description: Documentation?
         required: false
       - schema:
-          type: integer
+          type: string
         in: query
         name: df_commande_id
         description: Search filter for Id Commande
@@ -3251,6 +4166,47 @@ paths:
         required: false
       tags:
       - DF_Commande
+  /rest/DF_utilisateur_interne/{row_id}/publication:User-VCARD:
+    get:
+      summary: Call a custom publication for a DF_utilisateur_interne business object
+        record or for all records
+      security:
+      - bearerAuth: []
+      operationId: obj-df_utilisateur_interne-publication-user-vcard
+      responses:
+        '200':
+          description: Success in calling the custom publication
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublicationResult'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_utilisateur_interne
   /rest/DF_Prix_Transport/{row_id}:
     post:
       summary: Create a new DF_Prix_Transportbusiness object record
@@ -3666,27 +4622,45 @@ paths:
         description: Search filter for Nom DF transport
         required: false
       - schema:
+          type: string
+        in: query
+        name: DF_Prix_Transport_DF_Transport_id__DF_Transport_DF_Client_id
+        description: Search filter for DF client DF transport
+        required: false
+      - schema:
           type: number
         in: query
         name: df_prix_transport_prix
         description: Search filter for Prix Transport
         required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Prix_Transport_DF_Transport_id__DF_Transport_DF_Client_id__df_client_region
+        description: Search filter for Destination
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: df_prix_transport_origine
+        description: Search filter for Origine
+        required: false
       tags:
       - DF_Prix_Transport
-  /rest/DF_test:
+  /rest/DF_utilisateur_interne/{row_id}/publication:User-EXCEL:
     get:
-      summary: Search DF_test business object records or get contextualized metadata
+      summary: Call a custom publication for a DF_utilisateur_interne business object
+        record or for all records
       security:
       - bearerAuth: []
-      operationId: obj-df_test-search
+      operationId: obj-df_utilisateur_interne-publication-user-excel
       responses:
         '200':
-          description: Success in searching business object records (or in getting
-            contextualized business object metadata, documentation, ...)
+          description: Success in calling the custom publication
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ArrayOfDF_test'
+                $ref: '#/components/schemas/PublicationResult'
         '401':
           description: Unauthorized
           content:
@@ -3699,45 +4673,21 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
       parameters:
       - schema:
-          type: boolean
-        in: query
-        name: _metadata
-        description: Metadata?
-        required: false
-      - schema:
-          type: boolean
-        in: query
-        name: _count
-        description: Count?
-        required: false
-      - schema:
-          type: boolean
-        in: query
-        name: _doc
-        description: Documentation?
-        required: false
-      - schema:
           type: string
-        in: query
-        name: df_test_trellocardid
-        description: Search filter for df test trellocardid
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: df_test_name
-        description: Search filter for df test name
-        required: false
-      - schema:
-          type: integer
-        in: query
-        name: df_test_id
-        description: Search filter for df test id
-        required: false
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
       tags:
-      - DF_test
+      - DF_utilisateur_interne
   /logout:
     get:
       summary: Logout (revoke bearer token)
@@ -4006,12 +4956,6 @@ paths:
       - schema:
           type: string
         in: query
-        name: df_devis_titre_projet
-        description: Search filter for Titre Projet
-        required: false
-      - schema:
-          type: string
-        in: query
         name: df_devis_lieu_projet
         description: Search filter for Lieu Projet
         required: false
@@ -4051,7 +4995,7 @@ paths:
         description: Search filter for Date début DF chantier
         required: false
       - schema:
-          type: integer
+          type: string
         in: query
         name: df_devis_numero
         description: Search filter for Numéro Devis
@@ -4197,7 +5141,7 @@ paths:
           type: string
         in: query
         name: DF_Devis_DF_utilisateur_interne_id__df_utilisateur_interne_nc
-        description: Search filter for Rédacteur
+        description: Search filter for Responsable de devis
         required: false
       tags:
       - DF_Devis
@@ -4326,7 +5270,7 @@ paths:
         description: Search filter for DF commande
         required: false
       - schema:
-          type: integer
+          type: string
         in: query
         name: DF_ligne_commande_DF_Commande_id__df_commande_id
         description: Search filter for Id Commande DF commande
@@ -4351,201 +5295,6 @@ paths:
         required: false
       tags:
       - DF_ligne_commande
-  /rest/DF_test/{row_id}:
-    post:
-      summary: Create a new DF_testbusiness object record
-      security:
-      - bearerAuth: []
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/DF_test'
-      operationId: obj-df_test-create
-      responses:
-        '200':
-          description: Success in creating a new business object record
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/DF_test'
-        '400':
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error400'
-        '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error401'
-        '500':
-          description: Internal server error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error500'
-      parameters:
-      - schema:
-          type: string
-        in: path
-        name: row_id
-        description: Row ID (or empty or _ for all row IDs)
-        required: true
-      tags:
-      - DF_test
-    get:
-      summary: Get a DF_test business object record
-      security:
-      - bearerAuth: []
-      operationId: obj-df_test-get
-      responses:
-        '200':
-          description: Success in getting a single business object record
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/DF_test'
-        '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error401'
-        '500':
-          description: Internal server error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error500'
-        '404':
-          description: Not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error404'
-      parameters:
-      - schema:
-          type: string
-        in: path
-        name: row_id
-        description: Row ID (or empty or _ for all row IDs)
-        required: true
-      - schema:
-          type: boolean
-        in: query
-        name: _inline_documents
-        description: Inline documents?
-        required: false
-      - schema:
-          type: boolean
-        in: query
-        name: _inline_thumbnails
-        description: Inline documents' thumbnails?
-        required: false
-      - schema:
-          type: boolean
-        in: query
-        name: _inline_objects
-        description: Inline objects?
-        required: false
-      tags:
-      - DF_test
-    delete:
-      summary: Delete a DF_test business object record
-      security:
-      - bearerAuth: []
-      operationId: obj-df_test-delete
-      responses:
-        '200':
-          description: Success in deleting a business object record
-          content:
-            application/json: {}
-        '400':
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error400'
-        '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error401'
-        '500':
-          description: Internal server error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error500'
-        '404':
-          description: Not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error404'
-      parameters:
-      - schema:
-          type: string
-        in: path
-        name: row_id
-        description: Row ID (or empty or _ for all row IDs)
-        required: true
-      tags:
-      - DF_test
-    put:
-      summary: Update a DF_testbusiness object record
-      security:
-      - bearerAuth: []
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/DF_test'
-      operationId: obj-df_test-update
-      responses:
-        '200':
-          description: Success in updating a business object record
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/DF_test'
-        '400':
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error400'
-        '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error401'
-        '500':
-          description: Internal server error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error500'
-        '404':
-          description: Not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error404'
-      parameters:
-      - schema:
-          type: string
-        in: path
-        name: row_id
-        description: Row ID (or empty or _ for all row IDs)
-        required: true
-      tags:
-      - DF_test
   /rest/DF_Plan_Livraison:
     get:
       summary: Search DF_Plan_Livraison business object records or get contextualized
@@ -4612,6 +5361,47 @@ paths:
         required: false
       tags:
       - DF_Plan_Livraison
+  /rest/DF_utilisateur_interne/{row_id}/publication:User-WORD:
+    get:
+      summary: Call a custom publication for a DF_utilisateur_interne business object
+        record or for all records
+      security:
+      - bearerAuth: []
+      operationId: obj-df_utilisateur_interne-publication-user-word
+      responses:
+        '200':
+          description: Success in calling the custom publication
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublicationResult'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_utilisateur_interne
   /rest/DF_Chantier:
     get:
       summary: Search DF_Chantier business object records or get contextualized metadata
@@ -4660,6 +5450,12 @@ paths:
       - schema:
           type: string
         in: query
+        name: df_client_region
+        description: Search filter for Region
+        required: false
+      - schema:
+          type: string
+        in: query
         name: df_chantier_reference
         description: Search filter for Référence chantier
         required: false
@@ -4673,103 +5469,73 @@ paths:
           type: string
         in: query
         name: DF_Chantier_DF_Client_id
-        description: Search filter for DF client
+        description: Search filter for Client
         required: false
       - schema:
           type: integer
         in: query
         name: DF_Chantier_DF_Client_id__df_client_id
-        description: Search filter for Id Client DF client
+        description: Search filter for Id Client
         required: false
       - schema:
           type: string
         in: query
         name: DF_Chantier_DF_Client_id__df_client_nom
-        description: Search filter for Nom Client DF client
+        description: Search filter for Nom Client
         required: false
       - schema:
           type: string
         in: query
         name: DF_Chantier_DF_Client_id__df_client_telephone
-        description: Search filter for Téképhone DF client
+        description: Search filter for Téléphone Client
         required: false
       - schema:
           type: string
         in: query
         name: DF_Chantier_DF_Client_id__df_client_ville
-        description: Search filter for Ville DF client
+        description: Search filter for Ville Client
         required: false
       - schema:
           type: string
         in: query
         name: DF_Chantier_DF_Client_id__df_client_pays
-        description: Search filter for Pays DF client
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: DF_Chantier_DF_Client_id__df_client_cedex
-        description: Search filter for CEDEX DF client
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: DF_Chantier_DF_Client_id__df_client_adresse_3
-        description: Search filter for Adresse 3 DF client
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: DF_Chantier_DF_Client_id__df_client_adresse_2
-        description: Search filter for Adresse 2 DF client
-        required: false
-      - schema:
-          type: integer
-        in: query
-        name: DF_Chantier_DF_Client_id__df_client_code_postal
-        description: Search filter for Code Postal DF client
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: DF_Chantier_DF_Client_id__df_client_description
-        description: Search filter for Description DF client
-        required: false
-      - schema:
-          type: string
-          enum:
-          - T
-          - V
-          - N
-          - P
-          - A
-        in: query
-        name: DF_Chantier_DF_Client_id__df_client_id_secteur_activite
-        description: Search filter for Id Secteur Activité DF client
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: DF_Chantier_DF_Client_id__df_client_adresse
-        description: Search filter for Adresse DF client
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: DF_Chantier_DF_Client_id__df_client_region
-        description: Search filter for Region DF client
+        description: Search filter for Pays Client
         required: false
       - schema:
           type: string
         in: query
         name: DF_Chantier_DF_Plan_Livraison_id
-        description: Search filter for DF plan livraison
+        description: Search filter for Plan Livraison
         required: false
       - schema:
           type: integer
         in: query
         name: DF_Chantier_DF_Plan_Livraison_id__df_plan_lvr_id
-        description: Search filter for Id Plan Livraison DF plan livraison
+        description: Search filter for Plan Livraison
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: df_chantier_libelle
+        description: Search filter for Libellé de chantier
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: df_chantier_nature_travaux
+        description: Search filter for Nature travaux
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: df_chantier_coefficient_initial
+        description: Search filter for Coefficient de vente initial
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: df_chantier_montant_initial
+        description: Search filter for Montant initial commande HT
         required: false
       tags:
       - DF_Chantier
@@ -4825,6 +5591,18 @@ paths:
         description: Search filter for Id Livraison
         required: false
       - schema:
+          type: integer
+        in: query
+        name: df_livraison_id_ligne_commande
+        description: Search filter for Id Ligne Commande
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: df_livraison_nom_transporteur
+        description: Search filter for Nom Transporteur
+        required: false
+      - schema:
           type: string
         in: query
         name: DF_Livraison_DF_Plan_Livraison_id
@@ -4849,7 +5627,14 @@ paths:
         description: Search filter for DF livraison
         required: false
       - schema:
-          type: boolean
+          type: string
+          enum:
+          - '1'
+          - '2'
+          - '3'
+          - '4'
+          - '5'
+          - '6'
         in: query
         name: df_livraison_statut
         description: Search filter for Statut Livraison
@@ -4858,13 +5643,73 @@ paths:
           type: string
         in: query
         name: df_livraison_adresse
-        description: Search filter for Adresse livraison
+        description: Search filter for Adresse Livraison
         required: false
       - schema:
           type: string
         in: query
         name: DF_Livraison_DF_Chantier_id
         description: Search filter for DF chantier
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: df_livraison_quantite_chargee
+        description: Search filter for Quantité Chargée
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: df_livraison_contact_transporteur
+        description: Search filter for Contact Transporteur
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: df_livraison_num_bl_client
+        description: Search filter for Num BL Client
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: df_livraison_adresse_de_livraison_confirmee
+        description: Search filter for Adresse De Livraison Confirmée
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: df_livraison_date_livraison_estimee
+        description: Search filter for Date Livraison Estimée
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: df_livraison_contact_dechargement_privilegie
+        description: Search filter for Contact Déchargement Privilégié
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: df_livraison_num_bl_fournisseur
+        description: Search filter for Num BL Fournisseur
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: df_livraison_adresse_enlevement
+        description: Search filter for Adresse Enlevement
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: df_livraison_num_zeepo_transporteur
+        description: Search filter for Num ZEEPO Transporteur
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: df_livraison_contact_en_cas_de_probleme
+        description: Search filter for Contact En Cas De Problème
         required: false
       tags:
       - DF_Livraison
@@ -4996,11 +5841,14 @@ paths:
       - schema:
           type: string
           enum:
-          - T
-          - V
+          - AR
+          - MDO
+          - MO
+          - ATPG
+          - ATP
           - N
+          - EA
           - P
-          - A
         in: query
         name: df_client_id_secteur_activite
         description: Search filter for Id Secteur Activité
@@ -5040,12 +5888,6 @@ paths:
         in: query
         name: df_client_pays
         description: Search filter for Pays
-        required: false
-      - schema:
-          type: number
-        in: query
-        name: df_client_tx_remise
-        description: Search filter for Taux de remise
         required: false
       tags:
       - DF_Client
@@ -5488,11 +6330,924 @@ paths:
       - schema:
           type: string
         in: query
+        name: usr_login
+        description: Search filter for Login
+        required: false
+      - schema:
+          type: string
+          enum:
+          - ENU
+          - FRA
+        in: query
+        name: usr_lang
+        description: Search filter for Language
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: usr_image_id
+        description: Search filter for Picture
+        required: false
+      - schema:
+          type: string
+          enum:
+          - Etc/GMT+12
+          - Etc/GMT+11
+          - Pacific/Midway
+          - Pacific/Niue
+          - Pacific/Pago_Pago
+          - Pacific/Samoa
+          - US/Samoa
+          - America/Adak
+          - America/Atka
+          - Etc/GMT+10
+          - Pacific/Honolulu
+          - Pacific/Johnston
+          - Pacific/Rarotonga
+          - Pacific/Tahiti
+          - SystemV/HST10
+          - US/Aleutian
+          - US/Hawaii
+          - HST
+          - Pacific/Marquesas
+          - America/Anchorage
+          - America/Juneau
+          - America/Metlakatla
+          - America/Nome
+          - America/Sitka
+          - America/Yakutat
+          - Etc/GMT+9
+          - Pacific/Gambier
+          - SystemV/YST9
+          - SystemV/YST9YDT
+          - US/Alaska
+          - AST
+          - America/Dawson
+          - America/Ensenada
+          - America/Los_Angeles
+          - America/Santa_Isabel
+          - America/Tijuana
+          - America/Vancouver
+          - America/Whitehorse
+          - Canada/Pacific
+          - Canada/Yukon
+          - Etc/GMT+8
+          - Mexico/BajaNorte
+          - PST8PDT
+          - Pacific/Pitcairn
+          - SystemV/PST8
+          - SystemV/PST8PDT
+          - US/Pacific
+          - US/Pacific-New
+          - PST
+          - America/Boise
+          - America/Cambridge_Bay
+          - America/Chihuahua
+          - America/Creston
+          - America/Dawson_Creek
+          - America/Denver
+          - America/Edmonton
+          - America/Fort_Nelson
+          - America/Hermosillo
+          - America/Inuvik
+          - America/Mazatlan
+          - America/Ojinaga
+          - America/Phoenix
+          - America/Shiprock
+          - America/Yellowknife
+          - Canada/Mountain
+          - Etc/GMT+7
+          - MST7MDT
+          - Mexico/BajaSur
+          - Navajo
+          - SystemV/MST7
+          - SystemV/MST7MDT
+          - US/Arizona
+          - US/Mountain
+          - MST
+          - PNT
+          - America/Bahia_Banderas
+          - America/Belize
+          - America/Chicago
+          - America/Costa_Rica
+          - America/El_Salvador
+          - America/Guatemala
+          - America/Indiana/Knox
+          - America/Indiana/Tell_City
+          - America/Knox_IN
+          - America/Managua
+          - America/Matamoros
+          - America/Menominee
+          - America/Merida
+          - America/Mexico_City
+          - America/Monterrey
+          - America/North_Dakota/Beulah
+          - America/North_Dakota/Center
+          - America/North_Dakota/New_Salem
+          - America/Rainy_River
+          - America/Rankin_Inlet
+          - America/Regina
+          - America/Resolute
+          - America/Swift_Current
+          - America/Tegucigalpa
+          - America/Winnipeg
+          - CST6CDT
+          - Canada/Central
+          - Canada/Saskatchewan
+          - Chile/EasterIsland
+          - Etc/GMT+6
+          - Mexico/General
+          - Pacific/Easter
+          - Pacific/Galapagos
+          - SystemV/CST6
+          - SystemV/CST6CDT
+          - US/Central
+          - US/Indiana-Starke
+          - CST
+          - America/Atikokan
+          - America/Bogota
+          - America/Cancun
+          - America/Cayman
+          - America/Coral_Harbour
+          - America/Detroit
+          - America/Eirunepe
+          - America/Fort_Wayne
+          - America/Grand_Turk
+          - America/Guayaquil
+          - America/Havana
+          - America/Indiana/Indianapolis
+          - America/Indiana/Marengo
+          - America/Indiana/Petersburg
+          - America/Indiana/Vevay
+          - America/Indiana/Vincennes
+          - America/Indiana/Winamac
+          - America/Indianapolis
+          - America/Iqaluit
+          - America/Jamaica
+          - America/Kentucky/Louisville
+          - America/Kentucky/Monticello
+          - America/Lima
+          - America/Louisville
+          - America/Montreal
+          - America/Nassau
+          - America/New_York
+          - America/Nipigon
+          - America/Panama
+          - America/Pangnirtung
+          - America/Port-au-Prince
+          - America/Porto_Acre
+          - America/Rio_Branco
+          - America/Thunder_Bay
+          - America/Toronto
+          - Brazil/Acre
+          - Canada/Eastern
+          - Cuba
+          - EST5EDT
+          - Etc/GMT+5
+          - Jamaica
+          - SystemV/EST5
+          - SystemV/EST5EDT
+          - US/East-Indiana
+          - US/Eastern
+          - US/Michigan
+          - EST
+          - IET
+          - America/Anguilla
+          - America/Antigua
+          - America/Aruba
+          - America/Asuncion
+          - America/Barbados
+          - America/Blanc-Sablon
+          - America/Boa_Vista
+          - America/Campo_Grande
+          - America/Caracas
+          - America/Cuiaba
+          - America/Curacao
+          - America/Dominica
+          - America/Glace_Bay
+          - America/Goose_Bay
+          - America/Grenada
+          - America/Guadeloupe
+          - America/Guyana
+          - America/Halifax
+          - America/Kralendijk
+          - America/La_Paz
+          - America/Lower_Princes
+          - America/Manaus
+          - America/Marigot
+          - America/Martinique
+          - America/Moncton
+          - America/Montserrat
+          - America/Port_of_Spain
+          - America/Porto_Velho
+          - America/Puerto_Rico
+          - America/Santiago
+          - America/Santo_Domingo
+          - America/St_Barthelemy
+          - America/St_Kitts
+          - America/St_Lucia
+          - America/St_Thomas
+          - America/St_Vincent
+          - America/Thule
+          - America/Tortola
+          - America/Virgin
+          - Atlantic/Bermuda
+          - Brazil/West
+          - Canada/Atlantic
+          - Chile/Continental
+          - Etc/GMT+4
+          - SystemV/AST4
+          - SystemV/AST4ADT
+          - PRT
+          - America/St_Johns
+          - Canada/Newfoundland
+          - CNT
+          - America/Araguaina
+          - America/Argentina/Buenos_Aires
+          - America/Argentina/Catamarca
+          - America/Argentina/ComodRivadavia
+          - America/Argentina/Cordoba
+          - America/Argentina/Jujuy
+          - America/Argentina/La_Rioja
+          - America/Argentina/Mendoza
+          - America/Argentina/Rio_Gallegos
+          - America/Argentina/Salta
+          - America/Argentina/San_Juan
+          - America/Argentina/San_Luis
+          - America/Argentina/Tucuman
+          - America/Argentina/Ushuaia
+          - America/Bahia
+          - America/Belem
+          - America/Buenos_Aires
+          - America/Catamarca
+          - America/Cayenne
+          - America/Cordoba
+          - America/Fortaleza
+          - America/Godthab
+          - America/Jujuy
+          - America/Maceio
+          - America/Mendoza
+          - America/Miquelon
+          - America/Montevideo
+          - America/Paramaribo
+          - America/Punta_Arenas
+          - America/Recife
+          - America/Rosario
+          - America/Santarem
+          - America/Sao_Paulo
+          - Antarctica/Palmer
+          - Antarctica/Rothera
+          - Atlantic/Stanley
+          - Brazil/East
+          - Etc/GMT+3
+          - AGT
+          - BET
+          - America/Noronha
+          - Atlantic/South_Georgia
+          - Brazil/DeNoronha
+          - Etc/GMT+2
+          - America/Scoresbysund
+          - Atlantic/Azores
+          - Atlantic/Cape_Verde
+          - Etc/GMT+1
+          - Africa/Abidjan
+          - Africa/Accra
+          - Africa/Bamako
+          - Africa/Banjul
+          - Africa/Bissau
+          - Africa/Casablanca
+          - Africa/Conakry
+          - Africa/Dakar
+          - Africa/El_Aaiun
+          - Africa/Freetown
+          - Africa/Lome
+          - Africa/Monrovia
+          - Africa/Nouakchott
+          - Africa/Ouagadougou
+          - Africa/Sao_Tome
+          - Africa/Timbuktu
+          - America/Danmarkshavn
+          - Antarctica/Troll
+          - Atlantic/Canary
+          - Atlantic/Faeroe
+          - Atlantic/Faroe
+          - Atlantic/Madeira
+          - Atlantic/Reykjavik
+          - Atlantic/St_Helena
+          - Eire
+          - Etc/GMT
+          - Etc/GMT+0
+          - Etc/GMT-0
+          - Etc/GMT0
+          - Etc/Greenwich
+          - Etc/UCT
+          - Etc/UTC
+          - Etc/Universal
+          - Etc/Zulu
+          - Europe/Belfast
+          - Europe/Dublin
+          - Europe/Guernsey
+          - Europe/Isle_of_Man
+          - Europe/Jersey
+          - Europe/Lisbon
+          - Europe/London
+          - GB
+          - GB-Eire
+          - GMT
+          - GMT0
+          - Greenwich
+          - Iceland
+          - Portugal
+          - UCT
+          - UTC
+          - Universal
+          - WET
+          - Zulu
+          - Africa/Algiers
+          - Africa/Bangui
+          - Africa/Brazzaville
+          - Africa/Ceuta
+          - Africa/Douala
+          - Africa/Kinshasa
+          - Africa/Lagos
+          - Africa/Libreville
+          - Africa/Luanda
+          - Africa/Malabo
+          - Africa/Ndjamena
+          - Africa/Niamey
+          - Africa/Porto-Novo
+          - Africa/Tunis
+          - Arctic/Longyearbyen
+          - Atlantic/Jan_Mayen
+          - CET
+          - Etc/GMT-1
+          - Europe/Amsterdam
+          - Europe/Andorra
+          - Europe/Belgrade
+          - Europe/Berlin
+          - Europe/Bratislava
+          - Europe/Brussels
+          - Europe/Budapest
+          - Europe/Busingen
+          - Europe/Copenhagen
+          - Europe/Gibraltar
+          - Europe/Ljubljana
+          - Europe/Luxembourg
+          - Europe/Madrid
+          - Europe/Malta
+          - Europe/Monaco
+          - Europe/Oslo
+          - Europe/Paris
+          - Europe/Podgorica
+          - Europe/Prague
+          - Europe/Rome
+          - Europe/San_Marino
+          - Europe/Sarajevo
+          - Europe/Skopje
+          - Europe/Stockholm
+          - Europe/Tirane
+          - Europe/Vaduz
+          - Europe/Vatican
+          - Europe/Vienna
+          - Europe/Warsaw
+          - Europe/Zagreb
+          - Europe/Zurich
+          - MET
+          - Poland
+          - ECT
+          - Africa/Blantyre
+          - Africa/Bujumbura
+          - Africa/Cairo
+          - Africa/Gaborone
+          - Africa/Harare
+          - Africa/Johannesburg
+          - Africa/Khartoum
+          - Africa/Kigali
+          - Africa/Lubumbashi
+          - Africa/Lusaka
+          - Africa/Maputo
+          - Africa/Maseru
+          - Africa/Mbabane
+          - Africa/Tripoli
+          - Africa/Windhoek
+          - Asia/Amman
+          - Asia/Beirut
+          - Asia/Damascus
+          - Asia/Famagusta
+          - Asia/Gaza
+          - Asia/Hebron
+          - Asia/Jerusalem
+          - Asia/Nicosia
+          - Asia/Tel_Aviv
+          - EET
+          - Egypt
+          - Etc/GMT-2
+          - Europe/Athens
+          - Europe/Bucharest
+          - Europe/Chisinau
+          - Europe/Helsinki
+          - Europe/Kaliningrad
+          - Europe/Kiev
+          - Europe/Mariehamn
+          - Europe/Nicosia
+          - Europe/Riga
+          - Europe/Sofia
+          - Europe/Tallinn
+          - Europe/Tiraspol
+          - Europe/Uzhgorod
+          - Europe/Vilnius
+          - Europe/Zaporozhye
+          - Israel
+          - Libya
+          - ART
+          - CAT
+          - Africa/Addis_Ababa
+          - Africa/Asmara
+          - Africa/Asmera
+          - Africa/Dar_es_Salaam
+          - Africa/Djibouti
+          - Africa/Juba
+          - Africa/Kampala
+          - Africa/Mogadishu
+          - Africa/Nairobi
+          - Antarctica/Syowa
+          - Asia/Aden
+          - Asia/Baghdad
+          - Asia/Bahrain
+          - Asia/Istanbul
+          - Asia/Kuwait
+          - Asia/Qatar
+          - Asia/Riyadh
+          - Etc/GMT-3
+          - Europe/Istanbul
+          - Europe/Kirov
+          - Europe/Minsk
+          - Europe/Moscow
+          - Europe/Simferopol
+          - Indian/Antananarivo
+          - Indian/Comoro
+          - Indian/Mayotte
+          - Turkey
+          - W-SU
+          - EAT
+          - Asia/Tehran
+          - Iran
+          - Asia/Baku
+          - Asia/Dubai
+          - Asia/Muscat
+          - Asia/Tbilisi
+          - Asia/Yerevan
+          - Etc/GMT-4
+          - Europe/Astrakhan
+          - Europe/Samara
+          - Europe/Saratov
+          - Europe/Ulyanovsk
+          - Europe/Volgograd
+          - Indian/Mahe
+          - Indian/Mauritius
+          - Indian/Reunion
+          - NET
+          - Asia/Kabul
+          - Antarctica/Mawson
+          - Asia/Aqtau
+          - Asia/Aqtobe
+          - Asia/Ashgabat
+          - Asia/Ashkhabad
+          - Asia/Atyrau
+          - Asia/Dushanbe
+          - Asia/Karachi
+          - Asia/Oral
+          - Asia/Qyzylorda
+          - Asia/Samarkand
+          - Asia/Tashkent
+          - Asia/Yekaterinburg
+          - Etc/GMT-5
+          - Indian/Kerguelen
+          - Indian/Maldives
+          - PLT
+          - Asia/Calcutta
+          - Asia/Colombo
+          - Asia/Kolkata
+          - IST
+          - Asia/Kathmandu
+          - Asia/Katmandu
+          - Antarctica/Vostok
+          - Asia/Almaty
+          - Asia/Bishkek
+          - Asia/Dacca
+          - Asia/Dhaka
+          - Asia/Kashgar
+          - Asia/Omsk
+          - Asia/Qostanay
+          - Asia/Thimbu
+          - Asia/Thimphu
+          - Asia/Urumqi
+          - Etc/GMT-6
+          - Indian/Chagos
+          - BST
+          - Asia/Rangoon
+          - Asia/Yangon
+          - Indian/Cocos
+          - Antarctica/Davis
+          - Asia/Bangkok
+          - Asia/Barnaul
+          - Asia/Ho_Chi_Minh
+          - Asia/Hovd
+          - Asia/Jakarta
+          - Asia/Krasnoyarsk
+          - Asia/Novokuznetsk
+          - Asia/Novosibirsk
+          - Asia/Phnom_Penh
+          - Asia/Pontianak
+          - Asia/Saigon
+          - Asia/Tomsk
+          - Asia/Vientiane
+          - Etc/GMT-7
+          - Indian/Christmas
+          - VST
+          - Antarctica/Casey
+          - Asia/Brunei
+          - Asia/Choibalsan
+          - Asia/Chongqing
+          - Asia/Chungking
+          - Asia/Harbin
+          - Asia/Hong_Kong
+          - Asia/Irkutsk
+          - Asia/Kuala_Lumpur
+          - Asia/Kuching
+          - Asia/Macao
+          - Asia/Macau
+          - Asia/Makassar
+          - Asia/Manila
+          - Asia/Shanghai
+          - Asia/Singapore
+          - Asia/Taipei
+          - Asia/Ujung_Pandang
+          - Asia/Ulaanbaatar
+          - Asia/Ulan_Bator
+          - Australia/Perth
+          - Australia/West
+          - Etc/GMT-8
+          - Hongkong
+          - PRC
+          - Singapore
+          - CTT
+          - Australia/Eucla
+          - Asia/Chita
+          - Asia/Dili
+          - Asia/Jayapura
+          - Asia/Khandyga
+          - Asia/Pyongyang
+          - Asia/Seoul
+          - Asia/Tokyo
+          - Asia/Yakutsk
+          - Etc/GMT-9
+          - Japan
+          - Pacific/Palau
+          - ROK
+          - JST
+          - Australia/Adelaide
+          - Australia/Broken_Hill
+          - Australia/Darwin
+          - Australia/North
+          - Australia/South
+          - Australia/Yancowinna
+          - ACT
+          - Antarctica/DumontDUrville
+          - Asia/Ust-Nera
+          - Asia/Vladivostok
+          - Australia/ACT
+          - Australia/Brisbane
+          - Australia/Canberra
+          - Australia/Currie
+          - Australia/Hobart
+          - Australia/Lindeman
+          - Australia/Melbourne
+          - Australia/NSW
+          - Australia/Queensland
+          - Australia/Sydney
+          - Australia/Tasmania
+          - Australia/Victoria
+          - Etc/GMT-10
+          - Pacific/Chuuk
+          - Pacific/Guam
+          - Pacific/Port_Moresby
+          - Pacific/Saipan
+          - Pacific/Truk
+          - Pacific/Yap
+          - AET
+          - Australia/LHI
+          - Australia/Lord_Howe
+          - Antarctica/Macquarie
+          - Asia/Magadan
+          - Asia/Sakhalin
+          - Asia/Srednekolymsk
+          - Etc/GMT-11
+          - Pacific/Bougainville
+          - Pacific/Efate
+          - Pacific/Guadalcanal
+          - Pacific/Kosrae
+          - Pacific/Norfolk
+          - Pacific/Noumea
+          - Pacific/Pohnpei
+          - Pacific/Ponape
+          - SST
+          - Antarctica/McMurdo
+          - Antarctica/South_Pole
+          - Asia/Anadyr
+          - Asia/Kamchatka
+          - Etc/GMT-12
+          - Kwajalein
+          - NZ
+          - Pacific/Auckland
+          - Pacific/Fiji
+          - Pacific/Funafuti
+          - Pacific/Kwajalein
+          - Pacific/Majuro
+          - Pacific/Nauru
+          - Pacific/Tarawa
+          - Pacific/Wake
+          - Pacific/Wallis
+          - NST
+          - NZ-CHAT
+          - Pacific/Chatham
+          - Etc/GMT-13
+          - Pacific/Apia
+          - Pacific/Enderbury
+          - Pacific/Fakaofo
+          - Pacific/Tongatapu
+          - MIT
+          - Etc/GMT-14
+          - Pacific/Kiritimati
+        in: query
+        name: usr_timezone
+        description: Search filter for Time zone
+        required: false
+      - schema:
+          type: integer
+        in: query
+        name: usr_minrows
+        description: Search filter for Taille minimale des listes
+        required: false
+      - schema:
+          type: integer
+        in: query
+        name: usr_maxrows
+        description: Search filter for Taille maximale des listes
+        required: false
+      - schema:
+          type: string
+          enum:
+          - '0'
+          - '1'
+          - '2'
+          - '3'
+        in: query
+        name: usr_active
+        description: Search filter for Actif
+        required: false
+      - schema:
+          type: string
+        in: query
         name: df_utilisateur_interne_nc
         description: Search filter for Nom Complet
         required: false
+      - schema:
+          type: string
+          enum:
+          - MR
+          - MRS
+          - MS
+        in: query
+        name: usr_title
+        description: Search filter for Title
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: usr_last_name
+        description: Search filter for Last name
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: usr_first_name
+        description: Search filter for First name
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: usr_email
+        description: Search filter for Email address
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: usr_home_id
+        description: Search filter for Page d'accueil
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: usr_home_id__viw_name
+        description: Search filter for Page d'accueil
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: usr_work_num
+        description: Search filter for Work phone number
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: usr_home_num
+        description: Search filter for Tél. domicile
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: usr_cell_num
+        description: Search filter for Mobile/cellular phone number
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: usr_address1
+        description: Search filter for Address line 1
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: usr_address2
+        description: Search filter for Address line 2
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: usr_zipcode
+        description: Search filter for Postal/ZIP code
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: usr_city
+        description: Search filter for City
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: usr_state
+        description: Search filter for State
+        required: false
+      - schema:
+          type: string
+          enum:
+          - FR
+          - UK
+          - ES
+          - DE
+          - BE
+          - CH
+          - IE
+          - US
+          - CA
+        in: query
+        name: usr_country
+        description: Search filter for Country
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: row_module_id
+        description: Search filter for Module
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: row_module_id__mdl_name
+        description: Search filter for Nom Module
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: usr_menu
+        description: Search filter for Menu visible
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: usr_menu_defhidden
+        description: Search filter for deprecated
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: usr_menu_defcollapsed
+        description: Search filter for Menu ouvert par défaut
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: usr_menu_defdomain_id
+        description: Search filter for Domain ouvert par défaut
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: usr_menu_defdomain_id__obd_name
+        description: Search filter for Domaine ouvert par défaut
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: usr_extra
+        description: Search filter for Zone d'extras visible
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: usr_subhead
+        description: Search filter for Sous-entête visible
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: usr_logout
+        description: Search filter for Logout
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: usr_last_logon
+        description: Search filter for Dernière connexion
+        required: false
+      - schema:
+          type: string
+          enum:
+          - YMD
+          - DMY
+          - MDY
+          - CHF
+        in: query
+        name: usr_dateformat
+        description: Search filter for Format de date
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: usr_uuid
+        description: Search filter for UUID
+        required: false
       tags:
       - DF_utilisateur_interne
+  /rest/DF_Livraison/{row_id}/action:Livraison-CreateTicketTrello:
+    get:
+      summary: Call a custom action for a DF_Livraison business object record or for
+        all records
+      security:
+      - bearerAuth: []
+      operationId: obj-df_livraison-action-livraison-createtickettrello
+      responses:
+        '200':
+          description: Success in calling the custom action
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActionResult'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_Livraison
   /rest/DF_Ligne_Devis:
     get:
       summary: Search DF_Ligne_Devis business object records or get contextualized
@@ -5562,12 +7317,6 @@ paths:
         in: query
         name: DF_Ligne_Devis_DF_Devis_id__df_devis_titre
         description: Search filter for Titre Devis DF devis
-        required: false
-      - schema:
-          type: number
-        in: query
-        name: df_ligne_devis_cout_transport
-        description: Search filter for Coût Transport
         required: false
       - schema:
           type: number
@@ -5679,32 +7428,6 @@ paths:
         required: false
       - schema:
           type: string
-          enum:
-          - CF
-          - PY
-          - GR
-          - GG
-          - LU
-          - AN
-        in: query
-        name: df_ligne_devis_bdd
-        description: Search filter for Base de données
-        required: false
-      - schema:
-          type: string
-          enum:
-          - BO
-          - PA
-          - DA
-          - MA
-          - BR
-          - CA
-        in: query
-        name: df_ligne_devis_famille
-        description: Search filter for Famille
-        required: false
-      - schema:
-          type: string
         in: query
         name: df_ligne_devis_ref
         description: Search filter for Réf.
@@ -5768,6 +7491,116 @@ paths:
         in: query
         name: df_ligne_devis_prix_exw_t
         description: Search filter for Prix EXW / Tonne
+        required: false
+      - schema:
+          type: integer
+        in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_id
+        description: Search filter for Id Produit
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_nom
+        description: Search filter for Nom Produit
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_designation
+        description: Search filter for Designation Produits Finis
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_long
+        description: Search filter for Longueur Produit
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_larg
+        description: Search filter for Largeur Produit
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_haut
+        description: Search filter for Epaisseur Produit
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_finition
+        description: Search filter for Finition Produits Finis
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_unite
+        description: Search filter for Unité Produit
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_source
+        description: Search filter for Source Produits Finis
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_prix
+        description: Search filter for Prix Produit
+        required: false
+      - schema:
+          type: string
+          enum:
+          - A
+          - B
+          - C
+        in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_type_geologique
+        description: Search filter for Type Géologique Produits Finis
+        required: false
+      - schema:
+          type: string
+          enum:
+          - A
+          - B
+          - C
+        in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_couleur
+        description: Search filter for Couleur Produits Finis
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id
+        description: Search filter for Produits Finis
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_commentaire
+        description: Search filter for Commentaire Produits Finis
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_appellation_co
+        description: Search filter for Appellation Commerciale Produits Finis
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_masse_volumique
+        description: Search filter for Masse Volumique Produit
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: df_ligne_devis_t_prod
+        description: Search filter for Type Produit
         required: false
       tags:
       - DF_Ligne_Devis
@@ -5979,15 +7812,15 @@ info:
   version: '0.1'
 tags:
 - name: DF_Chantier
-  description: DF chantier
+  description: Chantiers
 - name: DF_Client
-  description: DF client
+  description: Clients
 - name: DF_Commande
-  description: DF commande
+  description: Commandes
 - name: DF_Contact
-  description: DF contact
+  description: Contacts
 - name: DF_Devis
-  description: DF devis
+  description: Devis
 - name: DF_Fournisseurs
   description: Fournisseurs
 - name: DF_ligne_commande
@@ -5995,16 +7828,14 @@ tags:
 - name: DF_Ligne_Devis
   description: DF ligne devis
 - name: DF_Livraison
-  description: DF livraison
+  description: Livraisons
 - name: DF_Plan_Livraison
-  description: DF plan livraison
+  description: Plan livraison
 - name: DF_Prix_Transport
-  description: DF prix transport
+  description: Prix Transport
 - name: DF_Produit_Finis
-  description: DF produit finis
-- name: DF_test
-  description: DF test
+  description: Produits Finis
 - name: DF_Transport
-  description: DF transport
+  description: Transports
 - name: DF_utilisateur_interne
-  description: DF utilisateur interne
+  description: Utilisateurs Internes
