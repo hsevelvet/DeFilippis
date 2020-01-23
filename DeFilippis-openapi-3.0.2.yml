@@ -53,13 +53,13 @@ components:
           description: Id Secteur Activité Client
           type: string
           enum:
-          - MDO
           - AR
           - MO
+          - MDO
           - ATPG
           - T
-          - V
           - ATP
+          - V
           - N
           - EA
           - P
@@ -697,9 +697,6 @@ components:
         df_devis_commentaire:
           description: Commentaire
           type: string
-        df_devis_numero:
-          description: Numéro Devis
-          type: string
         df_devis_delais_previsionnel:
           description: Délais prévisionnel
           type: string
@@ -711,6 +708,9 @@ components:
           - '030'
           - '050'
           - '100'
+        DF_Devis_DF_Contact_id__df_contact_id:
+          description: Contact
+          type: integer
         DF_Devis_DF_utilisateur_interne_id:
           description: DF utilisateur interne
           type: string
@@ -732,6 +732,9 @@ components:
           type: string
         df_devis_fiche_technique:
           description: Fiche Technique
+          type: string
+        DF_Devis_DF_Contact_id:
+          description: Contacts
           type: string
         df_devis_nombre_camions:
           description: Nombre camions estimé
@@ -816,13 +819,13 @@ components:
           description: Id Secteur Activité
           type: string
           enum:
-          - MDO
           - AR
           - MO
+          - MDO
           - ATPG
           - T
-          - V
           - ATP
+          - V
           - N
           - EA
           - P
@@ -5173,12 +5176,6 @@ paths:
         description: Search filter for Date début DF chantier
         required: false
       - schema:
-          type: string
-        in: query
-        name: df_devis_numero
-        description: Search filter for Numéro Devis
-        required: false
-      - schema:
           type: number
         in: query
         name: df_devis_prix_total
@@ -5320,6 +5317,18 @@ paths:
         in: query
         name: DF_Devis_DF_utilisateur_interne_id__df_utilisateur_interne_nc
         description: Search filter for Responsable de devis
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Devis_DF_Contact_id
+        description: Search filter for Contacts
+        required: false
+      - schema:
+          type: integer
+        in: query
+        name: DF_Devis_DF_Contact_id__df_contact_id
+        description: Search filter for Contact
         required: false
       tags:
       - DF_Devis
@@ -5907,13 +5916,13 @@ paths:
       - schema:
           type: string
           enum:
-          - MDO
           - AR
           - MO
+          - MDO
           - ATPG
           - T
-          - V
           - ATP
+          - V
           - N
           - EA
           - P
@@ -6274,13 +6283,13 @@ paths:
       - schema:
           type: string
           enum:
-          - MDO
           - AR
           - MO
+          - MDO
           - ATPG
           - T
-          - V
           - ATP
+          - V
           - N
           - EA
           - P

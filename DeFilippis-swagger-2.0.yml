@@ -2795,11 +2795,6 @@ paths:
         type: string
         required: false
       - in: query
-        name: df_devis_numero
-        description: Search filter for Numéro Devis
-        type: string
-        required: false
-      - in: query
         name: df_devis_prix_total
         description: Search filter for Prix Total
         type: number
@@ -2920,6 +2915,16 @@ paths:
         name: DF_Devis_DF_utilisateur_interne_id__df_utilisateur_interne_nc
         description: Search filter for Responsable de devis
         type: string
+        required: false
+      - in: query
+        name: DF_Devis_DF_Contact_id
+        description: Search filter for Contacts
+        type: string
+        required: false
+      - in: query
+        name: DF_Devis_DF_Contact_id__df_contact_id
+        description: Search filter for Contact
+        type: integer
         required: false
       tags:
       - DF_Devis
@@ -3415,13 +3420,13 @@ paths:
         type: string
         required: false
         enum:
-        - MDO
         - AR
         - MO
+        - MDO
         - ATPG
         - T
-        - V
         - ATP
+        - V
         - N
         - EA
         - P
@@ -3727,13 +3732,13 @@ paths:
         type: string
         required: false
         enum:
-        - MDO
         - AR
         - MO
+        - MDO
         - ATPG
         - T
-        - V
         - ATP
+        - V
         - N
         - EA
         - P
@@ -5560,13 +5565,13 @@ definitions:
         description: Id Secteur Activité Client
         type: string
         enum:
-        - MDO
         - AR
         - MO
+        - MDO
         - ATPG
         - T
-        - V
         - ATP
+        - V
         - N
         - EA
         - P
@@ -6204,9 +6209,6 @@ definitions:
       df_devis_commentaire:
         description: Commentaire
         type: string
-      df_devis_numero:
-        description: Numéro Devis
-        type: string
       df_devis_delais_previsionnel:
         description: Délais prévisionnel
         type: string
@@ -6218,6 +6220,9 @@ definitions:
         - '030'
         - '050'
         - '100'
+      DF_Devis_DF_Contact_id__df_contact_id:
+        description: Contact
+        type: integer
       DF_Devis_DF_utilisateur_interne_id:
         description: DF utilisateur interne
         type: string
@@ -6239,6 +6244,9 @@ definitions:
         type: string
       df_devis_fiche_technique:
         description: Fiche Technique
+        type: string
+      DF_Devis_DF_Contact_id:
+        description: Contacts
         type: string
       df_devis_nombre_camions:
         description: Nombre camions estimé
@@ -6323,13 +6331,13 @@ definitions:
         description: Id Secteur Activité
         type: string
         enum:
-        - MDO
         - AR
         - MO
+        - MDO
         - ATPG
         - T
-        - V
         - ATP
+        - V
         - N
         - EA
         - P
