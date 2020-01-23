@@ -427,10 +427,24 @@ paths:
         type: string
         required: false
       - in: query
-        name: __id
-        description: Search filter for id
+        name: DF_Contact_DF_Client_id
+        description: Search filter for Clients
         type: string
         required: false
+      - in: query
+        name: DF_Contact_DF_Client_id__df_client_id
+        description: Search filter for Id Client Clients
+        type: integer
+        required: false
+      - in: query
+        name: df_contact_statut
+        description: Search filter for Statut
+        type: string
+        required: false
+        enum:
+        - O
+        - F
+        - ET
       - in: query
         name: df_contact_type
         description: Search filter for Type Contact
@@ -450,6 +464,11 @@ paths:
         - ETATCMD
         - INFPRD
         - ETATLVR
+      - in: query
+        name: DF_Contact_DF_Client_id__df_client_nom
+        description: Search filter for Nom Client Clients
+        type: string
+        required: false
       tags:
       - DF_Contact
   /login:
@@ -617,8 +636,54 @@ paths:
         description: Search filter for Masse Volumique
         type: string
         required: false
+      - in: query
+        name: df_produit_type
+        description: Search filter for Type Produit
+        type: string
+        required: false
+        enum:
+        - Pierre
+        - FFT
       tags:
       - DF_Produit_Finis
+  /rest/DF_Plan_Livraison/{row_id}/action:PlanLivraison-CreateTicketTrello:
+    get:
+      summary: Call a custom action for a DF_Plan_Livraison business object record
+        or for all records
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-df_plan_livraison-action-planlivraison-createtickettrello
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/ActionResult'
+          description: Success in calling the custom action
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      tags:
+      - DF_Plan_Livraison
   /rest/DF_Produit_Finis/{row_id}:
     post:
       summary: Create a new DF_Produit_Finisbusiness object record
@@ -1955,8 +2020,13 @@ paths:
         type: integer
         required: false
       - in: query
-        name: df_contact_id
-        description: Search filter for Id Contact
+        name: DF_Commande_DF_Contact_id
+        description: Search filter for DF contact
+        type: string
+        required: false
+      - in: query
+        name: DF_Commande_DF_Contact_id__df_contact_id
+        description: Search filter for Id Contact DF contact
         type: integer
         required: false
       - in: query
@@ -2422,6 +2492,46 @@ paths:
         required: true
       tags:
       - DF_utilisateur_interne
+  /rest/DF_test:
+    get:
+      summary: Search DF_test business object records or get contextualized metadata
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-df_test-search
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/ArrayOfDF_test'
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+      parameters:
+      - in: query
+        name: _metadata
+        description: Metadata?
+        type: boolean
+        required: false
+      - in: query
+        name: _count
+        description: Count?
+        type: boolean
+        required: false
+      - in: query
+        name: _doc
+        description: Documentation?
+        type: boolean
+        required: false
+      tags:
+      - DF_test
   /logout:
     get:
       summary: Logout (revoke bearer token)
@@ -2645,6 +2755,11 @@ paths:
         type: string
         required: false
       - in: query
+        name: df_devis_titre_projet
+        description: Search filter for Titre Projet
+        type: string
+        required: false
+      - in: query
         name: df_devis_lieu_projet
         description: Search filter for Lieu Projet
         type: string
@@ -2676,7 +2791,7 @@ paths:
         required: false
       - in: query
         name: DF_Devis_DF_Chantier_id__df_chantier_date_debut
-        description: Search filter for Date début chantier DF chantier
+        description: Search filter for Date début DF chantier
         type: string
         required: false
       - in: query
@@ -2934,6 +3049,168 @@ paths:
         required: false
       tags:
       - DF_ligne_commande
+  /rest/DF_test/{row_id}:
+    post:
+      summary: Create a new DF_testbusiness object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-df_test-create
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/DF_test'
+          description: Success in creating a new business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - schema:
+          $ref: '#/definitions/DF_test'
+        in: body
+        name: body
+      tags:
+      - DF_test
+      consumes:
+      - application/json
+    get:
+      summary: Get a DF_test business object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-df_test-get
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/DF_test'
+          description: Success in getting a single business object record
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - in: query
+        name: _inline_documents
+        description: Inline documents?
+        type: boolean
+        required: false
+      - in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        type: boolean
+        required: false
+      - in: query
+        name: _inline_objects
+        description: Inline objects?
+        type: boolean
+        required: false
+      tags:
+      - DF_test
+    delete:
+      summary: Delete a DF_test business object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-df_test-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      tags:
+      - DF_test
+    put:
+      summary: Update a DF_testbusiness object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-df_test-update
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/DF_test'
+          description: Success in updating a business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - schema:
+          $ref: '#/definitions/DF_test'
+        in: body
+        name: body
+      tags:
+      - DF_test
+      consumes:
+      - application/json
   /rest/DF_Plan_Livraison:
     get:
       summary: Search DF_Plan_Livraison business object records or get contextualized
@@ -3074,7 +3351,7 @@ paths:
         required: false
       - in: query
         name: df_chantier_date_debut
-        description: Search filter for Date début chantier
+        description: Search filter for Date début
         type: string
         required: false
       - in: query
@@ -3105,6 +3382,58 @@ paths:
       - in: query
         name: DF_Chantier_DF_Client_id__df_client_pays
         description: Search filter for Pays Client
+        type: string
+        required: false
+      - in: query
+        name: DF_Chantier_DF_Client_id__df_client_cedex
+        description: Search filter for CEDEX Client
+        type: string
+        required: false
+      - in: query
+        name: DF_Chantier_DF_Client_id__df_client_adresse_3
+        description: Search filter for Adresse 3 Client
+        type: string
+        required: false
+      - in: query
+        name: DF_Chantier_DF_Client_id__df_client_adresse_2
+        description: Search filter for Adresse 2 Client
+        type: string
+        required: false
+      - in: query
+        name: DF_Chantier_DF_Client_id__df_client_code_postal
+        description: Search filter for Code Postal Client
+        type: integer
+        required: false
+      - in: query
+        name: DF_Chantier_DF_Client_id__df_client_description
+        description: Search filter for Description Client
+        type: string
+        required: false
+      - in: query
+        name: DF_Chantier_DF_Client_id__df_client_id_secteur_activite
+        description: Search filter for Id Secteur Activité Client
+        type: string
+        required: false
+        enum:
+        - MDO
+        - AR
+        - MO
+        - ATPG
+        - T
+        - V
+        - ATP
+        - N
+        - EA
+        - P
+        - A
+      - in: query
+        name: DF_Chantier_DF_Client_id__df_client_adresse
+        description: Search filter for Adresse Client
+        type: string
+        required: false
+      - in: query
+        name: DF_Chantier_DF_Client_id__df_client_region
+        description: Search filter for Region Client
         type: string
         required: false
       - in: query
@@ -3183,6 +3512,18 @@ paths:
         type: integer
         required: false
       - in: query
+        name: df_livraison_statut
+        description: Search filter for Statut Livraison
+        type: string
+        required: false
+        enum:
+        - '1'
+        - '2'
+        - '3'
+        - '4'
+        - '5'
+        - '6'
+      - in: query
         name: df_livraison_id_ligne_commande
         description: Search filter for Id Ligne Commande
         type: integer
@@ -3212,18 +3553,6 @@ paths:
         description: Search filter for DF livraison
         type: string
         required: false
-      - in: query
-        name: df_livraison_statut
-        description: Search filter for Statut Livraison
-        type: string
-        required: false
-        enum:
-        - '1'
-        - '2'
-        - '3'
-        - '4'
-        - '5'
-        - '6'
       - in: query
         name: df_livraison_adresse
         description: Search filter for Adresse Livraison
@@ -3398,14 +3727,17 @@ paths:
         type: string
         required: false
         enum:
-        - AR
         - MDO
+        - AR
         - MO
         - ATPG
+        - T
+        - V
         - ATP
         - N
         - EA
         - P
+        - A
       - in: query
         name: df_client_region
         description: Search filter for Region
@@ -3435,6 +3767,11 @@ paths:
         name: df_client_pays
         description: Search filter for Pays
         type: string
+        required: false
+      - in: query
+        name: df_client_tx_remise
+        description: Search filter for Taux de remise
+        type: number
         required: false
       tags:
       - DF_Client
@@ -4565,8 +4902,8 @@ paths:
         - BE
         - CH
         - IE
-        - US
         - CA
+        - US
       - in: query
         name: row_module_id
         description: Search filter for Module
@@ -4737,6 +5074,11 @@ paths:
         type: string
         required: false
       - in: query
+        name: df_ligne_devis_cout_transport
+        description: Search filter for Coût Transport
+        type: number
+        required: false
+      - in: query
         name: df_ligne_devis_longueur
         description: Search filter for Longueur
         type: number
@@ -4826,6 +5168,30 @@ paths:
         description: Search filter for Masse Volumique Pierre
         type: number
         required: false
+      - in: query
+        name: df_ligne_devis_bdd
+        description: Search filter for Base de données
+        type: string
+        required: false
+        enum:
+        - CF
+        - PY
+        - GR
+        - GG
+        - LU
+        - AN
+      - in: query
+        name: df_ligne_devis_famille
+        description: Search filter for Famille
+        type: string
+        required: false
+        enum:
+        - BO
+        - PA
+        - DA
+        - MA
+        - BR
+        - CA
       - in: query
         name: df_ligne_devis_ref
         description: Search filter for Réf.
@@ -5181,12 +5547,30 @@ definitions:
   DF_Chantier:
     type: object
     properties:
+      DF_Chantier_DF_Client_id__df_client_cedex:
+        description: CEDEX Client
+        type: string
       DF_Chantier_DF_Plan_Livraison_id:
         description: Plan Livraison
         type: string
       df_chantier_coefficient_initial:
         description: Coefficient de vente initial
         type: number
+      DF_Chantier_DF_Client_id__df_client_id_secteur_activite:
+        description: Id Secteur Activité Client
+        type: string
+        enum:
+        - MDO
+        - AR
+        - MO
+        - ATPG
+        - T
+        - V
+        - ATP
+        - N
+        - EA
+        - P
+        - A
       DF_Chantier_DF_Client_id__df_client_id:
         description: Id Client
         type: integer
@@ -5196,14 +5580,26 @@ definitions:
       df_chantier_reference:
         description: Référence chantier
         type: string
+      DF_Chantier_DF_Client_id__df_client_adresse:
+        description: Adresse Client
+        type: string
       df_chantier_nature_travaux:
         description: Nature travaux
         type: string
       DF_Chantier_DF_Client_id:
         description: Client
         type: string
+      DF_Chantier_DF_Client_id__df_client_description:
+        description: Description Client
+        type: string
       DF_Chantier_DF_Plan_Livraison_id__df_plan_lvr_id:
         description: Plan Livraison
+        type: integer
+      DF_Chantier_DF_Client_id__df_client_region:
+        description: Region Client
+        type: string
+      DF_Chantier_DF_Client_id__df_client_code_postal:
+        description: Code Postal Client
         type: integer
       DF_Chantier_DF_Client_id__df_client_ville:
         description: Ville Client
@@ -5214,11 +5610,14 @@ definitions:
       DF_Chantier_DF_Client_id__df_client_pays:
         description: Pays Client
         type: string
+      DF_Chantier_DF_Client_id__df_client_adresse_2:
+        description: Adresse 2 Client
+        type: string
       DF_Chantier_DF_Client_id__df_client_telephone:
         description: Téléphone Client
         type: string
       df_chantier_date_debut:
-        description: Date début chantier
+        description: Date début
         type: string
       row_id:
         description: Unique technical row ID
@@ -5229,6 +5628,9 @@ definitions:
       df_chantier_montant_initial:
         description: Montant initial commande HT
         type: number
+      DF_Chantier_DF_Client_id__df_client_adresse_3:
+        description: Adresse 3 Client
+        type: string
   ArrayOfDF_Fournisseurs:
     type: array
     items:
@@ -5276,9 +5678,22 @@ definitions:
       DF_Ligne_Devis_DF_Devis_id:
         description: DF devis
         type: string
+      df_ligne_devis_cout_transport:
+        description: Coût Transport
+        type: number
       df_ligne_devis_prix_produit:
         description: Prix Produit
         type: number
+      df_ligne_devis_famille:
+        description: Famille
+        type: string
+        enum:
+        - BO
+        - PA
+        - DA
+        - MA
+        - BR
+        - CA
       DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_appellation_co:
         description: Appellation Commerciale Produits Finis
         type: string
@@ -5374,6 +5789,16 @@ definitions:
         - A
         - B
         - C
+      df_ligne_devis_bdd:
+        description: Base de données
+        type: string
+        enum:
+        - CF
+        - PY
+        - GR
+        - GG
+        - LU
+        - AN
       df_ligne_devis_nb_elt_ac_joint:
         description: Nombre d'éléments avec joint
         type: number
@@ -5453,17 +5878,32 @@ definitions:
   DF_Commande:
     type: object
     properties:
+      df_commande_numero:
+        description: Numéro de Commande
+        type: string
+      DF_Commande_DF_utilisateur_interne_id__df_utilisateur_interne_nc:
+        description: Rédacteur
+        type: string
+      df_commande_id_livraison:
+        description: Id Livraison
+        type: integer
+      df_commande_intitule:
+        description: Intitulé de commande
+        type: string
       df_commande_id:
         description: Id Commande
         type: string
       DF_Commande_DF_utilisateur_interne_id:
         description: Rédacteur
         type: string
+      DF_Commande_DF_Contact_id__df_contact_id:
+        description: Id Contact DF contact
+        type: integer
       df_commande_detail:
         description: Détail de commande
         type: string
-      df_commande_numero:
-        description: Numéro de Commande
+      DF_Commande_DF_Contact_id:
+        description: DF contact
         type: string
       df_commande_date:
         description: Date de commande
@@ -5474,18 +5914,6 @@ definitions:
       DF_Commande_DF_Client_id__df_client_id:
         description: Id Client DF client
         type: integer
-      df_contact_id:
-        description: Id Contact
-        type: integer
-      DF_Commande_DF_utilisateur_interne_id__df_utilisateur_interne_nc:
-        description: Rédacteur
-        type: string
-      df_commande_id_livraison:
-        description: Id Livraison
-        type: integer
-      df_commande_intitule:
-        description: Intitulé de commande
-        type: string
       DF_Commande_DF_Client_id:
         description: DF client
         type: string
@@ -5660,6 +6088,12 @@ definitions:
       DF_Prix_Transport_DF_Transport_id__DF_Transport_DF_Client_id__df_client_region:
         description: Destination
         type: string
+  DF_test:
+    type: object
+    properties:
+      row_id:
+        description: Unique technical row ID
+        type: string
   ArrayOfDF_Devis:
     type: array
     items:
@@ -5809,6 +6243,9 @@ definitions:
       df_devis_nombre_camions:
         description: Nombre camions estimé
         type: number
+      df_devis_titre_projet:
+        description: Titre Projet
+        type: string
       DF_Devis_DF_Client_id__df_client_telephone:
         description: Téképhone client
         type: string
@@ -5836,7 +6273,7 @@ definitions:
         description: Lieu Projet
         type: string
       DF_Devis_DF_Chantier_id__df_chantier_date_debut:
-        description: Date début chantier DF chantier
+        description: Date début DF chantier
         type: string
       df_devis_incoterm_prix:
         description: Incoterm Prix
@@ -5886,14 +6323,17 @@ definitions:
         description: Id Secteur Activité
         type: string
         enum:
-        - AR
         - MDO
+        - AR
         - MO
         - ATPG
+        - T
+        - V
         - ATP
         - N
         - EA
         - P
+        - A
       df_client_pays:
         description: Pays
         type: string
@@ -5939,6 +6379,9 @@ definitions:
       row_id:
         description: Unique technical row ID
         type: string
+      df_client_tx_remise:
+        description: Taux de remise
+        type: number
   ArrayOfDF_Livraison:
     type: array
     items:
@@ -6008,6 +6451,12 @@ definitions:
         - A
         - B
         - C
+      df_produit_type:
+        description: Type Produit
+        type: string
+        enum:
+        - Pierre
+        - FFT
       df_produit_finition:
         description: Finition
         type: string
@@ -6024,6 +6473,9 @@ definitions:
   DF_Contact:
     type: object
     properties:
+      DF_Contact_DF_Client_id:
+        description: Clients
+        type: string
       df_contact_email:
         description: E-mail
         type: string
@@ -6044,6 +6496,16 @@ definitions:
       df_contact_prenom:
         description: Prénom
         type: string
+      df_contact_statut:
+        description: Statut
+        type: string
+        enum:
+        - O
+        - F
+        - ET
+      DF_Contact_DF_Client_id__df_client_nom:
+        description: Nom Client Clients
+        type: string
       df_contact_id_emploi:
         description: Id Emploi
         type: string
@@ -6054,6 +6516,9 @@ definitions:
         - D
         - C
         - P
+      DF_Contact_DF_Client_id__df_client_id:
+        description: Id Client Clients
+        type: integer
       df_contact_sous_type:
         description: Sous Type
         type: string
@@ -6070,9 +6535,6 @@ definitions:
         enum:
         - M
         - F
-      __id:
-        description: id
-        type: string
       df_contact_fax:
         description: Fax
         type: string
@@ -6091,6 +6553,10 @@ definitions:
       item:
         description: Object item with lists of linked objects' items
         type: object
+  ArrayOfDF_test:
+    type: array
+    items:
+      $ref: '#/definitions/DF_test'
   ArrayOfDF_Commande:
     type: array
     items:
@@ -6759,8 +7225,8 @@ definitions:
         - BE
         - CH
         - IE
-        - US
         - CA
+        - US
       usr_title:
         description: Title
         type: string
@@ -6885,7 +7351,7 @@ tags:
 - name: DF_Commande
   description: Commandes
 - name: DF_Contact
-  description: DF Contact
+  description: Contacts
 - name: DF_Devis
   description: Devis
 - name: DF_Fournisseurs
@@ -6902,6 +7368,8 @@ tags:
   description: Prix Transport
 - name: DF_Produit_Finis
   description: Produits Finis
+- name: DF_test
+  description: DF_test
 - name: DF_Transport
   description: Transports
 - name: DF_utilisateur_interne

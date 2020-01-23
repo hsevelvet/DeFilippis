@@ -8,7 +8,7 @@
   <description>Simplicite module: DeFilippis</description>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <simplicite.url>https://vd5c9c0335.demo.simplicite.io</simplicite.url>
+    <simplicite.url>https://j8f84e4953.demo.simplicite.io</simplicite.url>
     <simplicite.version>4.0.P25a-SNAPSHOT</simplicite.version>
     <maven.compiler.source>13</maven.compiler.source>
     <maven.compiler.target>13</maven.compiler.target>

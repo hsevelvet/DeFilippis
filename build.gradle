@@ -15,7 +15,7 @@ sourceSets {
 
 repositories {
     maven {
-        url = 'https://vd5c9c0335.demo.simplicite.io/maven'
+        url = 'https://j8f84e4953.demo.simplicite.io/maven'
     }
     mavenCentral()
 }

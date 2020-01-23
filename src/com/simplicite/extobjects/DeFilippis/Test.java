@@ -5,7 +5,6 @@ import java.util.List;
 import org.json.JSONObject;
 
 import com.simplicite.util.AppLog;
-import com.simplicite.objects.DeFilippis.DF_Livraison;
 import com.simplicite.util.tools.BusinessObjectTool;
 import com.simplicite.util.Grant;
 import com.simplicite.util.ObjectDB;
@@ -13,13 +12,12 @@ import com.simplicite.util.Tool;
 import com.simplicite.util.tools.Parameters;
 import com.simplicite.util.exceptions.HTTPException;
 
-
 /**
- * External object WebhoonkLivraisonTrello
- */
-public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTServiceExternalObject {
-	private static final long serialVersionUID = 1L;
+ * Trello webhook
 
+public class Test extends com.simplicite.webapp.services.RESTServiceExternalObject {
+	private static final long serialVersionUID = 1L;
+	
 	private static final JSONObject OK = new JSONObject().put("result", "ok");
 	
     @Override
@@ -31,48 +29,31 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
     public Object get(Parameters params) throws HTTPException {
         return error(400, "Call me in POST please!");
     }
-    
 
-	private void updateCard(JSONObject data) {
+	private void updateCard(JSONObject card) {
 		try {
-			//AppLog.info(getClass(), "call update post has data0", data.toString(2), getGrant());
-			String o = "DF_Livraison";
-			JSONObject card = null;
-			JSONObject listAfter = null;
-			String status = null;
-			String due = null;
-			if (data.has("card")){
-				card = data.getJSONObject("card");
-				if (card.has("due"))
-					due = card.getString("due");
-			}
-            if (data.has("listAfter")){
-            	listAfter = data.getJSONObject("listAfter");
-            	status = listAfter.getString("name").split("-")[0].trim();
-
-            }
-            	
+		/*	AppLog.info(getClass(), "updateCard", card.toString(2), getGrant());
+			String o = "TrelloCardExample";
 			ObjectDB obj = Grant.getSystemAdmin().getObject("webhook_" + o, o);
 			BusinessObjectTool objt = new BusinessObjectTool(obj);
 			obj.resetFilters();
-			obj.getField("df_livraison_trellocardid").setFilter(card.getString("id"));
-
+			obj.getField("trelloCardExCardId").setFilter(card.getString("id"));
 			List<String[]> rows = objt.search();
+			AppLog.info(getClass(), "updateCard",card.getString("name"), getGrant());
+			String o = "DF_test";
+			ObjectDB obj = Grant.getSystemAdmin().getObject("webhook_" + o, o);
+			BusinessObjectTool objt = new BusinessObjectTool(obj);
+			obj.resetFilters();
+			obj.getField("DF_test_id").setFilter();
+			List<String[]> rows = objt.search();
+			
+			
 			if (rows.size() == 1) {
-				AppLog.info(getClass(), "DangLog", rows.get(0).toString(), getGrant());
-
 				obj.setValues(rows.get(0), true);
 				if (card.has("name"))
-					obj.setFieldValue("df_livraison_id", card.getString("name"));
-				if (due!=null){
-					obj.setFieldValue("df_livraison_date_livraison_estimee", due);
-				}
-
-				AppLog.info(getClass(), "call update post has data0", status, getGrant());
-	
-				if (status!=null){
-					obj.setFieldValue("df_livraison_statut", status);
-				}
+					obj.setFieldValue("trelloCardExName", card.getString("name"));
+				if (card.has("desc"))
+					obj.setFieldValue("trelloCardExDescription", card.getString("desc"));
 				objt.validateAndSave();
 			}
 		} catch (Exception e) {
@@ -85,14 +66,16 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
         try {
             JSONObject req = params.getJSONObject();
             if (req != null) {
-				//AppLog.info(getClass(), "call update post has data0", req.toString(2), getGrant());
+            	AppLog.info(getClass(), "post", req.toString(2), getGrant());
             	if (req.has("action")) {
             		JSONObject action = req.getJSONObject("action");
             		String type = action.optString("type");
             		if ("updateCard".equals(type)) {
             			if (action.has("data")) {
             				JSONObject data = action.getJSONObject("data");
-            				updateCard(data);
+            				if (data.has("card")) {
+            					updateCard(data.getJSONObject("card"));
+            				}
             			}
             		}
             	}
@@ -105,3 +88,5 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
         }
     }
 }
+
+*/

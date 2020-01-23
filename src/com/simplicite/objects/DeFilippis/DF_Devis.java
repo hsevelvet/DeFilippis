@@ -31,7 +31,7 @@ public class DF_Devis extends ObjectDB {
 		setFieldValue("df_devis_nombre_camions", nbc);
 		setFieldValue("df_devis_poids_total", pt);
 		
-		setFieldValue("df_devi_prix_total_ht", t);
+		setFieldValue("df_devis_prix_total_ht", t);
 		
 		setFieldValue("df_devis_prix_total", t + t*0.2);
 		}

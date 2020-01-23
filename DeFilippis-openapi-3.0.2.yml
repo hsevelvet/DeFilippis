@@ -40,12 +40,30 @@ components:
     DF_Chantier:
       type: object
       properties:
+        DF_Chantier_DF_Client_id__df_client_cedex:
+          description: CEDEX Client
+          type: string
         DF_Chantier_DF_Plan_Livraison_id:
           description: Plan Livraison
           type: string
         df_chantier_coefficient_initial:
           description: Coefficient de vente initial
           type: number
+        DF_Chantier_DF_Client_id__df_client_id_secteur_activite:
+          description: Id Secteur Activité Client
+          type: string
+          enum:
+          - MDO
+          - AR
+          - MO
+          - ATPG
+          - T
+          - V
+          - ATP
+          - N
+          - EA
+          - P
+          - A
         DF_Chantier_DF_Client_id__df_client_id:
           description: Id Client
           type: integer
@@ -55,14 +73,26 @@ components:
         df_chantier_reference:
           description: Référence chantier
           type: string
+        DF_Chantier_DF_Client_id__df_client_adresse:
+          description: Adresse Client
+          type: string
         df_chantier_nature_travaux:
           description: Nature travaux
           type: string
         DF_Chantier_DF_Client_id:
           description: Client
           type: string
+        DF_Chantier_DF_Client_id__df_client_description:
+          description: Description Client
+          type: string
         DF_Chantier_DF_Plan_Livraison_id__df_plan_lvr_id:
           description: Plan Livraison
+          type: integer
+        DF_Chantier_DF_Client_id__df_client_region:
+          description: Region Client
+          type: string
+        DF_Chantier_DF_Client_id__df_client_code_postal:
+          description: Code Postal Client
           type: integer
         DF_Chantier_DF_Client_id__df_client_ville:
           description: Ville Client
@@ -73,11 +103,14 @@ components:
         DF_Chantier_DF_Client_id__df_client_pays:
           description: Pays Client
           type: string
+        DF_Chantier_DF_Client_id__df_client_adresse_2:
+          description: Adresse 2 Client
+          type: string
         DF_Chantier_DF_Client_id__df_client_telephone:
           description: Téléphone Client
           type: string
         df_chantier_date_debut:
-          description: Date début chantier
+          description: Date début
           type: string
         row_id:
           description: Unique technical row ID
@@ -88,6 +121,9 @@ components:
         df_chantier_montant_initial:
           description: Montant initial commande HT
           type: number
+        DF_Chantier_DF_Client_id__df_client_adresse_3:
+          description: Adresse 3 Client
+          type: string
     ArrayOfDF_Fournisseurs:
       type: array
       items:
@@ -135,9 +171,22 @@ components:
         DF_Ligne_Devis_DF_Devis_id:
           description: DF devis
           type: string
+        df_ligne_devis_cout_transport:
+          description: Coût Transport
+          type: number
         df_ligne_devis_prix_produit:
           description: Prix Produit
           type: number
+        df_ligne_devis_famille:
+          description: Famille
+          type: string
+          enum:
+          - BO
+          - PA
+          - DA
+          - MA
+          - BR
+          - CA
         DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_appellation_co:
           description: Appellation Commerciale Produits Finis
           type: string
@@ -233,6 +282,16 @@ components:
           - A
           - B
           - C
+        df_ligne_devis_bdd:
+          description: Base de données
+          type: string
+          enum:
+          - CF
+          - PY
+          - GR
+          - GG
+          - LU
+          - AN
         df_ligne_devis_nb_elt_ac_joint:
           description: Nombre d'éléments avec joint
           type: number
@@ -312,17 +371,32 @@ components:
     DF_Commande:
       type: object
       properties:
+        df_commande_numero:
+          description: Numéro de Commande
+          type: string
+        DF_Commande_DF_utilisateur_interne_id__df_utilisateur_interne_nc:
+          description: Rédacteur
+          type: string
+        df_commande_id_livraison:
+          description: Id Livraison
+          type: integer
+        df_commande_intitule:
+          description: Intitulé de commande
+          type: string
         df_commande_id:
           description: Id Commande
           type: string
         DF_Commande_DF_utilisateur_interne_id:
           description: Rédacteur
           type: string
+        DF_Commande_DF_Contact_id__df_contact_id:
+          description: Id Contact DF contact
+          type: integer
         df_commande_detail:
           description: Détail de commande
           type: string
-        df_commande_numero:
-          description: Numéro de Commande
+        DF_Commande_DF_Contact_id:
+          description: DF contact
           type: string
         df_commande_date:
           description: Date de commande
@@ -333,18 +407,6 @@ components:
         DF_Commande_DF_Client_id__df_client_id:
           description: Id Client DF client
           type: integer
-        df_contact_id:
-          description: Id Contact
-          type: integer
-        DF_Commande_DF_utilisateur_interne_id__df_utilisateur_interne_nc:
-          description: Rédacteur
-          type: string
-        df_commande_id_livraison:
-          description: Id Livraison
-          type: integer
-        df_commande_intitule:
-          description: Intitulé de commande
-          type: string
         DF_Commande_DF_Client_id:
           description: DF client
           type: string
@@ -519,6 +581,12 @@ components:
         DF_Prix_Transport_DF_Transport_id__DF_Transport_DF_Client_id__df_client_region:
           description: Destination
           type: string
+    DF_test:
+      type: object
+      properties:
+        row_id:
+          description: Unique technical row ID
+          type: string
     ArrayOfDF_Devis:
       type: array
       items:
@@ -668,6 +736,9 @@ components:
         df_devis_nombre_camions:
           description: Nombre camions estimé
           type: number
+        df_devis_titre_projet:
+          description: Titre Projet
+          type: string
         DF_Devis_DF_Client_id__df_client_telephone:
           description: Téképhone client
           type: string
@@ -695,7 +766,7 @@ components:
           description: Lieu Projet
           type: string
         DF_Devis_DF_Chantier_id__df_chantier_date_debut:
-          description: Date début chantier DF chantier
+          description: Date début DF chantier
           type: string
         df_devis_incoterm_prix:
           description: Incoterm Prix
@@ -745,14 +816,17 @@ components:
           description: Id Secteur Activité
           type: string
           enum:
-          - AR
           - MDO
+          - AR
           - MO
           - ATPG
+          - T
+          - V
           - ATP
           - N
           - EA
           - P
+          - A
         df_client_pays:
           description: Pays
           type: string
@@ -798,6 +872,9 @@ components:
         row_id:
           description: Unique technical row ID
           type: string
+        df_client_tx_remise:
+          description: Taux de remise
+          type: number
     ArrayOfDF_Livraison:
       type: array
       items:
@@ -867,6 +944,12 @@ components:
           - A
           - B
           - C
+        df_produit_type:
+          description: Type Produit
+          type: string
+          enum:
+          - Pierre
+          - FFT
         df_produit_finition:
           description: Finition
           type: string
@@ -883,6 +966,9 @@ components:
     DF_Contact:
       type: object
       properties:
+        DF_Contact_DF_Client_id:
+          description: Clients
+          type: string
         df_contact_email:
           description: E-mail
           type: string
@@ -903,6 +989,16 @@ components:
         df_contact_prenom:
           description: Prénom
           type: string
+        df_contact_statut:
+          description: Statut
+          type: string
+          enum:
+          - O
+          - F
+          - ET
+        DF_Contact_DF_Client_id__df_client_nom:
+          description: Nom Client Clients
+          type: string
         df_contact_id_emploi:
           description: Id Emploi
           type: string
@@ -913,6 +1009,9 @@ components:
           - D
           - C
           - P
+        DF_Contact_DF_Client_id__df_client_id:
+          description: Id Client Clients
+          type: integer
         df_contact_sous_type:
           description: Sous Type
           type: string
@@ -929,9 +1028,6 @@ components:
           enum:
           - M
           - F
-        __id:
-          description: id
-          type: string
         df_contact_fax:
           description: Fax
           type: string
@@ -950,6 +1046,10 @@ components:
         item:
           description: Object item with lists of linked objects' items
           type: object
+    ArrayOfDF_test:
+      type: array
+      items:
+        $ref: '#/components/schemas/DF_test'
     ArrayOfDF_Commande:
       type: array
       items:
@@ -1618,8 +1718,8 @@ components:
           - BE
           - CH
           - IE
-          - US
           - CA
+          - US
         usr_title:
           description: Title
           type: string
@@ -2242,8 +2342,24 @@ paths:
       - schema:
           type: string
         in: query
-        name: __id
-        description: Search filter for id
+        name: DF_Contact_DF_Client_id
+        description: Search filter for Clients
+        required: false
+      - schema:
+          type: integer
+        in: query
+        name: DF_Contact_DF_Client_id__df_client_id
+        description: Search filter for Id Client Clients
+        required: false
+      - schema:
+          type: string
+          enum:
+          - O
+          - F
+          - ET
+        in: query
+        name: df_contact_statut
+        description: Search filter for Statut
         required: false
       - schema:
           type: string
@@ -2265,6 +2381,12 @@ paths:
         in: query
         name: df_contact_sous_type
         description: Search filter for Sous Type
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Contact_DF_Client_id__df_client_nom
+        description: Search filter for Nom Client Clients
         required: false
       tags:
       - DF_Contact
@@ -2461,8 +2583,64 @@ paths:
         name: df_produit_masse_volumique
         description: Search filter for Masse Volumique
         required: false
+      - schema:
+          type: string
+          enum:
+          - Pierre
+          - FFT
+        in: query
+        name: df_produit_type
+        description: Search filter for Type Produit
+        required: false
       tags:
       - DF_Produit_Finis
+  /rest/DF_Plan_Livraison/{row_id}/action:PlanLivraison-CreateTicketTrello:
+    get:
+      summary: Call a custom action for a DF_Plan_Livraison business object record
+        or for all records
+      security:
+      - bearerAuth: []
+      operationId: obj-df_plan_livraison-action-planlivraison-createtickettrello
+      responses:
+        '200':
+          description: Success in calling the custom action
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActionResult'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_Plan_Livraison
   /rest/DF_Produit_Finis/{row_id}:
     post:
       summary: Create a new DF_Produit_Finisbusiness object record
@@ -4070,10 +4248,16 @@ paths:
         description: Search filter for Id Client DF client
         required: false
       - schema:
+          type: string
+        in: query
+        name: DF_Commande_DF_Contact_id
+        description: Search filter for DF contact
+        required: false
+      - schema:
           type: integer
         in: query
-        name: df_contact_id
-        description: Search filter for Id Contact
+        name: DF_Commande_DF_Contact_id__df_contact_id
+        description: Search filter for Id Contact DF contact
         required: false
       - schema:
           type: string
@@ -4629,6 +4813,53 @@ paths:
         required: true
       tags:
       - DF_utilisateur_interne
+  /rest/DF_test:
+    get:
+      summary: Search DF_test business object records or get contextualized metadata
+      security:
+      - bearerAuth: []
+      operationId: obj-df_test-search
+      responses:
+        '200':
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArrayOfDF_test'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: boolean
+        in: query
+        name: _metadata
+        description: Metadata?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _count
+        description: Count?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _doc
+        description: Documentation?
+        required: false
+      tags:
+      - DF_test
   /logout:
     get:
       summary: Logout (revoke bearer token)
@@ -4897,6 +5128,12 @@ paths:
       - schema:
           type: string
         in: query
+        name: df_devis_titre_projet
+        description: Search filter for Titre Projet
+        required: false
+      - schema:
+          type: string
+        in: query
         name: df_devis_lieu_projet
         description: Search filter for Lieu Projet
         required: false
@@ -4933,7 +5170,7 @@ paths:
           type: string
         in: query
         name: DF_Devis_DF_Chantier_id__df_chantier_date_debut
-        description: Search filter for Date début chantier DF chantier
+        description: Search filter for Date début DF chantier
         required: false
       - schema:
           type: string
@@ -5236,6 +5473,201 @@ paths:
         required: false
       tags:
       - DF_ligne_commande
+  /rest/DF_test/{row_id}:
+    post:
+      summary: Create a new DF_testbusiness object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DF_test'
+      operationId: obj-df_test-create
+      responses:
+        '200':
+          description: Success in creating a new business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DF_test'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_test
+    get:
+      summary: Get a DF_test business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-df_test-get
+      responses:
+        '200':
+          description: Success in getting a single business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DF_test'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_documents
+        description: Inline documents?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_objects
+        description: Inline objects?
+        required: false
+      tags:
+      - DF_test
+    delete:
+      summary: Delete a DF_test business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-df_test-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+          content:
+            application/json: {}
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_test
+    put:
+      summary: Update a DF_testbusiness object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DF_test'
+      operationId: obj-df_test-update
+      responses:
+        '200':
+          description: Success in updating a business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DF_test'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_test
   /rest/DF_Plan_Livraison:
     get:
       summary: Search DF_Plan_Livraison business object records or get contextualized
@@ -5404,7 +5836,7 @@ paths:
           type: string
         in: query
         name: df_chantier_date_debut
-        description: Search filter for Date début chantier
+        description: Search filter for Date début
         required: false
       - schema:
           type: string
@@ -5441,6 +5873,66 @@ paths:
         in: query
         name: DF_Chantier_DF_Client_id__df_client_pays
         description: Search filter for Pays Client
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Chantier_DF_Client_id__df_client_cedex
+        description: Search filter for CEDEX Client
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Chantier_DF_Client_id__df_client_adresse_3
+        description: Search filter for Adresse 3 Client
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Chantier_DF_Client_id__df_client_adresse_2
+        description: Search filter for Adresse 2 Client
+        required: false
+      - schema:
+          type: integer
+        in: query
+        name: DF_Chantier_DF_Client_id__df_client_code_postal
+        description: Search filter for Code Postal Client
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Chantier_DF_Client_id__df_client_description
+        description: Search filter for Description Client
+        required: false
+      - schema:
+          type: string
+          enum:
+          - MDO
+          - AR
+          - MO
+          - ATPG
+          - T
+          - V
+          - ATP
+          - N
+          - EA
+          - P
+          - A
+        in: query
+        name: DF_Chantier_DF_Client_id__df_client_id_secteur_activite
+        description: Search filter for Id Secteur Activité Client
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Chantier_DF_Client_id__df_client_adresse
+        description: Search filter for Adresse Client
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Chantier_DF_Client_id__df_client_region
+        description: Search filter for Region Client
         required: false
       - schema:
           type: string
@@ -5532,6 +6024,19 @@ paths:
         description: Search filter for Id Livraison
         required: false
       - schema:
+          type: string
+          enum:
+          - '1'
+          - '2'
+          - '3'
+          - '4'
+          - '5'
+          - '6'
+        in: query
+        name: df_livraison_statut
+        description: Search filter for Statut Livraison
+        required: false
+      - schema:
           type: integer
         in: query
         name: df_livraison_id_ligne_commande
@@ -5566,19 +6071,6 @@ paths:
         in: query
         name: DF_Contact_DF_Livraison_id
         description: Search filter for DF livraison
-        required: false
-      - schema:
-          type: string
-          enum:
-          - '1'
-          - '2'
-          - '3'
-          - '4'
-          - '5'
-          - '6'
-        in: query
-        name: df_livraison_statut
-        description: Search filter for Statut Livraison
         required: false
       - schema:
           type: string
@@ -5782,14 +6274,17 @@ paths:
       - schema:
           type: string
           enum:
-          - AR
           - MDO
+          - AR
           - MO
           - ATPG
+          - T
+          - V
           - ATP
           - N
           - EA
           - P
+          - A
         in: query
         name: df_client_id_secteur_activite
         description: Search filter for Id Secteur Activité
@@ -5829,6 +6324,12 @@ paths:
         in: query
         name: df_client_pays
         description: Search filter for Pays
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: df_client_tx_remise
+        description: Search filter for Taux de remise
         required: false
       tags:
       - DF_Client
@@ -7051,8 +7552,8 @@ paths:
           - BE
           - CH
           - IE
-          - US
           - CA
+          - US
         in: query
         name: usr_country
         description: Search filter for Country
@@ -7262,6 +7763,12 @@ paths:
       - schema:
           type: number
         in: query
+        name: df_ligne_devis_cout_transport
+        description: Search filter for Coût Transport
+        required: false
+      - schema:
+          type: number
+        in: query
         name: df_ligne_devis_longueur
         description: Search filter for Longueur
         required: false
@@ -7366,6 +7873,32 @@ paths:
         in: query
         name: df_ligne_devis_masse_volumique
         description: Search filter for Masse Volumique Pierre
+        required: false
+      - schema:
+          type: string
+          enum:
+          - CF
+          - PY
+          - GR
+          - GG
+          - LU
+          - AN
+        in: query
+        name: df_ligne_devis_bdd
+        description: Search filter for Base de données
+        required: false
+      - schema:
+          type: string
+          enum:
+          - BO
+          - PA
+          - DA
+          - MA
+          - BR
+          - CA
+        in: query
+        name: df_ligne_devis_famille
+        description: Search filter for Famille
         required: false
       - schema:
           type: string
@@ -7759,7 +8292,7 @@ tags:
 - name: DF_Commande
   description: Commandes
 - name: DF_Contact
-  description: DF Contact
+  description: Contacts
 - name: DF_Devis
   description: Devis
 - name: DF_Fournisseurs
@@ -7776,6 +8309,8 @@ tags:
   description: Prix Transport
 - name: DF_Produit_Finis
   description: Produits Finis
+- name: DF_test
+  description: DF_test
 - name: DF_Transport
   description: Transports
 - name: DF_utilisateur_interne
