@@ -147,14 +147,35 @@ components:
     DF_Ligne_Devis:
       type: object
       properties:
+        df_ligne_devis_prix_transport_reference:
+          description: Prix Transport Référence
+          type: number
         df_ligne_devis_id:
           description: Ligne Devis ID
           type: integer
+        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_haut:
+          description: Epaisseur
+          type: number
+        df_ligne_devis_total_achat_ht:
+          description: Total Achat HT
+          type: number
+        df_ligne_devis_nb_elt_ss_joint:
+          description: Nombre d'éléments sans joint
+          type: number
         df_ligne_devis_prix_exw_unite:
           description: Prix EXW / Unité
           type: number
+        df_ligne_devis_total_achat_reference_ht:
+          description: Total Achat Référence HT
+          type: number
+        df_ligne_devis_masse_unitaire_ss_joint:
+          description: Masse Unitaire sans Joints
+          type: number
         df_ligne_devis_prix_exw_u:
           description: Prix EXW / U
+          type: number
+        df_ligne_devis_masse_unitaire_ac_joint:
+          description: Masse Unitaire avec Joints
           type: number
         df_ligne_devis_coef_global:
           description: Coefficient Global
@@ -165,18 +186,9 @@ components:
         DF_Ligne_Devis_DF_Devis_id__df_devis_titre:
           description: Titre Devis DF devis
           type: string
-        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_masse_volumique:
-          description: Masse Volumique Produit
-          type: string
         DF_Ligne_Devis_DF_Devis_id:
           description: DF devis
           type: string
-        df_ligne_devis_cout_transport:
-          description: Coût Transport
-          type: number
-        df_ligne_devis_prix_produit:
-          description: Prix Produit
-          type: number
         df_ligne_devis_famille:
           description: Famille
           type: string
@@ -187,101 +199,18 @@ components:
           - MA
           - BR
           - CA
-        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_appellation_co:
-          description: Appellation Commerciale Produits Finis
+        df_ligne_devis_t_prod:
+          description: Type Produit
           type: string
         df_ligne_devis_quantite:
           description: Quantité
           type: integer
-        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_nom:
-          description: Nom Produit
-          type: string
-        df_ligne_devis_ref:
-          description: Réf.
-          type: string
-        df_ligne_devis_poids_total:
-          description: Poids Total
-          type: number
-        df_ligne_devis_nom_produit:
-          description: Nom Produit
-          type: string
-        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_larg:
-          description: Largeur Produit
-          type: number
-        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_source:
-          description: Source Produits Finis
-          type: string
-        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_id:
-          description: Id Produit
-          type: integer
-        df_ligne_devis_prix_vente_impose:
-          description: Prix Vente Imposé
-          type: number
-        df_ligne_devis_nombre_camions:
-          description: Nombre Camions
-          type: number
-        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_unite:
-          description: Unité Produit
-          type: string
-        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_long:
-          description: Longueur Produit
-          type: number
-        df_ligne_devis_masse_volumique:
-          description: Masse Volumique Pierre
-          type: number
-        df_ligne_devis_epaisseur:
-          description: Epaisseur
-          type: number
-        df_ligne_devis_prix_transport_reference:
-          description: Prix Transport Référence
-          type: number
-        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_haut:
-          description: Epaisseur Produit
-          type: number
-        df_ligne_devis_total_achat_ht:
-          description: Total Achat HT
-          type: number
-        df_ligne_devis_nb_elt_ss_joint:
-          description: Nombre d'éléments sans joint
-          type: number
-        df_ligne_devis_longueur:
-          description: Longueur
-          type: number
-        df_ligne_devis_total_achat_reference_ht:
-          description: Total Achat Référence HT
-          type: number
-        df_ligne_devis_masse_unitaire_ss_joint:
-          description: Masse Unitaire sans Joints
-          type: number
-        df_ligne_devis_masse_unitaire_ac_joint:
-          description: Masse Unitaire avec Joints
-          type: number
-        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_type_geologique:
-          description: Type Géologique Produits Finis
-          type: string
-          enum:
-          - A
-          - B
-          - C
-        df_ligne_devis_t_prod:
-          description: Type Produit
-          type: string
-        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_designation:
-          description: Designation Produits Finis
-          type: string
-        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_finition:
-          description: Finition Produits Finis
-          type: string
         df_ligne_devis_prix_vente_calcule:
           description: Prix Vente Calculé
           type: number
-        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_couleur:
-          description: Couleur Produits Finis
+        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_nom:
+          description: Nom Produit
           type: string
-          enum:
-          - A
-          - B
-          - C
         df_ligne_devis_bdd:
           description: Base de données
           type: string
@@ -298,39 +227,51 @@ components:
         df_ligne_devis_prix_transport_unitaire:
           description: Prix transport unitaire
           type: number
+        df_ligne_devis_ref:
+          description: Réf.
+          type: string
         df_ligne_devis_coef:
           description: Coef
+          type: number
+        df_ligne_devis_poids_total:
+          description: Poids Total
           type: number
         DF_Ligne_Devis_DF_Produit_Finis_id:
           description: Produits Finis
           type: string
-        df_ligne_devis_laregur:
+        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_larg:
           description: Largeur
           type: number
         df_ligne_devis_dim_joints:
           description: Dimension des joints
           type: number
-        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_commentaire:
-          description: Commentaire Produits Finis
-          type: string
-        df_ligne_devis_unite:
-          description: Unité
-          type: string
+        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_id:
+          description: Id Produit
+          type: integer
+        df_ligne_devis_prix_vente_impose:
+          description: Prix Vente Imposé
+          type: number
         DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_prix:
-          description: Prix Produit
+          description: Prix
           type: number
         df_ligne_devis_designation:
           description: Désignation
           type: string
+        df_ligne_devis_nombre_camions:
+          description: Nombre Camions
+          type: number
+        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_unite:
+          description: Unité
+          type: string
         row_id:
           description: Unique technical row ID
           type: string
+        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_long:
+          description: Longueur
+          type: number
         df_ligne_devis_prix_debourse_sec:
           description: Prix déboursé sec
           type: number
-        df_ligne_devis_id_produit:
-          description: Id Produit
-          type: integer
     ArrayOfDF_Contact:
       type: array
       items:
@@ -609,9 +550,6 @@ components:
         DF_ligne_commande_DF_Commande_id:
           description: DF commande
           type: string
-        DF_ligne_commande_DF_Produit_Finis_id__df_produit_id:
-          description: Id Produit DF produit finis
-          type: integer
         DF_ligne_commande_DF_Produit_Finis_id__df_produit_long:
           description: Longueur DF produit finis
           type: number
@@ -875,9 +813,6 @@ components:
         row_id:
           description: Unique technical row ID
           type: string
-        df_client_tx_remise:
-          description: Taux de remise
-          type: number
     ArrayOfDF_Livraison:
       type: array
       items:
@@ -904,7 +839,7 @@ components:
           description: Hauteur
           type: number
         df_produit_id:
-          description: Id Produit
+          description: df produit id
           type: integer
         df_produit_prix:
           description: Prix
@@ -951,8 +886,8 @@ components:
           description: Type Produit
           type: string
           enum:
-          - Pierre
           - FFT
+          - Pierre
         df_produit_finition:
           description: Finition
           type: string
@@ -2474,7 +2409,7 @@ paths:
           type: integer
         in: query
         name: df_produit_id
-        description: Search filter for Id Produit
+        description: Search filter for df produit id
         required: false
       - schema:
           type: string
@@ -2589,8 +2524,8 @@ paths:
       - schema:
           type: string
           enum:
-          - Pierre
           - FFT
+          - Pierre
         in: query
         name: df_produit_type
         description: Search filter for Type Produit
@@ -5403,12 +5338,6 @@ paths:
         description: Search filter for DF produit finis
         required: false
       - schema:
-          type: integer
-        in: query
-        name: DF_ligne_commande_DF_Produit_Finis_id__df_produit_id
-        description: Search filter for Id Produit DF produit finis
-        required: false
-      - schema:
           type: string
         in: query
         name: DF_ligne_commande_DF_Produit_Finis_id__df_produit_nom
@@ -6333,12 +6262,6 @@ paths:
         in: query
         name: df_client_pays
         description: Search filter for Pays
-        required: false
-      - schema:
-          type: number
-        in: query
-        name: df_client_tx_remise
-        description: Search filter for Taux de remise
         required: false
       tags:
       - DF_Client
@@ -7772,30 +7695,6 @@ paths:
       - schema:
           type: number
         in: query
-        name: df_ligne_devis_cout_transport
-        description: Search filter for Coût Transport
-        required: false
-      - schema:
-          type: number
-        in: query
-        name: df_ligne_devis_longueur
-        description: Search filter for Longueur
-        required: false
-      - schema:
-          type: number
-        in: query
-        name: df_ligne_devis_laregur
-        description: Search filter for Largeur
-        required: false
-      - schema:
-          type: number
-        in: query
-        name: df_ligne_devis_epaisseur
-        description: Search filter for Epaisseur
-        required: false
-      - schema:
-          type: number
-        in: query
         name: df_ligne_devis_dim_joints
         description: Search filter for Dimension des joints
         required: false
@@ -7878,12 +7777,6 @@ paths:
         description: Search filter for Prix Vente Imposé
         required: false
       - schema:
-          type: number
-        in: query
-        name: df_ligne_devis_masse_volumique
-        description: Search filter for Masse Volumique Pierre
-        required: false
-      - schema:
           type: string
           enum:
           - CF
@@ -7922,30 +7815,6 @@ paths:
         description: Search filter for Désignation
         required: false
       - schema:
-          type: string
-        in: query
-        name: df_ligne_devis_unite
-        description: Search filter for Unité
-        required: false
-      - schema:
-          type: integer
-        in: query
-        name: df_ligne_devis_id_produit
-        description: Search filter for Id Produit
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: df_ligne_devis_nom_produit
-        description: Search filter for Nom Produit
-        required: false
-      - schema:
-          type: number
-        in: query
-        name: df_ligne_devis_prix_produit
-        description: Search filter for Prix Produit
-        required: false
-      - schema:
           type: number
         in: query
         name: df_ligne_devis_nb_elt_ss_joint
@@ -7976,6 +7845,18 @@ paths:
         description: Search filter for Prix EXW / Tonne
         required: false
       - schema:
+          type: string
+        in: query
+        name: df_ligne_devis_t_prod
+        description: Search filter for Type Produit
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id
+        description: Search filter for Produits Finis
+        required: false
+      - schema:
           type: integer
         in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_id
@@ -7988,102 +7869,34 @@ paths:
         description: Search filter for Nom Produit
         required: false
       - schema:
-          type: string
-        in: query
-        name: DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_designation
-        description: Search filter for Designation Produits Finis
-        required: false
-      - schema:
           type: number
         in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_long
-        description: Search filter for Longueur Produit
+        description: Search filter for Longueur
         required: false
       - schema:
           type: number
         in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_larg
-        description: Search filter for Largeur Produit
+        description: Search filter for Largeur
         required: false
       - schema:
           type: number
         in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_haut
-        description: Search filter for Epaisseur Produit
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_finition
-        description: Search filter for Finition Produits Finis
+        description: Search filter for Epaisseur
         required: false
       - schema:
           type: string
         in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_unite
-        description: Search filter for Unité Produit
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_source
-        description: Search filter for Source Produits Finis
+        description: Search filter for Unité
         required: false
       - schema:
           type: number
         in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_prix
-        description: Search filter for Prix Produit
-        required: false
-      - schema:
-          type: string
-          enum:
-          - A
-          - B
-          - C
-        in: query
-        name: DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_type_geologique
-        description: Search filter for Type Géologique Produits Finis
-        required: false
-      - schema:
-          type: string
-          enum:
-          - A
-          - B
-          - C
-        in: query
-        name: DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_couleur
-        description: Search filter for Couleur Produits Finis
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: DF_Ligne_Devis_DF_Produit_Finis_id
-        description: Search filter for Produits Finis
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_commentaire
-        description: Search filter for Commentaire Produits Finis
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_appellation_co
-        description: Search filter for Appellation Commerciale Produits Finis
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_masse_volumique
-        description: Search filter for Masse Volumique Produit
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: df_ligne_devis_t_prod
-        description: Search filter for Type Produit
+        description: Search filter for Prix
         required: false
       tags:
       - DF_Ligne_Devis
