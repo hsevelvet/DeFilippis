@@ -100,7 +100,6 @@ objet metier pour commande.
 | `df_commande_numero`                                         | char(32)                                 |          | yes       |          | -                                                                                |
 | `DF_Commande_DF_Client_id` link to **`DF_Client`**           | id                                       |          | yes       |          | -                                                                                |
 | _Ref. `DF_Commande_DF_Client_id.df_client_id`_               | _int(11)_                                |          |           |          | -                                                                                |
-| `DF_Commande_DF_Contact_id` link to **`DF_Contact`**         | id                                       |          | yes       |          | -                                                                                |
 | _Ref. `DF_Commande_DF_Contact_id.df_contact_id`_             | _int(11)_                                |          |           |          | -                                                                                |
 | `df_commande_detail`                                         | char(100)                                |          | yes       |          | -                                                                                |
 | `df_commande_date`                                           | datetime                                 | yes      | yes       |          | -                                                                                |
@@ -133,11 +132,8 @@ Objet metier pour contact.
 | `df_contact_email`                                           | email(100)                               |          | yes       |          | -                                                                                |
 | `df_contact_commentaire`                                     | text(100)                                |          | yes       |          | -                                                                                |
 | `__id` link to **`DF_Client`**                               | id                                       |          | yes       |          | -                                                                                |
-| `df_contact_statut`                                          | enum(7) using `DF_CONTACT_STATUT` list   | yes      | yes       |          | -                                                                                |
 | `df_contact_type`                                            | enum(7) using `DF_CONTACT_TYPE` list     | yes      | yes       |          | -                                                                                |
 | `df_contact_sous_type`                                       | enum(7) using `DF_CONTACT_SOUS_TYPE` list |          | yes       |          | -                                                                                |
-| `DF_Contact_DF_Client_id` link to **`DF_Client`**            | id                                       |          | yes       |          | -                                                                                |
-| _Ref. `DF_Contact_DF_Client_id.df_client_nom`_               | _char(36)_                               |          |           |          | -                                                                                |
 
 ### Lists
 
@@ -151,10 +147,6 @@ Objet metier pour contact.
     - `D` Directeur
     - `C` Commercial
     - `P` PDG
-* `DF_CONTACT_STATUT`
-    - `O` Ouvert
-    - `F` Fermé
-    - `ET` En Traitement
 * `DF_CONTACT_TYPE`
     - `INF` Information
     - `DEM` Demande
@@ -487,7 +479,7 @@ Objet metier pour produit.
 | `df_produit_appellation_co`                                  | char(70)                                 |          | yes       |          | -                                                                                |
 | `df_produit_masse_volumique`                                 | bigdec(8, 2)                             | yes      | yes       |          | -                                                                                |
 | `df_produit_type_geologique`                                 | enum(7) using `DF_PRODUIT_TYPE_GEOLOGIQUE` list |          | yes       |          | -                                                                                |
-| `df_produit_type`                                            | enum(7) using `DF_PRODUIT_TYPE` list     |          | yes       |          | -                                                                                |
+| `df_produit_id`                                              | int(11)                                  | yes*     | yes       |          | -                                                                                |
 
 ### Lists
 
@@ -499,9 +491,6 @@ Objet metier pour produit.
     - `A` code A
     - `B` code B
     - `C` code C
-* `DF_PRODUIT_TYPE`
-    - `FFT` FFT
-    - `Pierre` Pierre
 
 ### Custom actions
 

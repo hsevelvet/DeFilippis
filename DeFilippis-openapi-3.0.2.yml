@@ -77,7 +77,7 @@ components:
           description: Téléphone Client
           type: string
         df_chantier_date_debut:
-          description: Date début
+          description: Date début chantier
           type: string
         row_id:
           description: Unique technical row ID
@@ -312,32 +312,17 @@ components:
     DF_Commande:
       type: object
       properties:
-        df_commande_numero:
-          description: Numéro de Commande
-          type: string
-        DF_Commande_DF_utilisateur_interne_id__df_utilisateur_interne_nc:
-          description: Rédacteur
-          type: string
-        df_commande_id_livraison:
-          description: Id Livraison
-          type: integer
-        df_commande_intitule:
-          description: Intitulé de commande
-          type: string
         df_commande_id:
           description: Id Commande
           type: string
         DF_Commande_DF_utilisateur_interne_id:
           description: Rédacteur
           type: string
-        DF_Commande_DF_Contact_id__df_contact_id:
-          description: Id Contact DF contact
-          type: integer
         df_commande_detail:
           description: Détail de commande
           type: string
-        DF_Commande_DF_Contact_id:
-          description: DF contact
+        df_commande_numero:
+          description: Numéro de Commande
           type: string
         df_commande_date:
           description: Date de commande
@@ -348,6 +333,18 @@ components:
         DF_Commande_DF_Client_id__df_client_id:
           description: Id Client DF client
           type: integer
+        df_contact_id:
+          description: Id Contact
+          type: integer
+        DF_Commande_DF_utilisateur_interne_id__df_utilisateur_interne_nc:
+          description: Rédacteur
+          type: string
+        df_commande_id_livraison:
+          description: Id Livraison
+          type: integer
+        df_commande_intitule:
+          description: Intitulé de commande
+          type: string
         DF_Commande_DF_Client_id:
           description: DF client
           type: string
@@ -698,7 +695,7 @@ components:
           description: Lieu Projet
           type: string
         DF_Devis_DF_Chantier_id__df_chantier_date_debut:
-          description: Date début DF chantier
+          description: Date début chantier DF chantier
           type: string
         df_devis_incoterm_prix:
           description: Incoterm Prix
@@ -870,12 +867,6 @@ components:
           - A
           - B
           - C
-        df_produit_type:
-          description: Type Produit
-          type: string
-          enum:
-          - Pierre
-          - FFT
         df_produit_finition:
           description: Finition
           type: string
@@ -892,9 +883,6 @@ components:
     DF_Contact:
       type: object
       properties:
-        DF_Contact_DF_Client_id:
-          description: Clients
-          type: string
         df_contact_email:
           description: E-mail
           type: string
@@ -914,16 +902,6 @@ components:
           type: string
         df_contact_prenom:
           description: Prénom
-          type: string
-        df_contact_statut:
-          description: Statut
-          type: string
-          enum:
-          - O
-          - F
-          - ET
-        DF_Contact_DF_Client_id__df_client_nom:
-          description: Nom Client Clients
           type: string
         df_contact_id_emploi:
           description: Id Emploi
@@ -2270,16 +2248,6 @@ paths:
       - schema:
           type: string
           enum:
-          - O
-          - F
-          - ET
-        in: query
-        name: df_contact_statut
-        description: Search filter for Statut
-        required: false
-      - schema:
-          type: string
-          enum:
           - INF
           - DEM
           - REC
@@ -2297,18 +2265,6 @@ paths:
         in: query
         name: df_contact_sous_type
         description: Search filter for Sous Type
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: DF_Contact_DF_Client_id
-        description: Search filter for Clients
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: DF_Contact_DF_Client_id__df_client_nom
-        description: Search filter for Nom Client Clients
         required: false
       tags:
       - DF_Contact
@@ -2504,15 +2460,6 @@ paths:
         in: query
         name: df_produit_masse_volumique
         description: Search filter for Masse Volumique
-        required: false
-      - schema:
-          type: string
-          enum:
-          - Pierre
-          - FFT
-        in: query
-        name: df_produit_type
-        description: Search filter for Type Produit
         required: false
       tags:
       - DF_Produit_Finis
@@ -4123,16 +4070,10 @@ paths:
         description: Search filter for Id Client DF client
         required: false
       - schema:
-          type: string
-        in: query
-        name: DF_Commande_DF_Contact_id
-        description: Search filter for DF contact
-        required: false
-      - schema:
           type: integer
         in: query
-        name: DF_Commande_DF_Contact_id__df_contact_id
-        description: Search filter for Id Contact DF contact
+        name: df_contact_id
+        description: Search filter for Id Contact
         required: false
       - schema:
           type: string
@@ -4992,7 +4933,7 @@ paths:
           type: string
         in: query
         name: DF_Devis_DF_Chantier_id__df_chantier_date_debut
-        description: Search filter for Date début DF chantier
+        description: Search filter for Date début chantier DF chantier
         required: false
       - schema:
           type: string
@@ -5463,7 +5404,7 @@ paths:
           type: string
         in: query
         name: df_chantier_date_debut
-        description: Search filter for Date début
+        description: Search filter for Date début chantier
         required: false
       - schema:
           type: string
@@ -7818,7 +7759,7 @@ tags:
 - name: DF_Commande
   description: Commandes
 - name: DF_Contact
-  description: Contacts
+  description: DF Contact
 - name: DF_Devis
   description: Devis
 - name: DF_Fournisseurs

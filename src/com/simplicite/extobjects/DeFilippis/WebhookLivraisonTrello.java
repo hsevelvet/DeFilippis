@@ -47,15 +47,12 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
 				obj.setValues(rows.get(0), true);
 				if (card.has("name"))
 					obj.setFieldValue("df_livraison_id", card.getString("name"));
-				if (card.has("desc"))
-					obj.setFieldValue("df_livraison_adresse", card.getString("desc"));
-					String status = listAfter.getString("name").split("-")[0].trim();
-									AppLog.info(getClass(), "updateCard Dang",status, getGrant());
+				String status = listAfter.getString("name").split("-")[0].trim();
+				AppLog.info(getClass(), "updateCard Dang",status, getGrant());
 				if (listAfter.has("name")){
 					//String status = listAfter.getString("name").split(".")[1].trim();
-									AppLog.info(getClass(), "updateCard Dang",status, getGrant());
-
-					obj.setFieldValue("df_livraison_statut", listAfter.getString("name"));
+					AppLog.info(getClass(), "updateCard Dang",status, getGrant());
+					obj.setFieldValue("df_livraison_statut", status);
 				}
 				objt.validateAndSave();
 			}

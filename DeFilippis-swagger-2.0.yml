@@ -432,15 +432,6 @@ paths:
         type: string
         required: false
       - in: query
-        name: df_contact_statut
-        description: Search filter for Statut
-        type: string
-        required: false
-        enum:
-        - O
-        - F
-        - ET
-      - in: query
         name: df_contact_type
         description: Search filter for Type Contact
         type: string
@@ -459,16 +450,6 @@ paths:
         - ETATCMD
         - INFPRD
         - ETATLVR
-      - in: query
-        name: DF_Contact_DF_Client_id
-        description: Search filter for Clients
-        type: string
-        required: false
-      - in: query
-        name: DF_Contact_DF_Client_id__df_client_nom
-        description: Search filter for Nom Client Clients
-        type: string
-        required: false
       tags:
       - DF_Contact
   /login:
@@ -636,14 +617,6 @@ paths:
         description: Search filter for Masse Volumique
         type: string
         required: false
-      - in: query
-        name: df_produit_type
-        description: Search filter for Type Produit
-        type: string
-        required: false
-        enum:
-        - Pierre
-        - FFT
       tags:
       - DF_Produit_Finis
   /rest/DF_Produit_Finis/{row_id}:
@@ -1982,13 +1955,8 @@ paths:
         type: integer
         required: false
       - in: query
-        name: DF_Commande_DF_Contact_id
-        description: Search filter for DF contact
-        type: string
-        required: false
-      - in: query
-        name: DF_Commande_DF_Contact_id__df_contact_id
-        description: Search filter for Id Contact DF contact
+        name: df_contact_id
+        description: Search filter for Id Contact
         type: integer
         required: false
       - in: query
@@ -2708,7 +2676,7 @@ paths:
         required: false
       - in: query
         name: DF_Devis_DF_Chantier_id__df_chantier_date_debut
-        description: Search filter for Date début DF chantier
+        description: Search filter for Date début chantier DF chantier
         type: string
         required: false
       - in: query
@@ -3106,7 +3074,7 @@ paths:
         required: false
       - in: query
         name: df_chantier_date_debut
-        description: Search filter for Date début
+        description: Search filter for Date début chantier
         type: string
         required: false
       - in: query
@@ -5250,7 +5218,7 @@ definitions:
         description: Téléphone Client
         type: string
       df_chantier_date_debut:
-        description: Date début
+        description: Date début chantier
         type: string
       row_id:
         description: Unique technical row ID
@@ -5485,32 +5453,17 @@ definitions:
   DF_Commande:
     type: object
     properties:
-      df_commande_numero:
-        description: Numéro de Commande
-        type: string
-      DF_Commande_DF_utilisateur_interne_id__df_utilisateur_interne_nc:
-        description: Rédacteur
-        type: string
-      df_commande_id_livraison:
-        description: Id Livraison
-        type: integer
-      df_commande_intitule:
-        description: Intitulé de commande
-        type: string
       df_commande_id:
         description: Id Commande
         type: string
       DF_Commande_DF_utilisateur_interne_id:
         description: Rédacteur
         type: string
-      DF_Commande_DF_Contact_id__df_contact_id:
-        description: Id Contact DF contact
-        type: integer
       df_commande_detail:
         description: Détail de commande
         type: string
-      DF_Commande_DF_Contact_id:
-        description: DF contact
+      df_commande_numero:
+        description: Numéro de Commande
         type: string
       df_commande_date:
         description: Date de commande
@@ -5521,6 +5474,18 @@ definitions:
       DF_Commande_DF_Client_id__df_client_id:
         description: Id Client DF client
         type: integer
+      df_contact_id:
+        description: Id Contact
+        type: integer
+      DF_Commande_DF_utilisateur_interne_id__df_utilisateur_interne_nc:
+        description: Rédacteur
+        type: string
+      df_commande_id_livraison:
+        description: Id Livraison
+        type: integer
+      df_commande_intitule:
+        description: Intitulé de commande
+        type: string
       DF_Commande_DF_Client_id:
         description: DF client
         type: string
@@ -5871,7 +5836,7 @@ definitions:
         description: Lieu Projet
         type: string
       DF_Devis_DF_Chantier_id__df_chantier_date_debut:
-        description: Date début DF chantier
+        description: Date début chantier DF chantier
         type: string
       df_devis_incoterm_prix:
         description: Incoterm Prix
@@ -6043,12 +6008,6 @@ definitions:
         - A
         - B
         - C
-      df_produit_type:
-        description: Type Produit
-        type: string
-        enum:
-        - Pierre
-        - FFT
       df_produit_finition:
         description: Finition
         type: string
@@ -6065,9 +6024,6 @@ definitions:
   DF_Contact:
     type: object
     properties:
-      DF_Contact_DF_Client_id:
-        description: Clients
-        type: string
       df_contact_email:
         description: E-mail
         type: string
@@ -6087,16 +6043,6 @@ definitions:
         type: string
       df_contact_prenom:
         description: Prénom
-        type: string
-      df_contact_statut:
-        description: Statut
-        type: string
-        enum:
-        - O
-        - F
-        - ET
-      DF_Contact_DF_Client_id__df_client_nom:
-        description: Nom Client Clients
         type: string
       df_contact_id_emploi:
         description: Id Emploi
@@ -6939,7 +6885,7 @@ tags:
 - name: DF_Commande
   description: Commandes
 - name: DF_Contact
-  description: Contacts
+  description: DF Contact
 - name: DF_Devis
   description: Devis
 - name: DF_Fournisseurs
