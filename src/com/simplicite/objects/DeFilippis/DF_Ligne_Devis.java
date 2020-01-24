@@ -16,15 +16,15 @@ public class DF_Ligne_Devis extends ObjectDB {
 	public void initUpdate(){
 		
         // accès aux valeurs 
-        String unite = getField("df_ligne_devis_unite").getValue();
-		double mvp = getField("df_ligne_devis_masse_volumique").getDouble(0);
-		double lng = getField("df_ligne_devis_longueur").getDouble(0);
-		double lrg = getField("df_ligne_devis_laregur").getDouble(0);
-		double ep = getField("df_ligne_devis_epaisseur").getDouble(0);
+        String unite = getField("df_produit_unite").getValue();
+		double mvp = getField("df_produit_masse_volumique").getDouble(0);
+		double lng = getField("df_produit_long").getDouble(0);
+		double lrg = getField("df_produit_larg").getDouble(0);
+		double ep = getField("df_produit_haut").getDouble(0);
 		int qte = getField("df_ligne_devis_quantite").getInt(0);
 		double dim_joint = getField("df_ligne_devis_dim_joints").getDouble(0);
 		double ptr = getField("df_ligne_devis_prix_transport_reference").getDouble(0);
-		double prc = getField("df_ligne_devis_prix_produit").getDouble(0);
+		double prc = getField("df_produit_prix").getDouble(0);
 		
 		
 		
