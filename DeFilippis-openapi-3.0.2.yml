@@ -186,6 +186,9 @@ components:
         DF_Ligne_Devis_DF_Devis_id__df_devis_titre:
           description: Titre Devis DF devis
           type: string
+        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_masse_volumique:
+          description: Masse Volumique
+          type: string
         DF_Ligne_Devis_DF_Devis_id:
           description: DF devis
           type: string
@@ -228,8 +231,8 @@ components:
           description: Prix transport unitaire
           type: number
         df_ligne_devis_ref:
-          description: Réf.
-          type: string
+          description: N° de prix
+          type: integer
         df_ligne_devis_coef:
           description: Coef
           type: number
@@ -478,7 +481,7 @@ components:
           description: DF client
           type: string
         DF_Transport_DF_Client_id__df_client_telephone:
-          description: Téképhone DF client
+          description: Téléphone DF client
           type: string
         DF_Transport_DF_Chantier_id__df_chantier_reference:
           description: Référence chantier DF chantier
@@ -623,8 +626,14 @@ components:
         DF_Devis_DF_Chantier_id:
           description: DF chantier
           type: string
+        DF_Devis_DF_Contact_id__df_contact_nom:
+          description: Nom Contact
+          type: string
+        df_devis_suiveur_affaire:
+          description: Suiveur de l'affaire
+          type: string
         DF_Devis_DF_utilisateur_interne_id__df_utilisateur_interne_nc:
-          description: Responsable de devis
+          description: Rédacteur
           type: string
         df_devis_date_emission:
           description: Date Emission
@@ -635,11 +644,14 @@ components:
         df_devis_commentaire:
           description: Commentaire
           type: string
+        DF_Devis_DF_Contact_id__df_contact_prenom:
+          description: Prénom Contact
+          type: string
         df_devis_delais_previsionnel:
           description: Délais prévisionnel
           type: string
         df_devis_accompte:
-          description: Accompte
+          description: Acompte
           type: string
           enum:
           - '000'
@@ -670,7 +682,7 @@ components:
           type: string
         df_devis_fiche_technique:
           description: Fiche Technique
-          type: string
+          type: object
         DF_Devis_DF_Contact_id:
           description: Contacts
           type: string
@@ -681,13 +693,13 @@ components:
           description: Titre Projet
           type: string
         DF_Devis_DF_Client_id__df_client_telephone:
-          description: Téképhone client
+          description: Téléphone client
           type: string
         df_devis_prix_total:
           description: Prix Total
           type: number
         DF_Devis_DF_Chantier_id__df_chantier_reference:
-          description: Référence chantier DF chantier
+          description: Référence chantier
           type: string
         df_devis_statut:
           description: Statut
@@ -707,7 +719,7 @@ components:
           description: Lieu Projet
           type: string
         DF_Devis_DF_Chantier_id__df_chantier_date_debut:
-          description: Date début DF chantier
+          description: Date début chantier
           type: string
         df_devis_incoterm_prix:
           description: Incoterm Prix
@@ -720,6 +732,9 @@ components:
         df_devis_poids_total:
           description: Poids total [Tonne]
           type: number
+        DF_Devis_DF_Contact_id__df_contact_portable:
+          description: Portable Contact
+          type: string
         df_devis_ordre_facturation:
           description: Ordre facturation
           type: string
@@ -730,7 +745,7 @@ components:
           description: Unique technical row ID
           type: string
         df_devis_validite_offre:
-          description: Date Valdiité offre
+          description: Date Validité offre
           type: string
     DF_Plan_Livraison:
       type: object
@@ -771,14 +786,11 @@ components:
         df_client_pays:
           description: Pays
           type: string
-        df_client_fax:
-          description: Fax
-          type: string
         df_client_region:
           description: Region
           type: string
         df_client_telephone:
-          description: Téképhone
+          description: Téléphone
           type: string
         df_client_cedex:
           description: CEDEX
@@ -830,10 +842,10 @@ components:
           description: Nom Produit
           type: string
         DF_Produit_Finis_DF_Fournisseurs_id__df_fournisseur_id:
-          description: Id Fournisseur Fournisseurs
+          description: Id Fournisseur
           type: integer
         DF_Produit_Finis_DF_Fournisseurs_id__df_fournisseur_nom:
-          description: Nom Fournisseur Fournisseurs
+          description: Nom Fournisseur
           type: string
         df_produit_haut:
           description: Hauteur
@@ -850,13 +862,6 @@ components:
         df_produit_larg:
           description: Largeur
           type: number
-        df_produit_type_geologique:
-          description: Type Géologique
-          type: string
-          enum:
-          - A
-          - B
-          - C
         df_produit_masse_volumique:
           description: Masse Volumique
           type: string
@@ -886,8 +891,8 @@ components:
           description: Type Produit
           type: string
           enum:
-          - FFT
           - Pierre
+          - FFT
         df_produit_finition:
           description: Finition
           type: string
@@ -966,9 +971,6 @@ components:
           enum:
           - M
           - F
-        df_contact_fax:
-          description: Fax
-          type: string
         df_contact_portable:
           description: Portable
           type: string
@@ -2262,12 +2264,6 @@ paths:
       - schema:
           type: string
         in: query
-        name: df_contact_fax
-        description: Search filter for Fax
-        required: false
-      - schema:
-          type: string
-        in: query
         name: df_contact_email
         description: Search filter for E-mail
         required: false
@@ -2478,16 +2474,6 @@ paths:
           - B
           - C
         in: query
-        name: df_produit_type_geologique
-        description: Search filter for Type Géologique
-        required: false
-      - schema:
-          type: string
-          enum:
-          - A
-          - B
-          - C
-        in: query
         name: df_produit_couleur
         description: Search filter for Couleur
         required: false
@@ -2501,13 +2487,13 @@ paths:
           type: integer
         in: query
         name: DF_Produit_Finis_DF_Fournisseurs_id__df_fournisseur_id
-        description: Search filter for Id Fournisseur Fournisseurs
+        description: Search filter for Id Fournisseur
         required: false
       - schema:
           type: string
         in: query
         name: DF_Produit_Finis_DF_Fournisseurs_id__df_fournisseur_nom
-        description: Search filter for Nom Fournisseur Fournisseurs
+        description: Search filter for Nom Fournisseur
         required: false
       - schema:
           type: string
@@ -2524,8 +2510,8 @@ paths:
       - schema:
           type: string
           enum:
-          - FFT
           - Pierre
+          - FFT
         in: query
         name: df_produit_type
         description: Search filter for Type Produit
@@ -4544,7 +4530,7 @@ paths:
           type: string
         in: query
         name: DF_Transport_DF_Client_id__df_client_telephone
-        description: Search filter for Téképhone DF client
+        description: Search filter for Téléphone DF client
         required: false
       - schema:
           type: string
@@ -5102,13 +5088,13 @@ paths:
           type: string
         in: query
         name: DF_Devis_DF_Chantier_id__df_chantier_reference
-        description: Search filter for Référence chantier DF chantier
+        description: Search filter for Référence chantier
         required: false
       - schema:
           type: string
         in: query
         name: DF_Devis_DF_Chantier_id__df_chantier_date_debut
-        description: Search filter for Date début DF chantier
+        description: Search filter for Date début chantier
         required: false
       - schema:
           type: number
@@ -5126,7 +5112,7 @@ paths:
           type: string
         in: query
         name: DF_Devis_DF_Client_id__df_client_telephone
-        description: Search filter for Téképhone client
+        description: Search filter for Téléphone client
         required: false
       - schema:
           type: string
@@ -5218,7 +5204,7 @@ paths:
           type: string
         in: query
         name: df_devis_validite_offre
-        description: Search filter for Date Valdiité offre
+        description: Search filter for Date Validité offre
         required: false
       - schema:
           type: string
@@ -5229,7 +5215,7 @@ paths:
           - '100'
         in: query
         name: df_devis_accompte
-        description: Search filter for Accompte
+        description: Search filter for Acompte
         required: false
       - schema:
           type: string
@@ -5251,7 +5237,7 @@ paths:
           type: string
         in: query
         name: DF_Devis_DF_utilisateur_interne_id__df_utilisateur_interne_nc
-        description: Search filter for Responsable de devis
+        description: Search filter for Rédacteur
         required: false
       - schema:
           type: string
@@ -5264,6 +5250,30 @@ paths:
         in: query
         name: DF_Devis_DF_Contact_id__df_contact_id
         description: Search filter for Contact
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: df_devis_suiveur_affaire
+        description: Search filter for Suiveur de l'affaire
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Devis_DF_Contact_id__df_contact_nom
+        description: Search filter for Nom Contact
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Devis_DF_Contact_id__df_contact_prenom
+        description: Search filter for Prénom Contact
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Devis_DF_Contact_id__df_contact_portable
+        description: Search filter for Portable Contact
         required: false
       tags:
       - DF_Devis
@@ -6177,7 +6187,7 @@ paths:
           type: string
         in: query
         name: df_client_telephone
-        description: Search filter for Téképhone
+        description: Search filter for Téléphone
         required: false
       - schema:
           type: string
@@ -6232,12 +6242,6 @@ paths:
         in: query
         name: df_client_region
         description: Search filter for Region
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: df_client_fax
-        description: Search filter for Fax
         required: false
       - schema:
           type: string
@@ -7689,6 +7693,12 @@ paths:
       - schema:
           type: string
         in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_masse_volumique
+        description: Search filter for Masse Volumique
+        required: false
+      - schema:
+          type: string
+        in: query
         name: DF_Ligne_Devis_DF_Devis_id__df_devis_titre
         description: Search filter for Titre Devis DF devis
         required: false
@@ -7803,10 +7813,10 @@ paths:
         description: Search filter for Famille
         required: false
       - schema:
-          type: string
+          type: integer
         in: query
         name: df_ligne_devis_ref
-        description: Search filter for Réf.
+        description: Search filter for N° de prix
         required: false
       - schema:
           type: string
