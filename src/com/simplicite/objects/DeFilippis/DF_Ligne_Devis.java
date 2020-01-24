@@ -152,6 +152,11 @@ public class DF_Ligne_Devis extends ObjectDB {
        	setFieldValue("df_ligne_devis_prix_vente_impose", pvi);
        }
        
+       // calcul coef_global
+       double total_aht = getField("df_ligne_devis_total_achat_ht").getDouble(0);
+       double coef_g = pvi/total_aht;
+       setFieldValue("df_ligne_devis_coef_global", coef_g);
+       
        // calcul total
 		double total = pvi * qte;
     	setFieldValue("df_ligne_devis_prix_total_ht", total);

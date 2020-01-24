@@ -190,7 +190,7 @@
 		<usr_extra>1</usr_extra>
 		<usr_subhead>1</usr_subhead>
 		<usr_logout>2020-01-22 08:46:13</usr_logout>
-		<usr_last_logon>2020-01-23 14:15:47</usr_last_logon>
+		<usr_last_logon>2020-01-24 17:07:04</usr_last_logon>
 		<usr_dateformat/>
 		<usr_uuid/>
 	</data>
@@ -428,7 +428,7 @@
 		<usr_extra>1</usr_extra>
 		<usr_subhead>1</usr_subhead>
 		<usr_logout>2020-01-15 15:24:42</usr_logout>
-		<usr_last_logon>2020-01-24 12:02:31</usr_last_logon>
+		<usr_last_logon>2020-01-24 18:07:51</usr_last_logon>
 		<usr_dateformat/>
 		<usr_uuid/>
 	</data>
@@ -677,11 +677,18 @@
 	<data>
 		<usp_user_id.usr_login>aguendjian.recettead@gmail.com</usp_user_id.usr_login>
 		<usp_param_id.sys_code>CLIENT_ID</usp_param_id.sys_code>
-		<usp_value><![CDATA[[{
- "dt": "2020-01-23 14:15:47",
- "ag": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36",
- "id": "ZUOsWLwhRSQYHIJVbQelRElCZNnbmutULcMCLeiMhuCqZBvqCSQMEipjvwajoxrP1579684867131"
-}]]]></usp_value>
+		<usp_value><![CDATA[[
+ {
+  "dt": "2020-01-23 14:15:47",
+  "ag": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36",
+  "id": "ZUOsWLwhRSQYHIJVbQelRElCZNnbmutULcMCLeiMhuCqZBvqCSQMEipjvwajoxrP1579684867131"
+ },
+ {
+  "dt": "2020-01-24 17:07:04",
+  "ag": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36",
+  "id": "NilHOJcmimxKeZRpemRtUhPRcuLiyllqTCofaWhFxEsnuFYPKfuZQdpEGPAyeqKb1577970475474"
+ }
+]]]></usp_value>
 		<usp_param_id.sys_type/>
 		<usp_param_id.sys_value><![CDATA[empty]]></usp_param_id.sys_value>
 		<usp_param_id.sys_desc/>
@@ -690,7 +697,10 @@
 	<data>
 		<usp_user_id.usr_login>aguendjian.recettead@gmail.com</usp_user_id.usr_login>
 		<usp_param_id.sys_code>HISTORY</usp_param_id.sys_code>
-		<usp_value><![CDATA[[{"object":"DF_Devis","rowId":"1","label":"Devis : 2020.1961.A 1"}]]]></usp_value>
+		<usp_value><![CDATA[[{"object":"DF_Ligne_Devis","rowId":"92","label":"DF ligne devis : 1"},
+{"object":"DF_Devis","rowId":"2","label":"Devis"},
+{"object":"DF_utilisateur_interne","rowId":"18","label":"Utilisateurs Internes : Aurelie GUENDJIAN"},
+{"object":"DF_Devis","rowId":"1","label":"Devis : 2020.1961.A 1"}]]]></usp_value>
 		<usp_param_id.sys_type>APP</usp_param_id.sys_type>
 		<usp_param_id.sys_value><![CDATA[empty]]></usp_param_id.sys_value>
 		<usp_param_id.sys_desc><![CDATA[User navigation history]]></usp_param_id.sys_desc>
@@ -798,7 +808,7 @@
 	<data>
 		<usp_user_id.usr_login>designer</usp_user_id.usr_login>
 		<usp_param_id.sys_code>UI_EDITOR_PREFS</usp_param_id.sys_code>
-		<usp_value><![CDATA[{"explore":[{"module":"DeFilippis","id":"40","items":[{"field":"obo_script_id","label":"Objet métier","list":[{"docId":"4259","id":"2043","label":"DF_Chantier"},{"docId":"4288","id":"2028","label":"DF_Client"},{"docId":"4260","id":"2033","label":"DF_Commande"},{"docId":"4261","id":"2029","label":"DF_Devis"},{"docId":"4299","id":"2041","label":"DF_Ligne_Devis"},{"docId":"4263","id":"2045","label":"DF_Livraison"},{"docId":"4264","id":"2048","label":"DF_Plan_Livraison"},{"docId":"4265","id":"2044","label":"DF_Transport"}],"open":true,"object":"ObjectInternal"},{"field":"obe_script_id","label":"Objet externe","list":[{"docId":"4257","id":"2062","label":"Test"},{"docId":"4258","id":"2059","label":"WebhookLivraisonTrello"}],"open":false,"object":"ObjectExternal"},{"field":"pcs_script_id","label":"Processus métier","list":[{"docId":"4266","id":"13","label":"DF_Process_01"}],"open":false,"object":"BPMProcess"}],"open":true},{"module":"Demo","id":"41","items":[{"field":"obo_script_id","label":"Objet métier","list":[{"docId":"2426","id":"2017","label":"DemoClient"},{"docId":"2427","id":"2018","label":"DemoContact"},{"docId":"4025","id":"2020","label":"DemoOrder"},{"docId":"2429","id":"2022","label":"DemoProduct"}],"open":true,"object":"ObjectInternal"},{"field":"obe_script_id","label":"Objet externe","list":[{"docId":"2421","id":"2012","label":"DemoCatalog"},{"docId":"2422","id":"2013","label":"DemoOrderAgenda"},{"docId":"2423","id":"2014","label":"DemoPlaceNewOrder"},{"docId":"2424","id":"2015","label":"DemoWebSite"},{"docId":"3103","id":"2016","label":"demows"}],"open":false,"object":"ObjectExternal"},{"field":"scr_file","label":"Code partagé","list":[{"docId":"2455","id":"1","label":"DemoCommon"},{"docId":"2456","id":"2","label":"DemoTests"}],"open":false,"object":"Script"},{"field":"res_file","label":"Ressource","list":[{"docId":"2431","id":"264","label":"Disposition/default * DEMO_PRINT_STYLES"},{"docId":"2436","id":"268","label":"Objet externe/DemoOrderAgenda * HTML"},{"docId":"2437","id":"269","label":"Objet externe/DemoOrderAgenda * SCRIPT"},{"docId":"2439","id":"270","label":"Objet externe/DemoPlaceNewOrder * STYLES"},{"docId":"2441","id":"271","label":"Objet externe/DemoPlaceNewOrder * HTML"},{"docId":"2442","id":"272","label":"Objet externe/DemoPlaceNewOrder * SCRIPT"},{"docId":"2447","id":"276","label":"Objet externe/DemoWebSite * SCRIPT"},{"docId":"2449","id":"277","label":"Objet métier/DemoClient * STYLES"},{"docId":"2451","id":"278","label":"Objet métier/DemoClient * SCRIPT"},{"docId":"2453","id":"279","label":"Objet métier/DemoOrder * SCRIPT"}],"open":false,"object":"Resource"},{"field":"prt_file","label":"Publication","list":[{"docId":"2430","id":"57","label":"DemoSupplier-CATALOG *"}],"open":false,"object":"PrintTemplate"},{"field":"mtp_script_id","label":"Modèle template","list":[{"docId":"2401","id":"9","label":"DemoModel"}],"open":false,"object":"ModelTemplate"}],"open":true},{"module":"Pizzeria","id":"39","items":[{"field":"obo_script_id","label":"Objet métier","list":[{"docId":"2326","id":"2002","label":"PzaOrder"}],"open":true,"object":"ObjectInternal"},{"field":"obe_script_id","label":"Objet externe","list":[{"docId":"2325","id":"2001","label":"pizzeria"}],"open":true,"object":"ObjectExternal"},{"field":"res_file","label":"Ressource","list":[{"docId":"2330","id":"258","label":"Objet externe/pizzeria * STYLES"},{"docId":"2332","id":"259","label":"Objet externe/pizzeria * HTML"},{"docId":"2335","id":"262","label":"Objet externe/pizzeria * SCRIPT"},{"docId":"2337","id":"263","label":"Objet métier/PzaOrder * SCRIPT"}],"open":false,"object":"Resource"}],"open":true},{"module":"Training","id":"38","items":[{"field":"obo_script_id","label":"Objet métier","list":[{"docId":"2369","id":"1998","label":"ClientTrn"},{"docId":"2390","id":"1999","label":"CommandeTrn"},{"docId":"2383","id":"1996","label":"Product"},{"docId":"2357","id":"1995","label":"Supplier"}],"open":false,"object":"ObjectInternal"}],"open":false}],"tabs":[{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2020"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2021"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2028"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2018"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2017"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2041"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2029"}],"selected":"ObjectInternal_obo_script_id_2041"}]]></usp_value>
+		<usp_value><![CDATA[{"explore":[{"module":"DeFilippis","id":"40","items":[{"field":"obo_script_id","label":"Objet métier","list":[{"docId":"4259","id":"2043","label":"DF_Chantier"},{"docId":"4288","id":"2028","label":"DF_Client"},{"docId":"4260","id":"2033","label":"DF_Commande"},{"docId":"4261","id":"2029","label":"DF_Devis"},{"docId":"4301","id":"2041","label":"DF_Ligne_Devis"},{"docId":"4263","id":"2045","label":"DF_Livraison"},{"docId":"4264","id":"2048","label":"DF_Plan_Livraison"},{"docId":"4265","id":"2044","label":"DF_Transport"}],"open":true,"object":"ObjectInternal"},{"field":"obe_script_id","label":"Objet externe","list":[{"docId":"4257","id":"2062","label":"Test"},{"docId":"4258","id":"2059","label":"WebhookLivraisonTrello"}],"open":false,"object":"ObjectExternal"},{"field":"pcs_script_id","label":"Processus métier","list":[{"docId":"4266","id":"13","label":"DF_Process_01"}],"open":false,"object":"BPMProcess"}],"open":true},{"module":"Demo","id":"41","items":[{"field":"obo_script_id","label":"Objet métier","list":[{"docId":"2426","id":"2017","label":"DemoClient"},{"docId":"2427","id":"2018","label":"DemoContact"},{"docId":"4025","id":"2020","label":"DemoOrder"},{"docId":"2429","id":"2022","label":"DemoProduct"}],"open":true,"object":"ObjectInternal"},{"field":"obe_script_id","label":"Objet externe","list":[{"docId":"2421","id":"2012","label":"DemoCatalog"},{"docId":"2422","id":"2013","label":"DemoOrderAgenda"},{"docId":"2423","id":"2014","label":"DemoPlaceNewOrder"},{"docId":"2424","id":"2015","label":"DemoWebSite"},{"docId":"3103","id":"2016","label":"demows"}],"open":false,"object":"ObjectExternal"},{"field":"scr_file","label":"Code partagé","list":[{"docId":"2455","id":"1","label":"DemoCommon"},{"docId":"2456","id":"2","label":"DemoTests"}],"open":false,"object":"Script"},{"field":"res_file","label":"Ressource","list":[{"docId":"2431","id":"264","label":"Disposition/default * DEMO_PRINT_STYLES"},{"docId":"2436","id":"268","label":"Objet externe/DemoOrderAgenda * HTML"},{"docId":"2437","id":"269","label":"Objet externe/DemoOrderAgenda * SCRIPT"},{"docId":"2439","id":"270","label":"Objet externe/DemoPlaceNewOrder * STYLES"},{"docId":"2441","id":"271","label":"Objet externe/DemoPlaceNewOrder * HTML"},{"docId":"2442","id":"272","label":"Objet externe/DemoPlaceNewOrder * SCRIPT"},{"docId":"2447","id":"276","label":"Objet externe/DemoWebSite * SCRIPT"},{"docId":"2449","id":"277","label":"Objet métier/DemoClient * STYLES"},{"docId":"2451","id":"278","label":"Objet métier/DemoClient * SCRIPT"},{"docId":"2453","id":"279","label":"Objet métier/DemoOrder * SCRIPT"}],"open":false,"object":"Resource"},{"field":"prt_file","label":"Publication","list":[{"docId":"2430","id":"57","label":"DemoSupplier-CATALOG *"}],"open":false,"object":"PrintTemplate"},{"field":"mtp_script_id","label":"Modèle template","list":[{"docId":"2401","id":"9","label":"DemoModel"}],"open":false,"object":"ModelTemplate"}],"open":true},{"module":"Pizzeria","id":"39","items":[{"field":"obo_script_id","label":"Objet métier","list":[{"docId":"2326","id":"2002","label":"PzaOrder"}],"open":true,"object":"ObjectInternal"},{"field":"obe_script_id","label":"Objet externe","list":[{"docId":"2325","id":"2001","label":"pizzeria"}],"open":true,"object":"ObjectExternal"},{"field":"res_file","label":"Ressource","list":[{"docId":"2330","id":"258","label":"Objet externe/pizzeria * STYLES"},{"docId":"2332","id":"259","label":"Objet externe/pizzeria * HTML"},{"docId":"2335","id":"262","label":"Objet externe/pizzeria * SCRIPT"},{"docId":"2337","id":"263","label":"Objet métier/PzaOrder * SCRIPT"}],"open":false,"object":"Resource"}],"open":true},{"module":"Training","id":"38","items":[{"field":"obo_script_id","label":"Objet métier","list":[{"docId":"2369","id":"1998","label":"ClientTrn"},{"docId":"2390","id":"1999","label":"CommandeTrn"},{"docId":"2383","id":"1996","label":"Product"},{"docId":"2357","id":"1995","label":"Supplier"}],"open":false,"object":"ObjectInternal"}],"open":false}],"tabs":[{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2020"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2021"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2028"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2018"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2017"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2041"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2029"}],"selected":"ObjectInternal_obo_script_id_2041"}]]></usp_value>
 		<usp_param_id.sys_type/>
 		<usp_param_id.sys_value><![CDATA[empty]]></usp_param_id.sys_value>
 		<usp_param_id.sys_desc/>
@@ -6903,7 +6913,7 @@ Tout accés alloués.]]></grp_comment>
 		<fld_enumlist/>
 		<fld_list_id.lov_name/>
 		<fld_copy>1</fld_copy>
-		<fld_size>4</fld_size>
+		<fld_size>6</fld_size>
 		<fld_minsize/>
 		<fld_precision>2</fld_precision>
 		<fld_fromdate_id.fld_name/>
@@ -12373,7 +12383,7 @@ Objet metier pour produit.]]></obo_comment>
 		<obo_btn_save>1</obo_btn_save>
 		<obo_btn_saveclose>1</obo_btn_saveclose>
 		<obo_btn_close>1</obo_btn_close>
-		<obo_tray>1</obo_tray>
+		<obo_tray>0</obo_tray>
 		<obo_dashboard>0</obo_dashboard>
 		<obo_prefix/>
 		<obo_search_ts/>
