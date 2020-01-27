@@ -2414,12 +2414,12 @@ paths:
         required: false
       - in: query
         name: DF_Prix_Transport_DF_Transport_id__df_transport_id
-        description: Search filter for Id Transport DF transport
+        description: Search filter for Id Transporteur
         type: integer
         required: false
       - in: query
         name: DF_Prix_Transport_DF_Transport_id__df_transport_nom
-        description: Search filter for Nom DF transport
+        description: Search filter for Nom Transporteur
         type: string
         required: false
       - in: query
@@ -2440,6 +2440,11 @@ paths:
       - in: query
         name: df_prix_transport_origine
         description: Search filter for Origine
+        type: string
+        required: false
+      - in: query
+        name: df_prix_transport_dpt_livraison
+        description: Search filter for Département de livraison
         type: string
         required: false
       tags:
@@ -3422,16 +3427,16 @@ paths:
         required: false
         enum:
         - AR
-        - MO
         - MDO
+        - MO
         - ATPG
         - T
         - ATP
         - V
         - N
         - EA
-        - P
         - A
+        - P
       - in: query
         name: DF_Chantier_DF_Client_id__df_client_adresse
         description: Search filter for Adresse Client
@@ -3734,16 +3739,16 @@ paths:
         required: false
         enum:
         - AR
-        - MO
         - MDO
+        - MO
         - ATPG
         - T
         - ATP
         - V
         - N
         - EA
-        - P
         - A
+        - P
       - in: query
         name: df_client_region
         description: Search filter for Region
@@ -4898,8 +4903,8 @@ paths:
         - BE
         - CH
         - IE
-        - CA
         - US
+        - CA
       - in: query
         name: row_module_id
         description: Search filter for Module
@@ -5469,16 +5474,16 @@ definitions:
         type: string
         enum:
         - AR
-        - MO
         - MDO
+        - MO
         - ATPG
         - T
         - ATP
         - V
         - N
         - EA
-        - P
         - A
+        - P
       DF_Chantier_DF_Client_id__df_client_id:
         description: Id Client
         type: integer
@@ -5922,11 +5927,14 @@ definitions:
       df_prix_transport_prix:
         description: Prix Transport
         type: number
+      df_prix_transport_dpt_livraison:
+        description: Département de livraison
+        type: string
       DF_Prix_Transport_DF_Transport_id:
         description: DF transport
         type: string
       DF_Prix_Transport_DF_Transport_id__df_transport_id:
-        description: Id Transport DF transport
+        description: Id Transporteur
         type: integer
       DF_Prix_Transport_DF_Transport_id__DF_Transport_DF_Client_id:
         description: DF client DF transport
@@ -5935,7 +5943,7 @@ definitions:
         description: Unique technical row ID
         type: string
       DF_Prix_Transport_DF_Transport_id__df_transport_nom:
-        description: Nom DF transport
+        description: Nom Transporteur
         type: string
       DF_Prix_Transport_DF_Transport_id__DF_Transport_DF_Client_id__df_client_region:
         description: Destination
@@ -6188,16 +6196,16 @@ definitions:
         type: string
         enum:
         - AR
-        - MO
         - MDO
+        - MO
         - ATPG
         - T
         - ATP
         - V
         - N
         - EA
-        - P
         - A
+        - P
       df_client_pays:
         description: Pays
         type: string
@@ -7073,8 +7081,8 @@ definitions:
         - BE
         - CH
         - IE
-        - CA
         - US
+        - CA
       usr_title:
         description: Title
         type: string

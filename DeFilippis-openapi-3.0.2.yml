@@ -54,16 +54,16 @@ components:
           type: string
           enum:
           - AR
-          - MO
           - MDO
+          - MO
           - ATPG
           - T
           - ATP
           - V
           - N
           - EA
-          - P
           - A
+          - P
         DF_Chantier_DF_Client_id__df_client_id:
           description: Id Client
           type: integer
@@ -507,11 +507,14 @@ components:
         df_prix_transport_prix:
           description: Prix Transport
           type: number
+        df_prix_transport_dpt_livraison:
+          description: Département de livraison
+          type: string
         DF_Prix_Transport_DF_Transport_id:
           description: DF transport
           type: string
         DF_Prix_Transport_DF_Transport_id__df_transport_id:
-          description: Id Transport DF transport
+          description: Id Transporteur
           type: integer
         DF_Prix_Transport_DF_Transport_id__DF_Transport_DF_Client_id:
           description: DF client DF transport
@@ -520,7 +523,7 @@ components:
           description: Unique technical row ID
           type: string
         DF_Prix_Transport_DF_Transport_id__df_transport_nom:
-          description: Nom DF transport
+          description: Nom Transporteur
           type: string
         DF_Prix_Transport_DF_Transport_id__DF_Transport_DF_Client_id__df_client_region:
           description: Destination
@@ -773,16 +776,16 @@ components:
           type: string
           enum:
           - AR
-          - MO
           - MDO
+          - MO
           - ATPG
           - T
           - ATP
           - V
           - N
           - EA
-          - P
           - A
+          - P
         df_client_pays:
           description: Pays
           type: string
@@ -1658,8 +1661,8 @@ components:
           - BE
           - CH
           - IE
-          - CA
           - US
+          - CA
         usr_title:
           description: Title
           type: string
@@ -4662,13 +4665,13 @@ paths:
           type: integer
         in: query
         name: DF_Prix_Transport_DF_Transport_id__df_transport_id
-        description: Search filter for Id Transport DF transport
+        description: Search filter for Id Transporteur
         required: false
       - schema:
           type: string
         in: query
         name: DF_Prix_Transport_DF_Transport_id__df_transport_nom
-        description: Search filter for Nom DF transport
+        description: Search filter for Nom Transporteur
         required: false
       - schema:
           type: string
@@ -4693,6 +4696,12 @@ paths:
         in: query
         name: df_prix_transport_origine
         description: Search filter for Origine
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: df_prix_transport_dpt_livraison
+        description: Search filter for Département de livraison
         required: false
       tags:
       - DF_Prix_Transport
@@ -5856,16 +5865,16 @@ paths:
           type: string
           enum:
           - AR
-          - MO
           - MDO
+          - MO
           - ATPG
           - T
           - ATP
           - V
           - N
           - EA
-          - P
           - A
+          - P
         in: query
         name: DF_Chantier_DF_Client_id__df_client_id_secteur_activite
         description: Search filter for Id Secteur Activité Client
@@ -6223,16 +6232,16 @@ paths:
           type: string
           enum:
           - AR
-          - MO
           - MDO
+          - MO
           - ATPG
           - T
           - ATP
           - V
           - N
           - EA
-          - P
           - A
+          - P
         in: query
         name: df_client_id_secteur_activite
         description: Search filter for Id Secteur Activité
@@ -7488,8 +7497,8 @@ paths:
           - BE
           - CH
           - IE
-          - CA
           - US
+          - CA
         in: query
         name: usr_country
         description: Search filter for Country

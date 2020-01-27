@@ -472,6 +472,7 @@ No custom action
 | `df_prix_transport_prix`                                     | float(9, 2)                              | yes      | yes       |          | -                                                                                |
 | _Ref. `DF_Transport_DF_Client_id.df_client_region`_          | _char(32)_                               |          |           |          | -                                                                                |
 | `df_prix_transport_origine`                                  | char(32)                                 | yes      | yes       |          | -                                                                                |
+| `df_prix_transport_dpt_livraison`                            | char(20)                                 |          | yes       |          | -                                                                                |
 
 ### Custom actions
 
