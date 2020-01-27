@@ -650,6 +650,9 @@ components:
         DF_Devis_DF_Contact_id__df_contact_prenom:
           description: Prénom Contact
           type: string
+        df_devis_numero:
+          description: Numéro de devis
+          type: integer
         df_devis_delais_previsionnel:
           description: Délais prévisionnel
           type: string
@@ -5283,6 +5286,12 @@ paths:
         in: query
         name: DF_Devis_DF_Contact_id__df_contact_portable
         description: Search filter for Portable Contact
+        required: false
+      - schema:
+          type: integer
+        in: query
+        name: df_devis_numero
+        description: Search filter for Numéro de devis
         required: false
       tags:
       - DF_Devis

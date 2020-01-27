@@ -239,6 +239,7 @@ Objet metier pour devis.
 | _Ref. `DF_Devis_DF_Contact_id.df_contact_nom`_               | _char(36)_                               |          |           |          | -                                                                                |
 | _Ref. `DF_Devis_DF_Contact_id.df_contact_prenom`_            | _char(32)_                               |          |           |          | -                                                                                |
 | _Ref. `DF_Devis_DF_Contact_id.df_contact_portable`_          | _phone(100)_                             |          |           |          | -                                                                                |
+| `df_devis_numero`                                            | int(11)                                  | yes*     | yes       |          | -                                                                                |
 
 ### Lists
 
