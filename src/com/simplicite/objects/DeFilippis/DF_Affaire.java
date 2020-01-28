@@ -5,11 +5,11 @@ import com.simplicite.util.*;
 import com.simplicite.util.tools.*;
 
 /**
- * Business object DF_Client
+ * Business object DF_Chantier
+
 */
-public class DF_Client extends ObjectDB {
+public class DF_Affaire extends ObjectDB {
 	private static final long serialVersionUID = 1L;
-	
 	
 	@Override
 	public List<String> postValidate() {
@@ -18,13 +18,16 @@ public class DF_Client extends ObjectDB {
 		ObjectDB devis = getGrant().getTmpObject("DF_Devis");
 		synchronized(devis){
 			devis.resetFilters();
-			devis.setFieldFilter(this.getRowId(),"DF_Devis_DF_Client_id");
+			devis.setFieldFilter(this.getRowId(),"DF_Devis_DF_Chantier_id");
 			
 			for(String[] devi : devis.search()){
 				devis.setValues(devi);
 				AppLog.info(getClass(), "df_dev", devis.getFieldDisplayValue("df_devis_statut"), getGrant());
 				if(devis.getStatus().equals("CH")){
-					setFieldValue("df_client_indice",20);
+					setStatus("C");
+				}
+				else{
+					setStatus("I");
 				}
 			}
 		}
@@ -32,7 +35,7 @@ public class DF_Client extends ObjectDB {
 		return msgs;
 		
 	}
-		
-	}
+	
+}
 
 

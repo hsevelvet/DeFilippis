@@ -16,7 +16,10 @@ public class DF_Ligne_Devis extends ObjectDB {
 	public void initUpdate(){
 		
         // accès aux valeurs 
-        String unite = getField("df_produit_unite").getValue();
+        String unite = getField("df_produit_unite").getValue(); 
+        String des_produit = getField("df_produit_designation").getValue(); 
+        String fin_produit = getField("df_produit_finition").getValue();
+
 		double mvp = getField("df_produit_masse_volumique").getDouble(0);
 		double lng = getField("df_produit_long").getDouble(0);
 		double lrg = getField("df_produit_larg").getDouble(0);
@@ -26,6 +29,11 @@ public class DF_Ligne_Devis extends ObjectDB {
 		double ptr = getField("df_ligne_devis_prix_transport_reference").getDouble(0);
 		double prc = getField("df_produit_prix").getDouble(0);
 		
+		// designation ligne devis
+		String designation = "Désignation Produit: "+ des_produit +"\t"+"Finition: "+ fin_produit+
+		"\n"+" Unité: " + unite +"\t" + " Longueur: "+lng +"\t" + " Largeur: "+lrg+"\t" +" Epaisseur: "+ep+"\t"  + "Dimension Joints: " +dim_joint;
+		
+		setFieldValue("df_ligne_devis_designation",designation);
 		
 		
 		// affectation du prix 
@@ -152,10 +160,6 @@ public class DF_Ligne_Devis extends ObjectDB {
        	setFieldValue("df_ligne_devis_prix_vente_impose", pvi);
        }
        
-       // calcul coef_global
-       double total_aht = getField("df_ligne_devis_total_achat_ht").getDouble(0);
-       double coef_g = pvi/total_aht;
-       setFieldValue("df_ligne_devis_coef_global", coef_g);
        
        // calcul total
 		double total = pvi * qte;

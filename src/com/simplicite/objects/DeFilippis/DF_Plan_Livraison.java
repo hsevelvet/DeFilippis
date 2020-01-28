@@ -12,15 +12,15 @@ public class DF_Plan_Livraison extends ObjectDB {
 	
 	public String createAllTrelloCards(){
 		try {
-		String o = "DF_Livraison";
-		ObjectDB obj = Grant.getSystemAdmin().getObject("webhook_" + o, o);
-		BusinessObjectTool objt = new BusinessObjectTool(obj);
-		obj.resetFilters();
-		//obj.getField("df_livraison_trellocardid").setFilter("id");
-		List<String[]> rows = objt.search();
+		ObjectDB o = getGrant().getTmpObject("DF_Livraison");
+		o.resetFilters();
+		o.getField("DF_Livraison_DF_Plan_Livraison_id").setFilter(getRowId());
+		
+		List<String[]> rows = o.search(false);
 		for (int i = 0; i < rows.size(); i++) {
-			obj.setValues(rows.get(i), true);
-			AppLog.info(getClass(), "DangLog", obj.getFieldValue("df_livraison_id"), getGrant());
+			//AppLog.info(getClass(), "DangLog---------------------------", obj.getFieldValue("df_livraison_id"), getGrant());
+			//o.setFieldValue("df_livraison_adresse", "Test");
+			//objt.validateAndSave();
 		}
 		
 		} catch (Exception e) {

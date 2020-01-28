@@ -4,6 +4,181 @@
 # |___/_|_|_|_| .__/_|_\__|_|\__\___|
 #             |_| Module: DeFilippis 0.1
 paths:
+  /rest/DF_Affaire:
+    get:
+      summary: Search DF_Affaire business object records or get contextualized metadata
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-df_affaire-search
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/ArrayOfDF_Affaire'
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+      parameters:
+      - in: query
+        name: _metadata
+        description: Metadata?
+        type: boolean
+        required: false
+      - in: query
+        name: _count
+        description: Count?
+        type: boolean
+        required: false
+      - in: query
+        name: _doc
+        description: Documentation?
+        type: boolean
+        required: false
+      - in: query
+        name: df_client_region
+        description: Search filter for Region
+        type: string
+        required: false
+      - in: query
+        name: df_chantier_reference
+        description: Search filter for Référence chantier
+        type: string
+        required: false
+      - in: query
+        name: df_chantier_date_debut
+        description: Search filter for Date début
+        type: string
+        required: false
+      - in: query
+        name: DF_Chantier_DF_Client_id
+        description: Search filter for Client
+        type: string
+        required: false
+      - in: query
+        name: DF_Chantier_DF_Client_id__df_client_id
+        description: Search filter for Id Client
+        type: integer
+        required: false
+      - in: query
+        name: DF_Chantier_DF_Client_id__df_client_nom
+        description: Search filter for Nom Client
+        type: string
+        required: false
+      - in: query
+        name: DF_Chantier_DF_Client_id__df_client_telephone
+        description: Search filter for Téléphone Client
+        type: string
+        required: false
+      - in: query
+        name: DF_Chantier_DF_Client_id__df_client_ville
+        description: Search filter for Ville Client
+        type: string
+        required: false
+      - in: query
+        name: DF_Chantier_DF_Client_id__df_client_pays
+        description: Search filter for Pays Client
+        type: string
+        required: false
+      - in: query
+        name: DF_Chantier_DF_Client_id__df_client_cedex
+        description: Search filter for CEDEX Client
+        type: string
+        required: false
+      - in: query
+        name: DF_Chantier_DF_Client_id__df_client_adresse_3
+        description: Search filter for Adresse 3 Client
+        type: string
+        required: false
+      - in: query
+        name: DF_Chantier_DF_Client_id__df_client_adresse_2
+        description: Search filter for Adresse 2 Client
+        type: string
+        required: false
+      - in: query
+        name: DF_Chantier_DF_Client_id__df_client_code_postal
+        description: Search filter for Code Postal Client
+        type: integer
+        required: false
+      - in: query
+        name: DF_Chantier_DF_Client_id__df_client_description
+        description: Search filter for Description Client
+        type: string
+        required: false
+      - in: query
+        name: DF_Chantier_DF_Client_id__df_client_id_secteur_activite
+        description: Search filter for Id Secteur Activité Client
+        type: string
+        required: false
+        enum:
+        - AR
+        - MO
+        - MDO
+        - T
+        - ATPG
+        - V
+        - ATP
+        - N
+        - EA
+        - P
+        - A
+      - in: query
+        name: DF_Chantier_DF_Client_id__df_client_adresse
+        description: Search filter for Adresse Client
+        type: string
+        required: false
+      - in: query
+        name: DF_Chantier_DF_Client_id__df_client_region
+        description: Search filter for Region Client
+        type: string
+        required: false
+      - in: query
+        name: DF_Chantier_DF_Plan_Livraison_id
+        description: Search filter for Plan Livraison
+        type: string
+        required: false
+      - in: query
+        name: DF_Chantier_DF_Plan_Livraison_id__df_plan_lvr_id
+        description: Search filter for Plan Livraison
+        type: integer
+        required: false
+      - in: query
+        name: df_chantier_libelle
+        description: Search filter for Libellé de chantier
+        type: string
+        required: false
+      - in: query
+        name: df_chantier_nature_travaux
+        description: Search filter for Nature travaux
+        type: string
+        required: false
+      - in: query
+        name: df_chantier_coefficient_initial
+        description: Search filter for Coefficient de vente initial
+        type: number
+        required: false
+      - in: query
+        name: df_chantier_montant_initial
+        description: Search filter for Montant initial commande HT
+        type: number
+        required: false
+      - in: query
+        name: df_statut_affaire
+        description: Search filter for Statut Affaire
+        type: string
+        required: false
+        enum:
+        - I
+        - C
+      tags:
+      - DF_Affaire
   /rest/DF_Livraison/{row_id}:
     post:
       summary: Create a new DF_Livraisonbusiness object record
@@ -164,168 +339,6 @@ paths:
         name: body
       tags:
       - DF_Livraison
-      consumes:
-      - application/json
-  /rest/DF_Chantier/{row_id}:
-    post:
-      summary: Create a new DF_Chantierbusiness object record
-      security:
-      - bearerAuth: []
-      produces:
-      - application/json
-      operationId: obj-df_chantier-create
-      responses:
-        '200':
-          schema:
-            $ref: '#/definitions/DF_Chantier'
-          description: Success in creating a new business object record
-        '400':
-          schema:
-            $ref: '#/definitions/Error400'
-          description: Bad request
-        '401':
-          schema:
-            $ref: '#/definitions/Error401'
-          description: Unauthorized
-        '500':
-          schema:
-            $ref: '#/definitions/Error500'
-          description: Internal server error
-      parameters:
-      - in: path
-        name: row_id
-        description: Row ID (or empty or _ for all row IDs)
-        type: string
-        required: true
-      - schema:
-          $ref: '#/definitions/DF_Chantier'
-        in: body
-        name: body
-      tags:
-      - DF_Chantier
-      consumes:
-      - application/json
-    get:
-      summary: Get a DF_Chantier business object record
-      security:
-      - bearerAuth: []
-      produces:
-      - application/json
-      operationId: obj-df_chantier-get
-      responses:
-        '200':
-          schema:
-            $ref: '#/definitions/DF_Chantier'
-          description: Success in getting a single business object record
-        '401':
-          schema:
-            $ref: '#/definitions/Error401'
-          description: Unauthorized
-        '500':
-          schema:
-            $ref: '#/definitions/Error500'
-          description: Internal server error
-        '404':
-          schema:
-            $ref: '#/definitions/Error404'
-          description: Not found
-      parameters:
-      - in: path
-        name: row_id
-        description: Row ID (or empty or _ for all row IDs)
-        type: string
-        required: true
-      - in: query
-        name: _inline_documents
-        description: Inline documents?
-        type: boolean
-        required: false
-      - in: query
-        name: _inline_thumbnails
-        description: Inline documents' thumbnails?
-        type: boolean
-        required: false
-      - in: query
-        name: _inline_objects
-        description: Inline objects?
-        type: boolean
-        required: false
-      tags:
-      - DF_Chantier
-    delete:
-      summary: Delete a DF_Chantier business object record
-      security:
-      - bearerAuth: []
-      produces:
-      - application/json
-      operationId: obj-df_chantier-delete
-      responses:
-        '200':
-          description: Success in deleting a business object record
-        '400':
-          schema:
-            $ref: '#/definitions/Error400'
-          description: Bad request
-        '401':
-          schema:
-            $ref: '#/definitions/Error401'
-          description: Unauthorized
-        '500':
-          schema:
-            $ref: '#/definitions/Error500'
-          description: Internal server error
-        '404':
-          schema:
-            $ref: '#/definitions/Error404'
-          description: Not found
-      parameters:
-      - in: path
-        name: row_id
-        description: Row ID (or empty or _ for all row IDs)
-        type: string
-        required: true
-      tags:
-      - DF_Chantier
-    put:
-      summary: Update a DF_Chantierbusiness object record
-      security:
-      - bearerAuth: []
-      produces:
-      - application/json
-      operationId: obj-df_chantier-update
-      responses:
-        '200':
-          schema:
-            $ref: '#/definitions/DF_Chantier'
-          description: Success in updating a business object record
-        '400':
-          schema:
-            $ref: '#/definitions/Error400'
-          description: Bad request
-        '401':
-          schema:
-            $ref: '#/definitions/Error401'
-          description: Unauthorized
-        '500':
-          schema:
-            $ref: '#/definitions/Error500'
-          description: Internal server error
-        '404':
-          schema:
-            $ref: '#/definitions/Error404'
-          description: Not found
-      parameters:
-      - in: path
-        name: row_id
-        description: Row ID (or empty or _ for all row IDs)
-        type: string
-        required: true
-      - schema:
-          $ref: '#/definitions/DF_Chantier'
-        in: body
-        name: body
-      tags:
-      - DF_Chantier
       consumes:
       - application/json
   /rest/DF_Contact:
@@ -535,7 +548,7 @@ paths:
         required: false
       - in: query
         name: df_produit_id
-        description: Search filter for df produit id
+        description: Search filter for Id Produit
         type: integer
         required: false
       - in: query
@@ -628,8 +641,8 @@ paths:
         type: string
         required: false
         enum:
-        - Pierre
         - FFT
+        - Pierre
       tags:
       - DF_Produit_Finis
   /rest/DF_Plan_Livraison/{row_id}/action:PlanLivraison-CreateTicketTrello:
@@ -2238,6 +2251,168 @@ paths:
       - DF_Prix_Transport
       consumes:
       - application/json
+  /rest/DF_Affaire/{row_id}:
+    post:
+      summary: Create a new DF_Affairebusiness object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-df_affaire-create
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/DF_Affaire'
+          description: Success in creating a new business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - schema:
+          $ref: '#/definitions/DF_Affaire'
+        in: body
+        name: body
+      tags:
+      - DF_Affaire
+      consumes:
+      - application/json
+    get:
+      summary: Get a DF_Affaire business object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-df_affaire-get
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/DF_Affaire'
+          description: Success in getting a single business object record
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - in: query
+        name: _inline_documents
+        description: Inline documents?
+        type: boolean
+        required: false
+      - in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        type: boolean
+        required: false
+      - in: query
+        name: _inline_objects
+        description: Inline objects?
+        type: boolean
+        required: false
+      tags:
+      - DF_Affaire
+    delete:
+      summary: Delete a DF_Affaire business object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-df_affaire-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      tags:
+      - DF_Affaire
+    put:
+      summary: Update a DF_Affairebusiness object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-df_affaire-update
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/DF_Affaire'
+          description: Success in updating a business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - schema:
+          $ref: '#/definitions/DF_Affaire'
+        in: body
+        name: body
+      tags:
+      - DF_Affaire
+      consumes:
+      - application/json
   /rest/DF_Transport:
     get:
       summary: Search DF_Transport business object records or get contextualized metadata
@@ -2741,6 +2916,14 @@ paths:
         type: boolean
         required: false
       - in: query
+        name: DF_Devis_DF_Chantier_id__df_statut_affaire
+        description: Search filter for Statut Affaire DF chantier
+        type: string
+        required: false
+        enum:
+        - I
+        - C
+      - in: query
         name: df_devis_titre
         description: Search filter for Titre Devis
         type: string
@@ -2749,6 +2932,11 @@ paths:
         name: df_devis_titre_projet
         description: Search filter for Titre Projet
         type: string
+        required: false
+      - in: query
+        name: DF_Devis_DF_Client_id__df_client_indice
+        description: Search filter for Indicateur Client DF client
+        type: integer
         required: false
       - in: query
         name: df_devis_lieu_projet
@@ -2940,7 +3128,12 @@ paths:
       - in: query
         name: df_devis_numero
         description: Search filter for Numéro de devis
-        type: integer
+        type: string
+        required: false
+      - in: query
+        name: df_devis_coef_global
+        description: Search filter for Coefficient Global
+        type: number
         required: false
       tags:
       - DF_Devis
@@ -3317,173 +3510,6 @@ paths:
         required: true
       tags:
       - DF_utilisateur_interne
-  /rest/DF_Chantier:
-    get:
-      summary: Search DF_Chantier business object records or get contextualized metadata
-      security:
-      - bearerAuth: []
-      produces:
-      - application/json
-      operationId: obj-df_chantier-search
-      responses:
-        '200':
-          schema:
-            $ref: '#/definitions/ArrayOfDF_Chantier'
-          description: Success in searching business object records (or in getting
-            contextualized business object metadata, documentation, ...)
-        '401':
-          schema:
-            $ref: '#/definitions/Error401'
-          description: Unauthorized
-        '500':
-          schema:
-            $ref: '#/definitions/Error500'
-          description: Internal server error
-      parameters:
-      - in: query
-        name: _metadata
-        description: Metadata?
-        type: boolean
-        required: false
-      - in: query
-        name: _count
-        description: Count?
-        type: boolean
-        required: false
-      - in: query
-        name: _doc
-        description: Documentation?
-        type: boolean
-        required: false
-      - in: query
-        name: df_client_region
-        description: Search filter for Region
-        type: string
-        required: false
-      - in: query
-        name: df_chantier_reference
-        description: Search filter for Référence chantier
-        type: string
-        required: false
-      - in: query
-        name: df_chantier_date_debut
-        description: Search filter for Date début
-        type: string
-        required: false
-      - in: query
-        name: DF_Chantier_DF_Client_id
-        description: Search filter for Client
-        type: string
-        required: false
-      - in: query
-        name: DF_Chantier_DF_Client_id__df_client_id
-        description: Search filter for Id Client
-        type: integer
-        required: false
-      - in: query
-        name: DF_Chantier_DF_Client_id__df_client_nom
-        description: Search filter for Nom Client
-        type: string
-        required: false
-      - in: query
-        name: DF_Chantier_DF_Client_id__df_client_telephone
-        description: Search filter for Téléphone Client
-        type: string
-        required: false
-      - in: query
-        name: DF_Chantier_DF_Client_id__df_client_ville
-        description: Search filter for Ville Client
-        type: string
-        required: false
-      - in: query
-        name: DF_Chantier_DF_Client_id__df_client_pays
-        description: Search filter for Pays Client
-        type: string
-        required: false
-      - in: query
-        name: DF_Chantier_DF_Client_id__df_client_cedex
-        description: Search filter for CEDEX Client
-        type: string
-        required: false
-      - in: query
-        name: DF_Chantier_DF_Client_id__df_client_adresse_3
-        description: Search filter for Adresse 3 Client
-        type: string
-        required: false
-      - in: query
-        name: DF_Chantier_DF_Client_id__df_client_adresse_2
-        description: Search filter for Adresse 2 Client
-        type: string
-        required: false
-      - in: query
-        name: DF_Chantier_DF_Client_id__df_client_code_postal
-        description: Search filter for Code Postal Client
-        type: integer
-        required: false
-      - in: query
-        name: DF_Chantier_DF_Client_id__df_client_description
-        description: Search filter for Description Client
-        type: string
-        required: false
-      - in: query
-        name: DF_Chantier_DF_Client_id__df_client_id_secteur_activite
-        description: Search filter for Id Secteur Activité Client
-        type: string
-        required: false
-        enum:
-        - AR
-        - MDO
-        - MO
-        - ATPG
-        - T
-        - ATP
-        - V
-        - N
-        - EA
-        - A
-        - P
-      - in: query
-        name: DF_Chantier_DF_Client_id__df_client_adresse
-        description: Search filter for Adresse Client
-        type: string
-        required: false
-      - in: query
-        name: DF_Chantier_DF_Client_id__df_client_region
-        description: Search filter for Region Client
-        type: string
-        required: false
-      - in: query
-        name: DF_Chantier_DF_Plan_Livraison_id
-        description: Search filter for Plan Livraison
-        type: string
-        required: false
-      - in: query
-        name: DF_Chantier_DF_Plan_Livraison_id__df_plan_lvr_id
-        description: Search filter for Plan Livraison
-        type: integer
-        required: false
-      - in: query
-        name: df_chantier_libelle
-        description: Search filter for Libellé de chantier
-        type: string
-        required: false
-      - in: query
-        name: df_chantier_nature_travaux
-        description: Search filter for Nature travaux
-        type: string
-        required: false
-      - in: query
-        name: df_chantier_coefficient_initial
-        description: Search filter for Coefficient de vente initial
-        type: number
-        required: false
-      - in: query
-        name: df_chantier_montant_initial
-        description: Search filter for Montant initial commande HT
-        type: number
-        required: false
-      tags:
-      - DF_Chantier
   /rest/DF_Livraison:
     get:
       summary: Search DF_Livraison business object records or get contextualized metadata
@@ -3561,7 +3587,7 @@ paths:
         required: false
       - in: query
         name: df_livraison_trellocardid
-        description: Search filter for df livraison trellocardid
+        description: Search filter for df_livraison_trellocardid
         type: string
         required: false
       - in: query
@@ -3744,20 +3770,25 @@ paths:
         required: false
         enum:
         - AR
-        - MDO
         - MO
-        - ATPG
+        - MDO
         - T
-        - ATP
+        - ATPG
         - V
+        - ATP
         - N
         - EA
-        - A
         - P
+        - A
       - in: query
         name: df_client_region
         description: Search filter for Region
         type: string
+        required: false
+      - in: query
+        name: df_client_indice
+        description: Search filter for Indicateur Client
+        type: integer
         required: false
       - in: query
         name: df_client_site_web
@@ -4822,6 +4853,11 @@ paths:
         type: string
         required: false
       - in: query
+        name: df_utilisateur_interne_trig
+        description: Search filter for Trigramme
+        type: string
+        required: false
+      - in: query
         name: usr_title
         description: Search filter for Title
         type: string
@@ -5070,6 +5106,16 @@ paths:
         type: integer
         required: false
       - in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_designation
+        description: Search filter for Désignation Produit
+        type: string
+        required: false
+      - in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_finition
+        description: Search filter for Finition Produit
+        type: string
+        required: false
+      - in: query
         name: DF_Ligne_Devis_DF_Devis_id
         description: Search filter for DF devis
         type: string
@@ -5140,11 +5186,6 @@ paths:
         type: number
         required: false
       - in: query
-        name: df_ligne_devis_coef_global
-        description: Search filter for Coefficient Global
-        type: string
-        required: false
-      - in: query
         name: df_ligne_devis_prix_vente_calcule
         description: Search filter for Prix Vente Calculé
         type: number
@@ -5154,30 +5195,6 @@ paths:
         description: Search filter for Prix Vente Imposé
         type: number
         required: false
-      - in: query
-        name: df_ligne_devis_bdd
-        description: Search filter for Base de données
-        type: string
-        required: false
-        enum:
-        - CF
-        - PY
-        - GR
-        - GG
-        - LU
-        - AN
-      - in: query
-        name: df_ligne_devis_famille
-        description: Search filter for Famille
-        type: string
-        required: false
-        enum:
-        - BO
-        - PA
-        - DA
-        - MA
-        - BR
-        - CA
       - in: query
         name: df_ligne_devis_ref
         description: Search filter for N° de prix
@@ -5449,20 +5466,15 @@ definitions:
     type: array
     items:
       $ref: '#/definitions/DF_Prix_Transport'
+  ArrayOfDF_Affaire:
+    type: array
+    items:
+      $ref: '#/definitions/DF_Affaire'
   ArrayOfDF_ligne_commande:
     type: array
     items:
       $ref: '#/definitions/DF_ligne_commande'
-  PublicationResult:
-    type: object
-    properties:
-      mime:
-        description: MIME type
-        type: string
-      content:
-        description: Content (plain text or base64 encoded)
-        type: string
-  DF_Chantier:
+  DF_Affaire:
     type: object
     properties:
       DF_Chantier_DF_Client_id__df_client_cedex:
@@ -5471,36 +5483,15 @@ definitions:
       DF_Chantier_DF_Plan_Livraison_id:
         description: Plan Livraison
         type: string
-      df_chantier_coefficient_initial:
-        description: Coefficient de vente initial
-        type: number
-      DF_Chantier_DF_Client_id__df_client_id_secteur_activite:
-        description: Id Secteur Activité Client
+      df_statut_affaire:
+        description: Statut Affaire
         type: string
         enum:
-        - AR
-        - MDO
-        - MO
-        - ATPG
-        - T
-        - ATP
-        - V
-        - N
-        - EA
-        - A
-        - P
+        - I
+        - C
       DF_Chantier_DF_Client_id__df_client_id:
         description: Id Client
         type: integer
-      df_client_region:
-        description: Region
-        type: string
-      df_chantier_reference:
-        description: Référence chantier
-        type: string
-      DF_Chantier_DF_Client_id__df_client_adresse:
-        description: Adresse Client
-        type: string
       df_chantier_nature_travaux:
         description: Nature travaux
         type: string
@@ -5513,18 +5504,45 @@ definitions:
       DF_Chantier_DF_Plan_Livraison_id__df_plan_lvr_id:
         description: Plan Livraison
         type: integer
-      DF_Chantier_DF_Client_id__df_client_region:
-        description: Region Client
-        type: string
-      DF_Chantier_DF_Client_id__df_client_code_postal:
-        description: Code Postal Client
-        type: integer
       DF_Chantier_DF_Client_id__df_client_ville:
         description: Ville Client
         type: string
       DF_Chantier_DF_Client_id__df_client_nom:
         description: Nom Client
         type: string
+      df_chantier_coefficient_initial:
+        description: Coefficient de vente initial
+        type: number
+      DF_Chantier_DF_Client_id__df_client_id_secteur_activite:
+        description: Id Secteur Activité Client
+        type: string
+        enum:
+        - AR
+        - MO
+        - MDO
+        - T
+        - ATPG
+        - V
+        - ATP
+        - N
+        - EA
+        - P
+        - A
+      df_client_region:
+        description: Region
+        type: string
+      df_chantier_reference:
+        description: Référence chantier
+        type: string
+      DF_Chantier_DF_Client_id__df_client_adresse:
+        description: Adresse Client
+        type: string
+      DF_Chantier_DF_Client_id__df_client_region:
+        description: Region Client
+        type: string
+      DF_Chantier_DF_Client_id__df_client_code_postal:
+        description: Code Postal Client
+        type: integer
       DF_Chantier_DF_Client_id__df_client_pays:
         description: Pays Client
         type: string
@@ -5549,14 +5567,19 @@ definitions:
       DF_Chantier_DF_Client_id__df_client_adresse_3:
         description: Adresse 3 Client
         type: string
+  PublicationResult:
+    type: object
+    properties:
+      mime:
+        description: MIME type
+        type: string
+      content:
+        description: Content (plain text or base64 encoded)
+        type: string
   ArrayOfDF_Fournisseurs:
     type: array
     items:
       $ref: '#/definitions/DF_Fournisseurs'
-  ArrayOfDF_Chantier:
-    type: array
-    items:
-      $ref: '#/definitions/DF_Chantier'
   ArrayOfDF_utilisateur_interne:
     type: array
     items:
@@ -5602,9 +5625,6 @@ definitions:
       df_ligne_devis_masse_unitaire_ac_joint:
         description: Masse Unitaire avec Joints
         type: number
-      df_ligne_devis_coef_global:
-        description: Coefficient Global
-        type: string
       df_ligne_devis_prix_exw_t:
         description: Prix EXW / Tonne
         type: number
@@ -5617,18 +5637,14 @@ definitions:
       DF_Ligne_Devis_DF_Devis_id:
         description: DF devis
         type: string
-      df_ligne_devis_famille:
-        description: Famille
-        type: string
-        enum:
-        - BO
-        - PA
-        - DA
-        - MA
-        - BR
-        - CA
       df_ligne_devis_t_prod:
         description: Type Produit
+        type: string
+      DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_designation:
+        description: Désignation Produit
+        type: string
+      DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_finition:
+        description: Finition Produit
         type: string
       df_ligne_devis_quantite:
         description: Quantité
@@ -5639,16 +5655,6 @@ definitions:
       DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_nom:
         description: Nom Produit
         type: string
-      df_ligne_devis_bdd:
-        description: Base de données
-        type: string
-        enum:
-        - CF
-        - PY
-        - GR
-        - GG
-        - LU
-        - AN
       df_ligne_devis_nb_elt_ac_joint:
         description: Nombre d'éléments avec joint
         type: number
@@ -5831,7 +5837,7 @@ definitions:
         description: Quantité Chargée
         type: number
       df_livraison_trellocardid:
-        description: df livraison trellocardid
+        description: df_livraison_trellocardid
         type: string
       df_livraison_id:
         description: Id Livraison
@@ -6077,7 +6083,7 @@ definitions:
         type: string
       df_devis_numero:
         description: Numéro de devis
-        type: integer
+        type: string
       df_devis_delais_previsionnel:
         description: Délais prévisionnel
         type: string
@@ -6101,6 +6107,12 @@ definitions:
       df_devi_prix_total_ht:
         description: Prix Total HT
         type: string
+      DF_Devis_DF_Chantier_id__df_statut_affaire:
+        description: Statut Affaire DF chantier
+        type: string
+        enum:
+        - I
+        - C
       df_devis_contenance:
         description: Contenance
         type: string
@@ -6132,6 +6144,9 @@ definitions:
       DF_Devis_DF_Chantier_id__df_chantier_reference:
         description: Référence chantier
         type: string
+      DF_Devis_DF_Client_id__df_client_indice:
+        description: Indicateur Client DF client
+        type: integer
       df_devis_statut:
         description: Statut
         type: string
@@ -6172,6 +6187,9 @@ definitions:
       DF_Devis_DF_Client_id__df_client_nom:
         description: Nom Client
         type: string
+      df_devis_coef_global:
+        description: Coefficient Global
+        type: number
       row_id:
         description: Unique technical row ID
         type: string
@@ -6196,6 +6214,9 @@ definitions:
   DF_Client:
     type: object
     properties:
+      df_client_indice:
+        description: Indicateur Client
+        type: integer
       df_client_code_postal:
         description: Code Postal
         type: integer
@@ -6204,16 +6225,16 @@ definitions:
         type: string
         enum:
         - AR
-        - MDO
         - MO
-        - ATPG
+        - MDO
         - T
-        - ATP
+        - ATPG
         - V
+        - ATP
         - N
         - EA
-        - A
         - P
+        - A
       df_client_pays:
         description: Pays
         type: string
@@ -6282,7 +6303,7 @@ definitions:
         description: Hauteur
         type: number
       df_produit_id:
-        description: df produit id
+        description: Id Produit
         type: integer
       df_produit_prix:
         description: Prix
@@ -6322,8 +6343,8 @@ definitions:
         description: Type Produit
         type: string
         enum:
-        - Pierre
         - FFT
+        - Pierre
       df_produit_finition:
         description: Finition
         type: string
@@ -7139,6 +7160,9 @@ definitions:
         - '1'
         - '2'
         - '3'
+      df_utilisateur_interne_trig:
+        description: Trigramme
+        type: string
       usr_menu:
         description: Menu visible
         type: boolean
@@ -7208,8 +7232,8 @@ info:
   title: DeFilippis
   version: '0.1'
 tags:
-- name: DF_Chantier
-  description: Chantiers
+- name: DF_Affaire
+  description: Affaires
 - name: DF_Client
   description: Clients
 - name: DF_Commande

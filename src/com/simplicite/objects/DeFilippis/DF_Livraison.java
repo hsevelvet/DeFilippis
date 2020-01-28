@@ -1,7 +1,7 @@
 package com.simplicite.objects.DeFilippis;
 import org.json.JSONObject;
 import org.json.JSONArray;
-
+import java.util.HashMap;
 import com.simplicite.util.AppLog;
 import com.simplicite.util.Globals;
 import com.simplicite.util.Message;
@@ -21,23 +21,30 @@ public class DF_Livraison extends com.simplicite.util.ObjectDB {
 
 	@Override
 	public void postLoad() {
-		AppLog.info(getClass(), "postLoad", "Instance: " + getInstanceName(), getGrant());
+		AppLog.info(getClass(), "postLoad11111", "Instance11111: " + getInstanceName(), getGrant());
 		if (!getInstanceName().startsWith("webhook_")) {
-			tt = new TrelloTool(getGrant());
-			//tt.setDebug(true);
-			AppLog.info(getClass(), "postLoad", "Trello tool API key: " + tt.getKey(), getGrant());
-			settings = getGrant().getJSONObjectParameter("TRELLO_CARDEX_SETTINGS");
-			AppLog.info(getClass(), "postLoad", "Settings: " + settings.toString(2), getGrant());
-			String contextURL = getGrant().getContextURL();
-			if (!Tool.isEmpty(contextURL)) {
-				String webhookURL = contextURL + HTMLTool.getPublicExternalObjectURL("WebhookLivraisonTrello");
-				try {
-					String webhookId = tt.registerWebhook(settings.getString("boardId"), webhookURL, "Webhook for " + Globals.getPlatformName());
-					AppLog.info(getClass(), "postLoad", "Registered webhook: " + webhookId, getGrant());
-				} catch (APIException e) {
-					AppLog.error(getClass(), "postLoad", "Unable to register the webhook: " + webhookURL, e, getGrant());
+			if (getInstanceName().equals("panel_ajax_DF_Livraison_DF_Livraison_DF_Plan_Livraison_id")){
+				AppLog.info(getClass(), "postLoad11111", "On a un panel_ajax_DF_Livraison_DF_Livraison_DF_Plan_Livraison_id: " + getInstanceName(), getGrant());
+			}
+			else {
+				tt = new TrelloTool(getGrant());
+				//tt.addCustomField("","");
+				//tt.setDebug(true);
+				AppLog.info(getClass(), "postLoad", "Trello tool API key: " + tt.getKey(), getGrant());
+				settings = getGrant().getJSONObjectParameter("TRELLO_CARDEX_SETTINGS");
+				AppLog.info(getClass(), "postLoad", "Settings: " + settings.toString(2), getGrant());
+				String contextURL = getGrant().getContextURL();
+				if (!Tool.isEmpty(contextURL)) {
+					String webhookURL = contextURL + HTMLTool.getPublicExternalObjectURL("WebhookLivraisonTrello");
+					try {
+						String webhookId = tt.registerWebhook(settings.getString("boardId"), webhookURL, "Webhook for " + Globals.getPlatformName());
+						AppLog.info(getClass(), "postLoad", "Registered webhook: " + webhookId, getGrant());
+					} catch (APIException e) {
+						AppLog.error(getClass(), "postLoad", "Unable to register the webhook: " + webhookURL, e, getGrant());
+					}
 				}
 			}
+			
 		}
 	}
 
@@ -51,7 +58,7 @@ public class DF_Livraison extends com.simplicite.util.ObjectDB {
 	@Override
 	public String preUpdate() {
 		String result = null;
-		//result = updateCard();
+		result = updateCard();
 		return result;
 	}
 
@@ -97,6 +104,16 @@ public class DF_Livraison extends com.simplicite.util.ObjectDB {
 	public String updateCard(){
 		if (tt == null) return null;
 		try {
+			String idCustomFieldQuantite=getIDCustomField("Test");
+			JSONObject data = new JSONObject();
+			data.put("idModel", "5e2f0964f6a953469e166f1e");
+			JSONObject value = new JSONObject();
+			value.put("text","Hello, world!1111111111111");
+			data.put("value", value);
+			
+
+			tt.updateCustomField(idCustomFieldQuantite,data);
+			//AppLog.info(getClass(), "DangLog-----------------------------------------------------------------------", getInstanceName(), getGrant());
 			String id = getFieldValue("df_livraison_trellocardid");
 			JSONObject card = tt.getCard(id);
 			card.put("name", getFieldValue("df_livraison_id"));
@@ -116,13 +133,14 @@ public class DF_Livraison extends com.simplicite.util.ObjectDB {
 		if (tt == null) return null;
 		try {
 			JSONObject card = new JSONObject();
-			
 			card.put("name", getFieldValue("df_livraison_id"));
 			card.put("desc", createDesc());
 			card.put("due", getFieldValue("df_livraison_date_livraison_estimee"));
 			card = tt.addCard(getIDList(getFieldValue("df_livraison_statut")), card);
 			AppLog.info(getClass(), "preCreate", card.toString(2), getGrant());
 			setFieldValue("df_livraison_trellocardid", card.getString("id"));
+			save();
+			validate();
 			return Message.formatSimpleInfo("Trello card created");
 		} catch (APIException e) { // Prevents creation if card creation fails
 			AppLog.error(getClass(), "preCreate", null, e, getGrant());
@@ -157,6 +175,39 @@ public class DF_Livraison extends com.simplicite.util.ObjectDB {
 		}
 	
 
+	}
+	
+	public String getIDCustomField(String customFieldName){
+		String id = null;
+		try {
+			String t = tt.call("/boards/5e172c1cb7805140f876226d/customFields","get","").toString();
+			JSONArray mJSONArray = new JSONArray(t);
+			id = searchJSONArray("name",customFieldName,"id",mJSONArray);
+			AppLog.info(getClass(), "getIDCustomField", id, getGrant());
+		} catch (APIException e) { // Prevents deletion if card creation fails
+			AppLog.error(getClass(), "getIDCustomField", null, e, getGrant());
+			return null;//Message.formatSimpleError("Card deletion error: " + e.getMessage());
+		}
+		return id;
+	}
+	
+	
+
+	// recherche item dans la table des JSONArray l'item qui contient "tagName"=valueName et retourne la valeur de l'element "tagId"
+	public String searchJSONArray(String tagName,String valueName, String tagId, JSONArray mJSONArray){
+		Boolean found=false;
+		int length = mJSONArray.length();
+		int i = 0;
+		String id = null;
+		while(found==false && i<length){
+            JSONObject o = mJSONArray.getJSONObject(i);
+			if (o.getString(tagName).equals(valueName)){
+				id = o.getString(tagId); 
+				found = true;
+			}
+			i=i+1;
+        }
+        return id;
 	}
 	
 }
