@@ -17,7 +17,7 @@ public class DF_Devis extends ObjectDB {
 	
 	@Override
 	public void initUpdate(){
-		
+/**		
 		
 		// set numero devis
 		
@@ -44,7 +44,7 @@ public class DF_Devis extends ObjectDB {
 		String titre_devis = trigramme + "." + lieu + "." + projet + "." + client + "." + num_devis;
 		setFieldValue("df_devis_titre",titre_devis);
 
-		
+*/		
 		
 		// set values ligne devis
 		ObjectDB o = getGrant().getTmpObject("DF_Ligne_Devis");

@@ -10,7 +10,7 @@ import com.simplicite.util.tools.*;
 public class DF_Client extends ObjectDB {
 	private static final long serialVersionUID = 1L;
 	
-	
+/**	
 	@Override
 	public List<String> postValidate() {
 		List<String> msgs = new ArrayList<String>();
@@ -32,7 +32,7 @@ public class DF_Client extends ObjectDB {
 		return msgs;
 		
 	}
-		
+*/		
 	}
 
 
