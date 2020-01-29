@@ -118,17 +118,17 @@ paths:
         type: string
         required: false
         enum:
+        - AR
         - MDO
         - MO
-        - AR
-        - T
         - ATPG
-        - V
+        - T
         - ATP
+        - V
         - N
         - EA
-        - P
         - A
+        - P
       - in: query
         name: DF_Chantier_DF_Client_id__df_client_adresse
         description: Search filter for Adresse Client
@@ -1298,8 +1298,8 @@ paths:
         type: string
         required: false
         enum:
-        - PE
         - VR
+        - PE
         - ES
         - ET
         - NE
@@ -2530,18 +2530,13 @@ paths:
         type: string
         required: false
       - in: query
-        name: df_commande_pj1
+        name: df_commande_pj2
         description: Search filter for Pièce Jointe 1
         type: string
         required: false
       - in: query
-        name: df_commande_pj2
-        description: Search filter for Pièce Jointe 2
-        type: string
-        required: false
-      - in: query
         name: df_commande_pj3
-        description: Search filter for Pièce Jointe 3
+        description: Search filter for Pièce Jointe 2
         type: string
         required: false
       - in: query
@@ -4377,17 +4372,17 @@ paths:
         type: string
         required: false
         enum:
+        - AR
         - MDO
         - MO
-        - AR
-        - T
         - ATPG
-        - V
+        - T
         - ATP
+        - V
         - N
         - EA
-        - P
         - A
+        - P
       - in: query
         name: df_client_region
         description: Search filter for Region
@@ -5552,8 +5547,8 @@ paths:
         - BE
         - CH
         - IE
-        - US
         - CA
+        - US
       - in: query
         name: row_module_id
         description: Search filter for Module
@@ -6134,17 +6129,17 @@ definitions:
         description: Id Secteur Activité Client
         type: string
         enum:
+        - AR
         - MDO
         - MO
-        - AR
-        - T
         - ATPG
-        - V
+        - T
         - ATP
+        - V
         - N
         - EA
-        - P
         - A
+        - P
       df_client_region:
         description: Region
         type: string
@@ -6380,10 +6375,10 @@ definitions:
         description: Commande Transport
         type: object
       df_commande_pj2:
-        description: Pièce Jointe 2
+        description: Pièce Jointe 1
         type: object
       df_commande_pj3:
-        description: Pièce Jointe 3
+        description: Pièce Jointe 2
         type: object
       df_commande_numero:
         description: Numéro de Commande
@@ -6409,9 +6404,6 @@ definitions:
       DF_Commande_DF_utilisateur_interne_id:
         description: Rédacteur
         type: string
-      df_commande_pj1:
-        description: Pièce Jointe 1
-        type: object
       DF_Commande_DF_Contact_id__df_contact_id:
         description: Id Contact DF contact
         type: integer
@@ -6932,17 +6924,17 @@ definitions:
         description: Id Secteur Activité
         type: string
         enum:
+        - AR
         - MDO
         - MO
-        - AR
-        - T
         - ATPG
-        - V
+        - T
         - ATP
+        - V
         - N
         - EA
-        - P
         - A
+        - P
       df_client_pays:
         description: Pays
         type: string
@@ -7088,8 +7080,8 @@ definitions:
         description: Statut
         type: string
         enum:
-        - PE
         - VR
+        - PE
         - ES
         - ET
         - NE
@@ -7986,8 +7978,8 @@ definitions:
         - BE
         - CH
         - IE
-        - US
         - CA
+        - US
       usr_title:
         description: Title
         type: string
