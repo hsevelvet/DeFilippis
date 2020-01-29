@@ -24,12 +24,10 @@ public class DF_Livraison extends com.simplicite.util.ObjectDB {
 		AppLog.info(getClass(), "postLoad11111", "Instance11111: " + getInstanceName(), getGrant());
 		if (!getInstanceName().startsWith("webhook_")) {
 			if (getInstanceName().equals("panel_ajax_DF_Livraison_DF_Livraison_DF_Plan_Livraison_id")){
-				AppLog.info(getClass(), "postLoad11111", "On a un panel_ajax_DF_Livraison_DF_Livraison_DF_Plan_Livraison_id: " + getInstanceName(), getGrant());
+				//AppLog.info(getClass(), "postLoad11111", "On a un panel_ajax_DF_Livraison_DF_Livraison_DF_Plan_Livraison_id: " + getInstanceName(), getGrant());
 			}
 			else {
 				tt = new TrelloTool(getGrant());
-				//tt.addCustomField("","");
-				//tt.setDebug(true);
 				AppLog.info(getClass(), "postLoad", "Trello tool API key: " + tt.getKey(), getGrant());
 				settings = getGrant().getJSONObjectParameter("TRELLO_CARDEX_SETTINGS");
 				AppLog.info(getClass(), "postLoad", "Settings: " + settings.toString(2), getGrant());
@@ -58,7 +56,7 @@ public class DF_Livraison extends com.simplicite.util.ObjectDB {
 	@Override
 	public String preUpdate() {
 		String result = null;
-		result = updateCard();
+		//result = updateCard();
 		return result;
 	}
 
@@ -74,55 +72,22 @@ public class DF_Livraison extends com.simplicite.util.ObjectDB {
 		}
 	}
 	
-	
-	public String createDesc(){
-		String desc = "";
-		desc += "\n**Ligne de commande ID**: "+getFieldValue("df_livraison_id_ligne_commande");
-		desc += "\n**Quantité**: "+getFieldValue("df_livraison_quantite_chargee");
-		//desc += "\n**Statut Livraison**: "+getFieldValue("df_livraison_statut");
-		desc += "\n**Date Livraison Estimée**: "+getFieldValue("df_livraison_date_livraison_estimee");
-		desc += "\n";
-		desc += "\n**Num BL Client**: "+getFieldValue("df_livraison_num_bl_client");
-		desc += "\n**Num BL Fournisseur**: "+getFieldValue("df_livraison_num_bl_fournisseur");
-		desc += "\n";
-		desc += "\n**Adresse Enlevement**: "+getFieldValue("df_livraison_adresse_enlevement");
-		desc += "\n**Adresse Livraison**: "+getFieldValue("df_livraison_adresse");
-		desc += "\n**Adresse De Livraison Confirmée**: "+getFieldValue("df_livraison_adresse_de_livraison_confirmee");
-		desc += "\n";
-		desc += "\n**Nom Transporteur**: "+getFieldValue("df_livraison_nom_transporteur");
-		desc += "\n**Contact Transporteur**: "+getFieldValue("df_livraison_contact_transporteur");
-		desc += "\n**Num ZEEPO Transporteur**: "+getFieldValue("df_livraison_num_zeepo_transporteur");
-		desc += "\n";
-		desc += "\n**Contact Déchargement Privilégié**: "+getFieldValue("df_livraison_contact_dechargement_privilegie");
-		desc += "\n**Contact En Cas De Problème**: "+getFieldValue("df_livraison_contact_en_cas_de_probleme");
-		return desc;
-	}
-	
-	
-	
+
 	
 	public String updateCard(){
 		if (tt == null) return null;
 		try {
-			String idCustomFieldQuantite=getIDCustomField("Test");
-			JSONObject data = new JSONObject();
-			data.put("idModel", "5e2f0964f6a953469e166f1e");
-			JSONObject value = new JSONObject();
-			value.put("text","Hello, world!1111111111111");
-			data.put("value", value);
-			
-
-			tt.updateCustomField(idCustomFieldQuantite,data);
-			//AppLog.info(getClass(), "DangLog-----------------------------------------------------------------------", getInstanceName(), getGrant());
+			//Mise à jour les informations principales de la carte
 			String id = getFieldValue("df_livraison_trellocardid");
 			JSONObject card = tt.getCard(id);
 			card.put("name", getFieldValue("df_livraison_id"));
 			card.put("desc", createDesc());
 			card.put("due", getFieldValue("df_livraison_date_livraison_estimee"));
 			card.put("idList",getIDList(getFieldValue("df_livraison_statut")));
-			AppLog.info(getClass(), "DangLog", getIDList(getFieldValue("df_livraison_statut")), getGrant());
 			tt.updateCard(id, card);
-			AppLog.info(getClass(), "preUpdate", card.toString(2), getGrant());
+			//Mise à jour les informations custom fields
+			tt.setCardCustomFieldItem(id,getIDCustomField("Adresse"),new JSONObject().put("value",new JSONObject().put("text",getFieldValue("df_livraison_adresse"))));
+			tt.setCardCustomFieldItem(id,getIDCustomField("Quantité"),new JSONObject().put("value",new JSONObject().put("number",getFieldValue("df_livraison_quantite_chargee"))));
 			return Message.formatSimpleInfo("Trello card updated");
 		} catch (APIException e) { // Prevents deletion if card creation fails
 			AppLog.error(getClass(), "postUpdate", null, e, getGrant());
@@ -141,6 +106,9 @@ public class DF_Livraison extends com.simplicite.util.ObjectDB {
 			setFieldValue("df_livraison_trellocardid", card.getString("id"));
 			save();
 			validate();
+			//Mise à jour les informations custom fields
+			tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Adresse"),new JSONObject().put("value",new JSONObject().put("text",getFieldValue("df_livraison_adresse"))));
+			tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Quantité"),new JSONObject().put("value",new JSONObject().put("number",getFieldValue("df_livraison_quantite_chargee"))));
 			return Message.formatSimpleInfo("Trello card created");
 		} catch (APIException e) { // Prevents creation if card creation fails
 			AppLog.error(getClass(), "preCreate", null, e, getGrant());
@@ -148,6 +116,7 @@ public class DF_Livraison extends com.simplicite.util.ObjectDB {
 		}
 	}
 	
+	//Fonction appelée par le bouton dans Livraison
 	public String synchroTrello(){
 		if (tt == null) return null;
 		String id = getFieldValue("df_livraison_trellocardid");
@@ -157,17 +126,16 @@ public class DF_Livraison extends com.simplicite.util.ObjectDB {
 			return createCard();
 	}
 	
+	//Récupérer l'id de la colonne dans Trello avec le statut de la livraison
 	public String getIDList(String statutLivraison){
 		String id = settings.getString("defaultListId");
 		try {
 			JSONArray lists = tt.getBoardLists(settings.getString("boardId"));
-			AppLog.info(getClass(), "DangLog:", lists.toString(2), getGrant());
 			for (int i = 0; i < lists.length(); i++) {
 			    JSONObject list = lists.getJSONObject(i);
 			    if (list.getString("name").startsWith(statutLivraison))
 			    	id = list.getString("id");
 			}
-			
 		return id;
 		} catch (APIException e) { // Prevents deletion if card creation fails
 			AppLog.error(getClass(), "getIDList", null, e, getGrant());
@@ -177,10 +145,11 @@ public class DF_Livraison extends com.simplicite.util.ObjectDB {
 
 	}
 	
+	// Récupérer Id du customField avec le nom du customfield
 	public String getIDCustomField(String customFieldName){
 		String id = null;
 		try {
-			String t = tt.call("/boards/5e172c1cb7805140f876226d/customFields","get","").toString();
+			String t = tt.call("/boards/"+settings.getString("boardId")+"/customFields","get","").toString();
 			JSONArray mJSONArray = new JSONArray(t);
 			id = searchJSONArray("name",customFieldName,"id",mJSONArray);
 			AppLog.info(getClass(), "getIDCustomField", id, getGrant());
@@ -208,6 +177,30 @@ public class DF_Livraison extends com.simplicite.util.ObjectDB {
 			i=i+1;
         }
         return id;
+	}
+	
+		
+	public String createDesc(){
+		String desc = "";
+		desc += "\n**Ligne de commande ID**: "+getFieldValue("df_livraison_id_ligne_commande");
+		desc += "\n**Quantité**: "+getFieldValue("df_livraison_quantite_chargee");
+		//desc += "\n**Statut Livraison**: "+getFieldValue("df_livraison_statut");
+		desc += "\n**Date Livraison Estimée**: "+getFieldValue("df_livraison_date_livraison_estimee");
+		desc += "\n";
+		desc += "\n**Num BL Client**: "+getFieldValue("df_livraison_num_bl_client");
+		desc += "\n**Num BL Fournisseur**: "+getFieldValue("df_livraison_num_bl_fournisseur");
+		desc += "\n";
+		desc += "\n**Adresse Enlevement**: "+getFieldValue("df_livraison_adresse_enlevement");
+		desc += "\n**Adresse Livraison**: "+getFieldValue("df_livraison_adresse");
+		desc += "\n**Adresse De Livraison Confirmée**: "+getFieldValue("df_livraison_adresse_de_livraison_confirmee");
+		desc += "\n";
+		desc += "\n**Nom Transporteur**: "+getFieldValue("df_livraison_nom_transporteur");
+		desc += "\n**Contact Transporteur**: "+getFieldValue("df_livraison_contact_transporteur");
+		desc += "\n**Num ZEEPO Transporteur**: "+getFieldValue("df_livraison_num_zeepo_transporteur");
+		desc += "\n";
+		desc += "\n**Contact Déchargement Privilégié**: "+getFieldValue("df_livraison_contact_dechargement_privilegie");
+		desc += "\n**Contact En Cas De Problème**: "+getFieldValue("df_livraison_contact_en_cas_de_probleme");
+		return desc;
 	}
 	
 }

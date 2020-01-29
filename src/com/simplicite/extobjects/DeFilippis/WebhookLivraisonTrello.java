@@ -36,11 +36,17 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
 	private void updateCard(JSONObject data) {
 		try {
 			//AppLog.info(getClass(), "call update post has data0", data.toString(2), getGrant());
-			String o = "DF_Livraison";
 			JSONObject card = null;
 			JSONObject listAfter = null;
+			JSONObject customFieldItem = null;
+			
+			String o = "DF_Livraison";
 			String status = null;
 			String due = null;
+			String customFName=null;
+			String customFValue=null;
+			
+			//Recupération des informations dans la carte Trello
 			if (data.has("card")){
 				card = data.getJSONObject("card");
 				if (card.has("due"))
@@ -49,7 +55,14 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
             if (data.has("listAfter")){
             	listAfter = data.getJSONObject("listAfter");
             	status = listAfter.getString("name").split("-")[0].trim();
-
+            }
+            if (data.has("customFieldItem")){
+            	customFieldItem = data.getJSONObject("customFieldItem").getJSONObject("value");
+            	customFName = data.getJSONObject("customField").getString("name");
+            	if (customFieldItem.has("text"))
+            		customFValue = customFieldItem.getString("text");
+            	if (customFieldItem.has("number"))
+            		customFValue = customFieldItem.getString("number");
             }
             	
 			ObjectDB obj = Grant.getSystemAdmin().getObject("webhook_" + o, o);
@@ -59,19 +72,25 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
 
 			List<String[]> rows = objt.search();
 			if (rows.size() == 1) {
-				AppLog.info(getClass(), "DangLog", rows.get(0).toString(), getGrant());
-
 				obj.setValues(rows.get(0), true);
+				
+				//Mettre à jour les informations de livraison
 				if (card.has("name"))
 					obj.setFieldValue("df_livraison_id", card.getString("name"));
 				if (due!=null){
 					obj.setFieldValue("df_livraison_date_livraison_estimee", due);
 				}
-
-				AppLog.info(getClass(), "call update post has data0", status, getGrant());
-	
 				if (status!=null){
 					obj.setFieldValue("df_livraison_statut", status);
+				}
+				if (customFName!=null){
+					if (customFName.equals("Adresse"))
+						obj.setFieldValue("df_livraison_adresse", customFValue);
+					if (customFName.equals("Quantité"))
+						obj.setFieldValue("df_livraison_quantite_chargee", customFValue);
+					
+					AppLog.info(getClass(), "Trello update > Simplicte"+data.has("customFieldItem"),customFValue, getGrant());
+
 				}
 				objt.validateAndSave();
 			}
@@ -85,11 +104,11 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
         try {
             JSONObject req = params.getJSONObject();
             if (req != null) {
-				//AppLog.info(getClass(), "call update post has data0", req.toString(2), getGrant());
+				AppLog.info(getClass(), "Trello update > Simplicte", req.toString(2), getGrant());
             	if (req.has("action")) {
             		JSONObject action = req.getJSONObject("action");
             		String type = action.optString("type");
-            		if ("updateCard".equals(type)) {
+            		if ("updateCard".equals(type)||"updateCustomFieldItem".equals(type)) {
             			if (action.has("data")) {
             				JSONObject data = action.getJSONObject("data");
             				updateCard(data);
