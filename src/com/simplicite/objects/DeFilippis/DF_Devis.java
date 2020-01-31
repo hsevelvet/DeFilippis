@@ -47,6 +47,7 @@ public class DF_Devis extends ObjectDB {
 		
 	}
 	
+
 	
 	public void initialCommande(){
 		// Grant Objet Ligne Devis
@@ -136,8 +137,76 @@ public class DF_Devis extends ObjectDB {
 		}
 		
 		
-	}		
+	}	
+	
+	public void versionnerDevis(){
+		
+		// Versionner Devis	
+		create();
+		//ObjectDB o =  getGrant().getTmpObject("DF_Devis");
+		String num = getField("df_devis_titre").getValue();
+		String lieu_affaire = getFieldValue("df_devis_lieu_projet");
+		String intitule_affaire = getFieldValue("df_devis_titre_projet");
+		
+		double poids_total = getField("df_devis_poids_total").getDouble(0);
+		double nb_camions = getField("df_devis_nombre_camions").getDouble(0);
+		
+		setStatus("VR");
+		setFieldValue("df_devis_titre",num);
+		setFieldValue("df_devis_lieu_projet",lieu_affaire);
+		setFieldValue("df_devis_titre_projet",intitule_affaire);
+		
+		setFieldValue("df_devis_poids_total",poids_total);
+		setFieldValue("df_devis_nombre_camions",nb_camions);
+		save();
+		
+		// Versionner Ligne_Devis
+		ObjectDB ld2 = getGrant().getTmpObject("DF_Ligne_Devis");
+		synchronized(ld2){
+			ld2.resetFilters();
+			ld2.setFieldFilter("DF_Ligne_Devis_DF_Devis_id",getRowId());
+			
+			for(String[] lde : ld2.search()){
+				ld2.setValues(lde);
+				int ref_prod = ld2.getField("df_produit_id").getInt(0);
+				String type_geo = ld2.getFieldValue("df_produit_nom");
+				String apl_com = ld2.getFieldValue("df_produit_appellation_commerciale");
+				String finition = ld2.getFieldValue("df_produit_finition");
+				String unite_p = ld2.getFieldValue("df_produit_unite");
+
+				double poids_u = ld2.getField("df_ligne_devis_poids_total").getDouble(0);
+				double prd_long = ld2.getField("df_produit_long").getDouble(0);
+				double prd_larg = ld2.getField("df_produit_larg").getDouble(0);
+				double prd_eps = ld2.getField("df_produit_haut").getDouble(0);
+				double prd_qte = ld2.getField("df_ligne_devis_quantite").getDouble(0);
+				double cmd_prix_exw_u = ld2.getField("df_ligne_devis_prix_exw_u").getDouble(0);
+				double cmd_total_exw = ld2.getField("df_ligne_devis_total_achat_reference_ht").getDouble(0);
+
+				
+				ld2.create();
+				
+				ObjectField s2 = ld2.getField("df_ligne_devis_id");
+				s2.setValue(getRowId());
+				
+				ld2.setFieldValue("df_produit_id",ref_prod);
+				ld2.setFieldValue("df_produit_nom", type_geo);
+				ld2.setFieldValue("df_produit_appellation_commerciale",apl_com);
+				ld2.setFieldValue("df_ligne_devis_finition",finition);
+				ld2.setFieldValue("df_produit_long",prd_long);
+				ld2.setFieldValue("df_produit_larg",prd_larg);
+				ld2.setFieldValue("df_produit_haut",prd_eps);
+				ld2.setFieldValue("df_ligne_devis_poids_total",poids_u);
+				ld2.setFieldValue("df_produit_unite",unite_p);
+				ld2.setFieldValue("df_ligne_devis_quantite",prd_qte);
+				ld2.setFieldValue("df_ligne_devis_prix_exw_u",cmd_prix_exw_u);
+				ld2.setFieldValue("df_ligne_devis_total_achat_reference_ht",cmd_total_exw);
+
+				setFieldValue("DF_Ligne_Devis_DF_Devis_id",getRowId());
+
+				save();
+	}
 }
 
-
+}
+}
 	
