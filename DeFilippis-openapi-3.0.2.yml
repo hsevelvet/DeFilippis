@@ -49,7 +49,7 @@ components:
           type: string
         DF_Chantier_DF_Client_id__df_client_id:
           description: Id Client
-          type: integer
+          type: string
         df_chantier_nature_travaux:
           description: Nature travaux
           type: string
@@ -174,7 +174,7 @@ components:
           type: number
         df_ligne_devis_id:
           description: Ligne Devis ID
-          type: integer
+          type: string
         DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_haut:
           description: Epaisseur (cm)
           type: number
@@ -370,7 +370,7 @@ components:
           type: number
         DF_Commande_DF_Client_id__df_client_id:
           description: Id Client DF client
-          type: integer
+          type: string
         df_commande_pj_fournisseur:
           description: Pièce Jointe Fournisseur
           type: object
@@ -588,16 +588,7 @@ components:
     DF_ligne_commande:
       type: object
       properties:
-        DF_ligne_commande_DF_Produit_Finis_id__df_produit_appellation_co:
-          description: Appellation Commerciale
-          type: string
-        DF_ligne_commande_DF_Commande_id__df_commande_ref_chantier:
-          description: Référence de chantier DF commande
-          type: string
-        DF_ligne_commande_DF_Produit_Finis_id__df_produit_nom:
-          description: Type Géologique
-          type: string
-        DF_ligne_commande_DF_Produit_Finis_id__df_produit_larg:
+        df_ligne_commande_larg:
           description: Largeur (cm)
           type: number
         df_ligne_commande_type_produit:
@@ -612,48 +603,55 @@ components:
         df_ligne_commande_prix_exw_u:
           description: Prix EXW unitaire
           type: number
-        df_ligne_commande_poids_unitaire:
-          description: Poids unitaire (T)
-          type: number
-        DF_ligne_commande_DF_Produit_Finis_id__df_produit_long:
-          description: Longueur (cm)
-          type: number
+        df_ligne_commande_type_geo:
+          description: Type Géologique
+          type: string
         DF_ligne_commande_DF_Commande_id__df_commande_numero:
           description: Numéro de Commande DF commande
           type: string
         df_ligne_commande_ref_prod:
           description: Référence Produit
           type: string
+        df_ligne_commande_unite:
+          description: Unité
+          type: string
         df_ligne_commande_prix_total_ht:
           description: Prixt Total EXW
           type: number
-        DF_ligne_commande_DF_Produit_Finis_id__df_produit_unite:
-          description: Unité
-          type: string
+        df_ligne_commande_poids_u:
+          description: Poids Unitaire (T)
+          type: number
         DF_ligne_commande_DF_Commande_id__df_commande_id:
           description: Id Commande DF commande
           type: string
         df_ligne_commande_qte:
           description: Quantité
           type: integer
-        DF_ligne_commande_DF_Produit_Finis_id__df_produit_haut:
+        df_ligne_commande_long:
+          description: Longueur (cm)
+          type: number
+        df_ligne_commande_eps:
           description: Hauteur / Epaisseur (cm)
           type: number
         df_ligne_commande_id:
           description: Id ligne commande
           type: integer
-        DF_ligne_commande_DF_Produit_Finis_id__df_produit_prix:
-          description: Prix Unitaire HT DF produit finis
-          type: number
         DF_ligne_commande_DF_Produit_Finis_id:
           description: DF produit finis
           type: string
         row_id:
           description: Unique technical row ID
           type: string
-        DF_ligne_commande_DF_Produit_Finis_id__df_produit_finition:
-          description: Finition faces vues
+        df_ligne_commande_apl_com:
+          description: Appellation Commerciale
           type: string
+        df_ligne_commande_finition:
+          description: Finition Faces Vues
+          type: string
+    ArrayOfDF_Ligne_DevisHistoric:
+      type: array
+      items:
+        $ref: '#/components/schemas/DF_Ligne_DevisHistoric'
     DF_Fournisseurs:
       type: object
       properties:
@@ -690,7 +688,7 @@ components:
           type: string
         DF_Devis_DF_Client_id__df_client_id:
           description: Id Client
-          type: integer
+          type: string
         DF_Devis_DF_Chantier_id:
           description: DF chantier
           type: string
@@ -704,7 +702,7 @@ components:
           description: Rédacteur
           type: string
         df_devis_delai_paiement:
-          description: df_devis_delai_paiement
+          description: Délai de paiement
           type: string
           enum:
           - 45J
@@ -749,7 +747,7 @@ components:
           description: DF utilisateur interne
           type: string
         df_devis_cadence_de_livraison:
-          description: Cadence de livraison
+          description: Cadence de livraison hebdomadaire
           type: string
         df_devis_pj1:
           description: Pièce Jointe 1
@@ -791,19 +789,16 @@ components:
         df_devis_prix_total:
           description: Prix Total
           type: number
-        DF_Devis_DF_Client_id__df_client_indice:
-          description: Indicateur Client DF client
-          type: integer
         df_devis_statut:
           description: Statut
           type: string
           enum:
-          - PE
-          - VR
           - ES
           - ET
           - NE
           - CH
+          - PE
+          - VR
         df_devis_packaging_transport:
           description: Packaging transport
           type: string
@@ -869,9 +864,6 @@ components:
     DF_Client:
       type: object
       properties:
-        df_client_indice:
-          description: Indicateur Client
-          type: integer
         df_client_code_postal:
           description: Code Postal
           type: integer
@@ -893,6 +885,9 @@ components:
         df_client_pays:
           description: Pays
           type: string
+        df_client_sum_cmd:
+          description: Somme des commandes
+          type: integer
         df_client_region:
           description: Region
           type: string
@@ -910,13 +905,16 @@ components:
           type: string
         df_client_id:
           description: Id Client
-          type: integer
+          type: string
         df_client_adresse_2:
           description: Adresse 2
           type: string
         df_client_email:
           description: E-mail
           type: string
+        df_client_taux_transformation:
+          description: Taux de transformation
+          type: number
         df_client_adresse:
           description: Adresse
           type: string
@@ -940,22 +938,17 @@ components:
           type: string
         DF_Devis_DF_Client_id__df_client_id:
           description: Id Client DF client
-          type: integer
-        DF_Devis_DF_Chantier_id:
-          description: DF chantier
-          type: string
-        DF_Devis_DF_Contact_id__df_contact_nom:
-          description: Nom Contacts
-          type: string
-        created_dt_hist:
-          description: Date
-          type: string
-        df_devis_suiveur_affaire:
-          description: Suiveur de l'affaire
           type: string
         DF_Devis_DF_utilisateur_interne_id__df_utilisateur_interne_nc:
           description: Nom Complet DF utilisateur interne
           type: string
+        df_devis_delai_paiement:
+          description: Délai de paiement
+          type: string
+          enum:
+          - 45J
+          - 30I
+          - 1CO
         row_ref_id:
           description: Référence
           type: string
@@ -971,12 +964,12 @@ components:
         DF_Devis_DF_Contact_id__df_contact_prenom:
           description: Prénom Contacts
           type: string
-        df_devis_numero:
-          description: Numéro de devis
-          type: string
         df_devis_delais_previsionnel:
           description: Délais prévisionnel
           type: string
+        df_devis_pj3:
+          description: Pièce jointe 3
+          type: object
         df_devis_accompte:
           description: Acompte
           type: string
@@ -985,21 +978,21 @@ components:
           - '030'
           - '050'
           - '100'
+        df_devis_pj4:
+          description: Pièce Jointe 4
+          type: object
         DF_Devis_DF_Contact_id__df_contact_id:
           description: Id Contact Contacts
           type: integer
-        DF_Devis_DF_utilisateur_interne_id:
-          description: DF utilisateur interne
-          type: string
-        df_devis_cadence_de_livraison:
-          description: Cadence de livraison
-          type: string
-        DF_Devis_DF_Chantier_id__df_affaire_date_debut:
-          description: Date début DF chantier
-          type: string
-        df_devi_prix_total_ht:
-          description: Prix Total HT
-          type: string
+        df_devis_pj1:
+          description: Pièce Jointe 1
+          type: object
+        df_devis_pj2:
+          description: Pièce Jointe 2
+          type: object
+        DF_Devis_DF_Client_id__df_client_taux_transformation:
+          description: Taux de transformation DF client
+          type: number
         df_devis_contenance:
           description: Contenance
           type: string
@@ -1007,40 +1000,9 @@ components:
           - CC
           - PC
           - GT
-        DF_Devis_DF_Client_id:
-          description: DF client
-          type: string
-        df_devis_fiche_technique:
-          description: Fiche Technique
-          type: object
-        DF_Devis_DF_Contact_id:
-          description: Contacts
-          type: string
         df_devis_nombre_camions:
           description: Nombre camions
           type: number
-        df_devis_titre_projet:
-          description: Titre Projet
-          type: string
-        DF_Devis_DF_Client_id__df_client_telephone:
-          description: Téléphone DF client
-          type: string
-        df_devis_prix_total:
-          description: Prix Total
-          type: number
-        DF_Devis_DF_Client_id__df_client_indice:
-          description: Indicateur Client DF client
-          type: integer
-        df_devis_statut:
-          description: Statut
-          type: string
-          enum:
-          - VR
-          - PE
-          - ES
-          - ET
-          - NE
-          - CH
         df_devis_packaging_transport:
           description: Packaging transport
           type: string
@@ -1050,25 +1012,11 @@ components:
         df_devis_lieu_projet:
           description: Lieu Projet
           type: string
-        df_devis_incoterm_prix:
-          description: Incoterm Prix
-          type: string
-          enum:
-          - FCD
-          - FCN
-          - EXW
-          - FOB
         df_devis_poids_total:
           description: Poids total (T)
           type: number
-        DF_Devis_DF_Chantier_id__df_affaire_numero:
-          description: Numéro d'affaire DF chantier
-          type: string
         DF_Devis_DF_Contact_id__df_contact_portable:
           description: Portable Contacts
-          type: string
-        df_devis_ordre_facturation:
-          description: Ordre facturation
           type: string
         DF_Devis_DF_Chantier_id__df_affaire_statut:
           description: Statut Affaire DF chantier
@@ -1082,14 +1030,89 @@ components:
         df_devis_coef_global:
           description: Coefficient Global
           type: number
-        row_id:
-          description: Unique technical row ID
-          type: string
         created_by_hist:
           description: Utilisateur
           type: string
         df_devis_validite_offre:
           description: Date Validité offre
+          type: string
+        DF_Devis_DF_Contact_id__df_contact_email:
+          description: E-mail Contacts
+          type: string
+        DF_Devis_DF_Chantier_id:
+          description: DF chantier
+          type: string
+        DF_Devis_DF_Contact_id__df_contact_nom:
+          description: Nom Contacts
+          type: string
+        created_dt_hist:
+          description: Date
+          type: string
+        df_devis_suiveur_affaire:
+          description: Suiveur de l'affaire
+          type: string
+        df_devis_numero:
+          description: Numéro de devis
+          type: string
+        DF_Devis_DF_utilisateur_interne_id:
+          description: DF utilisateur interne
+          type: string
+        df_devis_cadence_de_livraison:
+          description: Cadence de livraison hebdomadaire
+          type: string
+        DF_Devis_DF_Chantier_id__df_affaire_date_debut:
+          description: Date début DF chantier
+          type: string
+        df_devi_prix_total_ht:
+          description: Prix Total HT
+          type: string
+        DF_Devis_DF_Client_id:
+          description: DF client
+          type: string
+        df_devis_fiche_technique:
+          description: Fiche Technique
+          type: object
+        DF_Devis_DF_Contact_id:
+          description: Contacts
+          type: string
+        df_devis_titre_projet:
+          description: Titre Projet
+          type: string
+        DF_Devis_DF_Client_id__df_client_telephone:
+          description: Téléphone DF client
+          type: string
+        df_devis_prix_total:
+          description: Prix Total
+          type: number
+        row_idx:
+          description: Version
+          type: integer
+        df_devis_statut:
+          description: Statut
+          type: string
+          enum:
+          - ES
+          - ET
+          - NE
+          - CH
+          - PE
+          - VR
+        df_devis_incoterm_prix:
+          description: Incoterm Prix
+          type: string
+          enum:
+          - FCD
+          - FCN
+          - EXW
+          - FOB
+        DF_Devis_DF_Chantier_id__df_affaire_numero:
+          description: Numéro d'affaire DF chantier
+          type: string
+        df_devis_ordre_facturation:
+          description: Ordre facturation
+          type: string
+        row_id:
+          description: Unique technical row ID
           type: string
     ArrayOfDF_Livraison:
       type: array
@@ -1223,7 +1246,7 @@ components:
           - P
         DF_Contact_DF_Client_id__df_client_id:
           description: Id Client Clients
-          type: integer
+          type: string
         df_contact_sous_type:
           description: Sous Type
           type: string
@@ -1261,6 +1284,156 @@ components:
         item:
           description: Object item with lists of linked objects' items
           type: object
+    DF_Ligne_DevisHistoric:
+      type: object
+      properties:
+        df_ligne_devis_id:
+          description: Ligne Devis ID
+          type: string
+        DF_Ligne_DevisHistoric_DF_DevisHistoric_id:
+          description: Historique Devis
+          type: string
+        df_ligne_devis_prix_exw_unite:
+          description: Prix EXW / Unité
+          type: number
+        df_ligne_devis_prix_exw_u:
+          description: Prix EXW / U
+          type: number
+        df_ligne_devis_prix_exw_t:
+          description: Prix EXW / Tonne
+          type: number
+        DF_Ligne_Devis_DF_Devis_id__df_devis_titre:
+          description: Titre Devis DF devis
+          type: string
+        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_masse_volumique:
+          description: Masse Volumique Produits Finis
+          type: string
+        row_ref_id:
+          description: Référence
+          type: string
+        DF_Ligne_Devis_DF_Devis_id:
+          description: DF devis
+          type: string
+        DF_Ligne_DevisHistoric_DF_DevisHistoric_id__row_ref_id:
+          description: Référence Historique Devis
+          type: string
+        df_ligne_devis_quantite:
+          description: Quantité
+          type: integer
+        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_nom:
+          description: Type Géologique Produits Finis
+          type: string
+        df_ligne_devis_ref:
+          description: N° de prix
+          type: integer
+        df_ligne_devis_poids_total:
+          description: Poids Total (T)
+          type: number
+        DF_Ligne_DevisHistoric_DF_DevisHistoric_id__created_dt_hist:
+          description: Date Historique Devis
+          type: string
+        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_larg:
+          description: Largeur Produits Finis
+          type: number
+        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_id:
+          description: Id Produit Produits Finis
+          type: integer
+        df_ligne_devis_prix_vente_impose:
+          description: Prix Vente Unitaire Imposé
+          type: number
+        df_ligne_devis_nombre_camions:
+          description: Nombre Camions
+          type: number
+        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_unite:
+          description: Unité Produits Finis
+          type: string
+        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_long:
+          description: Longueur Produits Finis
+          type: number
+        created_by_hist:
+          description: Utilisateur
+          type: string
+        df_ligne_devis_prix_transport_reference:
+          description: Prix Transport Référence
+          type: number
+        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_haut:
+          description: Hauteur / Epaisseur Produits Finis
+          type: number
+        df_ligne_devis_total_achat_ht:
+          description: Total Achat HT
+          type: number
+        DF_Ligne_DevisHistoric_DF_DevisHistoric_id__created_by_hist:
+          description: Utilisateur Historique Devis
+          type: string
+        df_ligne_devis_nb_elt_ss_joint:
+          description: Nombre d'éléments sans joint
+          type: number
+        df_ligne_devis_total_achat_reference_ht:
+          description: Total EXW HT
+          type: number
+        df_ligne_devis_masse_unitaire_ss_joint:
+          description: Masse Unitaire sans Joints
+          type: number
+        created_dt_hist:
+          description: Date
+          type: string
+        df_ligne_devis_masse_unitaire_ac_joint:
+          description: Masse Unitaire avec Joints
+          type: number
+        DF_Ligne_DevisHistoric_DF_DevisHistoric_id__row_idx:
+          description: Version Historique Devis
+          type: integer
+        df_ligne_devis_t_prod:
+          description: Catégorie Produit
+          type: string
+        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_designation:
+          description: Type produit Produits Finis
+          type: string
+        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_finition:
+          description: Finition faces vues Produits Finis
+          type: string
+        df_ligne_devis_prix_vente_calcule:
+          description: Prix Vente Unitaire Calculé
+          type: number
+        df_ligne_devis_nb_elt_ac_joint:
+          description: Nombre d'éléments avec joint
+          type: number
+        df_ligne_devis_prix_transport_unitaire:
+          description: Prix transport unitaire
+          type: number
+        df_ligne_devis_coef:
+          description: Coef
+          type: number
+        DF_Ligne_Devis_DF_Produit_Finis_id:
+          description: Produits Finis
+          type: string
+        DF_Ligne_DevisHistoric_DF_DevisHistoric_id__DF_Devis_DF_Client_id__df_client_id:
+          description: Id Client DF client Historique Devis
+          type: string
+        DF_Ligne_DevisHistoric_DF_DevisHistoric_id__df_devis_numero:
+          description: Numéro de devis Historique Devis
+          type: string
+        row_idx:
+          description: Version
+          type: integer
+        df_ligne_devis_dim_joints:
+          description: Dimension des joints (cm)
+          type: number
+        DF_Ligne_DevisHistoric_DF_DevisHistoric_id__DF_Devis_DF_Client_id:
+          description: DF client Historique Devis
+          type: string
+        DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_prix:
+          description: Prix Unitaire HT Produits Finis
+          type: number
+        df_ligne_devis_designation:
+          description: Désignation
+          type: string
+        row_id:
+          description: Unique technical row ID
+          type: string
+        df_ligne_devis_prix_debourse_sec:
+          description: Prix unitaire sec
+          type: number
     ArrayOfDF_test:
       type: array
       items:
@@ -2122,7 +2295,7 @@ paths:
         description: Search filter for Client
         required: false
       - schema:
-          type: integer
+          type: string
         in: query
         name: DF_Chantier_DF_Client_id__df_client_id
         description: Search filter for Id Client
@@ -2594,7 +2767,7 @@ paths:
         description: Search filter for Clients
         required: false
       - schema:
-          type: integer
+          type: string
         in: query
         name: DF_Contact_DF_Client_id__df_client_id
         description: Search filter for Id Client Clients
@@ -3535,6 +3708,12 @@ paths:
         description: Search filter for Référence
         required: false
       - schema:
+          type: integer
+        in: query
+        name: row_idx
+        description: Search filter for Version
+        required: false
+      - schema:
           type: string
         in: query
         name: created_by_hist
@@ -3568,10 +3747,10 @@ paths:
         description: Search filter for Titre Projet
         required: false
       - schema:
-          type: integer
+          type: number
         in: query
-        name: DF_Devis_DF_Client_id__df_client_indice
-        description: Search filter for Indicateur Client DF client
+        name: DF_Devis_DF_Client_id__df_client_taux_transformation
+        description: Search filter for Taux de transformation DF client
         required: false
       - schema:
           type: string
@@ -3588,12 +3767,12 @@ paths:
       - schema:
           type: string
           enum:
-          - VR
-          - PE
           - ES
           - ET
           - NE
           - CH
+          - PE
+          - VR
         in: query
         name: df_devis_statut
         description: Search filter for Statut
@@ -3641,7 +3820,7 @@ paths:
         description: Search filter for E-mail DF client
         required: false
       - schema:
-          type: integer
+          type: string
         in: query
         name: DF_Devis_DF_Client_id__df_client_id
         description: Search filter for Id Client DF client
@@ -3712,7 +3891,7 @@ paths:
           type: string
         in: query
         name: df_devis_cadence_de_livraison
-        description: Search filter for Cadence de livraison
+        description: Search filter for Cadence de livraison hebdomadaire
         required: false
       - schema:
           type: string
@@ -3802,60 +3981,53 @@ paths:
         description: Search filter for Numéro de devis
         required: false
       - schema:
+          type: string
+        in: query
+        name: DF_Devis_DF_Contact_id__df_contact_email
+        description: Search filter for E-mail Contacts
+        required: false
+      - schema:
           type: number
         in: query
         name: df_devis_coef_global
         description: Search filter for Coefficient Global
         required: false
-      tags:
-      - DF_DevisHistoric
-  /rest/DF_Devis/{row_id}/action:Generation-ARC:
-    get:
-      summary: Call a custom action for a DF_Devis business object record or for all
-        records
-      security:
-      - bearerAuth: []
-      operationId: obj-df_devis-action-generation-arc
-      responses:
-        '200':
-          description: Success in calling the custom action
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ActionResult'
-        '400':
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error400'
-        '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error401'
-        '500':
-          description: Internal server error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error500'
-        '404':
-          description: Not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error404'
-      parameters:
       - schema:
           type: string
-        in: path
-        name: row_id
-        description: Row ID (or empty or _ for all row IDs)
-        required: true
+        in: query
+        name: df_devis_pj1
+        description: Search filter for Pièce Jointe 1
+        required: false
+      - schema:
+          type: string
+          enum:
+          - 45J
+          - 30I
+          - 1CO
+        in: query
+        name: df_devis_delai_paiement
+        description: Search filter for Délai de paiement
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: df_devis_pj2
+        description: Search filter for Pièce Jointe 2
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: df_devis_pj3
+        description: Search filter for Pièce jointe 3
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: df_devis_pj4
+        description: Search filter for Pièce Jointe 4
+        required: false
       tags:
-      - DF_Devis
+      - DF_DevisHistoric
   /rest/DF_utilisateur_interne/{row_id}:
     post:
       summary: Create a new DF_utilisateur_internebusiness object record
@@ -4950,6 +5122,53 @@ paths:
         required: true
       tags:
       - DF_Contact
+  /rest/DF_Devis/{row_id}/action:Initialisation-Commande:
+    get:
+      summary: Call a custom action for a DF_Devis business object record or for all
+        records
+      security:
+      - bearerAuth: []
+      operationId: obj-df_devis-action-initialisation-commande
+      responses:
+        '200':
+          description: Success in calling the custom action
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActionResult'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_Devis
   /rest/DF_Commande:
     get:
       summary: Search DF_Commande business object records or get contextualized metadata
@@ -5020,7 +5239,7 @@ paths:
         description: Search filter for DF client
         required: false
       - schema:
-          type: integer
+          type: string
         in: query
         name: DF_Commande_DF_Client_id__df_client_id
         description: Search filter for Id Client DF client
@@ -6198,12 +6417,6 @@ paths:
         description: Search filter for Titre Projet
         required: false
       - schema:
-          type: integer
-        in: query
-        name: DF_Devis_DF_Client_id__df_client_indice
-        description: Search filter for Indicateur Client DF client
-        required: false
-      - schema:
           type: string
         in: query
         name: df_devis_lieu_projet
@@ -6218,12 +6431,12 @@ paths:
       - schema:
           type: string
           enum:
-          - PE
-          - VR
           - ES
           - ET
           - NE
           - CH
+          - PE
+          - VR
         in: query
         name: df_devis_statut
         description: Search filter for Statut
@@ -6271,7 +6484,7 @@ paths:
         description: Search filter for E-mail client
         required: false
       - schema:
-          type: integer
+          type: string
         in: query
         name: DF_Devis_DF_Client_id__df_client_id
         description: Search filter for Id Client
@@ -6342,7 +6555,7 @@ paths:
           type: string
         in: query
         name: df_devis_cadence_de_livraison
-        description: Search filter for Cadence de livraison
+        description: Search filter for Cadence de livraison hebdomadaire
         required: false
       - schema:
           type: string
@@ -6457,7 +6670,7 @@ paths:
           - 1CO
         in: query
         name: df_devis_delai_paiement
-        description: Search filter for df_devis_delai_paiement
+        description: Search filter for Délai de paiement
         required: false
       - schema:
           type: string
@@ -6552,54 +6765,6 @@ paths:
       - schema:
           type: string
         in: query
-        name: DF_ligne_commande_DF_Produit_Finis_id__df_produit_nom
-        description: Search filter for Type Géologique
-        required: false
-      - schema:
-          type: number
-        in: query
-        name: DF_ligne_commande_DF_Produit_Finis_id__df_produit_long
-        description: Search filter for Longueur (cm)
-        required: false
-      - schema:
-          type: number
-        in: query
-        name: DF_ligne_commande_DF_Produit_Finis_id__df_produit_larg
-        description: Search filter for Largeur (cm)
-        required: false
-      - schema:
-          type: number
-        in: query
-        name: DF_ligne_commande_DF_Produit_Finis_id__df_produit_haut
-        description: Search filter for Hauteur / Epaisseur (cm)
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: DF_ligne_commande_DF_Produit_Finis_id__df_produit_finition
-        description: Search filter for Finition faces vues
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: DF_ligne_commande_DF_Produit_Finis_id__df_produit_unite
-        description: Search filter for Unité
-        required: false
-      - schema:
-          type: number
-        in: query
-        name: DF_ligne_commande_DF_Produit_Finis_id__df_produit_prix
-        description: Search filter for Prix Unitaire HT DF produit finis
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: DF_ligne_commande_DF_Produit_Finis_id__df_produit_appellation_co
-        description: Search filter for Appellation Commerciale
-        required: false
-      - schema:
-          type: string
-        in: query
         name: DF_ligne_commande_DF_Commande_id
         description: Search filter for DF commande
         required: false
@@ -6618,12 +6783,6 @@ paths:
       - schema:
           type: string
         in: query
-        name: DF_ligne_commande_DF_Commande_id__df_commande_ref_chantier
-        description: Search filter for Référence de chantier DF commande
-        required: false
-      - schema:
-          type: string
-        in: query
         name: DF_ligne_commande_DF_Commande_id__df_commande_date
         description: Search filter for Date de commande DF commande
         required: false
@@ -6632,12 +6791,6 @@ paths:
         in: query
         name: df_ligne_commande_prix_exw_u
         description: Search filter for Prix EXW unitaire
-        required: false
-      - schema:
-          type: number
-        in: query
-        name: df_ligne_commande_poids_unitaire
-        description: Search filter for Poids unitaire (T)
         required: false
       - schema:
           type: string
@@ -6651,8 +6804,251 @@ paths:
         name: df_ligne_commande_type_produit
         description: Search filter for df_ligne_commande_type_produit
         required: false
+      - schema:
+          type: string
+        in: query
+        name: df_ligne_commande_type_geo
+        description: Search filter for Type Géologique
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: df_ligne_commande_apl_com
+        description: Search filter for Appellation Commerciale
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: df_ligne_commande_finition
+        description: Search filter for Finition Faces Vues
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: df_ligne_commande_long
+        description: Search filter for Longueur (cm)
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: df_ligne_commande_larg
+        description: Search filter for Largeur (cm)
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: df_ligne_commande_eps
+        description: Search filter for Hauteur / Epaisseur (cm)
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: df_ligne_commande_poids_u
+        description: Search filter for Poids Unitaire (T)
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: df_ligne_commande_unite
+        description: Search filter for Unité
+        required: false
       tags:
       - DF_ligne_commande
+  /rest/DF_Ligne_DevisHistoric/{row_id}:
+    post:
+      summary: Create a new DF_Ligne_DevisHistoricbusiness object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DF_Ligne_DevisHistoric'
+      operationId: obj-df_ligne_devishistoric-create
+      responses:
+        '200':
+          description: Success in creating a new business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DF_Ligne_DevisHistoric'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_Ligne_DevisHistoric
+    get:
+      summary: Get a DF_Ligne_DevisHistoric business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-df_ligne_devishistoric-get
+      responses:
+        '200':
+          description: Success in getting a single business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DF_Ligne_DevisHistoric'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_documents
+        description: Inline documents?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_objects
+        description: Inline objects?
+        required: false
+      tags:
+      - DF_Ligne_DevisHistoric
+    delete:
+      summary: Delete a DF_Ligne_DevisHistoric business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-df_ligne_devishistoric-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+          content:
+            application/json: {}
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_Ligne_DevisHistoric
+    put:
+      summary: Update a DF_Ligne_DevisHistoricbusiness object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DF_Ligne_DevisHistoric'
+      operationId: obj-df_ligne_devishistoric-update
+      responses:
+        '200':
+          description: Success in updating a business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DF_Ligne_DevisHistoric'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_Ligne_DevisHistoric
   /rest/DF_test/{row_id}:
     post:
       summary: Create a new DF_testbusiness object record
@@ -7201,7 +7597,7 @@ paths:
         description: Documentation?
         required: false
       - schema:
-          type: integer
+          type: string
         in: query
         name: df_client_id
         description: Search filter for Id Client
@@ -7279,10 +7675,10 @@ paths:
         description: Search filter for Region
         required: false
       - schema:
-          type: integer
+          type: number
         in: query
-        name: df_client_indice
-        description: Search filter for Indicateur Client
+        name: df_client_taux_transformation
+        description: Search filter for Taux de transformation
         required: false
       - schema:
           type: string
@@ -7307,6 +7703,12 @@ paths:
         in: query
         name: df_client_pays
         description: Search filter for Pays
+        required: false
+      - schema:
+          type: integer
+        in: query
+        name: df_client_sum_cmd
+        description: Search filter for Somme des commandes
         required: false
       tags:
       - DF_Client
@@ -8720,7 +9122,7 @@ paths:
         description: Documentation?
         required: false
       - schema:
-          type: integer
+          type: string
         in: query
         name: df_ligne_devis_id
         description: Search filter for Ligne Devis ID
@@ -9132,6 +9534,342 @@ paths:
         required: true
       tags:
       - DF_Transport
+  /rest/DF_Ligne_DevisHistoric:
+    get:
+      summary: Search DF_Ligne_DevisHistoric business object records or get contextualized
+        metadata
+      security:
+      - bearerAuth: []
+      operationId: obj-df_ligne_devishistoric-search
+      responses:
+        '200':
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArrayOfDF_Ligne_DevisHistoric'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: boolean
+        in: query
+        name: _metadata
+        description: Metadata?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _count
+        description: Count?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _doc
+        description: Documentation?
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: row_ref_id
+        description: Search filter for Référence
+        required: false
+      - schema:
+          type: integer
+        in: query
+        name: row_idx
+        description: Search filter for Version
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: created_by_hist
+        description: Search filter for Utilisateur
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: created_dt_hist
+        description: Search filter for Date
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: df_ligne_devis_id
+        description: Search filter for Ligne Devis ID
+        required: false
+      - schema:
+          type: integer
+        in: query
+        name: df_ligne_devis_quantite
+        description: Search filter for Quantité
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_designation
+        description: Search filter for Type produit Produits Finis
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_finition
+        description: Search filter for Finition faces vues Produits Finis
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Ligne_Devis_DF_Devis_id
+        description: Search filter for DF devis
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_masse_volumique
+        description: Search filter for Masse Volumique Produits Finis
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Ligne_Devis_DF_Devis_id__df_devis_titre
+        description: Search filter for Titre Devis DF devis
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: df_ligne_devis_dim_joints
+        description: Search filter for Dimension des joints (cm)
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: df_ligne_devis_poids_total
+        description: Search filter for Poids Total (T)
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: df_ligne_devis_prix_transport_reference
+        description: Search filter for Prix Transport Référence
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: df_ligne_devis_nombre_camions
+        description: Search filter for Nombre Camions
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: df_ligne_devis_masse_unitaire_ac_joint
+        description: Search filter for Masse Unitaire avec Joints
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: df_ligne_devis_masse_unitaire_ss_joint
+        description: Search filter for Masse Unitaire sans Joints
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: df_ligne_devis_prix_debourse_sec
+        description: Search filter for Prix unitaire sec
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: df_ligne_devis_prix_transport_unitaire
+        description: Search filter for Prix transport unitaire
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: df_ligne_devis_total_achat_reference_ht
+        description: Search filter for Total EXW HT
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: df_ligne_devis_total_achat_ht
+        description: Search filter for Total Achat HT
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: df_ligne_devis_coef
+        description: Search filter for Coef
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: df_ligne_devis_prix_vente_calcule
+        description: Search filter for Prix Vente Unitaire Calculé
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: df_ligne_devis_prix_vente_impose
+        description: Search filter for Prix Vente Unitaire Imposé
+        required: false
+      - schema:
+          type: integer
+        in: query
+        name: df_ligne_devis_ref
+        description: Search filter for N° de prix
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: df_ligne_devis_designation
+        description: Search filter for Désignation
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: df_ligne_devis_nb_elt_ss_joint
+        description: Search filter for Nombre d'éléments sans joint
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: df_ligne_devis_nb_elt_ac_joint
+        description: Search filter for Nombre d'éléments avec joint
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: df_ligne_devis_prix_exw_u
+        description: Search filter for Prix EXW / U
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: df_ligne_devis_prix_exw_unite
+        description: Search filter for Prix EXW / Unité
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: df_ligne_devis_prix_exw_t
+        description: Search filter for Prix EXW / Tonne
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: df_ligne_devis_t_prod
+        description: Search filter for Catégorie Produit
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id
+        description: Search filter for Produits Finis
+        required: false
+      - schema:
+          type: integer
+        in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_id
+        description: Search filter for Id Produit Produits Finis
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_nom
+        description: Search filter for Type Géologique Produits Finis
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_long
+        description: Search filter for Longueur Produits Finis
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_larg
+        description: Search filter for Largeur Produits Finis
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_haut
+        description: Search filter for Hauteur / Epaisseur Produits Finis
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_unite
+        description: Search filter for Unité Produits Finis
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_prix
+        description: Search filter for Prix Unitaire HT Produits Finis
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Ligne_DevisHistoric_DF_DevisHistoric_id
+        description: Search filter for Historique Devis
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Ligne_DevisHistoric_DF_DevisHistoric_id__row_ref_id
+        description: Search filter for Référence Historique Devis
+        required: false
+      - schema:
+          type: integer
+        in: query
+        name: DF_Ligne_DevisHistoric_DF_DevisHistoric_id__row_idx
+        description: Search filter for Version Historique Devis
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Ligne_DevisHistoric_DF_DevisHistoric_id__created_by_hist
+        description: Search filter for Utilisateur Historique Devis
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Ligne_DevisHistoric_DF_DevisHistoric_id__created_dt_hist
+        description: Search filter for Date Historique Devis
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Ligne_DevisHistoric_DF_DevisHistoric_id__DF_Devis_DF_Client_id
+        description: Search filter for DF client Historique Devis
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Ligne_DevisHistoric_DF_DevisHistoric_id__DF_Devis_DF_Client_id__df_client_id
+        description: Search filter for Id Client DF client Historique Devis
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Ligne_DevisHistoric_DF_DevisHistoric_id__df_devis_numero
+        description: Search filter for Numéro de devis Historique Devis
+        required: false
+      tags:
+      - DF_Ligne_DevisHistoric
 info:
   license:
     name: Simplicite license
@@ -9162,6 +9900,8 @@ tags:
   description: DF ligne commande
 - name: DF_Ligne_Devis
   description: DF ligne devis
+- name: DF_Ligne_DevisHistoric
+  description: DF ligne devis historic
 - name: DF_Livraison
   description: Livraisons
 - name: DF_Plan_Livraison

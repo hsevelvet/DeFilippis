@@ -26,7 +26,7 @@
 | `df_affaire_numero`                                          | char(36)                                 | yes*     | yes       |          | -                                                                                |
 | `df_affaire_date_debut`                                      | date                                     |          | yes       |          | -                                                                                |
 | `DF_Chantier_DF_Client_id` link to **`DF_Client`**           | id                                       |          | yes       |          | -                                                                                |
-| _Ref. `DF_Chantier_DF_Client_id.df_client_id`_               | _int(11)_                                |          |           |          | -                                                                                |
+| _Ref. `DF_Chantier_DF_Client_id.df_client_id`_               | _char(11)_                               |          |           |          | -                                                                                |
 | _Ref. `DF_Chantier_DF_Client_id.df_client_nom`_              | _char(36)_                               |          |           |          | -                                                                                |
 | _Ref. `DF_Chantier_DF_Client_id.df_client_telephone`_        | _phone(100)_                             |          |           |          | -                                                                                |
 | _Ref. `DF_Chantier_DF_Client_id.df_client_ville`_            | _char(32)_                               |          |           |          | -                                                                                |
@@ -83,7 +83,7 @@ Objet metier pour client.
 
 | Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
-| `df_client_id`                                               | int(11)                                  | yes*     | yes       |          | -                                                                                |
+| `df_client_id`                                               | char(11)                                 | yes*     | yes       |          | -                                                                                |
 | `df_client_nom`                                              | char(36)                                 | yes      | yes       |          | -                                                                                |
 | `df_client_email`                                            | email(100)                               | yes      | yes       |          | -                                                                                |
 | `df_client_telephone`                                        | phone(100)                               | yes      | yes       |          | -                                                                                |
@@ -94,13 +94,14 @@ Objet metier pour client.
 | `df_client_adresse_2`                                        | char(32)                                 |          | yes       |          | -                                                                                |
 | `df_client_id_secteur_activite`                              | enum(7) using `DF_CLIENT_ID_SECTEUR_ACTIVITE` list |          | yes       |          | -                                                                                |
 | `df_client_region`                                           | char(32)                                 |          | yes       |          | -                                                                                |
-| `df_client_indice`                                           | int(10)                                  |          | yes       |          | -                                                                                |
+| `df_client_taux_transformation`                              | float(4, 2)                              |          | yes       |          | -                                                                                |
 | `df_client_site_web`                                         | char(255)                                |          | yes       |          | -                                                                                |
 | `df_client_adresse_3`                                        | char(32)                                 |          | yes       |          | -                                                                                |
 | `df_client_cedex`                                            | char(32)                                 |          | yes       |          | -                                                                                |
 | `df_client_pays`                                             | char(32)                                 |          | yes       |          | -                                                                                |
-| `df_client_indice`                                           | int(10)                                  |          | yes       |          | -                                                                                |
-| `df_client_indice`                                           | int(10)                                  |          | yes       |          | -                                                                                |
+| `df_client_taux_transformation`                              | float(4, 2)                              |          | yes       |          | -                                                                                |
+| `df_client_taux_transformation`                              | float(4, 2)                              |          | yes       |          | -                                                                                |
+| `df_client_sum_cmd`                                          | int(4)                                   |          | yes       |          | -                                                                                |
 
 ### Lists
 
@@ -135,7 +136,7 @@ objet metier pour commande.
 | `df_commande_id_livraison`                                   | int(11)                                  |          | yes       |          | -                                                                                |
 | `df_commande_numero`                                         | char(32)                                 |          | yes       |          | -                                                                                |
 | `DF_Commande_DF_Client_id` link to **`DF_Client`**           | id                                       |          | yes       |          | -                                                                                |
-| _Ref. `DF_Commande_DF_Client_id.df_client_id`_               | _int(11)_                                |          |           |          | -                                                                                |
+| _Ref. `DF_Commande_DF_Client_id.df_client_id`_               | _char(11)_                               |          |           |          | -                                                                                |
 | `DF_Commande_DF_Contact_id` link to **`DF_Contact`**         | id                                       |          | yes       |          | -                                                                                |
 | _Ref. `DF_Commande_DF_Contact_id.df_contact_id`_             | _int(11)_                                |          |           |          | -                                                                                |
 | `df_commande_detail`                                         | char(100)                                |          | yes       |          | -                                                                                |
@@ -197,7 +198,7 @@ Objet metier pour contact.
 | `df_contact_email`                                           | email(100)                               |          | yes       |          | -                                                                                |
 | `df_contact_commentaire`                                     | text(100)                                |          | yes       |          | -                                                                                |
 | `DF_Contact_DF_Client_id` link to **`DF_Client`**            | id                                       |          | yes       |          | -                                                                                |
-| _Ref. `DF_Contact_DF_Client_id.df_client_id`_                | _int(11)_                                |          |           |          | -                                                                                |
+| _Ref. `DF_Contact_DF_Client_id.df_client_id`_                | _char(11)_                               |          |           |          | -                                                                                |
 | `df_contact_statut`                                          | enum(7) using `DF_CONTACT_STATUT` list   | yes      | yes       |          | -                                                                                |
 | `df_contact_type`                                            | enum(7) using `DF_CONTACT_TYPE` list     | yes      | yes       |          | -                                                                                |
 | `df_contact_sous_type`                                       | enum(7) using `DF_CONTACT_SOUS_TYPE` list |          | yes       |          | -                                                                                |
@@ -249,7 +250,6 @@ Objet metier pour devis.
 | _Ref. `DF_Devis_DF_Chantier_id.df_affaire_statut`_           | _enum(7) using `DF_STATUT_AFFAIRE` list_ |          |           |          | -                                                                                |
 | `df_devis_titre`                                             | char(100)                                | yes      | yes       |          | -                                                                                |
 | `df_devis_titre_projet`                                      | char(100)                                | yes      | yes       |          | -                                                                                |
-| _Ref. `DF_Devis_DF_Client_id.df_client_indice`_              | _int(10)_                                |          |           |          | -                                                                                |
 | `df_devis_lieu_projet`                                       | char(32)                                 | yes      | yes       |          | -                                                                                |
 | `df_devis_date_emission`                                     | datetime                                 | yes      | yes       |          | -                                                                                |
 | `df_devis_statut`                                            | enum(7) using `STATUT_DEVIS` list        | yes      | yes       |          | -                                                                                |
@@ -260,7 +260,7 @@ Objet metier pour devis.
 | `DF_Devis_DF_Client_id` link to **`DF_Client`**              | id                                       | *        | yes       |          | -                                                                                |
 | _Ref. `DF_Devis_DF_Client_id.df_client_telephone`_           | _phone(100)_                             |          |           |          | -                                                                                |
 | _Ref. `DF_Devis_DF_Client_id.df_client_email`_               | _email(100)_                             |          |           |          | -                                                                                |
-| _Ref. `DF_Devis_DF_Client_id.df_client_id`_                  | _int(11)_                                |          |           |          | -                                                                                |
+| _Ref. `DF_Devis_DF_Client_id.df_client_id`_                  | _char(11)_                               |          |           |          | -                                                                                |
 | _Ref. `DF_Devis_DF_Client_id.df_client_nom`_                 | _char(36)_                               |          |           |          | -                                                                                |
 | `df_devis_commentaire`                                       | text(100)                                |          | yes       |          | -                                                                                |
 | `df_devi_prix_total_ht`                                      | bigdec(10, 2)                            |          | yes       |          | -                                                                                |
@@ -298,12 +298,12 @@ Objet metier pour devis.
     - `I` Initialisée
     - `C` Chantier
 * `STATUT_DEVIS`
-    - `PE` Perdu
-    - `VR` Versionné
     - `ES` Estimation
     - `ET` Eude
     - `NE` Négociation
     - `CH` Chantier
+    - `PE` Perdu
+    - `VR` Versionné
 * `DF_DEVIS_PACKAGING_TRANSPORT`
     - `EI` Emballage Inclus
     - `HE` Hors coût d'emballage
@@ -328,7 +328,7 @@ Objet metier pour devis.
 
 ### Custom actions
 
-* `Generation-ARC`: 
+* `Initialisation-Commande`: 
 
 `DF_DevisHistoric` business object definition
 ---------------------------------------------
@@ -339,14 +339,14 @@ Objet metier pour devis.
 
 | Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
-| `row_idx`                                                    | int(11)                                  | yes*     | yes       |          | -                                                                                |
 | `row_ref_id` link to **`DF_Devis`**                          | id                                       | yes*     |           |          | -                                                                                |
+| `row_idx`                                                    | int(11)                                  | yes*     | yes       |          | -                                                                                |
 | `created_by_hist`                                            | char(100)                                | yes*     |           |          | -                                                                                |
 | `created_dt_hist`                                            | datetime                                 | yes*     |           |          | -                                                                                |
 | _Ref. `DF_Devis_DF_Chantier_id.df_affaire_statut`_           | _enum(7) using `DF_STATUT_AFFAIRE` list_ |          |           |          | -                                                                                |
 | `df_devis_titre`                                             | char(100)                                | yes      | yes       |          | -                                                                                |
 | `df_devis_titre_projet`                                      | char(100)                                | yes      | yes       |          | -                                                                                |
-| _Ref. `DF_Devis_DF_Client_id.df_client_indice`_              | _int(10)_                                |          |           |          | -                                                                                |
+| _Ref. `DF_Devis_DF_Client_id.df_client_taux_transformation`_ | _float(4, 2)_                            |          |           |          | -                                                                                |
 | `df_devis_lieu_projet`                                       | char(32)                                 | yes      | yes       |          | -                                                                                |
 | `df_devis_date_emission`                                     | datetime                                 | yes      | yes       |          | -                                                                                |
 | `df_devis_statut`                                            | enum(7) using `STATUT_DEVIS` list        | yes      | yes       |          | -                                                                                |
@@ -357,7 +357,7 @@ Objet metier pour devis.
 | `DF_Devis_DF_Client_id` link to **`DF_Client`**              | id                                       | *        | yes       |          | -                                                                                |
 | _Ref. `DF_Devis_DF_Client_id.df_client_telephone`_           | _phone(100)_                             |          |           |          | -                                                                                |
 | _Ref. `DF_Devis_DF_Client_id.df_client_email`_               | _email(100)_                             |          |           |          | -                                                                                |
-| _Ref. `DF_Devis_DF_Client_id.df_client_id`_                  | _int(11)_                                |          |           |          | -                                                                                |
+| _Ref. `DF_Devis_DF_Client_id.df_client_id`_                  | _char(11)_                               |          |           |          | -                                                                                |
 | _Ref. `DF_Devis_DF_Client_id.df_client_nom`_                 | _char(36)_                               |          |           |          | -                                                                                |
 | `df_devis_commentaire`                                       | text(100)                                |          | yes       |          | -                                                                                |
 | `df_devi_prix_total_ht`                                      | bigdec(10, 2)                            |          | yes       |          | -                                                                                |
@@ -381,7 +381,13 @@ Objet metier pour devis.
 | _Ref. `DF_Devis_DF_Contact_id.df_contact_prenom`_            | _char(32)_                               |          |           |          | -                                                                                |
 | _Ref. `DF_Devis_DF_Contact_id.df_contact_portable`_          | _phone(100)_                             |          |           |          | -                                                                                |
 | `df_devis_numero`                                            | char(30)                                 | yes*     | yes       |          | -                                                                                |
+| _Ref. `DF_Devis_DF_Contact_id.df_contact_email`_             | _email(100)_                             |          |           |          | -                                                                                |
 | `df_devis_coef_global`                                       | float(4, 2)                              |          |           |          | -                                                                                |
+| `df_devis_pj1`                                               | document                                 |          | yes       |          | -                                                                                |
+| `df_devis_delai_paiement`                                    | enum(7) using `DF_DEVIS_DELAI_PAIEMENT` list |          | yes       |          | -                                                                                |
+| `df_devis_pj2`                                               | document                                 |          | yes       |          | -                                                                                |
+| `df_devis_pj3`                                               | document                                 |          | yes       |          | -                                                                                |
+| `df_devis_pj4`                                               | document                                 |          | yes       |          | -                                                                                |
 
 ### Lists
 
@@ -389,12 +395,12 @@ Objet metier pour devis.
     - `I` Initialisée
     - `C` Chantier
 * `STATUT_DEVIS`
-    - `PE` Perdu
-    - `VR` Versionné
     - `ES` Estimation
     - `ET` Eude
     - `NE` Négociation
     - `CH` Chantier
+    - `PE` Perdu
+    - `VR` Versionné
 * `DF_DEVIS_PACKAGING_TRANSPORT`
     - `EI` Emballage Inclus
     - `HE` Hors coût d'emballage
@@ -412,6 +418,10 @@ Objet metier pour devis.
     - `CC` Camion complet 24 tonnes
     - `PC` Palette complète
     - `GT` Groupage de X tonnes mininmum
+* `DF_DEVIS_DELAI_PAIEMENT`
+    - `45J` 45 jours fin du mois LME
+    - `30I` 30 jours le 15 intragroup
+    - `1CO` 100% à la commande
 
 ### Custom actions
 
@@ -450,23 +460,21 @@ No custom action
 | `df_ligne_commande_qte`                                      | int(11)                                  | yes      | yes       |          | -                                                                                |
 | `df_ligne_commande_prix_total_ht`                            | float(100, 2)                            |          | yes       |          | -                                                                                |
 | `DF_ligne_commande_DF_Produit_Finis_id` link to **`DF_Produit_Finis`** | id                                       |          | yes       |          | -                                                                                |
-| _Ref. `DF_ligne_commande_DF_Produit_Finis_id.df_produit_nom`_ | _char(15)_                               |          |           |          | -                                                                                |
-| _Ref. `DF_ligne_commande_DF_Produit_Finis_id.df_produit_long`_ | _float(5, 2)_                            |          |           |          | -                                                                                |
-| _Ref. `DF_ligne_commande_DF_Produit_Finis_id.df_produit_larg`_ | _float(5, 2)_                            |          |           |          | -                                                                                |
-| _Ref. `DF_ligne_commande_DF_Produit_Finis_id.df_produit_haut`_ | _float(5, 2)_                            |          |           |          | -                                                                                |
-| _Ref. `DF_ligne_commande_DF_Produit_Finis_id.df_produit_finition`_ | _char(20)_                               |          |           |          | -                                                                                |
-| _Ref. `DF_ligne_commande_DF_Produit_Finis_id.df_produit_unite`_ | _char(4)_                                |          |           |          | -                                                                                |
-| _Ref. `DF_ligne_commande_DF_Produit_Finis_id.df_produit_prix`_ | _float(10, 2)_                           |          |           |          | -                                                                                |
-| _Ref. `DF_ligne_commande_DF_Produit_Finis_id.df_produit_appellation_co`_ | _char(70)_                               |          |           |          | -                                                                                |
 | `DF_ligne_commande_DF_Commande_id` link to **`DF_Commande`** | id                                       |          | yes       |          | -                                                                                |
 | _Ref. `DF_ligne_commande_DF_Commande_id.df_commande_id`_     | _char(50)_                               |          |           |          | -                                                                                |
 | _Ref. `DF_ligne_commande_DF_Commande_id.df_commande_numero`_ | _char(32)_                               |          |           |          | -                                                                                |
-| _Ref. `DF_ligne_commande_DF_Commande_id.df_commande_ref_chantier`_ | _char(32)_                               |          |           |          | -                                                                                |
 | _Ref. `DF_ligne_commande_DF_Commande_id.df_commande_date`_   | _datetime_                               |          |           |          | -                                                                                |
 | `df_ligne_commande_prix_exw_u`                               | float(10, 2)                             |          | yes       |          | -                                                                                |
-| `df_ligne_commande_poids_unitaire`                           | float(10, 2)                             |          | yes       |          | -                                                                                |
 | `df_ligne_commande_ref_prod`                                 | char(100)                                |          | yes       |          | -                                                                                |
 | `df_ligne_commande_type_produit`                             | char(100)                                |          | yes       |          | -                                                                                |
+| `df_ligne_commande_type_geo`                                 | char(100)                                |          | yes       |          | -                                                                                |
+| `df_ligne_commande_apl_com`                                  | char(100)                                |          | yes       |          | -                                                                                |
+| `df_ligne_commande_finition`                                 | char(100)                                |          | yes       |          | -                                                                                |
+| `df_ligne_commande_long`                                     | float(5, 2)                              |          | yes       |          | -                                                                                |
+| `df_ligne_commande_larg`                                     | float(5, 2)                              |          | yes       |          | -                                                                                |
+| `df_ligne_commande_eps`                                      | float(100, 2)                            |          | yes       |          | -                                                                                |
+| `df_ligne_commande_poids_u`                                  | float(10, 2)                             |          | yes       |          | -                                                                                |
+| `df_ligne_commande_unite`                                    | char(4)                                  |          | yes       |          | -                                                                                |
 
 ### Custom actions
 
@@ -481,7 +489,7 @@ No custom action
 
 | Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
-| `df_ligne_devis_id`                                          | int(11)                                  | yes*     | yes       |          | -                                                                                |
+| `df_ligne_devis_id`                                          | char(11)                                 | yes*     | yes       |          | -                                                                                |
 | `df_ligne_devis_quantite`                                    | int(11)                                  | yes      | yes       |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.df_produit_designation`_ | _char(20)_                               |          |           |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.df_produit_finition`_ | _char(20)_                               |          |           |          | -                                                                                |
@@ -517,6 +525,68 @@ No custom action
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.df_produit_haut`_  | _float(5, 2)_                            |          |           |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.df_produit_unite`_ | _char(4)_                                |          |           |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.df_produit_prix`_  | _float(10, 2)_                           |          |           |          | -                                                                                |
+
+### Custom actions
+
+No custom action
+
+`DF_Ligne_DevisHistoric` business object definition
+---------------------------------------------------
+
+
+
+### Fields
+
+| Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
+| ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
+| `row_ref_id` link to **`DF_Ligne_Devis`**                    | id                                       | yes*     |           |          | -                                                                                |
+| `row_idx`                                                    | int(11)                                  | yes*     | yes       |          | -                                                                                |
+| `created_by_hist`                                            | char(100)                                | yes*     |           |          | -                                                                                |
+| `created_dt_hist`                                            | datetime                                 | yes*     |           |          | -                                                                                |
+| `df_ligne_devis_id`                                          | char(11)                                 | yes*     | yes       |          | -                                                                                |
+| `df_ligne_devis_quantite`                                    | int(11)                                  | yes      | yes       |          | -                                                                                |
+| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.df_produit_designation`_ | _char(20)_                               |          |           |          | -                                                                                |
+| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.df_produit_finition`_ | _char(20)_                               |          |           |          | -                                                                                |
+| `DF_Ligne_Devis_DF_Devis_id` link to **`DF_Devis`**          | id                                       |          | yes       |          | -                                                                                |
+| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.df_produit_masse_volumique`_ | _bigdec(8, 2)_                           |          |           |          | -                                                                                |
+| _Ref. `DF_Ligne_Devis_DF_Devis_id.df_devis_titre`_           | _char(100)_                              |          |           |          | -                                                                                |
+| `df_ligne_devis_dim_joints`                                  | float(4, 2)                              | yes      | yes       |          | -                                                                                |
+| `df_ligne_devis_poids_total`                                 | float(9, 2)                              |          | yes       |          | -                                                                                |
+| `df_ligne_devis_prix_transport_reference`                    | float(9, 2)                              | yes      | yes       |          | -                                                                                |
+| `df_ligne_devis_nombre_camions`                              | float(9, 2)                              |          | yes       |          | -                                                                                |
+| `df_ligne_devis_masse_unitaire_ac_joint`                     | float(8, 2)                              |          | yes       |          | -                                                                                |
+| `df_ligne_devis_masse_unitaire_ss_joint`                     | float(8, 2)                              |          | yes       |          | -                                                                                |
+| `df_ligne_devis_prix_debourse_sec`                           | float(10, 2)                             |          | yes       |          | -                                                                                |
+| `df_ligne_devis_prix_transport_unitaire`                     | float(10, 2)                             |          | yes       |          | -                                                                                |
+| `df_ligne_devis_total_achat_reference_ht`                    | float(11, 2)                             |          | yes       |          | -                                                                                |
+| `df_ligne_devis_total_achat_ht`                              | float(11, 2)                             |          | yes       |          | -                                                                                |
+| `df_ligne_devis_coef`                                        | float(6, 2)                              | yes      | yes       |          | -                                                                                |
+| `df_ligne_devis_prix_vente_calcule`                          | float(6, 2)                              |          | yes       |          | -                                                                                |
+| `df_ligne_devis_prix_vente_impose`                           | float(6, 2)                              |          | yes       |          | -                                                                                |
+| `df_ligne_devis_ref`                                         | int(5)                                   |          | yes       |          | -                                                                                |
+| `df_ligne_devis_designation`                                 | text(100)                                | yes      | yes       |          | -                                                                                |
+| `df_ligne_devis_nb_elt_ss_joint`                             | float(5, 2)                              |          | yes       |          | -                                                                                |
+| `df_ligne_devis_nb_elt_ac_joint`                             | float(5, 2)                              |          | yes       |          | -                                                                                |
+| `df_ligne_devis_prix_exw_u`                                  | float(9, 2)                              |          | yes       |          | -                                                                                |
+| `df_ligne_devis_prix_exw_unite`                              | float(10, 2)                             |          | yes       |          | -                                                                                |
+| `df_ligne_devis_prix_exw_t`                                  | float(9, 2)                              |          | yes       |          | -                                                                                |
+| `df_ligne_devis_t_prod`                                      | char(10)                                 |          | yes       |          | -                                                                                |
+| `DF_Ligne_Devis_DF_Produit_Finis_id` link to **`DF_Produit_Finis`** | id                                       |          | yes       |          | -                                                                                |
+| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.df_produit_id`_    | _int(11)_                                |          |           |          | -                                                                                |
+| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.df_produit_nom`_   | _char(15)_                               |          |           |          | -                                                                                |
+| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.df_produit_long`_  | _float(5, 2)_                            |          |           |          | -                                                                                |
+| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.df_produit_larg`_  | _float(5, 2)_                            |          |           |          | -                                                                                |
+| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.df_produit_haut`_  | _float(5, 2)_                            |          |           |          | -                                                                                |
+| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.df_produit_unite`_ | _char(4)_                                |          |           |          | -                                                                                |
+| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.df_produit_prix`_  | _float(10, 2)_                           |          |           |          | -                                                                                |
+| `DF_Ligne_DevisHistoric_DF_DevisHistoric_id` link to **`DF_DevisHistoric`** | id                                       |          | yes       |          | -                                                                                |
+| _Ref. `DF_Ligne_DevisHistoric_DF_DevisHistoric_id.row_ref_id`_ | _id_                                     |          |           |          | -                                                                                |
+| _Ref. `DF_Ligne_DevisHistoric_DF_DevisHistoric_id.row_idx`_  | _int(11)_                                |          |           |          | -                                                                                |
+| _Ref. `DF_Ligne_DevisHistoric_DF_DevisHistoric_id.created_by_hist`_ | _char(100)_                              |          |           |          | -                                                                                |
+| _Ref. `DF_Ligne_DevisHistoric_DF_DevisHistoric_id.created_dt_hist`_ | _datetime_                               |          |           |          | -                                                                                |
+| _Ref. `DF_Ligne_DevisHistoric_DF_DevisHistoric_id.DF_Devis_DF_Client_id`_ | _id_                                     |          |           |          | -                                                                                |
+| _Ref. `DF_Devis_DF_Client_id.df_client_id`_                  | _char(11)_                               |          |           |          | -                                                                                |
+| _Ref. `DF_Ligne_DevisHistoric_DF_DevisHistoric_id.df_devis_numero`_ | _char(30)_                               |          |           |          | -                                                                                |
 
 ### Custom actions
 

@@ -15,6 +15,13 @@ public class DF_Ligne_Devis extends ObjectDB {
 	@Override
 	public void initUpdate(){
 		
+		// set id ligne devis
+		
+		Integer id = Integer.valueOf(getRowId());
+		String id_ld = String.format("%04d",id);
+		
+		setFieldValue("df_ligne_devis_id",id_ld);
+		
         // accès aux valeurs 
         String unite = getField("df_produit_unite").getValue(); 
         String des_produit = getField("df_produit_designation").getValue(); 
