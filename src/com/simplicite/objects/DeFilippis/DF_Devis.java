@@ -122,6 +122,7 @@ public class DF_Devis extends ObjectDB {
 		double poids_total = getField("df_devis_poids_total").getDouble(0);
 		double nb_camions = getField("df_devis_nombre_camions").getDouble(0);
 		
+		
 		// Set Commande
 		c.create();
 		ObjectField s = c.getField("df_commande_id");
@@ -209,6 +210,10 @@ public class DF_Devis extends ObjectDB {
 		String lieu_affaire = getFieldValue("df_devis_lieu_projet");
 		String intitule_affaire = getFieldValue("df_devis_titre_projet");
 		
+		double prix_total_ht = getField("df_devi_prix_total_ht").getDouble(0);
+		double prix_total = getField("df_devis_prix_total").getDouble(0);
+		double coef_global = getField("df_devis_coef_global").getDouble(0);
+		
 		double poids_total = getField("df_devis_poids_total").getDouble(0);
 		double nb_camions = getField("df_devis_nombre_camions").getDouble(0);
 		
@@ -220,6 +225,10 @@ public class DF_Devis extends ObjectDB {
 		o.setFieldValue("df_devis_lieu_projet",lieu_affaire);
 		o.setFieldValue("df_devis_titre_projet",intitule_affaire);
 		
+		o.setFieldValue("df_devi_prix_total_ht", prix_total_ht);
+			
+		o.setFieldValue("df_devis_prix_total", prix_total);
+		o.setFieldValue("df_devis_coef_global", coef_global);
 		o.setFieldValue("df_devis_poids_total",poids_total);
 		o.setFieldValue("df_devis_nombre_camions",nb_camions);
 		o.save();
