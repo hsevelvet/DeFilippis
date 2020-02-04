@@ -3024,7 +3024,7 @@ paths:
         required: false
       - in: query
         name: DF_Devis_DF_utilisateur_interne_id__df_utilisateur_interne_nc
-        description: Search filter for Rédacteur
+        description: Search filter for Suiveur de l'affaire
         type: string
         required: false
       - in: query
@@ -3192,8 +3192,8 @@ paths:
         type: integer
         required: false
       - in: query
-        name: df_devis_suiveur_affaire
-        description: Search filter for Suiveur de l'affaire
+        name: df_devis_redac
+        description: Search filter for Rédacteur
         type: string
         required: false
       - in: query
@@ -6281,10 +6281,10 @@ definitions:
       DF_Devis_DF_Contact_id__df_contact_nom:
         description: Nom Contact
         type: string
-      df_devis_suiveur_affaire:
+      DF_Devis_DF_utilisateur_interne_id__df_utilisateur_interne_nc:
         description: Suiveur de l'affaire
         type: string
-      DF_Devis_DF_utilisateur_interne_id__df_utilisateur_interne_nc:
+      df_devis_redac:
         description: Rédacteur
         type: string
       df_devis_delai_paiement:

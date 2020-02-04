@@ -43,6 +43,8 @@ public class DF_Devis extends ObjectDB {
 	    return daysWithoutSunday-w1+w2;
 	}
 	
+
+	
 	@Override
 	public void initUpdate(){
 		
@@ -54,6 +56,9 @@ public class DF_Devis extends ObjectDB {
 		
 		String num_devis = y +"."+id;
 		setFieldValue("df_devis_numero",num_devis);
+		
+		String redac = this.getCreatedBy();
+		setFieldValue("df_devis_redac",redac);
 		
 		// set titre devis
 		String full_name = getFieldValue("df_utilisateur_interne_nc");

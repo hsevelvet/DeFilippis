@@ -18,12 +18,9 @@ public class DF_Client extends ObjectDB {
 	}
 	
 	@Override
-	public List<String> postValidate() {
+	public List<String> preValidate() {
 		List<String> msgs = new ArrayList<String>();
 		
-		//msgs.add(Message.formatInfo("INFO_CODE", "Message", "fieldName"));
-		//msgs.add(Message.formatWarning("WARNING_CODE", "Message", "fieldName"));
-		//msgs.add(Message.formatError("ERROR_CODE", "Message", "fieldName"));
 		
 		// calcul du taux de transformation	
 		ObjectDB devis = getGrant().getTmpObject("DF_Devis");
@@ -41,7 +38,7 @@ public class DF_Client extends ObjectDB {
 					c += 1;
 				}
 				
-				setFieldValue("df_client_taux_transformation",(1-(c/nb_devis))/100);
+				setFieldValue("df_client_taux_transformation", (1-(c/nb_devis))*100);
 			}
 		}
 		// calcul de somme de commandes 
