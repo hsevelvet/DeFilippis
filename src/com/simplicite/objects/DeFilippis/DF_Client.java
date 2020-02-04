@@ -21,6 +21,10 @@ public class DF_Client extends ObjectDB {
 	public List<String> postValidate() {
 		List<String> msgs = new ArrayList<String>();
 		
+		//msgs.add(Message.formatInfo("INFO_CODE", "Message", "fieldName"));
+		//msgs.add(Message.formatWarning("WARNING_CODE", "Message", "fieldName"));
+		//msgs.add(Message.formatError("ERROR_CODE", "Message", "fieldName"));
+		
 		// calcul du taux de transformation	
 		ObjectDB devis = getGrant().getTmpObject("DF_Devis");
 		synchronized(devis){
@@ -37,29 +41,28 @@ public class DF_Client extends ObjectDB {
 					c += 1;
 				}
 				
-				setFieldValue("df_client_taux_transformation",(1-(c/nb_devis))*100);
+				setFieldValue("df_client_taux_transformation",(1-(c/nb_devis))/100);
 			}
 		}
 		// calcul de somme de commandes 
 		ObjectDB commandes = getGrant().getTmpObject("DF_Commande");
 		synchronized(commandes){
-			devis.resetFilters();
-			devis.setFieldFilter("DF_Commande_DF_Client_id",this.getRowId());
+			commandes.resetFilters();
+			commandes.setFieldFilter("DF_Commande_DF_Client_id",this.getRowId());
 			
 			double cm = 0;
+			
 			for(String[] cmd : commandes.search()){
 				commandes.setValues(cmd);
 				if(commandes.getStatus().equals("TE")){
-					cm += 1;
+					cm += commandes.getField("df_commande_montant_ht").getDouble(0);
 				}
 				
 				setFieldValue("df_client_sum_cmd",cm);
 			}
 		}
-	
-		return msgs;
 		
+		return msgs;
 	}
 }
-
 

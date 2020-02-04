@@ -1,6 +1,7 @@
 package com.simplicite.objects.DeFilippis;
 
 import java.util.*;
+import java.util.Date;
 import com.simplicite.util.*;
 import com.simplicite.util.ObjectDB;
 import com.simplicite.objects.DeFilippis.DF_Ligne_Devis;
@@ -14,20 +15,44 @@ public class DF_Devis extends ObjectDB {
 
 	private static final long serialVersionUID = 1L;
 	
-
+	
+	// compteur date
+	static long days(Date start, Date end){
+	    //Ignore argument check
+	
+	    Calendar c1 = GregorianCalendar.getInstance();
+	    c1.setTime(start);
+	    int w1 = c1.get(Calendar.DAY_OF_WEEK);
+	    c1.add(Calendar.DAY_OF_WEEK, -w1 + 1);
+	
+	    Calendar c2 = GregorianCalendar.getInstance();
+	    c2.setTime(end);
+	    int w2 = c2.get(Calendar.DAY_OF_WEEK);
+	    c2.add(Calendar.DAY_OF_WEEK, -w2 + 1);
+	
+	    //end Saturday to start Saturday 
+	    long days = (c2.getTimeInMillis()-c1.getTimeInMillis())/(1000*60*60*24);
+	    long daysWithoutSunday = days-(days*2/7);
+	
+	    if (w1 == Calendar.SUNDAY) {
+	        w1 = Calendar.MONDAY;
+	    }
+	    if (w2 == Calendar.SUNDAY) {
+	        w2 = Calendar.MONDAY;
+	    }
+	    return daysWithoutSunday-w1+w2;
+	}
+	
 	@Override
 	public void initUpdate(){
 		
 		// set numero devis
-		
-		String date = getCreatedDate();
-		String[] year = date.split("-");
-		String y = year[0];
+		String y = Tool.getCurrentYear();
 		
 		Integer result = Integer.valueOf(getRowId());
 		String id = String.format("%04d",result);
 		
-		String num_devis = y +"."+id+"."+"A";
+		String num_devis = y +"."+id;
 		setFieldValue("df_devis_numero",num_devis);
 		
 		// set titre devis
@@ -42,25 +67,47 @@ public class DF_Devis extends ObjectDB {
 		
 		String titre_devis = trigramme + "." + lieu + "." + projet + "." + client + "." + num_devis;
 		setFieldValue("df_devis_titre",titre_devis);
+		
+		// set values ligne devis
+		ObjectDB o = getGrant().getTmpObject("DF_Ligne_Devis");
+		o.resetFilters();
+		o.getField("DF_Ligne_Devis_DF_Devis_id").setFilter(getRowId());
+		
+		String dateString = getFieldValue("df_devis_date_emission");
+		Date date_em = Tool.fromDateTime(dateString);
+		String c_dateString = Tool.getCurrentDateTime();
+		Date date_cur = Tool.fromDateTime(c_dateString);
+		double date_diff = days(date_em,date_cur);
+		setFieldValue("df_devis_date_count",date_diff);
+		
+		List<String[]> rows = o.search(false);
+		if (rows.size() > 0){
+			double c = o.getCount();
+			
+			double t = Double.parseDouble(o.getField("df_ligne_devis_prix_vente_impose").getListOperatorValue());
+			double total_achat = Double.parseDouble(o.getField("df_ligne_devis_total_achat_ht").getListOperatorValue());
+			double nbc = Double.parseDouble(o.getField("df_ligne_devis_nombre_camions").getListOperatorValue());
+			double pt = Double.parseDouble(o.getField("df_ligne_devis_poids_total").getListOperatorValue());
+			
+			
+			
+			setFieldValue("df_devis_nombre_camions", nbc);
+			setFieldValue("df_devis_poids_total", pt);
+			
+			setFieldValue("df_devi_prix_total_ht", t);
+			
+			setFieldValue("df_devis_prix_total", t + t*0.2);
+			setFieldValue("df_devis_coef_global", t/total_achat);
 
-		
-		
+		}
 	}
 	
-
-	
 	public void initialCommande(){
-		// Grant Objet Ligne Devis
-		
-		
 		
 		// Grant Objet Commande
 		ObjectDB c = getGrant().getTmpObject("DF_Commande");
 		c.resetFilters();
 		
-		// Grant Objet ligne commande
-		//ObjectDB lc = getGrant().getTmpObject("DF_ligne_commande");
-		//lc.resetFilters();
 		
 		// Get des valeurs devis 
 		String num = getField("df_devis_titre").getValue();
@@ -104,7 +151,7 @@ public class DF_Devis extends ObjectDB {
 				double prd_eps = ld.getField("df_produit_haut").getDouble(0);
 				double prd_qte = ld.getField("df_ligne_devis_quantite").getDouble(0);
 				double cmd_prix_exw_u = ld.getField("df_ligne_devis_prix_exw_u").getDouble(0);
-				double cmd_total_exw = ld.getField("df_ligne_devis_total_achat_reference_ht").getDouble(0);
+				double cmd_total_exw = ld.getField("df_ligne_devis_prix_vente_impose").getDouble(0);
 				
 				
 				ObjectDB lc = getGrant().getTmpObject("DF_ligne_commande");
@@ -140,25 +187,37 @@ public class DF_Devis extends ObjectDB {
 	}	
 	
 	public void versionnerDevis(){
+		ObjectDB o =  getGrant().getTmpObject("DF_Devis");
+		o.resetFilters();
 		
 		// Versionner Devis	
-		create();
-		//ObjectDB o =  getGrant().getTmpObject("DF_Devis");
-		String num = getField("df_devis_titre").getValue();
+		
+		
+		// increment indice 
+		String value = getFieldValue("df_devis_indice");
+		int charValue = value.charAt(0);
+		String next = String.valueOf( (char) (charValue + 1));
+		
+		
+		String num = getField("df_devis_numero").getValue();
+		String titre = getField("df_devis_titre").getValue();
 		String lieu_affaire = getFieldValue("df_devis_lieu_projet");
 		String intitule_affaire = getFieldValue("df_devis_titre_projet");
 		
 		double poids_total = getField("df_devis_poids_total").getDouble(0);
 		double nb_camions = getField("df_devis_nombre_camions").getDouble(0);
 		
-		setStatus("VR");
-		setFieldValue("df_devis_titre",num);
-		setFieldValue("df_devis_lieu_projet",lieu_affaire);
-		setFieldValue("df_devis_titre_projet",intitule_affaire);
+		o.create();
+		o.setStatus("VR");
+		o.setFieldValue("df_devis_indice",next);
+		o.setFieldValue("df_devis_numero",num);
+		o.setFieldValue("df_devis_titre",titre);
+		o.setFieldValue("df_devis_lieu_projet",lieu_affaire);
+		o.setFieldValue("df_devis_titre_projet",intitule_affaire);
 		
-		setFieldValue("df_devis_poids_total",poids_total);
-		setFieldValue("df_devis_nombre_camions",nb_camions);
-		save();
+		o.setFieldValue("df_devis_poids_total",poids_total);
+		o.setFieldValue("df_devis_nombre_camions",nb_camions);
+		o.save();
 		
 		// Versionner Ligne_Devis
 		ObjectDB ld2 = getGrant().getTmpObject("DF_Ligne_Devis");
@@ -185,8 +244,8 @@ public class DF_Devis extends ObjectDB {
 				
 				ld2.create();
 				
-				ObjectField s2 = ld2.getField("df_ligne_devis_id");
-				s2.setValue(getRowId());
+				//ObjectField s2 = ld2.getField("df_ligne_devis_id");
+				//s2.setValue(getRowId());
 				
 				ld2.setFieldValue("df_produit_id",ref_prod);
 				ld2.setFieldValue("df_produit_nom", type_geo);
@@ -201,12 +260,12 @@ public class DF_Devis extends ObjectDB {
 				ld2.setFieldValue("df_ligne_devis_prix_exw_u",cmd_prix_exw_u);
 				ld2.setFieldValue("df_ligne_devis_total_achat_reference_ht",cmd_total_exw);
 
-				setFieldValue("DF_Ligne_Devis_DF_Devis_id",getRowId());
+				ld2.setFieldValue("DF_Ligne_Devis_DF_Devis_id",o.getRowId());
 
-				save();
+				ld2.save();
 	}
 }
 
 }
-}
 	
+}

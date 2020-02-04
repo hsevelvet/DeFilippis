@@ -12,7 +12,7 @@ import com.simplicite.util.tools.TrelloTool;
 
 /**
  * Trello card business object example
- */
+ 
 public class DF_Livraison extends com.simplicite.util.ObjectDB {
 	private static final long serialVersionUID = 1L;
 
@@ -204,3 +204,5 @@ public class DF_Livraison extends com.simplicite.util.ObjectDB {
 	}
 	
 }
+
+*/

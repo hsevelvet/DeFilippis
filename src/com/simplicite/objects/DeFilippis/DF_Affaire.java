@@ -10,7 +10,7 @@ import com.simplicite.util.tools.*;
 */
 public class DF_Affaire extends ObjectDB {
 	private static final long serialVersionUID = 1L;
-/**	
+
 	@Override
 	public List<String> postValidate() {
 		List<String> msgs = new ArrayList<String>();
@@ -18,7 +18,7 @@ public class DF_Affaire extends ObjectDB {
 		ObjectDB devis = getGrant().getTmpObject("DF_Devis");
 		synchronized(devis){
 			devis.resetFilters();
-			devis.setFieldFilter(this.getRowId(),"DF_Devis_DF_Chantier_id");
+			devis.setFieldFilter("DF_Devis_DF_Chantier_id", getRowId());
 			
 			for(String[] devi : devis.search()){
 				devis.setValues(devi);
@@ -35,7 +35,7 @@ public class DF_Affaire extends ObjectDB {
 		return msgs;
 		
 	}
-*/	
+
 }
 
 

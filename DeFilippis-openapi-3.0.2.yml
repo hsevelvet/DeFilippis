@@ -252,11 +252,11 @@ components:
         DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_id:
           description: Catalogue Produit
           type: integer
-        df_ligne_devis_prix_vente_impose:
-          description: Prix Vente Unitaire Imposé
-          type: number
         DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_prix:
           description: Prix unitaire HT
+          type: number
+        df_ligne_devis_prix_vente_impose:
+          description: Prix Vente Unitaire Imposé
           type: number
         df_ligne_devis_designation:
           description: Désignation
@@ -355,9 +355,6 @@ components:
         DF_Commande_DF_utilisateur_interne_id:
           description: Rédacteur
           type: string
-        DF_Commande_DF_Contact_id__df_contact_id:
-          description: Id Contact DF contact
-          type: integer
         df_commande_detail:
           description: Détail de commande
           type: string
@@ -370,9 +367,6 @@ components:
         df_commande_pj_fournisseur:
           description: Pièce Jointe Fournisseur
           type: object
-        df_commande_intitule_affaire:
-          description: Intitulé de l'affaire
-          type: string
         df_commande_statut:
           description: Statut Commande
           type: string
@@ -382,6 +376,9 @@ components:
           - LI
           - TE
           - AN
+        df_commande_intitule_affaire:
+          description: Intitulé de l'affaire
+          type: string
         df_commande_nb_camions:
           description: Nombre de camions
           type: number
@@ -420,6 +417,9 @@ components:
           type: string
         DF_Commande_DF_Client_id:
           description: DF client
+          type: string
+        DF_Commande_DF_Affaire_id:
+          description: Affaires
           type: string
     Error403:
       type: object
@@ -508,18 +508,12 @@ components:
     DF_Transport:
       type: object
       properties:
-        DF_Transport_DF_Livraison_id__df_livraison_id:
-          description: Id Livraison DF livraison
-          type: integer
         df_transport_email:
           description: E-mail
           type: string
         df_transport_id:
           description: Id Transport
           type: integer
-        DF_Transport_DF_Chantier_id__df_affaire_numero:
-          description: Numéro d'affaire DF chantier
-          type: string
         df_transport_pays_origine:
           description: Pays d'origine
           type: string
@@ -556,9 +550,6 @@ components:
         DF_Prix_Transport_DF_Transport_id:
           description: DF transport
           type: string
-        DF_Prix_Transport_DF_Transport_id__df_transport_id:
-          description: Id Transporteur
-          type: integer
         DF_Prix_Transport_DF_Transport_id__DF_Transport_DF_Client_id:
           description: DF client DF transport
           type: string
@@ -567,9 +558,6 @@ components:
           type: string
         DF_Prix_Transport_DF_Transport_id__df_transport_nom:
           description: Nom Transporteur
-          type: string
-        DF_Prix_Transport_DF_Transport_id__DF_Transport_DF_Client_id__df_client_region:
-          description: Destination
           type: string
     DF_test:
       type: object
@@ -587,12 +575,6 @@ components:
         df_ligne_commande_larg:
           description: Largeur (cm)
           type: number
-        df_ligne_commande_type_produit:
-          description: df_ligne_commande_type_produit
-          type: string
-        DF_ligne_commande_DF_Commande_id__df_commande_date:
-          description: Date de commande DF commande
-          type: string
         DF_ligne_commande_DF_Commande_id:
           description: DF commande
           type: string
@@ -601,9 +583,6 @@ components:
           type: number
         df_ligne_commande_type_geo:
           description: Type Géologique
-          type: string
-        DF_ligne_commande_DF_Commande_id__df_commande_numero:
-          description: Numéro de Commande DF commande
           type: string
         df_ligne_commande_ref_prod:
           description: Référence Produit
@@ -711,6 +690,9 @@ components:
           type: string
         DF_Devis_DF_Contact_id__df_contact_prenom:
           description: Prénom Contact
+          type: string
+        df_devis_indice:
+          description: Indice
           type: string
         df_devis_numero:
           description: Numéro de devis
@@ -835,6 +817,9 @@ components:
         row_id:
           description: Unique technical row ID
           type: string
+        df_devis_date_count:
+          description: Compteur Date
+          type: number
         df_devis_validite_offre:
           description: Date Validité offre
           type: string
@@ -938,9 +923,6 @@ components:
         df_produit_nom:
           description: Type Géologique
           type: string
-        DF_Produit_Finis_DF_Fournisseurs_id__df_fournisseur_id:
-          description: Id Fournisseur
-          type: integer
         DF_Produit_Finis_DF_Fournisseurs_id__df_fournisseur_nom:
           description: Nom Fournisseur
           type: string
@@ -2641,12 +2623,6 @@ paths:
         description: Search filter for Fournisseurs
         required: false
       - schema:
-          type: integer
-        in: query
-        name: DF_Produit_Finis_DF_Fournisseurs_id__df_fournisseur_id
-        description: Search filter for Id Fournisseur
-        required: false
-      - schema:
           type: string
         in: query
         name: DF_Produit_Finis_DF_Fournisseurs_id__df_fournisseur_nom
@@ -4324,6 +4300,18 @@ paths:
         required: false
       - schema:
           type: string
+          enum:
+          - IN
+          - EC
+          - LI
+          - TE
+          - AN
+        in: query
+        name: df_commande_statut
+        description: Search filter for Statut Commande
+        required: false
+      - schema:
+          type: string
         in: query
         name: DF_Commande_DF_Client_id
         description: Search filter for DF client
@@ -4339,12 +4327,6 @@ paths:
         in: query
         name: DF_Commande_DF_Contact_id
         description: Search filter for DF contact
-        required: false
-      - schema:
-          type: integer
-        in: query
-        name: DF_Commande_DF_Contact_id__df_contact_id
-        description: Search filter for Id Contact DF contact
         required: false
       - schema:
           type: string
@@ -4492,15 +4474,9 @@ paths:
         required: false
       - schema:
           type: string
-          enum:
-          - IN
-          - EC
-          - LI
-          - TE
-          - AN
         in: query
-        name: df_commande_statut
-        description: Search filter for Statut Commande
+        name: DF_Commande_DF_Affaire_id
+        description: Search filter for Affaires
         required: false
       tags:
       - DF_Commande
@@ -5001,20 +4977,8 @@ paths:
       - schema:
           type: string
         in: query
-        name: DF_Transport_DF_Chantier_id__df_affaire_numero
-        description: Search filter for Numéro d'affaire DF chantier
-        required: false
-      - schema:
-          type: string
-        in: query
         name: DF_Transport_DF_Livraison_id
         description: Search filter for DF livraison
-        required: false
-      - schema:
-          type: integer
-        in: query
-        name: DF_Transport_DF_Livraison_id__df_livraison_id
-        description: Search filter for Id Livraison DF livraison
         required: false
       - schema:
           type: string
@@ -5095,12 +5059,6 @@ paths:
         description: Search filter for DF transport
         required: false
       - schema:
-          type: integer
-        in: query
-        name: DF_Prix_Transport_DF_Transport_id__df_transport_id
-        description: Search filter for Id Transporteur
-        required: false
-      - schema:
           type: string
         in: query
         name: DF_Prix_Transport_DF_Transport_id__df_transport_nom
@@ -5117,12 +5075,6 @@ paths:
         in: query
         name: df_prix_transport_prix
         description: Search filter for Prix Transport
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: DF_Prix_Transport_DF_Transport_id__DF_Transport_DF_Client_id__df_client_region
-        description: Search filter for Destination
         required: false
       - schema:
           type: string
@@ -5488,6 +5440,20 @@ paths:
       - schema:
           type: string
           enum:
+          - Transformation-Devis-Affaire
+        in: query
+        name: _crosstab
+        description: Apply pivot table
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _crosstabcubes
+        description: Pivot table data as cubes?
+        required: false
+      - schema:
+          type: string
+          enum:
           - I
           - C
         in: query
@@ -5505,6 +5471,12 @@ paths:
         in: query
         name: df_devis_titre_projet
         description: Search filter for Titre Projet
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Devis_DF_utilisateur_interne_id__df_utilisateur_interne_nc
+        description: Search filter for Rédacteur
         required: false
       - schema:
           type: string
@@ -5689,12 +5661,6 @@ paths:
       - schema:
           type: string
         in: query
-        name: DF_Devis_DF_utilisateur_interne_id__df_utilisateur_interne_nc
-        description: Search filter for Rédacteur
-        required: false
-      - schema:
-          type: string
-        in: query
         name: DF_Devis_DF_Contact_id
         description: Search filter for Contacts
         required: false
@@ -5779,6 +5745,18 @@ paths:
         in: query
         name: df_devis_pj4
         description: Search filter for Pièce Jointe 4
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: df_devis_indice
+        description: Search filter for Indice
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: df_devis_date_count
+        description: Search filter for Compteur Date
         required: false
       tags:
       - DF_Devis
@@ -5865,18 +5843,6 @@ paths:
         description: Search filter for Id Commande DF commande
         required: false
       - schema:
-          type: string
-        in: query
-        name: DF_ligne_commande_DF_Commande_id__df_commande_numero
-        description: Search filter for Numéro de Commande DF commande
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: DF_ligne_commande_DF_Commande_id__df_commande_date
-        description: Search filter for Date de commande DF commande
-        required: false
-      - schema:
           type: number
         in: query
         name: df_ligne_commande_prix_exw_u
@@ -5887,12 +5853,6 @@ paths:
         in: query
         name: df_ligne_commande_ref_prod
         description: Search filter for Référence Produit
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: df_ligne_commande_type_produit
-        description: Search filter for df_ligne_commande_type_produit
         required: false
       - schema:
           type: string
@@ -8178,12 +8138,6 @@ paths:
         description: Search filter for Prix Vente Unitaire Calculé
         required: false
       - schema:
-          type: number
-        in: query
-        name: df_ligne_devis_prix_vente_impose
-        description: Search filter for Prix Vente Unitaire Imposé
-        required: false
-      - schema:
           type: integer
         in: query
         name: df_ligne_devis_ref
@@ -8278,6 +8232,12 @@ paths:
         in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__df_produit_prix
         description: Search filter for Prix unitaire HT
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: df_ligne_devis_prix_vente_impose
+        description: Search filter for Prix Vente Unitaire Imposé
         required: false
       tags:
       - DF_Ligne_Devis

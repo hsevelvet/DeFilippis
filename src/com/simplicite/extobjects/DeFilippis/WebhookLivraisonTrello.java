@@ -1,5 +1,5 @@
 package com.simplicite.extobjects.DeFilippis;
-
+/**
 import java.util.List;
 
 import org.json.JSONObject;
@@ -14,9 +14,9 @@ import com.simplicite.util.tools.Parameters;
 import com.simplicite.util.exceptions.HTTPException;
 
 
-/**
+
  * External object WebhoonkLivraisonTrello
- */
+ 
 public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTServiceExternalObject {
 	private static final long serialVersionUID = 1L;
 
@@ -124,3 +124,4 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
         }
     }
 }
+*/
