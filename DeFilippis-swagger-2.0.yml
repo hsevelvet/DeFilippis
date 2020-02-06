@@ -643,8 +643,8 @@ paths:
         type: string
         required: false
         enum:
-        - FFT
         - Pierre
+        - FFT
       - in: query
         name: defiPrdAutresFinitions
         description: Search filter for Autres finitions
@@ -6539,8 +6539,8 @@ definitions:
         description: Catégorie Prix
         type: string
         enum:
-        - FFT
         - Pierre
+        - FFT
       DF_Produit_Finis_DF_Fournisseurs_id__defiFournNom:
         description: Nom Fournisseur
         type: string

@@ -948,8 +948,8 @@ components:
           description: Catégorie Prix
           type: string
           enum:
-          - FFT
           - Pierre
+          - FFT
         DF_Produit_Finis_DF_Fournisseurs_id__defiFournNom:
           description: Nom Fournisseur
           type: string
@@ -2598,8 +2598,8 @@ paths:
       - schema:
           type: string
           enum:
-          - FFT
           - Pierre
+          - FFT
         in: query
         name: defiPrdCategoriePrix
         description: Search filter for Catégorie Prix
