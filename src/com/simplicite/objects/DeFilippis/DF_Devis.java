@@ -55,10 +55,10 @@ public class DF_Devis extends ObjectDB {
 		String id = String.format("%04d",result);
 		
 		String num_devis = y +"."+id;
-		setFieldValue("df_devis_numero",num_devis);
+		setFieldValue("defiDevisNumero",num_devis);
 		
 		String redac = this.getCreatedBy();
-		setFieldValue("df_devis_redac",redac);
+		setFieldValue("defiDevisRedacteur",redac);
 		
 		// set titre devis
 		String full_name = getFieldValue("df_utilisateur_interne_nc");
@@ -66,43 +66,43 @@ public class DF_Devis extends ObjectDB {
 		String trigramme = String.valueOf(nameparts[0].charAt(0)).toUpperCase() +
 		String.valueOf(nameparts[1].charAt(0)).toUpperCase() + String.valueOf(nameparts[1].charAt(2)).toUpperCase();
 		
-		String lieu = getFieldValue("df_devis_lieu_projet");
-		String projet = getFieldValue("df_devis_titre_projet");
-		String client = getFieldValue("df_client_nom");
+		String lieu = getFieldValue("defiDevisLieuProjet");
+		String projet = getFieldValue("defiDevisTitreProjet");
+		String client = getFieldValue("defiClientNom");
 		
 		String titre_devis = trigramme + "." + lieu + "." + projet + "." + client + "." + num_devis;
-		setFieldValue("df_devis_titre",titre_devis);
+		setFieldValue("defiDevisTitre",titre_devis);
 		
 		// set values ligne devis
 		ObjectDB o = getGrant().getTmpObject("DF_Ligne_Devis");
 		o.resetFilters();
 		o.getField("DF_Ligne_Devis_DF_Devis_id").setFilter(getRowId());
 		
-		String dateString = getFieldValue("df_devis_date_emission");
+		String dateString = getFieldValue("defiDevisDateEmission");
 		Date date_em = Tool.fromDateTime(dateString);
 		String c_dateString = Tool.getCurrentDateTime();
 		Date date_cur = Tool.fromDateTime(c_dateString);
 		double date_diff = days(date_em,date_cur);
-		setFieldValue("df_devis_date_count",date_diff);
+		setFieldValue("defiDevisCompteurDate",date_diff);
 		
 		List<String[]> rows = o.search(false);
 		if (rows.size() > 0){
 			double c = o.getCount();
 			
-			double t = Double.parseDouble(o.getField("df_ligne_devis_prix_vente_impose").getListOperatorValue());
-			double total_achat = Double.parseDouble(o.getField("df_ligne_devis_total_achat_ht").getListOperatorValue());
-			double nbc = Double.parseDouble(o.getField("df_ligne_devis_nombre_camions").getListOperatorValue());
-			double pt = Double.parseDouble(o.getField("df_ligne_devis_poids_total").getListOperatorValue());
+			double t = Double.parseDouble(o.getField("defiLigneDevisPrixVenteImpose").getListOperatorValue());
+			double total_achat = Double.parseDouble(o.getField("defiLigneDevisTotalAchatHT").getListOperatorValue());
+			double nbc = Double.parseDouble(o.getField("defiLigneDevisNombreCamions").getListOperatorValue());
+			double pt = Double.parseDouble(o.getField("defiLigneDevisPoidsTotal").getListOperatorValue());
 			
 			
 			
-			setFieldValue("df_devis_nombre_camions", nbc);
-			setFieldValue("df_devis_poids_total", pt);
+			setFieldValue("defiDevisNombreCamions", nbc);
+			setFieldValue("defiDevisPoidsTotal", pt);
 			
-			setFieldValue("df_devi_prix_total_ht", t);
+			setFieldValue("defiDevisPrixTotalHT", t);
 			
-			setFieldValue("df_devis_prix_total", t + t*0.2);
-			setFieldValue("df_devis_coef_global", t/total_achat);
+			setFieldValue("defiDevisPrixTotal", t + t*0.2);
+			setFieldValue("defiDevisCoefficientGlobal", t/total_achat);
 
 		}
 	}
@@ -115,25 +115,25 @@ public class DF_Devis extends ObjectDB {
 		
 		
 		// Get des valeurs devis 
-		String num = getField("df_devis_titre").getValue();
-		String lieu_affaire = getFieldValue("df_devis_lieu_projet");
-		String intitule_affaire = getFieldValue("df_devis_titre_projet");
+		String num = getField("defiDevisTitre").getValue();
+		String lieu_affaire = getFieldValue("defiDevisLieuProjet");
+		String intitule_affaire = getFieldValue("defiDevisTitreProjet");
 		
-		double poids_total = getField("df_devis_poids_total").getDouble(0);
-		double nb_camions = getField("df_devis_nombre_camions").getDouble(0);
+		double poids_total = getField("defiDevisPoidsTotal").getDouble(0);
+		double nb_camions = getField("defiDevisNombreCamions").getDouble(0);
 		
 		
 		// Set Commande
 		c.create();
-		ObjectField s = c.getField("df_commande_id");
+		ObjectField s = c.getField("defiCommandeId");
 		s.setValue(num);
 			
 		c.setStatus("IN");	
 		
-		c.setFieldValue("df_commande_lieu_affaire",lieu_affaire);
-		c.setFieldValue("df_commande_intitule_affaire",intitule_affaire);
-		c.setFieldValue("df_commande_poids_total",poids_total);
-		c.setFieldValue("df_commande_nb_camions",nb_camions);
+		c.setFieldValue("defiCommandeLieuAffaire",lieu_affaire);
+		c.setFieldValue("defiCommandeIntituleAffaire",intitule_affaire);
+		c.setFieldValue("defiCommandePoidsTotal",poids_total);
+		c.setFieldValue("defiCommandeNombreCamions",nb_camions);
 		c.save();
 		
 		// Get valeurs ligne devis
@@ -145,19 +145,19 @@ public class DF_Devis extends ObjectDB {
 			
 			for(String[] lde : ld.search()){
 				ld.setValues(lde);
-				int ref_prod = ld.getField("df_produit_id").getInt(0);
-				String type_geo = ld.getFieldValue("df_produit_nom");
-				String apl_com = ld.getFieldValue("df_produit_appellation_commerciale");
-				String finition = ld.getFieldValue("df_produit_finition");
-				String unite_p = ld.getFieldValue("df_produit_unite");
+				int ref_prod = ld.getField("defiPrdId").getInt(0);
+				String type_geo = ld.getFieldValue("defiPrdTypeGeologique");
+				String apl_com = ld.getFieldValue("defiPrdAppellationCommerciale");
+				String finition = ld.getFieldValue("defiPrdFinitionFacesVues");
+				String unite_p = ld.getFieldValue("defiPrdUnite");
 
-				double poids_u = ld.getField("df_ligne_devis_poids_total").getDouble(0);
-				double prd_long = ld.getField("df_produit_long").getDouble(0);
-				double prd_larg = ld.getField("df_produit_larg").getDouble(0);
-				double prd_eps = ld.getField("df_produit_haut").getDouble(0);
-				double prd_qte = ld.getField("df_ligne_devis_quantite").getDouble(0);
-				double cmd_prix_exw_u = ld.getField("df_ligne_devis_prix_exw_u").getDouble(0);
-				double cmd_total_exw = ld.getField("df_ligne_devis_prix_vente_impose").getDouble(0);
+				double poids_u = ld.getField("defiLigneDevisPoidsTotal").getDouble(0);
+				double prd_long = ld.getField("defiPrdLongueur").getDouble(0);
+				double prd_larg = ld.getField("defiPrdLargeur").getDouble(0);
+				double prd_eps = ld.getField("defiPrdEpaisseur").getDouble(0);
+				double prd_qte = ld.getField("defiLigneDevisQuantite").getDouble(0);
+				double cmd_prix_exw_u = ld.getField("defiLigneDevisPrixExwUnitaire").getDouble(0);
+				double cmd_total_exw = ld.getField("defiLigneDevisPrixVenteImpose").getDouble(0);
 				
 				
 				ObjectDB lc = getGrant().getTmpObject("DF_ligne_commande");
@@ -166,23 +166,23 @@ public class DF_Devis extends ObjectDB {
 				lc.create();
 		
 		
-				ObjectField s2 = lc.getField("df_ligne_commande_id");
+				ObjectField s2 = lc.getField("defiLigneCommandeId");
 				s2.setValue(lc.getRowId());
 				
-				lc.setFieldValue("df_ligne_commande_ref_prod",ref_prod);
-				lc.setFieldValue("df_ligne_commande_type_geo", type_geo);
-				lc.setFieldValue("df_ligne_commande_apl_com",apl_com);
-				lc.setFieldValue("df_ligne_commande_finition",finition);
-				lc.setFieldValue("df_ligne_commande_long",prd_long);
-				lc.setFieldValue("df_ligne_commande_larg",prd_larg);
-				lc.setFieldValue("df_ligne_commande_eps",prd_eps);
-				lc.setFieldValue("df_ligne_commande_poids_u",poids_u);
-				lc.setFieldValue("df_ligne_commande_unite",unite_p);
-				lc.setFieldValue("df_ligne_commande_qte",prd_qte);
-				lc.setFieldValue("df_ligne_commande_prix_exw_u",cmd_prix_exw_u);
-				lc.setFieldValue("df_ligne_commande_prix_total_ht",cmd_total_exw);
+				lc.setFieldValue("defiLigneCommandeReferenceProduit",ref_prod);
+				lc.setFieldValue("defiLigneCommandeTypeGeologique", type_geo);
+				lc.setFieldValue("defiLigneCommandeAppellationCommerciale",apl_com);
+				lc.setFieldValue("defiLigneCommandeFinitionFacesVues",finition);
+				lc.setFieldValue("defiLigneCommandeLongueur",prd_long);
+				lc.setFieldValue("defiLigneCommandeLargeur",prd_larg);
+				lc.setFieldValue("defiLigneCommandeEpaisseur",prd_eps);
+				lc.setFieldValue("defiLigneCommandePoidsUnitaire",poids_u);
+				lc.setFieldValue("defiLigneCommandeUnite",unite_p);
+				lc.setFieldValue("defiLigneCommandeQuantite",prd_qte);
+				lc.setFieldValue("defiLigneCommandePrixEXWUnitaire",cmd_prix_exw_u);
+				lc.setFieldValue("defiLigneCommandePrixTotalEXW",cmd_total_exw);
 
-				lc.setFieldValue("DF_ligne_commande_DF_Commande_id",c.getRowId());
+				lc.setFieldValue("DF_ligne_commande_df_commande_id",c.getRowId());
 
 				lc.save();
 				
@@ -200,37 +200,37 @@ public class DF_Devis extends ObjectDB {
 		
 		
 		// increment indice 
-		String value = getFieldValue("df_devis_indice");
+		String value = getFieldValue("defiDevisIndice");
 		int charValue = value.charAt(0);
 		String next = String.valueOf( (char) (charValue + 1));
 		
 		
-		String num = getField("df_devis_numero").getValue();
-		String titre = getField("df_devis_titre").getValue();
-		String lieu_affaire = getFieldValue("df_devis_lieu_projet");
-		String intitule_affaire = getFieldValue("df_devis_titre_projet");
+		String num = getField("defiDevisNumero").getValue();
+		String titre = getField("defiDevisTitre").getValue();
+		String lieu_affaire = getFieldValue("defiDevisLieuProjet");
+		String intitule_affaire = getFieldValue("defiDevisTitreProjet");
 		
-		double prix_total_ht = getField("df_devi_prix_total_ht").getDouble(0);
-		double prix_total = getField("df_devis_prix_total").getDouble(0);
-		double coef_global = getField("df_devis_coef_global").getDouble(0);
+		double prix_total_ht = getField("defiDevisPrixTotalHT").getDouble(0);
+		double prix_total = getField("defiDevisPrixTotal").getDouble(0);
+		double coef_global = getField("defiDevisCoefficientGlobal").getDouble(0);
 		
-		double poids_total = getField("df_devis_poids_total").getDouble(0);
-		double nb_camions = getField("df_devis_nombre_camions").getDouble(0);
+		double poids_total = getField("defiDevisPoidsTotal").getDouble(0);
+		double nb_camions = getField("defiDevisNombreCamions").getDouble(0);
 		
 		o.create();
 		o.setStatus("VR");
-		o.setFieldValue("df_devis_indice",next);
-		o.setFieldValue("df_devis_numero",num);
-		o.setFieldValue("df_devis_titre",titre);
-		o.setFieldValue("df_devis_lieu_projet",lieu_affaire);
-		o.setFieldValue("df_devis_titre_projet",intitule_affaire);
+		o.setFieldValue("defiDevisIndice",next);
+		o.setFieldValue("defiDevisNumero",num);
+		o.setFieldValue("defiDevisTitre",titre);
+		o.setFieldValue("defiDevisLieuProjet",lieu_affaire);
+		o.setFieldValue("defiDevisTitreProjet",intitule_affaire);
 		
-		o.setFieldValue("df_devi_prix_total_ht", prix_total_ht);
+		o.setFieldValue("defiDevisPrixTotalHT", prix_total_ht);
 			
-		o.setFieldValue("df_devis_prix_total", prix_total);
-		o.setFieldValue("df_devis_coef_global", coef_global);
-		o.setFieldValue("df_devis_poids_total",poids_total);
-		o.setFieldValue("df_devis_nombre_camions",nb_camions);
+		o.setFieldValue("defiDevisPrixTotal", prix_total);
+		o.setFieldValue("defiDevisCoefficientGlobal", coef_global);
+		o.setFieldValue("defiDevisPoidsTotal",poids_total);
+		o.setFieldValue("defiDevisNombreCamions",nb_camions);
 		o.save();
 		
 		// Versionner Ligne_Devis
@@ -241,19 +241,19 @@ public class DF_Devis extends ObjectDB {
 			
 			for(String[] lde : ld2.search()){
 				ld2.setValues(lde);
-				int ref_prod = ld2.getField("df_produit_id").getInt(0);
-				String type_geo = ld2.getFieldValue("df_produit_nom");
-				String apl_com = ld2.getFieldValue("df_produit_appellation_commerciale");
-				String finition = ld2.getFieldValue("df_produit_finition");
-				String unite_p = ld2.getFieldValue("df_produit_unite");
+				int ref_prod = ld2.getField("defiPrdId").getInt(0);
+				String type_geo = ld2.getFieldValue("defiPrdTypeGeologique");
+				String apl_com = ld2.getFieldValue("defiPrdAppellationCommerciale");
+				String finition = ld2.getFieldValue("defiPrdFinitionFacesVues");
+				String unite_p = ld2.getFieldValue("defiPrdUnite");
 
-				double poids_u = ld2.getField("df_ligne_devis_poids_total").getDouble(0);
-				double prd_long = ld2.getField("df_produit_long").getDouble(0);
-				double prd_larg = ld2.getField("df_produit_larg").getDouble(0);
-				double prd_eps = ld2.getField("df_produit_haut").getDouble(0);
-				double prd_qte = ld2.getField("df_ligne_devis_quantite").getDouble(0);
-				double cmd_prix_exw_u = ld2.getField("df_ligne_devis_prix_exw_u").getDouble(0);
-				double cmd_total_exw = ld2.getField("df_ligne_devis_total_achat_reference_ht").getDouble(0);
+				double poids_u = ld2.getField("defiLigneDevisPoidsTotal").getDouble(0);
+				double prd_long = ld2.getField("defiPrdLongueur").getDouble(0);
+				double prd_larg = ld2.getField("defiPrdLargeur").getDouble(0);
+				double prd_eps = ld2.getField("defiPrdEpaisseur").getDouble(0);
+				double prd_qte = ld2.getField("defiLigneDevisQuantite").getDouble(0);
+				double cmd_prix_exw_u = ld2.getField("defiLigneDevisPrixExwUnitaire").getDouble(0);
+				double cmd_total_exw = ld2.getField("defiLigneDevisTotalEXWHT").getDouble(0);
 
 				
 				ld2.create();
@@ -261,18 +261,18 @@ public class DF_Devis extends ObjectDB {
 				//ObjectField s2 = ld2.getField("df_ligne_devis_id");
 				//s2.setValue(getRowId());
 				
-				ld2.setFieldValue("df_produit_id",ref_prod);
-				ld2.setFieldValue("df_produit_nom", type_geo);
-				ld2.setFieldValue("df_produit_appellation_commerciale",apl_com);
-				ld2.setFieldValue("df_ligne_devis_finition",finition);
-				ld2.setFieldValue("df_produit_long",prd_long);
-				ld2.setFieldValue("df_produit_larg",prd_larg);
-				ld2.setFieldValue("df_produit_haut",prd_eps);
-				ld2.setFieldValue("df_ligne_devis_poids_total",poids_u);
-				ld2.setFieldValue("df_produit_unite",unite_p);
-				ld2.setFieldValue("df_ligne_devis_quantite",prd_qte);
-				ld2.setFieldValue("df_ligne_devis_prix_exw_u",cmd_prix_exw_u);
-				ld2.setFieldValue("df_ligne_devis_total_achat_reference_ht",cmd_total_exw);
+				ld2.setFieldValue("defiPrdId",ref_prod);
+				ld2.setFieldValue("defiPrdTypeGeologique", type_geo);
+				ld2.setFieldValue("defiPrdAppellationCommerciale",apl_com);
+				ld2.setFieldValue("defiLigneDevisDesignation",finition);
+				ld2.setFieldValue("defiPrdLongueur",prd_long);
+				ld2.setFieldValue("defiPrdLargeur",prd_larg);
+				ld2.setFieldValue("defiPrdEpaisseur",prd_eps);
+				ld2.setFieldValue("defiLigneDevisPoidsTotal",poids_u);
+				ld2.setFieldValue("defiPrdUnite",unite_p);
+				ld2.setFieldValue("defiLigneDevisQuantite",prd_qte);
+				ld2.setFieldValue("defiLigneDevisPrixExwUnitaire",cmd_prix_exw_u);
+				ld2.setFieldValue("defiLigneDevisTotalEXWHT",cmd_total_exw);
 
 				ld2.setFieldValue("DF_Ligne_Devis_DF_Devis_id",o.getRowId());
 
