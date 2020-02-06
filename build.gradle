@@ -15,7 +15,7 @@ sourceSets {
 
 repositories {
     maven {
-        url = 'https://j8f84e4953.demo.simplicite.io/maven'
+        url = 'http://52.59.252.7:81/maven'
     }
     mavenCentral()
 }
@@ -26,7 +26,7 @@ description = 'Simplicite module: DeFilippis'
 sourceCompatibility = '13'
 
 dependencies {
-    compile 'com.simplicite:simplicite-api:4.0.P25a-SNAPSHOT'
+    compile 'com.simplicite:simplicite-api:4.0.P24'
 }
 
 tasks.withType(JavaCompile) {
