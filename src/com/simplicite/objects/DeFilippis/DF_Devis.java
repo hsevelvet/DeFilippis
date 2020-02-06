@@ -61,7 +61,7 @@ public class DF_Devis extends ObjectDB {
 		setFieldValue("defiDevisRedacteur",redac);
 		
 		// set titre devis
-		String full_name = getFieldValue("df_utilisateur_interne_nc");
+		String full_name = getFieldValue("defiUsrNomComplet");
 		String[] nameparts = full_name.split(" ");
 		String trigramme = String.valueOf(nameparts[0].charAt(0)).toUpperCase() +
 		String.valueOf(nameparts[1].charAt(0)).toUpperCase() + String.valueOf(nameparts[1].charAt(2)).toUpperCase();
