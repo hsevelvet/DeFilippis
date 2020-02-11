@@ -32,13 +32,13 @@ public class DF_Client extends ObjectDB {
 			double nb_devis = devis.getCount();
 			for(String[] devi : devis.search()){
 				devis.setValues(devi);
-				AppLog.info(getClass(), "df_dev", devis.getFieldDisplayValue("df_devis_statut"), getGrant());
+				AppLog.info(getClass(), "df_dev", devis.getFieldDisplayValue("defiDevisStatut"), getGrant());
 				
 				if(devis.getStatus().equals("CH")){
 					c += 1;
 				}
 				
-				setFieldValue("df_client_taux_transformation", (1-(c/nb_devis))*100);
+				setFieldValue("defiClientTauxTransformation", (1-(c/nb_devis))*100);
 			}
 		}
 		// calcul de somme de commandes 
@@ -52,10 +52,10 @@ public class DF_Client extends ObjectDB {
 			for(String[] cmd : commandes.search()){
 				commandes.setValues(cmd);
 				if(commandes.getStatus().equals("TE")){
-					cm += commandes.getField("df_commande_montant_ht").getDouble(0);
+					cm += commandes.getField("defiCommandeMontantHT").getDouble(0);
 				}
 				
-				setFieldValue("df_client_sum_cmd",cm);
+				setFieldValue("defiClientSommeCommandes",cm);
 			}
 		}
 		

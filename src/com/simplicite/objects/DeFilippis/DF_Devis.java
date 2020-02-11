@@ -42,25 +42,12 @@ public class DF_Devis extends ObjectDB {
 	    }
 	    return daysWithoutSunday-w1+w2;
 	}
-	
 
-	
 	@Override
-	public void initUpdate(){
+	public void initUpdate() {
 		
-		// set numero devis
-		String y = Tool.getCurrentYear();
-		
-		Integer result = Integer.valueOf(getRowId());
-		String id = String.format("%04d",result);
-		
-		String num_devis = y +"."+id;
-		setFieldValue("defiDevisNumero",num_devis);
-		
-		String redac = this.getCreatedBy();
-		setFieldValue("defiDevisRedacteur",redac);
-		
-		// set titre devis
+		// set values Devis
+		String num_devis = getFieldValue("defiDevisNumero");
 		String full_name = getFieldValue("defiUsrNomComplet");
 		String[] nameparts = full_name.split(" ");
 		String trigramme = String.valueOf(nameparts[0].charAt(0)).toUpperCase() +
@@ -103,10 +90,18 @@ public class DF_Devis extends ObjectDB {
 			
 			setFieldValue("defiDevisPrixTotal", t + t*0.2);
 			setFieldValue("defiDevisCoefficientGlobal", t/total_achat);
-
 		}
 	}
-	
+	@Override
+	public List<String> preValidate() {
+		List<String> msgs = new ArrayList<String>();
+		
+		// Call initUpdate to set field Titre Devis 
+		initUpdate();
+		return msgs;
+	}
+
+
 	public void initialCommande(){
 		
 		// Grant Objet Commande
@@ -182,7 +177,7 @@ public class DF_Devis extends ObjectDB {
 				lc.setFieldValue("defiLigneCommandePrixEXWUnitaire",cmd_prix_exw_u);
 				lc.setFieldValue("defiLigneCommandePrixTotalEXW",cmd_total_exw);
 
-				lc.setFieldValue("DF_ligne_commande_df_commande_id",c.getRowId());
+				lc.setFieldValue("DF_ligne_commande_DF_Commande_id",c.getRowId());
 
 				lc.save();
 				
@@ -257,9 +252,6 @@ public class DF_Devis extends ObjectDB {
 
 				
 				ld2.create();
-				
-				//ObjectField s2 = ld2.getField("df_ligne_devis_id");
-				//s2.setValue(getRowId());
 				
 				ld2.setFieldValue("defiPrdId",ref_prod);
 				ld2.setFieldValue("defiPrdTypeGeologique", type_geo);

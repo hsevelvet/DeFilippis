@@ -10,7 +10,20 @@ import com.simplicite.util.tools.*;
 
 public class DF_Ligne_Devis extends ObjectDB {
 	private static final long serialVersionUID = 1L;
-
+	
+	@Override
+	public List<String> postValidate() {
+		List<String> msgs = new ArrayList<String>();
+		
+		//msgs.add(Message.formatInfo("INFO_CODE", "Message", "fieldName"));
+		//msgs.add(Message.formatWarning("WARNING_CODE", "Message", "fieldName"));
+		//msgs.add(Message.formatError("ERROR_CODE", "Message", "fieldName"));
+		
+		if (this.isNew())
+			getField("defiLigneDevisPrixUnitaireHT").setValue(getField("defiPrdPrixUnitaireHT").getValue());
+		return msgs;
+		
+	}
 	
 	@Override
 	public void initUpdate(){
@@ -34,7 +47,7 @@ public class DF_Ligne_Devis extends ObjectDB {
 		int qte = getField("defiLigneDevisQuantite").getInt(0);
 		double dim_joint = getField("defiLigneDevisDimensionJoints").getDouble(0);
 		double ptr = getField("defiLigneDevisPrixTransportReference").getDouble(0);
-		double prc = getField("defiPrdPrixUnitaireHT").getDouble(0);
+		double prc = getField("defiLigneDevisPrixUnitaireHT").getDouble(0);
 		
 		// designation ligne devis
 		String designation = "Désignation Produit: "+ des_produit +"\t"+"Finition: "+ fin_produit+
@@ -158,7 +171,7 @@ public class DF_Ligne_Devis extends ObjectDB {
         setFieldValue("defiLigneDevisPrixVenteCalcule", pds * coef);
         
         // calcul prix vente imposé
-       Double pvi = getField("defiLigneDevisPrixVenteImpose").getDouble();
+       Double pvi = getField("defiLigneDevisPrixVenteImpose").getDouble(0);
        double pvc = getField("defiLigneDevisPrixVenteCalcule").getDouble(0);
        if (pvi == 0){
        	setFieldValue("defiLigneDevisPrixVenteImpose", pvc);

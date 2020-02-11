@@ -1,11 +1,11 @@
 package com.simplicite.extobjects.DeFilippis;
-/**
+
 import java.util.List;
 
 import org.json.JSONObject;
 
 import com.simplicite.util.AppLog;
-import com.simplicite.objects.DeFilippis.DF_Livraison;
+import com.simplicite.objects.DeFilippis.DF_Commande;
 import com.simplicite.util.tools.BusinessObjectTool;
 import com.simplicite.util.Grant;
 import com.simplicite.util.ObjectDB;
@@ -15,7 +15,7 @@ import com.simplicite.util.exceptions.HTTPException;
 
 
 
- * External object WebhoonkLivraisonTrello
+ //External object WebhoonkLivraisonTrello
  
 public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTServiceExternalObject {
 	private static final long serialVersionUID = 1L;
@@ -40,7 +40,7 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
 			JSONObject listAfter = null;
 			JSONObject customFieldItem = null;
 			
-			String o = "DF_Livraison";
+			String o = "DF_Commande";
 			String status = null;
 			String due = null;
 			String customFName=null;
@@ -68,7 +68,7 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
 			ObjectDB obj = Grant.getSystemAdmin().getObject("webhook_" + o, o);
 			BusinessObjectTool objt = new BusinessObjectTool(obj);
 			obj.resetFilters();
-			obj.getField("df_livraison_trellocardid").setFilter(card.getString("id"));
+			obj.getField("defiCommandeTrelloId").setFilter(card.getString("id"));
 
 			List<String[]> rows = objt.search();
 			if (rows.size() == 1) {
@@ -76,18 +76,18 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
 				
 				//Mettre à jour les informations de livraison
 				if (card.has("name"))
-					obj.setFieldValue("df_livraison_id", card.getString("name"));
+					obj.setFieldValue("defiCommandeNumero", card.getString("name"));
 				if (due!=null){
-					obj.setFieldValue("df_livraison_date_livraison_estimee", due);
+					obj.setFieldValue("defiCommandeDate", due);
 				}
 				if (status!=null){
-					obj.setFieldValue("df_livraison_statut", status);
+					obj.setFieldValue("defiCommandeStatut", status);
 				}
 				if (customFName!=null){
 					if (customFName.equals("Adresse"))
-						obj.setFieldValue("df_livraison_adresse", customFValue);
+						obj.setFieldValue("defiCommandeAdresseLivraison", customFValue);
 					if (customFName.equals("Quantité"))
-						obj.setFieldValue("df_livraison_quantite_chargee", customFValue);
+						obj.setFieldValue("defiCommandeQuantite", customFValue);
 					
 					AppLog.info(getClass(), "Trello update > Simplicte"+data.has("customFieldItem"),customFValue, getGrant());
 
@@ -124,4 +124,3 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
         }
     }
 }
-*/

@@ -12,7 +12,7 @@ import com.simplicite.util.tools.TrelloTool;
 
 /**
  * Trello card business object example
- 
+ */
 public class DF_Livraison extends com.simplicite.util.ObjectDB {
 	private static final long serialVersionUID = 1L;
 
@@ -102,10 +102,13 @@ public class DF_Livraison extends com.simplicite.util.ObjectDB {
 			card.put("desc", createDesc());
 			card.put("due", getFieldValue("df_livraison_date_livraison_estimee"));
 			card = tt.addCard(getIDList(getFieldValue("df_livraison_statut")), card);
+			card = tt.addCard(getIDList(getFieldValue("df_livraison_statut")), card);
+			card = tt.addCard(getIDList(getFieldValue("df_livraison_statut")), card);
 			AppLog.info(getClass(), "preCreate", card.toString(2), getGrant());
 			setFieldValue("df_livraison_trellocardid", card.getString("id"));
 			save();
 			validate();
+			
 			//Mise à jour les informations custom fields
 			tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Adresse"),new JSONObject().put("value",new JSONObject().put("text",getFieldValue("df_livraison_adresse"))));
 			tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Quantité"),new JSONObject().put("value",new JSONObject().put("number",getFieldValue("df_livraison_quantite_chargee"))));
@@ -161,7 +164,35 @@ public class DF_Livraison extends com.simplicite.util.ObjectDB {
 	}
 	
 	
-
+	// Récupérer Id de l'attachement avec le nom de l'attachement	
+	public String getIDAttachment(String AttachmentName){
+		String id_a = null;
+		try {
+			String t_a = tt.call("/cards/"+settings.getString("cardId")+"/attachments","get","").toString();
+			JSONArray mJSONArray = new JSONArray(t_a);
+			id_a = searchJSONArray("name",AttachmentName,"id",mJSONArray);
+			AppLog.info(getClass(), "getIDAttachment", id_a, getGrant());
+		} catch (APIException e) { // Prevents deletion if card creation fails
+			AppLog.error(getClass(), "getIDAttachment", null, e, getGrant());
+			return null;//Message.formatSimpleError("Card deletion error: " + e.getMessage());
+		}
+		return id_a;
+	}
+	
+	// set attachement 
+	public Object setAttachement(java.lang.String cardId, java.lang.String attachmentId, org.json.JSONObject data) throws APIException{
+		try{
+		//	String s_a = tt.call();
+		tt.call("/cards/"+settings.getString("cardId")+"/attachments?"+"url=https://trello.com/c/"+settings.getString("attchmentId"),"post","");
+			
+		} catch (APIException e){
+			AppLog.error(getClass(), "setAttachement", null, e, getGrant());
+			return null;
+		}
+		return null;
+		
+	}
+	
 	// recherche item dans la table des JSONArray l'item qui contient "tagName"=valueName et retourne la valeur de l'element "tagId"
 	public String searchJSONArray(String tagName,String valueName, String tagId, JSONArray mJSONArray){
 		Boolean found=false;
@@ -205,4 +236,3 @@ public class DF_Livraison extends com.simplicite.util.ObjectDB {
 	
 }
 
-*/
