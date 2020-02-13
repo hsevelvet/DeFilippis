@@ -179,7 +179,8 @@ public class DF_Ligne_Devis extends ObjectDB {
         
         // calcul prix x coef
         double coef = getField("defiLigneDevisCoef").getDouble(0);
-        setFieldValue("defiLigneDevisPrixVenteCalcule", pds * coef);
+        double total_achat = getField("defiLigneDevisTotalAchatHT").getDouble(0);
+        setFieldValue("defiLigneDevisPrixVenteCalcule", total_achat * coef);
         
         // calcul prix vente imposé
        Double pvi = getField("defiLigneDevisPrixVenteImpose").getDouble(0);

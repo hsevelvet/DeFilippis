@@ -50,14 +50,15 @@ public class DF_Devis extends ObjectDB {
 		String num_devis = getFieldValue("defiDevisNumero");
 		String full_name = getFieldValue("defiUsrNomComplet");
 		String[] nameparts = full_name.split(" ");
-		String trigramme = String.valueOf(nameparts[0].charAt(0)).toUpperCase() +
-		String.valueOf(nameparts[1].charAt(0)).toUpperCase() + String.valueOf(nameparts[1].charAt(2)).toUpperCase();
-		
+		//String trigramme = String.valueOf(nameparts[0].charAt(0)).toUpperCase() +
+		//String.valueOf(nameparts[1].charAt(0)).toUpperCase() + String.valueOf(nameparts[1].charAt(2)).toUpperCase();
+		String trigramme = getFieldValue("DF_Devis_DF_utilisateur_interne_id.defiUsrTrigramme");
 		String lieu = getFieldValue("defiDevisLieuProjet");
 		String projet = getFieldValue("defiDevisTitreProjet");
 		String client = getFieldValue("defiClientNom");
+		String indice = getFieldValue("defiDevisIndice");
 		
-		String titre_devis = trigramme + "." + lieu + "." + projet + "." + num_devis;
+		String titre_devis = trigramme + "." + lieu + "." + projet + "." + num_devis + "." + indice;
 		setFieldValue("defiDevisTitre",titre_devis);
 		
 		// set values ligne devis
@@ -92,13 +93,20 @@ public class DF_Devis extends ObjectDB {
 			setFieldValue("defiDevisCoefficientGlobal", t/total_achat);
 		}
 	}
+	
 	@Override
 	public List<String> preValidate() {
 		List<String> msgs = new ArrayList<String>();
 		
 		// Call initUpdate to set field Titre Devis 
 		initUpdate();
+		
 		return msgs;
+	}
+	
+	public String creationAffaire(){
+		ObjectDB a = getGrant().getTmpObject("DF_Affaire");
+		return sendRedirect(HTMLTool.getFormURL("DF_Affaire","the_main_DF_Affaire", a.getRowId(),""));
 	}
 
 
@@ -194,16 +202,19 @@ public class DF_Devis extends ObjectDB {
 		// Versionner Devis	
 		
 		
-		// increment indice 
-		String value = getFieldValue("defiDevisIndice");
-		int charValue = value.charAt(0);
-		String next = String.valueOf( (char) (charValue + 1));
+		// Versionner Devis	
+		String indice_current = getFieldValue("defiDevisIndice");
+		char x = indice_current.charAt(0);
+    	String indice_next = String.valueOf( (char) (x + 1));
+    	
+    	
 		
 		
 		String num = getField("defiDevisNumero").getValue();
 		String titre = getField("defiDevisTitre").getValue();
 		String lieu_affaire = getFieldValue("defiDevisLieuProjet");
 		String intitule_affaire = getFieldValue("defiDevisTitreProjet");
+		String date_emission = getFieldValue("defiDevisDateEmission");
 		
 		double prix_total_ht = getField("defiDevisPrixTotalHT").getDouble(0);
 		double prix_total = getField("defiDevisPrixTotal").getDouble(0);
@@ -214,11 +225,12 @@ public class DF_Devis extends ObjectDB {
 		
 		o.create();
 		o.setStatus("VR");
-		o.setFieldValue("defiDevisIndice",next);
+		o.setFieldValue("defiDevisIndice",indice_current);
 		o.setFieldValue("defiDevisNumero",num);
 		o.setFieldValue("defiDevisTitre",titre);
 		o.setFieldValue("defiDevisLieuProjet",lieu_affaire);
 		o.setFieldValue("defiDevisTitreProjet",intitule_affaire);
+		o.setFieldValue("defiDevisDateEmission",date_emission);
 		
 		o.setFieldValue("defiDevisPrixTotalHT", prix_total_ht);
 			
@@ -227,6 +239,10 @@ public class DF_Devis extends ObjectDB {
 		o.setFieldValue("defiDevisPoidsTotal",poids_total);
 		o.setFieldValue("defiDevisNombreCamions",nb_camions);
 		o.save();
+		
+		setFieldValue("defiDevisIndice",indice_next);
+    	validate();
+    	save();
 		
 		// Versionner Ligne_Devis
 		ObjectDB ld2 = getGrant().getTmpObject("DF_Ligne_Devis");

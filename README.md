@@ -22,7 +22,7 @@
 
 | Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
-| `defiAfrNumero`                                              | char(36)                                 | yes*     | yes       |          | -                                                                                |
+| `defiAfrNumero`                                              | char(36)                                 | yes      | yes       |          | -                                                                                |
 | `defiClientRegion`                                           | char(32)                                 |          | yes       |          | -                                                                                |
 | `defiAfrStatut`                                              | enum(7) using `DF_STATUT_AFFAIRE` list   |          | yes       |          | -                                                                                |
 | `defiAfrLibelleChantier`                                     | char(36)                                 | yes      | yes       |          | -                                                                                |
@@ -70,10 +70,6 @@
     - `A` Aucun
     - `P` Particulier
 
-### Custom actions
-
-No custom action
-
 `DF_Client` business object definition
 --------------------------------------
 
@@ -85,7 +81,7 @@ Objet metier pour client.
 | Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
 | `defiClientId`                                               | char(11)                                 |          | yes       |          | -                                                                                |
-| `defiClientNom`                                              | char(36)                                 | yes*     | yes       |          | -                                                                                |
+| `defiClientNom`                                              | char(36)                                 | yes      | yes       |          | -                                                                                |
 | `defiClientEmail`                                            | email(100)                               | yes      | yes       |          | -                                                                                |
 | `defiClientTelephone`                                        | phone(100)                               | yes      | yes       |          | -                                                                                |
 | `defiClientAdresse`                                          | char(32)                                 | yes      | yes       |          | -                                                                                |
@@ -117,10 +113,6 @@ Objet metier pour client.
     - `EA` Entreprise Autre
     - `A` Aucun
     - `P` Particulier
-
-### Custom actions
-
-No custom action
 
 `DF_Commande` business object definition
 ----------------------------------------
@@ -192,7 +184,7 @@ Objet metier pour contact.
 | `defiContactId`                                              | int(11)                                  |          | yes       |          | -                                                                                |
 | `defiContactCivilite`                                        | enum(7) using `CIVILITE_CLIENT_CONTACT` list |          | yes       |          | -                                                                                |
 | `defiContactNom`                                             | char(36)                                 | yes      | yes       |          | -                                                                                |
-| `defiContactPrenom`                                          | char(32)                                 | yes*     | yes       |          | -                                                                                |
+| `defiContactPrenom`                                          | char(32)                                 | yes      | yes       |          | -                                                                                |
 | `defiContactIdEmploi`                                        | enum(7) using `DF_CONTACT_ID_EMPLOI` list |          | yes       |          | -                                                                                |
 | `defiContactStatut`                                          | enum(7) using `DF_CONTACT_STATUT` list   | yes      | yes       |          | -                                                                                |
 | `defiContactTelephone`                                       | phone(100)                               |          | yes       |          | -                                                                                |
@@ -210,13 +202,13 @@ Objet metier pour contact.
     - `M` M
     - `F` F
 * `DF_CONTACT_ID_EMPLOI`
-    - `D` Directeur 
+    - `D` Directeur
     - `CA` Chef d'agence
     - `RC` Responsable Commercial
     - `C` Commercial
     - `A` Acheteur
     - `CS` Chef de secteur
-    - `CT` Conducteur de travaux 
+    - `CT` Conducteur de travaux
     - `CC` Chef de chantier
     - `RE` Responsable d'étude
     - `CE` Chargé d'étude
@@ -227,10 +219,6 @@ Objet metier pour contact.
     - `O` Ouvert
     - `F` Fermé
     - `ET` En Traitement
-
-### Custom actions
-
-No custom action
 
 `DF_Devis` business object definition
 -------------------------------------
@@ -243,7 +231,8 @@ Objet metier pour devis.
 | Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
 | _Ref. `DF_Devis_DF_Chantier_id.defiAfrStatut`_               | _enum(7) using `DF_STATUT_AFFAIRE` list_ |          |           |          | -                                                                                |
-| `defiDevisTitre`                                             | char(100)                                | yes      | yes       |          | -                                                                                |
+| _Ref. `DF_Devis_DF_utilisateur_interne_id.defiUsrTrigramme`_ | _char(5)_                                |          |           |          | -                                                                                |
+| `defiDevisTitre`                                             | char(100)                                | yes*     |           |          | -                                                                                |
 | `defiDevisStatut`                                            | enum(7) using `STATUT_DEVIS` list        | yes      | yes       |          | -                                                                                |
 | _Ref. `DF_Devis_DF_utilisateur_interne_id.defiUsrNomComplet`_ | _char(70)_                               |          |           |          | -                                                                                |
 | `defiDevisTitreProjet`                                       | char(100)                                | yes      | yes       |          | -                                                                                |
@@ -254,7 +243,7 @@ Objet metier pour devis.
 | _Ref. `DF_Devis_DF_Chantier_id.defiAfrDateDebut`_            | _date_                                   |          |           |          | -                                                                                |
 | `defiDevisCoefficientGlobal`                                 | float(4, 2)                              |          |           |          | -                                                                                |
 | `defiDevisPrixTotal`                                         | float(10, 2)                             |          | yes       |          | -                                                                                |
-| `DF_Devis_DF_Client_id` link to **`DF_Client`**              | id                                       | *        | yes       |          | -                                                                                |
+| `DF_Devis_DF_Client_id` link to **`DF_Client`**              | id                                       |          | yes       |          | -                                                                                |
 | _Ref. `DF_Devis_DF_Client_id.defiClientTelephone`_           | _phone(100)_                             |          |           |          | -                                                                                |
 | _Ref. `DF_Devis_DF_Client_id.defiClientEmail`_               | _email(100)_                             |          |           |          | -                                                                                |
 | _Ref. `DF_Devis_DF_Client_id.defiClientId`_                  | _char(11)_                               |          |           |          | -                                                                                |
@@ -280,14 +269,14 @@ Objet metier pour devis.
 | _Ref. `DF_Devis_DF_Contact_id.defiContactNom`_               | _char(36)_                               |          |           |          | -                                                                                |
 | _Ref. `DF_Devis_DF_Contact_id.defiContactPrenom`_            | _char(32)_                               |          |           |          | -                                                                                |
 | _Ref. `DF_Devis_DF_Contact_id.defiContactPortable`_          | _phone(100)_                             |          |           |          | -                                                                                |
-| `defiDevisNumero`                                            | char(30)                                 | yes*     | yes       |          | -                                                                                |
+| `defiDevisNumero`                                            | char(30)                                 | yes      |           |          | -                                                                                |
 | _Ref. `DF_Devis_DF_Contact_id.defiContactEmail`_             | _email(100)_                             |          |           |          | -                                                                                |
 | `defiDevisPieceJointe1`                                      | document                                 |          | yes       |          | -                                                                                |
 | `defiDevisDelaiPaiement`                                     | enum(7) using `DF_DEVIS_DELAI_PAIEMENT` list |          | yes       |          | -                                                                                |
 | `defiDevisPieceJointe2`                                      | document                                 |          | yes       |          | -                                                                                |
 | `defiDevisPieceJointe3`                                      | document                                 |          | yes       |          | -                                                                                |
 | `defiDevisPieceJointe4`                                      | document                                 |          | yes       |          | -                                                                                |
-| `defiDevisIndice`                                            | char(3)                                  |          | yes       |          | -                                                                                |
+| `defiDevisIndice`                                            | char(3)                                  |          |           |          | -                                                                                |
 | `defiDevisCompteurDate`                                      | int(100)                                 |          |           |          | -                                                                                |
 
 ### Lists
@@ -346,10 +335,6 @@ Objet métier pour fournisseur.
 | `defiFournDescription`                                       | text(100)                                |          | yes       |          | -                                                                                |
 | `defiFournIdKheops`                                          | char(12)                                 |          | yes       |          | -                                                                                |
 
-### Custom actions
-
-No custom action
-
 `DF_ligne_commande` business object definition
 ----------------------------------------------
 
@@ -376,10 +361,6 @@ No custom action
 | `defiLigneCommandePoidsUnitaire`                             | float(10, 2)                             |          | yes       |          | -                                                                                |
 | `defiLigneCommandeUnite`                                     | char(4)                                  |          | yes       |          | -                                                                                |
 
-### Custom actions
-
-No custom action
-
 `DF_Ligne_Devis` business object definition
 -------------------------------------------
 
@@ -389,12 +370,12 @@ No custom action
 
 | Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
-| `defiLigneDevisRow`                                          | int(3)                                   | yes*     |           |          | -                                                                                |
-| `defiLigneDevisId`                                           | char(11)                                 |          | yes       |          | -                                                                                |
+| `defiLigneDevisRow`                                          | char(10)                                 |          |           |          | -                                                                                |
+| `defiLigneDevisId`                                           | char(11)                                 | yes*     | yes       |          | -                                                                                |
 | `defiLigneDevisQuantite`                                     | int(11)                                  | yes      | yes       |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdTypeProduit`_ | _char(20)_                               |          |           |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdFinitionFacesVues`_ | _char(20)_                               |          |           |          | -                                                                                |
-| `DF_Ligne_Devis_DF_Devis_id` link to **`DF_Devis`**          | id                                       | yes*     | yes       |          | -                                                                                |
+| `DF_Ligne_Devis_DF_Devis_id` link to **`DF_Devis`**          | id                                       | yes      | yes       |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdMasseVolumique`_ | _bigdec(8, 2)_                           |          |           |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Devis_id.defiDevisTitre`_           | _char(100)_                              |          |           |          | -                                                                                |
 | `defiLigneDevisDimensionJoints`                              | float(4, 2)                              | yes      | yes       |          | -                                                                                |
@@ -426,10 +407,6 @@ No custom action
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdPrixUnitaireHT`_ | _float(10, 2)_                           |          |           |          | -                                                                                |
 | `defiLigneDevisPrixVenteImpose`                              | float(6, 2)                              |          | yes       |          | -                                                                                |
 | `defiLigneDevisPrixUnitaireHT`                               | float(10, 2)                             |          | yes       |          | -                                                                                |
-
-### Custom actions
-
-No custom action
 
 `DF_Livraison` business object definition
 -----------------------------------------
@@ -511,14 +488,9 @@ No custom action
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
 | `DF_Prix_Transport_DF_Transport_id` link to **`DF_Transport`** | id                                       |          | yes       |          | -                                                                                |
 | _Ref. `DF_Prix_Transport_DF_Transport_id.defiTrspNom`_       | _char(36)_                               |          |           |          | -                                                                                |
-| _Ref. `DF_Prix_Transport_DF_Transport_id.DF_Transport_DF_Client_id`_ | _id_                                     |          |           |          | -                                                                                |
 | `defiPrTrspPrix`                                             | float(9, 2)                              | yes*     | yes       |          | -                                                                                |
 | `defiPrTrspLieuEnlevement`                                   | char(32)                                 | yes      | yes       |          | -                                                                                |
 | `defiPrTrspDepartementLivraison`                             | char(20)                                 |          | yes       |          | -                                                                                |
-
-### Custom actions
-
-No custom action
 
 `DF_Produit_Finis` business object definition
 ---------------------------------------------
@@ -531,7 +503,7 @@ Objet metier pour produit.
 | Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
 | `defiPrdId`                                                  | int(11)                                  |          | yes       |          | -                                                                                |
-| `defiPrdTypeGeologique`                                      | char(15)                                 | yes*     | yes       |          | -                                                                                |
+| `defiPrdTypeGeologique`                                      | char(15)                                 | yes      | yes       |          | -                                                                                |
 | `defiPrdCouleur`                                             | enum(7) using `DF_PRODUIT_COULEUR` list  |          | yes       |          | -                                                                                |
 | `defiPrdAppellationCommerciale`                              | char(70)                                 |          | yes       |          | -                                                                                |
 | `defiPrdTypeProduit`                                         | char(20)                                 | yes      | yes       |          | -                                                                                |
@@ -559,11 +531,7 @@ Objet metier pour produit.
     - `CP` Contrat Produit Fini
     - `CC` Contrat Calculé
     - `D` Devis
-    - `PK` Programme Kamen Adapté 
-
-### Custom actions
-
-No custom action
+    - `PK` Programme Kamen Adapté
 
 `DF_test` business object definition
 ------------------------------------
@@ -574,10 +542,6 @@ No custom action
 
 | Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
-
-### Custom actions
-
-No custom action
 
 `DF_Transport` business object definition
 -----------------------------------------
@@ -597,10 +561,6 @@ No custom action
 | `defiTrspEmail`                                              | email(100)                               |          | yes       |          | -                                                                                |
 | `defiTrspAdresse`                                            | char(100)                                |          | yes       |          | -                                                                                |
 
-### Custom actions
-
-No custom action
-
 `DF_utilisateur_interne` business object definition
 ---------------------------------------------------
 
@@ -610,12 +570,8 @@ No custom action
 
 | Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
-| `defiUsrNomComplet`                                          | char(70)                                 | yes*     | yes       |          | -                                                                                |
+| `defiUsrNomComplet`                                          | char(70)                                 | yes      | yes       |          | -                                                                                |
 | `defiUsrTrigramme`                                           | char(5)                                  |          | yes       |          | -                                                                                |
-
-### Custom actions
-
-No custom action
 
 `DF_Process_01` business process definition
 -------------------------------------------

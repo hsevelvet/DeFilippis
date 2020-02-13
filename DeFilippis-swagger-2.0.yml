@@ -71,13 +71,13 @@ paths:
         type: string
         required: false
       - in: query
-        name: defiAfrDateDebut
-        description: Search filter for Date début
+        name: DF_Chantier_DF_Client_id__defiClientTelephone
+        description: Search filter for Téléphone Client
         type: string
         required: false
       - in: query
-        name: DF_Chantier_DF_Client_id__defiClientTelephone
-        description: Search filter for Téléphone Client
+        name: defiAfrDateDebut
+        description: Search filter for Date début
         type: string
         required: false
       - in: query
@@ -144,14 +144,14 @@ paths:
         - MDO
         - MO
         - AR
-        - ATPG
         - T
-        - ATP
+        - ATPG
         - V
+        - ATP
         - N
         - EA
-        - P
         - A
+        - P
       - in: query
         name: DF_Chantier_DF_Client_id__defiClientAdresse
         description: Search filter for Adresse Client
@@ -605,14 +605,14 @@ paths:
         type: number
         required: false
       - in: query
-        name: defiPrdLargeur
-        description: Search filter for Largeur
-        type: number
-        required: false
-      - in: query
         name: df_produit_commentaire
         description: Search filter for Commentaire
         type: string
+        required: false
+      - in: query
+        name: defiPrdLargeur
+        description: Search filter for Largeur
+        type: number
         required: false
       - in: query
         name: defiPrdEpaisseur
@@ -635,13 +635,13 @@ paths:
         type: string
         required: false
       - in: query
-        name: defiPrdUnite
-        description: Search filter for Unité
+        name: DF_Produit_Finis_DF_Fournisseurs_id__defiFournNom
+        description: Search filter for Nom Fournisseur
         type: string
         required: false
       - in: query
-        name: DF_Produit_Finis_DF_Fournisseurs_id__defiFournNom
-        description: Search filter for Nom Fournisseur
+        name: defiPrdUnite
+        description: Search filter for Unité
         type: string
         required: false
       - in: query
@@ -2063,14 +2063,14 @@ paths:
         type: string
         required: false
       - in: query
-        name: defiCommandeIdLivraison
-        description: Search filter for Id Livraison
-        type: integer
-        required: false
-      - in: query
         name: defiCommandeIntituleAffaire
         description: Search filter for Titre Affaire
         type: string
+        required: false
+      - in: query
+        name: defiCommandeIdLivraison
+        description: Search filter for Id Livraison
+        type: integer
         required: false
       - in: query
         name: defiCommandeLieuAffaire
@@ -2080,11 +2080,6 @@ paths:
       - in: query
         name: defiCommandeIntituleCommande
         description: Search filter for Intitulé de commande
-        type: string
-        required: false
-      - in: query
-        name: DF_Commande_DF_Client_id
-        description: Search filter for DF client
         type: string
         required: false
       - in: query
@@ -2098,6 +2093,11 @@ paths:
         - LI
         - TE
         - AN
+      - in: query
+        name: DF_Commande_DF_Client_id
+        description: Search filter for DF client
+        type: string
+        required: false
       - in: query
         name: DF_Commande_DF_Client_id__defiClientId
         description: Search filter for Id Client DF client
@@ -2713,11 +2713,6 @@ paths:
         type: string
         required: false
       - in: query
-        name: DF_Prix_Transport_DF_Transport_id__DF_Transport_DF_Client_id
-        description: Search filter for DF client DF transport
-        type: string
-        required: false
-      - in: query
         name: defiPrTrspPrix
         description: Search filter for Prix Transport
         type: number
@@ -3046,6 +3041,11 @@ paths:
         - I
         - C
       - in: query
+        name: DF_Devis_DF_utilisateur_interne_id__defiUsrTrigramme
+        description: Search filter for Trigramme
+        type: string
+        required: false
+      - in: query
         name: defiDevisTitre
         description: Search filter for Titre Devis
         type: string
@@ -3073,13 +3073,13 @@ paths:
         type: string
         required: false
       - in: query
-        name: defiDevisDateEmission
-        description: Search filter for Date Emission
+        name: defiDevisLieuProjet
+        description: Search filter for Ville Projet
         type: string
         required: false
       - in: query
-        name: defiDevisLieuProjet
-        description: Search filter for Ville Projet
+        name: defiDevisDateEmission
+        description: Search filter for Date Emission
         type: string
         required: false
       - in: query
@@ -3973,14 +3973,14 @@ paths:
         - MDO
         - MO
         - AR
-        - ATPG
         - T
-        - ATP
+        - ATPG
         - V
+        - ATP
         - N
         - EA
-        - P
         - A
+        - P
       - in: query
         name: defiClientRegion
         description: Search filter for Region
@@ -5307,6 +5307,11 @@ paths:
         type: boolean
         required: false
       - in: query
+        name: defiLigneDevisRow
+        description: Search filter for defi ligne devis row
+        type: string
+        required: false
+      - in: query
         name: defiLigneDevisId
         description: Search filter for Ligne Devis ID
         type: string
@@ -5755,14 +5760,14 @@ definitions:
         - MDO
         - MO
         - AR
-        - ATPG
         - T
-        - ATP
+        - ATPG
         - V
+        - ATP
         - N
         - EA
-        - P
         - A
+        - P
       DF_Affaire_DF_utilisateur_interne_id__defiUsrNomComplet:
         description: Nom Complet DF affaire DF utilisateur interne id
         type: string
@@ -5824,6 +5829,9 @@ definitions:
       defiLigneDevisPrixVenteImpose:
         description: Prix Vente Unitaire Imposé
         type: number
+      defiLigneDevisRow:
+        description: defi ligne devis row
+        type: string
       DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdLargeur:
         description: Largeur (cm)
         type: number
@@ -6206,9 +6214,6 @@ definitions:
       defiPrTrspLieuEnlevement:
         description: Lieu d'enlèvement
         type: string
-      DF_Prix_Transport_DF_Transport_id__DF_Transport_DF_Client_id:
-        description: DF client DF transport
-        type: string
       row_id:
         description: Unique technical row ID
         type: string
@@ -6464,6 +6469,9 @@ definitions:
         - '030'
         - '050'
         - '100'
+      DF_Devis_DF_utilisateur_interne_id__defiUsrTrigramme:
+        description: Trigramme
+        type: string
       defiDevisCadenceLivraison:
         description: Cadence de livraison hebdomadaire
         type: string
@@ -6528,14 +6536,14 @@ definitions:
         - MDO
         - MO
         - AR
-        - ATPG
         - T
-        - ATP
+        - ATPG
         - V
+        - ATP
         - N
         - EA
-        - P
         - A
+        - P
       defiClientAdresse:
         description: Adresse
         type: string
