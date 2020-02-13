@@ -24,6 +24,17 @@ public class DF_Ligne_Devis extends ObjectDB {
 		return msgs;
 		
 	}
+	/**
+	public String getLineNumberLD(){
+		String devisId = getFieldValue("devisId"); // getParentObject().getRowId()
+		if(!Tool.isEmpty(devisId))
+			throw DFException("Devis Id not defined, imporssible")
+		ObjectDB ligne = getGrant().getTempObject("DF_Ligne_Devis");
+		long m = getGrant().simpleQueryAsLong("select line_number from df_ligne_devis where devis_id ="+getFieldValue("devisId")+"order y line_number desc");
+		return Tool.isEmpty(m)? 1 : m+1;
+		
+		
+	}*/
 	
 	@Override
 	public void initUpdate(){

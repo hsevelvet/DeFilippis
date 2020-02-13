@@ -57,7 +57,7 @@ public class DF_Devis extends ObjectDB {
 		String projet = getFieldValue("defiDevisTitreProjet");
 		String client = getFieldValue("defiClientNom");
 		
-		String titre_devis = trigramme + "." + lieu + "." + projet + "." + client + "." + num_devis;
+		String titre_devis = trigramme + "." + lieu + "." + projet + "." + num_devis;
 		setFieldValue("defiDevisTitre",titre_devis);
 		
 		// set values ligne devis
@@ -102,7 +102,7 @@ public class DF_Devis extends ObjectDB {
 	}
 
 
-	public void initialCommande(){
+	public String initialCommande(){
 		
 		// Grant Objet Commande
 		ObjectDB c = getGrant().getTmpObject("DF_Commande");
@@ -184,7 +184,7 @@ public class DF_Devis extends ObjectDB {
 			}
 		}
 		
-		
+		return sendRedirect(HTMLTool.getFormURL("DF_Commande","the_main_DF_Commande", c.getRowId(),""));
 	}	
 	
 	public void versionnerDevis(){

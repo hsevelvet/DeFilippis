@@ -99,11 +99,11 @@ components:
           description: Secteur Activité Client
           type: string
           enum:
-          - MO
           - MDO
+          - MO
           - AR
-          - T
           - ATPG
+          - T
           - ATP
           - V
           - N
@@ -483,7 +483,7 @@ components:
           type: string
         df_livraison_id:
           description: Id Livraison
-          type: integer
+          type: string
         DF_Livraison_DF_Plan_Livraison_id__df_plan_lvr_id:
           description: Id Plan Livraison DF plan livraison
           type: integer
@@ -872,11 +872,11 @@ components:
           description: Secteur Activité
           type: string
           enum:
-          - MO
           - MDO
+          - MO
           - AR
-          - T
           - ATPG
+          - T
           - ATP
           - V
           - N
@@ -894,7 +894,7 @@ components:
           type: string
         defiClientTauxTransformation:
           description: Taux de transformation
-          type: number
+          type: string
         defiClientAdresse2:
           description: Adresse 2
           type: string
@@ -935,6 +935,11 @@ components:
         defiPrdSource:
           description: Source
           type: string
+          enum:
+          - CP
+          - CC
+          - D
+          - PK
         defiPrdAutresFinitions:
           description: Autres finitions
           type: string
@@ -1043,12 +1048,19 @@ components:
           description: Emploi
           type: string
           enum:
-          - AS
-          - CT
-          - CE
           - D
+          - CA
+          - RC
           - C
+          - A
+          - CS
+          - CT
+          - CC
+          - RE
+          - CE
+          - CP
           - P
+          - AT
         defiContactStatut:
           description: Statut
           type: string
@@ -2012,11 +2024,11 @@ paths:
       - schema:
           type: string
           enum:
-          - MO
           - MDO
+          - MO
           - AR
-          - T
           - ATPG
+          - T
           - ATP
           - V
           - N
@@ -2360,12 +2372,19 @@ paths:
       - schema:
           type: string
           enum:
-          - AS
-          - CT
-          - CE
           - D
+          - CA
+          - RC
           - C
+          - A
+          - CS
+          - CT
+          - CC
+          - RE
+          - CE
+          - CP
           - P
+          - AT
         in: query
         name: defiContactIdEmploi
         description: Search filter for Emploi
@@ -2573,6 +2592,11 @@ paths:
         required: false
       - schema:
           type: string
+          enum:
+          - CP
+          - CC
+          - D
+          - PK
         in: query
         name: defiPrdSource
         description: Search filter for Source
@@ -6275,7 +6299,7 @@ paths:
         description: Search filter for DF chantier
         required: false
       - schema:
-          type: integer
+          type: string
         in: query
         name: df_livraison_id
         description: Search filter for Id Livraison
@@ -6572,11 +6596,11 @@ paths:
       - schema:
           type: string
           enum:
-          - MO
           - MDO
+          - MO
           - AR
-          - T
           - ATPG
+          - T
           - ATP
           - V
           - N
@@ -6618,7 +6642,7 @@ paths:
         description: Search filter for Pays
         required: false
       - schema:
-          type: number
+          type: string
         in: query
         name: defiClientTauxTransformation
         description: Search filter for Taux de transformation

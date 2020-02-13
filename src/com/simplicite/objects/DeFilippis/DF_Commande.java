@@ -42,17 +42,16 @@ public class DF_Commande extends ObjectDB {
 	/**
 	 * Action - Création cartes Trello 
 	 */
-	 
 	
 
 	@Override
 	public void postLoad() {
 		AppLog.info(getClass(), "postLoad11111", "Instance11111: " + getInstanceName(), getGrant());
 		if (!getInstanceName().startsWith("webhook_")) {
-			if (getInstanceName().equals("panel_ajax_DF_Livraison_DF_Livraison_DF_Plan_Livraison_id")){
+			//if (getInstanceName().equals("panel_ajax_DF_Livraison_DF_Livraison_DF_Plan_Livraison_id")){
 				//AppLog.info(getClass(), "postLoad11111", "On a un panel_ajax_DF_Livraison_DF_Livraison_DF_Plan_Livraison_id: " + getInstanceName(), getGrant());
-			}
-			else {
+			//}
+			//else {
 				tt = new TrelloTool(getGrant());
 				AppLog.info(getClass(), "postLoad", "Trello tool API key: " + tt.getKey(), getGrant());
 				settings = getGrant().getJSONObjectParameter("TRELLO_CARDEX_SETTINGS");
@@ -66,7 +65,7 @@ public class DF_Commande extends ObjectDB {
 					} catch (APIException e) {
 						AppLog.error(getClass(), "postLoad", "Unable to register the webhook: " + webhookURL, e, getGrant());
 					}
-				}
+				//}
 			}
 			
 		}
@@ -218,7 +217,7 @@ public class DF_Commande extends ObjectDB {
 		}
 		return id_a;
 	}
-/**
+
 	// set attachement 
 	public Object setAttachment(java.lang.String cardId, java.lang.String attachmentId) throws APIException{
 		try{
@@ -233,7 +232,7 @@ public class DF_Commande extends ObjectDB {
 		
 	}
 		
-*/
+
 	// recherche item dans la table des JSONArray l'item qui contient "tagName"=valueName et retourne la valeur de l'element "tagId"
 	public String searchJSONArray(String tagName,String valueName, String tagId, JSONArray mJSONArray){
 		Boolean found=false;
@@ -274,4 +273,6 @@ public class DF_Commande extends ObjectDB {
 		desc += "\n**Contact En Cas De Problème**: "+getFieldValue("df_livraison_contact_en_cas_de_probleme");
 		return desc;
 	}
+
+
 }

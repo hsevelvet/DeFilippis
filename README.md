@@ -99,7 +99,7 @@ Objet metier pour client.
 | `defiClientAdresse3`                                         | char(32)                                 |          | yes       |          | -                                                                                |
 | `defiClientCedex`                                            | char(32)                                 |          | yes       |          | -                                                                                |
 | `defiClientPays`                                             | char(32)                                 |          | yes       |          | -                                                                                |
-| `defiClientTauxTransformation`                               | float(4, 2)                              |          | yes       |          | -                                                                                |
+| `defiClientTauxTransformation`                               | bigdec(4, 2)                             |          | yes       |          | -                                                                                |
 | `defiClientSommeCommandes`                                   | int(4)                                   |          | yes       |          | -                                                                                |
 | `defiClientIdKheops`                                         | char(12)                                 |          | yes       |          | -                                                                                |
 
@@ -210,12 +210,19 @@ Objet metier pour contact.
     - `M` M
     - `F` F
 * `DF_CONTACT_ID_EMPLOI`
-    - `AS` Assistant
-    - `CT` Conducteur de Travaux
-    - `CE` Chargé d'études
-    - `D` Directeur
+    - `D` Directeur 
+    - `CA` Chef d'agence
+    - `RC` Responsable Commercial
     - `C` Commercial
-    - `P` PDG
+    - `A` Acheteur
+    - `CS` Chef de secteur
+    - `CT` Conducteur de travaux 
+    - `CC` Chef de chantier
+    - `RE` Responsable d'étude
+    - `CE` Chargé d'étude
+    - `CP` Chargé de projet
+    - `P` Particulier
+    - `AT` Autre
 * `DF_CONTACT_STATUT`
     - `O` Ouvert
     - `F` Fermé
@@ -382,11 +389,12 @@ No custom action
 
 | Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
+| `defiLigneDevisRow`                                          | int(3)                                   | yes*     |           |          | -                                                                                |
 | `defiLigneDevisId`                                           | char(11)                                 |          | yes       |          | -                                                                                |
 | `defiLigneDevisQuantite`                                     | int(11)                                  | yes      | yes       |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdTypeProduit`_ | _char(20)_                               |          |           |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdFinitionFacesVues`_ | _char(20)_                               |          |           |          | -                                                                                |
-| `DF_Ligne_Devis_DF_Devis_id` link to **`DF_Devis`**          | id                                       |          | yes       |          | -                                                                                |
+| `DF_Ligne_Devis_DF_Devis_id` link to **`DF_Devis`**          | id                                       | yes*     | yes       |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdMasseVolumique`_ | _bigdec(8, 2)_                           |          |           |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Devis_id.defiDevisTitre`_           | _char(100)_                              |          |           |          | -                                                                                |
 | `defiLigneDevisDimensionJoints`                              | float(4, 2)                              | yes      | yes       |          | -                                                                                |
@@ -401,7 +409,7 @@ No custom action
 | `defiLigneDevisTotalAchatHT`                                 | float(11, 2)                             |          | yes       |          | -                                                                                |
 | `defiLigneDevisCoef`                                         | float(6, 2)                              | yes      | yes       |          | -                                                                                |
 | `defiLigneDevisPrixVenteCalcule`                             | float(6, 2)                              |          | yes       |          | -                                                                                |
-| `defiLigneDevisNPrix`                                        | int(5)                                   | yes*     | yes       |          | -                                                                                |
+| `defiLigneDevisNPrix`                                        | int(5)                                   | yes      | yes       |          | -                                                                                |
 | `defiLigneDevisDesignation`                                  | text(100)                                | yes      | yes       |          | -                                                                                |
 | `defiLigneDevisNombreElementsSsJoints`                       | float(5, 2)                              |          | yes       |          | -                                                                                |
 | `defiLigneDevisNombreElementsAcJoints`                       | float(5, 2)                              |          | yes       |          | -                                                                                |
@@ -432,7 +440,7 @@ No custom action
 
 | Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
-| `df_livraison_id`                                            | int(100)                                 | yes*     | yes       |          | -                                                                                |
+| `df_livraison_id`                                            | char(100)                                | yes*     | yes       |          | -                                                                                |
 | `df_livraison_statut`                                        | enum(7) using `DF_LIVRAISON_STATUT` list | yes      | yes       |          | -                                                                                |
 | `df_livraison_id_ligne_commande`                             | int(11)                                  |          | yes       |          | -                                                                                |
 | `df_livraison_nom_transporteur`                              | char(100)                                |          | yes       |          | -                                                                                |
@@ -442,7 +450,7 @@ No custom action
 | `DF_Contact_DF_Livraison_id`                                 | id                                       |          | yes       |          | -                                                                                |
 | `df_livraison_statut`                                        | enum(7) using `DF_LIVRAISON_STATUT` list | yes      | yes       |          | -                                                                                |
 | `df_livraison_adresse`                                       | char(200)                                |          | yes       |          | -                                                                                |
-| `df_livraison_id`                                            | int(100)                                 | yes*     | yes       |          | -                                                                                |
+| `df_livraison_id`                                            | char(100)                                | yes*     | yes       |          | -                                                                                |
 | `DF_Livraison_DF_Chantier_id` link to **`DF_Affaire`**       | id                                       |          | yes       |          | -                                                                                |
 | `df_livraison_quantite_chargee`                              | float(11, 0)                             |          | yes       |          | -                                                                                |
 | `df_livraison_contact_transporteur`                          | char(100)                                |          | yes       |          | -                                                                                |
@@ -533,7 +541,7 @@ Objet metier pour produit.
 | `defiPrdLargeur`                                             | float(5, 2)                              | yes      | yes       |          | -                                                                                |
 | `df_produit_commentaire`                                     | char(30)                                 |          | yes       |          | -                                                                                |
 | `defiPrdEpaisseur`                                           | float(5, 2)                              | yes      | yes       |          | -                                                                                |
-| `defiPrdSource`                                              | char(10)                                 | yes      | yes       |          | -                                                                                |
+| `defiPrdSource`                                              | enum(7) using `DEFIPRDSOURCE` list       | yes      | yes       |          | -                                                                                |
 | `DF_Produit_Finis_DF_Fournisseurs_id` link to **`DF_Fournisseurs`** | id                                       |          | yes       |          | -                                                                                |
 | `defiPrdUnite`                                               | char(4)                                  | yes      | yes       |          | -                                                                                |
 | _Ref. `DF_Produit_Finis_DF_Fournisseurs_id.defiFournNom`_    | _char(36)_                               |          |           |          | -                                                                                |
@@ -547,6 +555,11 @@ Objet metier pour produit.
     - `A` code A
     - `B` code B
     - `C` code C
+* `DEFIPRDSOURCE`
+    - `CP` Contrat Produit Fini
+    - `CC` Contrat Calculé
+    - `D` Devis
+    - `PK` Programme Kamen Adapté 
 
 ### Custom actions
 

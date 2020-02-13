@@ -141,11 +141,11 @@ paths:
         type: string
         required: false
         enum:
-        - MO
         - MDO
+        - MO
         - AR
-        - T
         - ATPG
+        - T
         - ATP
         - V
         - N
@@ -434,12 +434,19 @@ paths:
         type: string
         required: false
         enum:
-        - AS
-        - CT
-        - CE
         - D
+        - CA
+        - RC
         - C
+        - A
+        - CS
+        - CT
+        - CC
+        - RE
+        - CE
+        - CP
         - P
+        - AT
       - in: query
         name: defiContactStatut
         description: Search filter for Statut
@@ -617,6 +624,11 @@ paths:
         description: Search filter for Source
         type: string
         required: false
+        enum:
+        - CP
+        - CC
+        - D
+        - PK
       - in: query
         name: DF_Produit_Finis_DF_Fournisseurs_id
         description: Search filter for Fournisseurs
@@ -3707,7 +3719,7 @@ paths:
       - in: query
         name: df_livraison_id
         description: Search filter for Id Livraison
-        type: integer
+        type: string
         required: false
       - in: query
         name: df_livraison_statut
@@ -3958,11 +3970,11 @@ paths:
         type: string
         required: false
         enum:
-        - MO
         - MDO
+        - MO
         - AR
-        - T
         - ATPG
+        - T
         - ATP
         - V
         - N
@@ -3997,7 +4009,7 @@ paths:
       - in: query
         name: defiClientTauxTransformation
         description: Search filter for Taux de transformation
-        type: number
+        type: string
         required: false
       - in: query
         name: defiClientSommeCommandes
@@ -5740,11 +5752,11 @@ definitions:
         description: Secteur Activité Client
         type: string
         enum:
-        - MO
         - MDO
+        - MO
         - AR
-        - T
         - ATPG
+        - T
         - ATP
         - V
         - N
@@ -6124,7 +6136,7 @@ definitions:
         type: string
       df_livraison_id:
         description: Id Livraison
-        type: integer
+        type: string
       DF_Livraison_DF_Plan_Livraison_id__df_plan_lvr_id:
         description: Id Plan Livraison DF plan livraison
         type: integer
@@ -6513,11 +6525,11 @@ definitions:
         description: Secteur Activité
         type: string
         enum:
-        - MO
         - MDO
+        - MO
         - AR
-        - T
         - ATPG
+        - T
         - ATP
         - V
         - N
@@ -6535,7 +6547,7 @@ definitions:
         type: string
       defiClientTauxTransformation:
         description: Taux de transformation
-        type: number
+        type: string
       defiClientAdresse2:
         description: Adresse 2
         type: string
@@ -6576,6 +6588,11 @@ definitions:
       defiPrdSource:
         description: Source
         type: string
+        enum:
+        - CP
+        - CC
+        - D
+        - PK
       defiPrdAutresFinitions:
         description: Autres finitions
         type: string
@@ -6684,12 +6701,19 @@ definitions:
         description: Emploi
         type: string
         enum:
-        - AS
-        - CT
-        - CE
         - D
+        - CA
+        - RC
         - C
+        - A
+        - CS
+        - CT
+        - CC
+        - RE
+        - CE
+        - CP
         - P
+        - AT
       defiContactStatut:
         description: Statut
         type: string
