@@ -408,7 +408,12 @@ paths:
       - in: query
         name: defiContactId
         description: Search filter for Id Contact
-        type: integer
+        type: string
+        required: false
+      - in: query
+        name: DF_Contact_DF_Client_id__defiClientNom
+        description: Search filter for Nom Client
+        type: string
         required: false
       - in: query
         name: defiContactCivilite
@@ -563,7 +568,7 @@ paths:
       - in: query
         name: defiPrdId
         description: Search filter for Id Produit
-        type: integer
+        type: string
         required: false
       - in: query
         name: defiPrdTypeGeologique
@@ -630,16 +635,6 @@ paths:
         - D
         - PK
       - in: query
-        name: DF_Produit_Finis_DF_Fournisseurs_id
-        description: Search filter for Fournisseurs
-        type: string
-        required: false
-      - in: query
-        name: DF_Produit_Finis_DF_Fournisseurs_id__defiFournNom
-        description: Search filter for Nom Fournisseur
-        type: string
-        required: false
-      - in: query
         name: defiPrdUnite
         description: Search filter for Unité
         type: string
@@ -658,6 +653,16 @@ paths:
         name: defiPrdCategoriePrix
         description: Search filter for Catégorie Prix
         type: boolean
+        required: false
+      - in: query
+        name: DF_Produit_Finis_DF_Fournisseurs_id
+        description: Search filter for Fournisseurs
+        type: string
+        required: false
+      - in: query
+        name: DF_Produit_Finis_DF_Fournisseurs_id__defiFournNom
+        description: Search filter for Nom Fournisseur Fournisseurs
+        type: string
         required: false
       tags:
       - DF_Produit_Finis
@@ -2583,6 +2588,44 @@ paths:
       - DF_Affaire
       consumes:
       - application/json
+  /rest/DF_Devis/{row_id}/action:Validation:
+    get:
+      summary: Call a custom action for a DF_Devis business object record or for all
+        records
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-df_devis-action-validation
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/ActionResult'
+          description: Success in calling the custom action
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      tags:
+      - DF_Devis
   /rest/DF_Transport:
     get:
       summary: Search DF_Transport business object records or get contextualized metadata
@@ -2725,6 +2768,11 @@ paths:
       - in: query
         name: defiPrTrspDepartementLivraison
         description: Search filter for Département de livraison
+        type: string
+        required: false
+      - in: query
+        name: defiPrTspId
+        description: Search filter for Id Prix Transport
         type: string
         required: false
       tags:
@@ -3227,7 +3275,7 @@ paths:
       - in: query
         name: DF_Devis_DF_Contact_id__defiContactId
         description: Search filter for Contact
-        type: integer
+        type: string
         required: false
       - in: query
         name: defiDevisRedacteur
@@ -5449,7 +5497,7 @@ paths:
       - in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdId
         description: Search filter for Catalogue Produit
-        type: integer
+        type: string
         required: false
       - in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdTypeGeologique
@@ -5885,7 +5933,7 @@ definitions:
         type: number
       DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdId:
         description: Catalogue Produit
-        type: integer
+        type: string
       DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdMasseVolumique:
         description: Masse Volumique
         type: string
@@ -6214,6 +6262,9 @@ definitions:
       defiPrTrspLieuEnlevement:
         description: Lieu d'enlèvement
         type: string
+      defiPrTspId:
+        description: Id Prix Transport
+        type: string
       row_id:
         description: Unique technical row ID
         type: string
@@ -6365,7 +6416,7 @@ definitions:
         type: string
       DF_Devis_DF_Contact_id__defiContactId:
         description: Contact
-        type: integer
+        type: string
       DF_Devis_DF_Client_id__defiClientTelephone:
         description: Téléphone client
         type: string
@@ -6609,7 +6660,7 @@ definitions:
         type: number
       defiPrdId:
         description: Id Produit
-        type: integer
+        type: string
       defiPrdAppellationCommerciale:
         description: Appellation Commerciale
         type: string
@@ -6628,11 +6679,11 @@ definitions:
       defiPrdCategoriePrix:
         description: Catégorie Prix
         type: boolean
-      DF_Produit_Finis_DF_Fournisseurs_id__defiFournNom:
-        description: Nom Fournisseur
-        type: string
       defiPrdMasseVolumique:
         description: Masse Volumique
+        type: string
+      DF_Produit_Finis_DF_Fournisseurs_id__defiFournNom:
+        description: Nom Fournisseur Fournisseurs
         type: string
       DF_Produit_Finis_DF_Fournisseurs_id:
         description: Fournisseurs
@@ -6674,7 +6725,7 @@ definitions:
         type: string
       defiContactId:
         description: Id Contact
-        type: integer
+        type: string
       defiContactCivilite:
         description: Civilité
         type: string
@@ -6692,6 +6743,9 @@ definitions:
         type: string
       defiContactEmail:
         description: E-mail
+        type: string
+      DF_Contact_DF_Client_id__defiClientNom:
+        description: Nom Client
         type: string
       defiContactPrenom:
         description: Prénom

@@ -227,7 +227,7 @@ components:
           type: number
         DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdId:
           description: Catalogue Produit
-          type: integer
+          type: string
         DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdMasseVolumique:
           description: Masse Volumique
           type: string
@@ -556,6 +556,9 @@ components:
         defiPrTrspLieuEnlevement:
           description: Lieu d'enlèvement
           type: string
+        defiPrTspId:
+          description: Id Prix Transport
+          type: string
         row_id:
           description: Unique technical row ID
           type: string
@@ -707,7 +710,7 @@ components:
           type: string
         DF_Devis_DF_Contact_id__defiContactId:
           description: Contact
-          type: integer
+          type: string
         DF_Devis_DF_Client_id__defiClientTelephone:
           description: Téléphone client
           type: string
@@ -951,7 +954,7 @@ components:
           type: number
         defiPrdId:
           description: Id Produit
-          type: integer
+          type: string
         defiPrdAppellationCommerciale:
           description: Appellation Commerciale
           type: string
@@ -970,11 +973,11 @@ components:
         defiPrdCategoriePrix:
           description: Catégorie Prix
           type: boolean
-        DF_Produit_Finis_DF_Fournisseurs_id__defiFournNom:
-          description: Nom Fournisseur
-          type: string
         defiPrdMasseVolumique:
           description: Masse Volumique
+          type: string
+        DF_Produit_Finis_DF_Fournisseurs_id__defiFournNom:
+          description: Nom Fournisseur Fournisseurs
           type: string
         DF_Produit_Finis_DF_Fournisseurs_id:
           description: Fournisseurs
@@ -1016,7 +1019,7 @@ components:
           type: string
         defiContactId:
           description: Id Contact
-          type: integer
+          type: string
         defiContactCivilite:
           description: Civilité
           type: string
@@ -1034,6 +1037,9 @@ components:
           type: string
         defiContactEmail:
           description: E-mail
+          type: string
+        DF_Contact_DF_Client_id__defiClientNom:
+          description: Nom Client
           type: string
         defiContactPrenom:
           description: Prénom
@@ -2346,10 +2352,16 @@ paths:
         description: Documentation?
         required: false
       - schema:
-          type: integer
+          type: string
         in: query
         name: defiContactId
         description: Search filter for Id Contact
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Contact_DF_Client_id__defiClientNom
+        description: Search filter for Nom Client
         required: false
       - schema:
           type: string
@@ -2524,7 +2536,7 @@ paths:
         description: Documentation?
         required: false
       - schema:
-          type: integer
+          type: string
         in: query
         name: defiPrdId
         description: Search filter for Id Produit
@@ -2607,18 +2619,6 @@ paths:
       - schema:
           type: string
         in: query
-        name: DF_Produit_Finis_DF_Fournisseurs_id
-        description: Search filter for Fournisseurs
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: DF_Produit_Finis_DF_Fournisseurs_id__defiFournNom
-        description: Search filter for Nom Fournisseur
-        required: false
-      - schema:
-          type: string
-        in: query
         name: defiPrdUnite
         description: Search filter for Unité
         required: false
@@ -2639,6 +2639,18 @@ paths:
         in: query
         name: defiPrdCategoriePrix
         description: Search filter for Catégorie Prix
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Produit_Finis_DF_Fournisseurs_id
+        description: Search filter for Fournisseurs
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Produit_Finis_DF_Fournisseurs_id__defiFournNom
+        description: Search filter for Nom Fournisseur Fournisseurs
         required: false
       tags:
       - DF_Produit_Finis
@@ -4955,6 +4967,53 @@ paths:
         required: true
       tags:
       - DF_Affaire
+  /rest/DF_Devis/{row_id}/action:Validation:
+    get:
+      summary: Call a custom action for a DF_Devis business object record or for all
+        records
+      security:
+      - bearerAuth: []
+      operationId: obj-df_devis-action-validation
+      responses:
+        '200':
+          description: Success in calling the custom action
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActionResult'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_Devis
   /rest/DF_Transport:
     get:
       summary: Search DF_Transport business object records or get contextualized metadata
@@ -5125,6 +5184,12 @@ paths:
         in: query
         name: defiPrTrspDepartementLivraison
         description: Search filter for Département de livraison
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: defiPrTspId
+        description: Search filter for Id Prix Transport
         required: false
       tags:
       - DF_Prix_Transport
@@ -5715,7 +5780,7 @@ paths:
         description: Search filter for Contacts
         required: false
       - schema:
-          type: integer
+          type: string
         in: query
         name: DF_Devis_DF_Contact_id__defiContactId
         description: Search filter for Contact
@@ -8242,7 +8307,7 @@ paths:
         description: Search filter for Produits Finis
         required: false
       - schema:
-          type: integer
+          type: string
         in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdId
         description: Search filter for Catalogue Produit

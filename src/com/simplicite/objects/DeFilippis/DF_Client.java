@@ -9,13 +9,13 @@ import com.simplicite.util.tools.*;
 */
 public class DF_Client extends ObjectDB {
 	private static final long serialVersionUID = 1L;
-	
+	/*
 	@Override
 	public void initUpdate() {
 		Integer id = Integer.valueOf(getRowId());
 		String cli_id = String.format("%04d",id);
-		setFieldValue("df_client_id",cli_id);
-	}
+		setFieldValue("defiClientId",cli_id);
+	}*/
 	
 	@Override
 	public List<String> preValidate() {

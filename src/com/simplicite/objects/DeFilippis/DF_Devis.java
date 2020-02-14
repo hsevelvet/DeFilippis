@@ -106,6 +106,20 @@ public class DF_Devis extends ObjectDB {
 	
 	public String creationAffaire(){
 		ObjectDB a = getGrant().getTmpObject("DF_Affaire");
+		a.resetFilters();
+		
+		a.create();
+		
+		String num_affaire = getField("defiDevisTitre").getValue();
+		String lieu_affaire = getFieldValue("defiDevisLieuProjet");
+		String intitule_affaire = getFieldValue("defiDevisTitreProjet");
+		
+		a.setFieldValue("defiAfrNumero",num_affaire);
+		a.setFieldValue("defiAfrLibelleChantier",lieu_affaire);
+		a.setFieldValue("defiAfrLieuAffaire",intitule_affaire);
+		
+		a.save();
+		
 		return sendRedirect(HTMLTool.getFormURL("DF_Affaire","the_main_DF_Affaire", a.getRowId(),""));
 	}
 

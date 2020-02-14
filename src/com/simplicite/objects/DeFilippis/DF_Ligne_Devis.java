@@ -40,12 +40,12 @@ public class DF_Ligne_Devis extends ObjectDB {
 	public void initUpdate(){
 		
 		// set id ligne devis
-		
-		Integer id = Integer.valueOf(getRowId());
+		/*
+		Integer id = Integer.valueOf(this.getRowId());
 		String id_ld = String.format("%04d",id);
 		
 		setFieldValue("defiLigneDevisId",id_ld);
-		
+		*/
         // accès aux valeurs 
         String unite = getField("defiPrdUnite").getValue(); 
         String des_produit = getField("defiPrdTypeProduit").getValue(); 
