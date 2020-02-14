@@ -23,7 +23,7 @@
 		}
 	};
 })(window.$ui);
-*/
+
 
 var DF_Ligne_Devis = typeof DF_Ligne_Devis !== "undefined" ? DF_Ligne_Devis : (function($) {
 	// Responsive UI hook
@@ -31,13 +31,13 @@ var DF_Ligne_Devis = typeof DF_Ligne_Devis !== "undefined" ? DF_Ligne_Devis : (f
 		try {
 			// Helper to dynamically change unit price when selecting product (also done on server side)
 			o.locals.ui.form.onload = function(ctn, obj) {
-				var prx = $ui.getUIField(ctn, obj, "DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdPrixUnitaireHT");
-				var uni = $ui.getUIField(ctn, obj, "DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdUnite");
+				var prix = $ui.getUIField(ctn, obj, "DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdPrixUnitaireHT");
+				var unit = $ui.getUIField(ctn, obj, "DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdUnite");
 				f.ui.on("change", function() {
-					$ui.getUIField(ctn, obj, "defiLigneDevisUnite").ui.val(uni.ui.val());
-					$ui.getUIField(ctn, obj, "defiLigneDevisPrixUnitaireHT").ui.val(prx.ui.val());
+					$ui.getUIField(ctn, obj, "defiLigneDevisUnite").ui.val(unit.ui.val());
+					$ui.getUIField(ctn, obj, "defiLigneDevisPrixUnitaireHT").ui.val(prix.ui.val());
 				});
 			};
 		} catch(e) { console.error(e.message); } finally { cbk && cbk(); }
 	};
-})(jQuery);
+})(jQuery);*/

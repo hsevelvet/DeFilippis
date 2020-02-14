@@ -209,14 +209,6 @@ components:
         DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdTypeProduit:
           description: Désignation Produit
           type: string
-          enum:
-          - PAVE
-          - DALLE
-          - BORDURE
-          - BANC
-          - BORNE
-          - CANIVEAU
-          - PIECE
         defiLigneDevisPrixUnitaireHT:
           description: Prix Unitaire HT
           type: number
@@ -232,15 +224,6 @@ components:
         DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdTypeGeologique:
           description: Nom Produit
           type: string
-          enum:
-          - GRA
-          - CAL
-          - GRE
-          - POR
-          - BAS
-          - LUS
-          - TEC
-          - PRE
         defiLigneDevisPrixExwUnitaire:
           description: Prix EXW / Unité
           type: number
@@ -960,26 +943,9 @@ components:
         defiPrdTypeGeologique:
           description: Type Géologique
           type: string
-          enum:
-          - GRA
-          - CAL
-          - GRE
-          - POR
-          - BAS
-          - LUS
-          - TEC
-          - PRE
         defiPrdTypeProduit:
           description: Type produit
           type: string
-          enum:
-          - PAVE
-          - DALLE
-          - BORDURE
-          - BANC
-          - BORNE
-          - CANIVEAU
-          - PIECE
         defiPrdSource:
           description: Source
           type: string
@@ -1026,20 +992,7 @@ components:
           type: string
         defiPrdCouleur:
           description: Couleur
-          type: array
-          items:
-            type: string
-            enum:
-            - GR
-            - BE
-            - BL
-            - RG
-            - 'NO'
-            - RS
-            - VE
-            - OC
-            - JA
-            - MA
+          type: string
         row_id:
           description: Unique technical row ID
           type: string
@@ -2599,32 +2552,12 @@ paths:
         required: false
       - schema:
           type: string
-          enum:
-          - GRA
-          - CAL
-          - GRE
-          - POR
-          - BAS
-          - LUS
-          - TEC
-          - PRE
         in: query
         name: defiPrdTypeGeologique
         description: Search filter for Type Géologique
         required: false
       - schema:
           type: string
-          enum:
-          - GR
-          - BE
-          - BL
-          - RG
-          - 'NO'
-          - RS
-          - VE
-          - OC
-          - JA
-          - MA
         in: query
         name: defiPrdCouleur
         description: Search filter for Couleur
@@ -2637,14 +2570,6 @@ paths:
         required: false
       - schema:
           type: string
-          enum:
-          - PAVE
-          - DALLE
-          - BORDURE
-          - BANC
-          - BORNE
-          - CANIVEAU
-          - PIECE
         in: query
         name: defiPrdTypeProduit
         description: Search filter for Type produit
@@ -8243,14 +8168,6 @@ paths:
         required: false
       - schema:
           type: string
-          enum:
-          - PAVE
-          - DALLE
-          - BORDURE
-          - BANC
-          - BORNE
-          - CANIVEAU
-          - PIECE
         in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdTypeProduit
         description: Search filter for Désignation Produit
@@ -8413,15 +8330,6 @@ paths:
         required: false
       - schema:
           type: string
-          enum:
-          - GRA
-          - CAL
-          - GRE
-          - POR
-          - BAS
-          - LUS
-          - TEC
-          - PRE
         in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdTypeGeologique
         description: Search filter for Nom Produit

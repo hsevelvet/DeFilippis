@@ -452,7 +452,7 @@
 		<usr_extra>1</usr_extra>
 		<usr_subhead>1</usr_subhead>
 		<usr_logout>2020-02-03 15:57:29</usr_logout>
-		<usr_last_logon>2020-02-14 15:56:15</usr_last_logon>
+		<usr_last_logon>2020-02-14 17:00:35</usr_last_logon>
 		<usr_dateformat/>
 		<usr_uuid/>
 	</data>
@@ -856,7 +856,7 @@
 	<data>
 		<usp_user_id.usr_login>designer</usp_user_id.usr_login>
 		<usp_param_id.sys_code>UI_EDITOR_PREFS</usp_param_id.sys_code>
-		<usp_value><![CDATA[{"explore":[{"module":"DeFilippis","id":"38","items":[{"field":"obo_script_id","label":"Objet métier","list":[{"docId":"2608","id":"2000","label":"DF_Affaire"},{"docId":"2609","id":"2001","label":"DF_Client"},{"docId":"2610","id":"2002","label":"DF_Commande"},{"docId":"2611","id":"2003","label":"DF_Contact"},{"docId":"2612","id":"2004","label":"DF_Devis"},{"docId":"2613","id":"2007","label":"DF_Ligne_Devis"},{"docId":"2614","id":"2008","label":"DF_Livraison"},{"docId":"2615","id":"2009","label":"DF_Plan_Livraison"},{"docId":"2616","id":"2011","label":"DF_Produit_Finis"},{"docId":"2617","id":"2013","label":"DF_Transport"}],"open":true,"object":"ObjectInternal"},{"field":"obe_script_id","label":"Objet externe","list":[{"docId":"2606","id":"1998","label":"Test"},{"docId":"2607","id":"1999","label":"WebhookLivraisonTrello"}],"open":true,"object":"ObjectExternal"},{"field":"pcs_script_id","label":"Processus métier","list":[{"docId":"2618","id":"9","label":"DF_Process_01"}],"open":true,"object":"BPMProcess"},{"field":"res_file","label":"Ressource","list":[{"docId":"2622","id":"256","label":"Objet métier/DF_Ligne_Devis * SCRIPT"}],"open":true,"object":"Resource"}],"open":true},{"module":"SimStore","id":"37","items":[{"field":"obe_script_id","label":"Objet externe","list":[{"docId":"1937","id":"1988","label":"StoStore"}],"open":false,"object":"ObjectExternal"},{"field":"res_file","label":"Ressource","list":[{"docId":"1938","id":"251","label":"Objet externe/StoStore * TEMPLATE"},{"docId":"1939","id":"252","label":"Objet externe/StoStore * SCRIPT"}],"open":false,"object":"Resource"}],"open":false}],"tabs":[{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2004"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2002"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2007"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2001"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2011"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2003"},{"field":"res_file","scope":"","type":"js","object":"Resource","rowId":"256"}],"selected":"ObjectInternal_obo_script_id_2007"}]]></usp_value>
+		<usp_value><![CDATA[{"explore":[{"module":"DeFilippis","id":"38","items":[{"field":"obo_script_id","label":"Objet métier","list":[{"docId":"2608","id":"2000","label":"DF_Affaire"},{"docId":"2609","id":"2001","label":"DF_Client"},{"docId":"2610","id":"2002","label":"DF_Commande"},{"docId":"2611","id":"2003","label":"DF_Contact"},{"docId":"2612","id":"2004","label":"DF_Devis"},{"docId":"2631","id":"2007","label":"DF_Ligne_Devis"},{"docId":"2614","id":"2008","label":"DF_Livraison"},{"docId":"2615","id":"2009","label":"DF_Plan_Livraison"},{"docId":"2616","id":"2011","label":"DF_Produit_Finis"},{"docId":"2617","id":"2013","label":"DF_Transport"}],"open":true,"object":"ObjectInternal"},{"field":"obe_script_id","label":"Objet externe","list":[{"docId":"2606","id":"1998","label":"Test"},{"docId":"2607","id":"1999","label":"WebhookLivraisonTrello"}],"open":true,"object":"ObjectExternal"},{"field":"pcs_script_id","label":"Processus métier","list":[{"docId":"2618","id":"9","label":"DF_Process_01"}],"open":true,"object":"BPMProcess"},{"field":"res_file","label":"Ressource","list":[{"docId":"2630","id":"256","label":"Objet métier/DF_Ligne_Devis * SCRIPT"}],"open":true,"object":"Resource"}],"open":true},{"module":"SimStore","id":"37","items":[{"field":"obe_script_id","label":"Objet externe","list":[{"docId":"1937","id":"1988","label":"StoStore"}],"open":false,"object":"ObjectExternal"},{"field":"res_file","label":"Ressource","list":[{"docId":"1938","id":"251","label":"Objet externe/StoStore * TEMPLATE"},{"docId":"1939","id":"252","label":"Objet externe/StoStore * SCRIPT"}],"open":false,"object":"Resource"}],"open":false}],"tabs":[{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2004"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2002"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2007"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2001"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2011"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2003"},{"field":"res_file","scope":"","type":"js","object":"Resource","rowId":"256"}],"selected":"Resource_res_file_256"}]]></usp_value>
 		<usp_param_id.sys_type/>
 		<usp_param_id.sys_value><![CDATA[empty]]></usp_param_id.sys_value>
 		<usp_param_id.sys_desc/>
@@ -9713,13 +9713,13 @@ Tout accés alloués.]]></grp_comment>
 		<fld_updatable>1</fld_updatable>
 		<fld_required>0</fld_required>
 		<fld_fonctid>0</fld_fonctid>
-		<fld_research>1</fld_research>
+		<fld_research/>
 		<fld_researchreq>0</fld_researchreq>
 		<fld_sort>C</fld_sort>
 		<fld_more>0</fld_more>
 		<fld_listmore>0</fld_listmore>
 		<fld_listsum/>
-		<fld_type>14</fld_type>
+		<fld_type>3</fld_type>
 		<fld_type_id.flt_code/>
 		<fld_enumlist>DF_PRODUIT_COULEUR</fld_enumlist>
 		<fld_list_id.lov_name>DF_PRODUIT_COULEUR</fld_list_id.lov_name>
@@ -10037,13 +10037,13 @@ Tout accés alloués.]]></grp_comment>
 		<fld_updatable>1</fld_updatable>
 		<fld_required>1</fld_required>
 		<fld_fonctid>0</fld_fonctid>
-		<fld_research>1</fld_research>
+		<fld_research/>
 		<fld_researchreq>0</fld_researchreq>
 		<fld_sort>C</fld_sort>
 		<fld_more>0</fld_more>
 		<fld_listmore>0</fld_listmore>
 		<fld_listsum/>
-		<fld_type>7</fld_type>
+		<fld_type>3</fld_type>
 		<fld_type_id.flt_code/>
 		<fld_enumlist>DEFIPRDTYPEGEOLOGIQUE</fld_enumlist>
 		<fld_list_id.lov_name>DEFIPRDTYPEGEOLOGIQUE</fld_list_id.lov_name>
@@ -10079,7 +10079,7 @@ Tout accés alloués.]]></grp_comment>
 		<fld_more>0</fld_more>
 		<fld_listmore>0</fld_listmore>
 		<fld_listsum/>
-		<fld_type>7</fld_type>
+		<fld_type>3</fld_type>
 		<fld_type_id.flt_code/>
 		<fld_enumlist>DEFIPRDTYPEPRODUIT</fld_enumlist>
 		<fld_list_id.lov_name>DEFIPRDTYPEPRODUIT</fld_list_id.lov_name>
@@ -20774,7 +20774,7 @@ Objet metier pour produit.]]></obo_comment>
 	<data>
 		<obf_object_id.obo_name>DF_Ligne_Devis</obf_object_id.obo_name>
 		<obf_field_id.fld_name>defiPrdTypeProduit</obf_field_id.fld_name>
-		<obf_field_id.fld_type>7</obf_field_id.fld_type>
+		<obf_field_id.fld_type>3</obf_field_id.fld_type>
 		<obf_order>20</obf_order>
 		<obf_group_by/>
 		<obf_dfault_order/>
@@ -21507,7 +21507,7 @@ Objet metier pour produit.]]></obo_comment>
 		<obf_input/>
 		<obf_ref_field_id.fld_name/>
 		<obf_ref_object_id.obo_name>DF_Produit_Finis</obf_ref_object_id.obo_name>
-		<obf_cascad>R</obf_cascad>
+		<obf_cascad>C</obf_cascad>
 		<obf_card>0,n</obf_card>
 		<obf_visible>1</obf_visible>
 		<obf_ref_export>1</obf_ref_export>
@@ -21558,7 +21558,7 @@ Objet metier pour produit.]]></obo_comment>
 	<data>
 		<obf_object_id.obo_name>DF_Ligne_Devis</obf_object_id.obo_name>
 		<obf_field_id.fld_name>defiPrdTypeGeologique</obf_field_id.fld_name>
-		<obf_field_id.fld_type>7</obf_field_id.fld_type>
+		<obf_field_id.fld_type>3</obf_field_id.fld_type>
 		<obf_order>1120</obf_order>
 		<obf_group_by/>
 		<obf_dfault_order/>
@@ -22892,7 +22892,7 @@ Objet metier pour produit.]]></obo_comment>
 	<data>
 		<obf_object_id.obo_name>DF_Produit_Finis</obf_object_id.obo_name>
 		<obf_field_id.fld_name>defiPrdTypeGeologique</obf_field_id.fld_name>
-		<obf_field_id.fld_type>7</obf_field_id.fld_type>
+		<obf_field_id.fld_type>3</obf_field_id.fld_type>
 		<obf_order>20</obf_order>
 		<obf_group_by/>
 		<obf_dfault_order/>
@@ -22921,7 +22921,7 @@ Objet metier pour produit.]]></obo_comment>
 	<data>
 		<obf_object_id.obo_name>DF_Produit_Finis</obf_object_id.obo_name>
 		<obf_field_id.fld_name>defiPrdCouleur</obf_field_id.fld_name>
-		<obf_field_id.fld_type>14</obf_field_id.fld_type>
+		<obf_field_id.fld_type>3</obf_field_id.fld_type>
 		<obf_order>30</obf_order>
 		<obf_group_by/>
 		<obf_dfault_order/>
@@ -22979,7 +22979,7 @@ Objet metier pour produit.]]></obo_comment>
 	<data>
 		<obf_object_id.obo_name>DF_Produit_Finis</obf_object_id.obo_name>
 		<obf_field_id.fld_name>defiPrdTypeProduit</obf_field_id.fld_name>
-		<obf_field_id.fld_type>7</obf_field_id.fld_type>
+		<obf_field_id.fld_type>3</obf_field_id.fld_type>
 		<obf_order>50</obf_order>
 		<obf_group_by/>
 		<obf_dfault_order/>
@@ -24190,7 +24190,7 @@ Objet metier pour produit.]]></obo_comment>
 		<obf_field_id.fld_updatable>1</obf_field_id.fld_updatable>
 		<obf_field_id.fld_required>0</obf_field_id.fld_required>
 		<obf_field_id.fld_fonctid>0</obf_field_id.fld_fonctid>
-		<obf_cascad>R</obf_cascad>
+		<obf_cascad>C</obf_cascad>
 		<obf_card>0,n</obf_card>
 		<obf_query/>
 		<obf_visible>1</obf_visible>
@@ -25291,6 +25291,102 @@ Objet metier pour produit.]]></obo_comment>
 		<grt_function_id.fct_action_id.act_name/>
 		<grt_function_id.fct_function>L</grt_function_id.fct_function>
 		<grt_activ>1</grt_activ>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+</object>
+<object>
+	<name>ConstraintObject</name>
+	<action>upsert</action>
+	<data>
+		<cst_name>PrdTypeContrainte</cst_name>
+		<cst_object_id.obo_name>DF_Produit_Finis</cst_object_id.obo_name>
+		<cst_order>1</cst_order>
+		<cst_desc/>
+		<cst_type>E</cst_type>
+		<cst_effects>F;B</cst_effects>
+		<cst_field_id.fld_name/>
+		<cst_expr><![CDATA[true]]></cst_expr>
+		<cst_method/>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<cst_name>PrdTypeContrainte2</cst_name>
+		<cst_object_id.obo_name>DF_Produit_Finis</cst_object_id.obo_name>
+		<cst_order>1</cst_order>
+		<cst_desc/>
+		<cst_type>E</cst_type>
+		<cst_effects>F;B</cst_effects>
+		<cst_field_id.fld_name/>
+		<cst_expr><![CDATA[[VALUE: defiPrdCategoriePrix] == true]]></cst_expr>
+		<cst_method/>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<cst_name>PrdTypeContrainte21</cst_name>
+		<cst_object_id.obo_name>DF_Produit_Finis</cst_object_id.obo_name>
+		<cst_order>1</cst_order>
+		<cst_desc/>
+		<cst_type>E</cst_type>
+		<cst_effects>F;B</cst_effects>
+		<cst_field_id.fld_name/>
+		<cst_expr><![CDATA[[VALUE: defiPrdCategoriePrix] != true]]></cst_expr>
+		<cst_method/>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+</object>
+<object>
+	<name>ConstraintImpact</name>
+	<action>upsert</action>
+	<data>
+		<csi_const_id.cst_name>PrdTypeContrainte</csi_const_id.cst_name>
+		<csi_const_id.cst_object_id.obo_name>DF_Produit_Finis</csi_const_id.cst_object_id.obo_name>
+		<csi_const_id.cst_order>1</csi_const_id.cst_order>
+		<csi_order>1</csi_order>
+		<csi_object_prop/>
+		<csi_field_prop/>
+		<csi_apply>T</csi_apply>
+		<csi_expr><![CDATA[[VALUE: defiPrdCategoriePrix] == true]]></csi_expr>
+		<csi_target>
+			<object>
+				<name>ObjectFieldArea</name>
+				<data>
+					<ofa_name>DF_Produit_Finis-6</ofa_name>
+				</data>
+			</object>
+		</csi_target>
+		<csi_objfield_id.obf_object_id.obo_name/>
+		<csi_objfield_id.obf_field_id.fld_name/>
+		<csi_objfield_id.obf_order/>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<csi_const_id.cst_name>PrdTypeContrainte2</csi_const_id.cst_name>
+		<csi_const_id.cst_object_id.obo_name>DF_Produit_Finis</csi_const_id.cst_object_id.obo_name>
+		<csi_const_id.cst_order>1</csi_const_id.cst_order>
+		<csi_order>1</csi_order>
+		<csi_object_prop/>
+		<csi_field_prop>M</csi_field_prop>
+		<csi_apply>F</csi_apply>
+		<csi_expr><![CDATA[true]]></csi_expr>
+		<csi_target/>
+		<csi_objfield_id.obf_object_id.obo_name>DF_Produit_Finis</csi_objfield_id.obf_object_id.obo_name>
+		<csi_objfield_id.obf_field_id.fld_name>defiPrdLongueur</csi_objfield_id.obf_field_id.fld_name>
+		<csi_objfield_id.obf_order>80</csi_objfield_id.obf_order>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<csi_const_id.cst_name>PrdTypeContrainte21</csi_const_id.cst_name>
+		<csi_const_id.cst_object_id.obo_name>DF_Produit_Finis</csi_const_id.cst_object_id.obo_name>
+		<csi_const_id.cst_order>1</csi_const_id.cst_order>
+		<csi_order>1</csi_order>
+		<csi_object_prop/>
+		<csi_field_prop>M</csi_field_prop>
+		<csi_apply>F</csi_apply>
+		<csi_expr><![CDATA[false]]></csi_expr>
+		<csi_target/>
+		<csi_objfield_id.obf_object_id.obo_name>DF_Produit_Finis</csi_objfield_id.obf_object_id.obo_name>
+		<csi_objfield_id.obf_field_id.fld_name>defiPrdLongueur</csi_objfield_id.obf_field_id.fld_name>
+		<csi_objfield_id.obf_order>80</csi_objfield_id.obf_order>
 		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
 	</data>
 </object>
