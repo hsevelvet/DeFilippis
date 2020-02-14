@@ -21,7 +21,7 @@ public class DF_Ligne_Devis extends ObjectDB {
 		
 		if (this.isNew())
 			getField("defiLigneDevisPrixUnitaireHT").setValue(getField("defiPrdPrixUnitaireHT").getValue());
-			getField("defiLigneDevisUnite").setValue(getField("defiPrdUnite").getValue());
+			//getField("defiLigneDevisUnite").setValue(getField("defiPrdUnite").getValue());
 		return msgs;
 		
 	}

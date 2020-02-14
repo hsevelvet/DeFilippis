@@ -70,10 +70,6 @@
     - `A` Aucun
     - `P` Particulier
 
-### Custom actions
-
-No custom action
-
 `DF_Client` business object definition
 --------------------------------------
 
@@ -117,10 +113,6 @@ Objet metier pour client.
     - `EA` Entreprise Autre
     - `A` Aucun
     - `P` Particulier
-
-### Custom actions
-
-No custom action
 
 `DF_Commande` business object definition
 ----------------------------------------
@@ -228,10 +220,6 @@ Objet metier pour contact.
     - `O` Ouvert
     - `F` Fermé
     - `ET` En Traitement
-
-### Custom actions
-
-No custom action
 
 `DF_Devis` business object definition
 -------------------------------------
@@ -349,10 +337,6 @@ Objet métier pour fournisseur.
 | `defiFournDescription`                                       | text(10000)                              |          | yes       |          | -                                                                                |
 | `defiFournIdKheops`                                          | char(12)                                 |          | yes       |          | -                                                                                |
 
-### Custom actions
-
-No custom action
-
 `DF_ligne_commande` business object definition
 ----------------------------------------------
 
@@ -378,10 +362,6 @@ No custom action
 | `defiLigneCommandeEpaisseur`                                 | float(100, 2)                            |          | yes       |          | -                                                                                |
 | `defiLigneCommandePoidsUnitaire`                             | float(10, 2)                             |          | yes       |          | -                                                                                |
 | `defiLigneCommandeUnite`                                     | char(4)                                  |          | yes       |          | -                                                                                |
-
-### Custom actions
-
-No custom action
 
 `DF_Ligne_Devis` business object definition
 -------------------------------------------
@@ -434,13 +414,13 @@ No custom action
 ### Lists
 
 * `DEFIPRDTYPEPRODUIT`
-    - `PA` Pavé
-    - `DA` Dalle
-    - `BO` Bordure
-    - `BA` Banc
-    - `BR` Borne
-    - `CA` Caniveau
-    - `PS` Pièce Spéciale
+    - `PAVE` Pavé
+    - `DALLE` Dalle
+    - `BORDURE` Bordure
+    - `BANC` Banc
+    - `BORNE` Borne
+    - `CANIVEAU` Caniveau
+    - `PIECE` Pièce Spéciale
 * `DEFIPRDTYPEGEOLOGIQUE`
     - `GRA` Granit
     - `CAL` Calcaire
@@ -455,10 +435,6 @@ No custom action
     - `ML` ml
     - `T` T
     - `U` U
-
-### Custom actions
-
-No custom action
 
 `DF_Livraison` business object definition
 -----------------------------------------
@@ -545,10 +521,6 @@ No custom action
 | `defiPrTrspDepartementLivraison`                             | char(20)                                 |          | yes       |          | -                                                                                |
 | `defiPrTspId`                                                | char(11)                                 | yes*     | yes       |          | -                                                                                |
 
-### Custom actions
-
-No custom action
-
 `DF_Produit_Finis` business object definition
 ---------------------------------------------
 
@@ -601,13 +573,13 @@ Objet metier pour produit.
     - `JA` Jaune
     - `MA` Marron
 * `DEFIPRDTYPEPRODUIT`
-    - `PA` Pavé
-    - `DA` Dalle
-    - `BO` Bordure
-    - `BA` Banc
-    - `BR` Borne
-    - `CA` Caniveau
-    - `PS` Pièce Spéciale
+    - `PAVE` Pavé
+    - `DALLE` Dalle
+    - `BORDURE` Bordure
+    - `BANC` Banc
+    - `BORNE` Borne
+    - `CANIVEAU` Caniveau
+    - `PIECE` Pièce Spéciale
 * `DEFIPRDSOURCE`
     - `CP` Contrat Produit Fini
     - `CC` Contrat Calculé
@@ -619,10 +591,6 @@ Objet metier pour produit.
     - `T` T
     - `U` U
 
-### Custom actions
-
-No custom action
-
 `DF_test` business object definition
 ------------------------------------
 
@@ -632,10 +600,6 @@ No custom action
 
 | Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
-
-### Custom actions
-
-No custom action
 
 `DF_Transport` business object definition
 -----------------------------------------
@@ -655,10 +619,6 @@ No custom action
 | `defiTrspEmail`                                              | email(100)                               |          | yes       |          | -                                                                                |
 | `defiTrspAdresse`                                            | char(100)                                |          | yes       |          | -                                                                                |
 
-### Custom actions
-
-No custom action
-
 `DF_utilisateur_interne` business object definition
 ---------------------------------------------------
 
@@ -670,10 +630,6 @@ No custom action
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
 | `defiUsrNomComplet`                                          | char(70)                                 | yes      | yes       |          | -                                                                                |
 | `defiUsrTrigramme`                                           | char(5)                                  |          | yes       |          | -                                                                                |
-
-### Custom actions
-
-No custom action
 
 `DF_Process_01` business process definition
 -------------------------------------------
