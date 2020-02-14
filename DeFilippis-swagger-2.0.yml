@@ -71,13 +71,13 @@ paths:
         type: string
         required: false
       - in: query
-        name: DF_Chantier_DF_Client_id__defiClientTelephone
-        description: Search filter for Téléphone Client
+        name: defiAfrDateDebut
+        description: Search filter for Date début
         type: string
         required: false
       - in: query
-        name: defiAfrDateDebut
-        description: Search filter for Date début
+        name: DF_Chantier_DF_Client_id__defiClientTelephone
+        description: Search filter for Téléphone Client
         type: string
         required: false
       - in: query
@@ -142,8 +142,8 @@ paths:
         required: false
         enum:
         - MDO
-        - MO
         - AR
+        - MO
         - T
         - ATPG
         - V
@@ -610,14 +610,14 @@ paths:
         type: number
         required: false
       - in: query
-        name: df_produit_commentaire
-        description: Search filter for Commentaire
-        type: string
-        required: false
-      - in: query
         name: defiPrdLargeur
         description: Search filter for Largeur
         type: number
+        required: false
+      - in: query
+        name: df_produit_commentaire
+        description: Search filter for Commentaire
+        type: string
         required: false
       - in: query
         name: defiPrdEpaisseur
@@ -639,6 +639,11 @@ paths:
         description: Search filter for Unité
         type: string
         required: false
+        enum:
+        - M2
+        - ML
+        - T
+        - U
       - in: query
         name: defiPrdPrixUnitaireHT
         description: Search filter for Prix Unitaire HT
@@ -2068,14 +2073,14 @@ paths:
         type: string
         required: false
       - in: query
-        name: defiCommandeIntituleAffaire
-        description: Search filter for Titre Affaire
-        type: string
-        required: false
-      - in: query
         name: defiCommandeIdLivraison
         description: Search filter for Id Livraison
         type: integer
+        required: false
+      - in: query
+        name: defiCommandeIntituleAffaire
+        description: Search filter for Titre Affaire
+        type: string
         required: false
       - in: query
         name: defiCommandeLieuAffaire
@@ -2085,6 +2090,11 @@ paths:
       - in: query
         name: defiCommandeIntituleCommande
         description: Search filter for Intitulé de commande
+        type: string
+        required: false
+      - in: query
+        name: DF_Commande_DF_Client_id
+        description: Search filter for DF client
         type: string
         required: false
       - in: query
@@ -2098,11 +2108,6 @@ paths:
         - LI
         - TE
         - AN
-      - in: query
-        name: DF_Commande_DF_Client_id
-        description: Search filter for DF client
-        type: string
-        required: false
       - in: query
         name: DF_Commande_DF_Client_id__defiClientId
         description: Search filter for Id Client DF client
@@ -3121,13 +3126,13 @@ paths:
         type: string
         required: false
       - in: query
-        name: defiDevisLieuProjet
-        description: Search filter for Ville Projet
+        name: defiDevisDateEmission
+        description: Search filter for Date Emission
         type: string
         required: false
       - in: query
-        name: defiDevisDateEmission
-        description: Search filter for Date Emission
+        name: defiDevisLieuProjet
+        description: Search filter for Ville Projet
         type: string
         required: false
       - in: query
@@ -4019,8 +4024,8 @@ paths:
         required: false
         enum:
         - MDO
-        - MO
         - AR
+        - MO
         - T
         - ATPG
         - V
@@ -5203,8 +5208,8 @@ paths:
         - BE
         - CH
         - IE
-        - CA
         - US
+        - CA
       - in: query
         name: row_module_id
         description: Search filter for Module
@@ -5380,6 +5385,11 @@ paths:
         type: string
         required: false
       - in: query
+        name: defiLigneDevisUnite
+        description: Search filter for Unité LigneD
+        type: string
+        required: false
+      - in: query
         name: DF_Ligne_Devis_DF_Devis_id
         description: Search filter for DF devis
         type: string
@@ -5524,6 +5534,11 @@ paths:
         description: Search filter for Unité
         type: string
         required: false
+        enum:
+        - M2
+        - ML
+        - T
+        - U
       - in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdPrixUnitaireHT
         description: Search filter for Prix unitaire HT
@@ -5806,8 +5821,8 @@ definitions:
         type: string
         enum:
         - MDO
-        - MO
         - AR
+        - MO
         - T
         - ATPG
         - V
@@ -5877,6 +5892,9 @@ definitions:
       defiLigneDevisPrixVenteImpose:
         description: Prix Vente Unitaire Imposé
         type: number
+      defiLigneDevisUnite:
+        description: Unité LigneD
+        type: string
       defiLigneDevisRow:
         description: defi ligne devis row
         type: string
@@ -5889,6 +5907,11 @@ definitions:
       DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdUnite:
         description: Unité
         type: string
+        enum:
+        - M2
+        - ML
+        - T
+        - U
       defiLigneDevisPrixVenteCalcule:
         description: Prix Vente Unitaire Calculé
         type: number
@@ -6585,8 +6608,8 @@ definitions:
         type: string
         enum:
         - MDO
-        - MO
         - AR
+        - MO
         - T
         - ATPG
         - V
@@ -6701,6 +6724,11 @@ definitions:
       defiPrdUnite:
         description: Unité
         type: string
+        enum:
+        - M2
+        - ML
+        - T
+        - U
       defiPrdPrixUnitaireHT:
         description: Prix Unitaire HT
         type: number
@@ -7461,8 +7489,8 @@ definitions:
         - BE
         - CH
         - IE
-        - CA
         - US
+        - CA
       usr_title:
         description: Title
         type: string

@@ -48,8 +48,8 @@ public class DF_Devis extends ObjectDB {
 		
 		// set values Devis
 		String num_devis = getFieldValue("defiDevisNumero");
-		String full_name = getFieldValue("defiUsrNomComplet");
-		String[] nameparts = full_name.split(" ");
+		//String full_name = getFieldValue("defiUsrNomComplet");
+		//String[] nameparts = full_name.split(" ");
 		//String trigramme = String.valueOf(nameparts[0].charAt(0)).toUpperCase() +
 		//String.valueOf(nameparts[1].charAt(0)).toUpperCase() + String.valueOf(nameparts[1].charAt(2)).toUpperCase();
 		String trigramme = getFieldValue("DF_Devis_DF_utilisateur_interne_id.defiUsrTrigramme");

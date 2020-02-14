@@ -70,6 +70,10 @@
     - `A` Aucun
     - `P` Particulier
 
+### Custom actions
+
+No custom action
+
 `DF_Client` business object definition
 --------------------------------------
 
@@ -113,6 +117,10 @@ Objet metier pour client.
     - `EA` Entreprise Autre
     - `A` Aucun
     - `P` Particulier
+
+### Custom actions
+
+No custom action
 
 `DF_Commande` business object definition
 ----------------------------------------
@@ -220,6 +228,10 @@ Objet metier pour contact.
     - `O` Ouvert
     - `F` Fermé
     - `ET` En Traitement
+
+### Custom actions
+
+No custom action
 
 `DF_Devis` business object definition
 -------------------------------------
@@ -337,6 +349,10 @@ Objet métier pour fournisseur.
 | `defiFournDescription`                                       | text(10000)                              |          | yes       |          | -                                                                                |
 | `defiFournIdKheops`                                          | char(12)                                 |          | yes       |          | -                                                                                |
 
+### Custom actions
+
+No custom action
+
 `DF_ligne_commande` business object definition
 ----------------------------------------------
 
@@ -363,6 +379,10 @@ Objet métier pour fournisseur.
 | `defiLigneCommandePoidsUnitaire`                             | float(10, 2)                             |          | yes       |          | -                                                                                |
 | `defiLigneCommandeUnite`                                     | char(4)                                  |          | yes       |          | -                                                                                |
 
+### Custom actions
+
+No custom action
+
 `DF_Ligne_Devis` business object definition
 -------------------------------------------
 
@@ -377,6 +397,7 @@ Objet métier pour fournisseur.
 | `defiLigneDevisQuantite`                                     | int(11)                                  | yes      | yes       |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdTypeProduit`_ | _char(20)_                               |          |           |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdFinitionFacesVues`_ | _char(70)_                               |          |           |          | -                                                                                |
+| `defiLigneDevisUnite`                                        | char(3)                                  |          | yes       |          | -                                                                                |
 | `DF_Ligne_Devis_DF_Devis_id` link to **`DF_Devis`**          | id                                       | yes      | yes       |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdMasseVolumique`_ | _bigdec(8, 2)_                           |          |           |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Devis_id.defiDevisTitre`_           | _char(100)_                              |          |           |          | -                                                                                |
@@ -405,10 +426,22 @@ Objet métier pour fournisseur.
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdLongueur`_  | _float(5, 2)_                            |          |           |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdLargeur`_   | _float(5, 2)_                            |          |           |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdEpaisseur`_ | _float(5, 2)_                            |          |           |          | -                                                                                |
-| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdUnite`_     | _char(4)_                                |          |           |          | -                                                                                |
+| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdUnite`_     | _enum(7) using `DEFIPRDUNITE` list_      |          |           |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdPrixUnitaireHT`_ | _float(10, 2)_                           |          |           |          | -                                                                                |
 | `defiLigneDevisPrixVenteImpose`                              | float(6, 2)                              |          | yes       |          | -                                                                                |
 | `defiLigneDevisPrixUnitaireHT`                               | float(10, 2)                             |          | yes       |          | -                                                                                |
+
+### Lists
+
+* `DEFIPRDUNITE`
+    - `M2` m²
+    - `ML` ml
+    - `T` T
+    - `U` U
+
+### Custom actions
+
+No custom action
 
 `DF_Livraison` business object definition
 -----------------------------------------
@@ -495,6 +528,10 @@ Objet métier pour fournisseur.
 | `defiPrTrspDepartementLivraison`                             | char(20)                                 |          | yes       |          | -                                                                                |
 | `defiPrTspId`                                                | char(11)                                 | yes*     | yes       |          | -                                                                                |
 
+### Custom actions
+
+No custom action
+
 `DF_Produit_Finis` business object definition
 ---------------------------------------------
 
@@ -517,7 +554,7 @@ Objet metier pour produit.
 | `df_produit_commentaire`                                     | char(30)                                 |          | yes       |          | -                                                                                |
 | `defiPrdEpaisseur`                                           | float(5, 2)                              | yes      | yes       |          | -                                                                                |
 | `defiPrdSource`                                              | enum(7) using `DEFIPRDSOURCE` list       | yes      | yes       |          | -                                                                                |
-| `defiPrdUnite`                                               | char(4)                                  | yes      | yes       |          | -                                                                                |
+| `defiPrdUnite`                                               | enum(7) using `DEFIPRDUNITE` list        | yes      | yes       |          | -                                                                                |
 | `defiPrdPrixUnitaireHT`                                      | float(10, 2)                             | yes      | yes       |          | -                                                                                |
 | `defiPrdMasseVolumique`                                      | bigdec(8, 2)                             | yes      | yes       |          | -                                                                                |
 | `defiPrdCategoriePrix`                                       | boolean using `DF_PRODUIT_TYPE` list     |          | yes       |          | -                                                                                |
@@ -535,6 +572,15 @@ Objet metier pour produit.
     - `CC` Contrat Calculé
     - `D` Devis
     - `PK` Programme Kamen Adapté
+* `DEFIPRDUNITE`
+    - `M2` m²
+    - `ML` ml
+    - `T` T
+    - `U` U
+
+### Custom actions
+
+No custom action
 
 `DF_test` business object definition
 ------------------------------------
@@ -545,6 +591,10 @@ Objet metier pour produit.
 
 | Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
+
+### Custom actions
+
+No custom action
 
 `DF_Transport` business object definition
 -----------------------------------------
@@ -564,6 +614,10 @@ Objet metier pour produit.
 | `defiTrspEmail`                                              | email(100)                               |          | yes       |          | -                                                                                |
 | `defiTrspAdresse`                                            | char(100)                                |          | yes       |          | -                                                                                |
 
+### Custom actions
+
+No custom action
+
 `DF_utilisateur_interne` business object definition
 ---------------------------------------------------
 
@@ -575,6 +629,10 @@ Objet metier pour produit.
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
 | `defiUsrNomComplet`                                          | char(70)                                 | yes      | yes       |          | -                                                                                |
 | `defiUsrTrigramme`                                           | char(5)                                  |          | yes       |          | -                                                                                |
+
+### Custom actions
+
+No custom action
 
 `DF_Process_01` business process definition
 -------------------------------------------

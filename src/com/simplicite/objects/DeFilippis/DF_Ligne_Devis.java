@@ -21,6 +21,7 @@ public class DF_Ligne_Devis extends ObjectDB {
 		
 		if (this.isNew())
 			getField("defiLigneDevisPrixUnitaireHT").setValue(getField("defiPrdPrixUnitaireHT").getValue());
+			//getField("defiLigneDevisUnite").setValue(getField("defiPrdUnite").getValue());
 		return msgs;
 		
 	}
@@ -47,7 +48,7 @@ public class DF_Ligne_Devis extends ObjectDB {
 		setFieldValue("defiLigneDevisId",id_ld);
 		*/
         // accès aux valeurs 
-        String unite = getField("defiPrdUnite").getValue(); 
+        String unite = getField("defiLigneDevisUnite").getValue(); 
         String des_produit = getField("defiPrdTypeProduit").getValue(); 
         String fin_produit = getField("defiPrdFinitionFacesVues").getValue();
 
@@ -70,7 +71,7 @@ public class DF_Ligne_Devis extends ObjectDB {
 		// affectation du prix 
 		switch (unite){
 			case "T":
-				setFieldValue("defiLigneDevisUnite","m2");
+				setFieldValue("defiLigneDevisUnite","M2");
 				setFieldValue("defiLigneDevisPrixExwTonne",prc);
 				break;
 				
@@ -88,13 +89,13 @@ public class DF_Ligne_Devis extends ObjectDB {
         }
         else {
         	switch(unite){
-				case "m2":
+				case "M2":
 					setFieldValue("defiLigneDevisNombreElementsSsJoints", 1/((lng / 100)*(lrg /100)));
 					break;
-				case "ml":
+				case "ML":
 					setFieldValue("defiLigneDevisNombreElementsSsJoints", 1/(lng / 100));
 					break;
-				case "u":
+				case "U":
 					setFieldValue("defiLigneDevisNombreElementsSsJoints", 1);
 					break;
 			}
@@ -102,13 +103,13 @@ public class DF_Ligne_Devis extends ObjectDB {
 		
         // calcul masse unitaire sans joint
         switch(unite){
-			case "u":
+			case "U":
 				setFieldValue("defiLigneDevisMasseUnitaireSsJoints", mvp*(lng*lrg*ep / 1000000));
 				break;
-			case "ml":
+			case "ML":
 				setFieldValue("defiLigneDevisMasseUnitaireSsJoints", mvp*(lng*ep / 10000));
 				break;
-			case "m2":
+			case "M2":
 				setFieldValue("defiLigneDevisMasseUnitaireSsJoints", mvp*(ep / 100));
 				break;
 		}
@@ -119,13 +120,13 @@ public class DF_Ligne_Devis extends ObjectDB {
         }
         else {
         	switch(unite){
-				case "m2":
+				case "M2":
 					setFieldValue("defiLigneDevisNombreElementsAcJoints", 1/((lng + dim_joint)*(lrg + dim_joint)/10000));
 					break;
-				case "ml":
+				case "ML":
 					setFieldValue("defiLigneDevisNombreElementsAcJoints", 0);
 					break;
-				case "u":
+				case "U":
 					setFieldValue("defiLigneDevisNombreElementsAcJoints", 0);
 					break;
 			}
