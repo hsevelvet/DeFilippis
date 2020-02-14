@@ -395,7 +395,7 @@ No custom action
 | `defiLigneDevisRow`                                          | char(10)                                 |          |           |          | -                                                                                |
 | `defiLigneDevisId`                                           | char(11)                                 | yes*     | yes       |          | -                                                                                |
 | `defiLigneDevisQuantite`                                     | int(11)                                  | yes      | yes       |          | -                                                                                |
-| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdTypeProduit`_ | _char(20)_                               |          |           |          | -                                                                                |
+| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdTypeProduit`_ | _enum(7) using `DEFIPRDTYPEPRODUIT` list_ |          |           |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdFinitionFacesVues`_ | _char(70)_                               |          |           |          | -                                                                                |
 | `defiLigneDevisUnite`                                        | char(3)                                  |          | yes       |          | -                                                                                |
 | `DF_Ligne_Devis_DF_Devis_id` link to **`DF_Devis`**          | id                                       | yes      | yes       |          | -                                                                                |
@@ -422,7 +422,7 @@ No custom action
 | `defiLigneDevisPrixExwTonne`                                 | float(9, 2)                              |          | yes       |          | -                                                                                |
 | `DF_Ligne_Devis_DF_Produit_Finis_id` link to **`DF_Produit_Finis`** | id                                       |          | yes       |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdId`_        | _char(11)_                               |          |           |          | -                                                                                |
-| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdTypeGeologique`_ | _char(15)_                               |          |           |          | -                                                                                |
+| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdTypeGeologique`_ | _enum(7) using `DEFIPRDTYPEGEOLOGIQUE` list_ |          |           |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdLongueur`_  | _float(5, 2)_                            |          |           |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdLargeur`_   | _float(5, 2)_                            |          |           |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdEpaisseur`_ | _float(5, 2)_                            |          |           |          | -                                                                                |
@@ -433,6 +433,23 @@ No custom action
 
 ### Lists
 
+* `DEFIPRDTYPEPRODUIT`
+    - `PA` Pavé
+    - `DA` Dalle
+    - `BO` Bordure
+    - `BA` Banc
+    - `BR` Borne
+    - `CA` Caniveau
+    - `PS` Pièce Spéciale
+* `DEFIPRDTYPEGEOLOGIQUE`
+    - `GRA` Granit
+    - `CAL` Calcaire
+    - `GRE` Grès
+    - `POR` Porphyre
+    - `BAS` Basalte
+    - `LUS` Luserne
+    - `TEC` Terre cuite
+    - `PRE` Produit de réemploi
 * `DEFIPRDUNITE`
     - `M2` m²
     - `ML` ml
@@ -543,10 +560,10 @@ Objet metier pour produit.
 | Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
 | `defiPrdId`                                                  | char(11)                                 | yes*     | yes       |          | -                                                                                |
-| `defiPrdTypeGeologique`                                      | char(15)                                 | yes      | yes       |          | -                                                                                |
-| `defiPrdCouleur`                                             | enum(7) using `DF_PRODUIT_COULEUR` list  |          | yes       |          | -                                                                                |
+| `defiPrdTypeGeologique`                                      | enum(7) using `DEFIPRDTYPEGEOLOGIQUE` list | yes      | yes       |          | -                                                                                |
+| `defiPrdCouleur`                                             | multi(100) using `DF_PRODUIT_COULEUR` list |          | yes       |          | -                                                                                |
 | `defiPrdAppellationCommerciale`                              | char(70)                                 |          | yes       |          | -                                                                                |
-| `defiPrdTypeProduit`                                         | char(20)                                 | yes      | yes       |          | -                                                                                |
+| `defiPrdTypeProduit`                                         | enum(7) using `DEFIPRDTYPEPRODUIT` list  | yes      | yes       |          | -                                                                                |
 | `defiPrdFinitionFacesVues`                                   | char(70)                                 |          | yes       |          | -                                                                                |
 | `defiPrdAutresFinitions`                                     | char(70)                                 |          | yes       |          | -                                                                                |
 | `defiPrdLongueur`                                            | float(5, 2)                              | yes      | yes       |          | -                                                                                |
@@ -563,10 +580,34 @@ Objet metier pour produit.
 
 ### Lists
 
+* `DEFIPRDTYPEGEOLOGIQUE`
+    - `GRA` Granit
+    - `CAL` Calcaire
+    - `GRE` Grès
+    - `POR` Porphyre
+    - `BAS` Basalte
+    - `LUS` Luserne
+    - `TEC` Terre cuite
+    - `PRE` Produit de réemploi
 * `DF_PRODUIT_COULEUR`
-    - `A` code A
-    - `B` code B
-    - `C` code C
+    - `GR` Gris
+    - `BE` Beige
+    - `BL` Bleu
+    - `RG` Rouge
+    - `NO` Noire
+    - `RS` Rose
+    - `VE` Vert
+    - `OC` Ocre
+    - `JA` Jaune
+    - `MA` Marron
+* `DEFIPRDTYPEPRODUIT`
+    - `PA` Pavé
+    - `DA` Dalle
+    - `BO` Bordure
+    - `BA` Banc
+    - `BR` Borne
+    - `CA` Caniveau
+    - `PS` Pièce Spéciale
 * `DEFIPRDSOURCE`
     - `CP` Contrat Produit Fini
     - `CC` Contrat Calculé

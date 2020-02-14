@@ -99,9 +99,9 @@ components:
           description: Secteur Activité Client
           type: string
           enum:
-          - MDO
-          - AR
           - MO
+          - AR
+          - MDO
           - T
           - ATPG
           - V
@@ -209,6 +209,14 @@ components:
         DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdTypeProduit:
           description: Désignation Produit
           type: string
+          enum:
+          - PA
+          - DA
+          - BO
+          - BA
+          - BR
+          - CA
+          - PS
         defiLigneDevisPrixUnitaireHT:
           description: Prix Unitaire HT
           type: number
@@ -224,6 +232,15 @@ components:
         DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdTypeGeologique:
           description: Nom Produit
           type: string
+          enum:
+          - GRA
+          - CAL
+          - GRE
+          - POR
+          - BAS
+          - LUS
+          - TEC
+          - PRE
         defiLigneDevisPrixExwUnitaire:
           description: Prix EXW / Unité
           type: number
@@ -886,9 +903,9 @@ components:
           description: Secteur Activité
           type: string
           enum:
-          - MDO
-          - AR
           - MO
+          - AR
+          - MDO
           - T
           - ATPG
           - V
@@ -943,9 +960,26 @@ components:
         defiPrdTypeGeologique:
           description: Type Géologique
           type: string
+          enum:
+          - GRA
+          - CAL
+          - GRE
+          - POR
+          - BAS
+          - LUS
+          - TEC
+          - PRE
         defiPrdTypeProduit:
           description: Type produit
           type: string
+          enum:
+          - PA
+          - DA
+          - BO
+          - BA
+          - BR
+          - CA
+          - PS
         defiPrdSource:
           description: Source
           type: string
@@ -992,11 +1026,20 @@ components:
           type: string
         defiPrdCouleur:
           description: Couleur
-          type: string
-          enum:
-          - A
-          - B
-          - C
+          type: array
+          items:
+            type: string
+            enum:
+            - GR
+            - BE
+            - BL
+            - RG
+            - 'NO'
+            - RS
+            - VE
+            - OC
+            - JA
+            - MA
         row_id:
           description: Unique technical row ID
           type: string
@@ -1768,8 +1811,8 @@ components:
           - BE
           - CH
           - IE
-          - US
           - CA
+          - US
         usr_title:
           description: Title
           type: string
@@ -2046,9 +2089,9 @@ paths:
       - schema:
           type: string
           enum:
-          - MDO
-          - AR
           - MO
+          - AR
+          - MDO
           - T
           - ATPG
           - V
@@ -2556,6 +2599,15 @@ paths:
         required: false
       - schema:
           type: string
+          enum:
+          - GRA
+          - CAL
+          - GRE
+          - POR
+          - BAS
+          - LUS
+          - TEC
+          - PRE
         in: query
         name: defiPrdTypeGeologique
         description: Search filter for Type Géologique
@@ -2563,9 +2615,16 @@ paths:
       - schema:
           type: string
           enum:
-          - A
-          - B
-          - C
+          - GR
+          - BE
+          - BL
+          - RG
+          - 'NO'
+          - RS
+          - VE
+          - OC
+          - JA
+          - MA
         in: query
         name: defiPrdCouleur
         description: Search filter for Couleur
@@ -2578,6 +2637,14 @@ paths:
         required: false
       - schema:
           type: string
+          enum:
+          - PA
+          - DA
+          - BO
+          - BA
+          - BR
+          - CA
+          - PS
         in: query
         name: defiPrdTypeProduit
         description: Search filter for Type produit
@@ -6682,9 +6749,9 @@ paths:
       - schema:
           type: string
           enum:
-          - MDO
-          - AR
           - MO
+          - AR
+          - MDO
           - T
           - ATPG
           - V
@@ -7972,8 +8039,8 @@ paths:
           - BE
           - CH
           - IE
-          - US
           - CA
+          - US
         in: query
         name: usr_country
         description: Search filter for Country
@@ -8176,6 +8243,14 @@ paths:
         required: false
       - schema:
           type: string
+          enum:
+          - PA
+          - DA
+          - BO
+          - BA
+          - BR
+          - CA
+          - PS
         in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdTypeProduit
         description: Search filter for Désignation Produit
@@ -8338,6 +8413,15 @@ paths:
         required: false
       - schema:
           type: string
+          enum:
+          - GRA
+          - CAL
+          - GRE
+          - POR
+          - BAS
+          - LUS
+          - TEC
+          - PRE
         in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdTypeGeologique
         description: Search filter for Nom Produit

@@ -31,11 +31,11 @@ var DF_Ligne_Devis = typeof DF_Ligne_Devis !== "undefined" ? DF_Ligne_Devis : (f
 		try {
 			// Helper to dynamically change unit price when selecting product (also done on server side)
 			o.locals.ui.form.onload = function(ctn, obj) {
-				var f = $ui.getUIField(ctn, obj, "DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdPrixUnitaireHT");
-				var u = $ui.getUIField(ctn, obj, "DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdUnite");
+				var prx = $ui.getUIField(ctn, obj, "DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdPrixUnitaireHT");
+				var uni = $ui.getUIField(ctn, obj, "DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdUnite");
 				f.ui.on("change", function() {
-					$ui.getUIField(ctn, obj, "defiLigneDevisUnite").ui.val(u.ui.val());
-					$ui.getUIField(ctn, obj, "defiLigneDevisPrixUnitaireHT").ui.val(f.ui.val());
+					$ui.getUIField(ctn, obj, "defiLigneDevisUnite").ui.val(uni.ui.val());
+					$ui.getUIField(ctn, obj, "defiLigneDevisPrixUnitaireHT").ui.val(prx.ui.val());
 				});
 			};
 		} catch(e) { console.error(e.message); } finally { cbk && cbk(); }

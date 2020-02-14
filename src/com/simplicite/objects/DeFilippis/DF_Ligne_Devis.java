@@ -21,22 +21,11 @@ public class DF_Ligne_Devis extends ObjectDB {
 		
 		if (this.isNew())
 			getField("defiLigneDevisPrixUnitaireHT").setValue(getField("defiPrdPrixUnitaireHT").getValue());
-			//getField("defiLigneDevisUnite").setValue(getField("defiPrdUnite").getValue());
+			getField("defiLigneDevisUnite").setValue(getField("defiPrdUnite").getValue());
 		return msgs;
 		
 	}
-	/**
-	public String getLineNumberLD(){
-		String devisId = getFieldValue("devisId"); // getParentObject().getRowId()
-		if(!Tool.isEmpty(devisId))
-			throw DFException("Devis Id not defined, imporssible")
-		ObjectDB ligne = getGrant().getTempObject("DF_Ligne_Devis");
-		long m = getGrant().simpleQueryAsLong("select line_number from df_ligne_devis where devis_id ="+getFieldValue("devisId")+"order y line_number desc");
-		return Tool.isEmpty(m)? 1 : m+1;
-		
-		
-	}*/
-	
+
 	@Override
 	public void initUpdate(){
 		
@@ -192,13 +181,6 @@ public class DF_Ligne_Devis extends ObjectDB {
        else{
        	setFieldValue("defiLigneDevisPrixVenteImpose", pvi);
        }
-       
-       
-       // calcul total
-		double total = pvi * qte;
-    	setFieldValue("defiLigneDevisPrixTotalHT", total);
-	}
-	
 
-	
+	}
 }

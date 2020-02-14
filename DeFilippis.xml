@@ -452,7 +452,7 @@
 		<usr_extra>1</usr_extra>
 		<usr_subhead>1</usr_subhead>
 		<usr_logout>2020-02-03 15:57:29</usr_logout>
-		<usr_last_logon>2020-02-14 14:41:39</usr_last_logon>
+		<usr_last_logon>2020-02-14 15:40:03</usr_last_logon>
 		<usr_dateformat/>
 		<usr_uuid/>
 	</data>
@@ -856,7 +856,7 @@
 	<data>
 		<usp_user_id.usr_login>designer</usp_user_id.usr_login>
 		<usp_param_id.sys_code>UI_EDITOR_PREFS</usp_param_id.sys_code>
-		<usp_value><![CDATA[{"explore":[{"module":"DeFilippis","id":"38","items":[{"field":"obo_script_id","label":"Objet métier","list":[{"docId":"2896","id":"2000","label":"DF_Affaire"},{"docId":"2897","id":"2001","label":"DF_Client"},{"docId":"2898","id":"2002","label":"DF_Commande"},{"docId":"2899","id":"2003","label":"DF_Contact"},{"docId":"2914","id":"2004","label":"DF_Devis"},{"docId":"2919","id":"2007","label":"DF_Ligne_Devis"},{"docId":"2902","id":"2008","label":"DF_Livraison"},{"docId":"2903","id":"2009","label":"DF_Plan_Livraison"},{"docId":"2904","id":"2011","label":"DF_Produit_Finis"},{"docId":"2905","id":"2013","label":"DF_Transport"}],"open":true,"object":"ObjectInternal"},{"field":"obe_script_id","label":"Objet externe","list":[{"docId":"2894","id":"1998","label":"Test"},{"docId":"2895","id":"1999","label":"WebhookLivraisonTrello"}],"open":true,"object":"ObjectExternal"},{"field":"pcs_script_id","label":"Processus métier","list":[{"docId":"2906","id":"9","label":"DF_Process_01"}],"open":true,"object":"BPMProcess"},{"field":"res_file","label":"Ressource","list":[{"docId":"2917","id":"256","label":"Objet métier/DF_Ligne_Devis * SCRIPT"}],"open":true,"object":"Resource"}],"open":true},{"module":"SimStore","id":"37","items":[{"field":"obe_script_id","label":"Objet externe","list":[{"docId":"1937","id":"1988","label":"StoStore"}],"open":false,"object":"ObjectExternal"},{"field":"res_file","label":"Ressource","list":[{"docId":"1938","id":"251","label":"Objet externe/StoStore * TEMPLATE"},{"docId":"1939","id":"252","label":"Objet externe/StoStore * SCRIPT"}],"open":false,"object":"Resource"}],"open":false}],"tabs":[{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2004"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2002"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2007"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2001"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2011"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2003"},{"field":"res_file","scope":"","type":"js","object":"Resource","rowId":"256"}],"selected":"ObjectInternal_obo_script_id_2007"}]]></usp_value>
+		<usp_value><![CDATA[{"explore":[{"module":"DeFilippis","id":"38","items":[{"field":"obo_script_id","label":"Objet métier","list":[{"docId":"2896","id":"2000","label":"DF_Affaire"},{"docId":"2897","id":"2001","label":"DF_Client"},{"docId":"2898","id":"2002","label":"DF_Commande"},{"docId":"2899","id":"2003","label":"DF_Contact"},{"docId":"2914","id":"2004","label":"DF_Devis"},{"docId":"2927","id":"2007","label":"DF_Ligne_Devis"},{"docId":"2902","id":"2008","label":"DF_Livraison"},{"docId":"2903","id":"2009","label":"DF_Plan_Livraison"},{"docId":"2904","id":"2011","label":"DF_Produit_Finis"},{"docId":"2905","id":"2013","label":"DF_Transport"}],"open":true,"object":"ObjectInternal"},{"field":"obe_script_id","label":"Objet externe","list":[{"docId":"2894","id":"1998","label":"Test"},{"docId":"2895","id":"1999","label":"WebhookLivraisonTrello"}],"open":true,"object":"ObjectExternal"},{"field":"pcs_script_id","label":"Processus métier","list":[{"docId":"2906","id":"9","label":"DF_Process_01"}],"open":true,"object":"BPMProcess"},{"field":"res_file","label":"Ressource","list":[{"docId":"2924","id":"256","label":"Objet métier/DF_Ligne_Devis * SCRIPT"}],"open":true,"object":"Resource"}],"open":true},{"module":"Demo","id":"40","items":[{"field":"obo_script_id","label":"Objet métier","list":[{"docId":"2958","id":"2024","label":"DemoClient"},{"docId":"2959","id":"2025","label":"DemoContact"},{"docId":"2960","id":"2027","label":"DemoOrder"},{"docId":"2961","id":"2029","label":"DemoProduct"}],"open":false,"object":"ObjectInternal"},{"field":"obe_script_id","label":"Objet externe","list":[{"docId":"2953","id":"2019","label":"DemoCatalog"},{"docId":"2954","id":"2020","label":"DemoOrderAgenda"},{"docId":"2955","id":"2021","label":"DemoPlaceNewOrder"},{"docId":"2956","id":"2022","label":"DemoWebSite"},{"docId":"2957","id":"2023","label":"demows"}],"open":false,"object":"ObjectExternal"},{"field":"scr_file","label":"Code partagé","list":[{"docId":"2989","id":"2","label":"DemoCommon"},{"docId":"2990","id":"3","label":"DemoTests"}],"open":false,"object":"Script"},{"field":"res_file","label":"Ressource","list":[{"docId":"2963","id":"257","label":"Disposition/default * DEMO_PRINT_STYLES"},{"docId":"2970","id":"263","label":"Objet externe/DemoOrderAgenda * HTML"},{"docId":"2971","id":"264","label":"Objet externe/DemoOrderAgenda * SCRIPT"},{"docId":"2973","id":"265","label":"Objet externe/DemoPlaceNewOrder * STYLES"},{"docId":"2975","id":"266","label":"Objet externe/DemoPlaceNewOrder * HTML"},{"docId":"2976","id":"267","label":"Objet externe/DemoPlaceNewOrder * SCRIPT"},{"docId":"2981","id":"271","label":"Objet externe/DemoWebSite * SCRIPT"},{"docId":"2983","id":"272","label":"Objet métier/DemoClient * STYLES"},{"docId":"2985","id":"273","label":"Objet métier/DemoClient * SCRIPT"},{"docId":"2987","id":"274","label":"Objet métier/DemoOrder * SCRIPT"}],"open":false,"object":"Resource"},{"field":"prt_file","label":"Publication","list":[{"docId":"2962","id":"56","label":"DemoSupplier-CATALOG *"}],"open":false,"object":"PrintTemplate"},{"field":"mtp_script_id","label":"Modèle template","list":[{"docId":"2933","id":"11","label":"DemoModel"}],"open":false,"object":"ModelTemplate"}],"open":false},{"module":"SimStore","id":"37","items":[{"field":"obe_script_id","label":"Objet externe","list":[{"docId":"1937","id":"1988","label":"StoStore"}],"open":false,"object":"ObjectExternal"},{"field":"res_file","label":"Ressource","list":[{"docId":"1938","id":"251","label":"Objet externe/StoStore * TEMPLATE"},{"docId":"1939","id":"252","label":"Objet externe/StoStore * SCRIPT"}],"open":false,"object":"Resource"}],"open":false}],"tabs":[{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2004"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2002"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2007"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2001"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2011"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2003"},{"field":"res_file","scope":"","type":"js","object":"Resource","rowId":"256"}],"selected":"ObjectInternal_obo_script_id_2007"}]]></usp_value>
 		<usp_param_id.sys_type/>
 		<usp_param_id.sys_value><![CDATA[empty]]></usp_param_id.sys_value>
 		<usp_param_id.sys_desc/>
@@ -1180,6 +1180,18 @@ Tout accés alloués.]]></grp_comment>
 		<lov_model_id.mod_image/>
 	</data>
 	<data>
+		<lov_name>DEFIPRDTYPEGEOLOGIQUE</lov_name>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+		<lov_model_id.mod_name/>
+		<lov_model_id.mod_image/>
+	</data>
+	<data>
+		<lov_name>DEFIPRDTYPEPRODUIT</lov_name>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+		<lov_model_id.mod_name/>
+		<lov_model_id.mod_image/>
+	</data>
+	<data>
 		<lov_name>DEFIPRDUNITE</lov_name>
 		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
 		<lov_model_id.mod_name/>
@@ -1375,6 +1387,171 @@ Tout accés alloués.]]></grp_comment>
 		<lov_code>PK</lov_code>
 		<lov_order_by>40</lov_order_by>
 		<lov_label>Programme Kamen Adapté</lov_label>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+		<lov_color/>
+		<lov_color_bg/>
+		<lov_icon/>
+		<lov_display>L</lov_display>
+	</data>
+	<data>
+		<lov_list_id.lov_name>DEFIPRDTYPEGEOLOGIQUE</lov_list_id.lov_name>
+		<lov_code>GRA</lov_code>
+		<lov_order_by>10</lov_order_by>
+		<lov_label>Granit</lov_label>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+		<lov_color/>
+		<lov_color_bg/>
+		<lov_icon/>
+		<lov_display>L</lov_display>
+	</data>
+	<data>
+		<lov_list_id.lov_name>DEFIPRDTYPEGEOLOGIQUE</lov_list_id.lov_name>
+		<lov_code>CAL</lov_code>
+		<lov_order_by>20</lov_order_by>
+		<lov_label>Calcaire</lov_label>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+		<lov_color/>
+		<lov_color_bg/>
+		<lov_icon/>
+		<lov_display>L</lov_display>
+	</data>
+	<data>
+		<lov_list_id.lov_name>DEFIPRDTYPEGEOLOGIQUE</lov_list_id.lov_name>
+		<lov_code>GRE</lov_code>
+		<lov_order_by>30</lov_order_by>
+		<lov_label>Grès</lov_label>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+		<lov_color/>
+		<lov_color_bg/>
+		<lov_icon/>
+		<lov_display>L</lov_display>
+	</data>
+	<data>
+		<lov_list_id.lov_name>DEFIPRDTYPEGEOLOGIQUE</lov_list_id.lov_name>
+		<lov_code>POR</lov_code>
+		<lov_order_by>40</lov_order_by>
+		<lov_label>Porphyre</lov_label>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+		<lov_color/>
+		<lov_color_bg/>
+		<lov_icon/>
+		<lov_display>L</lov_display>
+	</data>
+	<data>
+		<lov_list_id.lov_name>DEFIPRDTYPEGEOLOGIQUE</lov_list_id.lov_name>
+		<lov_code>BAS</lov_code>
+		<lov_order_by>50</lov_order_by>
+		<lov_label>Basalte</lov_label>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+		<lov_color/>
+		<lov_color_bg/>
+		<lov_icon/>
+		<lov_display>L</lov_display>
+	</data>
+	<data>
+		<lov_list_id.lov_name>DEFIPRDTYPEGEOLOGIQUE</lov_list_id.lov_name>
+		<lov_code>LUS</lov_code>
+		<lov_order_by>60</lov_order_by>
+		<lov_label>Luserne</lov_label>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+		<lov_color/>
+		<lov_color_bg/>
+		<lov_icon/>
+		<lov_display>L</lov_display>
+	</data>
+	<data>
+		<lov_list_id.lov_name>DEFIPRDTYPEGEOLOGIQUE</lov_list_id.lov_name>
+		<lov_code>TEC</lov_code>
+		<lov_order_by>70</lov_order_by>
+		<lov_label>Terre cuite</lov_label>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+		<lov_color/>
+		<lov_color_bg/>
+		<lov_icon/>
+		<lov_display>L</lov_display>
+	</data>
+	<data>
+		<lov_list_id.lov_name>DEFIPRDTYPEGEOLOGIQUE</lov_list_id.lov_name>
+		<lov_code>PRE</lov_code>
+		<lov_order_by>80</lov_order_by>
+		<lov_label>Produit de réemploi</lov_label>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+		<lov_color/>
+		<lov_color_bg/>
+		<lov_icon/>
+		<lov_display>L</lov_display>
+	</data>
+	<data>
+		<lov_list_id.lov_name>DEFIPRDTYPEPRODUIT</lov_list_id.lov_name>
+		<lov_code>PA</lov_code>
+		<lov_order_by>10</lov_order_by>
+		<lov_label>Pavé</lov_label>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+		<lov_color/>
+		<lov_color_bg/>
+		<lov_icon/>
+		<lov_display>L</lov_display>
+	</data>
+	<data>
+		<lov_list_id.lov_name>DEFIPRDTYPEPRODUIT</lov_list_id.lov_name>
+		<lov_code>DA</lov_code>
+		<lov_order_by>20</lov_order_by>
+		<lov_label>Dalle</lov_label>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+		<lov_color/>
+		<lov_color_bg/>
+		<lov_icon/>
+		<lov_display>L</lov_display>
+	</data>
+	<data>
+		<lov_list_id.lov_name>DEFIPRDTYPEPRODUIT</lov_list_id.lov_name>
+		<lov_code>BO</lov_code>
+		<lov_order_by>30</lov_order_by>
+		<lov_label>Bordure</lov_label>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+		<lov_color/>
+		<lov_color_bg/>
+		<lov_icon/>
+		<lov_display>L</lov_display>
+	</data>
+	<data>
+		<lov_list_id.lov_name>DEFIPRDTYPEPRODUIT</lov_list_id.lov_name>
+		<lov_code>BA</lov_code>
+		<lov_order_by>40</lov_order_by>
+		<lov_label>Banc</lov_label>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+		<lov_color/>
+		<lov_color_bg/>
+		<lov_icon/>
+		<lov_display>L</lov_display>
+	</data>
+	<data>
+		<lov_list_id.lov_name>DEFIPRDTYPEPRODUIT</lov_list_id.lov_name>
+		<lov_code>BR</lov_code>
+		<lov_order_by>50</lov_order_by>
+		<lov_label>Borne</lov_label>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+		<lov_color/>
+		<lov_color_bg/>
+		<lov_icon/>
+		<lov_display>L</lov_display>
+	</data>
+	<data>
+		<lov_list_id.lov_name>DEFIPRDTYPEPRODUIT</lov_list_id.lov_name>
+		<lov_code>CA</lov_code>
+		<lov_order_by>60</lov_order_by>
+		<lov_label>Caniveau</lov_label>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+		<lov_color/>
+		<lov_color_bg/>
+		<lov_icon/>
+		<lov_display>L</lov_display>
+	</data>
+	<data>
+		<lov_list_id.lov_name>DEFIPRDTYPEPRODUIT</lov_list_id.lov_name>
+		<lov_code>PS</lov_code>
+		<lov_order_by>70</lov_order_by>
+		<lov_label>Pièce Spéciale</lov_label>
 		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
 		<lov_color/>
 		<lov_color_bg/>
@@ -2274,9 +2451,9 @@ Tout accés alloués.]]></grp_comment>
 	</data>
 	<data>
 		<lov_list_id.lov_name>DF_PRODUIT_COULEUR</lov_list_id.lov_name>
-		<lov_code>A</lov_code>
+		<lov_code>GR</lov_code>
 		<lov_order_by>10</lov_order_by>
-		<lov_label>code A</lov_label>
+		<lov_label>Gris</lov_label>
 		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
 		<lov_color/>
 		<lov_color_bg/>
@@ -2285,9 +2462,9 @@ Tout accés alloués.]]></grp_comment>
 	</data>
 	<data>
 		<lov_list_id.lov_name>DF_PRODUIT_COULEUR</lov_list_id.lov_name>
-		<lov_code>B</lov_code>
+		<lov_code>BE</lov_code>
 		<lov_order_by>20</lov_order_by>
-		<lov_label>code B</lov_label>
+		<lov_label>Beige</lov_label>
 		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
 		<lov_color/>
 		<lov_color_bg/>
@@ -2296,9 +2473,86 @@ Tout accés alloués.]]></grp_comment>
 	</data>
 	<data>
 		<lov_list_id.lov_name>DF_PRODUIT_COULEUR</lov_list_id.lov_name>
-		<lov_code>C</lov_code>
+		<lov_code>BL</lov_code>
 		<lov_order_by>30</lov_order_by>
-		<lov_label>code C</lov_label>
+		<lov_label>Bleu</lov_label>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+		<lov_color/>
+		<lov_color_bg/>
+		<lov_icon/>
+		<lov_display>L</lov_display>
+	</data>
+	<data>
+		<lov_list_id.lov_name>DF_PRODUIT_COULEUR</lov_list_id.lov_name>
+		<lov_code>RG</lov_code>
+		<lov_order_by>40</lov_order_by>
+		<lov_label>Rouge</lov_label>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+		<lov_color/>
+		<lov_color_bg/>
+		<lov_icon/>
+		<lov_display>L</lov_display>
+	</data>
+	<data>
+		<lov_list_id.lov_name>DF_PRODUIT_COULEUR</lov_list_id.lov_name>
+		<lov_code>NO</lov_code>
+		<lov_order_by>50</lov_order_by>
+		<lov_label>Noire</lov_label>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+		<lov_color/>
+		<lov_color_bg/>
+		<lov_icon/>
+		<lov_display>L</lov_display>
+	</data>
+	<data>
+		<lov_list_id.lov_name>DF_PRODUIT_COULEUR</lov_list_id.lov_name>
+		<lov_code>RS</lov_code>
+		<lov_order_by>60</lov_order_by>
+		<lov_label>Rose</lov_label>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+		<lov_color/>
+		<lov_color_bg/>
+		<lov_icon/>
+		<lov_display>L</lov_display>
+	</data>
+	<data>
+		<lov_list_id.lov_name>DF_PRODUIT_COULEUR</lov_list_id.lov_name>
+		<lov_code>VE</lov_code>
+		<lov_order_by>70</lov_order_by>
+		<lov_label>Vert</lov_label>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+		<lov_color/>
+		<lov_color_bg/>
+		<lov_icon/>
+		<lov_display>L</lov_display>
+	</data>
+	<data>
+		<lov_list_id.lov_name>DF_PRODUIT_COULEUR</lov_list_id.lov_name>
+		<lov_code>OC</lov_code>
+		<lov_order_by>80</lov_order_by>
+		<lov_label>Ocre</lov_label>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+		<lov_color/>
+		<lov_color_bg/>
+		<lov_icon/>
+		<lov_display>L</lov_display>
+	</data>
+	<data>
+		<lov_list_id.lov_name>DF_PRODUIT_COULEUR</lov_list_id.lov_name>
+		<lov_code>JA</lov_code>
+		<lov_order_by>90</lov_order_by>
+		<lov_label>Jaune</lov_label>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+		<lov_color/>
+		<lov_color_bg/>
+		<lov_icon/>
+		<lov_display>L</lov_display>
+	</data>
+	<data>
+		<lov_list_id.lov_name>DF_PRODUIT_COULEUR</lov_list_id.lov_name>
+		<lov_code>MA</lov_code>
+		<lov_order_by>100</lov_order_by>
+		<lov_label>Marron</lov_label>
 		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
 		<lov_color/>
 		<lov_color_bg/>
@@ -2546,6 +2800,246 @@ Tout accés alloués.]]></grp_comment>
 		<lov_code_id.lov_order_by>40</lov_code_id.lov_order_by>
 		<lov_lang>FRA</lov_lang>
 		<lov_value><![CDATA[Programme Kamen Adapté]]></lov_value>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<lov_code_id.lov_list_id.lov_name>DEFIPRDTYPEGEOLOGIQUE</lov_code_id.lov_list_id.lov_name>
+		<lov_code_id.lov_code>GRA</lov_code_id.lov_code>
+		<lov_code_id.lov_order_by>10</lov_code_id.lov_order_by>
+		<lov_lang>ENU</lov_lang>
+		<lov_value><![CDATA[GRA]]></lov_value>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<lov_code_id.lov_list_id.lov_name>DEFIPRDTYPEGEOLOGIQUE</lov_code_id.lov_list_id.lov_name>
+		<lov_code_id.lov_code>CAL</lov_code_id.lov_code>
+		<lov_code_id.lov_order_by>20</lov_code_id.lov_order_by>
+		<lov_lang>ENU</lov_lang>
+		<lov_value><![CDATA[CAL]]></lov_value>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<lov_code_id.lov_list_id.lov_name>DEFIPRDTYPEGEOLOGIQUE</lov_code_id.lov_list_id.lov_name>
+		<lov_code_id.lov_code>GRE</lov_code_id.lov_code>
+		<lov_code_id.lov_order_by>30</lov_code_id.lov_order_by>
+		<lov_lang>ENU</lov_lang>
+		<lov_value><![CDATA[GRE]]></lov_value>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<lov_code_id.lov_list_id.lov_name>DEFIPRDTYPEGEOLOGIQUE</lov_code_id.lov_list_id.lov_name>
+		<lov_code_id.lov_code>POR</lov_code_id.lov_code>
+		<lov_code_id.lov_order_by>40</lov_code_id.lov_order_by>
+		<lov_lang>ENU</lov_lang>
+		<lov_value><![CDATA[POR]]></lov_value>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<lov_code_id.lov_list_id.lov_name>DEFIPRDTYPEGEOLOGIQUE</lov_code_id.lov_list_id.lov_name>
+		<lov_code_id.lov_code>BAS</lov_code_id.lov_code>
+		<lov_code_id.lov_order_by>50</lov_code_id.lov_order_by>
+		<lov_lang>ENU</lov_lang>
+		<lov_value><![CDATA[BAS]]></lov_value>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<lov_code_id.lov_list_id.lov_name>DEFIPRDTYPEGEOLOGIQUE</lov_code_id.lov_list_id.lov_name>
+		<lov_code_id.lov_code>LUS</lov_code_id.lov_code>
+		<lov_code_id.lov_order_by>60</lov_code_id.lov_order_by>
+		<lov_lang>ENU</lov_lang>
+		<lov_value><![CDATA[LUS]]></lov_value>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<lov_code_id.lov_list_id.lov_name>DEFIPRDTYPEGEOLOGIQUE</lov_code_id.lov_list_id.lov_name>
+		<lov_code_id.lov_code>TEC</lov_code_id.lov_code>
+		<lov_code_id.lov_order_by>70</lov_code_id.lov_order_by>
+		<lov_lang>ENU</lov_lang>
+		<lov_value><![CDATA[TEC]]></lov_value>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<lov_code_id.lov_list_id.lov_name>DEFIPRDTYPEGEOLOGIQUE</lov_code_id.lov_list_id.lov_name>
+		<lov_code_id.lov_code>PRE</lov_code_id.lov_code>
+		<lov_code_id.lov_order_by>80</lov_code_id.lov_order_by>
+		<lov_lang>ENU</lov_lang>
+		<lov_value><![CDATA[PRE]]></lov_value>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<lov_code_id.lov_list_id.lov_name>DEFIPRDTYPEGEOLOGIQUE</lov_code_id.lov_list_id.lov_name>
+		<lov_code_id.lov_code>GRA</lov_code_id.lov_code>
+		<lov_code_id.lov_order_by>10</lov_code_id.lov_order_by>
+		<lov_lang>FRA</lov_lang>
+		<lov_value><![CDATA[Granit]]></lov_value>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<lov_code_id.lov_list_id.lov_name>DEFIPRDTYPEGEOLOGIQUE</lov_code_id.lov_list_id.lov_name>
+		<lov_code_id.lov_code>CAL</lov_code_id.lov_code>
+		<lov_code_id.lov_order_by>20</lov_code_id.lov_order_by>
+		<lov_lang>FRA</lov_lang>
+		<lov_value><![CDATA[Calcaire]]></lov_value>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<lov_code_id.lov_list_id.lov_name>DEFIPRDTYPEGEOLOGIQUE</lov_code_id.lov_list_id.lov_name>
+		<lov_code_id.lov_code>GRE</lov_code_id.lov_code>
+		<lov_code_id.lov_order_by>30</lov_code_id.lov_order_by>
+		<lov_lang>FRA</lov_lang>
+		<lov_value><![CDATA[Grès]]></lov_value>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<lov_code_id.lov_list_id.lov_name>DEFIPRDTYPEGEOLOGIQUE</lov_code_id.lov_list_id.lov_name>
+		<lov_code_id.lov_code>POR</lov_code_id.lov_code>
+		<lov_code_id.lov_order_by>40</lov_code_id.lov_order_by>
+		<lov_lang>FRA</lov_lang>
+		<lov_value><![CDATA[Porphyre]]></lov_value>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<lov_code_id.lov_list_id.lov_name>DEFIPRDTYPEGEOLOGIQUE</lov_code_id.lov_list_id.lov_name>
+		<lov_code_id.lov_code>BAS</lov_code_id.lov_code>
+		<lov_code_id.lov_order_by>50</lov_code_id.lov_order_by>
+		<lov_lang>FRA</lov_lang>
+		<lov_value><![CDATA[Basalte]]></lov_value>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<lov_code_id.lov_list_id.lov_name>DEFIPRDTYPEGEOLOGIQUE</lov_code_id.lov_list_id.lov_name>
+		<lov_code_id.lov_code>LUS</lov_code_id.lov_code>
+		<lov_code_id.lov_order_by>60</lov_code_id.lov_order_by>
+		<lov_lang>FRA</lov_lang>
+		<lov_value><![CDATA[Luserne]]></lov_value>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<lov_code_id.lov_list_id.lov_name>DEFIPRDTYPEGEOLOGIQUE</lov_code_id.lov_list_id.lov_name>
+		<lov_code_id.lov_code>TEC</lov_code_id.lov_code>
+		<lov_code_id.lov_order_by>70</lov_code_id.lov_order_by>
+		<lov_lang>FRA</lov_lang>
+		<lov_value><![CDATA[Terre cuite]]></lov_value>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<lov_code_id.lov_list_id.lov_name>DEFIPRDTYPEGEOLOGIQUE</lov_code_id.lov_list_id.lov_name>
+		<lov_code_id.lov_code>PRE</lov_code_id.lov_code>
+		<lov_code_id.lov_order_by>80</lov_code_id.lov_order_by>
+		<lov_lang>FRA</lov_lang>
+		<lov_value><![CDATA[Produit de réemploi]]></lov_value>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<lov_code_id.lov_list_id.lov_name>DEFIPRDTYPEPRODUIT</lov_code_id.lov_list_id.lov_name>
+		<lov_code_id.lov_code>PA</lov_code_id.lov_code>
+		<lov_code_id.lov_order_by>10</lov_code_id.lov_order_by>
+		<lov_lang>ENU</lov_lang>
+		<lov_value><![CDATA[PA]]></lov_value>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<lov_code_id.lov_list_id.lov_name>DEFIPRDTYPEPRODUIT</lov_code_id.lov_list_id.lov_name>
+		<lov_code_id.lov_code>DA</lov_code_id.lov_code>
+		<lov_code_id.lov_order_by>20</lov_code_id.lov_order_by>
+		<lov_lang>ENU</lov_lang>
+		<lov_value><![CDATA[DA]]></lov_value>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<lov_code_id.lov_list_id.lov_name>DEFIPRDTYPEPRODUIT</lov_code_id.lov_list_id.lov_name>
+		<lov_code_id.lov_code>BO</lov_code_id.lov_code>
+		<lov_code_id.lov_order_by>30</lov_code_id.lov_order_by>
+		<lov_lang>ENU</lov_lang>
+		<lov_value><![CDATA[BO]]></lov_value>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<lov_code_id.lov_list_id.lov_name>DEFIPRDTYPEPRODUIT</lov_code_id.lov_list_id.lov_name>
+		<lov_code_id.lov_code>BA</lov_code_id.lov_code>
+		<lov_code_id.lov_order_by>40</lov_code_id.lov_order_by>
+		<lov_lang>ENU</lov_lang>
+		<lov_value><![CDATA[BA]]></lov_value>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<lov_code_id.lov_list_id.lov_name>DEFIPRDTYPEPRODUIT</lov_code_id.lov_list_id.lov_name>
+		<lov_code_id.lov_code>BR</lov_code_id.lov_code>
+		<lov_code_id.lov_order_by>50</lov_code_id.lov_order_by>
+		<lov_lang>ENU</lov_lang>
+		<lov_value><![CDATA[BR]]></lov_value>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<lov_code_id.lov_list_id.lov_name>DEFIPRDTYPEPRODUIT</lov_code_id.lov_list_id.lov_name>
+		<lov_code_id.lov_code>CA</lov_code_id.lov_code>
+		<lov_code_id.lov_order_by>60</lov_code_id.lov_order_by>
+		<lov_lang>ENU</lov_lang>
+		<lov_value><![CDATA[CA]]></lov_value>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<lov_code_id.lov_list_id.lov_name>DEFIPRDTYPEPRODUIT</lov_code_id.lov_list_id.lov_name>
+		<lov_code_id.lov_code>PS</lov_code_id.lov_code>
+		<lov_code_id.lov_order_by>70</lov_code_id.lov_order_by>
+		<lov_lang>ENU</lov_lang>
+		<lov_value><![CDATA[PS]]></lov_value>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<lov_code_id.lov_list_id.lov_name>DEFIPRDTYPEPRODUIT</lov_code_id.lov_list_id.lov_name>
+		<lov_code_id.lov_code>PA</lov_code_id.lov_code>
+		<lov_code_id.lov_order_by>10</lov_code_id.lov_order_by>
+		<lov_lang>FRA</lov_lang>
+		<lov_value><![CDATA[Pavé]]></lov_value>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<lov_code_id.lov_list_id.lov_name>DEFIPRDTYPEPRODUIT</lov_code_id.lov_list_id.lov_name>
+		<lov_code_id.lov_code>DA</lov_code_id.lov_code>
+		<lov_code_id.lov_order_by>20</lov_code_id.lov_order_by>
+		<lov_lang>FRA</lov_lang>
+		<lov_value><![CDATA[Dalle]]></lov_value>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<lov_code_id.lov_list_id.lov_name>DEFIPRDTYPEPRODUIT</lov_code_id.lov_list_id.lov_name>
+		<lov_code_id.lov_code>BO</lov_code_id.lov_code>
+		<lov_code_id.lov_order_by>30</lov_code_id.lov_order_by>
+		<lov_lang>FRA</lov_lang>
+		<lov_value><![CDATA[Bordure]]></lov_value>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<lov_code_id.lov_list_id.lov_name>DEFIPRDTYPEPRODUIT</lov_code_id.lov_list_id.lov_name>
+		<lov_code_id.lov_code>BA</lov_code_id.lov_code>
+		<lov_code_id.lov_order_by>40</lov_code_id.lov_order_by>
+		<lov_lang>FRA</lov_lang>
+		<lov_value><![CDATA[Banc]]></lov_value>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<lov_code_id.lov_list_id.lov_name>DEFIPRDTYPEPRODUIT</lov_code_id.lov_list_id.lov_name>
+		<lov_code_id.lov_code>BR</lov_code_id.lov_code>
+		<lov_code_id.lov_order_by>50</lov_code_id.lov_order_by>
+		<lov_lang>FRA</lov_lang>
+		<lov_value><![CDATA[Borne]]></lov_value>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<lov_code_id.lov_list_id.lov_name>DEFIPRDTYPEPRODUIT</lov_code_id.lov_list_id.lov_name>
+		<lov_code_id.lov_code>CA</lov_code_id.lov_code>
+		<lov_code_id.lov_order_by>60</lov_code_id.lov_order_by>
+		<lov_lang>FRA</lov_lang>
+		<lov_value><![CDATA[Caniveau]]></lov_value>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<lov_code_id.lov_list_id.lov_name>DEFIPRDTYPEPRODUIT</lov_code_id.lov_list_id.lov_name>
+		<lov_code_id.lov_code>PS</lov_code_id.lov_code>
+		<lov_code_id.lov_order_by>70</lov_code_id.lov_order_by>
+		<lov_lang>FRA</lov_lang>
+		<lov_value><![CDATA[Pièce Spéciale]]></lov_value>
 		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
 	</data>
 	<data>
@@ -3846,50 +4340,162 @@ Tout accés alloués.]]></grp_comment>
 	</data>
 	<data>
 		<lov_code_id.lov_list_id.lov_name>DF_PRODUIT_COULEUR</lov_code_id.lov_list_id.lov_name>
-		<lov_code_id.lov_code>A</lov_code_id.lov_code>
+		<lov_code_id.lov_code>GR</lov_code_id.lov_code>
 		<lov_code_id.lov_order_by>10</lov_code_id.lov_order_by>
 		<lov_lang>ENU</lov_lang>
-		<lov_value><![CDATA[A]]></lov_value>
+		<lov_value><![CDATA[GR]]></lov_value>
 		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
 	</data>
 	<data>
 		<lov_code_id.lov_list_id.lov_name>DF_PRODUIT_COULEUR</lov_code_id.lov_list_id.lov_name>
-		<lov_code_id.lov_code>B</lov_code_id.lov_code>
+		<lov_code_id.lov_code>BE</lov_code_id.lov_code>
 		<lov_code_id.lov_order_by>20</lov_code_id.lov_order_by>
 		<lov_lang>ENU</lov_lang>
-		<lov_value><![CDATA[B]]></lov_value>
+		<lov_value><![CDATA[BE]]></lov_value>
 		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
 	</data>
 	<data>
 		<lov_code_id.lov_list_id.lov_name>DF_PRODUIT_COULEUR</lov_code_id.lov_list_id.lov_name>
-		<lov_code_id.lov_code>C</lov_code_id.lov_code>
+		<lov_code_id.lov_code>BL</lov_code_id.lov_code>
 		<lov_code_id.lov_order_by>30</lov_code_id.lov_order_by>
 		<lov_lang>ENU</lov_lang>
-		<lov_value><![CDATA[C]]></lov_value>
+		<lov_value><![CDATA[BL]]></lov_value>
 		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
 	</data>
 	<data>
 		<lov_code_id.lov_list_id.lov_name>DF_PRODUIT_COULEUR</lov_code_id.lov_list_id.lov_name>
-		<lov_code_id.lov_code>A</lov_code_id.lov_code>
+		<lov_code_id.lov_code>RG</lov_code_id.lov_code>
+		<lov_code_id.lov_order_by>40</lov_code_id.lov_order_by>
+		<lov_lang>ENU</lov_lang>
+		<lov_value><![CDATA[RG]]></lov_value>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<lov_code_id.lov_list_id.lov_name>DF_PRODUIT_COULEUR</lov_code_id.lov_list_id.lov_name>
+		<lov_code_id.lov_code>NO</lov_code_id.lov_code>
+		<lov_code_id.lov_order_by>50</lov_code_id.lov_order_by>
+		<lov_lang>ENU</lov_lang>
+		<lov_value><![CDATA[NO]]></lov_value>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<lov_code_id.lov_list_id.lov_name>DF_PRODUIT_COULEUR</lov_code_id.lov_list_id.lov_name>
+		<lov_code_id.lov_code>RS</lov_code_id.lov_code>
+		<lov_code_id.lov_order_by>60</lov_code_id.lov_order_by>
+		<lov_lang>ENU</lov_lang>
+		<lov_value><![CDATA[RS]]></lov_value>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<lov_code_id.lov_list_id.lov_name>DF_PRODUIT_COULEUR</lov_code_id.lov_list_id.lov_name>
+		<lov_code_id.lov_code>VE</lov_code_id.lov_code>
+		<lov_code_id.lov_order_by>70</lov_code_id.lov_order_by>
+		<lov_lang>ENU</lov_lang>
+		<lov_value><![CDATA[VE]]></lov_value>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<lov_code_id.lov_list_id.lov_name>DF_PRODUIT_COULEUR</lov_code_id.lov_list_id.lov_name>
+		<lov_code_id.lov_code>OC</lov_code_id.lov_code>
+		<lov_code_id.lov_order_by>80</lov_code_id.lov_order_by>
+		<lov_lang>ENU</lov_lang>
+		<lov_value><![CDATA[OC]]></lov_value>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<lov_code_id.lov_list_id.lov_name>DF_PRODUIT_COULEUR</lov_code_id.lov_list_id.lov_name>
+		<lov_code_id.lov_code>JA</lov_code_id.lov_code>
+		<lov_code_id.lov_order_by>90</lov_code_id.lov_order_by>
+		<lov_lang>ENU</lov_lang>
+		<lov_value><![CDATA[JA]]></lov_value>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<lov_code_id.lov_list_id.lov_name>DF_PRODUIT_COULEUR</lov_code_id.lov_list_id.lov_name>
+		<lov_code_id.lov_code>MA</lov_code_id.lov_code>
+		<lov_code_id.lov_order_by>100</lov_code_id.lov_order_by>
+		<lov_lang>ENU</lov_lang>
+		<lov_value><![CDATA[MA]]></lov_value>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<lov_code_id.lov_list_id.lov_name>DF_PRODUIT_COULEUR</lov_code_id.lov_list_id.lov_name>
+		<lov_code_id.lov_code>GR</lov_code_id.lov_code>
 		<lov_code_id.lov_order_by>10</lov_code_id.lov_order_by>
 		<lov_lang>FRA</lov_lang>
-		<lov_value><![CDATA[A]]></lov_value>
+		<lov_value><![CDATA[Gris]]></lov_value>
 		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
 	</data>
 	<data>
 		<lov_code_id.lov_list_id.lov_name>DF_PRODUIT_COULEUR</lov_code_id.lov_list_id.lov_name>
-		<lov_code_id.lov_code>B</lov_code_id.lov_code>
+		<lov_code_id.lov_code>BE</lov_code_id.lov_code>
 		<lov_code_id.lov_order_by>20</lov_code_id.lov_order_by>
 		<lov_lang>FRA</lov_lang>
-		<lov_value><![CDATA[B]]></lov_value>
+		<lov_value><![CDATA[Beige]]></lov_value>
 		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
 	</data>
 	<data>
 		<lov_code_id.lov_list_id.lov_name>DF_PRODUIT_COULEUR</lov_code_id.lov_list_id.lov_name>
-		<lov_code_id.lov_code>C</lov_code_id.lov_code>
+		<lov_code_id.lov_code>BL</lov_code_id.lov_code>
 		<lov_code_id.lov_order_by>30</lov_code_id.lov_order_by>
 		<lov_lang>FRA</lov_lang>
-		<lov_value><![CDATA[C]]></lov_value>
+		<lov_value><![CDATA[Bleu]]></lov_value>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<lov_code_id.lov_list_id.lov_name>DF_PRODUIT_COULEUR</lov_code_id.lov_list_id.lov_name>
+		<lov_code_id.lov_code>RG</lov_code_id.lov_code>
+		<lov_code_id.lov_order_by>40</lov_code_id.lov_order_by>
+		<lov_lang>FRA</lov_lang>
+		<lov_value><![CDATA[Rouge]]></lov_value>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<lov_code_id.lov_list_id.lov_name>DF_PRODUIT_COULEUR</lov_code_id.lov_list_id.lov_name>
+		<lov_code_id.lov_code>NO</lov_code_id.lov_code>
+		<lov_code_id.lov_order_by>50</lov_code_id.lov_order_by>
+		<lov_lang>FRA</lov_lang>
+		<lov_value><![CDATA[Noire]]></lov_value>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<lov_code_id.lov_list_id.lov_name>DF_PRODUIT_COULEUR</lov_code_id.lov_list_id.lov_name>
+		<lov_code_id.lov_code>RS</lov_code_id.lov_code>
+		<lov_code_id.lov_order_by>60</lov_code_id.lov_order_by>
+		<lov_lang>FRA</lov_lang>
+		<lov_value><![CDATA[Rose]]></lov_value>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<lov_code_id.lov_list_id.lov_name>DF_PRODUIT_COULEUR</lov_code_id.lov_list_id.lov_name>
+		<lov_code_id.lov_code>VE</lov_code_id.lov_code>
+		<lov_code_id.lov_order_by>70</lov_code_id.lov_order_by>
+		<lov_lang>FRA</lov_lang>
+		<lov_value><![CDATA[Vert]]></lov_value>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<lov_code_id.lov_list_id.lov_name>DF_PRODUIT_COULEUR</lov_code_id.lov_list_id.lov_name>
+		<lov_code_id.lov_code>OC</lov_code_id.lov_code>
+		<lov_code_id.lov_order_by>80</lov_code_id.lov_order_by>
+		<lov_lang>FRA</lov_lang>
+		<lov_value><![CDATA[Ocre]]></lov_value>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<lov_code_id.lov_list_id.lov_name>DF_PRODUIT_COULEUR</lov_code_id.lov_list_id.lov_name>
+		<lov_code_id.lov_code>JA</lov_code_id.lov_code>
+		<lov_code_id.lov_order_by>90</lov_code_id.lov_order_by>
+		<lov_lang>FRA</lov_lang>
+		<lov_value><![CDATA[Jaune]]></lov_value>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<lov_code_id.lov_list_id.lov_name>DF_PRODUIT_COULEUR</lov_code_id.lov_list_id.lov_name>
+		<lov_code_id.lov_code>MA</lov_code_id.lov_code>
+		<lov_code_id.lov_order_by>100</lov_code_id.lov_order_by>
+		<lov_lang>FRA</lov_lang>
+		<lov_value><![CDATA[Marron]]></lov_value>
 		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
 	</data>
 	<data>
@@ -9122,7 +9728,7 @@ Tout accés alloués.]]></grp_comment>
 		<fld_more>0</fld_more>
 		<fld_listmore>0</fld_listmore>
 		<fld_listsum/>
-		<fld_type>7</fld_type>
+		<fld_type>14</fld_type>
 		<fld_type_id.flt_code/>
 		<fld_enumlist>DF_PRODUIT_COULEUR</fld_enumlist>
 		<fld_list_id.lov_name>DF_PRODUIT_COULEUR</fld_list_id.lov_name>
@@ -9446,10 +10052,10 @@ Tout accés alloués.]]></grp_comment>
 		<fld_more>0</fld_more>
 		<fld_listmore>0</fld_listmore>
 		<fld_listsum/>
-		<fld_type>3</fld_type>
+		<fld_type>7</fld_type>
 		<fld_type_id.flt_code/>
 		<fld_enumlist/>
-		<fld_list_id.lov_name/>
+		<fld_list_id.lov_name>DEFIPRDTYPEGEOLOGIQUE</fld_list_id.lov_name>
 		<fld_copy>1</fld_copy>
 		<fld_size>15</fld_size>
 		<fld_minsize/>
@@ -9482,10 +10088,10 @@ Tout accés alloués.]]></grp_comment>
 		<fld_more>0</fld_more>
 		<fld_listmore>0</fld_listmore>
 		<fld_listsum/>
-		<fld_type>3</fld_type>
+		<fld_type>7</fld_type>
 		<fld_type_id.flt_code/>
 		<fld_enumlist/>
-		<fld_list_id.lov_name/>
+		<fld_list_id.lov_name>DEFIPRDTYPEPRODUIT</fld_list_id.lov_name>
 		<fld_copy>1</fld_copy>
 		<fld_size>20</fld_size>
 		<fld_minsize/>
@@ -14228,7 +14834,6 @@ Tout accés alloués.]]></grp_comment>
   <div class="col-sm-6">
     <div class="field" data-field="defiPrdPrixUnitaireHT"></div>
     <div class="field" data-field="defiPrdUnite"></div>
-    <div class="field" data-field="defiLigneDevisUnite"></div>
     <div class="field" data-field="defiPrdSource"></div>
   </div>
 </div>
@@ -20189,7 +20794,7 @@ Objet metier pour produit.]]></obo_comment>
 	<data>
 		<obf_object_id.obo_name>DF_Ligne_Devis</obf_object_id.obo_name>
 		<obf_field_id.fld_name>defiPrdTypeProduit</obf_field_id.fld_name>
-		<obf_field_id.fld_type>3</obf_field_id.fld_type>
+		<obf_field_id.fld_type>7</obf_field_id.fld_type>
 		<obf_order>20</obf_order>
 		<obf_group_by/>
 		<obf_dfault_order/>
@@ -20973,7 +21578,7 @@ Objet metier pour produit.]]></obo_comment>
 	<data>
 		<obf_object_id.obo_name>DF_Ligne_Devis</obf_object_id.obo_name>
 		<obf_field_id.fld_name>defiPrdTypeGeologique</obf_field_id.fld_name>
-		<obf_field_id.fld_type>3</obf_field_id.fld_type>
+		<obf_field_id.fld_type>7</obf_field_id.fld_type>
 		<obf_order>1120</obf_order>
 		<obf_group_by/>
 		<obf_dfault_order/>
@@ -22307,7 +22912,7 @@ Objet metier pour produit.]]></obo_comment>
 	<data>
 		<obf_object_id.obo_name>DF_Produit_Finis</obf_object_id.obo_name>
 		<obf_field_id.fld_name>defiPrdTypeGeologique</obf_field_id.fld_name>
-		<obf_field_id.fld_type>3</obf_field_id.fld_type>
+		<obf_field_id.fld_type>7</obf_field_id.fld_type>
 		<obf_order>20</obf_order>
 		<obf_group_by/>
 		<obf_dfault_order/>
@@ -22336,7 +22941,7 @@ Objet metier pour produit.]]></obo_comment>
 	<data>
 		<obf_object_id.obo_name>DF_Produit_Finis</obf_object_id.obo_name>
 		<obf_field_id.fld_name>defiPrdCouleur</obf_field_id.fld_name>
-		<obf_field_id.fld_type>7</obf_field_id.fld_type>
+		<obf_field_id.fld_type>14</obf_field_id.fld_type>
 		<obf_order>30</obf_order>
 		<obf_group_by/>
 		<obf_dfault_order/>
@@ -22394,7 +22999,7 @@ Objet metier pour produit.]]></obo_comment>
 	<data>
 		<obf_object_id.obo_name>DF_Produit_Finis</obf_object_id.obo_name>
 		<obf_field_id.fld_name>defiPrdTypeProduit</obf_field_id.fld_name>
-		<obf_field_id.fld_type>3</obf_field_id.fld_type>
+		<obf_field_id.fld_type>7</obf_field_id.fld_type>
 		<obf_order>50</obf_order>
 		<obf_group_by/>
 		<obf_dfault_order/>
