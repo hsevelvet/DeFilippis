@@ -39,6 +39,29 @@ public class DF_Commande extends ObjectDB {
 	}
 	}
 	
+	@Override
+	public String postCreate() {
+		ObjectDB a = getGrant().getTmpObject("DF_Affaire");
+		a.resetFilters();
+		
+		a.create();
+		
+		String num_affaire = getField("defiDevisTitre").getValue();
+		String lieu_affaire = getFieldValue("defiDevisLieuProjet");
+		String intitule_affaire = getFieldValue("defiDevisTitreProjet");
+		
+		a.setFieldValue("defiAfrNumero",num_affaire);
+		a.setFieldValue("defiAfrLibelleChantier",lieu_affaire);
+		a.setFieldValue("defiAfrLieuAffaire",intitule_affaire);
+		
+		a.save();
+		
+		//return Message.formatInfo("INFO_CODE", "Message", "fieldName");
+		//return Message.formatWarning("WARNING_CODE", "Message", "fieldName");
+		//return Message.formatError("ERROR_CODE", "Message", "fieldName");
+		return null;
+	}
+	
 	/**
 	 * Action - Création cartes Trello 
 	 */
@@ -48,10 +71,10 @@ public class DF_Commande extends ObjectDB {
 	public void postLoad() {
 		AppLog.info(getClass(), "postLoad11111", "Instance11111: " + getInstanceName(), getGrant());
 		if (!getInstanceName().startsWith("webhook_")) {
-			//if (getInstanceName().equals("panel_ajax_DF_Livraison_DF_Livraison_DF_Plan_Livraison_id")){
-				//AppLog.info(getClass(), "postLoad11111", "On a un panel_ajax_DF_Livraison_DF_Livraison_DF_Plan_Livraison_id: " + getInstanceName(), getGrant());
-			//}
-			//else {
+			if (getInstanceName().equals("panel_ajax_DF_Livraison_DF_Livraison_DF_Plan_Livraison_id")){
+				AppLog.info(getClass(), "postLoad11111", "On a un panel_ajax_DF_Livraison_DF_Livraison_DF_Plan_Livraison_id: " + getInstanceName(), getGrant());
+			}
+			else {
 				tt = new TrelloTool(getGrant());
 				AppLog.info(getClass(), "postLoad", "Trello tool API key: " + tt.getKey(), getGrant());
 				settings = getGrant().getJSONObjectParameter("TRELLO_CARDEX_SETTINGS");
@@ -65,10 +88,11 @@ public class DF_Commande extends ObjectDB {
 					} catch (APIException e) {
 						AppLog.error(getClass(), "postLoad", "Unable to register the webhook: " + webhookURL, e, getGrant());
 					}
-				//}
+				
 			}
 			
 		}
+	}
 	}
 
 	@Override
@@ -101,19 +125,34 @@ public class DF_Commande extends ObjectDB {
 	
 	public String updateCard(){
 		if (tt == null) return null;
+		ObjectDB lc = getGrant().getTmpObject("DF_ligne_commande");
 		try {
-			//Mise à jour les informations principales de la carte
-			String id = getFieldValue("defiCommandeTrelloId");
-			JSONObject card = tt.getCard(id);
-			card.put("name", getFieldValue("defiCommandeNumero"));
-			card.put("desc", createDesc());
-			card.put("due", getFieldValue("defiCommandeDate"));
-			card.put("idList",getIDList(getFieldValue("defiCommandeStatut")));
-			tt.updateCard(id, card);
-			//Mise à jour les informations custom fields
-			tt.setCardCustomFieldItem(id,getIDCustomField("Adresse"),new JSONObject().put("value",new JSONObject().put("text",getFieldValue("defiCommandeAdresseLivraison"))));
-			tt.setCardCustomFieldItem(id,getIDCustomField("Quantité"),new JSONObject().put("value",new JSONObject().put("number",getFieldValue("defiCommandePoidsTotal"))));
-			tt.setCardCustomFieldItem(id,getIDCustomField("Tonnage"),new JSONObject().put("value", new JSONObject().put("number",getFieldValue("defiCommandePoidsTotal"))));
+			synchronized(lc){
+				lc.resetFilters();
+				lc.getField("DF_ligne_commande_DF_Commande_id").setFilter(getRowId());
+				long c = lc.getCount();
+		    		
+				for(String[] lce : lc.search()){
+					lc.setValues(lce);
+					String id = getFieldValue("defiCommandeTrelloId");
+					JSONObject card = tt.getCard(id);
+					
+					card.put("name",  getFieldValue("defiCommandeIntituleAffaire")+"-"+lc.getFieldValue("defiLigneCommandeTypeGeologique")+"-"+lc.getFieldValue("defiLigneCommandeQuantite"));
+					card.put("desc", createDesc());
+					card.put("due", getFieldValue("defiCommandeDate"));
+					card.put("idList",getIDList(getFieldValue("defiCommandeStatut")));
+					tt.updateCard(id, card);
+					
+									
+					//Mise à jour les informations custom fields
+					tt.setCardCustomFieldItem(id,getIDCustomField("Numéro de commande"),new JSONObject().put("value",new JSONObject().put("text",getFieldValue("defiCommandeNumero"))));
+					tt.setCardCustomFieldItem(id,getIDCustomField("Adresse"),new JSONObject().put("value",new JSONObject().put("text",getFieldValue("defiCommandeAdresseLivraison"))));
+					tt.setCardCustomFieldItem(id,getIDCustomField("Quantité"),new JSONObject().put("value",new JSONObject().put("number",lc.getFieldValue("defiLigneCommandeQuantite"))));
+		    		tt.setCardCustomFieldItem(id,getIDCustomField("Référence Produit"),new JSONObject().put("value",new JSONObject().put("text",lc.getFieldValue("defiLigneCommandeReferenceProduit"))));
+					
+		    		}
+			}
+			
 			
 			return Message.formatSimpleInfo("Trello card updated");
 		} catch (APIException e) { // Prevents deletion if card creation fails
@@ -136,13 +175,18 @@ public class DF_Commande extends ObjectDB {
 				for(String[] lce : lc.search()){
 					lc.setValues(lce);
 					card.put("name",  getFieldValue("defiCommandeIntituleAffaire")+"-"+lc.getFieldValue("defiLigneCommandeTypeGeologique")+"-"+lc.getFieldValue("defiLigneCommandeQuantite"));
+					card.put("desc", createDesc());
+					card.put("due", getFieldValue("defiCommandeDate"));
 					card = tt.addCard(getIDList(getFieldValue("defiCommandeStatut")), card);
 									
 					//Mise à jour les informations custom fields
+					
+					tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Numéro de commande"),new JSONObject().put("value",new JSONObject().put("text",getFieldValue("defiCommandeNumero"))));
 					tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Adresse"),new JSONObject().put("value",new JSONObject().put("text",getFieldValue("defiCommandeAdresseLivraison"))));
 					tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Quantité"),new JSONObject().put("value",new JSONObject().put("number",lc.getFieldValue("defiLigneCommandeQuantite"))));
-		    		}
-					
+		    		
+		    		tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Référence Produit"),new JSONObject().put("value",new JSONObject().put("text",lc.getFieldValue("defiLigneCommandeReferenceProduit"))));
+				}
 		    		}
 		    	AppLog.info(getClass(), "preCreate", card.toString(2), getGrant());
 				setFieldValue("defiCommandeTrelloId", card.getString("id"));

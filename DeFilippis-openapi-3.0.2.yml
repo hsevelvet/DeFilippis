@@ -56,6 +56,9 @@ components:
         DF_Chantier_DF_Client_id__defiClientNom:
           description: Nom Client
           type: string
+        defiAffaireId:
+          description: Id Affaire
+          type: string
         DF_Affaire_DF_Contact_id:
           description: Contacts
           type: string
@@ -99,11 +102,11 @@ components:
           description: Secteur Activité Client
           type: string
           enum:
+          - MO
           - MDO
           - AR
-          - MO
-          - ATPG
           - T
+          - ATPG
           - ATP
           - V
           - N
@@ -209,6 +212,14 @@ components:
         DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdTypeProduit:
           description: Désignation Produit
           type: string
+          enum:
+          - PAVE
+          - DALLE
+          - BORDURE
+          - BANC
+          - BORNE
+          - CANIVEAU
+          - PIECE
         defiLigneDevisPrixUnitaireHT:
           description: Prix Unitaire HT
           type: number
@@ -224,6 +235,15 @@ components:
         DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdTypeGeologique:
           description: Nom Produit
           type: string
+          enum:
+          - GRA
+          - CAL
+          - GRE
+          - POR
+          - BAS
+          - LUS
+          - TEC
+          - PRE
         defiLigneDevisPrixExwUnitaire:
           description: Prix EXW / Unité
           type: number
@@ -273,7 +293,7 @@ components:
           description: Nombre d'éléments sans joint
           type: number
         defiLigneDevisMasseUnitaireAcJoints:
-          description: Masse Unitaire avec Joints
+          description: Masse Unitaire avec Joints (kg/unité)
           type: number
         row_id:
           description: Unique technical row ID
@@ -285,7 +305,7 @@ components:
           description: Finition Produit
           type: string
         defiLigneDevisMasseUnitaireSsJoints:
-          description: Masse Unitaire sans Joints
+          description: Masse Unitaire sans Joints (kg/unité)
           type: number
         defiLigneDevisCoef:
           description: Coef
@@ -663,7 +683,7 @@ components:
           type: string
         defiFournId:
           description: Id Fournisseur
-          type: integer
+          type: string
     ArrayOfDF_Ligne_Devis:
       type: array
       items:
@@ -832,7 +852,7 @@ components:
           description: Titre Projet
           type: string
         DF_Devis_DF_Contact_id__defiContactEmail:
-          description: E-mail Contacts
+          description: E-mail Contact
           type: string
         row_id:
           description: Unique technical row ID
@@ -886,11 +906,11 @@ components:
           description: Secteur Activité
           type: string
           enum:
+          - MO
           - MDO
           - AR
-          - MO
-          - ATPG
           - T
+          - ATPG
           - ATP
           - V
           - N
@@ -943,9 +963,26 @@ components:
         defiPrdTypeGeologique:
           description: Type Géologique
           type: string
+          enum:
+          - GRA
+          - CAL
+          - GRE
+          - POR
+          - BAS
+          - LUS
+          - TEC
+          - PRE
         defiPrdTypeProduit:
           description: Type produit
           type: string
+          enum:
+          - PAVE
+          - DALLE
+          - BORDURE
+          - BANC
+          - BORNE
+          - CANIVEAU
+          - PIECE
         defiPrdSource:
           description: Source
           type: string
@@ -975,12 +1012,15 @@ components:
         df_produit_commentaire:
           description: Commentaire
           type: string
+        defiPrdCategoriePrix:
+          description: Catégorie Prix
+          type: string
+          enum:
+          - '1'
+          - '2'
         defiPrdLargeur:
           description: Largeur
           type: number
-        defiPrdCategoriePrix:
-          description: Catégorie Prix
-          type: boolean
         defiPrdMasseVolumique:
           description: Masse Volumique
           type: string
@@ -992,7 +1032,20 @@ components:
           type: string
         defiPrdCouleur:
           description: Couleur
-          type: string
+          type: array
+          items:
+            type: string
+            enum:
+            - GR
+            - BE
+            - BL
+            - RG
+            - 'NO'
+            - RS
+            - VE
+            - OC
+            - JA
+            - MA
         row_id:
           description: Unique technical row ID
           type: string
@@ -1020,6 +1073,9 @@ components:
     DF_Contact:
       type: object
       properties:
+        DF_Contact_DF_Fournisseurs_id__defiFournNom:
+          description: Nom Fournisseur
+          type: string
         defiContactNom:
           description: Nom
           type: string
@@ -1029,6 +1085,13 @@ components:
         defiContactId:
           description: Id Contact
           type: string
+        defiContactTypeContact:
+          description: Tyoe Contact
+          type: string
+          enum:
+          - '30'
+          - '31'
+          - '32'
         defiContactCivilite:
           description: Civilité
           type: string
@@ -1044,14 +1107,23 @@ components:
         defiContactPortable:
           description: Portable
           type: string
+        DF_Contact_DF_Fournisseurs_id__defiFournId:
+          description: Id Fournisseur Fournisseurs
+          type: string
         defiContactEmail:
           description: E-mail
+          type: string
+        DF_Contact_DF_Fournisseurs_id:
+          description: Fournisseurs
           type: string
         DF_Contact_DF_Client_id__defiClientNom:
           description: Nom Client
           type: string
         defiContactPrenom:
           description: Prénom
+          type: string
+        DF_Contact_DF_Transport_id__defiTrspNom:
+          description: Nom Transporteur
           type: string
         defiContactCommentaire:
           description: Commentaire
@@ -1764,8 +1836,8 @@ components:
           - BE
           - CH
           - IE
-          - US
           - CA
+          - US
         usr_title:
           description: Title
           type: string
@@ -1964,14 +2036,14 @@ paths:
       - schema:
           type: string
         in: query
-        name: DF_Chantier_DF_Client_id__defiClientTelephone
-        description: Search filter for Téléphone Client
+        name: defiAfrDateDebut
+        description: Search filter for Date début
         required: false
       - schema:
           type: string
         in: query
-        name: defiAfrDateDebut
-        description: Search filter for Date début
+        name: DF_Chantier_DF_Client_id__defiClientTelephone
+        description: Search filter for Téléphone Client
         required: false
       - schema:
           type: string
@@ -2042,11 +2114,11 @@ paths:
       - schema:
           type: string
           enum:
+          - MO
           - MDO
           - AR
-          - MO
-          - ATPG
           - T
+          - ATPG
           - ATP
           - V
           - N
@@ -2117,6 +2189,12 @@ paths:
         in: query
         name: DF_Affaire_DF_Contact_id
         description: Search filter for Contacts
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: defiAffaireId
+        description: Search filter for Id Affaire
         required: false
       tags:
       - DF_Affaire
@@ -2369,6 +2447,12 @@ paths:
       - schema:
           type: string
         in: query
+        name: DF_Contact_DF_Transport_id__defiTrspNom
+        description: Search filter for Nom Transporteur
+        required: false
+      - schema:
+          type: string
+        in: query
         name: DF_Contact_DF_Client_id__defiClientNom
         description: Search filter for Nom Client
         required: false
@@ -2465,6 +2549,34 @@ paths:
         name: DF_Contact_DF_Transport_id
         description: Search filter for Transports
         required: false
+      - schema:
+          type: string
+          enum:
+          - '30'
+          - '31'
+          - '32'
+        in: query
+        name: defiContactTypeContact
+        description: Search filter for Tyoe Contact
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Contact_DF_Fournisseurs_id
+        description: Search filter for Fournisseurs
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Contact_DF_Fournisseurs_id__defiFournId
+        description: Search filter for Id Fournisseur Fournisseurs
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Contact_DF_Fournisseurs_id__defiFournNom
+        description: Search filter for Nom Fournisseur
+        required: false
       tags:
       - DF_Contact
   /login:
@@ -2552,12 +2664,41 @@ paths:
         required: false
       - schema:
           type: string
+          enum:
+          - '1'
+          - '2'
+        in: query
+        name: defiPrdCategoriePrix
+        description: Search filter for Catégorie Prix
+        required: false
+      - schema:
+          type: string
+          enum:
+          - GRA
+          - CAL
+          - GRE
+          - POR
+          - BAS
+          - LUS
+          - TEC
+          - PRE
         in: query
         name: defiPrdTypeGeologique
         description: Search filter for Type Géologique
         required: false
       - schema:
           type: string
+          enum:
+          - GR
+          - BE
+          - BL
+          - RG
+          - 'NO'
+          - RS
+          - VE
+          - OC
+          - JA
+          - MA
         in: query
         name: defiPrdCouleur
         description: Search filter for Couleur
@@ -2570,6 +2711,14 @@ paths:
         required: false
       - schema:
           type: string
+          enum:
+          - PAVE
+          - DALLE
+          - BORDURE
+          - BANC
+          - BORNE
+          - CANIVEAU
+          - PIECE
         in: query
         name: defiPrdTypeProduit
         description: Search filter for Type produit
@@ -2593,16 +2742,16 @@ paths:
         description: Search filter for Longueur
         required: false
       - schema:
-          type: string
-        in: query
-        name: df_produit_commentaire
-        description: Search filter for Commentaire
-        required: false
-      - schema:
           type: number
         in: query
         name: defiPrdLargeur
         description: Search filter for Largeur
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: df_produit_commentaire
+        description: Search filter for Commentaire
         required: false
       - schema:
           type: number
@@ -2643,12 +2792,6 @@ paths:
         in: query
         name: defiPrdMasseVolumique
         description: Search filter for Masse Volumique
-        required: false
-      - schema:
-          type: boolean
-        in: query
-        name: defiPrdCategoriePrix
-        description: Search filter for Catégorie Prix
         required: false
       - schema:
           type: string
@@ -3390,7 +3533,7 @@ paths:
         description: Documentation?
         required: false
       - schema:
-          type: integer
+          type: string
         in: query
         name: defiFournId
         description: Search filter for Id Fournisseur
@@ -4353,16 +4496,16 @@ paths:
         description: Search filter for Numéro de Commande
         required: false
       - schema:
-          type: string
-        in: query
-        name: defiCommandeIntituleAffaire
-        description: Search filter for Titre Affaire
-        required: false
-      - schema:
           type: integer
         in: query
         name: defiCommandeIdLivraison
         description: Search filter for Id Livraison
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: defiCommandeIntituleAffaire
+        description: Search filter for Titre Affaire
         required: false
       - schema:
           type: string
@@ -4378,6 +4521,12 @@ paths:
         required: false
       - schema:
           type: string
+        in: query
+        name: DF_Commande_DF_Client_id
+        description: Search filter for DF client
+        required: false
+      - schema:
+          type: string
           enum:
           - IN
           - EC
@@ -4387,12 +4536,6 @@ paths:
         in: query
         name: defiCommandeStatut
         description: Search filter for Statut Commande
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: DF_Commande_DF_Client_id
-        description: Search filter for DF client
         required: false
       - schema:
           type: string
@@ -5613,14 +5756,14 @@ paths:
       - schema:
           type: string
         in: query
-        name: defiDevisLieuProjet
-        description: Search filter for Ville Projet
+        name: defiDevisDateEmission
+        description: Search filter for Date Emission
         required: false
       - schema:
           type: string
         in: query
-        name: defiDevisDateEmission
-        description: Search filter for Date Emission
+        name: defiDevisLieuProjet
+        description: Search filter for Ville Projet
         required: false
       - schema:
           type: string
@@ -5823,7 +5966,7 @@ paths:
           type: string
         in: query
         name: DF_Devis_DF_Contact_id__defiContactEmail
-        description: Search filter for E-mail Contacts
+        description: Search filter for E-mail Contact
         required: false
       - schema:
           type: string
@@ -6674,11 +6817,11 @@ paths:
       - schema:
           type: string
           enum:
+          - MO
           - MDO
           - AR
-          - MO
-          - ATPG
           - T
+          - ATPG
           - ATP
           - V
           - N
@@ -7964,8 +8107,8 @@ paths:
           - BE
           - CH
           - IE
-          - US
           - CA
+          - US
         in: query
         name: usr_country
         description: Search filter for Country
@@ -8168,6 +8311,14 @@ paths:
         required: false
       - schema:
           type: string
+          enum:
+          - PAVE
+          - DALLE
+          - BORDURE
+          - BANC
+          - BORNE
+          - CANIVEAU
+          - PIECE
         in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdTypeProduit
         description: Search filter for Désignation Produit
@@ -8230,13 +8381,13 @@ paths:
           type: number
         in: query
         name: defiLigneDevisMasseUnitaireAcJoints
-        description: Search filter for Masse Unitaire avec Joints
+        description: Search filter for Masse Unitaire avec Joints (kg/unité)
         required: false
       - schema:
           type: number
         in: query
         name: defiLigneDevisMasseUnitaireSsJoints
-        description: Search filter for Masse Unitaire sans Joints
+        description: Search filter for Masse Unitaire sans Joints (kg/unité)
         required: false
       - schema:
           type: number
@@ -8330,6 +8481,15 @@ paths:
         required: false
       - schema:
           type: string
+          enum:
+          - GRA
+          - CAL
+          - GRE
+          - POR
+          - BAS
+          - LUS
+          - TEC
+          - PRE
         in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdTypeGeologique
         description: Search filter for Nom Produit

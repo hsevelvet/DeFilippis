@@ -104,6 +104,9 @@ public class DF_Devis extends ObjectDB {
 		return msgs;
 	}
 	
+
+
+	/**
 	public String creationAffaire(){
 		ObjectDB a = getGrant().getTmpObject("DF_Affaire");
 		a.resetFilters();
@@ -121,7 +124,7 @@ public class DF_Devis extends ObjectDB {
 		a.save();
 		
 		return sendRedirect(HTMLTool.getFormURL("DF_Affaire","the_main_DF_Affaire", a.getRowId(),""));
-	}
+	}*/
 
 
 	public String initialCommande(){
@@ -162,7 +165,7 @@ public class DF_Devis extends ObjectDB {
 			
 			for(String[] lde : ld.search()){
 				ld.setValues(lde);
-				int ref_prod = ld.getField("defiPrdId").getInt(0);
+				String ref_prod = ld.getFieldValue("defiPrdId");
 				String type_geo = ld.getFieldValue("defiPrdTypeGeologique");
 				String apl_com = ld.getFieldValue("defiPrdAppellationCommerciale");
 				String finition = ld.getFieldValue("defiPrdFinitionFacesVues");
@@ -208,6 +211,7 @@ public class DF_Devis extends ObjectDB {
 		
 		return sendRedirect(HTMLTool.getFormURL("DF_Commande","the_main_DF_Commande", c.getRowId(),""));
 	}	
+	
 	
 	public void versionnerDevis(){
 		ObjectDB o =  getGrant().getTmpObject("DF_Devis");

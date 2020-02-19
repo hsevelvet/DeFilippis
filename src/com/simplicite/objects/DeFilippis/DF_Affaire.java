@@ -7,7 +7,7 @@ import com.simplicite.util.tools.*;
 /**
  * Business object DF_Chantier
 
-*/
+
 public class DF_Affaire extends ObjectDB {
 	private static final long serialVersionUID = 1L;
 
@@ -37,5 +37,5 @@ public class DF_Affaire extends ObjectDB {
 	}
 
 }
-
+*/
 

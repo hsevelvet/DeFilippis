@@ -29,7 +29,7 @@ public class DF_Livraison extends com.simplicite.util.ObjectDB {
 			else {
 				tt = new TrelloTool(getGrant());
 				//tt.addCustomField("","");
-				//tt.setDebug(true);
+				tt.setDebug(true);
 				AppLog.info(getClass(), "postLoad", "Trello tool API key: " + tt.getKey(), getGrant());
 				settings = getGrant().getJSONObjectParameter("TRELLO_CARDEX_SETTINGS");
 				AppLog.info(getClass(), "postLoad", "Settings: " + settings.toString(2), getGrant());
@@ -106,7 +106,7 @@ public class DF_Livraison extends com.simplicite.util.ObjectDB {
 		try {
 			String idCustomFieldQuantite=getIDCustomField("Test");
 			JSONObject data = new JSONObject();
-			data.put("idModel", "5e2f0964f6a953469e166f1e");
+			data.put("idModel", "5e4acb149a3b017c38138715");
 			JSONObject value = new JSONObject();
 			value.put("text","Hello, world!1111111111111");
 			data.put("value", value);
@@ -180,7 +180,7 @@ public class DF_Livraison extends com.simplicite.util.ObjectDB {
 	public String getIDCustomField(String customFieldName){
 		String id = null;
 		try {
-			String t = tt.call("/boards/5e172c1cb7805140f876226d/customFields","get","").toString();
+			String t = tt.call("/boards/5e4acb149a3b017c38138715/customFields","get","").toString();
 			JSONArray mJSONArray = new JSONArray(t);
 			id = searchJSONArray("name",customFieldName,"id",mJSONArray);
 			AppLog.info(getClass(), "getIDCustomField", id, getGrant());

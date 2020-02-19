@@ -17,6 +17,13 @@ public class DF_Contact extends ObjectDB {
 		String contact_id = String.format("%04d",pid);
 		
 		setFieldValue("defiContactId",contact_id);
+	}
+	
+	@Override
+	public void initRefSelect(ObjectDB parent) {
+	if(parent!=null && parent.getName().equals("DF_Client")){
+		setFieldFilter("DF_Contact_DF_Client_id", parent.getRowId());
+		}
 	}*/
 
 	

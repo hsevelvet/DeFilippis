@@ -51,6 +51,7 @@
 | _Ref. `DF_Affaire_DF_utilisateur_interne_id.usr_login`_      | _regexp(100)_                            |          |           | yes      | _Login_                                                                          |
 | _Ref. `DF_Affaire_DF_utilisateur_interne_id.defiUsrNomComplet`_ | _char(70)_                               |          |           |          | -                                                                                |
 | `DF_Affaire_DF_Contact_id` link to **`DF_Contact`**          | id                                       |          | yes       |          | -                                                                                |
+| `defiAffaireId`                                              | char(11)                                 | yes*     | yes       |          | -                                                                                |
 
 ### Lists
 
@@ -69,6 +70,10 @@
     - `EA` Entreprise Autre
     - `A` Aucun
     - `P` Particulier
+
+### Custom actions
+
+No custom action
 
 `DF_Client` business object definition
 --------------------------------------
@@ -114,6 +119,10 @@ Objet metier pour client.
     - `A` Aucun
     - `P` Particulier
 
+### Custom actions
+
+No custom action
+
 `DF_Commande` business object definition
 ----------------------------------------
 
@@ -124,7 +133,7 @@ objet metier pour commande.
 
 | Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
-| `defiCommandeId`                                             | char(50)                                 |          | yes       |          | -                                                                                |
+| `defiCommandeId`                                             | char(50)                                 | yes*     | yes       |          | -                                                                                |
 | `defiCommandeNumero`                                         | char(32)                                 | yes*     | yes       |          | -                                                                                |
 | `defiCommandeIdLivraison`                                    | int(11)                                  |          | yes       |          | -                                                                                |
 | `defiCommandeIntituleAffaire`                                | char(100)                                |          | yes       |          | -                                                                                |
@@ -182,6 +191,7 @@ Objet metier pour contact.
 | Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
 | `defiContactId`                                              | char(11)                                 | yes*     | yes       |          | -                                                                                |
+| _Ref. `DF_Contact_DF_Transport_id.defiTrspNom`_              | _char(36)_                               |          |           |          | -                                                                                |
 | _Ref. `DF_Contact_DF_Client_id.defiClientNom`_               | _char(36)_                               |          |           |          | -                                                                                |
 | `defiContactCivilite`                                        | enum(7) using `CIVILITE_CLIENT_CONTACT` list |          | yes       |          | -                                                                                |
 | `defiContactNom`                                             | char(36)                                 | yes      | yes       |          | -                                                                                |
@@ -196,6 +206,10 @@ Objet metier pour contact.
 | _Ref. `DF_Contact_DF_Client_id.defiClientId`_                | _char(11)_                               |          |           |          | -                                                                                |
 | `DF_Contact_DF_Client_id` link to **`DF_Client`**            | id                                       |          | yes       |          | -                                                                                |
 | `DF_Contact_DF_Transport_id` link to **`DF_Transport`**      | id                                       |          | yes       |          | -                                                                                |
+| `defiContactTypeContact`                                     | enum(7) using `DEFICONTACTTYPECONTACT` list | yes      | yes       |          | -                                                                                |
+| `DF_Contact_DF_Fournisseurs_id` link to **`DF_Fournisseurs`** | id                                       |          | yes       |          | -                                                                                |
+| _Ref. `DF_Contact_DF_Fournisseurs_id.defiFournId`_           | _char(11)_                               |          |           |          | -                                                                                |
+| _Ref. `DF_Contact_DF_Fournisseurs_id.defiFournNom`_          | _char(36)_                               |          |           |          | -                                                                                |
 
 ### Lists
 
@@ -220,6 +234,14 @@ Objet metier pour contact.
     - `O` Ouvert
     - `F` Fermé
     - `ET` En Traitement
+* `DEFICONTACTTYPECONTACT`
+    - `30` Fournisseur
+    - `31` Client
+    - `32` Transporteur
+
+### Custom actions
+
+No custom action
 
 `DF_Devis` business object definition
 -------------------------------------
@@ -330,12 +352,16 @@ Objet métier pour fournisseur.
 
 | Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
-| `defiFournId`                                                | int(11)                                  |          | yes       |          | -                                                                                |
-| `defiFournNom`                                               | char(36)                                 | yes*     | yes       |          | -                                                                                |
+| `defiFournId`                                                | char(11)                                 | *        | yes       |          | -                                                                                |
+| `defiFournNom`                                               | char(36)                                 | yes      | yes       |          | -                                                                                |
 | `defiFournTelephone`                                         | phone(100)                               | yes      | yes       |          | -                                                                                |
 | `defiFournEmail`                                             | email(100)                               | yes      | yes       |          | -                                                                                |
 | `defiFournDescription`                                       | text(10000)                              |          | yes       |          | -                                                                                |
 | `defiFournIdKheops`                                          | char(12)                                 |          | yes       |          | -                                                                                |
+
+### Custom actions
+
+No custom action
 
 `DF_ligne_commande` business object definition
 ----------------------------------------------
@@ -346,7 +372,7 @@ Objet métier pour fournisseur.
 
 | Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
-| `defiLigneCommandeId`                                        | int(11)                                  |          | yes       |          | -                                                                                |
+| `defiLigneCommandeId`                                        | int(11)                                  | yes*     | yes       |          | -                                                                                |
 | `defiLigneCommandeQuantite`                                  | int(11)                                  | yes      | yes       |          | -                                                                                |
 | `defiLigneCommandePrixTotalEXW`                              | float(100, 2)                            |          | yes       |          | -                                                                                |
 | `DF_ligne_commande_DF_Produit_Finis_id` link to **`DF_Produit_Finis`** | id                                       |          | yes       |          | -                                                                                |
@@ -363,6 +389,10 @@ Objet métier pour fournisseur.
 | `defiLigneCommandePoidsUnitaire`                             | float(10, 2)                             |          | yes       |          | -                                                                                |
 | `defiLigneCommandeUnite`                                     | char(4)                                  |          | yes       |          | -                                                                                |
 
+### Custom actions
+
+No custom action
+
 `DF_Ligne_Devis` business object definition
 -------------------------------------------
 
@@ -375,7 +405,7 @@ Objet métier pour fournisseur.
 | `defiLigneDevisRow`                                          | char(10)                                 |          |           |          | -                                                                                |
 | `defiLigneDevisId`                                           | char(11)                                 | yes*     | yes       |          | -                                                                                |
 | `defiLigneDevisQuantite`                                     | int(11)                                  | yes      | yes       |          | -                                                                                |
-| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdTypeProduit`_ | _char(20) using `DEFIPRDTYPEPRODUIT` list_ |          |           |          | -                                                                                |
+| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdTypeProduit`_ | _enum(7) using `DEFIPRDTYPEPRODUIT` list_ |          |           |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdFinitionFacesVues`_ | _char(70)_                               |          |           |          | -                                                                                |
 | `defiLigneDevisUnite`                                        | char(3)                                  |          | yes       |          | -                                                                                |
 | `DF_Ligne_Devis_DF_Devis_id` link to **`DF_Devis`**          | id                                       | yes      | yes       |          | -                                                                                |
@@ -394,7 +424,7 @@ Objet métier pour fournisseur.
 | `defiLigneDevisCoef`                                         | float(6, 2)                              | yes      | yes       |          | -                                                                                |
 | `defiLigneDevisPrixVenteCalcule`                             | float(6, 2)                              |          | yes       |          | -                                                                                |
 | `defiLigneDevisNPrix`                                        | int(5)                                   | yes      | yes       |          | -                                                                                |
-| `defiLigneDevisDesignation`                                  | text(100)                                | yes      | yes       |          | -                                                                                |
+| `defiLigneDevisDesignation`                                  | text(100)                                | yes      |           |          | -                                                                                |
 | `defiLigneDevisNombreElementsSsJoints`                       | float(5, 2)                              |          | yes       |          | -                                                                                |
 | `defiLigneDevisNombreElementsAcJoints`                       | float(5, 2)                              |          | yes       |          | -                                                                                |
 | `defiLigneDevisPrixExwUnite`                                 | float(9, 2)                              |          | yes       |          | -                                                                                |
@@ -402,7 +432,7 @@ Objet métier pour fournisseur.
 | `defiLigneDevisPrixExwTonne`                                 | float(9, 2)                              |          | yes       |          | -                                                                                |
 | `DF_Ligne_Devis_DF_Produit_Finis_id` link to **`DF_Produit_Finis`** | id                                       |          | yes       |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdId`_        | _char(11)_                               |          |           |          | -                                                                                |
-| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdTypeGeologique`_ | _char(15) using `DEFIPRDTYPEGEOLOGIQUE` list_ |          |           |          | -                                                                                |
+| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdTypeGeologique`_ | _enum(7) using `DEFIPRDTYPEGEOLOGIQUE` list_ |          |           |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdLongueur`_  | _float(5, 2)_                            |          |           |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdLargeur`_   | _float(5, 2)_                            |          |           |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdEpaisseur`_ | _float(5, 2)_                            |          |           |          | -                                                                                |
@@ -413,11 +443,32 @@ Objet métier pour fournisseur.
 
 ### Lists
 
+* `DEFIPRDTYPEPRODUIT`
+    - `PAVE` Pavé
+    - `DALLE` Dalle
+    - `BORDURE` Bordure
+    - `BANC` Banc
+    - `BORNE` Borne
+    - `CANIVEAU` Caniveau
+    - `PIECE` Pièce Spéciale
+* `DEFIPRDTYPEGEOLOGIQUE`
+    - `GRA` Granit
+    - `CAL` Calcaire
+    - `GRE` Grès
+    - `POR` Porphyre
+    - `BAS` Basalte
+    - `LUS` Luserne
+    - `TEC` Terre cuite
+    - `PRE` Produit de réemploi
 * `DEFIPRDUNITE`
     - `M2` m²
     - `ML` ml
     - `T` T
     - `U` U
+
+### Custom actions
+
+No custom action
 
 `DF_Livraison` business object definition
 -----------------------------------------
@@ -500,9 +551,13 @@ Objet métier pour fournisseur.
 | `DF_Prix_Transport_DF_Transport_id` link to **`DF_Transport`** | id                                       |          | yes       |          | -                                                                                |
 | _Ref. `DF_Prix_Transport_DF_Transport_id.defiTrspNom`_       | _char(36)_                               |          |           |          | -                                                                                |
 | `defiPrTrspPrix`                                             | float(9, 2)                              | yes      | yes       |          | -                                                                                |
-| `defiPrTrspLieuEnlevement`                                   | char(32)                                 | yes      | yes       |          | -                                                                                |
+| `defiPrTrspLieuEnlevement`                                   | char(100)                                | yes      | yes       |          | -                                                                                |
 | `defiPrTrspDepartementLivraison`                             | char(20)                                 |          | yes       |          | -                                                                                |
 | `defiPrTspId`                                                | char(11)                                 | yes*     | yes       |          | -                                                                                |
+
+### Custom actions
+
+No custom action
 
 `DF_Produit_Finis` business object definition
 ---------------------------------------------
@@ -515,10 +570,11 @@ Objet metier pour produit.
 | Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
 | `defiPrdId`                                                  | char(11)                                 | yes*     | yes       |          | -                                                                                |
-| `defiPrdTypeGeologique`                                      | char(15) using `DEFIPRDTYPEGEOLOGIQUE` list | yes      | yes       |          | -                                                                                |
-| `defiPrdCouleur`                                             | char(100) using `DF_PRODUIT_COULEUR` list |          | yes       |          | -                                                                                |
+| `defiPrdCategoriePrix`                                       | enum(7) using `DEFIPRDCATEGORIEPRIX` list | yes      | yes       |          | -                                                                                |
+| `defiPrdTypeGeologique`                                      | enum(7) using `DEFIPRDTYPEGEOLOGIQUE` list | yes      | yes       |          | -                                                                                |
+| `defiPrdCouleur`                                             | multi(100) using `DF_PRODUIT_COULEUR` list |          | yes       |          | -                                                                                |
 | `defiPrdAppellationCommerciale`                              | char(70)                                 |          | yes       |          | -                                                                                |
-| `defiPrdTypeProduit`                                         | char(20) using `DEFIPRDTYPEPRODUIT` list | yes      | yes       |          | -                                                                                |
+| `defiPrdTypeProduit`                                         | enum(7) using `DEFIPRDTYPEPRODUIT` list  | yes      | yes       |          | -                                                                                |
 | `defiPrdFinitionFacesVues`                                   | char(70)                                 |          | yes       |          | -                                                                                |
 | `defiPrdAutresFinitions`                                     | char(70)                                 |          | yes       |          | -                                                                                |
 | `defiPrdLongueur`                                            | float(5, 2)                              | yes      | yes       |          | -                                                                                |
@@ -529,12 +585,42 @@ Objet metier pour produit.
 | `defiPrdUnite`                                               | enum(7) using `DEFIPRDUNITE` list        | yes      | yes       |          | -                                                                                |
 | `defiPrdPrixUnitaireHT`                                      | float(10, 2)                             | yes      | yes       |          | -                                                                                |
 | `defiPrdMasseVolumique`                                      | bigdec(8, 2)                             | yes      | yes       |          | -                                                                                |
-| `defiPrdCategoriePrix`                                       | boolean using `DF_PRODUIT_TYPE` list     |          | yes       |          | -                                                                                |
 | `DF_Produit_Finis_DF_Fournisseurs_id` link to **`DF_Fournisseurs`** | id                                       |          | yes       |          | -                                                                                |
 | _Ref. `DF_Produit_Finis_DF_Fournisseurs_id.defiFournNom`_    | _char(36)_                               |          |           |          | -                                                                                |
 
 ### Lists
 
+* `DEFIPRDCATEGORIEPRIX`
+    - `1` FFT
+    - `2` Pierre
+* `DEFIPRDTYPEGEOLOGIQUE`
+    - `GRA` Granit
+    - `CAL` Calcaire
+    - `GRE` Grès
+    - `POR` Porphyre
+    - `BAS` Basalte
+    - `LUS` Luserne
+    - `TEC` Terre cuite
+    - `PRE` Produit de réemploi
+* `DF_PRODUIT_COULEUR`
+    - `GR` Gris
+    - `BE` Beige
+    - `BL` Bleu
+    - `RG` Rouge
+    - `NO` Noire
+    - `RS` Rose
+    - `VE` Vert
+    - `OC` Ocre
+    - `JA` Jaune
+    - `MA` Marron
+* `DEFIPRDTYPEPRODUIT`
+    - `PAVE` Pavé
+    - `DALLE` Dalle
+    - `BORDURE` Bordure
+    - `BANC` Banc
+    - `BORNE` Borne
+    - `CANIVEAU` Caniveau
+    - `PIECE` Pièce Spéciale
 * `DEFIPRDSOURCE`
     - `CP` Contrat Produit Fini
     - `CC` Contrat Calculé
@@ -546,6 +632,10 @@ Objet metier pour produit.
     - `T` T
     - `U` U
 
+### Custom actions
+
+No custom action
+
 `DF_test` business object definition
 ------------------------------------
 
@@ -555,6 +645,10 @@ Objet metier pour produit.
 
 | Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
+
+### Custom actions
+
+No custom action
 
 `DF_Transport` business object definition
 -----------------------------------------
@@ -574,6 +668,10 @@ Objet metier pour produit.
 | `defiTrspEmail`                                              | email(100)                               |          | yes       |          | -                                                                                |
 | `defiTrspAdresse`                                            | char(100)                                |          | yes       |          | -                                                                                |
 
+### Custom actions
+
+No custom action
+
 `DF_utilisateur_interne` business object definition
 ---------------------------------------------------
 
@@ -585,6 +683,10 @@ Objet metier pour produit.
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
 | `defiUsrNomComplet`                                          | char(70)                                 | yes      | yes       |          | -                                                                                |
 | `defiUsrTrigramme`                                           | char(5)                                  |          | yes       |          | -                                                                                |
+
+### Custom actions
+
+No custom action
 
 `DF_Process_01` business process definition
 -------------------------------------------
