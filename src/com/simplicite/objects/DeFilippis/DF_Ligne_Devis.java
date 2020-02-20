@@ -22,6 +22,19 @@ public class DF_Ligne_Devis extends ObjectDB {
 		if (this.isNew())
 			getField("defiLigneDevisPrixUnitaireHT").setValue(getField("defiPrdPrixUnitaireHT").getValue());
 			getField("defiLigneDevisUnite").setValue(getField("defiPrdUnite").getValue());
+			getField("defiLigneDevisLargeur").setValue(getField("defiPrdLargeur").getValue());
+			
+			// conversion tonne
+			if (getFieldValue("DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdUnite").equals("T") ){
+				String c_unite = getFieldValue("defiLigneDevisConversionUnite");
+					
+				if (c_unite.equals("61")) setFieldValue("defiLigneDevisUnite","M2");
+				else if (c_unite.equals("62")) setFieldValue("defiLigneDevisUnite","ML");
+			}
+			
+			
+		
+		
 		return msgs;
 		
 	}
@@ -57,21 +70,25 @@ public class DF_Ligne_Devis extends ObjectDB {
 		setFieldValue("defiLigneDevisDesignation",designation);
 		
 		
-		// affectation du prix 
-		switch (unite){
-			case "T":
-				setFieldValue("defiLigneDevisUnite","M2");
-				setFieldValue("defiLigneDevisPrixExwTonne",prc);
-				break;
-				
-			default :
-				setFieldValue("defiLigneDevisPrixExwUnitaire",prc);
-				break;
-		}
+		// conversion tonne
+		if (getFieldValue("DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdUnite").equals("T")) setFieldValue("defiLigneDevisPrixExwTonne",prc);
+		else {setFieldValue("defiLigneDevisPrixExwUnitaire",prc);}
+
 		
 		Double pexwu = getField("defiLigneDevisPrixExwUnitaire").getDouble(0); 
 		Double pexwt = getField("defiLigneDevisPrixExwTonne").getDouble(0);
 		
+		// Cas linéage
+		int n_rangs = getField("defiLigneDevisRangs").getInt(1);
+		switch (unite){
+			case "ML":
+				if (n_rangs > 1) setFieldValue("defiLigneDevisLargeur", Math.round(lrg*n_rangs+dim_joint));
+				break;
+			
+			default :
+				setFieldValue("defiLigneDevisLargeur", lrg);
+				
+		}
 		// calcul nombre d'éléments par unité sans joint
         if (lng == 0 || lrg == 0){
         	setFieldValue("defiLigneDevisNombreElementsSsJoints", 0);
@@ -79,10 +96,10 @@ public class DF_Ligne_Devis extends ObjectDB {
         else {
         	switch(unite){
 				case "M2":
-					setFieldValue("defiLigneDevisNombreElementsSsJoints", 1/((lng / 100)*(lrg /100)));
+					setFieldValue("defiLigneDevisNombreElementsSsJoints", Math.round(1/((lng / 100)*(lrg /100))));
 					break;
 				case "ML":
-					setFieldValue("defiLigneDevisNombreElementsSsJoints", 1/(lng / 100));
+					setFieldValue("defiLigneDevisNombreElementsSsJoints", Math.round(1/(lng / 100)));
 					break;
 				case "U":
 					setFieldValue("defiLigneDevisNombreElementsSsJoints", 1);
@@ -93,13 +110,13 @@ public class DF_Ligne_Devis extends ObjectDB {
         // calcul masse unitaire sans joint
         switch(unite){
 			case "U":
-				setFieldValue("defiLigneDevisMasseUnitaireSsJoints", mvp*(lng*lrg*ep / 1000000));
+				setFieldValue("defiLigneDevisMasseUnitaireSsJoints", Math.round(mvp*(lng*lrg*ep / 1000000)));
 				break;
 			case "ML":
-				setFieldValue("defiLigneDevisMasseUnitaireSsJoints", mvp*(lrg*ep / 10000));
+				setFieldValue("defiLigneDevisMasseUnitaireSsJoints", Math.round(mvp*(lrg*ep / 10000)));
 				break;
 			case "M2":
-				setFieldValue("defiLigneDevisMasseUnitaireSsJoints", mvp*(ep / 100));
+				setFieldValue("defiLigneDevisMasseUnitaireSsJoints", Math.round(mvp*(ep / 100)));
 				break;
 		}
         
@@ -110,24 +127,24 @@ public class DF_Ligne_Devis extends ObjectDB {
         else {
         	switch(unite){
 				case "M2":
-					setFieldValue("defiLigneDevisNombreElementsAcJoints", 1/((lng + dim_joint)*(lrg + dim_joint)/10000));
+					setFieldValue("defiLigneDevisNombreElementsAcJoints", Math.round(1/((lng + dim_joint)*(lrg + dim_joint)/10000)));
 					break;
 				case "ML":
-					setFieldValue("defiLigneDevisNombreElementsAcJoints", 0);
+					setFieldValue("defiLigneDevisNombreElementsAcJoints", Math.round(1/((lng+dim_joint)/100)));
 					break;
 				case "U":
-					setFieldValue("defiLigneDevisNombreElementsAcJoints", 0);
+					setFieldValue("defiLigneDevisNombreElementsAcJoints", 1);
 					break;
 			}
         }
         
         // calcul masse unitaire avec joint
         if (dim_joint == 0){
-        	setFieldValue("defiLigneDevisMasseUnitaireAcJoints", ((ep * mvp * lrg) / 10000));
+        	setFieldValue("defiLigneDevisMasseUnitaireAcJoints", Math.round((ep * mvp * lrg) / 10000));
         }
         else{
         	double n = getField("defiLigneDevisNombreElementsAcJoints").getDouble(0);
-        	setFieldValue("defiLigneDevisMasseUnitaireAcJoints", (n *(ep * lng * lrg * mvp / 1000000)));
+        	setFieldValue("defiLigneDevisMasseUnitaireAcJoints", Math.round(n *(ep * lng * lrg * mvp / 1000000)));
         }
         
         // calcul poids total

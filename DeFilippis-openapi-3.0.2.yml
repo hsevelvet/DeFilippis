@@ -102,13 +102,13 @@ components:
           description: Secteur Activité Client
           type: string
           enum:
-          - MO
-          - MDO
           - AR
-          - T
+          - MDO
+          - MO
           - ATPG
-          - ATP
+          - T
           - V
+          - ATP
           - N
           - EA
           - P
@@ -223,6 +223,12 @@ components:
         defiLigneDevisPrixUnitaireHT:
           description: Prix Unitaire HT
           type: number
+        defiLigneDevisConversionUnite:
+          description: Conversion Unité
+          type: string
+          enum:
+          - '61'
+          - '62'
         DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdEpaisseur:
           description: Epaisseur (cm)
           type: number
@@ -253,6 +259,9 @@ components:
         defiLigneDevisTotalEXWHT:
           description: Total EXW HT
           type: number
+        defiLigneDevisRangs:
+          description: Nombre de rangs
+          type: integer
         DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdId:
           description: Catalogue Produit
           type: string
@@ -294,6 +303,9 @@ components:
           type: number
         defiLigneDevisMasseUnitaireAcJoints:
           description: Masse Unitaire avec Joints (kg/unité)
+          type: number
+        defiLigneDevisLargeur:
+          description: Largeur (cm)
           type: number
         row_id:
           description: Unique technical row ID
@@ -906,13 +918,13 @@ components:
           description: Secteur Activité
           type: string
           enum:
-          - MO
-          - MDO
           - AR
-          - T
+          - MDO
+          - MO
           - ATPG
-          - ATP
+          - T
           - V
+          - ATP
           - N
           - EA
           - P
@@ -2114,13 +2126,13 @@ paths:
       - schema:
           type: string
           enum:
-          - MO
-          - MDO
           - AR
-          - T
+          - MDO
+          - MO
           - ATPG
-          - ATP
+          - T
           - V
+          - ATP
           - N
           - EA
           - P
@@ -6817,13 +6829,13 @@ paths:
       - schema:
           type: string
           enum:
-          - MO
-          - MDO
           - AR
-          - T
+          - MDO
+          - MO
           - ATPG
-          - ATP
+          - T
           - V
+          - ATP
           - N
           - EA
           - P
@@ -8540,6 +8552,27 @@ paths:
         in: query
         name: defiLigneDevisPrixUnitaireHT
         description: Search filter for Prix Unitaire HT
+        required: false
+      - schema:
+          type: integer
+        in: query
+        name: defiLigneDevisRangs
+        description: Search filter for Nombre de rangs
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: defiLigneDevisLargeur
+        description: Search filter for Largeur (cm)
+        required: false
+      - schema:
+          type: string
+          enum:
+          - '61'
+          - '62'
+        in: query
+        name: defiLigneDevisConversionUnite
+        description: Search filter for Conversion Unité
         required: false
       tags:
       - DF_Ligne_Devis

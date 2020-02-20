@@ -141,13 +141,13 @@ paths:
         type: string
         required: false
         enum:
-        - MO
-        - MDO
         - AR
-        - T
+        - MDO
+        - MO
         - ATPG
-        - ATP
+        - T
         - V
+        - ATP
         - N
         - EA
         - P
@@ -4084,13 +4084,13 @@ paths:
         type: string
         required: false
         enum:
-        - MO
-        - MDO
         - AR
-        - T
+        - MDO
+        - MO
         - ATPG
-        - ATP
+        - T
         - V
+        - ATP
         - N
         - EA
         - P
@@ -5632,6 +5632,24 @@ paths:
         description: Search filter for Prix Unitaire HT
         type: number
         required: false
+      - in: query
+        name: defiLigneDevisRangs
+        description: Search filter for Nombre de rangs
+        type: integer
+        required: false
+      - in: query
+        name: defiLigneDevisLargeur
+        description: Search filter for Largeur (cm)
+        type: number
+        required: false
+      - in: query
+        name: defiLigneDevisConversionUnite
+        description: Search filter for Conversion Unité
+        type: string
+        required: false
+        enum:
+        - '61'
+        - '62'
       tags:
       - DF_Ligne_Devis
   /rest/DF_Transport/{row_id}:
@@ -5901,13 +5919,13 @@ definitions:
         description: Secteur Activité Client
         type: string
         enum:
-        - MO
-        - MDO
         - AR
-        - T
+        - MDO
+        - MO
         - ATPG
-        - ATP
+        - T
         - V
+        - ATP
         - N
         - EA
         - P
@@ -6022,6 +6040,12 @@ definitions:
       defiLigneDevisPrixUnitaireHT:
         description: Prix Unitaire HT
         type: number
+      defiLigneDevisConversionUnite:
+        description: Conversion Unité
+        type: string
+        enum:
+        - '61'
+        - '62'
       DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdEpaisseur:
         description: Epaisseur (cm)
         type: number
@@ -6052,6 +6076,9 @@ definitions:
       defiLigneDevisTotalEXWHT:
         description: Total EXW HT
         type: number
+      defiLigneDevisRangs:
+        description: Nombre de rangs
+        type: integer
       DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdId:
         description: Catalogue Produit
         type: string
@@ -6093,6 +6120,9 @@ definitions:
         type: number
       defiLigneDevisMasseUnitaireAcJoints:
         description: Masse Unitaire avec Joints (kg/unité)
+        type: number
+      defiLigneDevisLargeur:
+        description: Largeur (cm)
         type: number
       row_id:
         description: Unique technical row ID
@@ -6705,13 +6735,13 @@ definitions:
         description: Secteur Activité
         type: string
         enum:
-        - MO
-        - MDO
         - AR
-        - T
+        - MDO
+        - MO
         - ATPG
-        - ATP
+        - T
         - V
+        - ATP
         - N
         - EA
         - P

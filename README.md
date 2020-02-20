@@ -440,6 +440,9 @@ No custom action
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdPrixUnitaireHT`_ | _float(10, 2)_                           |          |           |          | -                                                                                |
 | `defiLigneDevisPrixVenteImpose`                              | float(6, 2)                              |          | yes       |          | -                                                                                |
 | `defiLigneDevisPrixUnitaireHT`                               | float(10, 2)                             |          | yes       |          | -                                                                                |
+| `defiLigneDevisRangs`                                        | int(100)                                 |          | yes       |          | -                                                                                |
+| `defiLigneDevisLargeur`                                      | float(10, 2)                             |          | yes       |          | -                                                                                |
+| `defiLigneDevisConversionUnite`                              | enum(7) using `DEFILIGNEDEVISCONVERSIONUNITE` list |          | yes       |          | -                                                                                |
 
 ### Lists
 
@@ -465,6 +468,9 @@ No custom action
     - `ML` ml
     - `T` T
     - `U` U
+* `DEFILIGNEDEVISCONVERSIONUNITE`
+    - `61` m²
+    - `62` ml
 
 ### Custom actions
 
