@@ -32,6 +32,13 @@ public class DF_Ligne_Devis extends ObjectDB {
 				else if (c_unite.equals("62")) setFieldValue("defiLigneDevisUnite","ML");
 			}
 			
+			// conversion m²
+			if (getFieldValue("DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdUnite").equals("M2") ){
+				String c_unite = getFieldValue("defiLigneDevisConversionUnite");
+					
+				if (c_unite.equals("61")) setFieldValue("defiLigneDevisUnite","M2");
+				else if (c_unite.equals("62")) setFieldValue("defiLigneDevisUnite","ML");
+			}
 			
 		
 		
@@ -187,17 +194,21 @@ public class DF_Ligne_Devis extends ObjectDB {
         // calcul prix x coef
         double coef = getField("defiLigneDevisCoef").getDouble(0);
         double total_achat = getField("defiLigneDevisTotalAchatHT").getDouble(0);
-        setFieldValue("defiLigneDevisPrixVenteCalcule", total_achat * coef);
+        setFieldValue("defiLigneDevisPrixVenteCalcule", pds * coef);
         
         // calcul prix vente imposé
-       Double pvi = getField("defiLigneDevisPrixVenteImpose").getDouble(0);
+       Double pvi = getField("defiLigneDevisPrixUnitaireImpose").getDouble(0);
        double pvc = getField("defiLigneDevisPrixVenteCalcule").getDouble(0);
        if (pvi == 0){
-       	setFieldValue("defiLigneDevisPrixVenteImpose", pvc);
+       	setFieldValue("defiLigneDevisPrixUnitaireImpose", pvc);
        }
        else{
-       	setFieldValue("defiLigneDevisPrixVenteImpose", pvi);
+       	setFieldValue("defiLigneDevisPrixUnitaireImpose", pvi);
        }
+       
+       // calcul total vente imposé
+       
+       setFieldValue("defiLigneDevisPrixVenteImpose",pvi*qte);
 
 	}
 }

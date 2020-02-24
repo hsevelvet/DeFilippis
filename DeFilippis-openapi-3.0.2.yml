@@ -105,8 +105,8 @@ components:
           - AR
           - MDO
           - MO
-          - ATPG
           - T
+          - ATPG
           - V
           - ATP
           - N
@@ -172,7 +172,7 @@ components:
       type: object
       properties:
         defiLigneDevisPrixVenteImpose:
-          description: Prix Vente Unitaire Imposé
+          description: Prix Vente Total Imposé
           type: number
         defiLigneDevisUnite:
           description: Unité LigneD
@@ -256,6 +256,9 @@ components:
         defiLigneDevisDesignation:
           description: Désignation
           type: string
+        defiLigneDevisPrixUnitaireImpose:
+          description: Prix Vente Unitaire Imposé
+          type: number
         defiLigneDevisTotalEXWHT:
           description: Total EXW HT
           type: number
@@ -921,8 +924,8 @@ components:
           - AR
           - MDO
           - MO
-          - ATPG
           - T
+          - ATPG
           - V
           - ATP
           - N
@@ -1037,7 +1040,7 @@ components:
           description: Masse Volumique
           type: string
         DF_Produit_Finis_DF_Fournisseurs_id__defiFournNom:
-          description: Nom Fournisseur Fournisseurs
+          description: Nom Fournisseur
           type: string
         DF_Produit_Finis_DF_Fournisseurs_id:
           description: Fournisseurs
@@ -2048,14 +2051,14 @@ paths:
       - schema:
           type: string
         in: query
-        name: defiAfrDateDebut
-        description: Search filter for Date début
+        name: DF_Chantier_DF_Client_id__defiClientTelephone
+        description: Search filter for Téléphone Client
         required: false
       - schema:
           type: string
         in: query
-        name: DF_Chantier_DF_Client_id__defiClientTelephone
-        description: Search filter for Téléphone Client
+        name: defiAfrDateDebut
+        description: Search filter for Date début
         required: false
       - schema:
           type: string
@@ -2129,8 +2132,8 @@ paths:
           - AR
           - MDO
           - MO
-          - ATPG
           - T
+          - ATPG
           - V
           - ATP
           - N
@@ -2453,14 +2456,14 @@ paths:
       - schema:
           type: string
         in: query
-        name: defiContactId
-        description: Search filter for Id Contact
+        name: DF_Contact_DF_Transport_id__defiTrspNom
+        description: Search filter for Nom Transporteur
         required: false
       - schema:
           type: string
         in: query
-        name: DF_Contact_DF_Transport_id__defiTrspNom
-        description: Search filter for Nom Transporteur
+        name: defiContactId
+        description: Search filter for Id Contact
         required: false
       - schema:
           type: string
@@ -2754,16 +2757,16 @@ paths:
         description: Search filter for Longueur
         required: false
       - schema:
-          type: number
-        in: query
-        name: defiPrdLargeur
-        description: Search filter for Largeur
-        required: false
-      - schema:
           type: string
         in: query
         name: df_produit_commentaire
         description: Search filter for Commentaire
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: defiPrdLargeur
+        description: Search filter for Largeur
         required: false
       - schema:
           type: number
@@ -2815,7 +2818,7 @@ paths:
           type: string
         in: query
         name: DF_Produit_Finis_DF_Fournisseurs_id__defiFournNom
-        description: Search filter for Nom Fournisseur Fournisseurs
+        description: Search filter for Nom Fournisseur
         required: false
       tags:
       - DF_Produit_Finis
@@ -4508,16 +4511,16 @@ paths:
         description: Search filter for Numéro de Commande
         required: false
       - schema:
-          type: integer
-        in: query
-        name: defiCommandeIdLivraison
-        description: Search filter for Id Livraison
-        required: false
-      - schema:
           type: string
         in: query
         name: defiCommandeIntituleAffaire
         description: Search filter for Titre Affaire
+        required: false
+      - schema:
+          type: integer
+        in: query
+        name: defiCommandeIdLivraison
+        description: Search filter for Id Livraison
         required: false
       - schema:
           type: string
@@ -4533,12 +4536,6 @@ paths:
         required: false
       - schema:
           type: string
-        in: query
-        name: DF_Commande_DF_Client_id
-        description: Search filter for DF client
-        required: false
-      - schema:
-          type: string
           enum:
           - IN
           - EC
@@ -4548,6 +4545,12 @@ paths:
         in: query
         name: defiCommandeStatut
         description: Search filter for Statut Commande
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Commande_DF_Client_id
+        description: Search filter for DF client
         required: false
       - schema:
           type: string
@@ -5809,14 +5812,14 @@ paths:
       - schema:
           type: string
         in: query
-        name: defiDevisDateEmission
-        description: Search filter for Date Emission
+        name: defiDevisLieuProjet
+        description: Search filter for Ville Projet
         required: false
       - schema:
           type: string
         in: query
-        name: defiDevisLieuProjet
-        description: Search filter for Ville Projet
+        name: defiDevisDateEmission
+        description: Search filter for Date Emission
         required: false
       - schema:
           type: string
@@ -6873,8 +6876,8 @@ paths:
           - AR
           - MDO
           - MO
-          - ATPG
           - T
+          - ATPG
           - V
           - ATP
           - N
@@ -8586,7 +8589,7 @@ paths:
           type: number
         in: query
         name: defiLigneDevisPrixVenteImpose
-        description: Search filter for Prix Vente Unitaire Imposé
+        description: Search filter for Prix Vente Total Imposé
         required: false
       - schema:
           type: number
@@ -8614,6 +8617,12 @@ paths:
         in: query
         name: defiLigneDevisConversionUnite
         description: Search filter for Conversion Unité
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: defiLigneDevisPrixUnitaireImpose
+        description: Search filter for Prix Vente Unitaire Imposé
         required: false
       tags:
       - DF_Ligne_Devis
