@@ -106,7 +106,7 @@ public class DF_Livraison extends com.simplicite.util.ObjectDB {
 		try {
 			String idCustomFieldQuantite=getIDCustomField("Test");
 			JSONObject data = new JSONObject();
-			data.put("idModel", "5e4acb149a3b017c38138715");
+			data.put("idModel", "5e4a8cb187a7fe737ba78949");
 			JSONObject value = new JSONObject();
 			value.put("text","Hello, world!1111111111111");
 			data.put("value", value);

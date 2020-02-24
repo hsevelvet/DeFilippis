@@ -1,11 +1,23 @@
 package com.simplicite.objects.DeFilippis;
 
+import java.io.ByteArrayOutputStream;
+import com.simplicite.util.PrintTemplate;
+
+import com.lowagie.text.Document;
+import com.lowagie.text.Image;
+import com.lowagie.text.Paragraph;
+import com.lowagie.text.pdf.PdfPCell;
+import com.lowagie.text.pdf.PdfPTable;
+
 import java.util.*;
 import java.util.Date;
 import com.simplicite.util.*;
 import com.simplicite.util.ObjectDB;
 import com.simplicite.objects.DeFilippis.DF_Ligne_Devis;
 import com.simplicite.util.tools.*;
+import com.simplicite.util.tools.HTMLTool; 
+import com.simplicite.webapp.web.BootstrapWebPage;
+import com.simplicite.util.tools.PDFTool;
 
 /**
  * Business object DF_Devis
@@ -307,5 +319,68 @@ public class DF_Devis extends ObjectDB {
 }
 
 }
+	
+	public String pubDevis(){
+		BootstrapWebPage wp = new BootstrapWebPage(
+			HTMLTool.getRoot(), 
+			"Webpage publication pattern example", 
+			true
+		);
+		
+		// Ajout de valeurs de Devis
+	       
+	    ObjectDB d = getGrant().getTmpObject("DF_Devis");
+	    d.setFieldFilter("row_id",getRowId());
+	    
+	    
+		wp.append(MustacheTool.apply(
+			this,
+			"DF_Devis_HTML", 
+			"{'rows':"+toJSON(d.search(), null, false, false)+"}"
+		));
+		
+	
+		
+
+		
+	    
+		return wp.toString();
+	}
+	
+	
+	/**
+	 * Order receipt publication as PDF
+	 * @param ord Order object
+	 
+	public static byte[] pubDevis(DF_Devis ord) {
+		try (ByteArrayOutputStream bos = new java.io.ByteArrayOutputStream()) {
+			Document pdf = PDFTool.open(bos);
+
+			// Logo
+			//pdf.add(PDFTool.getImage("https://www.eurovia.fr/zbwi.axd/cropsz/320x158/~/media/4543035/de_filippis_entreprise.jpg"));
+
+			pdf.add(new Paragraph(ord.getGrant().T("DEMO_RECEIPT"), PDFTool.TITLE1));
+
+			ObjectField f = ord.getField("defiDevisTitre");
+			pdf.add(new Paragraph(f.getDisplay() + ": " + f.getValue(), PDFTool.TITLE2));
+			f = ord.getField("defiDevisDateEmission");
+			pdf.add(new Paragraph(f.getDisplay() + ": " + ord.getGrant().toFormattedDate(f.getValue())));
+			
+
+		
+			PDFTool.close(pdf);
+			return bos.toByteArray();
+		} catch (Exception e) {
+			AppLog.error(DF_Devis.class, "orderReceipt", "Unable to generate order receipt", e, ord.getGrant());
+			return null;
+		}
+	}*/
+
+	
+	/** Publication: PDF receipt */
+	//public Object printDevisReceipt(PrintTemplate pt) {
+	//	return pubDevis(this); // Implemented in common class
+	//}
+
 	
 }

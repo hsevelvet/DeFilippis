@@ -5179,6 +5179,47 @@ paths:
         required: true
       tags:
       - DF_Devis
+  /rest/DF_Devis/{row_id}/publication:Devis-PDF:
+    get:
+      summary: Call a custom publication for a DF_Devis business object record or
+        for all records
+      security:
+      - bearerAuth: []
+      operationId: obj-df_devis-publication-devis-pdf
+      responses:
+        '200':
+          description: Success in calling the custom publication
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublicationResult'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_Devis
   /rest/DF_Transport:
     get:
       summary: Search DF_Transport business object records or get contextualized metadata
