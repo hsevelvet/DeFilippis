@@ -316,7 +316,7 @@
 		<usr_extra>1</usr_extra>
 		<usr_subhead>1</usr_subhead>
 		<usr_logout>2020-02-03 15:57:29</usr_logout>
-		<usr_last_logon>2020-02-27 13:49:02</usr_last_logon>
+		<usr_last_logon>2020-02-27 14:07:26</usr_last_logon>
 		<usr_dateformat/>
 		<usr_uuid/>
 	</data>
@@ -8717,7 +8717,7 @@ Tout accés alloués.]]></grp_comment>
 		<fld_type_id.flt_code/>
 		<fld_enumlist/>
 		<fld_list_id.lov_name/>
-		<fld_copy>1</fld_copy>
+		<fld_copy>0</fld_copy>
 		<fld_size>11</fld_size>
 		<fld_minsize/>
 		<fld_precision/>
@@ -13182,7 +13182,7 @@ Tout accés alloués.]]></grp_comment>
 		<fld_enumlist/>
 		<fld_list_id.lov_name/>
 		<fld_copy>1</fld_copy>
-		<fld_size>30</fld_size>
+		<fld_size>200</fld_size>
 		<fld_minsize/>
 		<fld_precision/>
 		<fld_fromdate_id.fld_name/>
@@ -26609,30 +26609,6 @@ Objet metier pour produit.]]></obo_comment>
 		<cst_method/>
 		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
 	</data>
-	<data>
-		<cst_name>PrdTypeContrainte9</cst_name>
-		<cst_object_id.obo_name>DF_Produit_Finis</cst_object_id.obo_name>
-		<cst_order>1</cst_order>
-		<cst_desc/>
-		<cst_type>E</cst_type>
-		<cst_effects>F;B</cst_effects>
-		<cst_field_id.fld_name/>
-		<cst_expr><![CDATA[[VALUE: defiPrdCategoriePrix] == 2]]></cst_expr>
-		<cst_method/>
-		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
-	</data>
-	<data>
-		<cst_name>PrdTypeContrainte91</cst_name>
-		<cst_object_id.obo_name>DF_Produit_Finis</cst_object_id.obo_name>
-		<cst_order>1</cst_order>
-		<cst_desc/>
-		<cst_type>E</cst_type>
-		<cst_effects>F;B</cst_effects>
-		<cst_field_id.fld_name/>
-		<cst_expr><![CDATA[[VALUE: defiPrdCategoriePrix] == 1]]></cst_expr>
-		<cst_method/>
-		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
-	</data>
 </object>
 <object>
 	<name>ConstraintGroup</name>
@@ -27286,36 +27262,6 @@ Objet metier pour produit.]]></obo_comment>
 		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
 	</data>
 	<data>
-		<csi_const_id.cst_name>PrdTypeContrainte9</csi_const_id.cst_name>
-		<csi_const_id.cst_object_id.obo_name>DF_Produit_Finis</csi_const_id.cst_object_id.obo_name>
-		<csi_const_id.cst_order>1</csi_const_id.cst_order>
-		<csi_order>1</csi_order>
-		<csi_object_prop/>
-		<csi_field_prop>M</csi_field_prop>
-		<csi_apply>F</csi_apply>
-		<csi_expr><![CDATA[true]]></csi_expr>
-		<csi_target/>
-		<csi_objfield_id.obf_object_id.obo_name>DF_Produit_Finis</csi_objfield_id.obf_object_id.obo_name>
-		<csi_objfield_id.obf_field_id.fld_name>defiPrdAppellationCommerciale</csi_objfield_id.obf_field_id.fld_name>
-		<csi_objfield_id.obf_order>40</csi_objfield_id.obf_order>
-		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
-	</data>
-	<data>
-		<csi_const_id.cst_name>PrdTypeContrainte91</csi_const_id.cst_name>
-		<csi_const_id.cst_object_id.obo_name>DF_Produit_Finis</csi_const_id.cst_object_id.obo_name>
-		<csi_const_id.cst_order>1</csi_const_id.cst_order>
-		<csi_order>1</csi_order>
-		<csi_object_prop/>
-		<csi_field_prop>M</csi_field_prop>
-		<csi_apply>F</csi_apply>
-		<csi_expr><![CDATA[false]]></csi_expr>
-		<csi_target/>
-		<csi_objfield_id.obf_object_id.obo_name>DF_Produit_Finis</csi_objfield_id.obf_object_id.obo_name>
-		<csi_objfield_id.obf_field_id.fld_name>defiPrdAppellationCommerciale</csi_objfield_id.obf_field_id.fld_name>
-		<csi_objfield_id.obf_order>40</csi_objfield_id.obf_order>
-		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
-	</data>
-	<data>
 		<csi_const_id.cst_name>PrdTypeContrainte10</csi_const_id.cst_name>
 		<csi_const_id.cst_object_id.obo_name>DF_Produit_Finis</csi_const_id.cst_object_id.obo_name>
 		<csi_const_id.cst_order>1</csi_const_id.cst_order>
@@ -27493,36 +27439,6 @@ Objet metier pour produit.]]></obo_comment>
 		<csi_objfield_id.obf_object_id.obo_name>DF_Produit_Finis</csi_objfield_id.obf_object_id.obo_name>
 		<csi_objfield_id.obf_field_id.fld_name>defiPrdCouleur</csi_objfield_id.obf_field_id.fld_name>
 		<csi_objfield_id.obf_order>30</csi_objfield_id.obf_order>
-		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
-	</data>
-	<data>
-		<csi_const_id.cst_name>PrdTypeContrainte9</csi_const_id.cst_name>
-		<csi_const_id.cst_object_id.obo_name>DF_Produit_Finis</csi_const_id.cst_object_id.obo_name>
-		<csi_const_id.cst_order>1</csi_const_id.cst_order>
-		<csi_order>2</csi_order>
-		<csi_object_prop/>
-		<csi_field_prop>V</csi_field_prop>
-		<csi_apply>F</csi_apply>
-		<csi_expr><![CDATA[true]]></csi_expr>
-		<csi_target/>
-		<csi_objfield_id.obf_object_id.obo_name>DF_Produit_Finis</csi_objfield_id.obf_object_id.obo_name>
-		<csi_objfield_id.obf_field_id.fld_name>defiPrdAppellationCommerciale</csi_objfield_id.obf_field_id.fld_name>
-		<csi_objfield_id.obf_order>40</csi_objfield_id.obf_order>
-		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
-	</data>
-	<data>
-		<csi_const_id.cst_name>PrdTypeContrainte91</csi_const_id.cst_name>
-		<csi_const_id.cst_object_id.obo_name>DF_Produit_Finis</csi_const_id.cst_object_id.obo_name>
-		<csi_const_id.cst_order>1</csi_const_id.cst_order>
-		<csi_order>2</csi_order>
-		<csi_object_prop/>
-		<csi_field_prop>V</csi_field_prop>
-		<csi_apply>F</csi_apply>
-		<csi_expr><![CDATA[false]]></csi_expr>
-		<csi_target/>
-		<csi_objfield_id.obf_object_id.obo_name>DF_Produit_Finis</csi_objfield_id.obf_object_id.obo_name>
-		<csi_objfield_id.obf_field_id.fld_name>defiPrdAppellationCommerciale</csi_objfield_id.obf_field_id.fld_name>
-		<csi_objfield_id.obf_order>40</csi_objfield_id.obf_order>
 		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
 	</data>
 	<data>
