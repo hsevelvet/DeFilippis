@@ -316,7 +316,7 @@
 		<usr_extra>1</usr_extra>
 		<usr_subhead>1</usr_subhead>
 		<usr_logout>2020-02-03 15:57:29</usr_logout>
-		<usr_last_logon>2020-02-27 14:07:26</usr_last_logon>
+		<usr_last_logon>2020-02-27 14:32:55</usr_last_logon>
 		<usr_dateformat/>
 		<usr_uuid/>
 	</data>
@@ -26873,6 +26873,50 @@ Objet metier pour produit.]]></obo_comment>
 		<csi_objfield_id.obf_object_id.obo_name>DF_Ligne_Devis</csi_objfield_id.obf_object_id.obo_name>
 		<csi_objfield_id.obf_field_id.fld_name>defiLigneDevisDimensionJoints</csi_objfield_id.obf_field_id.fld_name>
 		<csi_objfield_id.obf_order>350</csi_objfield_id.obf_order>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<csi_const_id.cst_name>LDDimJointsContrainte31</csi_const_id.cst_name>
+		<csi_const_id.cst_object_id.obo_name>DF_Ligne_Devis</csi_const_id.cst_object_id.obo_name>
+		<csi_const_id.cst_order>1</csi_const_id.cst_order>
+		<csi_order>2</csi_order>
+		<csi_object_prop/>
+		<csi_field_prop/>
+		<csi_apply>T</csi_apply>
+		<csi_expr><![CDATA[[VALUE: DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdTypeProduit] != "PAVE" && [VALUE: DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdTypeProduit] != "DALLE"]]></csi_expr>
+		<csi_target>
+			<object>
+				<name>ObjectFieldArea</name>
+				<data>
+					<ofa_name>DF_Ligne_Devis-15</ofa_name>
+				</data>
+			</object>
+		</csi_target>
+		<csi_objfield_id.obf_object_id.obo_name/>
+		<csi_objfield_id.obf_field_id.fld_name/>
+		<csi_objfield_id.obf_order/>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<csi_const_id.cst_name>LDDimJointsContrainte3</csi_const_id.cst_name>
+		<csi_const_id.cst_object_id.obo_name>DF_Ligne_Devis</csi_const_id.cst_object_id.obo_name>
+		<csi_const_id.cst_order>1</csi_const_id.cst_order>
+		<csi_order>2</csi_order>
+		<csi_object_prop/>
+		<csi_field_prop/>
+		<csi_apply>T</csi_apply>
+		<csi_expr><![CDATA[[VALUE: DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdTypeProduit] == "PAVE" || [VALUE: DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdTypeProduit] == "DALLE"]]></csi_expr>
+		<csi_target>
+			<object>
+				<name>ObjectFieldArea</name>
+				<data>
+					<ofa_name>DF_Ligne_Devis-15</ofa_name>
+				</data>
+			</object>
+		</csi_target>
+		<csi_objfield_id.obf_object_id.obo_name/>
+		<csi_objfield_id.obf_field_id.fld_name/>
+		<csi_objfield_id.obf_order/>
 		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
 	</data>
 	<data>
