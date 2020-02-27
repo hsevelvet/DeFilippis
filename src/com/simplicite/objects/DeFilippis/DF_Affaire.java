@@ -7,10 +7,11 @@ import com.simplicite.util.tools.*;
 /**
  * Business object DF_Chantier
 
+*/
 
 public class DF_Affaire extends ObjectDB {
 	private static final long serialVersionUID = 1L;
-
+/*
 	@Override
 	public List<String> postValidate() {
 		List<String> msgs = new ArrayList<String>();
@@ -34,8 +35,8 @@ public class DF_Affaire extends ObjectDB {
 	
 		return msgs;
 		
-	}
+	}*/
 
 }
-*/
+
 

@@ -23,6 +23,12 @@ public class DF_Ligne_Devis extends ObjectDB {
 			getField("defiLigneDevisPrixUnitaireHT").setValue(getField("defiPrdPrixUnitaireHT").getValue());
 			getField("defiLigneDevisUnite").setValue(getField("defiPrdUnite").getValue());
 			getField("defiLigneDevisLargeur").setValue(getField("defiPrdLargeur").getValue());
+			getField("defiLigneDevisLongueur").setValue(getField("defiPrdLongueur").getValue());
+			getField("defiLigneDevisEpaisseur").setValue(getField("defiPrdEpaisseur").getValue());
+			getField("defiLigneDevisMasseVolumique").setValue(getField("defiPrdMasseVolumique").getValue());
+			getField("defiLigneDevisNomProduit").setValue(getField("defiPrdTypeGeologique").getValue());
+			//getField("defiLigneDevisDesignationProduit").setValue(getField("defiPrdType").getValue());
+			//getField("defiLigneDevisFinition").setValue(getField("defiPrdFinitionFacesVues").getValue());
 			
 			// conversion tonne
 			if (getFieldValue("DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdUnite").equals("T") ){
@@ -61,10 +67,14 @@ public class DF_Ligne_Devis extends ObjectDB {
         String des_produit = getField("defiPrdTypeProduit").getValue(); 
         String fin_produit = getField("defiPrdFinitionFacesVues").getValue();
 
-		double mvp = getField("defiPrdMasseVolumique").getDouble(0);
-		double lng = getField("defiPrdLongueur").getDouble(0);
-		double lrg = getField("defiPrdLargeur").getDouble(0);
-		double ep = getField("defiPrdEpaisseur").getDouble(0);
+		//double mvp = getField("defiPrdMasseVolumique").getDouble(0);
+		double mvp = getField("defiLigneDevisMasseVolumique").getDouble(0);
+		//double lng = getField("defiPrdLongueur").getDouble(0);
+		double lng = getField("defiLigneDevisLongueur").getDouble(0);
+		//double lrg = getField("defiPrdLargeur").getDouble(0);
+		double lrg = getField("defiLigneDevisLargeur").getDouble(0);
+		//double ep = getField("defiPrdEpaisseur").getDouble(0);
+		double ep = getField("defiLigneDevisEpaisseur").getDouble(0);
 		int qte = getField("defiLigneDevisQuantite").getInt(0);
 		double dim_joint = getField("defiLigneDevisDimensionJoints").getDouble(0);
 		double ptr = getField("defiLigneDevisPrixTransportReference").getDouble(0);

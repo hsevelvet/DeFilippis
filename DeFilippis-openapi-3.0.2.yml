@@ -171,18 +171,9 @@ components:
     DF_Ligne_Devis:
       type: object
       properties:
-        defiLigneDevisPrixVenteImpose:
-          description: Prix Vente Total Imposé
-          type: number
-        defiLigneDevisUnite:
-          description: Unité LigneD
-          type: string
         defiLigneDevisRow:
           description: defi ligne devis row
           type: string
-        DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdLargeur:
-          description: Largeur (cm)
-          type: number
         defiLigneDevisNombreElementsAcJoints:
           description: Nombre d'éléments avec joints
           type: number
@@ -200,12 +191,6 @@ components:
         defiLigneDevisPrixExwUnite:
           description: Prix EXW / U
           type: number
-        defiLigneDevisPrixTransportReference:
-          description: Prix Transport Référence
-          type: number
-        DF_Ligne_Devis_DF_Devis_id__defiDevisTitre:
-          description: Titre Devis
-          type: string
         DF_Ligne_Devis_DF_Devis_id:
           description: DF devis
           type: string
@@ -220,9 +205,6 @@ components:
           - BORNE
           - CANIVEAU
           - PIECE
-        defiLigneDevisPrixUnitaireHT:
-          description: Prix Unitaire HT
-          type: number
         defiLigneDevisConversionUnite:
           description: Conversion Unité
           type: string
@@ -232,14 +214,11 @@ components:
         DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdEpaisseur:
           description: Epaisseur (cm)
           type: number
-        defiLigneDevisPrixTransportUnitaire:
-          description: Prix transport unitaire
-          type: number
         defiLigneDevisNPrix:
           description: N° de prix
-          type: integer
+          type: string
         DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdTypeGeologique:
-          description: Nom Produit
+          description: Type Géologique
           type: string
           enum:
           - GRA
@@ -250,6 +229,69 @@ components:
           - LUS
           - TEC
           - PRE
+        defiLigneDevisTotalEXWHT:
+          description: Total EXW HT
+          type: number
+        defiLigneDevisRangs:
+          description: Nombre de rangs
+          type: integer
+        DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdMasseVolumique:
+          description: Masse Volumique
+          type: string
+        DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdPrixUnitaireHT:
+          description: Prix unitaire HT
+          type: number
+        defiLigneDevisQuantite:
+          description: Quantité
+          type: integer
+        defiLigneDevisId:
+          description: Ligne Devis ID
+          type: string
+        defiLigneDevisPrixExwTonne:
+          description: Prix EXW / Tonne
+          type: number
+        defiLigneDevisNombreElementsSsJoints:
+          description: Nombre d'éléments sans joint
+          type: number
+        DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdCategoriePrix:
+          description: Catégorie Prix
+          type: string
+          enum:
+          - '2'
+          - '1'
+        DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdFinitionFacesVues:
+          description: Finition Produit
+          type: string
+        defiLigneDevisCoef:
+          description: Coef
+          type: number
+        defiLigneDevisPrixVenteImpose:
+          description: Prix Vente Total Imposé
+          type: string
+        defiLigneDevisUnite:
+          description: Unité LigneD
+          type: string
+        defiLigneDevisEpaisseur:
+          description: Epaisseur / Hauteur (cm)
+          type: number
+        defiLigneDevisMasseVolumique:
+          description: Masse Volumique
+          type: number
+        DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdLargeur:
+          description: Largeur (cm)
+          type: number
+        defiLigneDevisPrixTransportReference:
+          description: Prix Transport Référence
+          type: number
+        DF_Ligne_Devis_DF_Devis_id__defiDevisTitre:
+          description: Titre Devis
+          type: string
+        defiLigneDevisPrixUnitaireHT:
+          description: Prix Unitaire HT
+          type: number
+        defiLigneDevisPrixTransportUnitaire:
+          description: Prix transport unitaire
+          type: number
         defiLigneDevisPrixExwUnitaire:
           description: Prix EXW / Unité
           type: number
@@ -259,17 +301,14 @@ components:
         defiLigneDevisPrixUnitaireImpose:
           description: Prix Vente Unitaire Imposé
           type: number
-        defiLigneDevisTotalEXWHT:
-          description: Total EXW HT
-          type: number
-        defiLigneDevisRangs:
-          description: Nombre de rangs
-          type: integer
+        DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdAppellationCommerciale:
+          description: Appellation Commerciale
+          type: string
+        defiLigneDevisDesignationProduit:
+          description: Désignation Produit
+          type: string
         DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdId:
           description: Catalogue Produit
-          type: string
-        DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdMasseVolumique:
-          description: Masse Volumique
           type: string
         defiLigneDevisNombreCamions:
           description: Nombre Camions
@@ -277,32 +316,20 @@ components:
         DF_Ligne_Devis_DF_Produit_Finis_id:
           description: Produits Finis
           type: string
-        DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdPrixUnitaireHT:
-          description: Prix unitaire HT
-          type: number
-        defiLigneDevisQuantite:
-          description: Quantité
-          type: integer
+        defiLigneDevisNomProduit:
+          description: Nom Produit
+          type: string
         defiLigneDevisPrixUnitaireSec:
           description: Prix unitaire sec
           type: number
         defiLigneDevisTotalAchatHT:
           description: Total Achat HT
           type: number
-        defiLigneDevisId:
-          description: Ligne Devis ID
-          type: string
         defiLigneDevisPoidsTotal:
           description: Poids Total (T)
           type: number
         defiLigneDevisDimensionJoints:
           description: Dimension des joints (cm)
-          type: number
-        defiLigneDevisPrixExwTonne:
-          description: Prix EXW / Tonne
-          type: number
-        defiLigneDevisNombreElementsSsJoints:
-          description: Nombre d'éléments sans joint
           type: number
         defiLigneDevisMasseUnitaireAcJoints:
           description: Masse Unitaire avec Joints (kg/unité)
@@ -313,17 +340,14 @@ components:
         row_id:
           description: Unique technical row ID
           type: string
+        defiLigneDevisLongueur:
+          description: Longueur (cm)
+          type: number
         DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdLongueur:
           description: Longueur (cm)
           type: number
-        DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdFinitionFacesVues:
-          description: Finition Produit
-          type: string
         defiLigneDevisMasseUnitaireSsJoints:
           description: Masse Unitaire sans Joints (kg/unité)
-          type: number
-        defiLigneDevisCoef:
-          description: Coef
           type: number
     ArrayOfDF_Contact:
       type: array
@@ -1031,8 +1055,8 @@ components:
           description: Catégorie Prix
           type: string
           enum:
-          - '1'
           - '2'
+          - '1'
         defiPrdLargeur:
           description: Largeur
           type: number
@@ -2680,8 +2704,8 @@ paths:
       - schema:
           type: string
           enum:
-          - '1'
           - '2'
+          - '1'
         in: query
         name: defiPrdCategoriePrix
         description: Search filter for Catégorie Prix
@@ -2822,53 +2846,6 @@ paths:
         required: false
       tags:
       - DF_Produit_Finis
-  /rest/DF_Plan_Livraison/{row_id}/action:PlanLivraison-CreateTicketTrello:
-    get:
-      summary: Call a custom action for a DF_Plan_Livraison business object record
-        or for all records
-      security:
-      - bearerAuth: []
-      operationId: obj-df_plan_livraison-action-planlivraison-createtickettrello
-      responses:
-        '200':
-          description: Success in calling the custom action
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ActionResult'
-        '400':
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error400'
-        '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error401'
-        '500':
-          description: Internal server error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error500'
-        '404':
-          description: Not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error404'
-      parameters:
-      - schema:
-          type: string
-        in: path
-        name: row_id
-        description: Row ID (or empty or _ for all row IDs)
-        required: true
-      tags:
-      - DF_Plan_Livraison
   /rest/DF_Produit_Finis/{row_id}:
     post:
       summary: Create a new DF_Produit_Finisbusiness object record
@@ -3259,53 +3236,6 @@ paths:
         required: true
       tags:
       - DF_Plan_Livraison
-  /rest/DF_Commande/{row_id}/action:CommandeTrello:
-    get:
-      summary: Call a custom action for a DF_Commande business object record or for
-        all records
-      security:
-      - bearerAuth: []
-      operationId: obj-df_commande-action-commandetrello
-      responses:
-        '200':
-          description: Success in calling the custom action
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ActionResult'
-        '400':
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error400'
-        '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error401'
-        '500':
-          description: Internal server error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error500'
-        '404':
-          description: Not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error404'
-      parameters:
-      - schema:
-          type: string
-        in: path
-        name: row_id
-        description: Row ID (or empty or _ for all row IDs)
-        required: true
-      tags:
-      - DF_Commande
   /rest/DF_utilisateur_interne/{row_id}:
     post:
       summary: Create a new DF_utilisateur_internebusiness object record
@@ -4406,53 +4336,6 @@ paths:
         required: true
       tags:
       - DF_Contact
-  /rest/DF_Devis/{row_id}/action:Initialisation-Commande:
-    get:
-      summary: Call a custom action for a DF_Devis business object record or for all
-        records
-      security:
-      - bearerAuth: []
-      operationId: obj-df_devis-action-initialisation-commande
-      responses:
-        '200':
-          description: Success in calling the custom action
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ActionResult'
-        '400':
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error400'
-        '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error401'
-        '500':
-          description: Internal server error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error500'
-        '404':
-          description: Not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error404'
-      parameters:
-      - schema:
-          type: string
-        in: path
-        name: row_id
-        description: Row ID (or empty or _ for all row IDs)
-        required: true
-      tags:
-      - DF_Devis
   /rest/DF_Commande:
     get:
       summary: Search DF_Commande business object records or get contextualized metadata
@@ -5135,53 +5018,6 @@ paths:
         required: true
       tags:
       - DF_Affaire
-  /rest/DF_Devis/{row_id}/action:Validation:
-    get:
-      summary: Call a custom action for a DF_Devis business object record or for all
-        records
-      security:
-      - bearerAuth: []
-      operationId: obj-df_devis-action-validation
-      responses:
-        '200':
-          description: Success in calling the custom action
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ActionResult'
-        '400':
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error400'
-        '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error401'
-        '500':
-          description: Internal server error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error500'
-        '404':
-          description: Not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error404'
-      parameters:
-      - schema:
-          type: string
-        in: path
-        name: row_id
-        description: Row ID (or empty or _ for all row IDs)
-        required: true
-      tags:
-      - DF_Devis
   /rest/DF_Devis/{row_id}/publication:Devis-PDF:
     get:
       summary: Call a custom publication for a DF_Devis business object record or
@@ -6724,53 +6560,6 @@ paths:
         required: false
       tags:
       - session
-  /rest/DF_Devis/{row_id}/action:versionner-devis:
-    get:
-      summary: Call a custom action for a DF_Devis business object record or for all
-        records
-      security:
-      - bearerAuth: []
-      operationId: obj-df_devis-action-versionner-devis
-      responses:
-        '200':
-          description: Success in calling the custom action
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ActionResult'
-        '400':
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error400'
-        '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error401'
-        '500':
-          description: Internal server error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error500'
-        '404':
-          description: Not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error404'
-      parameters:
-      - schema:
-          type: string
-        in: path
-        name: row_id
-        description: Row ID (or empty or _ for all row IDs)
-        required: true
-      tags:
-      - DF_Devis
   /rest/DF_Client:
     get:
       summary: Search DF_Client business object records or get contextualized metadata
@@ -8254,53 +8043,6 @@ paths:
         required: false
       tags:
       - DF_utilisateur_interne
-  /rest/DF_Livraison/{row_id}/action:Livraison-CreateTicketTrello:
-    get:
-      summary: Call a custom action for a DF_Livraison business object record or for
-        all records
-      security:
-      - bearerAuth: []
-      operationId: obj-df_livraison-action-livraison-createtickettrello
-      responses:
-        '200':
-          description: Success in calling the custom action
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ActionResult'
-        '400':
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error400'
-        '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error401'
-        '500':
-          description: Internal server error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error500'
-        '404':
-          description: Not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error404'
-      parameters:
-      - schema:
-          type: string
-        in: path
-        name: row_id
-        description: Row ID (or empty or _ for all row IDs)
-        required: true
-      tags:
-      - DF_Livraison
   /rest/DF_Ligne_Devis:
     get:
       summary: Search DF_Ligne_Devis business object records or get contextualized
@@ -8350,20 +8092,14 @@ paths:
       - schema:
           type: string
         in: query
-        name: defiLigneDevisRow
-        description: Search filter for defi ligne devis row
+        name: defiLigneDevisNPrix
+        description: Search filter for N° de prix
         required: false
       - schema:
           type: string
         in: query
-        name: defiLigneDevisId
-        description: Search filter for Ligne Devis ID
-        required: false
-      - schema:
-          type: integer
-        in: query
-        name: defiLigneDevisQuantite
-        description: Search filter for Quantité
+        name: defiLigneDevisRow
+        description: Search filter for defi ligne devis row
         required: false
       - schema:
           type: string
@@ -8378,6 +8114,33 @@ paths:
         in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdTypeProduit
         description: Search filter for Désignation Produit
+        required: false
+      - schema:
+          type: string
+          enum:
+          - '2'
+          - '1'
+        in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdCategoriePrix
+        description: Search filter for Catégorie Prix
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdAppellationCommerciale
+        description: Search filter for Appellation Commerciale
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: defiLigneDevisId
+        description: Search filter for Ligne Devis ID
+        required: false
+      - schema:
+          type: integer
+        in: query
+        name: defiLigneDevisQuantite
+        description: Search filter for Quantité
         required: false
       - schema:
           type: string
@@ -8482,12 +8245,6 @@ paths:
         description: Search filter for Prix Vente Unitaire Calculé
         required: false
       - schema:
-          type: integer
-        in: query
-        name: defiLigneDevisNPrix
-        description: Search filter for N° de prix
-        required: false
-      - schema:
           type: string
         in: query
         name: defiLigneDevisDesignation
@@ -8548,7 +8305,7 @@ paths:
           - PRE
         in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdTypeGeologique
-        description: Search filter for Nom Produit
+        description: Search filter for Type Géologique
         required: false
       - schema:
           type: number
@@ -8586,7 +8343,7 @@ paths:
         description: Search filter for Prix unitaire HT
         required: false
       - schema:
-          type: number
+          type: string
         in: query
         name: defiLigneDevisPrixVenteImpose
         description: Search filter for Prix Vente Total Imposé
@@ -8623,6 +8380,36 @@ paths:
         in: query
         name: defiLigneDevisPrixUnitaireImpose
         description: Search filter for Prix Vente Unitaire Imposé
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: defiLigneDevisLongueur
+        description: Search filter for Longueur (cm)
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: defiLigneDevisEpaisseur
+        description: Search filter for Epaisseur / Hauteur (cm)
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: defiLigneDevisDesignationProduit
+        description: Search filter for Désignation Produit
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: defiLigneDevisMasseVolumique
+        description: Search filter for Masse Volumique
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: defiLigneDevisNomProduit
+        description: Search filter for Nom Produit
         required: false
       tags:
       - DF_Ligne_Devis

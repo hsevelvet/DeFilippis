@@ -16,12 +16,12 @@ import com.simplicite.util.tools.Parameters;
 
 /**
  * External object WebhoonkLivraisonTrello
-
+ */
 public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTServiceExternalObject {
 	private static final long serialVersionUID = 1L;
 
 	private static final JSONObject OK = new JSONObject().put("result", "ok");
-	
+
     @Override
     public Object head(Parameters params) throws HTTPException {
         return OK;
@@ -31,7 +31,7 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
     public Object get(Parameters params) throws HTTPException {
         return error(400, "Call me in POST please!");
     }
-    
+
 
 	private void updateCard(JSONObject data) {
 		try {
@@ -39,13 +39,13 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
 			JSONObject card = null;
 			JSONObject listAfter = null;
 			JSONObject customFieldItem = null;
-			
+
 			String o = "DF_Livraison";
 			String status = null;
 			String due = null;
 			String customFName=null;
 			String customFValue=null;
-			
+
 			//Recupération des informations dans la carte Trello
 			if (data.has("card")){
 				card = data.getJSONObject("card");
@@ -64,42 +64,50 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
             	if (customFieldItem.has("number"))
             		customFValue = customFieldItem.getString("number");
             }
-            	
+
 			ObjectDB obj = Grant.getSystemAdmin().getObject("webhook_" + o, o);
 			BusinessObjectTool objt = new BusinessObjectTool(obj);
-			obj.resetFilters();
-			//obj.getField("defiLvrTrelloCardId").setFilter(card.getString("id"));
+			AppLog.info(getClass(), "HSE TEST WEBHOOK", obj.toJSON(obj.search(), null, false, false), getGrant());
+			synchronized(obj){
+				obj.resetFilters();
+				//obj.getField("df_livraison_trellocardid").setFilter(card.getString("id"));
 
-			List<String[]> rows = objt.search();
-			if (rows.size() == 1) {
-				obj.setValues(rows.get(0), true);
-				
-				if(status.equals("5")){
-					obj.create();
+				List<String[]> rows = obj.search();
+				//AppLog.info(getClass(), "HSE TEST WEBHOOK", obj.toJSON(obj.search(), null, false, false), getGrant());
+				for (String[] ld: rows){
+
+					obj.setValues(ld);
+
+					if(status.equals("5")){
+						obj.create();
 						//Mettre à jour les informations de livraison
-					if (card.has("name"))
-						obj.setFieldValue("df_livraison_id", card.getString("name"));
-					if (due!=null){
-						obj.setFieldValue("df_livraison_date_livraison_estimee", due);
+						if (card.has("name"))
+							obj.setFieldValue("df_livraison_id", card.getString("name"));
+						if (due!=null){
+							obj.setFieldValue("df_livraison_date_livraison_estimee", due);
+						}
+					//if (status!=null){
+					//		obj.setFieldValue("df_livraison_statut", status);
+					//	}
+						if (customFName!=null){
+							if (customFName.equals("Adresse"))
+								obj.setFieldValue("df_livraison_adresse", customFValue);
+							if (customFName.equals("Quantité"))
+								obj.setFieldValue("df_livraison_quantite_chargee", customFValue);
+
+							AppLog.info(getClass(), "Trello update > Simplicte"+data.has("customFieldItem"),customFValue, getGrant());
+
+						}
+						objt.save();
+
 					}
-				//if (status!=null){
-				//		obj.setFieldValue("df_livraison_statut", status);
-				//	}
-					if (customFName!=null){
-						if (customFName.equals("Adresse"))
-							obj.setFieldValue("df_livraison_adresse", customFValue);
-						if (customFName.equals("Quantité"))
-							obj.setFieldValue("df_livraison_quantite_chargee", customFValue);
-						
-						AppLog.info(getClass(), "Trello update > Simplicte"+data.has("customFieldItem"),customFValue, getGrant());
-	
-					}
-					objt.validateAndSave();
-					
+
 				}
-				
-				
+
+
 			}
+
+
 		} catch (Exception e) {
 			AppLog.error(getClass(), "updateCard", null, e, getGrant());
 		}
@@ -131,4 +139,4 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
 			return error(e);
 		}
 	}
-} */
+} 

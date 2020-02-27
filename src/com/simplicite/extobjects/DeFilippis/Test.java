@@ -14,8 +14,9 @@ import com.simplicite.util.exceptions.HTTPException;
 
 /**
  * Trello webhook
-
+*/
 public class Test extends com.simplicite.webapp.services.RESTServiceExternalObject {
+	/*
 	private static final long serialVersionUID = 1L;
 	
 	private static final JSONObject OK = new JSONObject().put("result", "ok");
@@ -86,7 +87,5 @@ public class Test extends com.simplicite.webapp.services.RESTServiceExternalObje
         } catch (Exception e) {
             return error(e);
         }
-    }
+    }*/
 }
-
-*/

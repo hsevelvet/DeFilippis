@@ -327,7 +327,6 @@ Objet metier pour devis.
 ### Custom actions
 
 * `Initialisation-Commande`: 
-* `Validation`: 
 * `versionner-devis`: 
 
 `DF_Fournisseurs` business object definition
@@ -383,9 +382,12 @@ Objet métier pour fournisseur.
 | Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
 | `defiLigneDevisRow`                                          | char(10)                                 |          |           |          | -                                                                                |
+| `defiLigneDevisNPrix`                                        | char(10)                                 | yes      | yes       |          | -                                                                                |
+| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdTypeProduit`_ | _enum(7) using `DEFIPRDTYPEPRODUIT` list_ |          |           |          | -                                                                                |
+| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdCategoriePrix`_ | _enum(7) using `DEFIPRDCATEGORIEPRIX` list_ |          |           |          | -                                                                                |
+| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdAppellationCommerciale`_ | _char(70)_                               |          |           |          | -                                                                                |
 | `defiLigneDevisId`                                           | char(11)                                 | yes*     | yes       |          | -                                                                                |
 | `defiLigneDevisQuantite`                                     | int(11)                                  | yes      | yes       |          | -                                                                                |
-| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdTypeProduit`_ | _enum(7) using `DEFIPRDTYPEPRODUIT` list_ |          |           |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdFinitionFacesVues`_ | _char(70)_                               |          |           |          | -                                                                                |
 | `defiLigneDevisUnite`                                        | char(3)                                  |          | yes       |          | -                                                                                |
 | `DF_Ligne_Devis_DF_Devis_id` link to **`DF_Devis`**          | id                                       | yes      | yes       |          | -                                                                                |
@@ -403,7 +405,6 @@ Objet métier pour fournisseur.
 | `defiLigneDevisTotalAchatHT`                                 | float(11, 2)                             |          | yes       |          | -                                                                                |
 | `defiLigneDevisCoef`                                         | float(6, 2)                              | yes      | yes       |          | -                                                                                |
 | `defiLigneDevisPrixVenteCalcule`                             | float(6, 2)                              |          | yes       |          | -                                                                                |
-| `defiLigneDevisNPrix`                                        | int(5)                                   | yes      | yes       |          | -                                                                                |
 | `defiLigneDevisDesignation`                                  | text(100)                                | yes      |           |          | -                                                                                |
 | `defiLigneDevisNombreElementsSsJoints`                       | float(5, 2)                              |          | yes       |          | -                                                                                |
 | `defiLigneDevisNombreElementsAcJoints`                       | float(5, 2)                              |          | yes       |          | -                                                                                |
@@ -418,12 +419,17 @@ Objet métier pour fournisseur.
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdEpaisseur`_ | _float(5, 2)_                            |          |           |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdUnite`_     | _enum(7) using `DEFIPRDUNITE` list_      |          |           |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdPrixUnitaireHT`_ | _float(10, 2)_                           |          |           |          | -                                                                                |
-| `defiLigneDevisPrixVenteImpose`                              | float(6, 2)                              |          | yes       |          | -                                                                                |
+| `defiLigneDevisPrixVenteImpose`                              | bigdec(15, 2)                            |          | yes       |          | -                                                                                |
 | `defiLigneDevisPrixUnitaireHT`                               | float(10, 2)                             |          | yes       |          | -                                                                                |
 | `defiLigneDevisRangs`                                        | int(100)                                 |          | yes       |          | -                                                                                |
 | `defiLigneDevisLargeur`                                      | float(10, 2)                             |          | yes       |          | -                                                                                |
 | `defiLigneDevisConversionUnite`                              | enum(7) using `DEFILIGNEDEVISCONVERSIONUNITE` list |          | yes       |          | -                                                                                |
 | `defiLigneDevisPrixUnitaireImpose`                           | float(6, 2)                              |          | yes       |          | -                                                                                |
+| `defiLigneDevisLongueur`                                     | float(10, 2)                             |          | yes       |          | -                                                                                |
+| `defiLigneDevisEpaisseur`                                    | float(10, 2)                             |          | yes       |          | -                                                                                |
+| `defiLigneDevisDesignationProduit`                           | char(30) using `DEFIPRDTYPEPRODUIT` list |          | yes       |          | -                                                                                |
+| `defiLigneDevisMasseVolumique`                               | float(10, 2)                             |          | yes       |          | -                                                                                |
+| `defiLigneDevisNomProduit`                                   | char(30)                                 |          | yes       |          | -                                                                                |
 
 ### Lists
 
@@ -435,6 +441,9 @@ Objet métier pour fournisseur.
     - `BORNE` Borne
     - `CANIVEAU` Caniveau
     - `PIECE` Pièce Spéciale
+* `DEFIPRDCATEGORIEPRIX`
+    - `2` Pierre
+    - `1` FFT
 * `DEFIPRDTYPEGEOLOGIQUE`
     - `GRA` Granit
     - `CAL` Calcaire
@@ -553,10 +562,10 @@ Objet metier pour produit.
 | `defiPrdTypeGeologique`                                      | enum(7) using `DEFIPRDTYPEGEOLOGIQUE` list | yes      | yes       |          | -                                                                                |
 | `defiPrdCouleur`                                             | multi(100) using `DF_PRODUIT_COULEUR` list |          | yes       |          | -                                                                                |
 | `defiPrdAppellationCommerciale`                              | char(70)                                 |          | yes       |          | -                                                                                |
-| `defiPrdTypeProduit`                                         | enum(7) using `DEFIPRDTYPEPRODUIT` list  | yes      | yes       |          | -                                                                                |
+| `defiPrdTypeProduit`                                         | enum(7) using `DEFIPRDTYPEPRODUIT` list  |          | yes       |          | -                                                                                |
 | `defiPrdFinitionFacesVues`                                   | char(70)                                 |          | yes       |          | -                                                                                |
 | `defiPrdAutresFinitions`                                     | char(70)                                 |          | yes       |          | -                                                                                |
-| `defiPrdLongueur`                                            | float(5, 2)                              | yes      | yes       |          | -                                                                                |
+| `defiPrdLongueur`                                            | float(5, 2)                              |          | yes       |          | -                                                                                |
 | `defiPrdLargeur`                                             | float(5, 2)                              | yes      | yes       |          | -                                                                                |
 | `df_produit_commentaire`                                     | char(30)                                 |          | yes       |          | -                                                                                |
 | `defiPrdEpaisseur`                                           | float(5, 2)                              | yes      | yes       |          | -                                                                                |
@@ -570,8 +579,8 @@ Objet metier pour produit.
 ### Lists
 
 * `DEFIPRDCATEGORIEPRIX`
-    - `1` FFT
     - `2` Pierre
+    - `1` FFT
 * `DEFIPRDTYPEGEOLOGIQUE`
     - `GRA` Granit
     - `CAL` Calcaire
