@@ -195,7 +195,7 @@ components:
           description: DF devis
           type: string
         DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdTypeProduit:
-          description: Désignation Produit
+          description: Type Produit
           type: string
           enum:
           - PAVE
@@ -259,12 +259,12 @@ components:
           enum:
           - '2'
           - '1'
-        DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdFinitionFacesVues:
-          description: Finition Produit
-          type: string
         defiLigneDevisCoef:
           description: Coef
           type: number
+        DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdFinitionFacesVues:
+          description: Finition Faces Vues
+          type: string
         defiLigneDevisPrixVenteImpose:
           description: Prix Vente Total
           type: string
@@ -8098,6 +8098,12 @@ paths:
       - schema:
           type: string
         in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdAppellationCommerciale
+        description: Search filter for Appellation Commerciale
+        required: false
+      - schema:
+          type: string
+        in: query
         name: defiLigneDevisRow
         description: Search filter for defi ligne devis row
         required: false
@@ -8113,7 +8119,7 @@ paths:
           - PIECE
         in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdTypeProduit
-        description: Search filter for Désignation Produit
+        description: Search filter for Type Produit
         required: false
       - schema:
           type: string
@@ -8127,12 +8133,6 @@ paths:
       - schema:
           type: string
         in: query
-        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdAppellationCommerciale
-        description: Search filter for Appellation Commerciale
-        required: false
-      - schema:
-          type: string
-        in: query
         name: defiLigneDevisId
         description: Search filter for Ligne Devis ID
         required: false
@@ -8141,12 +8141,6 @@ paths:
         in: query
         name: defiLigneDevisQuantite
         description: Search filter for Quantité
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdFinitionFacesVues
-        description: Search filter for Finition Produit
         required: false
       - schema:
           type: string
@@ -8326,27 +8320,16 @@ paths:
         description: Search filter for Epaisseur (cm)
         required: false
       - schema:
-          type: string
-          enum:
-          - M2
-          - ML
-          - T
-          - U
-        in: query
-        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdUnite
-        description: Search filter for Unité
-        required: false
-      - schema:
           type: number
         in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdPrixUnitaireHT
         description: Search filter for Prix unitaire HT
         required: false
       - schema:
-          type: string
+          type: number
         in: query
-        name: defiLigneDevisPrixVenteImpose
-        description: Search filter for Prix Vente Total
+        name: defiLigneDevisLongueur
+        description: Search filter for Longueur (cm)
         required: false
       - schema:
           type: number
@@ -8384,12 +8367,6 @@ paths:
       - schema:
           type: number
         in: query
-        name: defiLigneDevisLongueur
-        description: Search filter for Longueur (cm)
-        required: false
-      - schema:
-          type: number
-        in: query
         name: defiLigneDevisEpaisseur
         description: Search filter for Epaisseur / Hauteur (cm)
         required: false
@@ -8408,8 +8385,31 @@ paths:
       - schema:
           type: string
         in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdFinitionFacesVues
+        description: Search filter for Finition Faces Vues
+        required: false
+      - schema:
+          type: string
+        in: query
         name: defiLigneDevisNomProduit
         description: Search filter for Nom Produit
+        required: false
+      - schema:
+          type: string
+          enum:
+          - M2
+          - ML
+          - T
+          - U
+        in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdUnite
+        description: Search filter for Unité
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: defiLigneDevisPrixVenteImpose
+        description: Search filter for Prix Vente Total
         required: false
       tags:
       - DF_Ligne_Devis

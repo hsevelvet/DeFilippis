@@ -5232,13 +5232,18 @@ paths:
         type: string
         required: false
       - in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdAppellationCommerciale
+        description: Search filter for Appellation Commerciale
+        type: string
+        required: false
+      - in: query
         name: defiLigneDevisRow
         description: Search filter for defi ligne devis row
         type: string
         required: false
       - in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdTypeProduit
-        description: Search filter for Désignation Produit
+        description: Search filter for Type Produit
         type: string
         required: false
         enum:
@@ -5258,11 +5263,6 @@ paths:
         - '2'
         - '1'
       - in: query
-        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdAppellationCommerciale
-        description: Search filter for Appellation Commerciale
-        type: string
-        required: false
-      - in: query
         name: defiLigneDevisId
         description: Search filter for Ligne Devis ID
         type: string
@@ -5271,11 +5271,6 @@ paths:
         name: defiLigneDevisQuantite
         description: Search filter for Quantité
         type: integer
-        required: false
-      - in: query
-        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdFinitionFacesVues
-        description: Search filter for Finition Produit
-        type: string
         required: false
       - in: query
         name: defiLigneDevisUnite
@@ -5427,24 +5422,14 @@ paths:
         type: number
         required: false
       - in: query
-        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdUnite
-        description: Search filter for Unité
-        type: string
-        required: false
-        enum:
-        - M2
-        - ML
-        - T
-        - U
-      - in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdPrixUnitaireHT
         description: Search filter for Prix unitaire HT
         type: number
         required: false
       - in: query
-        name: defiLigneDevisPrixVenteImpose
-        description: Search filter for Prix Vente Total
-        type: string
+        name: defiLigneDevisLongueur
+        description: Search filter for Longueur (cm)
+        type: number
         required: false
       - in: query
         name: defiLigneDevisPrixUnitaireHT
@@ -5475,11 +5460,6 @@ paths:
         type: number
         required: false
       - in: query
-        name: defiLigneDevisLongueur
-        description: Search filter for Longueur (cm)
-        type: number
-        required: false
-      - in: query
         name: defiLigneDevisEpaisseur
         description: Search filter for Epaisseur / Hauteur (cm)
         type: number
@@ -5495,8 +5475,28 @@ paths:
         type: number
         required: false
       - in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdFinitionFacesVues
+        description: Search filter for Finition Faces Vues
+        type: string
+        required: false
+      - in: query
         name: defiLigneDevisNomProduit
         description: Search filter for Nom Produit
+        type: string
+        required: false
+      - in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdUnite
+        description: Search filter for Unité
+        type: string
+        required: false
+        enum:
+        - M2
+        - ML
+        - T
+        - U
+      - in: query
+        name: defiLigneDevisPrixVenteImpose
+        description: Search filter for Prix Vente Total
         type: string
         required: false
       tags:
@@ -5861,7 +5861,7 @@ definitions:
         description: DF devis
         type: string
       DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdTypeProduit:
-        description: Désignation Produit
+        description: Type Produit
         type: string
         enum:
         - PAVE
@@ -5925,12 +5925,12 @@ definitions:
         enum:
         - '2'
         - '1'
-      DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdFinitionFacesVues:
-        description: Finition Produit
-        type: string
       defiLigneDevisCoef:
         description: Coef
         type: number
+      DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdFinitionFacesVues:
+        description: Finition Faces Vues
+        type: string
       defiLigneDevisPrixVenteImpose:
         description: Prix Vente Total
         type: string
