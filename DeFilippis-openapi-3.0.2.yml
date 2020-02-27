@@ -266,7 +266,7 @@ components:
           description: Coef
           type: number
         defiLigneDevisPrixVenteImpose:
-          description: Prix Vente Total Imposé
+          description: Prix Vente Total
           type: string
         defiLigneDevisUnite:
           description: Unité LigneD
@@ -8346,7 +8346,7 @@ paths:
           type: string
         in: query
         name: defiLigneDevisPrixVenteImpose
-        description: Search filter for Prix Vente Total Imposé
+        description: Search filter for Prix Vente Total
         required: false
       - schema:
           type: number
