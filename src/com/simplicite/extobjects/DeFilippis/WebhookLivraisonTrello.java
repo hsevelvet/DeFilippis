@@ -26,11 +26,11 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
     public Object head(Parameters params) throws HTTPException {
         return OK;
     }
-
+	/*
     @Override
     public Object get(Parameters params) throws HTTPException {
         return error(400, "Call me in POST please!");
-    }
+    }*/
 
 
 	private void updateCard(JSONObject data) {

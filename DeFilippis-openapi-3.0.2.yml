@@ -105,8 +105,8 @@ components:
           - AR
           - MDO
           - MO
-          - T
           - ATPG
+          - T
           - V
           - ATP
           - N
@@ -259,23 +259,23 @@ components:
           enum:
           - '2'
           - '1'
-        defiLigneDevisCoef:
-          description: Coef
-          type: number
         DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdFinitionFacesVues:
           description: Finition Faces Vues
           type: string
+        defiLigneDevisCoef:
+          description: Coef
+          type: number
         defiLigneDevisPrixVenteImpose:
           description: Prix Vente Total
           type: string
+        defiLigneDevisMasseVolumique:
+          description: Masse Volumique
+          type: number
         defiLigneDevisUnite:
           description: Unité LigneD
           type: string
         defiLigneDevisEpaisseur:
           description: Epaisseur / Hauteur (cm)
-          type: number
-        defiLigneDevisMasseVolumique:
-          description: Masse Volumique
           type: number
         DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdLargeur:
           description: Largeur (cm)
@@ -517,6 +517,9 @@ components:
         df_livraison_date_livraison_estimee:
           description: Date Livraison Estimée
           type: string
+        defiLivraisonIntituleAffaire:
+          description: Intitulé Affaire
+          type: string
         df_livraison_adresse:
           description: Adresse Livraison
           type: string
@@ -541,6 +544,9 @@ components:
           type: string
         df_livraison_adresse_enlevement:
           description: Adresse Enlevement
+          type: string
+        defiLivraisonVille:
+          description: Ville
           type: string
         DF_Livraison_DF_Plan_Livraison_id:
           description: DF plan livraison
@@ -580,6 +586,9 @@ components:
           type: string
         df_livraison_contact_transporteur:
           description: Contact Transporteur
+          type: string
+        defiLivraisonClient:
+          description: Client
           type: string
     DF_Transport:
       type: object
@@ -948,8 +957,8 @@ components:
           - AR
           - MDO
           - MO
-          - T
           - ATPG
+          - T
           - V
           - ATP
           - N
@@ -1064,7 +1073,7 @@ components:
           description: Masse Volumique
           type: string
         DF_Produit_Finis_DF_Fournisseurs_id__defiFournNom:
-          description: Nom Fournisseur
+          description: Nom Fournisseur Fournisseurs
           type: string
         DF_Produit_Finis_DF_Fournisseurs_id:
           description: Fournisseurs
@@ -2075,14 +2084,14 @@ paths:
       - schema:
           type: string
         in: query
-        name: DF_Chantier_DF_Client_id__defiClientTelephone
-        description: Search filter for Téléphone Client
+        name: defiAfrDateDebut
+        description: Search filter for Date début
         required: false
       - schema:
           type: string
         in: query
-        name: defiAfrDateDebut
-        description: Search filter for Date début
+        name: DF_Chantier_DF_Client_id__defiClientTelephone
+        description: Search filter for Téléphone Client
         required: false
       - schema:
           type: string
@@ -2156,8 +2165,8 @@ paths:
           - AR
           - MDO
           - MO
-          - T
           - ATPG
+          - T
           - V
           - ATP
           - N
@@ -2480,14 +2489,14 @@ paths:
       - schema:
           type: string
         in: query
-        name: DF_Contact_DF_Transport_id__defiTrspNom
-        description: Search filter for Nom Transporteur
+        name: defiContactId
+        description: Search filter for Id Contact
         required: false
       - schema:
           type: string
         in: query
-        name: defiContactId
-        description: Search filter for Id Contact
+        name: DF_Contact_DF_Transport_id__defiTrspNom
+        description: Search filter for Nom Transporteur
         required: false
       - schema:
           type: string
@@ -2781,16 +2790,16 @@ paths:
         description: Search filter for Longueur
         required: false
       - schema:
-          type: string
-        in: query
-        name: df_produit_commentaire
-        description: Search filter for Commentaire
-        required: false
-      - schema:
           type: number
         in: query
         name: defiPrdLargeur
         description: Search filter for Largeur
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: df_produit_commentaire
+        description: Search filter for Commentaire
         required: false
       - schema:
           type: number
@@ -2842,10 +2851,57 @@ paths:
           type: string
         in: query
         name: DF_Produit_Finis_DF_Fournisseurs_id__defiFournNom
-        description: Search filter for Nom Fournisseur
+        description: Search filter for Nom Fournisseur Fournisseurs
         required: false
       tags:
       - DF_Produit_Finis
+  /rest/DF_Plan_Livraison/{row_id}/action:PlanLivraison-CreateTicketTrello:
+    get:
+      summary: Call a custom action for a DF_Plan_Livraison business object record
+        or for all records
+      security:
+      - bearerAuth: []
+      operationId: obj-df_plan_livraison-action-planlivraison-createtickettrello
+      responses:
+        '200':
+          description: Success in calling the custom action
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActionResult'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_Plan_Livraison
   /rest/DF_Produit_Finis/{row_id}:
     post:
       summary: Create a new DF_Produit_Finisbusiness object record
@@ -3236,6 +3292,53 @@ paths:
         required: true
       tags:
       - DF_Plan_Livraison
+  /rest/DF_Commande/{row_id}/action:CommandeTrello:
+    get:
+      summary: Call a custom action for a DF_Commande business object record or for
+        all records
+      security:
+      - bearerAuth: []
+      operationId: obj-df_commande-action-commandetrello
+      responses:
+        '200':
+          description: Success in calling the custom action
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActionResult'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_Commande
   /rest/DF_utilisateur_interne/{row_id}:
     post:
       summary: Create a new DF_utilisateur_internebusiness object record
@@ -4336,6 +4439,53 @@ paths:
         required: true
       tags:
       - DF_Contact
+  /rest/DF_Devis/{row_id}/action:Initialisation-Commande:
+    get:
+      summary: Call a custom action for a DF_Devis business object record or for all
+        records
+      security:
+      - bearerAuth: []
+      operationId: obj-df_devis-action-initialisation-commande
+      responses:
+        '200':
+          description: Success in calling the custom action
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActionResult'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_Devis
   /rest/DF_Commande:
     get:
       summary: Search DF_Commande business object records or get contextualized metadata
@@ -4394,16 +4544,16 @@ paths:
         description: Search filter for Numéro de Commande
         required: false
       - schema:
-          type: string
-        in: query
-        name: defiCommandeIntituleAffaire
-        description: Search filter for Titre Affaire
-        required: false
-      - schema:
           type: integer
         in: query
         name: defiCommandeIdLivraison
         description: Search filter for Id Livraison
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: defiCommandeIntituleAffaire
+        description: Search filter for Titre Affaire
         required: false
       - schema:
           type: string
@@ -4419,6 +4569,12 @@ paths:
         required: false
       - schema:
           type: string
+        in: query
+        name: DF_Commande_DF_Client_id
+        description: Search filter for DF client
+        required: false
+      - schema:
+          type: string
           enum:
           - IN
           - EC
@@ -4428,12 +4584,6 @@ paths:
         in: query
         name: defiCommandeStatut
         description: Search filter for Statut Commande
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: DF_Commande_DF_Client_id
-        description: Search filter for DF client
         required: false
       - schema:
           type: string
@@ -5648,14 +5798,14 @@ paths:
       - schema:
           type: string
         in: query
-        name: defiDevisLieuProjet
-        description: Search filter for Ville Projet
+        name: defiDevisDateEmission
+        description: Search filter for Date Emission
         required: false
       - schema:
           type: string
         in: query
-        name: defiDevisDateEmission
-        description: Search filter for Date Emission
+        name: defiDevisLieuProjet
+        description: Search filter for Ville Projet
         required: false
       - schema:
           type: string
@@ -6408,14 +6558,14 @@ paths:
       - schema:
           type: string
         in: query
-        name: DF_Livraison_DF_Chantier_id
-        description: Search filter for DF chantier
-        required: false
-      - schema:
-          type: string
-        in: query
         name: df_livraison_id
         description: Search filter for Id Livraison
+        required: false
+      - schema:
+          type: integer
+        in: query
+        name: df_livraison_id_ligne_commande
+        description: Search filter for Id Ligne Commande
         required: false
       - schema:
           type: string
@@ -6429,12 +6579,6 @@ paths:
         in: query
         name: df_livraison_statut
         description: Search filter for Statut Livraison
-        required: false
-      - schema:
-          type: integer
-        in: query
-        name: df_livraison_id_ligne_commande
-        description: Search filter for Id Ligne Commande
         required: false
       - schema:
           type: string
@@ -6471,6 +6615,12 @@ paths:
         in: query
         name: df_livraison_adresse
         description: Search filter for Adresse Livraison
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Livraison_DF_Chantier_id
+        description: Search filter for DF chantier
         required: false
       - schema:
           type: number
@@ -6532,6 +6682,24 @@ paths:
         name: df_livraison_contact_en_cas_de_probleme
         description: Search filter for Contact En Cas De Problème
         required: false
+      - schema:
+          type: string
+        in: query
+        name: defiLivraisonClient
+        description: Search filter for Client
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: defiLivraisonVille
+        description: Search filter for Ville
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: defiLivraisonIntituleAffaire
+        description: Search filter for Intitulé Affaire
+        required: false
       tags:
       - DF_Livraison
   /:
@@ -6560,6 +6728,53 @@ paths:
         required: false
       tags:
       - session
+  /rest/DF_Devis/{row_id}/action:versionner-devis:
+    get:
+      summary: Call a custom action for a DF_Devis business object record or for all
+        records
+      security:
+      - bearerAuth: []
+      operationId: obj-df_devis-action-versionner-devis
+      responses:
+        '200':
+          description: Success in calling the custom action
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActionResult'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_Devis
   /rest/DF_Client:
     get:
       summary: Search DF_Client business object records or get contextualized metadata
@@ -6665,8 +6880,8 @@ paths:
           - AR
           - MDO
           - MO
-          - T
           - ATPG
+          - T
           - V
           - ATP
           - N
@@ -8043,6 +8258,53 @@ paths:
         required: false
       tags:
       - DF_utilisateur_interne
+  /rest/DF_Livraison/{row_id}/action:Livraison-CreateTicketTrello:
+    get:
+      summary: Call a custom action for a DF_Livraison business object record or for
+        all records
+      security:
+      - bearerAuth: []
+      operationId: obj-df_livraison-action-livraison-createtickettrello
+      responses:
+        '200':
+          description: Success in calling the custom action
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActionResult'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_Livraison
   /rest/DF_Ligne_Devis:
     get:
       summary: Search DF_Ligne_Devis business object records or get contextualized
@@ -8098,14 +8360,23 @@ paths:
       - schema:
           type: string
         in: query
+        name: defiLigneDevisRow
+        description: Search filter for defi ligne devis row
+        required: false
+      - schema:
+          type: string
+        in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdAppellationCommerciale
         description: Search filter for Appellation Commerciale
         required: false
       - schema:
           type: string
+          enum:
+          - '2'
+          - '1'
         in: query
-        name: defiLigneDevisRow
-        description: Search filter for defi ligne devis row
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdCategoriePrix
+        description: Search filter for Catégorie Prix
         required: false
       - schema:
           type: string
@@ -8123,15 +8394,6 @@ paths:
         required: false
       - schema:
           type: string
-          enum:
-          - '2'
-          - '1'
-        in: query
-        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdCategoriePrix
-        description: Search filter for Catégorie Prix
-        required: false
-      - schema:
-          type: string
         in: query
         name: defiLigneDevisId
         description: Search filter for Ligne Devis ID
@@ -8141,6 +8403,18 @@ paths:
         in: query
         name: defiLigneDevisQuantite
         description: Search filter for Quantité
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: defiLigneDevisMasseVolumique
+        description: Search filter for Masse Volumique
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdFinitionFacesVues
+        description: Search filter for Finition Faces Vues
         required: false
       - schema:
           type: string
@@ -8320,6 +8594,17 @@ paths:
         description: Search filter for Epaisseur (cm)
         required: false
       - schema:
+          type: string
+          enum:
+          - M2
+          - ML
+          - T
+          - U
+        in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdUnite
+        description: Search filter for Unité
+        required: false
+      - schema:
           type: number
         in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdPrixUnitaireHT
@@ -8330,6 +8615,12 @@ paths:
         in: query
         name: defiLigneDevisLongueur
         description: Search filter for Longueur (cm)
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: defiLigneDevisPrixVenteImpose
+        description: Search filter for Prix Vente Total
         required: false
       - schema:
           type: number
@@ -8377,39 +8668,10 @@ paths:
         description: Search filter for Désignation Produit
         required: false
       - schema:
-          type: number
-        in: query
-        name: defiLigneDevisMasseVolumique
-        description: Search filter for Masse Volumique
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdFinitionFacesVues
-        description: Search filter for Finition Faces Vues
-        required: false
-      - schema:
           type: string
         in: query
         name: defiLigneDevisNomProduit
         description: Search filter for Nom Produit
-        required: false
-      - schema:
-          type: string
-          enum:
-          - M2
-          - ML
-          - T
-          - U
-        in: query
-        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdUnite
-        description: Search filter for Unité
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: defiLigneDevisPrixVenteImpose
-        description: Search filter for Prix Vente Total
         required: false
       tags:
       - DF_Ligne_Devis

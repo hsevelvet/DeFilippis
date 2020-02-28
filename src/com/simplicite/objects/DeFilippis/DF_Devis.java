@@ -332,13 +332,31 @@ public class DF_Devis extends ObjectDB {
 	    ObjectDB d = getGrant().getTmpObject("DF_Devis");
 	    d.setFieldFilter("row_id",getRowId());
 	    
+	    AppLog.info(getClass(), "HSE_print", toJSON(d.search(), null, false, false), getGrant());
 	    
-		wp.append(MustacheTool.apply(
+		/*wp.append(MustacheTool.apply(
 			this,
 			"DF_Devis_HTML", 
 			"{'rows':"+toJSON(d.search(), null, false, false)+"}"
-		));
+		));*/
 		
+		
+		ObjectDB o = getGrant().getTmpObject("DF_Ligne_Devis");
+		//o.resetFilters();
+		o.setFieldFilter("DF_Ligne_Devis_DF_Devis_id",getRowId());
+
+		AppLog.info(getClass(), "HSE_print_ligne", o.toJSON(o.search(), null, false, false), getGrant());
+		
+		List<String[]> rows_l = o.search(false);
+		if (rows_l.size() > 0){
+			double c = o.getCount();
+			
+			wp.append(MustacheTool.apply(
+			this,
+			"DF_Devis_HTML", 
+			"{'rows_l':"+o.toJSON(o.search(), null, false, false)+"}"
+			));
+		}
 	
 		
 
