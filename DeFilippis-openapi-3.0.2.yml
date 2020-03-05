@@ -563,18 +563,12 @@ components:
         DF_Livraison_DF_Chantier_id:
           description: DF chantier
           type: string
-        DF_Livraison_DF_Plan_Livraison_id:
-          description: DF plan livraison
-          type: string
         df_livraison_quantite_chargee:
           description: Quantité Chargée
           type: number
         df_livraison_trellocardid:
           description: df_livraison_trellocardid
           type: string
-        DF_Livraison_DF_Plan_Livraison_id__df_plan_lvr_id:
-          description: Id Plan Livraison DF plan livraison
-          type: integer
         defiLivraisonNbrPalettes:
           description: Nombre de palettes
           type: integer
@@ -6566,6 +6560,12 @@ paths:
       - schema:
           type: string
         in: query
+        name: defiLivraisonIntituleCamion
+        description: Search filter for Intitulé Camion
+        required: false
+      - schema:
+          type: string
+        in: query
         name: defiLivraisonId
         description: Search filter for defi livraison id
         required: false
@@ -6593,18 +6593,6 @@ paths:
         in: query
         name: df_livraison_nom_transporteur
         description: Search filter for Nom Transporteur
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: DF_Livraison_DF_Plan_Livraison_id
-        description: Search filter for DF plan livraison
-        required: false
-      - schema:
-          type: integer
-        in: query
-        name: DF_Livraison_DF_Plan_Livraison_id__df_plan_lvr_id
-        description: Search filter for Id Plan Livraison DF plan livraison
         required: false
       - schema:
           type: string
@@ -6647,12 +6635,6 @@ paths:
         in: query
         name: df_livraison_num_bl_fournisseur
         description: Search filter for Num BL Fournisseur
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: defiLivraisonIntituleCamion
-        description: Search filter for Intitulé Camion
         required: false
       tags:
       - DF_Livraison

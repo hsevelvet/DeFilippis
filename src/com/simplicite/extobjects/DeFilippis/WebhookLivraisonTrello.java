@@ -153,6 +153,7 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
 			synchronized(obj){
 					
 					if(status.equals("4")){
+						// Remplir l'objet Livraison avec les informations camion 
 						obj.create();
 					
 						if (card.has("name")){
@@ -175,6 +176,7 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
 		
 						}
 						
+						// Remplir l'objet quantités avec les informations de cartes en PJ de camions 
 						
 						synchronized(objq){
 							for(String str: attach_id) {

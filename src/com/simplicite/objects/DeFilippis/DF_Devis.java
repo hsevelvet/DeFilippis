@@ -157,8 +157,8 @@ public class DF_Devis extends ObjectDB {
 		
 		// Set Commande
 		c.create();
-		ObjectField s = c.getField("defiCommandeId");
-		s.setValue(num);
+		//ObjectField s = c.getField("defiCommandeId");
+		//s.setValue(num);
 			
 		c.setStatus("IN");	
 		

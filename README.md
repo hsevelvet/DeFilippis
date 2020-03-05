@@ -126,7 +126,7 @@ objet metier pour commande.
 | Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
 | `defiCommandeId`                                             | char(50)                                 | yes*     | yes       |          | -                                                                                |
-| `defiCommandeNumero`                                         | char(32)                                 | yes*     | yes       |          | -                                                                                |
+| `defiCommandeNumero`                                         | char(32)                                 | yes      | yes       |          | -                                                                                |
 | `defiCommandeIdLivraison`                                    | int(11)                                  |          | yes       |          | -                                                                                |
 | `defiCommandeIntituleAffaire`                                | char(100)                                |          | yes       |          | -                                                                                |
 | `defiCommandeLieuAffaire`                                    | char(100)                                |          | yes       |          | -                                                                                |
@@ -476,12 +476,11 @@ Objet métier pour fournisseur.
 
 | Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
-| `defiLivraisonIdCommande`                                    | char(100)                                | yes      | yes       |          | -                                                                                |
 | `defiLivraisonId`                                            | char(100)                                | yes*     | yes       |          | -                                                                                |
+| `defiLivraisonIntituleCamion`                                | char(100)                                |          | yes       |          | -                                                                                |
 | `df_livraison_statut`                                        | enum(7) using `DF_LIVRAISON_STATUT` list | yes      | yes       |          | -                                                                                |
+| `defiLivraisonIdCommande`                                    | char(100)                                | yes      | yes       |          | -                                                                                |
 | `df_livraison_nom_transporteur`                              | char(100)                                |          | yes       |          | -                                                                                |
-| `DF_Livraison_DF_Plan_Livraison_id` link to **`DF_Quantite`** | id                                       |          | yes       |          | -                                                                                |
-| _Ref. `DF_Livraison_DF_Plan_Livraison_id.df_plan_lvr_id`_    | _int(11)_                                |          |           |          | -                                                                                |
 | `df_livraison_trellocardid`                                  | char(30)                                 |          | yes       |          | -                                                                                |
 | `DF_Contact_DF_Livraison_id`                                 | id                                       |          | yes       |          | -                                                                                |
 | `df_livraison_statut`                                        | enum(7) using `DF_LIVRAISON_STATUT` list | yes      | yes       |          | -                                                                                |
@@ -490,12 +489,9 @@ Objet métier pour fournisseur.
 | `df_livraison_date_livraison_estimee`                        | date                                     |          | yes       |          | -                                                                                |
 | `defiLivraisonNbrPalettes`                                   | int(100)                                 |          | yes       |          | -                                                                                |
 | `df_livraison_num_bl_fournisseur`                            | char(11)                                 |          | yes       |          | -                                                                                |
-| `DF_Livraison_DF_Plan_Livraison_id` link to **`DF_Quantite`** | id                                       |          | yes       |          | -                                                                                |
-| _Ref. `DF_Livraison_DF_Plan_Livraison_id.df_plan_lvr_id`_    | _int(11)_                                |          |           |          | -                                                                                |
 | `df_livraison_trellocardid`                                  | char(30)                                 |          | yes       |          | -                                                                                |
 | `DF_Contact_DF_Livraison_id`                                 | id                                       |          | yes       |          | -                                                                                |
 | `DF_Livraison_DF_Chantier_id` link to **`DF_Affaire`**       | id                                       |          | yes       |          | -                                                                                |
-| `defiLivraisonIntituleCamion`                                | char(100)                                |          | yes       |          | -                                                                                |
 
 ### Lists
 

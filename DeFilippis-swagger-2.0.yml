@@ -3841,6 +3841,11 @@ paths:
         type: boolean
         required: false
       - in: query
+        name: defiLivraisonIntituleCamion
+        description: Search filter for Intitulé Camion
+        type: string
+        required: false
+      - in: query
         name: defiLivraisonId
         description: Search filter for defi livraison id
         type: string
@@ -3866,16 +3871,6 @@ paths:
         name: df_livraison_nom_transporteur
         description: Search filter for Nom Transporteur
         type: string
-        required: false
-      - in: query
-        name: DF_Livraison_DF_Plan_Livraison_id
-        description: Search filter for DF plan livraison
-        type: string
-        required: false
-      - in: query
-        name: DF_Livraison_DF_Plan_Livraison_id__df_plan_lvr_id
-        description: Search filter for Id Plan Livraison DF plan livraison
-        type: integer
         required: false
       - in: query
         name: df_livraison_trellocardid
@@ -3910,11 +3905,6 @@ paths:
       - in: query
         name: df_livraison_num_bl_fournisseur
         description: Search filter for Num BL Fournisseur
-        type: string
-        required: false
-      - in: query
-        name: defiLivraisonIntituleCamion
-        description: Search filter for Intitulé Camion
         type: string
         required: false
       tags:
@@ -6408,18 +6398,12 @@ definitions:
       DF_Livraison_DF_Chantier_id:
         description: DF chantier
         type: string
-      DF_Livraison_DF_Plan_Livraison_id:
-        description: DF plan livraison
-        type: string
       df_livraison_quantite_chargee:
         description: Quantité Chargée
         type: number
       df_livraison_trellocardid:
         description: df_livraison_trellocardid
         type: string
-      DF_Livraison_DF_Plan_Livraison_id__df_plan_lvr_id:
-        description: Id Plan Livraison DF plan livraison
-        type: integer
       defiLivraisonNbrPalettes:
         description: Nombre de palettes
         type: integer

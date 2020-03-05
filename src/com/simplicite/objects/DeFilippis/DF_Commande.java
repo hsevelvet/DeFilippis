@@ -38,7 +38,7 @@ public class DF_Commande extends ObjectDB {
 
 	}
 	}
-	
+	/*
 	@Override
 	public String postCreate() {
 		ObjectDB a = getGrant().getTmpObject("DF_Affaire");
@@ -60,7 +60,7 @@ public class DF_Commande extends ObjectDB {
 		//return Message.formatWarning("WARNING_CODE", "Message", "fieldName");
 		//return Message.formatError("ERROR_CODE", "Message", "fieldName");
 		return null;
-	}
+	}*/
 	
 	/**
 	 * Action - Création cartes Trello 
@@ -174,7 +174,18 @@ public class DF_Commande extends ObjectDB {
 		    		
 				for(String[] lce : lc.search()){
 					lc.setValues(lce);
-					card.put("name",  getFieldValue("defiCommandeIntituleAffaire")+"-"+lc.getFieldValue("defiLigneCommandeTypeGeologique")+"-"+lc.getFieldValue("defiLigneCommandeQuantite"));
+					
+					
+					String int_aff = getFieldValue("defiCommandeIntituleAffaire");
+					int_aff.replace(" " , "");
+					String firstCharsIntitule = int_aff.substring(0, 7);
+					
+					String fourns = getFieldValue("defiCommandeNomFournisseur");
+					fourns.replace(" " , "");
+					String firstCharsFourns = fourns.substring(0, 3);
+					
+					
+					card.put("name",  (firstCharsIntitule+"."+getFieldValue("defiCommandeIntituleCommande")+"."+firstCharsFourns+"."+lc.getFieldValue("defiLigneCommandeReferenceProduit")+"."+lc.getFieldValue("defiLigneCommandeQuantite")).toUpperCase());
 					card.put("desc", createDesc());
 					card.put("due", getFieldValue("defiCommandeDate"));
 					card = tt.addCard(getIDList(getFieldValue("defiCommandeStatut")), card);

@@ -7,7 +7,7 @@ import com.simplicite.util.tools.*;
 /**
  * Business object DF_Plan_Livraison
  */
-public class DF_Plan_Livraison extends ObjectDB {
+public class DF_Quantite extends ObjectDB {
 	private static final long serialVersionUID = 1L;
 	
 	public String createAllTrelloCards(){
