@@ -141,13 +141,13 @@ paths:
         type: string
         required: false
         enum:
-        - AR
-        - MDO
         - MO
+        - MDO
+        - AR
         - ATPG
         - T
-        - V
         - ATP
+        - V
         - N
         - EA
         - P
@@ -411,13 +411,13 @@ paths:
         type: boolean
         required: false
       - in: query
-        name: defiContactId
-        description: Search filter for Id Contact
+        name: DF_Contact_DF_Transport_id__defiTrspNom
+        description: Search filter for Nom Transporteur
         type: string
         required: false
       - in: query
-        name: DF_Contact_DF_Transport_id__defiTrspNom
-        description: Search filter for Nom Transporteur
+        name: defiContactId
+        description: Search filter for Id Contact
         type: string
         required: false
       - in: query
@@ -676,14 +676,14 @@ paths:
         type: number
         required: false
       - in: query
-        name: defiPrdLargeur
-        description: Search filter for Largeur
-        type: number
-        required: false
-      - in: query
         name: df_produit_commentaire
         description: Search filter for Commentaire
         type: string
+        required: false
+      - in: query
+        name: defiPrdLargeur
+        description: Search filter for Largeur
+        type: number
         required: false
       - in: query
         name: defiPrdEpaisseur
@@ -2134,14 +2134,14 @@ paths:
         type: string
         required: false
       - in: query
-        name: defiCommandeIdLivraison
-        description: Search filter for Id Livraison
-        type: integer
-        required: false
-      - in: query
         name: defiCommandeIntituleAffaire
         description: Search filter for Titre Affaire
         type: string
+        required: false
+      - in: query
+        name: defiCommandeIdLivraison
+        description: Search filter for Id Livraison
+        type: integer
         required: false
       - in: query
         name: defiCommandeLieuAffaire
@@ -2151,11 +2151,6 @@ paths:
       - in: query
         name: defiCommandeIntituleCommande
         description: Search filter for Intitulé de commande
-        type: string
-        required: false
-      - in: query
-        name: DF_Commande_DF_Client_id
-        description: Search filter for DF client
         type: string
         required: false
       - in: query
@@ -2169,6 +2164,11 @@ paths:
         - LI
         - TE
         - AN
+      - in: query
+        name: DF_Commande_DF_Client_id
+        description: Search filter for DF client
+        type: string
+        required: false
       - in: query
         name: DF_Commande_DF_Client_id__defiClientId
         description: Search filter for Id Client DF client
@@ -3183,13 +3183,13 @@ paths:
         type: string
         required: false
       - in: query
-        name: defiDevisDateEmission
-        description: Search filter for Date Emission
+        name: defiDevisLieuProjet
+        description: Search filter for Ville Projet
         type: string
         required: false
       - in: query
-        name: defiDevisLieuProjet
-        description: Search filter for Ville Projet
+        name: defiDevisDateEmission
+        description: Search filter for Date Emission
         type: string
         required: false
       - in: query
@@ -3361,7 +3361,7 @@ paths:
         required: false
       - in: query
         name: DF_Devis_DF_Contact_id__defiContactEmail
-        description: Search filter for E-mail Contact
+        description: Search filter for E-mail Contacts
         type: string
         required: false
       - in: query
@@ -3822,6 +3822,11 @@ paths:
         type: boolean
         required: false
       - in: query
+        name: DF_Livraison_DF_Chantier_id
+        description: Search filter for DF chantier
+        type: string
+        required: false
+      - in: query
         name: df_livraison_id
         description: Search filter for Id Livraison
         type: string
@@ -3871,11 +3876,6 @@ paths:
       - in: query
         name: df_livraison_adresse
         description: Search filter for Adresse Livraison
-        type: string
-        required: false
-      - in: query
-        name: DF_Livraison_DF_Chantier_id
-        description: Search filter for DF chantier
         type: string
         required: false
       - in: query
@@ -4095,13 +4095,13 @@ paths:
         type: string
         required: false
         enum:
-        - AR
-        - MDO
         - MO
+        - MDO
+        - AR
         - ATPG
         - T
-        - V
         - ATP
+        - V
         - N
         - EA
         - P
@@ -5280,8 +5280,8 @@ paths:
         - BE
         - CH
         - IE
-        - CA
         - US
+        - CA
       - in: query
         name: row_module_id
         description: Search filter for Module
@@ -5432,8 +5432,8 @@ paths:
         type: boolean
         required: false
       - in: query
-        name: defiLigneDevisNPrix
-        description: Search filter for N° de prix
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdAppellationCommerciale
+        description: Search filter for Appellation Commerciale
         type: string
         required: false
       - in: query
@@ -5442,8 +5442,8 @@ paths:
         type: string
         required: false
       - in: query
-        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdAppellationCommerciale
-        description: Search filter for Appellation Commerciale
+        name: defiLigneDevisNPrix
+        description: Search filter for N° de prix
         type: string
         required: false
       - in: query
@@ -5973,13 +5973,13 @@ definitions:
         description: Secteur Activité Client
         type: string
         enum:
-        - AR
-        - MDO
         - MO
+        - MDO
+        - AR
         - ATPG
         - T
-        - V
         - ATP
+        - V
         - N
         - EA
         - P
@@ -6771,7 +6771,7 @@ definitions:
         description: Titre Projet
         type: string
       DF_Devis_DF_Contact_id__defiContactEmail:
-        description: E-mail Contact
+        description: E-mail Contacts
         type: string
       row_id:
         description: Unique technical row ID
@@ -6825,13 +6825,13 @@ definitions:
         description: Secteur Activité
         type: string
         enum:
-        - AR
-        - MDO
         - MO
+        - MDO
+        - AR
         - ATPG
         - T
-        - V
         - ATP
+        - V
         - N
         - EA
         - P
@@ -7755,8 +7755,8 @@ definitions:
         - BE
         - CH
         - IE
-        - CA
         - US
+        - CA
       usr_title:
         description: Title
         type: string
