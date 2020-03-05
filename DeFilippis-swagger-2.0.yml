@@ -3822,19 +3822,14 @@ paths:
         type: boolean
         required: false
       - in: query
-        name: DF_Livraison_DF_Chantier_id
-        description: Search filter for DF chantier
+        name: defiLivraisonId
+        description: Search filter for defi livraison id
         type: string
         required: false
       - in: query
-        name: df_livraison_id
-        description: Search filter for Id Livraison
+        name: defiLivraisonIdCommande
+        description: Search filter for Id Commande
         type: string
-        required: false
-      - in: query
-        name: df_livraison_id_ligne_commande
-        description: Search filter for Id Ligne Commande
-        type: integer
         required: false
       - in: query
         name: df_livraison_statut
@@ -3874,8 +3869,8 @@ paths:
         type: string
         required: false
       - in: query
-        name: df_livraison_adresse
-        description: Search filter for Adresse Livraison
+        name: DF_Livraison_DF_Chantier_id
+        description: Search filter for DF chantier
         type: string
         required: false
       - in: query
@@ -3884,29 +3879,14 @@ paths:
         type: number
         required: false
       - in: query
-        name: df_livraison_contact_transporteur
-        description: Search filter for Contact Transporteur
-        type: string
-        required: false
-      - in: query
-        name: df_livraison_num_bl_client
-        description: Search filter for Num BL Client
-        type: string
-        required: false
-      - in: query
-        name: df_livraison_adresse_de_livraison_confirmee
-        description: Search filter for Adresse De Livraison Confirmée
-        type: string
-        required: false
-      - in: query
         name: df_livraison_date_livraison_estimee
         description: Search filter for Date Livraison Estimée
         type: string
         required: false
       - in: query
-        name: df_livraison_contact_dechargement_privilegie
-        description: Search filter for Contact Déchargement Privilégié
-        type: string
+        name: defiLivraisonNbrPalettes
+        description: Search filter for Nombre de palettes
+        type: integer
         required: false
       - in: query
         name: df_livraison_num_bl_fournisseur
@@ -3914,33 +3894,8 @@ paths:
         type: string
         required: false
       - in: query
-        name: df_livraison_adresse_enlevement
-        description: Search filter for Adresse Enlevement
-        type: string
-        required: false
-      - in: query
-        name: df_livraison_num_zeepo_transporteur
-        description: Search filter for Num ZEEPO Transporteur
-        type: string
-        required: false
-      - in: query
-        name: df_livraison_contact_en_cas_de_probleme
-        description: Search filter for Contact En Cas De Problème
-        type: string
-        required: false
-      - in: query
-        name: defiLivraisonClient
-        description: Search filter for Client
-        type: string
-        required: false
-      - in: query
-        name: defiLivraisonVille
-        description: Search filter for Ville
-        type: string
-        required: false
-      - in: query
-        name: defiLivraisonIntituleAffaire
-        description: Search filter for Intitulé Affaire
+        name: defiLivraisonIntituleCamion
+        description: Search filter for Intitulé Camion
         type: string
         required: false
       tags:
@@ -6382,20 +6337,17 @@ definitions:
   DF_Livraison:
     type: object
     properties:
-      df_livraison_adresse_de_livraison_confirmee:
-        description: Adresse De Livraison Confirmée
-        type: string
       df_livraison_date_livraison_estimee:
         description: Date Livraison Estimée
         type: string
-      defiLivraisonIntituleAffaire:
-        description: Intitulé Affaire
-        type: string
-      df_livraison_adresse:
-        description: Adresse Livraison
+      defiLivraisonIdCommande:
+        description: Id Commande
         type: string
       df_livraison_num_bl_fournisseur:
         description: Num BL Fournisseur
+        type: string
+      defiLivraisonId:
+        description: defi livraison id
         type: string
       df_livraison_statut:
         description: Statut Livraison
@@ -6407,17 +6359,8 @@ definitions:
         - '4'
         - '5'
         - '6'
-      df_livraison_id_ligne_commande:
-        description: Id Ligne Commande
-        type: integer
       DF_Livraison_DF_Chantier_id:
         description: DF chantier
-        type: string
-      df_livraison_adresse_enlevement:
-        description: Adresse Enlevement
-        type: string
-      defiLivraisonVille:
-        description: Ville
         type: string
       DF_Livraison_DF_Plan_Livraison_id:
         description: DF plan livraison
@@ -6428,38 +6371,23 @@ definitions:
       df_livraison_trellocardid:
         description: df_livraison_trellocardid
         type: string
-      df_livraison_id:
-        description: Id Livraison
-        type: string
       DF_Livraison_DF_Plan_Livraison_id__df_plan_lvr_id:
         description: Id Plan Livraison DF plan livraison
         type: integer
-      df_livraison_num_bl_client:
-        description: Num BL Client
-        type: string
-      df_livraison_num_zeepo_transporteur:
-        description: Num ZEEPO Transporteur
-        type: string
-      df_livraison_contact_dechargement_privilegie:
-        description: Contact Déchargement Privilégié
+      defiLivraisonNbrPalettes:
+        description: Nombre de palettes
+        type: integer
+      defiLivraisonIntituleCamion:
+        description: Intitulé Camion
         type: string
       df_livraison_nom_transporteur:
         description: Nom Transporteur
-        type: string
-      df_livraison_contact_en_cas_de_probleme:
-        description: Contact En Cas De Problème
         type: string
       row_id:
         description: Unique technical row ID
         type: string
       DF_Contact_DF_Livraison_id:
         description: DF livraison
-        type: string
-      df_livraison_contact_transporteur:
-        description: Contact Transporteur
-        type: string
-      defiLivraisonClient:
-        description: Client
         type: string
   DF_Transport:
     type: object
