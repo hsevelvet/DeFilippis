@@ -32,6 +32,33 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/DF_ligne_commande'
+    DF_Quantite:
+      type: object
+      properties:
+        defiQuantiteQte:
+          description: Quantité
+          type: integer
+        defiQuantitePoidsUnitaire:
+          description: Poids Unitaire
+          type: number
+        defiQuantiteRefProduit:
+          description: Référence Produit
+          type: string
+        defiQuantiteNumCommande:
+          description: Numéro de commande
+          type: string
+        defiQuantiteTrigrammeSuiveur:
+          description: Trigramme Suiveur
+          type: string
+        defiQuantiteId:
+          description: defi quantite id
+          type: string
+        defiQuantiteTonnage:
+          description: Tonnage
+          type: number
+        row_id:
+          description: Unique technical row ID
+          type: string
     DF_Affaire:
       type: object
       properties:
@@ -152,6 +179,10 @@ components:
         content:
           description: Content (plain text or base64 encoded)
           type: string
+    ArrayOfDF_Quantite:
+      type: array
+      items:
+        $ref: '#/components/schemas/DF_Quantite'
     ArrayOfDF_Fournisseurs:
       type: array
       items:
@@ -160,10 +191,6 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/DF_utilisateur_interne'
-    ArrayOfDF_Plan_Livraison:
-      type: array
-      items:
-        $ref: '#/components/schemas/DF_Plan_Livraison'
     ArrayOfDF_Transport:
       type: array
       items:
@@ -887,21 +914,6 @@ components:
           enum:
           - EI
           - HE
-    DF_Plan_Livraison:
-      type: object
-      properties:
-        df_plan_livraison_date_livraison:
-          description: Date de livraison
-          type: string
-        df_plan_lvr_id:
-          description: Id Plan Livraison
-          type: integer
-        row_id:
-          description: Unique technical row ID
-          type: string
-        df_plan_livraison_date_chargement:
-          description: Date de chargement
-          type: string
     DF_Client:
       type: object
       properties:
@@ -2631,6 +2643,201 @@ paths:
         required: false
       tags:
       - session
+  /rest/DF_Quantite/{row_id}:
+    post:
+      summary: Create a new DF_Quantitebusiness object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DF_Quantite'
+      operationId: obj-df_quantite-create
+      responses:
+        '200':
+          description: Success in creating a new business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DF_Quantite'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_Quantite
+    get:
+      summary: Get a DF_Quantite business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-df_quantite-get
+      responses:
+        '200':
+          description: Success in getting a single business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DF_Quantite'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_documents
+        description: Inline documents?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_objects
+        description: Inline objects?
+        required: false
+      tags:
+      - DF_Quantite
+    delete:
+      summary: Delete a DF_Quantite business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-df_quantite-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+          content:
+            application/json: {}
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_Quantite
+    put:
+      summary: Update a DF_Quantitebusiness object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DF_Quantite'
+      operationId: obj-df_quantite-update
+      responses:
+        '200':
+          description: Success in updating a business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DF_Quantite'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_Quantite
   /rest/DF_Produit_Finis:
     get:
       summary: Search DF_Produit_Finis business object records or get contextualized
@@ -2828,53 +3035,6 @@ paths:
         required: false
       tags:
       - DF_Produit_Finis
-  /rest/DF_Plan_Livraison/{row_id}/action:PlanLivraison-CreateTicketTrello:
-    get:
-      summary: Call a custom action for a DF_Plan_Livraison business object record
-        or for all records
-      security:
-      - bearerAuth: []
-      operationId: obj-df_plan_livraison-action-planlivraison-createtickettrello
-      responses:
-        '200':
-          description: Success in calling the custom action
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ActionResult'
-        '400':
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error400'
-        '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error401'
-        '500':
-          description: Internal server error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error500'
-        '404':
-          description: Not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error404'
-      parameters:
-      - schema:
-          type: string
-        in: path
-        name: row_id
-        description: Row ID (or empty or _ for all row IDs)
-        required: true
-      tags:
-      - DF_Plan_Livraison
   /rest/DF_Produit_Finis/{row_id}:
     post:
       summary: Create a new DF_Produit_Finisbusiness object record
@@ -3070,118 +3230,20 @@ paths:
         required: true
       tags:
       - DF_Produit_Finis
-  /rest/DF_Plan_Livraison/{row_id}:
-    post:
-      summary: Create a new DF_Plan_Livraisonbusiness object record
-      security:
-      - bearerAuth: []
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/DF_Plan_Livraison'
-      operationId: obj-df_plan_livraison-create
-      responses:
-        '200':
-          description: Success in creating a new business object record
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/DF_Plan_Livraison'
-        '400':
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error400'
-        '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error401'
-        '500':
-          description: Internal server error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error500'
-      parameters:
-      - schema:
-          type: string
-        in: path
-        name: row_id
-        description: Row ID (or empty or _ for all row IDs)
-        required: true
-      tags:
-      - DF_Plan_Livraison
+  /rest/DF_Quantite/{row_id}/action:PlanLivraison-CreateTicketTrello:
     get:
-      summary: Get a DF_Plan_Livraison business object record
+      summary: Call a custom action for a DF_Quantite business object record or for
+        all records
       security:
       - bearerAuth: []
-      operationId: obj-df_plan_livraison-get
+      operationId: obj-df_quantite-action-planlivraison-createtickettrello
       responses:
         '200':
-          description: Success in getting a single business object record
+          description: Success in calling the custom action
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DF_Plan_Livraison'
-        '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error401'
-        '500':
-          description: Internal server error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error500'
-        '404':
-          description: Not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error404'
-      parameters:
-      - schema:
-          type: string
-        in: path
-        name: row_id
-        description: Row ID (or empty or _ for all row IDs)
-        required: true
-      - schema:
-          type: boolean
-        in: query
-        name: _inline_documents
-        description: Inline documents?
-        required: false
-      - schema:
-          type: boolean
-        in: query
-        name: _inline_thumbnails
-        description: Inline documents' thumbnails?
-        required: false
-      - schema:
-          type: boolean
-        in: query
-        name: _inline_objects
-        description: Inline objects?
-        required: false
-      tags:
-      - DF_Plan_Livraison
-    delete:
-      summary: Delete a DF_Plan_Livraison business object record
-      security:
-      - bearerAuth: []
-      operationId: obj-df_plan_livraison-delete
-      responses:
-        '200':
-          description: Success in deleting a business object record
-          content:
-            application/json: {}
+                $ref: '#/components/schemas/ActionResult'
         '400':
           description: Bad request
           content:
@@ -3214,57 +3276,7 @@ paths:
         description: Row ID (or empty or _ for all row IDs)
         required: true
       tags:
-      - DF_Plan_Livraison
-    put:
-      summary: Update a DF_Plan_Livraisonbusiness object record
-      security:
-      - bearerAuth: []
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/DF_Plan_Livraison'
-      operationId: obj-df_plan_livraison-update
-      responses:
-        '200':
-          description: Success in updating a business object record
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/DF_Plan_Livraison'
-        '400':
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error400'
-        '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error401'
-        '500':
-          description: Internal server error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error500'
-        '404':
-          description: Not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error404'
-      parameters:
-      - schema:
-          type: string
-        in: path
-        name: row_id
-        description: Row ID (or empty or _ for all row IDs)
-        required: true
-      tags:
-      - DF_Plan_Livraison
+      - DF_Quantite
   /rest/DF_Commande/{row_id}/action:CommandeTrello:
     get:
       summary: Call a custom action for a DF_Commande business object record or for
@@ -6037,6 +6049,95 @@ paths:
         required: false
       tags:
       - DF_Devis
+  /rest/DF_Quantite:
+    get:
+      summary: Search DF_Quantite business object records or get contextualized metadata
+      security:
+      - bearerAuth: []
+      operationId: obj-df_quantite-search
+      responses:
+        '200':
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArrayOfDF_Quantite'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: boolean
+        in: query
+        name: _metadata
+        description: Metadata?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _count
+        description: Count?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _doc
+        description: Documentation?
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: defiQuantiteId
+        description: Search filter for defi quantite id
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: defiQuantiteNumCommande
+        description: Search filter for Numéro de commande
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: defiQuantiteRefProduit
+        description: Search filter for Référence Produit
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: defiQuantitePoidsUnitaire
+        description: Search filter for Poids Unitaire
+        required: false
+      - schema:
+          type: integer
+        in: query
+        name: defiQuantiteQte
+        description: Search filter for Quantité
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: defiQuantiteTonnage
+        description: Search filter for Tonnage
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: defiQuantiteTrigrammeSuiveur
+        description: Search filter for Trigramme Suiveur
+        required: false
+      tags:
+      - DF_Quantite
   /rest/DF_ligne_commande:
     get:
       summary: Search DF_ligne_commande business object records or get contextualized
@@ -6376,72 +6477,6 @@ paths:
         required: true
       tags:
       - DF_test
-  /rest/DF_Plan_Livraison:
-    get:
-      summary: Search DF_Plan_Livraison business object records or get contextualized
-        metadata
-      security:
-      - bearerAuth: []
-      operationId: obj-df_plan_livraison-search
-      responses:
-        '200':
-          description: Success in searching business object records (or in getting
-            contextualized business object metadata, documentation, ...)
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ArrayOfDF_Plan_Livraison'
-        '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error401'
-        '500':
-          description: Internal server error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error500'
-      parameters:
-      - schema:
-          type: boolean
-        in: query
-        name: _metadata
-        description: Metadata?
-        required: false
-      - schema:
-          type: boolean
-        in: query
-        name: _count
-        description: Count?
-        required: false
-      - schema:
-          type: boolean
-        in: query
-        name: _doc
-        description: Documentation?
-        required: false
-      - schema:
-          type: integer
-        in: query
-        name: df_plan_lvr_id
-        description: Search filter for Id Plan Livraison
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: df_plan_livraison_date_chargement
-        description: Search filter for Date de chargement
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: df_plan_livraison_date_livraison
-        description: Search filter for Date de livraison
-        required: false
-      tags:
-      - DF_Plan_Livraison
   /rest/DF_utilisateur_interne/{row_id}/publication:User-WORD:
     get:
       summary: Call a custom publication for a DF_utilisateur_interne business object
@@ -8819,12 +8854,12 @@ tags:
   description: DF ligne devis
 - name: DF_Livraison
   description: Livraisons
-- name: DF_Plan_Livraison
-  description: Plan livraison
 - name: DF_Prix_Transport
   description: Prix Transport
 - name: DF_Produit_Finis
   description: Produits Finis
+- name: DF_Quantite
+  description: Quantité
 - name: DF_test
   description: DF_test
 - name: DF_Transport

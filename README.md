@@ -43,7 +43,7 @@
 | _Ref. `DF_Chantier_DF_Client_id.defiClientIdSecteurActivite`_ | _enum(7) using `DF_CLIENT_ID_SECTEUR_ACTIVITE` list_ |          |           |          | -                                                                                |
 | _Ref. `DF_Chantier_DF_Client_id.defiClientAdresse`_          | _char(32)_                               |          |           |          | -                                                                                |
 | _Ref. `DF_Chantier_DF_Client_id.defiClientRegion`_           | _char(32)_                               |          |           |          | -                                                                                |
-| `DF_Chantier_DF_Plan_Livraison_id` link to **`DF_Plan_Livraison`** | id                                       |          | yes       |          | -                                                                                |
+| `DF_Chantier_DF_Plan_Livraison_id` link to **`DF_Quantite`** | id                                       |          | yes       |          | -                                                                                |
 | _Ref. `DF_Chantier_DF_Plan_Livraison_id.df_plan_lvr_id`_     | _int(11)_                                |          |           |          | -                                                                                |
 | `defiAfrCoefficientVenteInitial`                             | float(4, 2)                              | yes      | yes       |          | -                                                                                |
 | `defiAfrMontantInitialCommandeHT`                            | float(9, 0)                              | yes      | yes       |          | -                                                                                |
@@ -480,7 +480,7 @@ Objet métier pour fournisseur.
 | `defiLivraisonId`                                            | char(100)                                | yes*     | yes       |          | -                                                                                |
 | `df_livraison_statut`                                        | enum(7) using `DF_LIVRAISON_STATUT` list | yes      | yes       |          | -                                                                                |
 | `df_livraison_nom_transporteur`                              | char(100)                                |          | yes       |          | -                                                                                |
-| `DF_Livraison_DF_Plan_Livraison_id` link to **`DF_Plan_Livraison`** | id                                       |          | yes       |          | -                                                                                |
+| `DF_Livraison_DF_Plan_Livraison_id` link to **`DF_Quantite`** | id                                       |          | yes       |          | -                                                                                |
 | _Ref. `DF_Livraison_DF_Plan_Livraison_id.df_plan_lvr_id`_    | _int(11)_                                |          |           |          | -                                                                                |
 | `df_livraison_trellocardid`                                  | char(30)                                 |          | yes       |          | -                                                                                |
 | `DF_Contact_DF_Livraison_id`                                 | id                                       |          | yes       |          | -                                                                                |
@@ -490,7 +490,7 @@ Objet métier pour fournisseur.
 | `df_livraison_date_livraison_estimee`                        | date                                     |          | yes       |          | -                                                                                |
 | `defiLivraisonNbrPalettes`                                   | int(100)                                 |          | yes       |          | -                                                                                |
 | `df_livraison_num_bl_fournisseur`                            | char(11)                                 |          | yes       |          | -                                                                                |
-| `DF_Livraison_DF_Plan_Livraison_id` link to **`DF_Plan_Livraison`** | id                                       |          | yes       |          | -                                                                                |
+| `DF_Livraison_DF_Plan_Livraison_id` link to **`DF_Quantite`** | id                                       |          | yes       |          | -                                                                                |
 | _Ref. `DF_Livraison_DF_Plan_Livraison_id.df_plan_lvr_id`_    | _int(11)_                                |          |           |          | -                                                                                |
 | `df_livraison_trellocardid`                                  | char(30)                                 |          | yes       |          | -                                                                                |
 | `DF_Contact_DF_Livraison_id`                                 | id                                       |          | yes       |          | -                                                                                |
@@ -510,23 +510,6 @@ Objet métier pour fournisseur.
 ### Custom actions
 
 * `Livraison-CreateTicketTrello`: 
-
-`DF_Plan_Livraison` business object definition
-----------------------------------------------
-
-
-
-### Fields
-
-| Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
-| ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
-| `df_plan_lvr_id`                                             | int(11)                                  |          | yes       |          | -                                                                                |
-| `df_plan_livraison_date_chargement`                          | date                                     |          | yes       |          | -                                                                                |
-| `df_plan_livraison_date_livraison`                           | date                                     |          | yes       |          | -                                                                                |
-
-### Custom actions
-
-* `PlanLivraison-CreateTicketTrello`: 
 
 `DF_Prix_Transport` business object definition
 ----------------------------------------------
@@ -616,6 +599,27 @@ Objet metier pour produit.
     - `ML` ml
     - `T` T
     - `U` U
+
+`DF_Quantite` business object definition
+----------------------------------------
+
+
+
+### Fields
+
+| Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
+| ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
+| `defiQuantiteId`                                             | char(30)                                 | yes*     | yes       |          | -                                                                                |
+| `defiQuantiteNumCommande`                                    | char(10)                                 |          | yes       |          | -                                                                                |
+| `defiQuantiteRefProduit`                                     | char(30)                                 |          | yes       |          | -                                                                                |
+| `defiQuantitePoidsUnitaire`                                  | float(20, 0)                             |          | yes       |          | -                                                                                |
+| `defiQuantiteQte`                                            | int(20)                                  |          | yes       |          | -                                                                                |
+| `defiQuantiteTonnage`                                        | float(20, 0)                             |          | yes       |          | -                                                                                |
+| `defiQuantiteTrigrammeSuiveur`                               | char(10)                                 |          | yes       |          | -                                                                                |
+
+### Custom actions
+
+* `PlanLivraison-CreateTicketTrello`: 
 
 `DF_test` business object definition
 ------------------------------------
