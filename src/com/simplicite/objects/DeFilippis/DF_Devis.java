@@ -2,12 +2,21 @@ package com.simplicite.objects.DeFilippis;
 
 import java.io.ByteArrayOutputStream;
 import com.simplicite.util.PrintTemplate;
-
-import com.lowagie.text.Document;
+import org.json.JSONObject;
+//import com.lowagie.text.Document;
 import com.lowagie.text.Image;
 import com.lowagie.text.Paragraph;
 import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
+
+import org.jsoup.Jsoup;
+import org.jsoup.helper.Validate;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+import java.io.IOException;
+
+
 
 import java.util.*;
 import java.util.Date;
@@ -327,44 +336,71 @@ public class DF_Devis extends ObjectDB {
 			true
 		);
 		
-		// Ajout de valeurs de Devis
-	       
+	// Ajout de valeurs de Devis
 	    ObjectDB d = getGrant().getTmpObject("DF_Devis");
-	    d.setFieldFilter("row_id",getRowId());
 	    
-	    AppLog.info(getClass(), "HSE_print", toJSON(d.search(), null, false, false), getGrant());
-	    
-		/*wp.append(MustacheTool.apply(
+// pourquoi faire une recherfche sur un row_id qui ne ramenera qu'une seule ligne, puis l'afficher le résultat dans un tableau ?
+// là il faut surement faire un select pour ramener les données de la base
+		d.setFieldFilter("row_id",getRowId());
+
+// trop tot, vous n'avez pas toutes vos données filles, ou alors utilisez 2 templates différents à concatener dans votre page
+/*	    
+		wp.append(MustacheTool.apply(
 			this,
 			"DF_Devis_HTML", 
 			"{'rows':"+toJSON(d.search(), null, false, false)+"}"
-		));*/
+		));
+*/	
+      // Ajout de valeurs de lignes Devis
 		
+		ObjectDB ld = getGrant().getTmpObject("DF_Ligne_Devis");
+		ld.resetFilters();
+		ld.setFieldFilter("DF_Ligne_Devis_DF_Devis_id",getRowId());
 		
-		ObjectDB o = getGrant().getTmpObject("DF_Ligne_Devis");
-		//o.resetFilters();
-		o.setFieldFilter("DF_Ligne_Devis_DF_Devis_id",getRowId());
-
-		AppLog.info(getClass(), "HSE_print_ligne", o.toJSON(o.search(), null, false, false), getGrant());
-		
-		List<String[]> rows_l = o.search(false);
+		List<String[]> rows_l = ld.search(false);
 		if (rows_l.size() > 0){
-			double c = o.getCount();
-			
 			wp.append(MustacheTool.apply(
 			this,
 			"DF_Devis_HTML", 
-			"{'rows_l':"+o.toJSON(o.search(), null, false, false)+"}"
+// A priori il faut 2 listes dans votre template, donc :
+			"{'rows':"+d.toJSON(d.search(), null, false, false)+
+// inutile de refaire un  ld.search puisque vous avez déjà le résultat
+			",'rows_l':"+ld.toJSON(rows_l, null, false, false)+"}"
 			));
 		}
-	
-		
-
-		
-	    
-		return wp.toString();
+		return wp.getHTML();
 	}
 	
+	public byte[] pubPdf(){
+		String url = "http://wkhtml2pdf/";
+		String user = null;
+		String password = null;
+		/*
+		try {
+			String plainText= Jsoup.parse(pubDevis()).text();
+		}
+		catch(IOException e) {
+			  e.printStackTrace();
+		}*/
+		
+		//String plainText= Jsoup.parse(pubDevis()).text();
+		//AppLog.info(getClass(), "PRINT DEVIS------------------", "message"+plainText, getGrant());
+
+		
+		JSONObject postData = new JSONObject();
+		postData.put("contents", Tool.toBase64(pubDevis()));
+		AppLog.info(getClass(), "PRINT DEVIS------------------", "message"+pubDevis(), getGrant());
+		String[] headers = {"Content-Type:application/json"};
+		String encoding = Globals.BINARY;
+		byte[] pdf = null;
+		
+		try{
+			pdf = Tool.readUrlAsByteArray(url, user, password, postData.toString(), headers, encoding);
+		}catch(Exception e){
+			AppLog.error(getClass(), "pubPdf", "------------", e, getGrant());
+		}
+		return pdf;
+	}
 	
 	/**
 	 * Order receipt publication as PDF

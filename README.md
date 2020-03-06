@@ -327,6 +327,7 @@ Objet metier pour devis.
 ### Custom actions
 
 * `Initialisation-Commande`: 
+* `PDF`: 
 * `versionner-devis`: 
 
 `DF_Fournisseurs` business object definition

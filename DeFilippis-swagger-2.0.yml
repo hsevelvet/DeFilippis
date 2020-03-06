@@ -71,23 +71,23 @@ paths:
         type: string
         required: false
       - in: query
-        name: defiAfrDateDebut
-        description: Search filter for Date début
-        type: string
-        required: false
-      - in: query
         name: DF_Chantier_DF_Client_id__defiClientTelephone
         description: Search filter for Téléphone Client
         type: string
         required: false
       - in: query
-        name: DF_Chantier_DF_Client_id__defiClientNom
-        description: Search filter for Nom Client
+        name: defiAfrDateDebut
+        description: Search filter for Date début
         type: string
         required: false
       - in: query
         name: DF_Affaire_DF_Contact_id__defiContactNom
         description: Search filter for Nom Contacts
+        type: string
+        required: false
+      - in: query
+        name: DF_Chantier_DF_Client_id__defiClientNom
+        description: Search filter for Nom Client
         type: string
         required: false
       - in: query
@@ -141,13 +141,13 @@ paths:
         type: string
         required: false
         enum:
+        - AR
         - MO
         - MDO
-        - AR
         - ATPG
         - T
-        - ATP
         - V
+        - ATP
         - N
         - EA
         - P
@@ -762,11 +762,6 @@ paths:
         type: boolean
         required: false
       - in: query
-        name: defiPrdId
-        description: Search filter for Id Produit
-        type: string
-        required: false
-      - in: query
         name: defiPrdCategoriePrix
         description: Search filter for Catégorie Prix
         type: string
@@ -774,6 +769,11 @@ paths:
         enum:
         - '2'
         - '1'
+      - in: query
+        name: defiPrdId
+        description: Search filter for Id Produit
+        type: string
+        required: false
       - in: query
         name: defiPrdTypeGeologique
         description: Search filter for Type Géologique
@@ -2124,13 +2124,13 @@ paths:
         type: boolean
         required: false
       - in: query
-        name: defiCommandeId
-        description: Search filter for Id Commande
+        name: defiCommandeNumero
+        description: Search filter for Numéro de Commande
         type: string
         required: false
       - in: query
-        name: defiCommandeNumero
-        description: Search filter for Numéro de Commande
+        name: defiCommandeId
+        description: Search filter for Id Commande
         type: string
         required: false
       - in: query
@@ -2154,6 +2154,11 @@ paths:
         type: string
         required: false
       - in: query
+        name: DF_Commande_DF_Client_id
+        description: Search filter for DF client
+        type: string
+        required: false
+      - in: query
         name: defiCommandeStatut
         description: Search filter for Statut Commande
         type: string
@@ -2164,11 +2169,6 @@ paths:
         - LI
         - TE
         - AN
-      - in: query
-        name: DF_Commande_DF_Client_id
-        description: Search filter for DF client
-        type: string
-        required: false
       - in: query
         name: DF_Commande_DF_Client_id__defiClientId
         description: Search filter for Id Client DF client
@@ -2215,14 +2215,14 @@ paths:
         type: number
         required: false
       - in: query
-        name: defiCommandeNombreCamions
-        description: Search filter for Nombre de camions
-        type: number
-        required: false
-      - in: query
         name: defiCommandeNomFournisseur
         description: Search filter for Nom Fournisseur
         type: string
+        required: false
+      - in: query
+        name: defiCommandeNombreCamions
+        description: Search filter for Nombre de camions
+        type: number
         required: false
       - in: query
         name: defiCommandeTransporteur
@@ -2296,6 +2296,44 @@ paths:
         required: false
       tags:
       - DF_Commande
+  /rest/DF_Devis/{row_id}/action:PDF:
+    get:
+      summary: Call a custom action for a DF_Devis business object record or for all
+        records
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-df_devis-action-pdf
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/ActionResult'
+          description: Success in calling the custom action
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      tags:
+      - DF_Devis
   /rest/DF_utilisateur_interne/{row_id}/publication:User-VCARD:
     get:
       summary: Call a custom publication for a DF_utilisateur_interne business object
@@ -3183,13 +3221,13 @@ paths:
         type: string
         required: false
       - in: query
-        name: defiDevisLieuProjet
-        description: Search filter for Ville Projet
+        name: defiDevisDateEmission
+        description: Search filter for Date Emission
         type: string
         required: false
       - in: query
-        name: defiDevisDateEmission
-        description: Search filter for Date Emission
+        name: defiDevisLieuProjet
+        description: Search filter for Ville Projet
         type: string
         required: false
       - in: query
@@ -3360,13 +3398,13 @@ paths:
         type: string
         required: false
       - in: query
-        name: DF_Devis_DF_Contact_id__defiContactEmail
-        description: Search filter for E-mail Contacts
+        name: defiDevisNumero
+        description: Search filter for Numéro de devis
         type: string
         required: false
       - in: query
-        name: defiDevisNumero
-        description: Search filter for Numéro de devis
+        name: DF_Devis_DF_Contact_id__defiContactEmail
+        description: Search filter for E-mail Contacts
         type: string
         required: false
       - in: query
@@ -4059,13 +4097,13 @@ paths:
         type: string
         required: false
         enum:
+        - AR
         - MO
         - MDO
-        - AR
         - ATPG
         - T
-        - ATP
         - V
+        - ATP
         - N
         - EA
         - P
@@ -5401,13 +5439,13 @@ paths:
         type: string
         required: false
       - in: query
-        name: defiLigneDevisRow
-        description: Search filter for defi ligne devis row
+        name: defiLigneDevisNPrix
+        description: Search filter for N° de prix
         type: string
         required: false
       - in: query
-        name: defiLigneDevisNPrix
-        description: Search filter for N° de prix
+        name: defiLigneDevisRow
+        description: Search filter for defi ligne devis row
         type: string
         required: false
       - in: query
@@ -5964,13 +6002,13 @@ definitions:
         description: Secteur Activité Client
         type: string
         enum:
+        - AR
         - MO
         - MDO
-        - AR
         - ATPG
         - T
-        - ATP
         - V
+        - ATP
         - N
         - EA
         - P
@@ -6768,13 +6806,13 @@ definitions:
         description: Secteur Activité
         type: string
         enum:
+        - AR
         - MO
         - MDO
-        - AR
         - ATPG
         - T
-        - ATP
         - V
+        - ATP
         - N
         - EA
         - P
