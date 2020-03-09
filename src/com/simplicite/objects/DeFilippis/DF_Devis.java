@@ -2,12 +2,21 @@ package com.simplicite.objects.DeFilippis;
 
 import java.io.ByteArrayOutputStream;
 import com.simplicite.util.PrintTemplate;
-
-import com.lowagie.text.Document;
+import org.json.JSONObject;
+//import com.lowagie.text.Document;
 import com.lowagie.text.Image;
 import com.lowagie.text.Paragraph;
 import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
+
+import org.jsoup.Jsoup;
+import org.jsoup.helper.Validate;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+import java.io.IOException;
+
+
 
 import java.util.*;
 import java.util.Date;
@@ -357,14 +366,41 @@ public class DF_Devis extends ObjectDB {
 			"{'rows_l':"+o.toJSON(o.search(), null, false, false)+"}"
 			));
 		}
+	    //return "<html><head><meta charset=\"utf-8\"></head><h1>Defilippis / Docker Compose / wkhtml2pdf</h1><p>...by Simplicité</p></html>";
+		return wp.getHTML();
 	
-		
-
-		
-	    
-		return wp.toString();
 	}
 	
+	public byte[] pubPdf(){
+		String url = "http://wkhtml2pdf/";
+		String user = null;
+		String password = null;
+		/*
+		try {
+			String plainText= Jsoup.parse(pubDevis()).text();
+		}
+		catch(IOException e) {
+			  e.printStackTrace();
+		}*/
+		
+		//String plainText= Jsoup.parse(pubDevis()).text();
+		//AppLog.info(getClass(), "PRINT DEVIS------------------", "message"+plainText, getGrant());
+
+		
+		JSONObject postData = new JSONObject();
+		postData.put("contents", Tool.toBase64(pubDevis()));
+		AppLog.info(getClass(), "PRINT DEVIS------------------", "message"+pubDevis(), getGrant());
+		String[] headers = {"Content-Type:application/json"};
+		String encoding = Globals.BINARY;
+		byte[] pdf = null;
+		
+		try{
+			pdf = Tool.readUrlAsByteArray(url, user, password, postData.toString(), headers, encoding);
+		}catch(Exception e){
+			AppLog.error(getClass(), "pubPdf", "------------", e, getGrant());
+		}
+		return pdf;
+	}
 	
 	/**
 	 * Order receipt publication as PDF

@@ -78,7 +78,7 @@ public class DF_Ligne_Devis extends ObjectDB {
 		double ep = getField("defiLigneDevisEpaisseur").getDouble(0);
 		int qte = getField("defiLigneDevisQuantite").getInt(0);
 		double dim_joint = getField("defiLigneDevisDimensionJoints").getDouble(0);
-		double ptr = getField("defiLigneDevisPrixTransportReference").getDouble(0);
+		double ptr = getField("DF_Ligne_Devis_DF_Prix_Transport_id.defiPrTrspPrix").getDouble(0);
 		double prc = getField("defiLigneDevisPrixUnitaireHT").getDouble(0);
 		
 		// designation ligne devis

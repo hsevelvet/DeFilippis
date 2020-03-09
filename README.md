@@ -44,7 +44,6 @@
 | _Ref. `DF_Chantier_DF_Client_id.defiClientAdresse`_          | _char(32)_                               |          |           |          | -                                                                                |
 | _Ref. `DF_Chantier_DF_Client_id.defiClientRegion`_           | _char(32)_                               |          |           |          | -                                                                                |
 | `DF_Chantier_DF_Plan_Livraison_id` link to **`DF_Quantite`** | id                                       |          | yes       |          | -                                                                                |
-| _Ref. `DF_Chantier_DF_Plan_Livraison_id.df_plan_lvr_id`_     | _int(11)_                                |          |           |          | -                                                                                |
 | `defiAfrCoefficientVenteInitial`                             | float(4, 2)                              | yes      | yes       |          | -                                                                                |
 | `defiAfrMontantInitialCommandeHT`                            | float(9, 0)                              | yes      | yes       |          | -                                                                                |
 | `DF_Affaire_DF_utilisateur_interne_id` link to **`DF_utilisateur_interne`** | id                                       |          | yes       |          | -                                                                                |
@@ -327,6 +326,7 @@ Objet metier pour devis.
 ### Custom actions
 
 * `Initialisation-Commande`: 
+* `PDF`: 
 * `versionner-devis`: 
 
 `DF_Fournisseurs` business object definition
@@ -383,9 +383,10 @@ Objet métier pour fournisseur.
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
 | `defiLigneDevisRow`                                          | char(10)                                 |          |           |          | -                                                                                |
 | `defiLigneDevisNPrix`                                        | char(10)                                 | yes      | yes       |          | -                                                                                |
-| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdAppellationCommerciale`_ | _char(70)_                               |          |           |          | -                                                                                |
+| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdAppellationCommerciale`_ | _char(200)_                              |          |           |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdTypeProduit`_ | _enum(7) using `DEFIPRDTYPEPRODUIT` list_ |          |           |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdCategoriePrix`_ | _enum(7) using `DEFIPRDCATEGORIEPRIX` list_ |          |           |          | -                                                                                |
+| `defiLigneDevisPrixTransportReference`                       | float(9, 2)                              | yes      | yes       |          | -                                                                                |
 | `defiLigneDevisId`                                           | char(11)                                 | yes*     | yes       |          | -                                                                                |
 | `defiLigneDevisQuantite`                                     | int(11)                                  | yes      | yes       |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdTypeProduit`_ | _enum(7) using `DEFIPRDTYPEPRODUIT` list_ |          |           |          | -                                                                                |
@@ -396,7 +397,6 @@ Objet métier pour fournisseur.
 | _Ref. `DF_Ligne_Devis_DF_Devis_id.defiDevisTitre`_           | _char(100)_                              |          |           |          | -                                                                                |
 | `defiLigneDevisDimensionJoints`                              | float(4, 2)                              | yes      | yes       |          | -                                                                                |
 | `defiLigneDevisPoidsTotal`                                   | float(9, 2)                              |          | yes       |          | -                                                                                |
-| `defiLigneDevisPrixTransportReference`                       | float(9, 2)                              | yes      | yes       |          | -                                                                                |
 | `defiLigneDevisNombreCamions`                                | float(9, 2)                              |          | yes       |          | -                                                                                |
 | `defiLigneDevisMasseUnitaireAcJoints`                        | float(8, 2)                              |          | yes       |          | -                                                                                |
 | `defiLigneDevisMasseUnitaireSsJoints`                        | float(8, 2)                              |          | yes       |          | -                                                                                |
@@ -435,6 +435,9 @@ Objet métier pour fournisseur.
 | `defiLigneDevisNomProduit`                                   | char(30)                                 |          | yes       |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdUnite`_     | _enum(7) using `DEFIPRDUNITE` list_      |          |           |          | -                                                                                |
 | `defiLigneDevisPrixVenteImpose`                              | bigdec(15, 2)                            |          | yes       |          | -                                                                                |
+| `DF_Ligne_Devis_DF_Prix_Transport_id` link to **`DF_Prix_Transport`** | id                                       |          | yes       |          | -                                                                                |
+| _Ref. `DF_Ligne_Devis_DF_Prix_Transport_id.defiPrTspId`_     | _char(11)_                               |          |           |          | -                                                                                |
+| _Ref. `DF_Ligne_Devis_DF_Prix_Transport_id.defiPrTrspPrix`_  | _float(9, 2)_                            |          |           |          | -                                                                                |
 
 ### Lists
 
@@ -537,7 +540,7 @@ Objet metier pour produit.
 | `defiPrdCategoriePrix`                                       | enum(7) using `DEFIPRDCATEGORIEPRIX` list | yes      | yes       |          | -                                                                                |
 | `defiPrdTypeGeologique`                                      | enum(7) using `DEFIPRDTYPEGEOLOGIQUE` list | yes      | yes       |          | -                                                                                |
 | `defiPrdCouleur`                                             | multi(100) using `DF_PRODUIT_COULEUR` list |          | yes       |          | -                                                                                |
-| `defiPrdAppellationCommerciale`                              | char(70)                                 |          | yes       |          | -                                                                                |
+| `defiPrdAppellationCommerciale`                              | char(200)                                |          | yes       |          | -                                                                                |
 | `defiPrdTypeProduit`                                         | enum(7) using `DEFIPRDTYPEPRODUIT` list  |          | yes       |          | -                                                                                |
 | `defiPrdFinitionFacesVues`                                   | char(70)                                 |          | yes       |          | -                                                                                |
 | `defiPrdAutresFinitions`                                     | char(70)                                 |          | yes       |          | -                                                                                |

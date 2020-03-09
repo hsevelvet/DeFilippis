@@ -15,7 +15,7 @@ sourceSets {
 
 repositories {
     maven {
-        url = 'http://52.59.252.7/maven'
+        url = 'http://3.124.190.251/maven'
     }
     mavenCentral()
 }
