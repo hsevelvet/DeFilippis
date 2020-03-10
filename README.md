@@ -124,6 +124,7 @@ objet metier pour commande.
 
 | Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
+| _Ref. `DF_Commande_DF_Affaire_id.defiAfrLibelleChantier`_    | _char(36)_                               |          |           |          | -                                                                                |
 | `defiCommandeId`                                             | char(50)                                 | yes*     | yes       |          | -                                                                                |
 | `defiCommandeNumero`                                         | char(32)                                 | yes      | yes       |          | -                                                                                |
 | `defiCommandeIdLivraison`                                    | int(11)                                  |          | yes       |          | -                                                                                |

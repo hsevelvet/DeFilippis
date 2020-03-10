@@ -142,16 +142,16 @@ paths:
         required: false
         enum:
         - AR
-        - MO
         - MDO
+        - MO
         - ATPG
         - T
-        - V
         - ATP
+        - V
         - N
         - EA
-        - P
         - A
+        - P
       - in: query
         name: DF_Chantier_DF_Client_id__defiClientAdresse
         description: Search filter for Adresse Client
@@ -2119,8 +2119,8 @@ paths:
         type: boolean
         required: false
       - in: query
-        name: defiCommandeNumero
-        description: Search filter for Numéro de Commande
+        name: DF_Commande_DF_Affaire_id__defiAfrLibelleChantier
+        description: Search filter for Titre Affaire
         type: string
         required: false
       - in: query
@@ -2129,14 +2129,19 @@ paths:
         type: string
         required: false
       - in: query
-        name: defiCommandeIntituleAffaire
-        description: Search filter for Titre Affaire
+        name: defiCommandeNumero
+        description: Search filter for Numéro de Commande
         type: string
         required: false
       - in: query
         name: defiCommandeIdLivraison
         description: Search filter for Id Livraison
         type: integer
+        required: false
+      - in: query
+        name: defiCommandeIntituleAffaire
+        description: Search filter for Titre Affaire
+        type: string
         required: false
       - in: query
         name: defiCommandeLieuAffaire
@@ -2146,11 +2151,6 @@ paths:
       - in: query
         name: defiCommandeIntituleCommande
         description: Search filter for Intitulé de commande
-        type: string
-        required: false
-      - in: query
-        name: DF_Commande_DF_Client_id
-        description: Search filter for DF client
         type: string
         required: false
       - in: query
@@ -2164,6 +2164,11 @@ paths:
         - LI
         - TE
         - AN
+      - in: query
+        name: DF_Commande_DF_Client_id
+        description: Search filter for DF client
+        type: string
+        required: false
       - in: query
         name: DF_Commande_DF_Client_id__defiClientId
         description: Search filter for Id Client DF client
@@ -2210,14 +2215,14 @@ paths:
         type: number
         required: false
       - in: query
-        name: defiCommandeNomFournisseur
-        description: Search filter for Nom Fournisseur
-        type: string
-        required: false
-      - in: query
         name: defiCommandeNombreCamions
         description: Search filter for Nombre de camions
         type: number
+        required: false
+      - in: query
+        name: defiCommandeNomFournisseur
+        description: Search filter for Nom Fournisseur
+        type: string
         required: false
       - in: query
         name: defiCommandeTransporteur
@@ -6010,16 +6015,16 @@ definitions:
         type: string
         enum:
         - AR
-        - MO
         - MDO
+        - MO
         - ATPG
         - T
-        - V
         - ATP
+        - V
         - N
         - EA
-        - P
         - A
+        - P
       DF_Affaire_DF_utilisateur_interne_id__defiUsrNomComplet:
         description: Nom Complet DF affaire DF utilisateur interne id
         type: string
@@ -6337,6 +6342,9 @@ definitions:
         type: object
       defiCommandeTransporteur:
         description: Transporteur
+        type: string
+      DF_Commande_DF_Affaire_id__defiAfrLibelleChantier:
+        description: Titre Affaire
         type: string
       DF_Commande_DF_utilisateur_interne_id:
         description: Rédacteur

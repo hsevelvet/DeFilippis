@@ -127,16 +127,16 @@ components:
           type: string
           enum:
           - AR
-          - MO
           - MDO
+          - MO
           - ATPG
           - T
-          - V
           - ATP
+          - V
           - N
           - EA
-          - P
           - A
+          - P
         DF_Affaire_DF_utilisateur_interne_id__defiUsrNomComplet:
           description: Nom Complet DF affaire DF utilisateur interne id
           type: string
@@ -454,6 +454,9 @@ components:
           type: object
         defiCommandeTransporteur:
           description: Transporteur
+          type: string
+        DF_Commande_DF_Affaire_id__defiAfrLibelleChantier:
+          description: Titre Affaire
           type: string
         DF_Commande_DF_utilisateur_interne_id:
           description: Rédacteur
@@ -2148,16 +2151,16 @@ paths:
           type: string
           enum:
           - AR
-          - MO
           - MDO
+          - MO
           - ATPG
           - T
-          - V
           - ATP
+          - V
           - N
           - EA
-          - P
           - A
+          - P
         in: query
         name: DF_Chantier_DF_Client_id__defiClientIdSecteurActivite
         description: Search filter for Secteur Activité Client
@@ -4513,8 +4516,8 @@ paths:
       - schema:
           type: string
         in: query
-        name: defiCommandeNumero
-        description: Search filter for Numéro de Commande
+        name: DF_Commande_DF_Affaire_id__defiAfrLibelleChantier
+        description: Search filter for Titre Affaire
         required: false
       - schema:
           type: string
@@ -4525,14 +4528,20 @@ paths:
       - schema:
           type: string
         in: query
-        name: defiCommandeIntituleAffaire
-        description: Search filter for Titre Affaire
+        name: defiCommandeNumero
+        description: Search filter for Numéro de Commande
         required: false
       - schema:
           type: integer
         in: query
         name: defiCommandeIdLivraison
         description: Search filter for Id Livraison
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: defiCommandeIntituleAffaire
+        description: Search filter for Titre Affaire
         required: false
       - schema:
           type: string
@@ -4548,12 +4557,6 @@ paths:
         required: false
       - schema:
           type: string
-        in: query
-        name: DF_Commande_DF_Client_id
-        description: Search filter for DF client
-        required: false
-      - schema:
-          type: string
           enum:
           - IN
           - EC
@@ -4563,6 +4566,12 @@ paths:
         in: query
         name: defiCommandeStatut
         description: Search filter for Statut Commande
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Commande_DF_Client_id
+        description: Search filter for DF client
         required: false
       - schema:
           type: string
@@ -4619,16 +4628,16 @@ paths:
         description: Search filter for Poids Total (T)
         required: false
       - schema:
-          type: string
-        in: query
-        name: defiCommandeNomFournisseur
-        description: Search filter for Nom Fournisseur
-        required: false
-      - schema:
           type: number
         in: query
         name: defiCommandeNombreCamions
         description: Search filter for Nombre de camions
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: defiCommandeNomFournisseur
+        description: Search filter for Nom Fournisseur
         required: false
       - schema:
           type: string

@@ -63,6 +63,18 @@ public class DF_Devis extends ObjectDB {
 	    }
 	    return daysWithoutSunday-w1+w2;
 	}
+	
+	
+	
+	
+	@Override
+	public void initCreate() {
+		Date date = new Date();
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(date);
+		cal.add(Calendar.MONTH,3);
+		setFieldValue("defiDevisDateValiditeOffre",cal.getTime());
+	}
 
 	@Override
 	public void initUpdate() {
