@@ -315,7 +315,7 @@ components:
           type: number
         DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdLargeur:
           description: Largeur (cm)
-          type: number
+          type: string
         defiLigneDevisPrixTransportReference:
           description: Prix Transport Référence
           type: number
@@ -372,16 +372,16 @@ components:
           type: number
         defiLigneDevisLargeur:
           description: Largeur (cm)
-          type: number
+          type: string
         row_id:
           description: Unique technical row ID
           type: string
         defiLigneDevisLongueur:
           description: Longueur (cm)
-          type: number
+          type: string
         DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdLongueur:
           description: Longueur (cm)
-          type: number
+          type: string
         defiLigneDevisMasseUnitaireSsJoints:
           description: Masse Unitaire sans Joints (kg/unité)
           type: number
@@ -1047,7 +1047,7 @@ components:
           type: string
         defiPrdLongueur:
           description: Longueur
-          type: number
+          type: string
         df_produit_commentaire:
           description: Commentaire
           type: string
@@ -1059,7 +1059,7 @@ components:
           - '1'
         defiPrdLargeur:
           description: Largeur
-          type: number
+          type: string
         defiPrdMasseVolumique:
           description: Masse Volumique
           type: string
@@ -2970,7 +2970,7 @@ paths:
         description: Search filter for Autres finitions
         required: false
       - schema:
-          type: number
+          type: string
         in: query
         name: defiPrdLongueur
         description: Search filter for Longueur
@@ -2982,7 +2982,7 @@ paths:
         description: Search filter for Commentaire
         required: false
       - schema:
-          type: number
+          type: string
         in: query
         name: defiPrdLargeur
         description: Search filter for Largeur
@@ -8571,13 +8571,13 @@ paths:
         description: Search filter for Type Géologique
         required: false
       - schema:
-          type: number
+          type: string
         in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdLongueur
         description: Search filter for Longueur (cm)
         required: false
       - schema:
-          type: number
+          type: string
         in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdLargeur
         description: Search filter for Largeur (cm)
@@ -8606,7 +8606,7 @@ paths:
         description: Search filter for Prix unitaire HT
         required: false
       - schema:
-          type: number
+          type: string
         in: query
         name: defiLigneDevisLongueur
         description: Search filter for Longueur (cm)
@@ -8630,7 +8630,7 @@ paths:
         description: Search filter for Nombre de rangs
         required: false
       - schema:
-          type: number
+          type: string
         in: query
         name: defiLigneDevisLargeur
         description: Search filter for Largeur (cm)

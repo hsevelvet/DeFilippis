@@ -835,7 +835,7 @@ paths:
       - in: query
         name: defiPrdLongueur
         description: Search filter for Longueur
-        type: number
+        type: string
         required: false
       - in: query
         name: df_produit_commentaire
@@ -845,7 +845,7 @@ paths:
       - in: query
         name: defiPrdLargeur
         description: Search filter for Largeur
-        type: number
+        type: string
         required: false
       - in: query
         name: defiPrdEpaisseur
@@ -5626,12 +5626,12 @@ paths:
       - in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdLongueur
         description: Search filter for Longueur (cm)
-        type: number
+        type: string
         required: false
       - in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdLargeur
         description: Search filter for Largeur (cm)
-        type: number
+        type: string
         required: false
       - in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdEpaisseur
@@ -5656,7 +5656,7 @@ paths:
       - in: query
         name: defiLigneDevisLongueur
         description: Search filter for Longueur (cm)
-        type: number
+        type: string
         required: false
       - in: query
         name: defiLigneDevisPrixVenteImpose
@@ -5676,7 +5676,7 @@ paths:
       - in: query
         name: defiLigneDevisLargeur
         description: Search filter for Largeur (cm)
-        type: number
+        type: string
         required: false
       - in: query
         name: defiLigneDevisConversionUnite
@@ -6208,7 +6208,7 @@ definitions:
         type: number
       DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdLargeur:
         description: Largeur (cm)
-        type: number
+        type: string
       defiLigneDevisPrixTransportReference:
         description: Prix Transport Référence
         type: number
@@ -6265,16 +6265,16 @@ definitions:
         type: number
       defiLigneDevisLargeur:
         description: Largeur (cm)
-        type: number
+        type: string
       row_id:
         description: Unique technical row ID
         type: string
       defiLigneDevisLongueur:
         description: Longueur (cm)
-        type: number
+        type: string
       DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdLongueur:
         description: Longueur (cm)
-        type: number
+        type: string
       defiLigneDevisMasseUnitaireSsJoints:
         description: Masse Unitaire sans Joints (kg/unité)
         type: number
@@ -6940,7 +6940,7 @@ definitions:
         type: string
       defiPrdLongueur:
         description: Longueur
-        type: number
+        type: string
       df_produit_commentaire:
         description: Commentaire
         type: string
@@ -6952,7 +6952,7 @@ definitions:
         - '1'
       defiPrdLargeur:
         description: Largeur
-        type: number
+        type: string
       defiPrdMasseVolumique:
         description: Masse Volumique
         type: string
