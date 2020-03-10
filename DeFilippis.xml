@@ -15,7 +15,7 @@
 		"password": "HsenoussiV2019"
 	}
 }]]></mdl_url>
-		<mdl_lastupd>2020-03-09 14:24:45</mdl_lastupd>
+		<mdl_lastupd>2020-03-10 10:26:17</mdl_lastupd>
 		<mdl_comment/>
 	</data>
 </object>
@@ -214,7 +214,7 @@
 		<usr_extra>1</usr_extra>
 		<usr_subhead>1</usr_subhead>
 		<usr_logout/>
-		<usr_last_logon>2020-03-05 08:57:18</usr_last_logon>
+		<usr_last_logon>2020-03-09 13:21:41</usr_last_logon>
 		<usr_dateformat/>
 		<usr_uuid/>
 	</data>
@@ -282,7 +282,7 @@
 		<usr_extra>1</usr_extra>
 		<usr_subhead>1</usr_subhead>
 		<usr_logout>2020-02-24 13:26:14</usr_logout>
-		<usr_last_logon>2020-02-26 09:22:28</usr_last_logon>
+		<usr_last_logon>2020-03-09 13:22:13</usr_last_logon>
 		<usr_dateformat/>
 		<usr_uuid/>
 	</data>
@@ -350,7 +350,7 @@
 		<usr_extra>1</usr_extra>
 		<usr_subhead>1</usr_subhead>
 		<usr_logout>2020-01-29 23:26:19</usr_logout>
-		<usr_last_logon>2020-02-04 07:55:49</usr_last_logon>
+		<usr_last_logon>2020-03-09 13:22:43</usr_last_logon>
 		<usr_dateformat/>
 		<usr_uuid/>
 	</data>
@@ -384,7 +384,7 @@
 		<usr_extra>1</usr_extra>
 		<usr_subhead>1</usr_subhead>
 		<usr_logout>2020-02-24 13:31:38</usr_logout>
-		<usr_last_logon>2020-03-04 15:23:38</usr_last_logon>
+		<usr_last_logon>2020-03-10 07:26:02</usr_last_logon>
 		<usr_dateformat/>
 		<usr_uuid/>
 	</data>
@@ -452,7 +452,7 @@
 		<usr_extra>1</usr_extra>
 		<usr_subhead>1</usr_subhead>
 		<usr_logout>2020-02-03 15:57:29</usr_logout>
-		<usr_last_logon>2020-03-10 10:09:52</usr_last_logon>
+		<usr_last_logon>2020-03-10 10:24:40</usr_last_logon>
 		<usr_dateformat/>
 		<usr_uuid/>
 	</data>
@@ -520,7 +520,7 @@
 		<usr_extra>1</usr_extra>
 		<usr_subhead>1</usr_subhead>
 		<usr_logout>2020-02-24 13:28:09</usr_logout>
-		<usr_last_logon>2020-03-05 09:46:34</usr_last_logon>
+		<usr_last_logon>2020-03-09 16:06:13</usr_last_logon>
 		<usr_dateformat/>
 		<usr_uuid/>
 	</data>
@@ -554,7 +554,7 @@
 		<usr_extra>1</usr_extra>
 		<usr_subhead>1</usr_subhead>
 		<usr_logout/>
-		<usr_last_logon>2020-02-24 13:23:38</usr_last_logon>
+		<usr_last_logon>2020-03-09 13:26:52</usr_last_logon>
 		<usr_dateformat/>
 		<usr_uuid/>
 	</data>
@@ -690,7 +690,7 @@
 		<usr_extra>1</usr_extra>
 		<usr_subhead>1</usr_subhead>
 		<usr_logout>2020-01-22 08:52:03</usr_logout>
-		<usr_last_logon>2020-02-24 13:29:38</usr_last_logon>
+		<usr_last_logon>2020-03-09 13:26:01</usr_last_logon>
 		<usr_dateformat/>
 		<usr_uuid/>
 	</data>
@@ -900,7 +900,7 @@
 	<data>
 		<usp_user_id.usr_login>designer</usp_user_id.usr_login>
 		<usp_param_id.sys_code>UI_EDITOR_PREFS</usp_param_id.sys_code>
-		<usp_value><![CDATA[{"explore":[{"module":"DeFilippis","id":"38","items":[{"field":"obo_script_id","label":"Objet métier","list":[{"docId":"2567","id":"2000","label":"DF_Affaire"},{"docId":"2568","id":"2001","label":"DF_Client"},{"docId":"2569","id":"2002","label":"DF_Commande"},{"docId":"2570","id":"2003","label":"DF_Contact"},{"docId":"2571","id":"2004","label":"DF_Devis"},{"docId":"2572","id":"2007","label":"DF_Ligne_Devis"},{"docId":"2573","id":"2008","label":"DF_Livraison"},{"docId":"2574","id":"2011","label":"DF_Produit_Finis"},{"docId":"2575","id":"2009","label":"DF_Quantite"},{"docId":"2576","id":"2013","label":"DF_Transport"}],"open":true,"object":"ObjectInternal"},{"field":"obe_script_id","label":"Objet externe","list":[{"docId":"2565","id":"1998","label":"Test"},{"docId":"2566","id":"1999","label":"WebhookLivraisonTrello"}],"open":true,"object":"ObjectExternal"},{"field":"pcs_script_id","label":"Processus métier","list":[{"docId":"2577","id":"9","label":"DF_Process_01"}],"open":true,"object":"BPMProcess"},{"field":"res_file","label":"Ressource","list":[{"docId":"2579","id":"256","label":"Objet métier/DF_Devis * DF_Devis_HTML"},{"docId":"2477","id":"257","label":"Objet métier/DF_Ligne_Devis * SCRIPT"}],"open":true,"object":"Resource"}],"open":true},{"module":"SimStore","id":"37","items":[{"field":"obe_script_id","label":"Objet externe","list":[{"docId":"1937","id":"1988","label":"StoStore"}],"open":false,"object":"ObjectExternal"},{"field":"res_file","label":"Ressource","list":[{"docId":"1938","id":"251","label":"Objet externe/StoStore * TEMPLATE"},{"docId":"1939","id":"252","label":"Objet externe/StoStore * SCRIPT"}],"open":true,"object":"Resource"}],"open":true}],"tabs":[{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2004"},{"field":"obe_script_id","scope":"extobject","type":"java","object":"ObjectExternal","rowId":"1999"},{"field":"res_file","scope":"","type":"js","object":"Resource","rowId":"257"},{"field":"res_file","scope":"","type":"html","object":"Resource","rowId":"251"},{"field":"res_file","scope":"","type":"js","object":"Resource","rowId":"252"},{"field":"res_file","scope":"","type":"html","object":"Resource","rowId":"256"}],"selected":"ObjectInternal_obo_script_id_2004"}]]></usp_value>
+		<usp_value><![CDATA[{"explore":[{"module":"DeFilippis","id":"38","items":[{"field":"obo_script_id","label":"Objet métier","list":[{"docId":"2463","id":"2000","label":"DF_Affaire"},{"docId":"2464","id":"2001","label":"DF_Client"},{"docId":"2465","id":"2002","label":"DF_Commande"},{"docId":"2557","id":"2003","label":"DF_Contact"},{"docId":"2561","id":"2004","label":"DF_Devis"},{"docId":"2558","id":"2007","label":"DF_Ligne_Devis"},{"docId":"2469","id":"2008","label":"DF_Livraison"},{"docId":"2470","id":"2010","label":"DF_Produit_Finis"},{"docId":"2471","id":"2011","label":"DF_Quantite"},{"docId":"2472","id":"2013","label":"DF_Transport"}],"open":true,"object":"ObjectInternal"},{"field":"obe_script_id","label":"Objet externe","list":[{"docId":"2461","id":"1998","label":"Test"},{"docId":"2462","id":"1999","label":"WebhookLivraisonTrello"}],"open":true,"object":"ObjectExternal"},{"field":"pcs_script_id","label":"Processus métier","list":[{"docId":"2473","id":"9","label":"DF_Process_01"}],"open":true,"object":"BPMProcess"},{"field":"res_file","label":"Ressource","list":[{"docId":"2554","id":"256","label":"Objet métier/DF_Devis * DF_Devis_HTML"},{"docId":"2476","id":"257","label":"Objet métier/DF_Ligne_Devis * SCRIPT"}],"open":true,"object":"Resource"}],"open":true},{"module":"SimStore","id":"37","items":[{"field":"obe_script_id","label":"Objet externe","list":[{"docId":"1937","id":"1988","label":"StoStore"}],"open":false,"object":"ObjectExternal"},{"field":"res_file","label":"Ressource","list":[{"docId":"1938","id":"251","label":"Objet externe/StoStore * TEMPLATE"},{"docId":"1939","id":"252","label":"Objet externe/StoStore * SCRIPT"}],"open":true,"object":"Resource"}],"open":true}],"tabs":[{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2004"},{"field":"obe_script_id","scope":"extobject","type":"java","object":"ObjectExternal","rowId":"1999"},{"field":"res_file","scope":"","type":"js","object":"Resource","rowId":"257"},{"field":"res_file","scope":"","type":"html","object":"Resource","rowId":"251"},{"field":"res_file","scope":"","type":"js","object":"Resource","rowId":"252"},{"field":"res_file","scope":"","type":"html","object":"Resource","rowId":"256"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2003"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2007"}],"selected":"ObjectInternal_obo_script_id_2004"}]]></usp_value>
 		<usp_param_id.sys_type/>
 		<usp_param_id.sys_value><![CDATA[empty]]></usp_param_id.sys_value>
 		<usp_param_id.sys_desc/>
@@ -4256,7 +4256,7 @@ Tout accés alloués.]]></grp_comment>
 		<lov_code_id.lov_code>EI</lov_code_id.lov_code>
 		<lov_code_id.lov_order_by>10</lov_code_id.lov_order_by>
 		<lov_lang>FRA</lov_lang>
-		<lov_value><![CDATA[Emballage Inclu]]></lov_value>
+		<lov_value><![CDATA[Emballage Inclus]]></lov_value>
 		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
 	</data>
 	<data>
@@ -8221,7 +8221,7 @@ Tout accés alloués.]]></grp_comment>
 		<fld_minsize/>
 		<fld_precision/>
 		<fld_fromdate_id.fld_name/>
-		<fld_dfault/>
+		<fld_dfault><![CDATA[[VALUE: defiUsrNomComplet]]]></fld_dfault>
 		<fld_indexable>0</fld_indexable>
 		<fld_autocomp>0</fld_autocomp>
 		<fld_groupby>0</fld_groupby>
@@ -9049,7 +9049,7 @@ Tout accés alloués.]]></grp_comment>
 		<fld_minsize/>
 		<fld_precision>2</fld_precision>
 		<fld_fromdate_id.fld_name/>
-		<fld_dfault/>
+		<fld_dfault><![CDATA[1.20]]></fld_dfault>
 		<fld_indexable>0</fld_indexable>
 		<fld_autocomp>0</fld_autocomp>
 		<fld_groupby>0</fld_groupby>
@@ -9827,8 +9827,8 @@ Tout accés alloués.]]></grp_comment>
 		<fld_updatable>1</fld_updatable>
 		<fld_required>1</fld_required>
 		<fld_fonctid>0</fld_fonctid>
-		<fld_research>1</fld_research>
-		<fld_researchreq>0</fld_researchreq>
+		<fld_research/>
+		<fld_researchreq/>
 		<fld_sort>C</fld_sort>
 		<fld_more>0</fld_more>
 		<fld_listmore>0</fld_listmore>
@@ -10450,7 +10450,7 @@ Tout accés alloués.]]></grp_comment>
 		<fld_enumlist/>
 		<fld_list_id.lov_name/>
 		<fld_copy>1</fld_copy>
-		<fld_size>70</fld_size>
+		<fld_size>200</fld_size>
 		<fld_minsize/>
 		<fld_precision/>
 		<fld_fromdate_id.fld_name/>
@@ -12917,6 +12917,42 @@ Tout accés alloués.]]></grp_comment>
 		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
 	</data>
 	<data>
+		<fld_name>DF_Ligne_Devis_DF_Prix_Transport_id</fld_name>
+		<fld_dbname>df_ligne_devis_df_prix_transport_id</fld_dbname>
+		<fld_visible>3</fld_visible>
+		<fld_updatable>1</fld_updatable>
+		<fld_required>0</fld_required>
+		<fld_fonctid>0</fld_fonctid>
+		<fld_research/>
+		<fld_researchreq>0</fld_researchreq>
+		<fld_sort>C</fld_sort>
+		<fld_more>0</fld_more>
+		<fld_listmore>0</fld_listmore>
+		<fld_listsum/>
+		<fld_type>0</fld_type>
+		<fld_type_id.flt_code/>
+		<fld_enumlist/>
+		<fld_list_id.lov_name/>
+		<fld_copy>1</fld_copy>
+		<fld_size>11</fld_size>
+		<fld_minsize/>
+		<fld_precision/>
+		<fld_fromdate_id.fld_name/>
+		<fld_dfault/>
+		<fld_indexable>0</fld_indexable>
+		<fld_autocomp>0</fld_autocomp>
+		<fld_groupby>0</fld_groupby>
+		<fld_updall>1</fld_updall>
+		<fld_case/>
+		<fld_righttoleft>0</fld_righttoleft>
+		<fld_rendering/>
+		<fld_calc/>
+		<fld_objlist/>
+		<fld_comment/>
+		<fld_classification/>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
 		<fld_name>DF_Ligne_Devis_DF_Produit_Finis_id</fld_name>
 		<fld_dbname>df_ligne_devis_df_produit_finis_id</fld_dbname>
 		<fld_visible>3</fld_visible>
@@ -14785,7 +14821,7 @@ Tout accés alloués.]]></grp_comment>
       <div class="field" data-field="defiCommandeLieuAffaire"></div>
     </div>
     <div class="col-sm-3">
-      <div class="field" data-field="defiCommandeIntituleAffaire"></div>
+      <div class="field" data-field="DF_Commande_DF_Affaire_id__defiAfrLibelleChantier"></div>
     </div>
     <div class="col-sm-3">
       <div class="field" data-field="defiCommandeNumero"></div>
@@ -15043,6 +15079,7 @@ Tout accés alloués.]]></grp_comment>
   <div class="row">
     <div class="col-sm-6">
       <div class="field" data-field="defiDevisStatut"></div>
+      <div class="field" data-field="DF_Devis_DF_Chantier_id__defiAfrNumero"></div>
     </div>
     <div class="col-sm-6">
       <div class="field" data-field="defiDevisDateEmission"></div>
@@ -15293,23 +15330,13 @@ Tout accés alloués.]]></grp_comment>
 		<ofa_position>1</ofa_position>
 		<ofa_title>1</ofa_title>
 		<ofa_template/>
-		<ofa_ui><![CDATA[<div>
-  <div class="field" data-field="DF_Ligne_Devis_DF_Devis_id"></div>
-  <div class="row">
-    <div class="col-sm-4">
-      <div class="field" data-field="DF_Ligne_Devis_DF_Devis_id__defiDevisTitre"></div>
-      <div class="field" data-field="defiLigneDevisId"></div>
-    </div>
-    <div class="col-sm-8">
-      <div class="field" data-field="DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdId"></div>
-    </div>
+		<ofa_ui><![CDATA[<div class="row">
+  <div class="col-sm-3">
+    <div class="field" data-field="defiLigneDevisNPrix"></div>
   </div>
-  <div class="row">
-    <div class="col-sm-4"></div>
-    <div class="col-sm-4"></div>
-    <div class="col-sm-4"></div>
+  <div class="col-sm-9">
+    <div class="field" data-field="defiLigneDevisDesignation"></div>
   </div>
-  <div class="area" data-area="8:-"></div>
 </div>]]></ofa_ui>
 		<ofa_icon>star</ofa_icon>
 		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
@@ -15480,7 +15507,7 @@ Tout accés alloués.]]></grp_comment>
     <div class="field" data-field="defiLigneDevisPoidsTotal"></div>
   </div>
   <div class="col-sm-4">
-    <div class="field" data-field="defiLigneDevisPrixTransportReference"></div>
+    <div class="field" data-field="DF_Ligne_Devis_DF_Prix_Transport_id__defiPrTrspPrix"></div>
   </div>
   <div class="col-sm-4">
     <div class="field" data-field="defiLigneDevisNombreCamions"></div>
@@ -16855,7 +16882,7 @@ Objet metier pour produit.]]></obo_comment>
 		<obf_copy/>
 		<obf_ref_order/>
 		<obf_fld_visible/>
-		<obf_fld_required/>
+		<obf_fld_required>1</obf_fld_required>
 		<obf_fld_updatable/>
 		<obf_fld_research/>
 		<obf_fld_more/>
@@ -18227,6 +18254,35 @@ Objet metier pour produit.]]></obo_comment>
 		<obf_fld_dfault/>
 		<obf_field_id.fld_dfault/>
 		<obf_area_id.ofa_name>DF_Client-1</obf_area_id.ofa_name>
+		<obf_area_id.ofa_position>1</obf_area_id.ofa_position>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<obf_object_id.obo_name>DF_Commande</obf_object_id.obo_name>
+		<obf_field_id.fld_name>defiAfrLibelleChantier</obf_field_id.fld_name>
+		<obf_field_id.fld_type>3</obf_field_id.fld_type>
+		<obf_order>2</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name>DF_Commande_DF_Affaire_id</obf_ref_field_id.fld_name>
+		<obf_ref_object_id.obo_name>DF_Affaire</obf_ref_object_id.obo_name>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_visible>3</obf_fld_visible>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more>0</obf_fld_more>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_field_id.fld_dfault/>
+		<obf_area_id.ofa_name>DF_Commande-1</obf_area_id.ofa_name>
 		<obf_area_id.ofa_position>1</obf_area_id.ofa_position>
 		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
 	</data>
@@ -19812,7 +19868,7 @@ Objet metier pour produit.]]></obo_comment>
 		<obf_ref_export>1</obf_ref_export>
 		<obf_copy/>
 		<obf_ref_order/>
-		<obf_fld_visible>2</obf_fld_visible>
+		<obf_fld_visible>0</obf_fld_visible>
 		<obf_fld_required/>
 		<obf_fld_updatable>2</obf_fld_updatable>
 		<obf_fld_research/>
@@ -19872,7 +19928,7 @@ Objet metier pour produit.]]></obo_comment>
 		<obf_ref_order/>
 		<obf_fld_visible/>
 		<obf_fld_required/>
-		<obf_fld_updatable/>
+		<obf_fld_updatable>0</obf_fld_updatable>
 		<obf_fld_research/>
 		<obf_fld_more/>
 		<obf_fld_listmore/>
@@ -20044,8 +20100,8 @@ Objet metier pour produit.]]></obo_comment>
 		<obf_ref_export>1</obf_ref_export>
 		<obf_copy/>
 		<obf_ref_order/>
-		<obf_fld_visible>0</obf_fld_visible>
-		<obf_fld_required/>
+		<obf_fld_visible>2</obf_fld_visible>
+		<obf_fld_required>1</obf_fld_required>
 		<obf_fld_updatable/>
 		<obf_fld_research/>
 		<obf_fld_more>0</obf_fld_more>
@@ -20806,7 +20862,7 @@ Objet metier pour produit.]]></obo_comment>
 		<obf_fld_listmore/>
 		<obf_fld_researchreq/>
 		<obf_fld_dfault/>
-		<obf_field_id.fld_dfault/>
+		<obf_field_id.fld_dfault><![CDATA[[VALUE: defiUsrNomComplet]]]></obf_field_id.fld_dfault>
 		<obf_area_id.ofa_name>DF_Devis-1</obf_area_id.ofa_name>
 		<obf_area_id.ofa_position>1</obf_area_id.ofa_position>
 		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
@@ -21432,7 +21488,7 @@ Objet metier pour produit.]]></obo_comment>
 		<obf_ref_object_id.obo_name>DF_Produit_Finis</obf_ref_object_id.obo_name>
 		<obf_cascad>C</obf_cascad>
 		<obf_card>0,n</obf_card>
-		<obf_visible>1</obf_visible>
+		<obf_visible>0</obf_visible>
 		<obf_ref_export>1</obf_ref_export>
 		<obf_copy>0</obf_copy>
 		<obf_ref_order/>
@@ -21944,6 +22000,35 @@ Objet metier pour produit.]]></obo_comment>
 	</data>
 	<data>
 		<obf_object_id.obo_name>DF_Ligne_Devis</obf_object_id.obo_name>
+		<obf_field_id.fld_name>defiLigneDevisPrixTransportReference</obf_field_id.fld_name>
+		<obf_field_id.fld_type>2</obf_field_id.fld_type>
+		<obf_order>3</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name/>
+		<obf_ref_object_id.obo_name/>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_visible>0</obf_fld_visible>
+		<obf_fld_required/>
+		<obf_fld_updatable>1</obf_fld_updatable>
+		<obf_fld_research/>
+		<obf_fld_more/>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_field_id.fld_dfault/>
+		<obf_area_id.ofa_name>DF_Ligne_Devis-3</obf_area_id.ofa_name>
+		<obf_area_id.ofa_position>3</obf_area_id.ofa_position>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<obf_object_id.obo_name>DF_Ligne_Devis</obf_object_id.obo_name>
 		<obf_field_id.fld_name>defiLigneDevisId</obf_field_id.fld_name>
 		<obf_field_id.fld_type>3</obf_field_id.fld_type>
 		<obf_order>10</obf_order>
@@ -22190,9 +22275,9 @@ Objet metier pour produit.]]></obo_comment>
 		<obf_ref_export>1</obf_ref_export>
 		<obf_copy/>
 		<obf_ref_order/>
-		<obf_fld_visible/>
+		<obf_fld_visible>3</obf_fld_visible>
 		<obf_fld_required/>
-		<obf_fld_updatable/>
+		<obf_fld_updatable>1</obf_fld_updatable>
 		<obf_fld_research/>
 		<obf_fld_more/>
 		<obf_fld_listmore/>
@@ -22488,7 +22573,7 @@ Objet metier pour produit.]]></obo_comment>
 		<obf_fld_listmore/>
 		<obf_fld_researchreq/>
 		<obf_fld_dfault/>
-		<obf_field_id.fld_dfault/>
+		<obf_field_id.fld_dfault><![CDATA[1.20]]></obf_field_id.fld_dfault>
 		<obf_area_id.ofa_name>DF_Ligne_Devis-6</obf_area_id.ofa_name>
 		<obf_area_id.ofa_position>20</obf_area_id.ofa_position>
 		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
@@ -22657,7 +22742,7 @@ Objet metier pour produit.]]></obo_comment>
 		<obf_ref_order/>
 		<obf_fld_visible/>
 		<obf_fld_required/>
-		<obf_fld_updatable>0</obf_fld_updatable>
+		<obf_fld_updatable>1</obf_fld_updatable>
 		<obf_fld_research/>
 		<obf_fld_more/>
 		<obf_fld_listmore/>
@@ -22738,7 +22823,7 @@ Objet metier pour produit.]]></obo_comment>
 		<obf_ref_object_id.obo_name>DF_Produit_Finis</obf_ref_object_id.obo_name>
 		<obf_cascad>C</obf_cascad>
 		<obf_card>0,n</obf_card>
-		<obf_visible>1</obf_visible>
+		<obf_visible>0</obf_visible>
 		<obf_ref_export>1</obf_ref_export>
 		<obf_copy>0</obf_copy>
 		<obf_ref_order/>
@@ -23362,6 +23447,93 @@ Objet metier pour produit.]]></obo_comment>
 		<obf_field_id.fld_dfault/>
 		<obf_area_id.ofa_name>DF_Ligne_Devis-6</obf_area_id.ofa_name>
 		<obf_area_id.ofa_position>20</obf_area_id.ofa_position>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<obf_object_id.obo_name>DF_Ligne_Devis</obf_object_id.obo_name>
+		<obf_field_id.fld_name>DF_Ligne_Devis_DF_Prix_Transport_id</obf_field_id.fld_name>
+		<obf_field_id.fld_type>0</obf_field_id.fld_type>
+		<obf_order>3100</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name/>
+		<obf_ref_object_id.obo_name>DF_Prix_Transport</obf_ref_object_id.obo_name>
+		<obf_cascad>C</obf_cascad>
+		<obf_card>0,n</obf_card>
+		<obf_visible>1</obf_visible>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy>0</obf_copy>
+		<obf_ref_order/>
+		<obf_fld_visible/>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more/>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_field_id.fld_dfault/>
+		<obf_area_id.ofa_name>DF_Ligne_Devis-1</obf_area_id.ofa_name>
+		<obf_area_id.ofa_position>1</obf_area_id.ofa_position>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<obf_object_id.obo_name>DF_Ligne_Devis</obf_object_id.obo_name>
+		<obf_field_id.fld_name>defiPrTspId</obf_field_id.fld_name>
+		<obf_field_id.fld_type>3</obf_field_id.fld_type>
+		<obf_order>3110</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name>DF_Ligne_Devis_DF_Prix_Transport_id</obf_ref_field_id.fld_name>
+		<obf_ref_object_id.obo_name>DF_Prix_Transport</obf_ref_object_id.obo_name>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_visible/>
+		<obf_fld_required/>
+		<obf_fld_updatable/>
+		<obf_fld_research/>
+		<obf_fld_more/>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_field_id.fld_dfault><![CDATA[[EXPR:Tool.format("PT-%05d", Long.valueOf([ROWID]))]]]></obf_field_id.fld_dfault>
+		<obf_area_id.ofa_name>DF_Ligne_Devis-1</obf_area_id.ofa_name>
+		<obf_area_id.ofa_position>1</obf_area_id.ofa_position>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<obf_object_id.obo_name>DF_Ligne_Devis</obf_object_id.obo_name>
+		<obf_field_id.fld_name>defiPrTrspPrix</obf_field_id.fld_name>
+		<obf_field_id.fld_type>2</obf_field_id.fld_type>
+		<obf_order>3120</obf_order>
+		<obf_group_by/>
+		<obf_dfault_order/>
+		<obf_input/>
+		<obf_ref_field_id.fld_name>DF_Ligne_Devis_DF_Prix_Transport_id</obf_ref_field_id.fld_name>
+		<obf_ref_object_id.obo_name>DF_Prix_Transport</obf_ref_object_id.obo_name>
+		<obf_cascad/>
+		<obf_card/>
+		<obf_visible/>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy/>
+		<obf_ref_order/>
+		<obf_fld_visible>3</obf_fld_visible>
+		<obf_fld_required/>
+		<obf_fld_updatable>1</obf_fld_updatable>
+		<obf_fld_research/>
+		<obf_fld_more>0</obf_fld_more>
+		<obf_fld_listmore/>
+		<obf_fld_researchreq/>
+		<obf_fld_dfault/>
+		<obf_field_id.fld_dfault/>
+		<obf_area_id.ofa_name>DF_Ligne_Devis-3</obf_area_id.ofa_name>
+		<obf_area_id.ofa_position>3</obf_area_id.ofa_position>
 		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
 	</data>
 	<data>
@@ -25454,6 +25626,30 @@ Objet metier pour produit.]]></obo_comment>
 		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
 	</data>
 	<data>
+		<obf_ref_object_id.obo_name>DF_Prix_Transport</obf_ref_object_id.obo_name>
+		<obf_order>3100</obf_order>
+		<obf_ref_order/>
+		<obf_object_id.obj_name>DF_Ligne_Devis</obf_object_id.obj_name>
+		<obf_field_id.fld_name>DF_Ligne_Devis_DF_Prix_Transport_id</obf_field_id.fld_name>
+		<obf_field_id.fld_dbname>df_ligne_devis_df_prix_transport_id</obf_field_id.fld_dbname>
+		<obf_field_id.fld_updatable>1</obf_field_id.fld_updatable>
+		<obf_field_id.fld_required>0</obf_field_id.fld_required>
+		<obf_field_id.fld_fonctid>0</obf_field_id.fld_fonctid>
+		<obf_cascad>C</obf_cascad>
+		<obf_card>0,n</obf_card>
+		<obf_query/>
+		<obf_visible>1</obf_visible>
+		<obf_ref_export>1</obf_ref_export>
+		<obf_copy>0</obf_copy>
+		<obf_associate/>
+		<obf_inline>0</obf_inline>
+		<obf_rendering/>
+		<obf_treedepth/>
+		<obf_area_id.ofa_name>DF_Ligne_Devis-1</obf_area_id.ofa_name>
+		<obf_area_id.ofa_position>1</obf_area_id.ofa_position>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
 		<obf_ref_object_id.obo_name>DF_Produit_Finis</obf_ref_object_id.obo_name>
 		<obf_order>100</obf_order>
 		<obf_ref_order/>
@@ -25466,7 +25662,7 @@ Objet metier pour produit.]]></obo_comment>
 		<obf_cascad>C</obf_cascad>
 		<obf_card>0,n</obf_card>
 		<obf_query/>
-		<obf_visible>1</obf_visible>
+		<obf_visible>0</obf_visible>
 		<obf_ref_export>1</obf_ref_export>
 		<obf_copy>0</obf_copy>
 		<obf_associate/>
@@ -25490,7 +25686,7 @@ Objet metier pour produit.]]></obo_comment>
 		<obf_cascad>C</obf_cascad>
 		<obf_card>0,n</obf_card>
 		<obf_query/>
-		<obf_visible>1</obf_visible>
+		<obf_visible>0</obf_visible>
 		<obf_ref_export>1</obf_ref_export>
 		<obf_copy>0</obf_copy>
 		<obf_associate/>
@@ -27452,7 +27648,7 @@ Objet metier pour produit.]]></obo_comment>
 		<csi_target/>
 		<csi_objfield_id.obf_object_id.obo_name>DF_Ligne_Devis</csi_objfield_id.obf_object_id.obo_name>
 		<csi_objfield_id.obf_field_id.fld_name>defiLigneDevisPrixTransportReference</csi_objfield_id.obf_field_id.fld_name>
-		<csi_objfield_id.obf_order>370</csi_objfield_id.obf_order>
+		<csi_objfield_id.obf_order>3</csi_objfield_id.obf_order>
 		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
 	</data>
 	<data>
@@ -27467,7 +27663,7 @@ Objet metier pour produit.]]></obo_comment>
 		<csi_target/>
 		<csi_objfield_id.obf_object_id.obo_name>DF_Ligne_Devis</csi_objfield_id.obf_object_id.obo_name>
 		<csi_objfield_id.obf_field_id.fld_name>defiLigneDevisPrixTransportReference</csi_objfield_id.obf_field_id.fld_name>
-		<csi_objfield_id.obf_order>370</csi_objfield_id.obf_order>
+		<csi_objfield_id.obf_order>3</csi_objfield_id.obf_order>
 		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
 	</data>
 	<data>
@@ -29499,6 +29695,17 @@ Objet metier pour produit.]]></obo_comment>
 <object>
 	<name>DataMap</name>
 	<action>upsert</action>
+	<data>
+		<dtm_name>df_map_prix_transport</dtm_name>
+		<dtm_obf_id.obf_object_id.obo_name>DF_Ligne_Devis</dtm_obf_id.obf_object_id.obo_name>
+		<dtm_obf_id.obf_field_id.fld_name>defiLigneDevisPrixTransportReference</dtm_obf_id.obf_field_id.fld_name>
+		<dtm_obf_id.obf_order>3</dtm_obf_id.obf_order>
+		<dtm_type>3</dtm_type>
+		<dtm_obfmap_id.obf_object_id.obo_name>DF_Prix_Transport</dtm_obfmap_id.obf_object_id.obo_name>
+		<dtm_obfmap_id.obf_field_id.fld_name>defiPrTrspPrix</dtm_obfmap_id.obf_field_id.fld_name>
+		<dtm_obfmap_id.obf_order>140</dtm_obfmap_id.obf_order>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
 	<data>
 		<dtm_name>df_map_prix_transport</dtm_name>
 		<dtm_obf_id.obf_object_id.obo_name>DF_Ligne_Devis</dtm_obf_id.obf_object_id.obo_name>
@@ -32518,6 +32725,18 @@ Tout accés alloués.]]></vig_group_id.grp_comment>
 	</data>
 	<data>
 		<tsl_typeField>F</tsl_typeField>
+		<tsl_id.fld_name>DF_Ligne_Devis_DF_Prix_Transport_id</tsl_id.fld_name>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>DF prix transport</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+		<tsl_tooltip/>
+	</data>
+	<data>
+		<tsl_typeField>F</tsl_typeField>
 		<tsl_id.fld_name>DF_Ligne_Devis_DF_Produit_Finis_id</tsl_id.fld_name>
 		<tsl_lang>ENU</tsl_lang>
 		<tsl_value>DF produit finis</tsl_value>
@@ -33792,7 +34011,7 @@ Tout accés alloués.]]></vig_group_id.grp_comment>
 		<tsl_typeField>F</tsl_typeField>
 		<tsl_id.fld_name>defiContactTypeContact</tsl_id.fld_name>
 		<tsl_lang>FRA</tsl_lang>
-		<tsl_value>Tyoe Contact</tsl_value>
+		<tsl_value>Type Contact</tsl_value>
 		<tsl_simplehelp/>
 		<tsl_short_value/>
 		<tsl_placeholder/>
@@ -35674,6 +35893,18 @@ Tout accés alloués.]]></vig_group_id.grp_comment>
 	</data>
 	<data>
 		<tsl_typeField>F</tsl_typeField>
+		<tsl_id.fld_name>DF_Ligne_Devis_DF_Prix_Transport_id</tsl_id.fld_name>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>Prix Transport</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+		<tsl_tooltip/>
+	</data>
+	<data>
+		<tsl_typeField>F</tsl_typeField>
 		<tsl_id.fld_name>DF_Ligne_Devis_DF_Produit_Finis_id</tsl_id.fld_name>
 		<tsl_lang>FRA</tsl_lang>
 		<tsl_value>Produits Finis</tsl_value>
@@ -37423,6 +37654,19 @@ Tout accés alloués.]]></vig_group_id.grp_comment>
 	<data>
 		<tsl_typeObjectField>L</tsl_typeObjectField>
 		<tsl_id.obf_object_id.obo_name>DF_Commande</tsl_id.obf_object_id.obo_name>
+		<tsl_id.obf_field_id.fld_name>defiAfrLibelleChantier</tsl_id.obf_field_id.fld_name>
+		<tsl_id.obf_order>2</tsl_id.obf_order>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>Titre Affaire</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_short_value/>
+		<tsl_listhelp/>
+		<tsl_placeholder/>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_typeObjectField>L</tsl_typeObjectField>
+		<tsl_id.obf_object_id.obo_name>DF_Commande</tsl_id.obf_object_id.obo_name>
 		<tsl_id.obf_field_id.fld_name>defiUsrNomComplet</tsl_id.obf_field_id.fld_name>
 		<tsl_id.obf_order>210</tsl_id.obf_order>
 		<tsl_lang>FRA</tsl_lang>
@@ -37530,7 +37774,7 @@ Tout accés alloués.]]></vig_group_id.grp_comment>
 		<tsl_id.obf_field_id.fld_name>defiAfrNumero</tsl_id.obf_field_id.fld_name>
 		<tsl_id.obf_order>70</tsl_id.obf_order>
 		<tsl_lang>FRA</tsl_lang>
-		<tsl_value>Référence chantier</tsl_value>
+		<tsl_value>Référence Affaire</tsl_value>
 		<tsl_simplehelp/>
 		<tsl_short_value/>
 		<tsl_listhelp/>
@@ -37877,6 +38121,19 @@ Tout accés alloués.]]></vig_group_id.grp_comment>
 	</data>
 	<data>
 		<tsl_typeObjectField>L</tsl_typeObjectField>
+		<tsl_id.obf_object_id.obo_name>DF_Ligne_Devis</tsl_id.obf_object_id.obo_name>
+		<tsl_id.obf_field_id.fld_name>defiPrTrspPrix</tsl_id.obf_field_id.fld_name>
+		<tsl_id.obf_order>3120</tsl_id.obf_order>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>Prix Transport Référence</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_short_value/>
+		<tsl_listhelp/>
+		<tsl_placeholder/>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_typeObjectField>L</tsl_typeObjectField>
 		<tsl_id.obf_object_id.obo_name>DF_Prix_Transport</tsl_id.obf_object_id.obo_name>
 		<tsl_id.obf_field_id.fld_name>defiTrspNom</tsl_id.obf_field_id.fld_name>
 		<tsl_id.obf_order>120</tsl_id.obf_order>
@@ -38042,7 +38299,7 @@ Tout accés alloués.]]></vig_group_id.grp_comment>
 		<tsl_id.rch_name>DF_DEVIS_CH</tsl_id.rch_name>
 		<tsl_id.rch_user_id.usr_login>designer</tsl_id.rch_user_id.usr_login>
 		<tsl_id.rch_object_id.obo_name>DF_Devis</tsl_id.rch_object_id.obo_name>
-		<tsl_value>Devis en Relance</tsl_value>
+		<tsl_value>Devis en phase Travaux</tsl_value>
 		<tsl_lang>FRA</tsl_lang>
 		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
 	</data>
@@ -38051,7 +38308,7 @@ Tout accés alloués.]]></vig_group_id.grp_comment>
 		<tsl_id.rch_name>DF_DEVIS_EMISSION</tsl_id.rch_name>
 		<tsl_id.rch_user_id.usr_login>designer</tsl_id.rch_user_id.usr_login>
 		<tsl_id.rch_object_id.obo_name>DF_Devis</tsl_id.rch_object_id.obo_name>
-		<tsl_value>Date Devis &gt;45j</tsl_value>
+		<tsl_value>Devis à l'étude &gt; 45j</tsl_value>
 		<tsl_lang>FRA</tsl_lang>
 		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
 	</data>

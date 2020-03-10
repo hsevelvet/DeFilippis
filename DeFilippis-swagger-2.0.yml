@@ -508,7 +508,7 @@ paths:
         required: false
       - in: query
         name: defiContactTypeContact
-        description: Search filter for Tyoe Contact
+        description: Search filter for Type Contact
         type: string
         required: false
         enum:
@@ -2124,6 +2124,11 @@ paths:
         type: boolean
         required: false
       - in: query
+        name: DF_Commande_DF_Affaire_id__defiAfrLibelleChantier
+        description: Search filter for Titre Affaire
+        type: string
+        required: false
+      - in: query
         name: defiCommandeId
         description: Search filter for Id Commande
         type: string
@@ -2215,14 +2220,14 @@ paths:
         type: number
         required: false
       - in: query
-        name: defiCommandeNombreCamions
-        description: Search filter for Nombre de camions
-        type: number
-        required: false
-      - in: query
         name: defiCommandeNomFournisseur
         description: Search filter for Nom Fournisseur
         type: string
+        required: false
+      - in: query
+        name: defiCommandeNombreCamions
+        description: Search filter for Nombre de camions
+        type: number
         required: false
       - in: query
         name: defiCommandeTransporteur
@@ -3237,7 +3242,7 @@ paths:
         required: false
       - in: query
         name: DF_Devis_DF_Chantier_id__defiAfrNumero
-        description: Search filter for Référence chantier
+        description: Search filter for Référence Affaire
         type: string
         required: false
       - in: query
@@ -5434,11 +5439,6 @@ paths:
         type: boolean
         required: false
       - in: query
-        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdAppellationCommerciale
-        description: Search filter for Appellation Commerciale
-        type: string
-        required: false
-      - in: query
         name: defiLigneDevisRow
         description: Search filter for defi ligne devis row
         type: string
@@ -5449,6 +5449,11 @@ paths:
         type: string
         required: false
       - in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdAppellationCommerciale
+        description: Search filter for Appellation Commerciale
+        type: string
+        required: false
+      - in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdCategoriePrix
         description: Search filter for Catégorie Prix
         type: string
@@ -5456,6 +5461,11 @@ paths:
         enum:
         - '2'
         - '1'
+      - in: query
+        name: defiLigneDevisQuantite
+        description: Search filter for Quantité
+        type: integer
+        required: false
       - in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdTypeProduit
         description: Search filter for Type Produit
@@ -5470,19 +5480,14 @@ paths:
         - CANIVEAU
         - PIECE
       - in: query
+        name: defiLigneDevisPrixTransportReference
+        description: Search filter for Prix Transport Référence
+        type: number
+        required: false
+      - in: query
         name: defiLigneDevisId
         description: Search filter for Ligne Devis ID
         type: string
-        required: false
-      - in: query
-        name: defiLigneDevisQuantite
-        description: Search filter for Quantité
-        type: integer
-        required: false
-      - in: query
-        name: defiLigneDevisMasseVolumique
-        description: Search filter for Masse Volumique
-        type: number
         required: false
       - in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdFinitionFacesVues
@@ -5517,11 +5522,6 @@ paths:
       - in: query
         name: defiLigneDevisPoidsTotal
         description: Search filter for Poids Total (T)
-        type: number
-        required: false
-      - in: query
-        name: defiLigneDevisPrixTransportReference
-        description: Search filter for Prix Transport Référence
         type: number
         required: false
       - in: query
@@ -5702,9 +5702,29 @@ paths:
         type: string
         required: false
       - in: query
+        name: defiLigneDevisMasseVolumique
+        description: Search filter for Masse Volumique
+        type: number
+        required: false
+      - in: query
         name: defiLigneDevisNomProduit
         description: Search filter for Nom Produit
         type: string
+        required: false
+      - in: query
+        name: DF_Ligne_Devis_DF_Prix_Transport_id
+        description: Search filter for Prix Transport
+        type: string
+        required: false
+      - in: query
+        name: DF_Ligne_Devis_DF_Prix_Transport_id__defiPrTspId
+        description: Search filter for Id Prix Transport Prix Transport
+        type: string
+        required: false
+      - in: query
+        name: DF_Ligne_Devis_DF_Prix_Transport_id__defiPrTrspPrix
+        description: Search filter for Prix Transport Référence
+        type: number
         required: false
       tags:
       - DF_Ligne_Devis
@@ -6144,6 +6164,9 @@ definitions:
       defiLigneDevisQuantite:
         description: Quantité
         type: integer
+      DF_Ligne_Devis_DF_Prix_Transport_id__defiPrTrspPrix:
+        description: Prix Transport Référence
+        type: number
       defiLigneDevisId:
         description: Ligne Devis ID
         type: string
@@ -6159,6 +6182,9 @@ definitions:
         enum:
         - '2'
         - '1'
+      DF_Ligne_Devis_DF_Prix_Transport_id:
+        description: Prix Transport
+        type: string
       DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdFinitionFacesVues:
         description: Finition Faces Vues
         type: string
@@ -6168,14 +6194,17 @@ definitions:
       defiLigneDevisPrixVenteImpose:
         description: Prix Vente Total
         type: string
-      defiLigneDevisMasseVolumique:
-        description: Masse Volumique
-        type: number
+      DF_Ligne_Devis_DF_Prix_Transport_id__defiPrTspId:
+        description: Id Prix Transport Prix Transport
+        type: string
       defiLigneDevisUnite:
         description: Unité LigneD
         type: string
       defiLigneDevisEpaisseur:
         description: Epaisseur / Hauteur (cm)
+        type: number
+      defiLigneDevisMasseVolumique:
+        description: Masse Volumique
         type: number
       DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdLargeur:
         description: Largeur (cm)
@@ -6321,6 +6350,9 @@ definitions:
         type: object
       defiCommandeTransporteur:
         description: Transporteur
+        type: string
+      DF_Commande_DF_Affaire_id__defiAfrLibelleChantier:
+        description: Titre Affaire
         type: string
       DF_Commande_DF_utilisateur_interne_id:
         description: Rédacteur
@@ -6726,7 +6758,7 @@ definitions:
         - PE
         - VR
       DF_Devis_DF_Chantier_id__defiAfrNumero:
-        description: Référence chantier
+        description: Référence Affaire
         type: string
       DF_Devis_DF_Client_id__defiClientId:
         description: Id Client
@@ -6986,7 +7018,7 @@ definitions:
         description: Id Contact
         type: string
       defiContactTypeContact:
-        description: Tyoe Contact
+        description: Type Contact
         type: string
         enum:
         - '30'

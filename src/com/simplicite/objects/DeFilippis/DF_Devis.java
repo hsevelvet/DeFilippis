@@ -63,6 +63,18 @@ public class DF_Devis extends ObjectDB {
 	    }
 	    return daysWithoutSunday-w1+w2;
 	}
+	
+	
+	
+	
+	@Override
+	public void initCreate() {
+		Date date = new Date();
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(date);
+		cal.add(Calendar.MONTH,3);
+		setFieldValue("defiDevisDateValiditeOffre",cal.getTime());
+	}
 
 	@Override
 	public void initUpdate() {
@@ -336,39 +348,39 @@ public class DF_Devis extends ObjectDB {
 			true
 		);
 		
-	// Ajout de valeurs de Devis
+		// Ajout de valeurs de Devis
+	       
 	    ObjectDB d = getGrant().getTmpObject("DF_Devis");
+	    d.setFieldFilter("row_id",getRowId());
 	    
-// pourquoi faire une recherfche sur un row_id qui ne ramenera qu'une seule ligne, puis l'afficher le résultat dans un tableau ?
-// là il faut surement faire un select pour ramener les données de la base
-		d.setFieldFilter("row_id",getRowId());
-
-// trop tot, vous n'avez pas toutes vos données filles, ou alors utilisez 2 templates différents à concatener dans votre page
-/*	    
-		wp.append(MustacheTool.apply(
+	    AppLog.info(getClass(), "HSE_print", toJSON(d.search(), null, false, false), getGrant());
+	    
+		/*wp.append(MustacheTool.apply(
 			this,
 			"DF_Devis_HTML", 
 			"{'rows':"+toJSON(d.search(), null, false, false)+"}"
-		));
-*/	
-      // Ajout de valeurs de lignes Devis
+		));*/
 		
-		ObjectDB ld = getGrant().getTmpObject("DF_Ligne_Devis");
-		ld.resetFilters();
-		ld.setFieldFilter("DF_Ligne_Devis_DF_Devis_id",getRowId());
 		
-		List<String[]> rows_l = ld.search(false);
+		ObjectDB o = getGrant().getTmpObject("DF_Ligne_Devis");
+		//o.resetFilters();
+		o.setFieldFilter("DF_Ligne_Devis_DF_Devis_id",getRowId());
+
+		AppLog.info(getClass(), "HSE_print_ligne", o.toJSON(o.search(), null, false, false), getGrant());
+		
+		List<String[]> rows_l = o.search(false);
 		if (rows_l.size() > 0){
+			double c = o.getCount();
+			
 			wp.append(MustacheTool.apply(
 			this,
 			"DF_Devis_HTML", 
-// A priori il faut 2 listes dans votre template, donc :
-			"{'rows':"+d.toJSON(d.search(), null, false, false)+
-// inutile de refaire un  ld.search puisque vous avez déjà le résultat
-			",'rows_l':"+ld.toJSON(rows_l, null, false, false)+"}"
+			"{'rows_l':"+o.toJSON(o.search(), null, false, false)+"}"
 			));
 		}
+	    //return "<html><head><meta charset=\"utf-8\"></head><h1>Defilippis / Docker Compose / wkhtml2pdf</h1><p>...by Simplicité</p></html>";
 		return wp.getHTML();
+	
 	}
 	
 	public byte[] pubPdf(){
