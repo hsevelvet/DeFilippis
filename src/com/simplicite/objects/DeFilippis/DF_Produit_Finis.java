@@ -18,4 +18,3 @@ public class DF_Produit_Finis extends ObjectDB {
 		setFieldValue("defiPrdId",id_pf);
 	}*/
 }
- 

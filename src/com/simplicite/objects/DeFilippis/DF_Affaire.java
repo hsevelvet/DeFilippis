@@ -38,5 +38,3 @@ public class DF_Affaire extends ObjectDB {
 	}*/
 
 }
-
-

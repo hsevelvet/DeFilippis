@@ -62,4 +62,3 @@ public class DF_Client extends ObjectDB {
 		return msgs;
 	}
 }
-

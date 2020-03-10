@@ -1,19 +1,41 @@
-
 <!doctype html>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>A simple, clean, and responsive HTML invoice template</title>
+    <title>DEVIS DEFILIPPIS</title>
     
     <style>
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+	padding: 0;
+	border: 0;
+}
+	
+	html {
+		font-size: 11px;
+		font-family:Arial, sans-serif;
+	}
+	
+	body {
+		line-height: 1;
+	}
+	
     .invoice-box {
-        max-width: 1200px;
+		max-width: 100%;
         margin: auto;
-        padding: 30px;
-        border: 1px solid #eee;
-        box-shadow: 0 0 10px rgba(0, 0, 0, .15);
-        font-size: 16px;
-        line-height: 24px;
+        line-height: 18px;
         font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
         color: #555;
     }
@@ -29,95 +51,243 @@
         vertical-align: top;
     }
     
-    .invoice-box table tr td:nth-child(2) {
-        text-align: right;
-    }
     
     .invoice-box table tr.top table td {
         padding-bottom: 20px;
     }
     
     .invoice-box table tr.top table td.title {
-        font-size: 45px;
-        line-height: 45px;
+        xfont-size: 45px;
+        xline-height: 45px;
         color: #333;
     }
     
-    .invoice-box table tr.information table td {
-        padding-bottom: 40px;
-    }
     
-    .invoice-box table tr.heading td {
-        background: #eee;
-        border-bottom: 1px solid #ddd;
-        font-weight: bold;
-    }
     
-    .invoice-box table tr.details td {
-        padding-bottom: 20px;
-    }
     
-    .invoice-box table tr.item td{
-        border-bottom: 1px solid #eee;
+	
+	.tg  {
+		border-collapse:collapse;
+		border-spacing:0px !important;
+	}
+	.tg td {
+		padding:5px 5px;
+		border-style:solid;
+		border-width:1px !important;
+		overflow:hidden;
+		word-break:normal;
+		border-color:#222;
+		background-color:white;
+	}
+	.tg th{
+		font-weight:bold;
+		padding:5px 5px;
+		border-style:solid;
+		border-width:1px;
+		overflow:hidden;
+		word-break:normal;
+		border-color:#222;
+	}
+	
+	.tg .tg-ul38{
+		text-align:center;
+		vertical-align:top;
+		position:sticky;
+		xposition:-webkit-sticky;
+		xtop:-1px;
+		will-change:transform;
+		xfont-size:12px;
+	}
+	
+	.tg .thref {
+		width:80px;
+	}
+	.tg .thtype {
+		
+	}
+	.tg .thdesignation {
+		min-width:280px;
+	}
+	.tg .thunite {
+	
+	}
+	.tg .thquantite {
+	
+	}
+	.tg .thprixu {
+		width:85px;
+	}
+	.tg .thprixt {
+		width:100px;
+	}	
+
+	
+	.tg td.ref {
+		text-align:center;
+	}
+	.tg td.type {
+		text-align:center;
+	}
+	.tg td.designation {
+		text-align:left;
+	}
+	.tg td.unite {
+		text-align:center;
+	}
+	.tg td.quantite {
+		text-align:center;
+	}
+	.tg td.prixu {
+		text-align:right;
+	}
+	.tg td.prixt {
+		text-align:right;
+	}
+	
+	tfoot {
+		xbackground-color:#ccc;
+	}	
+	
+	tfoot td.vide {
+	
+	}
+	tfoot td.conditions1 {
+		background-color:#ddd;
+		font-size:10px;
+	}
+	tfoot td.conditions2 {
+		background-color:#ddd;
+		font-size:10px;
+	}
+	tfoot td.totallibelle {
+		background-color:#ddd;
+		text-align:right;
+		font-weight:bold;
+	}
+	tfoot td.totalvaleur {
+		background-color:#ddd;
+		text-align:right;
+		font-weight:bold;
+	}	
+	tfoot td.tvalibelle {
+		background-color:#ddd;
+		text-align:right;
+		font-weight:bold;		
+	}
+	tfoot td.tvavaleur {
+		background-color:#ddd;
+		text-align:right;	
+		font-weight:bold;
+	}	
+	tfoot td.totalttclibelle {
+		background-color:#ddd;
+		text-align:right;
+		font-weight:bold;		
+	}
+	tfoot td.totalttcvaleur {
+		background-color:#ddd;
+		text-align:right;	
+		font-weight:bold;
+	}	
+	tfoot ul {		
+		margin: 0 15px;
+		padding: 5px;
+	}	
+	tfoot ul li {
+		list-style: square;
+		margin: 0;
+		padding: 0;
+	}
+
+	/** saut de page **/
+	div.breakafter {
+	  page-break-after: always;
+	}
+	
+	
+	/** CGV **/
+    .cgv-box {
+        margin: auto;
+        padding: 10px;
+        border: 1px solid #eee;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+        font-size: 9px;
+        line-height: 14px;
+        font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+        color: #555;
     }
-    
-    .invoice-box table tr.item.last td {
-        border-bottom: none;
-    }
-    
-    .invoice-box table tr.total td:nth-child(2) {
-        border-top: 2px solid #eee;
-        font-weight: bold;
-    }
-    
-    @media only screen and (max-width: 600px) {
-        .invoice-box table tr.top table td {
-            width: 100%;
-            display: block;
-            text-align: center;
-        }
-        
-        .invoice-box table tr.information table td {
-            width: 100%;
-            display: block;
-            text-align: center;
-        }
-    }
-    
-    /** RTL **/
-    .rtl {
-        direction: rtl;
-        font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
-    }
-    
-    .rtl table {
-        text-align: right;
-    }
-    
-    .rtl table tr td:nth-child(2) {
+    .cgv-box table {
+        width: 100%;
+        line-height: inherit;
         text-align: left;
     }
-    </style>
+    .cgv-box table td {
+        padding: 5px;
+        vertical-align: top;
+    }  
+	td.cgvleft {
+		width:50%;
+	}
+	h3 {
+		text-align:center;
+	}
+	h4 {
+		margin:8px 0 0 0;
+	}
+	
+	</style>	
 </head>
 
 <body>
+
+	<!--<div class="header">
+	
+	</div>-->
+
     <div class="invoice-box">
-        <table cellpadding="0" cellspacing="0">
+        <table cellpadding="0" cellspacing="0" border="0">
             <tr class="top">
                 <td colspan="2">
+				
                     <table>
                         <tr>
                             <td class="title">
-                                <img src="https://www.eurovia.fr/zbwi.axd/cropsz/320x158/~/media/4543035/de_filippis_entreprise.jpg"  style="width:30%; max-width:300px;">
+                                <img src="https://www.eurovia.fr/zbwi.axd/cropsz/320x158/~/media/4543035/de_filippis_entreprise.jpg"  style="width:120px;">
+								<p>&nbsp;</p>
+								<strong>Contact DEFILIPPIS :</strong> David Henrion<br/>
+								06 46 10 53 05 - david.henrion@mineralconseil.fr<br/><br/>
+								<!--<strong>Contact 2 :</strong> Aurélie GUENDJIAN<br/>
+								06 16 70 32 25 - aurelie.guendjian@mineralconseil.fr<br/><br/>
+								<strong>Contact 3 :</strong> Claudine MALFILATRE<br/>
+								06 16 70 32 44 - claudine.malfilatre@mineralconseil.fr
+								<!--<br/>-->
+								DEFILIPPIS Minéral Conseil <br/>
+                                175 Avenue des Frères Lumière.<br/>
+                                69730 Genay<br/>
+                                Tél : 04 78 98 15 49
+								
                             </td>
-                            {{#rows}}
-                            <td>
-                                Devis #: {{defiDevisNumero}}<br>
-                                Date Emission: {{defiDevisDateEmission}}<br>
-                               
+							<!--#rows-->
+                            <td style="text-align:right">
+
+										<p>&nbsp;</p>
+										<p>&nbsp;</p>
+										<p>&nbsp;</p>
+										<strong>Client </strong>: NOM CLIENT<br/>
+										<strong>Contact </strong>: CONTACT CLIENT<br/>
+										<strong>Email </strong>: EMAIL CONTACT CLIENT<br/>										
+										<strong>Date d'émission devis </strong>: defiDevisDateEmission<br/>
+										<strong>Projet </strong>: PROJET_NOM
+
                             </td>
-                            {{/rows}}
+                            <!--/rows-->
                         </tr>
+						<tr>
+							<td colspan="2" style="vertical-align:bottom;text-align:center">
+								<h1>Devis N° <strong>defiDevisNumero</strong></h1>
+								<h2>PROJET_NOM - VILLE</h2>
+							</td>
+						</tr>
                     </table>
                     		
                  
@@ -125,74 +295,189 @@
                 </td>
             </tr>
             
-            <tr class="information">
+            <!--<tr class="information">
                 <td colspan="2">
                     <table>
                         <tr>
                             <td>
-                                175 Avenue des Frères Lumière.<br>
-                                69730 Genay<br>
-                                Tél : 04 78 98 15 49
+
                             </td>
                             
-                            <td>
-                                Acme Corp.<br>
-                                John Doe<br>
-                                john@example.com
+                            <td> 
+							
                             </td>
                         </tr>
                     </table>
                 </td>
-            </tr>
+            </tr>-->
             
             </table>
             
-         <table id="tg-p6erB" class="tg">
+         <table class="tg">
 			<thead>
 				<tr style="background-color: #1abc9c;">
-				    <th class="tg-ul38" >Réf<br></th>
-				    <th class="tg-ul38">Type de pierre</th>
-				    <th class="tg-ul38" width="40%">Désignation</th>
-				    <th class="tg-ul38">Unité</th>
-				    <th class="tg-ul38">Qté</th>
-				    <th class="tg-ul38" ><br>Prix Rendu<br>Unitaire<br>Euros HT<br></th>
-				    <th class="tg-ul38">TOTAL EUROS HT</th>
+				    <th class="tg-ul38 thref">Réf<br></th>
+				    <th class="tg-ul38 thtype">Type de pierre</th>
+				    <th class="tg-ul38 thdesignation">Désignation</th>
+				    <th class="tg-ul38 thunite">Unité</th>
+				    <th class="tg-ul38 thquantite">Qté</th>
+				    <th class="tg-ul38 thprixu">Prix Rendu<br/>Unitaire<br/>Euros HT<br></th>
+				    <th class="tg-ul38 thprixt">TOTAL € HT</th>
 				</tr>
 			</thead>
 			
 			<tbody>
-				{{#rows_l}}
+				<!-- ligne à retirer -->
 				<tr>
-					<td>{{defiLigneDevisNPrix}}</td>
-					<td>{{defiLigneDevisPrixTransportReference}}</td>
-					<td>{{defiLigneDevisDesignation}}</td>
-					<td>{{defiLigneDevisUnite}}</td>
-					<td>{{defiLigneDevisQuantite}}</td>
-					<td>{{defiLigneDevisPrixVenteCalcule}}</td>
-					<td>{{defiLigneDevisPrixVenteImpose}}</td>
+					<td class="ref">5,2,2</td>
+					<td class="type">PORPHYRE</td>
+					<td class="designation">PavésDessus naturel - Chants Clivés
+Couleurs mélangées - Avec Big Bag
+Dim (cm):20x14x ep 12,1ml=5u (joints inclus de 1,5cm)
+20*14*11/14- 1 rang
+l=15cm</td>
+					<td class="unite">ml</td>
+					<td class="quantite">930,00</td>
+					<td class="prixu">10,95 €</td>
+					<td class="prixt">10 183,50&nbsp;€</td>
 				</tr>
-				{{/rows_l}}
+				
+				<!--{{#rows_l}}
+				<tr>
+					<td class="ref">{{defiLigneDevisNPrix}}</td>
+					<td class="type">{{defiLigneDevisPrixTransportReference}}</td>
+					<td class="designation">{{defiLigneDevisDesignation}}</td>
+					<td class="unite">{{defiLigneDevisUnite}}</td>
+					<td class="quantite">{{defiLigneDevisQuantite}}</td>
+					<td class="prixu">{{defiLigneDevisPrixVenteCalcule}}&nbsp;€</td>
+					<td class="prixt">{{defiLigneDevisPrixVenteImpose}}&nbsp;€</td>
+				</tr>
+				{{/rows_l}}-->
 				
 			</tbody>
-				<script charset="utf-8">var TGSort=window.TGSort||function(n){"use strict";function r(n){return n?n.length:0}function t(n,t,e,o=0){for(e=r(n);o<e;++o)t(n[o],o)}function e(n){return n.split("").reverse().join("")}function o(n){var e=n[0];return t(n,function(n){for(;!n.startsWith(e);)e=e.substring(0,r(e)-1)}),r(e)}function u(n,r,e=[]){return t(n,function(n){r(n)&&e.push(n)}),e}var a=parseFloat;function i(n,r){return function(t){var e="";return t.replace(n,function(n,t,o){return e=t.replace(r,"")+"."+(o||"").substring(1)}),a(e)}}var s=i(/^(?:\s*)([+-]?(?:\d+)(?:,\d{3})*)(\.\d*)?$/g,/,/g),c=i(/^(?:\s*)([+-]?(?:\d+)(?:\.\d{3})*)(,\d*)?$/g,/\./g);function f(n){var t=a(n);return!isNaN(t)&&r(""+t)+1>=r(n)?t:NaN}function d(n){var e=[],o=n;return t([f,s,c],function(u){var a=[],i=[];t(n,function(n,r){r=u(n),a.push(r),r||i.push(n)}),r(i)<r(o)&&(o=i,e=a)}),r(u(o,function(n){return n==o[0]}))==r(o)?e:[]}function v(n){if("TABLE"==n.nodeName){for(var a=function(r){var e,o,u=[],a=[];return function n(r,e){e(r),t(r.childNodes,function(r){n(r,e)})}(n,function(n){"TR"==(o=n.nodeName)?(e=[],u.push(e),a.push(n)):"TD"!=o&&"TH"!=o||e.push(n)}),[u,a]}(),i=a[0],s=a[1],c=r(i),f=c>1&&r(i[0])<r(i[1])?1:0,v=f+1,p=i[f],h=r(p),l=[],g=[],N=[],m=v;m<c;++m){for(var T=0;T<h;++T){r(g)<h&&g.push([]);var C=i[m][T],L=C.textContent||C.innerText||"";g[T].push(L.trim())}N.push(m-v)}t(p,function(n,t){l[t]=0;var a=n.classList;a.add("tg-sort-header"),n.addEventListener("click",function(){var n=l[t];!function(){for(var n=0;n<h;++n){var r=p[n].classList;r.remove("tg-sort-asc"),r.remove("tg-sort-desc"),l[n]=0}}(),(n=1==n?-1:+!n)&&a.add(n>0?"tg-sort-asc":"tg-sort-desc"),l[t]=n;var i,f=g[t],m=function(r,t){return n*f[r].localeCompare(f[t])||n*(r-t)},T=function(n){var t=d(n);if(!r(t)){var u=o(n),a=o(n.map(e));t=d(n.map(function(n){return n.substring(u,r(n)-a)}))}return t}(f);(r(T)||r(T=r(u(i=f.map(Date.parse),isNaN))?[]:i))&&(m=function(r,t){var e=T[r],o=T[t],u=isNaN(e),a=isNaN(o);return u&&a?0:u?-n:a?n:e>o?n:e<o?-n:n*(r-t)});var C,L=N.slice();L.sort(m);for(var E=v;E<c;++E)(C=s[E].parentNode).removeChild(s[E]);for(E=v;E<c;++E)C.appendChild(s[v+L[E-v]])})})}}n.addEventListener("DOMContentLoaded",function(){for(var t=n.getElementsByClassName("tg"),e=0;e<r(t);++e)try{v(t[e])}catch(n){}})}(document)</script>
-		  
-		  
-		 
-          
-		  
+			<tfoot>
+				<tr>
+					<td class="vide" colspan="7">&nbsp;</td>
+				</tr>
+				<tr>
+					<td class="conditions1" rowspan="3" >
+						Conditions de mise à disposition de la marchandise
+					</td>
+					<td class="conditions2" rowspan="3" colspan="4" >
+						<ul>
+							<li>Délais prévisionnel à confirmer au moment de la commande : <strong>1ère livraison début octobre si commande avant 09/09/2019</strong></li>
+							<li>Cadence de livraison maximale hebdomadaire : <strong>selon planning transmis</strong></li>
+							<li>Facturation : <strong>Entreprise De Filippis</strong></li>
+							<li>Prix valable pour camion complet 24 tonnes</strong></li>
+							<li>Acompte: <strong>Non</strong></li>
+							<li>Paiement: <strong>45 jours fin de mois</strong></li>
+							<li>Validité de l'offre : <strong>1 mois</strong></li>
+							<li>Indexation monétaire:<strong>non</strong></li>
+						</ul>
+					</td>
+					<td class="totallibelle">
+						TOTAL HT
+					</td>
+					<td class="totalvaleur">710 955,80 €</td>
+				</tr>		
+				<tr>
+					<td class="tvalibelle">TVA 20,00%</td>
+					<td class="tvavaleur">142 191,16 €</td>
+				</tr>
+				<tr>
+					<td class="totalttclibelle">TOTAL TTC</td>
+					<td class="totalttcvaleur">853 146,96 €</td>					
+				</tr>				
+			</tfoot>
 		</table>
-     	
-
-   
-    
-		    <style type="text/css">
-		.tg  {border-collapse:collapse;border-spacing:0;}
-		.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 20px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
-		.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 20px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
-		.tg .tg-ul38{text-align:left;vertical-align:top;position:sticky;position:-webkit-sticky;top:-1px;will-change:transform}
-		.tg .tg-0lax{text-align:left;vertical-align:top}
-		.tg-sort-header::-moz-selection{background:0 0}.tg-sort-header::selection{background:0 0}.tg-sort-header{cursor:pointer}.tg-sort-header:after{content:'';float:right;margin-top:7px;border-width:0 5px 5px;border-style:solid;border-color:#404040 transparent;visibility:hidden}.tg-sort-header:hover:after{visibility:visible}.tg-sort-asc:after,.tg-sort-asc:hover:after,.tg-sort-desc:after{visibility:visible;opacity:.4}.tg-sort-desc:after{border-bottom:none;border-width:5px 5px 0}</style>
+		<table border="0">
+			<tr>
+				<td>
+				Nombre de camion (U) : <strong>72,3</strong></br>
+				Poids total (T) : <strong>1 729</strong>
+				</td>
+			</tr>
+		</table>	
 	
  </div>
+ 
+<div class="breakafter"></div>
+
+<div class="cgv-box">
+<h3>Conditions particulières de vente</h3>
+	<table cellpadding="0" cellspacing="0" border="0">
+		<tr>
+			<td class="cgvleft">
+<h4>0 – NATURE DU DEVIS</h4>
+<p>Sauf mention particulière, les devis établis par Minéral Conseil concernent la fourniture livrée seule, non déchargée : les prix s’entendent franco chantier, non déchargés, emballage inclus. Aucune prestation de pose, de reprise ou de taille n’est comprise dans cette offre</p>
+
+<h4>1 – CONDITIONS D’APPLICATION</h4>
+<p>La signature du bon de commande par l’Acheteur emporte acceptation sans réserve des présentes conditions particulières de vente et des conditions générales du Fournisseur, à l’exclusion de toute autre document émanant de l’Acheteur.</p>
+
+<h4>2 – DELAIS DE COMMANDE</h4>
+<p>Sauf stipulation contraire, les devis établis par le Fournisseur sont valables pendant un délai de 90 jours.
+Pour être valables, les commandes devront être passées par écrit.</p>
+
+<h4>3 – DELAIS ET RETARDS DE FOURNITURE</h4>
+Les délais de fabrication sont donnés à titre indicatif et pourront être modifiés compte tenu du programme de fabrication  du Fournisseur.
+Celui-ci aura également la possibilité de décaler la date prévue pour la fourniture des matériaux, pour toute autre cause qui ne lui serait pas directement imputable. Il devra dans ce cas en avertir l’Acheteur dans les plus brefs délais. 
+Le dépassement des délais d’exécution ne saurait donner lieu au versement de dommages et intérêts, ni à des retenues ou annulations des commandes déjà passées. 
+
+<h4>4 – CARACTERISTIQUES DES MATERIAUX FOURNIS</h4>
+<p>La pierre étant  un matériau naturel, des variations de teintes peuvent se produire ; elles ne pourront en aucun cas donner lieu à réclamation<br/>
+Contrairement aux produits manufacturés, les roches naturelles (granit, pierres marbrières, autres roches, …) présentent souvent des irrégularités de structure et d’aspect ; En aucun cas les particularités telles que notamment les veinages, verriers, stylolithes, microfissures fermées, concrétions de calcite et fossiles ne pourront être considérées comme des défauts et faire l’objet de refus ou de réduction de prix. <br/>
+Des échantillons pourront être proposés par l’Acheteur au Fournisseur ; Ces échantillons définissent le type de matériaux, leur provenance et leur tonalité générale. Ils n’impliquent aucune identité de couleur, de dessin, ou de veinage entre l’échantillon et la fourniture. 
+</p>
+
+<h4>5 – TRANSPORT ET LIVRAISON DES MATERIAUX</h4>
+<p>Sauf mention contraire, le prix de fourniture des matériaux ne comprend pas le transport ni la livraison des matériaux sur le site de l’Acheteur. <br/>
+Celui-ci devra donc prendre à sa charge l’enlèvement des matériaux et leur transport, à partir du site du Fournisseur.<br/>
+Au cas où le prix prévu comprendrait des frais de transport, les éventuelles augmentations de ces frais (droits de douane, taxes diverses, taux de frêt, …) intervenant avant la livraison seront à la charge de l’Acheteur.<br/>
+Les matériaux voyagent aux frais, risques et périls du Client, sauf stipulation contraire expresse.<br/>
+Les prix pourront être indexés par le Fournisseur en fonction de l’évolution du cours du dollar, si les Matériaux sont achetés par le Fournisseur dans une devise étrangère.
+</p>
+
+<h4>6 – TRANSFERT DES RISQUES</h4>
+<p>Le Fournisseur n’est pas responsable des dégâts occasionnés par le stockage, la pose, ou l’entretien défectueux des produits vendus. <br/>
+Les risques seront à la charge de l’Acheteur dès réception des matériaux, nonobstant la réserve de propriété. <br/>
+La réception des matériaux correspond au jour où ceux-ci sont enlevés par l’Acheteur sur le site du Fournisseur, ou acheminés par le Fournisseur sur le site de son Acheteur.
+</p>
+
+
+			</td>
+			<td class="cgvright">
+
+
+<h4>7 – CONSEILS D’UTILISATION ET DE MISE EN ŒUVRE</h4>
+<p>La mise en œuvre et l’entretien des marbres et pierres calcaires devra être  conforme aux DTU et aux prescriptions des normes NF EN en vigueur. <br/>
+Il est expressément rappelé par le Fournisseur les conseils d’utilisation et de mise en œuvre suivants : <br/>
+- Pour les mortiers ou chape de pose : il est conseillé d’utiliser un ciment HTS ou un mélange de 50% ciment blanc et  50% chaux hydraulique + sable blanc fin et propre (à ne pas trop « mouiller ») et d’effectuer un « saupoudrage » au ciment blanc. <br/>
+-  Les sous-couches à base de liant contenant des alcalins (ciments gris…) sont strictement à proscrire ou doivent être désolidarisées de façon étanche des chapes de pose ou des mortiers colles.<br/>
+- Les sous-couches et /ou chapes de pose doivent être drainées afin d’éviter les remontées d’eau par capillarité.<br/>
+- Pour les mortiers colles et mortiers de jointoiement, il est impératif de vérifier auprès du Fournisseur qu’ils ne sont pas susceptibles de tâcher la pierre ou le marbre.<br/>
+- Après la pose et pour protéger le dallage, il est fortement déconseillé de couvrir les matériaux avec un film étanche, qui bloquerait l’évaporation de l’eau de construction. <br/>
+- L’usage des sels de déneigement et de traitement des eaux peut endommager les dallages et pavages calcaires et marbriers, sans aucune responsabilité du Fournisseur à ce titre. <br/>
+- Le Fournisseur ne pourra être tenu responsable d’éventuels désordres causés par l’application de produits de traitement qu’il  n’aurait pas validés<br/>
+- Ces conseils d’entretien devront être communiqués par l’Acheteur aux intermédiaires, applicateurs, maîtres d’œuvre et maîtres d’ouvrage auxquels la marchandise est destinée.<br/>
+</p>
+
+<h4>8 – GARANTIES ET RECLAMATIONS</h4>
+<p>A défaut de réserves écrites émises par l’Acheteur lors de la livraison, ou au plus tard dans les 48 heures suivant la livraison des matériaux, ceux-ci seront réputés conformes à la commande en quantité et en qualité. <br/>
+Après la réception, le Fournisseur ne sera responsable ni des vices cachés intrinsèques au matériau, ni des dégâts occasionnés par le gel, le salpêtre, le ciment, ou par toute autre cause extérieure, ni des écornures ou épaufrures survenues au cours de manutentions ; aucun rabais ne pourra donc être accordé sur ces fondements.<br/>
+La responsabilité du Fournisseur sera limitée au respect des normes, DTU et usages de la profession, qui précisent les conditions dans lesquelles une roche naturelle est adaptée ou non à une application. <br/>
+L’évolution de l’aspect des matériaux et leur vieillissement sont liés à la non-homogénéité de leur structure. Aucune réclamation ne sera admise sur ce fondement, sauf à ce que leur dégradation soit anormale et compromette l’usage prévu de l’ouvrage.<br/>
+En cas de réclamation justifiée et effectuée dans les délais, la responsabilité du Fournisseur sera limitée au remplacement des matériaux défectueux ou au remboursement du prix perçu, à l’exclusion de tout autre chef de préjudice.
+</p>
+
+<h4>9 – RESERVE DE PROPRIETE</h4>
+<p>Le Fournisseur se réserve la propriété des matériaux jusqu’au complet paiement de leur prix. En cas de non-paiement aux dates et lieux convenus, la vente pourra être résolue de plein droit, 15 jours après une mise en demeure restée vaine. La résolution de la vente entraînera l’obligation de restitution immédiate au Vendeur, aux frais et risques de l’Acheteur, même en cas d’utilisation des matériaux par celui-ci.
+</p>
+
+			</td>
+		</tr>
+	</table>
+</div>
+
+
 </body>
 </html>

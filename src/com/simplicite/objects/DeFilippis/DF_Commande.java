@@ -60,7 +60,7 @@ public class DF_Commande extends ObjectDB {
 		//return Message.formatWarning("WARNING_CODE", "Message", "fieldName");
 		//return Message.formatError("ERROR_CODE", "Message", "fieldName");
 		return null;
-	}*/
+	}
 	
 	/**
 	 * Action - Création cartes Trello 
@@ -176,17 +176,17 @@ public class DF_Commande extends ObjectDB {
 					lc.setValues(lce);
 					
 					
-					String int_aff = getFieldValue("defiCommandeIntituleAffaire");
+					String int_aff = getFieldValue("DF_Commande_DF_Affaire_id.defiAfrLibelleChantier");
 					int_aff.replace(" " , "");
 					String firstCharsIntitule = int_aff.substring(0, 7);
 					
-					String fourns = getFieldValue("defiCommandeNomFournisseur");
+					String fourns = getFieldValue("DF_Commande_DF_Fournisseurs_id.defiFournNom");
 					fourns.replace(" " , "");
 					String firstCharsFourns = fourns.substring(0, 3);
 					
 					
 					card.put("name",  (firstCharsIntitule+"."+getFieldValue("defiCommandeIntituleCommande")+"."+firstCharsFourns+"."+lc.getFieldValue("defiLigneCommandeReferenceProduit")+"."+lc.getFieldValue("defiLigneCommandeQuantite")).toUpperCase());
-					card.put("desc", createDesc());
+					//card.put("desc", createDesc());
 					card.put("due", getFieldValue("defiCommandeDate"));
 					card = tt.addCard(getIDList(getFieldValue("defiCommandeStatut")), card);
 									
@@ -197,6 +197,11 @@ public class DF_Commande extends ObjectDB {
 					tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Quantité"),new JSONObject().put("value",new JSONObject().put("number",lc.getFieldValue("defiLigneCommandeQuantite"))));
 		    		
 		    		tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Référence Produit"),new JSONObject().put("value",new JSONObject().put("text",lc.getFieldValue("defiLigneCommandeReferenceProduit"))));
+		    		
+		    		tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Poids Unitaire"),new JSONObject().put("value",new JSONObject().put("number",lc.getFieldValue("defiLigneCommandePoidsUnitaire"))));
+		    		
+		    		tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Ville"),new JSONObject().put("value",new JSONObject().put("text",getFieldValue("DF_Commande_DF_Affaire_id.defiAfrLieuAffaire"))));
+		    		tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Trigramme Suiveur"),new JSONObject().put("value",new JSONObject().put("text",getFieldValue("DF_Commande_DF_utilisateur_interne_id.defiUsrTrigramme"))));
 				}
 		    		}
 		    	AppLog.info(getClass(), "preCreate", card.toString(2), getGrant());
@@ -219,7 +224,7 @@ public class DF_Commande extends ObjectDB {
 		if (tt == null) return null;
 		String id = getFieldValue("defiCommandeTrelloId");
 		if (id.length()>0)
-			return updateCard();
+			return createCard();
 		else 
 			return createCard();
 	}

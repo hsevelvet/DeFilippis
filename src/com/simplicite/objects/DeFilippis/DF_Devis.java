@@ -233,7 +233,7 @@ public class DF_Devis extends ObjectDB {
 				lc.setFieldValue("defiLigneCommandeUnite",unite_p);
 				lc.setFieldValue("defiLigneCommandeQuantite",prd_qte);
 				lc.setFieldValue("defiLigneCommandePrixEXWUnitaire",cmd_prix_exw_u);
-				lc.setFieldValue("defiLigneCommandePrixTotalEXW",cmd_total_exw);
+				//lc.setFieldValue("defiLigneCommandePrixTotalEXW",cmd_total_exw);
 
 				lc.setFieldValue("DF_ligne_commande_DF_Commande_id",c.getRowId());
 
@@ -348,34 +348,25 @@ public class DF_Devis extends ObjectDB {
 			true
 		);
 		
-		// Ajout de valeurs de Devis
-	       
+	// Ajout de valeurs de Devis
 	    ObjectDB d = getGrant().getTmpObject("DF_Devis");
-	    d.setFieldFilter("row_id",getRowId());
 	    
-	    AppLog.info(getClass(), "HSE_print", toJSON(d.search(), null, false, false), getGrant());
-	    
-		/*wp.append(MustacheTool.apply(
-			this,
-			"DF_Devis_HTML", 
-			"{'rows':"+toJSON(d.search(), null, false, false)+"}"
-		));*/
-		
-		
-		ObjectDB o = getGrant().getTmpObject("DF_Ligne_Devis");
-		//o.resetFilters();
-		o.setFieldFilter("DF_Ligne_Devis_DF_Devis_id",getRowId());
 
-		AppLog.info(getClass(), "HSE_print_ligne", o.toJSON(o.search(), null, false, false), getGrant());
+		d.setFieldFilter("row_id",getRowId());
+
 		
-		List<String[]> rows_l = o.search(false);
+		ObjectDB ld = getGrant().getTmpObject("DF_Ligne_Devis");
+		ld.resetFilters();
+		ld.setFieldFilter("DF_Ligne_Devis_DF_Devis_id",getRowId());
+		
+		List<String[]> rows_l = ld.search(false);
 		if (rows_l.size() > 0){
-			double c = o.getCount();
-			
 			wp.append(MustacheTool.apply(
 			this,
 			"DF_Devis_HTML", 
-			"{'rows_l':"+o.toJSON(o.search(), null, false, false)+"}"
+// A priori il faut 2 listes dans votre template, donc :
+			"{'rows':"+d.toJSON(d.search(), null, false, false)+
+			",'rows_l':"+ld.toJSON(rows_l, null, false, false)+"}"
 			));
 		}
 	    //return "<html><head><meta charset=\"utf-8\"></head><h1>Defilippis / Docker Compose / wkhtml2pdf</h1><p>...by Simplicité</p></html>";
@@ -401,7 +392,7 @@ public class DF_Devis extends ObjectDB {
 		
 		JSONObject postData = new JSONObject();
 		postData.put("contents", Tool.toBase64(pubDevis()));
-		AppLog.info(getClass(), "PRINT DEVIS------------------", "message"+pubDevis(), getGrant());
+		//AppLog.info(getClass(), "PRINT DEVIS------------------", "message"+pubDevis(), getGrant());
 		String[] headers = {"Content-Type:application/json"};
 		String encoding = Globals.BINARY;
 		byte[] pdf = null;

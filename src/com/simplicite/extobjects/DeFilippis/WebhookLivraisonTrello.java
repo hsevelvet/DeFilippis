@@ -182,23 +182,25 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
 							for(String str: attach_id) {
 								objq.create();
 								JSONObject att_card = tt.getCard(str);
+								AppLog.info(getClass(), "Trello------------------",att_card.toString(), getGrant());
 								//JSONObject att_card_cf == tt.getCustomField()
 								if (att_card.has("name")){
-									objq.setFieldValue("defiQuantiteIntitule", att_card.getString("name"));
+									objq.setFieldValue("defiQuantiteNumCommande", att_card.getString("name"));
 								}
-								if (att_card.has("due")){
+								/*if (att_card.has("due")){
 									objq.setFieldValue("defiQunatiteDateChargement", att_card.getString("due"));
-								}
+								}*/
 								
 								String cf_v = tt.call("/cards/"+att_card.getString("id")+"/customFieldItems","get","").toString();
+								AppLog.info(getClass(), "CFCFCFCF------------------",cf_v, getGrant());
 								JSONArray  cf_json = new JSONArray(cf_v);
 								
-								JSONObject adresse_i = cf_json.getJSONObject(4);
+								/*JSONObject adresse_i = cf_json.getJSONObject(4);
 								JSONObject adresse = adresse_i.getJSONObject("value");
 								if (adresse.has("text")){
 									AppLog.info(getClass(), "Trello TEST",adresse.getString("text"), getGrant());
 									objq.setFieldValue("defiQuantiteAdresse", adresse.getString("text"));
-								}
+								}*/
 								
 								JSONObject qte_i = cf_json.getJSONObject(2);
 								JSONObject qte = qte_i.getJSONObject("value");
@@ -218,14 +220,14 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
 								JSONObject refp = refp_i.getJSONObject("value");
 								if (refp.has("text")){
 									AppLog.info(getClass(), "Trello TEST",refp.getString("text"), getGrant());
-									objq.setFieldValue("defiQuantiteReferenceProduit", refp.getString("text"));
+									objq.setFieldValue("defiQuantiteRefProduit", refp.getString("text"));
 								}
 								
 								JSONObject numc_i = cf_json.getJSONObject(0);
 								JSONObject numc = numc_i.getJSONObject("value");
 								if (numc.has("text")){
 									AppLog.info(getClass(), "Trello TEST",numc.getString("text"), getGrant());
-									objq.setFieldValue("defiQuantiteNumeroCommande", numc.getString("text"));
+									objq.setFieldValue("defiQuantiteNumCommande", numc.getString("text"));
 								}
 								objq.setFieldValue("DF_Quantite_DF_Livraison_id", obj.getRowId());
 								objq.save();

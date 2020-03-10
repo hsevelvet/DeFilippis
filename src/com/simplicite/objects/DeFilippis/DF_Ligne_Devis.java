@@ -70,10 +70,32 @@ public class DF_Ligne_Devis extends ObjectDB {
 
 		//double mvp = getField("defiPrdMasseVolumique").getDouble(0);
 		double mvp = getField("defiLigneDevisMasseVolumique").getDouble(0);
-		//double lng = getField("defiPrdLongueur").getDouble(0);
-		double lng = getField("defiLigneDevisLongueur").getDouble(0);
+		//calcul longueur
+		String longueur = getFieldValue("defiLigneDevisLongueur");
+		double lng = 0;
+		if (longueur.contains("/")){
+			String [] l_parts = longueur.split("/");
+			lng = (Double.parseDouble(l_parts[0])+Double.parseDouble(l_parts[1]))/2;
+		}
+		else{
+			lng = Double.parseDouble(longueur);
+		}
+		setFieldValue("defiLigneDevisLongueur",lng);
+		
+		//calcul largeur
+		String largeur = getFieldValue("defiLigneDevisLargeur");
+		double lrg = 0;
+		if (largeur.contains("/")){
+			String [] la_parts = largeur.split("/");
+			lrg = (Double.parseDouble(la_parts[0])+Double.parseDouble(la_parts[1]))/2;
+		}
+		else{
+			lrg = Double.parseDouble(largeur);
+		}
+		setFieldValue("defiLigneDevisLargeur",lrg);
+		
 		//double lrg = getField("defiPrdLargeur").getDouble(0);
-		double lrg = getField("defiLigneDevisLargeur").getDouble(0);
+		//double lrg = getField("defiLigneDevisLargeur").getDouble(0);
 		//double ep = getField("defiPrdEpaisseur").getDouble(0);
 		double ep = getField("defiLigneDevisEpaisseur").getDouble(0);
 		int qte = getField("defiLigneDevisQuantite").getInt(0);
