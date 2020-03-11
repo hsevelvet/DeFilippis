@@ -225,7 +225,7 @@ components:
           description: DF devis
           type: string
         DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdTypeProduit:
-          description: Type Produit
+          description: Type produit
           type: string
           enum:
           - PAVE
@@ -307,14 +307,14 @@ components:
         DF_Ligne_Devis_DF_Prix_Transport_id__defiPrTspId:
           description: Id Prix Transport Prix Transport
           type: string
+        defiLigneDevisMasseVolumique:
+          description: Masse Volumique
+          type: number
         defiLigneDevisUnite:
           description: Unité LigneD
           type: string
         defiLigneDevisEpaisseur:
           description: Epaisseur / Hauteur (cm)
-          type: number
-        defiLigneDevisMasseVolumique:
-          description: Masse Volumique
           type: number
         DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdLargeur:
           description: Largeur (cm)
@@ -8456,6 +8456,12 @@ paths:
         required: false
       - schema:
           type: string
+        in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdAutresFinitions
+        description: Search filter for Autres finitions
+        required: false
+      - schema:
+          type: string
           enum:
           - PAVE
           - DALLE
@@ -8466,13 +8472,7 @@ paths:
           - PIECE
         in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdTypeProduit
-        description: Search filter for Type Produit
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdAutresFinitions
-        description: Search filter for Autres finitions
+        description: Search filter for Type produit
         required: false
       - schema:
           type: number
@@ -8491,6 +8491,12 @@ paths:
         in: query
         name: defiLigneDevisQuantite
         description: Search filter for Quantité
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: defiLigneDevisMasseVolumique
+        description: Search filter for Masse Volumique
         required: false
       - schema:
           type: string
@@ -8742,12 +8748,6 @@ paths:
         in: query
         name: defiLigneDevisDesignationProduit
         description: Search filter for Désignation Produit
-        required: false
-      - schema:
-          type: number
-        in: query
-        name: defiLigneDevisMasseVolumique
-        description: Search filter for Masse Volumique
         required: false
       - schema:
           type: string

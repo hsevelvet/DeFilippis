@@ -392,13 +392,12 @@ Objet métier pour fournisseur.
 | `defiLigneDevisRow`                                          | char(10)                                 |          |           |          | -                                                                                |
 | `defiLigneDevisNPrix`                                        | char(10)                                 | yes      | yes       |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdAppellationCommerciale`_ | _char(200)_                              |          |           |          | -                                                                                |
-| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdTypeProduit`_ | _enum(7) using `DEFIPRDTYPEPRODUIT` list_ |          |           |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdCategoriePrix`_ | _enum(7) using `DEFIPRDCATEGORIEPRIX` list_ |          |           |          | -                                                                                |
 | `defiLigneDevisPrixTransportReference`                       | float(9, 2)                              | yes      | yes       |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdAutresFinitions`_ | _char(70)_                               |          |           |          | -                                                                                |
+| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdTypeProduit`_ | _enum(7) using `DEFIPRDTYPEPRODUIT` list_ |          |           |          | -                                                                                |
 | `defiLigneDevisId`                                           | char(11)                                 | yes*     | yes       |          | -                                                                                |
 | `defiLigneDevisQuantite`                                     | int(11)                                  | yes      | yes       |          | -                                                                                |
-| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdTypeProduit`_ | _enum(7) using `DEFIPRDTYPEPRODUIT` list_ |          |           |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdFinitionFacesVues`_ | _char(70)_                               |          |           |          | -                                                                                |
 | `defiLigneDevisUnite`                                        | char(3)                                  |          | yes       |          | -                                                                                |
 | `DF_Ligne_Devis_DF_Devis_id` link to **`DF_Devis`**          | id                                       | yes      | yes       |          | -                                                                                |
@@ -451,6 +450,9 @@ Objet métier pour fournisseur.
 
 ### Lists
 
+* `DEFIPRDCATEGORIEPRIX`
+    - `2` Pierre
+    - `1` FFT
 * `DEFIPRDTYPEPRODUIT`
     - `PAVE` Pavé
     - `DALLE` Dalle
@@ -459,9 +461,6 @@ Objet métier pour fournisseur.
     - `BORNE` Borne
     - `CANIVEAU` Caniveau
     - `PIECE` Pièce Spéciale
-* `DEFIPRDCATEGORIEPRIX`
-    - `2` Pierre
-    - `1` FFT
 * `DEFIPRDTYPEGEOLOGIQUE`
     - `GRA` Granit
     - `CAL` Calcaire
