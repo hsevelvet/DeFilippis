@@ -5502,11 +5502,6 @@ paths:
         - '2'
         - '1'
       - in: query
-        name: defiLigneDevisQuantite
-        description: Search filter for Quantité
-        type: integer
-        required: false
-      - in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdTypeProduit
         description: Search filter for Type Produit
         type: string
@@ -5520,6 +5515,11 @@ paths:
         - CANIVEAU
         - PIECE
       - in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdAutresFinitions
+        description: Search filter for Autres finitions
+        type: string
+        required: false
+      - in: query
         name: defiLigneDevisPrixTransportReference
         description: Search filter for Prix Transport Référence
         type: number
@@ -5528,6 +5528,11 @@ paths:
         name: defiLigneDevisId
         description: Search filter for Ligne Devis ID
         type: string
+        required: false
+      - in: query
+        name: defiLigneDevisQuantite
+        description: Search filter for Quantité
+        type: integer
         required: false
       - in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdFinitionFacesVues
@@ -6290,6 +6295,9 @@ definitions:
         type: string
       defiLigneDevisNomProduit:
         description: Nom Produit
+        type: string
+      DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdAutresFinitions:
+        description: Autres finitions
         type: string
       defiLigneDevisPrixUnitaireSec:
         description: Prix unitaire sec

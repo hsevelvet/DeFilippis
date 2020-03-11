@@ -358,6 +358,9 @@ components:
         defiLigneDevisNomProduit:
           description: Nom Produit
           type: string
+        DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdAutresFinitions:
+          description: Autres finitions
+          type: string
         defiLigneDevisPrixUnitaireSec:
           description: Prix unitaire sec
           type: number
@@ -8452,12 +8455,6 @@ paths:
         description: Search filter for Catégorie Prix
         required: false
       - schema:
-          type: integer
-        in: query
-        name: defiLigneDevisQuantite
-        description: Search filter for Quantité
-        required: false
-      - schema:
           type: string
           enum:
           - PAVE
@@ -8472,6 +8469,12 @@ paths:
         description: Search filter for Type Produit
         required: false
       - schema:
+          type: string
+        in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdAutresFinitions
+        description: Search filter for Autres finitions
+        required: false
+      - schema:
           type: number
         in: query
         name: defiLigneDevisPrixTransportReference
@@ -8482,6 +8485,12 @@ paths:
         in: query
         name: defiLigneDevisId
         description: Search filter for Ligne Devis ID
+        required: false
+      - schema:
+          type: integer
+        in: query
+        name: defiLigneDevisQuantite
+        description: Search filter for Quantité
         required: false
       - schema:
           type: string

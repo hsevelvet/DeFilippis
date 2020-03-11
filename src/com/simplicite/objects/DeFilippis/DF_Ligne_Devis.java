@@ -102,10 +102,12 @@ public class DF_Ligne_Devis extends ObjectDB {
 		double dim_joint = getField("defiLigneDevisDimensionJoints").getDouble(0);
 		double ptr = getField("DF_Ligne_Devis_DF_Prix_Transport_id.defiPrTrspPrix").getDouble(0);
 		double prc = getField("defiLigneDevisPrixUnitaireHT").getDouble(0);
+		String aut_fin = getFieldValue("DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdAutresFinitions");
 		
 		// designation ligne devis
+		
 		String designation = "Appellation Commerciale: "+ap_commerciale+"\t"+"Désignation Produit: "+ des_produit +"\t"+"Finition: "+ fin_produit+
-		"\n"+" Unité: " + unite +"\t" + " Longueur: "+lng +"\t" + " Largeur: "+lrg+"\t" +" Epaisseur: "+ep+"\t"  + "Dimension Joints: " +dim_joint;
+		"\n"+"Autres Finitions: "+aut_fin+"\t"+" Unité: " + unite +"\t" + " Longueur: "+lng +"\t" + " Largeur: "+lrg+"\t" +" Epaisseur: "+ep+"\t"  + "Dimension Joints: " +dim_joint;
 		
 		setFieldValue("defiLigneDevisDesignation",designation);
 		

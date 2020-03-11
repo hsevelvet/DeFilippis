@@ -228,6 +228,9 @@ time, mark, audio, video {
 	td.cgvleft {
 		width:50%;
 	}
+	h2 {
+		padding:7px 0 0 0;
+	}
 	h3 {
 		text-align:center;
 	}
@@ -249,68 +252,44 @@ time, mark, audio, video {
             <tr class="top">
                 <td colspan="2">
 				
+					{{#rows}}
                     <table>
                         <tr>
                             <td class="title">
                                 <img src="https://www.eurovia.fr/zbwi.axd/cropsz/320x158/~/media/4543035/de_filippis_entreprise.jpg"  style="width:120px;">
 								<p>&nbsp;</p>
-								<strong>Contact DEFILIPPIS :</strong> David Henrion<br/>
+								<strong>Contact DEFILIPPIS :</strong> {{DF_Devis_DF_utilisateur_interne_id__defiUsrNomComplet}}<br/>								
 								06 46 10 53 05 - david.henrion@mineralconseil.fr<br/><br/>
-								<!--<strong>Contact 2 :</strong> Aurélie GUENDJIAN<br/>
-								06 16 70 32 25 - aurelie.guendjian@mineralconseil.fr<br/><br/>
-								<strong>Contact 3 :</strong> Claudine MALFILATRE<br/>
-								06 16 70 32 44 - claudine.malfilatre@mineralconseil.fr
-								<!--<br/>-->
+
 								DEFILIPPIS Minéral Conseil <br/>
                                 175 Avenue des Frères Lumière.<br/>
                                 69730 Genay<br/>
                                 Tél : 04 78 98 15 49
 								
+								
                             </td>
-							<!--#rows-->
                             <td style="text-align:right">
-
 										<p>&nbsp;</p>
 										<p>&nbsp;</p>
 										<p>&nbsp;</p>
-										<strong>Client </strong>: NOM CLIENT<br/>
-										<strong>Contact </strong>: CONTACT CLIENT<br/>
-										<strong>Email </strong>: EMAIL CONTACT CLIENT<br/>										
-										<strong>Date d'émission devis </strong>: defiDevisDateEmission<br/>
-										<strong>Projet </strong>: PROJET_NOM
-
-                            </td>
-                            <!--/rows-->
+										<strong>Client </strong>: {{DF_Devis_DF_Client_id__defiClientNom}}<br/>
+										<strong>Contact </strong>:  {{DF_Devis_DF_Contact_id__defiContactPrenom}} {{DF_Devis_DF_Contact_id__defiContactNom}}<br/>
+										<strong>Email </strong>: {{DF_Devis_DF_Client_id__defiClientEmail}}<br/>										
+										<strong>Date d'émission </strong>: {{defiDevisDateEmission}}<br/>
+										<!--<strong>Ref Projet </strong>: {{defiDevisTitre}}-->
+                            </td>                            
                         </tr>
 						<tr>
 							<td colspan="2" style="vertical-align:bottom;text-align:center">
-								<h1>Devis N° <strong>defiDevisNumero</strong></h1>
-								<h2>PROJET_NOM - VILLE</h2>
+								<h1>Devis N° <strong>{{defiDevisNumero}}.{{defiDevisIndice}}</strong></h1>
+								<h2>{{defiDevisTitreProjet}} - {{defiDevisLieuProjet}}</h2>
 							</td>
 						</tr>
                     </table>
-                    		
-                 
+                    {{/rows}}
                     
                 </td>
-            </tr>
-            
-            <!--<tr class="information">
-                <td colspan="2">
-                    <table>
-                        <tr>
-                            <td>
-
-                            </td>
-                            
-                            <td> 
-							
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>-->
-            
+            </tr>            
             </table>
             
          <table class="tg">
@@ -327,34 +306,31 @@ time, mark, audio, video {
 			</thead>
 			
 			<tbody>
-				<!-- ligne à retirer -->
+				<!-- 
 				<tr>
 					<td class="ref">5,2,2</td>
 					<td class="type">PORPHYRE</td>
-					<td class="designation">PavésDessus naturel - Chants Clivés
-Couleurs mélangées - Avec Big Bag
-Dim (cm):20x14x ep 12,1ml=5u (joints inclus de 1,5cm)
-20*14*11/14- 1 rang
-l=15cm</td>
+					<td class="designation">PavésDessus naturel - Chants Clivés Couleurs mélangées - Avec Big Bag Dim (cm):20x14x ep 12,1ml=5u (joints inclus de 1,5cm)20*14*11/14- 1 rang l=15cm</td>
 					<td class="unite">ml</td>
 					<td class="quantite">930,00</td>
 					<td class="prixu">10,95 €</td>
 					<td class="prixt">10 183,50&nbsp;€</td>
-				</tr>
+				</tr>-->
 				
-				<!--{{#rows_l}}
+				{{#rows_l}}
 				<tr>
 					<td class="ref">{{defiLigneDevisNPrix}}</td>
-					<td class="type">{{defiLigneDevisPrixTransportReference}}</td>
+					<td class="type">{{DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdAppellationCommerciale}}</td>
 					<td class="designation">{{defiLigneDevisDesignation}}</td>
 					<td class="unite">{{defiLigneDevisUnite}}</td>
 					<td class="quantite">{{defiLigneDevisQuantite}}</td>
 					<td class="prixu">{{defiLigneDevisPrixVenteCalcule}}&nbsp;€</td>
 					<td class="prixt">{{defiLigneDevisPrixVenteImpose}}&nbsp;€</td>
 				</tr>
-				{{/rows_l}}-->
+				{{/rows_l}}
 				
 			</tbody>
+		{{#rows}}
 			<tfoot>
 				<tr>
 					<td class="vide" colspan="7">&nbsp;</td>
@@ -365,39 +341,40 @@ l=15cm</td>
 					</td>
 					<td class="conditions2" rowspan="3" colspan="4" >
 						<ul>
-							<li>Délais prévisionnel à confirmer au moment de la commande : <strong>1ère livraison début octobre si commande avant 09/09/2019</strong></li>
-							<li>Cadence de livraison maximale hebdomadaire : <strong>selon planning transmis</strong></li>
+							<li>Délais prévisionnel à confirmer au moment de la commande : <strong>1ère livraison le {{defiDevisDelaisPrevisionnel}} si commande avant {{defiDevisDateValiditeOffre}}</strong></li>
+							<li>Cadence de livraison maximale hebdomadaire : <strong>{{defiDevisCadenceLivraison}}</strong></li>
 							<li>Facturation : <strong>Entreprise De Filippis</strong></li>
 							<li>Prix valable pour camion complet 24 tonnes</strong></li>
-							<li>Acompte: <strong>Non</strong></li>
-							<li>Paiement: <strong>45 jours fin de mois</strong></li>
-							<li>Validité de l'offre : <strong>1 mois</strong></li>
+							<li>Acompte: <strong>{{defiDevisAccompte}}</strong></li>
+							<li>Paiement: <strong>{{defiDevisDelaiPaiement}}</strong></li>
+							<li>Validité de l'offre : <strong>{{defiDevisDateValiditeOffre}}</strong></li>
 							<li>Indexation monétaire:<strong>non</strong></li>
 						</ul>
 					</td>
 					<td class="totallibelle">
 						TOTAL HT
 					</td>
-					<td class="totalvaleur">710 955,80 €</td>
+					<td class="totalvaleur">{{defiDevisPrixTotalHT}} €</td>
 				</tr>		
 				<tr>
 					<td class="tvalibelle">TVA 20,00%</td>
-					<td class="tvavaleur">142 191,16 €</td>
+					<td class="tvavaleur">  €</td>
 				</tr>
 				<tr>
 					<td class="totalttclibelle">TOTAL TTC</td>
-					<td class="totalttcvaleur">853 146,96 €</td>					
+					<td class="totalttcvaleur">{{defiDevisPrixTotal}} €</td>					
 				</tr>				
 			</tfoot>
 		</table>
 		<table border="0">
 			<tr>
 				<td>
-				Nombre de camion (U) : <strong>72,3</strong></br>
-				Poids total (T) : <strong>1 729</strong>
+				Nombre de camion (U) : <strong>{{defiDevisNombreCamions}}</strong></br>
+				Poids total (T) : <strong>{{defiDevisPoidsTotal}}</strong>
 				</td>
 			</tr>
 		</table>	
+		{{/rows}}
 	
  </div>
  
