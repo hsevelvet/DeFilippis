@@ -334,6 +334,7 @@ Objet metier pour devis.
 
 ### Custom actions
 
+* `Historiser`: 
 * `Initialisation-Commande`: 
 * `versionner-devis`: 
 
@@ -353,6 +354,20 @@ Objet métier pour fournisseur.
 | `defiFournEmail`                                             | email(100)                               | yes      | yes       |          | -                                                                                |
 | `defiFournDescription`                                       | text(10000)                              |          | yes       |          | -                                                                                |
 | `defiFournIdKheops`                                          | char(12)                                 |          | yes       |          | -                                                                                |
+
+`DF_Hist_Docs` business object definition
+-----------------------------------------
+
+
+
+### Fields
+
+| Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
+| ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
+| `defiHistDocsId`                                             | char(100)                                | yes*     | yes       |          | -                                                                                |
+| `defiHstDocsDevis`                                           | document                                 |          | yes       |          | -                                                                                |
+| `DF_Hist_Docs_DF_Devis_id` link to **`DF_Devis`**            | id                                       |          | yes       |          | -                                                                                |
+| _Ref. `DF_Hist_Docs_DF_Devis_id.defiDevisTitre`_             | _char(100)_                              |          |           |          | -                                                                                |
 
 `DF_ligne_commande` business object definition
 ----------------------------------------------

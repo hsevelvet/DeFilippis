@@ -325,6 +325,26 @@ public class DF_Commande extends ObjectDB {
 			true
 		);
 		
+		ObjectDB c = getGrant().getTmpObject("DF_Commande");
+	    
+
+		c.setFieldFilter("row_id",getRowId());
+
+		
+		ObjectDB lc = getGrant().getTmpObject("DF_ligne_commande");
+		lc.resetFilters();
+		lc.setFieldFilter("DF_ligne_commande_DF_Commande_id",getRowId());
+		
+		List<String[]> rows_l = lc.search(false);
+		if (rows_l.size() > 0){
+			wp.append(MustacheTool.apply(
+			this,
+			"DF_ARC_HTML", 
+			"{'rows':"+c.toJSON(c.search(), null, false, false)+
+			",'rows_l':"+lc.toJSON(rows_l, null, false, false)+"}"
+			));
+		}
+		
 		return wp.getHTML();
 	
 	}

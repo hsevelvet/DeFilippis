@@ -10,8 +10,12 @@ import com.simplicite.util.exceptions.APIException;
 import com.simplicite.util.tools.HTMLTool;
 import com.simplicite.util.tools.TrelloTool;
 
-
+import java.util.*;
+import com.simplicite.util.ObjectDB;
 import com.simplicite.webapp.web.BootstrapWebPage;
+import com.simplicite.util.tools.*;
+import com.simplicite.util.tools.HTMLTool; 
+
 import com.simplicite.util.tools.PDFTool;
 
 /**
@@ -222,9 +226,34 @@ public class DF_Livraison extends com.simplicite.util.ObjectDB {
 			true
 		);
 		
+		
+		ObjectDB bl = getGrant().getTmpObject("DF_Livraison");
+	    
+
+		bl.setFieldFilter("row_id",getRowId());
+
+		
+		ObjectDB q = getGrant().getTmpObject("DF_Quantite");
+		q.resetFilters();
+		q.setFieldFilter("DF_Quantite_DF_Livraison",getRowId());
+		
+		List<String[]> rows_l = q.search(false);
+		if (rows_l.size() > 0){
+			wp.append(MustacheTool.apply(
+			this,
+			"DF_BL_HTML", 
+			"{'rows':"+bl.toJSON(bl.search(), null, false, false)+
+			",'rows_l':"+q.toJSON(rows_l, null, false, false)+"}"
+			));
+		}
+		
+
+
 		return wp.getHTML();
 	
 	}
+	
+
 	
 	public byte[] pubPdf(){
 		String url = "http://wkhtml2pdf/";

@@ -364,12 +364,42 @@ public class DF_Devis extends ObjectDB {
 		String encoding = Globals.BINARY;
 		byte[] pdf = null;
 		
+	
 		try{
 			pdf = Tool.readUrlAsByteArray(url, user, password, postData.toString(), headers, encoding);
+			
+		
 		}catch(Exception e){
 			AppLog.error(getClass(), "pubPdf", "------------", e, getGrant());
 		}
 		return pdf;
+	}
+
+	public String generateFile() {
+		ObjectDB hst = getGrant().getTmpObject("DF_Hist_Docs");
+		
+
+		ByteArrayOutputStream baos = null;
+		try {
+			synchronized(hst){
+				hst.resetFilters();
+				hst.setFieldFilter("DF_Hist_Docs_DF_Devis_id",getRowId());
+				
+				for(String[] hstc : hst.search()){
+					hst.setValues(hstc);
+					hst.create();
+					hst.getField("defiHstDocsDevis").setDocument(hst, "Devis", pubPdf());
+					hst.setFieldValue("DF_Hist_Docs_DF_Devis_id",getRowId());
+					hst.save();
+		    		
+				}
+			}
+			return Message.formatSimpleInfo("Finished OK");
+		}	
+		catch(Exception e) {
+		    AppLog.error(getClass(), "generateFile", "error...", e, getGrant());
+		    return Message.formatSimpleError("Error...");
+		}
 	}
 	
 	/**
