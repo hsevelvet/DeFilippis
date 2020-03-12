@@ -106,8 +106,7 @@ public class DF_Ligne_Devis extends ObjectDB {
 		
 		// designation ligne devis
 		
-		String designation = "Appellation Commerciale: "+ap_commerciale+"\t"+"Désignation Produit: "+ des_produit +"\t"+"Finition: "+ fin_produit+
-		"\n"+"Autres Finitions: "+aut_fin+"\t"+" Unité: " + unite +"\t" + " Longueur: "+lng +"\t" + " Largeur: "+lrg+"\t" +" Epaisseur: "+ep+"\t"  + "Dimension Joints: " +dim_joint;
+		String designation =  des_produit +"\t"+ fin_produit+"\t"+aut_fin+"\n"+lng +"\t" + " x "+lrg+"\t" +" x ep. "+ep+"\t" + "Joins inclus de " +dim_joint +" cm";
 		
 		setFieldValue("defiLigneDevisDesignation",designation);
 		

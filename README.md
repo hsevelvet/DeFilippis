@@ -144,7 +144,7 @@ objet metier pour commande.
 | `defiCommandePieceJointe2`                                   | document                                 |          | yes       |          | -                                                                                |
 | `defiCommandePoidsTotal`                                     | float(6, 2)                              |          | yes       |          | -                                                                                |
 | `defiCommandeNombreCamions`                                  | float(6, 2)                              |          | yes       |          | -                                                                                |
-| `defiCommandeNomFournisseur`                                 | char(100)                                |          | yes       |          | -                                                                                |
+| `defiCommandeSuiveurAffaire`                                 | char(100)                                |          | yes       |          | -                                                                                |
 | `defiCommandeTransporteur`                                   | char(100)                                |          | yes       |          | -                                                                                |
 | `defiCommandeDatePremierCamion`                              | date                                     |          | yes       |          | -                                                                                |
 | `defiCommandeAdresseLivraison`                               | char(150)                                |          | yes       |          | -                                                                                |
@@ -250,6 +250,7 @@ Objet metier pour devis.
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
 | _Ref. `DF_Devis_DF_Chantier_id.defiAfrStatut`_               | _enum(7) using `DF_STATUT_AFFAIRE` list_ |          |           |          | -                                                                                |
 | _Ref. `DF_Devis_DF_utilisateur_interne_id.defiUsrTrigramme`_ | _char(5)_                                |          |           |          | -                                                                                |
+| _Ref. `DF_Devis_DF_Chantier_id.defiAfrLibelleChantier`_      | _char(36)_                               |          |           |          | -                                                                                |
 | `defiDevisTitre`                                             | char(100)                                | yes*     |           |          | -                                                                                |
 | `defiDevisStatut`                                            | enum(7) using `STATUT_DEVIS` list        | yes      | yes       |          | -                                                                                |
 | _Ref. `DF_Devis_DF_utilisateur_interne_id.defiUsrNomComplet`_ | _char(70)_                               |          |           |          | -                                                                                |
@@ -495,14 +496,18 @@ Objet métier pour fournisseur.
 | `df_livraison_trellocardid`                                  | char(30)                                 |          | yes       |          | -                                                                                |
 | `DF_Contact_DF_Livraison_id`                                 | id                                       |          | yes       |          | -                                                                                |
 | `df_livraison_statut`                                        | enum(7) using `DF_LIVRAISON_STATUT` list | yes      | yes       |          | -                                                                                |
-| `DF_Livraison_DF_Chantier_id` link to **`DF_Affaire`**       | id                                       |          | yes       |          | -                                                                                |
 | `df_livraison_quantite_chargee`                              | float(11, 0)                             |          | yes       |          | -                                                                                |
 | `df_livraison_date_livraison_estimee`                        | date                                     |          | yes       |          | -                                                                                |
 | `defiLivraisonNbrPalettes`                                   | int(100)                                 |          | yes       |          | -                                                                                |
 | `df_livraison_num_bl_fournisseur`                            | char(11)                                 |          | yes       |          | -                                                                                |
 | `df_livraison_trellocardid`                                  | char(30)                                 |          | yes       |          | -                                                                                |
 | `DF_Contact_DF_Livraison_id`                                 | id                                       |          | yes       |          | -                                                                                |
-| `DF_Livraison_DF_Chantier_id` link to **`DF_Affaire`**       | id                                       |          | yes       |          | -                                                                                |
+| `DF_Livraison_DF_Affaire_id` link to **`DF_Affaire`**        | id                                       |          | yes       |          | -                                                                                |
+| _Ref. `DF_Livraison_DF_Affaire_id.defiAffaireId`_            | _char(11)_                               |          |           |          | -                                                                                |
+| _Ref. `DF_Livraison_DF_Affaire_id.defiAfrNumero`_            | _char(36)_                               |          |           |          | -                                                                                |
+| `DF_Livraison_DF_Commande_id` link to **`DF_Commande`**      | id                                       |          | yes       |          | -                                                                                |
+| _Ref. `DF_Livraison_DF_Commande_id.defiCommandeId`_          | _char(50)_                               |          |           |          | -                                                                                |
+| _Ref. `DF_Livraison_DF_Commande_id.defiCommandeNumero`_      | _char(32)_                               |          |           |          | -                                                                                |
 
 ### Lists
 

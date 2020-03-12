@@ -2220,14 +2220,14 @@ paths:
         type: number
         required: false
       - in: query
-        name: defiCommandeNomFournisseur
-        description: Search filter for Nom Fournisseur
-        type: string
-        required: false
-      - in: query
         name: defiCommandeNombreCamions
         description: Search filter for Nombre de camions
         type: number
+        required: false
+      - in: query
+        name: defiCommandeSuiveurAffaire
+        description: Search filter for Suiveur de l'affaire
+        type: string
         required: false
       - in: query
         name: defiCommandeTransporteur
@@ -2331,44 +2331,6 @@ paths:
         required: false
       tags:
       - DF_Commande
-  /rest/DF_Devis/{row_id}/action:PDF:
-    get:
-      summary: Call a custom action for a DF_Devis business object record or for all
-        records
-      security:
-      - bearerAuth: []
-      produces:
-      - application/json
-      operationId: obj-df_devis-action-pdf
-      responses:
-        '200':
-          schema:
-            $ref: '#/definitions/ActionResult'
-          description: Success in calling the custom action
-        '400':
-          schema:
-            $ref: '#/definitions/Error400'
-          description: Bad request
-        '401':
-          schema:
-            $ref: '#/definitions/Error401'
-          description: Unauthorized
-        '500':
-          schema:
-            $ref: '#/definitions/Error500'
-          description: Internal server error
-        '404':
-          schema:
-            $ref: '#/definitions/Error404'
-          description: Not found
-      parameters:
-      - in: path
-        name: row_id
-        description: Row ID (or empty or _ for all row IDs)
-        type: string
-        required: true
-      tags:
-      - DF_Devis
   /rest/DF_utilisateur_interne/{row_id}/publication:User-VCARD:
     get:
       summary: Call a custom publication for a DF_utilisateur_interne business object
@@ -3258,6 +3220,11 @@ paths:
         - I
         - C
       - in: query
+        name: DF_Devis_DF_Chantier_id__defiAfrLibelleChantier
+        description: Search filter for Titre Affaire DF chantier
+        type: string
+        required: false
+      - in: query
         name: DF_Devis_DF_utilisateur_interne_id__defiUsrTrigramme
         description: Search filter for Trigramme
         type: string
@@ -3467,13 +3434,13 @@ paths:
         type: string
         required: false
       - in: query
-        name: defiDevisNumero
-        description: Search filter for Numéro de devis
+        name: DF_Devis_DF_Contact_id__defiContactEmail
+        description: Search filter for E-mail Contacts
         type: string
         required: false
       - in: query
-        name: DF_Devis_DF_Contact_id__defiContactEmail
-        description: Search filter for E-mail Contacts
+        name: defiDevisNumero
+        description: Search filter for Numéro de devis
         type: string
         required: false
       - in: query
@@ -4034,11 +4001,6 @@ paths:
         type: string
         required: false
       - in: query
-        name: DF_Livraison_DF_Chantier_id
-        description: Search filter for DF chantier
-        type: string
-        required: false
-      - in: query
         name: df_livraison_quantite_chargee
         description: Search filter for Quantité Chargée
         type: number
@@ -4056,6 +4018,36 @@ paths:
       - in: query
         name: df_livraison_num_bl_fournisseur
         description: Search filter for Num BL Fournisseur
+        type: string
+        required: false
+      - in: query
+        name: DF_Livraison_DF_Affaire_id
+        description: Search filter for Affaires
+        type: string
+        required: false
+      - in: query
+        name: DF_Livraison_DF_Affaire_id__defiAffaireId
+        description: Search filter for Id Affaire Affaires
+        type: string
+        required: false
+      - in: query
+        name: DF_Livraison_DF_Affaire_id__defiAfrNumero
+        description: Search filter for Numéro d'affaire Affaires
+        type: string
+        required: false
+      - in: query
+        name: DF_Livraison_DF_Commande_id
+        description: Search filter for Commandes
+        type: string
+        required: false
+      - in: query
+        name: DF_Livraison_DF_Commande_id__defiCommandeId
+        description: Search filter for Id Commande Commandes
+        type: string
+        required: false
+      - in: query
+        name: DF_Livraison_DF_Commande_id__defiCommandeNumero
+        description: Search filter for Numéro de Commande Commandes
         type: string
         required: false
       tags:
@@ -6446,6 +6438,9 @@ definitions:
       defiCommandeAdresseLivraison:
         description: Adresse Livraison
         type: string
+      defiCommandeSuiveurAffaire:
+        description: Suiveur de l'affaire
+        type: string
       defiCommandeStatut:
         description: Statut Commande
         type: string
@@ -6518,9 +6513,6 @@ definitions:
       DF_Commande_DF_Fournisseurs_id__defiFournId:
         description: Id Fournisseur Fournisseurs
         type: string
-      defiCommandeNomFournisseur:
-        description: Nom Fournisseur
-        type: string
       defiCommandePieceJointe1:
         description: Pièce Jointe 1
         type: object
@@ -6586,8 +6578,14 @@ definitions:
       df_livraison_date_livraison_estimee:
         description: Date Livraison Estimée
         type: string
+      DF_Livraison_DF_Affaire_id:
+        description: Affaires
+        type: string
       defiLivraisonIdCommande:
         description: Id Commande
+        type: string
+      DF_Livraison_DF_Affaire_id__defiAffaireId:
+        description: Id Affaire Affaires
         type: string
       df_livraison_num_bl_fournisseur:
         description: Num BL Fournisseur
@@ -6605,12 +6603,18 @@ definitions:
         - '4'
         - '5'
         - '6'
-      DF_Livraison_DF_Chantier_id:
-        description: DF chantier
+      DF_Livraison_DF_Commande_id__defiCommandeId:
+        description: Id Commande Commandes
+        type: string
+      DF_Livraison_DF_Commande_id__defiCommandeNumero:
+        description: Numéro de Commande Commandes
         type: string
       df_livraison_quantite_chargee:
         description: Quantité Chargée
         type: number
+      DF_Livraison_DF_Affaire_id__defiAfrNumero:
+        description: Numéro d'affaire Affaires
+        type: string
       df_livraison_trellocardid:
         description: df_livraison_trellocardid
         type: string
@@ -6628,6 +6632,9 @@ definitions:
         type: string
       DF_Contact_DF_Livraison_id:
         description: DF livraison
+        type: string
+      DF_Livraison_DF_Commande_id:
+        description: Commandes
         type: string
   DF_Transport:
     type: object
@@ -6778,34 +6785,12 @@ definitions:
   DF_Devis:
     type: object
     properties:
-      defiDevisDelaiPaiement:
-        description: Délai de paiement
-        type: string
-        enum:
-        - 45J
-        - 30I
-        - 1CO
-      defiDevisTitre:
-        description: Titre Devis
-        type: string
       defiDevisLieuProjet:
         description: Ville Projet
-        type: string
-      DF_Devis_DF_Chantier_id__defiAfrDateDebut:
-        description: Date début chantier
         type: string
       DF_Devis_DF_Contact_id__defiContactPrenom:
         description: Prénom Contact
         type: string
-      defiDevisNumero:
-        description: Numéro de devis
-        type: string
-      DF_Devis_DF_Chantier_id:
-        description: DF chantier
-        type: string
-      defiDevisPoidsTotal:
-        description: Poids total (T)
-        type: number
       DF_Devis_DF_Client_id__defiClientNom:
         description: Nom Client
         type: string
@@ -6817,17 +6802,11 @@ definitions:
         - FCN
         - EXW
         - FOB
-      DF_Devis_DF_Client_id__defiClientEmail:
-        description: E-mail client
-        type: string
-      defiDevisDateEmission:
-        description: Date Emission
-        type: string
       DF_Devis_DF_Contact_id__defiContactId:
         description: Contact
         type: string
-      DF_Devis_DF_Client_id__defiClientTelephone:
-        description: Téléphone client
+      DF_Devis_DF_Chantier_id__defiAfrLibelleChantier:
+        description: Titre Affaire DF chantier
         type: string
       defiDevisContenance:
         description: Contenance
@@ -6836,6 +6815,82 @@ definitions:
         - CC
         - PC
         - GT
+      defiDevisCompteurDate:
+        description: Compteur Date
+        type: integer
+      defiDevisIndice:
+        description: Indice
+        type: string
+      defiDevisPrixTotalHT:
+        description: Prix Total HT
+        type: string
+      defiDevisOrdreFacturation:
+        description: Ordre facturation
+        type: string
+      defiDevisStatut:
+        description: Statut
+        type: string
+        enum:
+        - ES
+        - ET
+        - NE
+        - CH
+        - PE
+        - VR
+      DF_Devis_DF_Client_id__defiClientId:
+        description: Id Client
+        type: string
+      defiDevisDelaisPrevisionnel:
+        description: Délais prévisionnel
+        type: string
+      defiDevisAccompte:
+        description: Acompte
+        type: string
+        enum:
+        - '000'
+        - '030'
+        - '050'
+        - '100'
+      DF_Devis_DF_utilisateur_interne_id__defiUsrTrigramme:
+        description: Trigramme
+        type: string
+      defiDevisTitreProjet:
+        description: Titre Projet
+        type: string
+      DF_Devis_DF_Contact_id__defiContactEmail:
+        description: E-mail Contacts
+        type: string
+      defiDevisDelaiPaiement:
+        description: Délai de paiement
+        type: string
+        enum:
+        - 45J
+        - 30I
+        - 1CO
+      defiDevisTitre:
+        description: Titre Devis
+        type: string
+      DF_Devis_DF_Chantier_id__defiAfrDateDebut:
+        description: Date début chantier
+        type: string
+      defiDevisNumero:
+        description: Numéro de devis
+        type: string
+      DF_Devis_DF_Chantier_id:
+        description: DF chantier
+        type: string
+      defiDevisPoidsTotal:
+        description: Poids total (T)
+        type: number
+      DF_Devis_DF_Client_id__defiClientEmail:
+        description: E-mail client
+        type: string
+      defiDevisDateEmission:
+        description: Date Emission
+        type: string
+      DF_Devis_DF_Client_id__defiClientTelephone:
+        description: Téléphone client
+        type: string
       defiDevisPieceJointe4:
         description: Pièce Jointe 4
         type: object
@@ -6848,9 +6903,6 @@ definitions:
       defiDevisPieceJointe3:
         description: Pièce jointe 3
         type: object
-      defiDevisCompteurDate:
-        description: Compteur Date
-        type: integer
       DF_Devis_DF_Chantier_id__defiAfrStatut:
         description: Statut Affaire DF chantier
         type: string
@@ -6872,39 +6924,14 @@ definitions:
       DF_Devis_DF_Client_id:
         description: DF client
         type: string
-      defiDevisIndice:
-        description: Indice
-        type: string
-      defiDevisPrixTotalHT:
-        description: Prix Total HT
-        type: string
-      defiDevisOrdreFacturation:
-        description: Ordre facturation
-        type: string
       DF_Devis_DF_Contact_id__defiContactPortable:
         description: Portable Contact
         type: string
       DF_Devis_DF_Contact_id:
         description: Contacts
         type: string
-      defiDevisStatut:
-        description: Statut
-        type: string
-        enum:
-        - ES
-        - ET
-        - NE
-        - CH
-        - PE
-        - VR
       DF_Devis_DF_Chantier_id__defiAfrNumero:
         description: Référence Affaire
-        type: string
-      DF_Devis_DF_Client_id__defiClientId:
-        description: Id Client
-        type: string
-      defiDevisDelaisPrevisionnel:
-        description: Délais prévisionnel
         type: string
       defiDevisDateValiditeOffre:
         description: Date Validité offre
@@ -6921,25 +6948,8 @@ definitions:
       defiDevisFicheTechnique:
         description: Fiche Technique
         type: object
-      defiDevisAccompte:
-        description: Acompte
-        type: string
-        enum:
-        - '000'
-        - '030'
-        - '050'
-        - '100'
-      DF_Devis_DF_utilisateur_interne_id__defiUsrTrigramme:
-        description: Trigramme
-        type: string
       defiDevisCadenceLivraison:
         description: Cadence de livraison hebdomadaire
-        type: string
-      defiDevisTitreProjet:
-        description: Titre Projet
-        type: string
-      DF_Devis_DF_Contact_id__defiContactEmail:
-        description: E-mail Contacts
         type: string
       row_id:
         description: Unique technical row ID

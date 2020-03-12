@@ -138,28 +138,6 @@ public class DF_Devis extends ObjectDB {
 	}
 	
 
-
-	/**
-	public String creationAffaire(){
-		ObjectDB a = getGrant().getTmpObject("DF_Affaire");
-		a.resetFilters();
-		
-		a.create();
-		
-		String num_affaire = getField("defiDevisTitre").getValue();
-		String lieu_affaire = getFieldValue("defiDevisLieuProjet");
-		String intitule_affaire = getFieldValue("defiDevisTitreProjet");
-		
-		a.setFieldValue("defiAfrNumero",num_affaire);
-		a.setFieldValue("defiAfrLibelleChantier",lieu_affaire);
-		a.setFieldValue("defiAfrLieuAffaire",intitule_affaire);
-		
-		a.save();
-		
-		return sendRedirect(HTMLTool.getFormURL("DF_Affaire","the_main_DF_Affaire", a.getRowId(),""));
-	}*/
-
-
 	public String initialCommande(){
 		
 		// Grant Objet Commande
@@ -180,9 +158,11 @@ public class DF_Devis extends ObjectDB {
 		c.create();
 		//ObjectField s = c.getField("defiCommandeId");
 		//s.setValue(num);
+		c.setFieldValue("DF_Commande_DF_Affaire_id", getFieldValue("DF_Devis_DF_Chantier_id"));
 			
 		c.setStatus("IN");	
-		
+		c.setFieldValue("DF_Commande_DF_Affaire_id.defiAfrLibelleChantier", getFieldValue("DF_Devis_DF_Chantier_id.defiAfrLibelleChantier"));
+		c.setFieldValue("defiCommandeSuiveurAffaire", getFieldValue("DF_Devis_DF_utilisateur_interne_id.defiUsrNomComplet"));
 		c.setFieldValue("defiCommandeLieuAffaire",lieu_affaire);
 		c.setFieldValue("defiCommandeIntituleAffaire",intitule_affaire);
 		c.setFieldValue("defiCommandePoidsTotal",poids_total);
