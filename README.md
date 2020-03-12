@@ -213,8 +213,8 @@ Objet metier pour contact.
 ### Lists
 
 * `CIVILITE_CLIENT_CONTACT`
-    - `M` M
-    - `F` F
+    - `M` Mr
+    - `F` Mme
 * `DF_CONTACT_ID_EMPLOI`
     - `D` Directeur
     - `CA` Chef d'agence
@@ -334,7 +334,6 @@ Objet metier pour devis.
 ### Custom actions
 
 * `Initialisation-Commande`: 
-* `PDF`: 
 * `versionner-devis`: 
 
 `DF_Fournisseurs` business object definition

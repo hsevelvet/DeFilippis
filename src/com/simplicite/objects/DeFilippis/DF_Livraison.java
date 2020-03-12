@@ -10,6 +10,10 @@ import com.simplicite.util.exceptions.APIException;
 import com.simplicite.util.tools.HTMLTool;
 import com.simplicite.util.tools.TrelloTool;
 
+
+import com.simplicite.webapp.web.BootstrapWebPage;
+import com.simplicite.util.tools.PDFTool;
+
 /**
  * Trello card business object example
  */
@@ -208,6 +212,39 @@ public class DF_Livraison extends com.simplicite.util.ObjectDB {
 			i=i+1;
         }
         return id;
+	}
+	
+		////////////////////////// Print BL //////////////////////////////////////////////
+	public String pubBL(){
+		BootstrapWebPage wp = new BootstrapWebPage(
+			HTMLTool.getRoot(), 
+			"Webpage publication pattern example", 
+			true
+		);
+		
+		return wp.getHTML();
+	
+	}
+	
+	public byte[] pubPdf(){
+		String url = "http://wkhtml2pdf/";
+		String user = null;
+		String password = null;
+	
+		
+		JSONObject postData = new JSONObject();
+		postData.put("contents", Tool.toBase64(pubBL()));
+
+		String[] headers = {"Content-Type:application/json"};
+		String encoding = Globals.BINARY;
+		byte[] pdf = null;
+		
+		try{
+			pdf = Tool.readUrlAsByteArray(url, user, password, postData.toString(), headers, encoding);
+		}catch(Exception e){
+			AppLog.error(getClass(), "pubPdf", "------------", e, getGrant());
+		}
+		return pdf;
 	}
 	
 }

@@ -3,7 +3,7 @@ package com.simplicite.objects.DeFilippis;
 import java.io.ByteArrayOutputStream;
 import com.simplicite.util.PrintTemplate;
 import org.json.JSONObject;
-//import com.lowagie.text.Document;
+
 import com.lowagie.text.Image;
 import com.lowagie.text.Paragraph;
 import com.lowagie.text.pdf.PdfPCell;
@@ -340,7 +340,7 @@ public class DF_Devis extends ObjectDB {
 }
 
 }
-	
+	////////////////////////////// Print DEVIS //////////////////////////////////////
 	public String pubDevis(){
 		BootstrapWebPage wp = new BootstrapWebPage(
 			HTMLTool.getRoot(), 
@@ -364,12 +364,10 @@ public class DF_Devis extends ObjectDB {
 			wp.append(MustacheTool.apply(
 			this,
 			"DF_Devis_HTML", 
-// A priori il faut 2 listes dans votre template, donc :
 			"{'rows':"+d.toJSON(d.search(), null, false, false)+
 			",'rows_l':"+ld.toJSON(rows_l, null, false, false)+"}"
 			));
 		}
-	    //return "<html><head><meta charset=\"utf-8\"></head><h1>Defilippis / Docker Compose / wkhtml2pdf</h1><p>...by Simplicité</p></html>";
 		return wp.getHTML();
 	
 	}
@@ -378,21 +376,10 @@ public class DF_Devis extends ObjectDB {
 		String url = "http://wkhtml2pdf/";
 		String user = null;
 		String password = null;
-		/*
-		try {
-			String plainText= Jsoup.parse(pubDevis()).text();
-		}
-		catch(IOException e) {
-			  e.printStackTrace();
-		}*/
 		
-		//String plainText= Jsoup.parse(pubDevis()).text();
-		//AppLog.info(getClass(), "PRINT DEVIS------------------", "message"+plainText, getGrant());
-
 		
 		JSONObject postData = new JSONObject();
 		postData.put("contents", Tool.toBase64(pubDevis()));
-		//AppLog.info(getClass(), "PRINT DEVIS------------------", "message"+pubDevis(), getGrant());
 		String[] headers = {"Content-Type:application/json"};
 		String encoding = Globals.BINARY;
 		byte[] pdf = null;

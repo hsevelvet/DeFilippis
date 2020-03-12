@@ -13,6 +13,9 @@ import com.simplicite.util.exceptions.APIException;
 import com.simplicite.util.tools.HTMLTool;
 import com.simplicite.util.tools.TrelloTool;
 
+
+import com.simplicite.webapp.web.BootstrapWebPage;
+import com.simplicite.util.tools.PDFTool;
 /**
  * Business object DF_Commande
  */
@@ -138,7 +141,7 @@ public class DF_Commande extends ObjectDB {
 					JSONObject card = tt.getCard(id);
 					
 					card.put("name",  getFieldValue("defiCommandeIntituleAffaire")+"-"+lc.getFieldValue("defiLigneCommandeTypeGeologique")+"-"+lc.getFieldValue("defiLigneCommandeQuantite"));
-					card.put("desc", createDesc());
+					//card.put("desc", createDesc());
 					card.put("due", getFieldValue("defiCommandeDate"));
 					card.put("idList",getIDList(getFieldValue("defiCommandeStatut")));
 					tt.updateCard(id, card);
@@ -176,6 +179,7 @@ public class DF_Commande extends ObjectDB {
 					lc.setValues(lce);
 					
 					
+					
 					String int_aff = getFieldValue("DF_Commande_DF_Affaire_id.defiAfrLibelleChantier");
 					int_aff.replace(" " , "");
 					String firstCharsIntitule = int_aff.substring(0, 7);
@@ -187,7 +191,8 @@ public class DF_Commande extends ObjectDB {
 					
 					card.put("name",  (firstCharsIntitule+"."+getFieldValue("defiCommandeIntituleCommande")+"."+firstCharsFourns+"."+lc.getFieldValue("defiLigneCommandeReferenceProduit")+"."+lc.getFieldValue("defiLigneCommandeQuantite")).toUpperCase());
 					//card.put("desc", createDesc());
-					card.put("due", getFieldValue("defiCommandeDate"));
+					card.put("desc","\n**Date Livraison confirmée**: "+getFieldValue("defiCommandeDatePremierCamion")+"\n"+"\n**Contact Déchargement Privilégié**: "+"\n"+"\n**Contact En Cas De Problème**: "+"\n"+"\n**Quantité Initiale**: "+ lc.getFieldValue("defiLigneCommandeQuantite"));
+					card.put("due", getFieldValue("defiCommandeDatePremierCamion"));
 					card = tt.addCard(getIDList(getFieldValue("defiCommandeStatut")), card);
 									
 					//Mise à jour les informations custom fields
@@ -310,29 +315,42 @@ public class DF_Commande extends ObjectDB {
         return id;
 	}
 	
+	
+	
+	////////////////////////// Print ARC //////////////////////////////////////////////
+	public String pubARC(){
+		BootstrapWebPage wp = new BootstrapWebPage(
+			HTMLTool.getRoot(), 
+			"Webpage publication pattern example", 
+			true
+		);
 		
-	public String createDesc(){
-		String desc = "";
-		desc += "\n**Ligne de commande ID**: "+getFieldValue("defiCommandeNumero_ligne_commande");
-		desc += "\n**Quantité**: "+getFieldValue("defiCommandePoidsTotal");
-		//desc += "\n**Statut Livraison**: "+getFieldValue("defiCommandeStatut");
-		desc += "\n**Date Livraison Estimée**: "+getFieldValue("defiCommandeDate");
-		desc += "\n";
-		desc += "\n**Num BL Client**: "+getFieldValue("df_livraison_num_bl_client");
-		desc += "\n**Num BL Fournisseur**: "+getFieldValue("df_livraison_num_bl_fournisseur");
-		desc += "\n";
-		desc += "\n**Adresse Enlevement**: "+getFieldValue("defiCommandeAdresseLivraison_enlevement");
-		desc += "\n**Adresse Livraison**: "+getFieldValue("defiCommandeAdresseLivraison");
-		desc += "\n**Adresse De Livraison Confirmée**: "+getFieldValue("defiCommandeAdresseLivraison_de_livraison_confirmee");
-		desc += "\n";
-		desc += "\n**Nom Transporteur**: "+getFieldValue("df_livraison_nom_transporteur");
-		desc += "\n**Contact Transporteur**: "+getFieldValue("df_livraison_contact_transporteur");
-		desc += "\n**Num ZEEPO Transporteur**: "+getFieldValue("df_livraison_num_zeepo_transporteur");
-		desc += "\n";
-		desc += "\n**Contact Déchargement Privilégié**: "+getFieldValue("df_livraison_contact_dechargement_privilegie");
-		desc += "\n**Contact En Cas De Problème**: "+getFieldValue("df_livraison_contact_en_cas_de_probleme");
-		return desc;
+		return wp.getHTML();
+	
 	}
+	
+	public byte[] pubPdf(){
+		String url = "http://wkhtml2pdf/";
+		String user = null;
+		String password = null;
+	
+		
+		JSONObject postData = new JSONObject();
+		postData.put("contents", Tool.toBase64(pubARC()));
+
+		String[] headers = {"Content-Type:application/json"};
+		String encoding = Globals.BINARY;
+		byte[] pdf = null;
+		
+		try{
+			pdf = Tool.readUrlAsByteArray(url, user, password, postData.toString(), headers, encoding);
+		}catch(Exception e){
+			AppLog.error(getClass(), "pubPdf", "------------", e, getGrant());
+		}
+		return pdf;
+	}
+	
+		
 
 
 }

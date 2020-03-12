@@ -20,13 +20,13 @@ public class DF_Ligne_Devis extends ObjectDB {
 		//msgs.add(Message.formatError("ERROR_CODE", "Message", "fieldName"));
 		
 		if (this.isNew())
-			getField("defiLigneDevisPrixUnitaireHT").setValue(getField("defiPrdPrixUnitaireHT").getValue());
-			getField("defiLigneDevisUnite").setValue(getField("defiPrdUnite").getValue());
-			getField("defiLigneDevisLargeur").setValue(getField("defiPrdLargeur").getValue());
-			getField("defiLigneDevisLongueur").setValue(getField("defiPrdLongueur").getValue());
-			getField("defiLigneDevisEpaisseur").setValue(getField("defiPrdEpaisseur").getValue());
-			getField("defiLigneDevisMasseVolumique").setValue(getField("defiPrdMasseVolumique").getValue());
-			getField("defiLigneDevisNomProduit").setValue(getField("defiPrdTypeGeologique").getValue());
+			//getField("defiLigneDevisPrixUnitaireHT").setValue(getField("defiPrdPrixUnitaireHT").getValue());
+			//getField("defiLigneDevisUnite").setValue(getField("defiPrdUnite").getValue());
+			//getField("defiLigneDevisLargeur").setValue(getField("defiPrdLargeur").getValue());
+			//getField("defiLigneDevisLongueur").setValue(getField("defiPrdLongueur").getValue());
+			//getField("defiLigneDevisEpaisseur").setValue(getField("defiPrdEpaisseur").getValue());
+			//getField("defiLigneDevisMasseVolumique").setValue(getField("defiPrdMasseVolumique").getValue());
+			//getField("defiLigneDevisNomProduit").setValue(getField("defiPrdTypeGeologique").getValue());
 			//getField("defiLigneDevisDesignationProduit").setValue(getField("defiPrdType").getValue());
 			//getField("defiLigneDevisFinition").setValue(getField("defiPrdFinitionFacesVues").getValue());
 			

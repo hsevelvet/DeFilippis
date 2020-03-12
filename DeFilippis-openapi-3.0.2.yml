@@ -135,14 +135,14 @@ components:
           - MO
           - AR
           - MDO
-          - ATPG
           - T
-          - V
+          - ATPG
           - ATP
+          - V
           - N
           - EA
-          - A
           - P
+          - A
         DF_Affaire_DF_utilisateur_interne_id__defiUsrNomComplet:
           description: Nom Complet DF affaire DF utilisateur interne id
           type: string
@@ -975,14 +975,14 @@ components:
           - MO
           - AR
           - MDO
-          - ATPG
           - T
-          - V
+          - ATPG
           - ATP
+          - V
           - N
           - EA
-          - A
           - P
+          - A
         defiClientAdresse:
           description: Adresse
           type: string
@@ -1902,8 +1902,8 @@ components:
           - BE
           - CH
           - IE
-          - CA
           - US
+          - CA
         usr_title:
           description: Title
           type: string
@@ -2183,14 +2183,14 @@ paths:
           - MO
           - AR
           - MDO
-          - ATPG
           - T
-          - V
+          - ATPG
           - ATP
+          - V
           - N
           - EA
-          - A
           - P
+          - A
         in: query
         name: DF_Chantier_DF_Client_id__defiClientIdSecteurActivite
         description: Search filter for Secteur Activité Client
@@ -5275,6 +5275,47 @@ paths:
         required: true
       tags:
       - DF_Affaire
+  /rest/DF_Commande/{row_id}/publication:ARC-PDF:
+    get:
+      summary: Call a custom publication for a DF_Commande business object record
+        or for all records
+      security:
+      - bearerAuth: []
+      operationId: obj-df_commande-publication-arc-pdf
+      responses:
+        '200':
+          description: Success in calling the custom publication
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublicationResult'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_Commande
   /rest/DF_Devis/{row_id}/publication:Devis-PDF:
     get:
       summary: Call a custom publication for a DF_Devis business object record or
@@ -6416,6 +6457,47 @@ paths:
         required: false
       tags:
       - DF_ligne_commande
+  /rest/DF_Livraison/{row_id}/publication:BL-PDF:
+    get:
+      summary: Call a custom publication for a DF_Livraison business object record
+        or for all records
+      security:
+      - bearerAuth: []
+      operationId: obj-df_livraison-publication-bl-pdf
+      responses:
+        '200':
+          description: Success in calling the custom publication
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublicationResult'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_Livraison
   /rest/DF_test/{row_id}:
     post:
       summary: Create a new DF_testbusiness object record
@@ -6956,14 +7038,14 @@ paths:
           - MO
           - AR
           - MDO
-          - ATPG
           - T
-          - V
+          - ATPG
           - ATP
+          - V
           - N
           - EA
-          - A
           - P
+          - A
         in: query
         name: defiClientIdSecteurActivite
         description: Search filter for Secteur Activité
@@ -8243,8 +8325,8 @@ paths:
           - BE
           - CH
           - IE
-          - CA
           - US
+          - CA
         in: query
         name: usr_country
         description: Search filter for Country
