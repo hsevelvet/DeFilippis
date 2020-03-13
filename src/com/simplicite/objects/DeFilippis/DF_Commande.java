@@ -13,6 +13,15 @@ import com.simplicite.util.exceptions.APIException;
 import com.simplicite.util.tools.HTMLTool;
 import com.simplicite.util.tools.TrelloTool;
 
+import java.io.ByteArrayOutputStream;
+import com.simplicite.util.PrintTemplate;
+import org.json.JSONObject;
+
+import com.lowagie.text.Image;
+import com.lowagie.text.Paragraph;
+import com.lowagie.text.pdf.PdfPCell;
+import com.lowagie.text.pdf.PdfPTable;
+
 
 import com.simplicite.webapp.web.BootstrapWebPage;
 import com.simplicite.util.tools.PDFTool;
@@ -140,6 +149,8 @@ public class DF_Commande extends ObjectDB {
 					String id = getFieldValue("defiCommandeTrelloId");
 					JSONObject card = tt.getCard(id);
 					
+					
+					
 					card.put("name",  getFieldValue("defiCommandeIntituleAffaire")+"-"+lc.getFieldValue("defiLigneCommandeTypeGeologique")+"-"+lc.getFieldValue("defiLigneCommandeQuantite"));
 					//card.put("desc", createDesc());
 					card.put("due", getFieldValue("defiCommandeDate"));
@@ -207,6 +218,7 @@ public class DF_Commande extends ObjectDB {
 		    		
 		    		tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Ville"),new JSONObject().put("value",new JSONObject().put("text",getFieldValue("DF_Commande_DF_Affaire_id.defiAfrLieuAffaire"))));
 		    		tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Trigramme Suiveur"),new JSONObject().put("value",new JSONObject().put("text",getFieldValue("DF_Commande_DF_utilisateur_interne_id.defiUsrTrigramme"))));
+		    		tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Id ligne de commande"),new JSONObject().put("value",new JSONObject().put("text",lc.getFieldValue("defiLigneCommandeId"))));
 				}
 		    		}
 		    	AppLog.info(getClass(), "preCreate", card.toString(2), getGrant());
@@ -319,37 +331,57 @@ public class DF_Commande extends ObjectDB {
 	
 	////////////////////////// Print ARC //////////////////////////////////////////////
 	public String pubARC(){
-		BootstrapWebPage wp = new BootstrapWebPage(
+		BootstrapWebPage wp_arc = new BootstrapWebPage(
 			HTMLTool.getRoot(), 
 			"Webpage publication pattern example", 
 			true
 		);
 		
+		
+		// Commande
 		ObjectDB c = getGrant().getTmpObject("DF_Commande");
-	    
-
 		c.setFieldFilter("row_id",getRowId());
 
-		
+		// Ligne COmmande
 		ObjectDB lc = getGrant().getTmpObject("DF_ligne_commande");
 		lc.resetFilters();
 		lc.setFieldFilter("DF_ligne_commande_DF_Commande_id",getRowId());
 		
+		
+		// Suiveur
+		ObjectDB u = getGrant().getTmpObject("User");
+		u.resetFilters();
+		u.setFieldFilter("row_id",getFieldValue("DF_Commande_DF_utilisateur_interne_id"));
+		
+		
+		// Client 	
+		ObjectDB client = getGrant().getTmpObject("DF_Client");
+		client.resetFilters();
+		client.setFieldFilter("row_id",getFieldValue("DF_Commande_DF_Client_id"));
+				
+		
 		List<String[]> rows_l = lc.search(false);
 		if (rows_l.size() > 0){
-			wp.append(MustacheTool.apply(
-			this,
+			
+			wp_arc.append(MustacheTool.apply(
+			c,
 			"DF_ARC_HTML", 
 			"{'rows':"+c.toJSON(c.search(), null, false, false)+
-			",'rows_l':"+lc.toJSON(rows_l, null, false, false)+"}"
+			",'rows_l':"+lc.toJSON(rows_l, null, false, false)+
+			",'rows_u':"+u.toJSON(u.search(), null, false, false)+
+			",'rows_client':"+client.toJSON(client.search(), null, false, false)+"}"
 			));
+			AppLog.info(getClass(), "client ------------------",client.toJSON(client.search(), null, false, false).toString() , getGrant());
+			
+					
+			
 		}
-		
-		return wp.getHTML();
+		//return "<html><head><meta charset=\"utf-8\"></head><h1>Simplicité / Docker Compose / wkhtml2pdf</h1><p>...by Simplicité</p></html>";
+		return wp_arc.getHTML();
 	
 	}
 	
-	public byte[] pubPdf(){
+	public byte[] pubPdfARC(){
 		String url = "http://wkhtml2pdf/";
 		String user = null;
 		String password = null;
@@ -357,6 +389,7 @@ public class DF_Commande extends ObjectDB {
 		
 		JSONObject postData = new JSONObject();
 		postData.put("contents", Tool.toBase64(pubARC()));
+		AppLog.info(getClass(), "ARCCCCCCCCCCCCC", pubARC(), getGrant());
 
 		String[] headers = {"Content-Type:application/json"};
 		String encoding = Globals.BINARY;

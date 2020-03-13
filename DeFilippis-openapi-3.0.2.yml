@@ -62,8 +62,14 @@ components:
         defiQuantiteTonnage:
           description: Tonnage
           type: number
+        DF_Quantite_DF_ligne_commande_id__defiLigneCommandeId:
+          description: Id ligne commande
+          type: integer
         row_id:
           description: Unique technical row ID
+          type: string
+        DF_Quantite_DF_ligne_commande_id:
+          description: DF ligne commande
           type: string
     DF_Affaire:
       type: object
@@ -143,9 +149,6 @@ components:
           - EA
           - P
           - A
-        DF_Affaire_DF_utilisateur_interne_id__defiUsrNomComplet:
-          description: Nom Complet DF affaire DF utilisateur interne id
-          type: string
         DF_Chantier_DF_Client_id__defiClientId:
           description: Id Client
           type: string
@@ -434,11 +437,11 @@ components:
         defiCommandeMontantHT:
           description: Montant Commande HT
           type: number
-        DF_Commande_DF_utilisateur_interne_id__defiUsrNomComplet:
-          description: Suiveur de l'affaire
-          type: string
         defiCommandeAdresseLivraison:
           description: Adresse Livraison
+          type: string
+        DF_Commande_DF_utilisateur_interne_id__defiUsrNomComplet:
+          description: Rédacteur Commande
           type: string
         defiCommandeSuiveurAffaire:
           description: Suiveur de l'affaire
@@ -497,6 +500,9 @@ components:
         defiCommandeNombreCamions:
           description: Nombre de camions
           type: number
+        DF_Commande_DF_utilisateur_interne_id__usr_login:
+          description: Login
+          type: string
         DF_Commande_DF_Affaire_id__defiAfrLieuAffaire:
           description: Ville Affaire Affaires
           type: string
@@ -524,9 +530,6 @@ components:
         defiCommandeCadenceLivraison:
           description: Cadence de livraison hebdomadaire estimée
           type: number
-        DF_Commande_DF_utilisateur_interne_id__defiUsrTrigramme:
-          description: Trigramme Rédacteur
-          type: string
         defiCommandeIntituleAffaire:
           description: Titre Affaire
           type: string
@@ -922,7 +925,7 @@ components:
           description: Pièce Jointe 1
           type: object
         DF_Devis_DF_utilisateur_interne_id__defiUsrNomComplet:
-          description: Suiveur de l'affaire
+          description: Suiveur Affaire
           type: string
         defiDevisRedacteur:
           description: Rédacteur
@@ -2005,7 +2008,7 @@ components:
           description: Last name
           type: string
         defiUsrNomComplet:
-          description: Nom Complet
+          description: Rédacteur
           type: string
         usr_cell_num:
           description: Mobile/cellular phone number
@@ -2276,13 +2279,6 @@ paths:
         in: query
         name: DF_Affaire_DF_utilisateur_interne_id__usr_login
         description: Search filter for Login
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: DF_Affaire_DF_utilisateur_interne_id__defiUsrNomComplet
-        description: Search filter for Nom Complet DF affaire DF utilisateur interne
-          id
         required: false
       - schema:
           type: string
@@ -4598,12 +4594,6 @@ paths:
       - schema:
           type: string
         in: query
-        name: DF_Commande_DF_utilisateur_interne_id__defiUsrTrigramme
-        description: Search filter for Trigramme Rédacteur
-        required: false
-      - schema:
-          type: string
-        in: query
         name: defiCommandeNumero
         description: Search filter for Numéro de Commande
         required: false
@@ -4614,16 +4604,16 @@ paths:
         description: Search filter for Id Commande
         required: false
       - schema:
-          type: string
-        in: query
-        name: defiCommandeIntituleAffaire
-        description: Search filter for Titre Affaire
-        required: false
-      - schema:
           type: integer
         in: query
         name: defiCommandeIdLivraison
         description: Search filter for Id Livraison
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: defiCommandeIntituleAffaire
+        description: Search filter for Titre Affaire
         required: false
       - schema:
           type: string
@@ -4639,6 +4629,12 @@ paths:
         required: false
       - schema:
           type: string
+        in: query
+        name: DF_Commande_DF_Client_id
+        description: Search filter for DF client
+        required: false
+      - schema:
+          type: string
           enum:
           - IN
           - EC
@@ -4648,12 +4644,6 @@ paths:
         in: query
         name: defiCommandeStatut
         description: Search filter for Statut Commande
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: DF_Commande_DF_Client_id
-        description: Search filter for DF client
         required: false
       - schema:
           type: string
@@ -4676,18 +4666,6 @@ paths:
       - schema:
           type: string
         in: query
-        name: DF_Commande_DF_utilisateur_interne_id
-        description: Search filter for Rédacteur
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: DF_Commande_DF_utilisateur_interne_id__defiUsrNomComplet
-        description: Search filter for Suiveur de l'affaire
-        required: false
-      - schema:
-          type: string
-        in: query
         name: defiCommandePieceJointe1
         description: Search filter for Pièce Jointe 1
         required: false
@@ -4704,16 +4682,16 @@ paths:
         description: Search filter for Poids Total (T)
         required: false
       - schema:
-          type: number
-        in: query
-        name: defiCommandeNombreCamions
-        description: Search filter for Nombre de camions
-        required: false
-      - schema:
           type: string
         in: query
         name: defiCommandeSuiveurAffaire
         description: Search filter for Suiveur de l'affaire
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: defiCommandeNombreCamions
+        description: Search filter for Nombre de camions
         required: false
       - schema:
           type: string
@@ -4834,6 +4812,24 @@ paths:
         in: query
         name: DF_Commande_DF_Contact_id__defiContactNom
         description: Search filter for Contact Fournisseur
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Commande_DF_utilisateur_interne_id
+        description: Search filter for Rédacteur
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Commande_DF_utilisateur_interne_id__usr_login
+        description: Search filter for Login
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Commande_DF_utilisateur_interne_id__defiUsrNomComplet
+        description: Search filter for Rédacteur Commande
         required: false
       tags:
       - DF_Commande
@@ -5998,6 +5994,7 @@ paths:
           type: string
           enum:
           - Transformation-Devis-Affaire
+          - Transformation-Devis-Affaire2
         in: query
         name: _crosstab
         description: Apply pivot table
@@ -6020,14 +6017,20 @@ paths:
       - schema:
           type: string
         in: query
+        name: DF_Devis_DF_utilisateur_interne_id__defiUsrTrigramme
+        description: Search filter for Trigramme
+        required: false
+      - schema:
+          type: string
+        in: query
         name: DF_Devis_DF_Chantier_id__defiAfrLibelleChantier
         description: Search filter for Titre Affaire DF chantier
         required: false
       - schema:
           type: string
         in: query
-        name: DF_Devis_DF_utilisateur_interne_id__defiUsrTrigramme
-        description: Search filter for Trigramme
+        name: DF_Devis_DF_utilisateur_interne_id__defiUsrNomComplet
+        description: Search filter for Suiveur Affaire
         required: false
       - schema:
           type: string
@@ -6047,12 +6050,6 @@ paths:
         in: query
         name: defiDevisStatut
         description: Search filter for Statut
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: DF_Devis_DF_utilisateur_interne_id__defiUsrNomComplet
-        description: Search filter for Suiveur de l'affaire
         required: false
       - schema:
           type: string
@@ -6272,14 +6269,14 @@ paths:
       - schema:
           type: string
         in: query
-        name: DF_Devis_DF_Contact_id__defiContactEmail
-        description: Search filter for E-mail Contacts
+        name: defiDevisNumero
+        description: Search filter for Numéro de devis
         required: false
       - schema:
           type: string
         in: query
-        name: defiDevisNumero
-        description: Search filter for Numéro de devis
+        name: DF_Devis_DF_Contact_id__defiContactEmail
+        description: Search filter for E-mail Contacts
         required: false
       - schema:
           type: string
@@ -6427,6 +6424,18 @@ paths:
         in: query
         name: DF_Quantite_DF_Livraison_id__defiLivraisonId
         description: Search filter for defi livraison id Livraisons
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Quantite_DF_ligne_commande_id
+        description: Search filter for DF ligne commande
+        required: false
+      - schema:
+          type: integer
+        in: query
+        name: DF_Quantite_DF_ligne_commande_id__defiLigneCommandeId
+        description: Search filter for Id ligne commande
         required: false
       tags:
       - DF_Quantite
@@ -7706,6 +7715,12 @@ paths:
         required: false
       - schema:
           type: string
+        in: query
+        name: defiUsrNomComplet
+        description: Search filter for Rédacteur
+        required: false
+      - schema:
+          type: string
           enum:
           - Etc/GMT+12
           - Etc/GMT+11
@@ -8361,12 +8376,6 @@ paths:
         in: query
         name: usr_active
         description: Search filter for Actif
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: defiUsrNomComplet
-        description: Search filter for Nom Complet
         required: false
       - schema:
           type: string

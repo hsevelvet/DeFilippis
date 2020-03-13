@@ -159,10 +159,12 @@ public class DF_Devis extends ObjectDB {
 		//ObjectField s = c.getField("defiCommandeId");
 		//s.setValue(num);
 		c.setFieldValue("DF_Commande_DF_Affaire_id", getFieldValue("DF_Devis_DF_Chantier_id"));
-			
+		c.setFieldValue("DF_Commande_DF_utilisateur_interne_id", getFieldValue("DF_Devis_DF_utilisateur_interne_id"));	
 		c.setStatus("IN");	
 		c.setFieldValue("DF_Commande_DF_Affaire_id.defiAfrLibelleChantier", getFieldValue("DF_Devis_DF_Chantier_id.defiAfrLibelleChantier"));
-		c.setFieldValue("defiCommandeSuiveurAffaire", getFieldValue("DF_Devis_DF_utilisateur_interne_id.defiUsrNomComplet"));
+		c.setFieldValue("DF_Commande_DF_utilisateur_interne_id.defiUsrNomComplet", getFieldValue("DF_Devis_DF_utilisateur_interne_id.defiUsrNomComplet"));
+		c.setFieldValue("DF_Commande_DF_Client_id", getFieldValue("DF_Devis_DF_Client_id"));
+		//c.setFieldValue("defiCommandeSuiveurAffaire", getFieldValue("DF_Devis_DF_utilisateur_interne_id.defiUsrNomComplet"));
 		c.setFieldValue("defiCommandeLieuAffaire",lieu_affaire);
 		c.setFieldValue("defiCommandeIntituleAffaire",intitule_affaire);
 		c.setFieldValue("defiCommandePoidsTotal",poids_total);
@@ -339,15 +341,30 @@ public class DF_Devis extends ObjectDB {
 		ld.resetFilters();
 		ld.setFieldFilter("DF_Ligne_Devis_DF_Devis_id",getRowId());
 		
-		List<String[]> rows_l = ld.search(false);
-		if (rows_l.size() > 0){
+		// user
+		ObjectDB u = getGrant().getTmpObject("User");
+		u.resetFilters();
+		//ObjectDB ui = getGrant().getTmpObject("DF_utilisateur_interne");
+		u.setFieldFilter("row_id",getFieldValue("DF_Devis_DF_utilisateur_interne_id"));
+		
+		AppLog.info(getClass(), "test user --------- pdf",u.toJSON(u.search(), null, false, false).toString() , getGrant());
+		//u.setFieldFilter("DF_Ligne_Devis_DF_Devis_id",getRowId());
+		// affaire 
+		// client 
+		// contact 
+		// produits finis 
+		
+		//List<String[]> rows_l = ;
+		//if (rows_l.size() > 0){
 			wp.append(MustacheTool.apply(
 			this,
 			"DF_Devis_HTML", 
 			"{'rows':"+d.toJSON(d.search(), null, false, false)+
-			",'rows_l':"+ld.toJSON(rows_l, null, false, false)+"}"
+			",'rows_l':"+ld.toJSON(ld.search(), null, false, false)+
+			",'rows_u':"+u.toJSON(u.search(), null, false, false)+"}"
 			));
-		}
+			
+		//}
 		return wp.getHTML();
 	
 	}

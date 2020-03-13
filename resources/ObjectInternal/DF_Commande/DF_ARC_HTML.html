@@ -164,7 +164,7 @@
 	/** CGV **/
     .cgv-box {
         margin: auto;
-        padding: 10px;
+        padding: 30px;
         border: 1px solid #eee;
         box-shadow: 0 0 10px rgba(0, 0, 0, .15);
         font-size: 9px;
@@ -184,6 +184,23 @@
 	td.cgvleft {
 		width:50%;
 	}
+
+    .cgv-box ul {
+        margin: 0 0;
+        padding: 10px 0 0 20px;
+		text-align: justify;
+	}		
+    .cgv-box ul li {
+        margin: 10px 0;
+	}			
+    .cgv-box p {
+        margin: 15px 0 0 0;
+		text-align: justify;
+	}		
+	
+	h1, h2 {
+		color:#004C8E;
+	}	
 	h2 {
 		padding:7px 0 0 0;
 	}
@@ -204,41 +221,45 @@
 
 <body>
 
-	<!--<div class="header">
-	
-	</div>-->
-
     <div class="arc-box">
         <table cellpadding="0" cellspacing="0" border="0">
             <tr class="top">
                 <td colspan="2">
-				
+
+					<img src="https://www.raultgranit.com/upload/partenaire/0001/181129-091132-de-filippis-mineral-conseil_large.jpg"  style="width:120px;">
+									
+								
+									
 					{{#rows}}
                     <table>
                         <tr>
                             <td class="title">
-                                <img src="https://www.eurovia.fr/zbwi.axd/cropsz/320x158/~/media/4543035/de_filippis_entreprise.jpg"  style="width:120px;">
-								<p>&nbsp;</p>
-								<strong>Affaire suivie par :</strong> {{DF_Commande_DF_utilisateur_interne_id__defiUsrNomComplet}}<br/>								
-								06 46 10 53 05 - david.henrion@mineralconseil.fr<br/><br/>
 
+								<strong>Suiveur Affaire :</strong>{{DF_Commande_DF_utilisateur_interne_id__defiUsrNomComplet}}<br/>									
+								{{#rows_u}}{{usr_work_num}} - {{usr_login}}{{/rows_u}}<br/>
+								
+								
+								<br/>
 								DEFILIPPIS Minéral Conseil <br/>
                                 175 Avenue des Frères Lumière.<br/>
-                                69730 Genay<br/>
-                                Tél : 04 78 98 15 49
+								FRANCE - 69726 Genay<br/>
+                                Tél : 04 78 98 15 49 / www.mineralconseil.fr<br/>
+								SAS - RCS LYON 612 029 298 - FR 29 612 029 298
 								
 								
                             </td>
                             <td style="text-align:right">
-										<p>&nbsp;</p>
-										<p>&nbsp;</p>
-										<p>&nbsp;</p>
-										<strong>Client </strong>: {{DF_Commande_DF_Client_id__defiClientNom}}<br/>
-										<strong>Contact </strong>:  {{DF_Commande_DF_Contact_id__defiContactPrenom}} {{DF_Commande_DF_Contact_id__defiContactNom}}<br/>
-										<strong>Email </strong>: {{DF_Commande_DF_Client_id__defiClientEmail}}<br/>										
-										<strong>Date d'émission </strong>: {{defiCommandeDate}}<br/>
+										{{#rows_client}}
+										<strong>Client </strong>:{{defiClientNom}}<br/>
+										{{/rows_client}}
+											
+										<strong>Contact </strong>:  DF_Commande_DF_Contact_id__defiContactPrenom DF_Commande_DF_Contact_id__defiContactNom<br/>
+										<strong>Email </strong>: DF_Commande_DF_Client_id__defiClientEmail<br/>	
+										<br/>
+										
+										<strong>Date d'émission </strong>:{{defiCommandeDate}}<br/>
 										<strong>Référence Commande </strong>: {{DF_Commande_DF_Affaire_id__defiAfrLibelleChantier}} - {{DF_Commande_DF_Affaire_id__defiAfrLieuAffaire}}
-										<!--<strong>Ref Projet </strong>: {{defiDevisTitre}}-->
+							
                             </td>                            
                         </tr>
 						<tr>
@@ -253,7 +274,7 @@
                 </td>
             </tr>            
             </table>
-            
+          
          <table class="tg">
 			<thead>
 				<tr style="background-color:#FFC300">
@@ -270,7 +291,7 @@
 				{{#rows_l}}
 				<tr>
 
-					<td class="type">{{defiLigneCommandeAppellationCommerciale}}</td>
+					<td class="type">{{defiLigneCommandeTypeGeologique}}</td>
 					<td class="designation">defiLigneCommandeDesignation</td>
 					<td class="unite">{{defiLigneCommandeUnite}}</td>
 					<td class="quantite">{{defiLigneCommandeQuantite}}</td>
@@ -353,7 +374,6 @@ Saupoudrage » au ciment blanc.</li>
 		</tr>
 	</table>
 </div>
-
 
 </body>
 </html>

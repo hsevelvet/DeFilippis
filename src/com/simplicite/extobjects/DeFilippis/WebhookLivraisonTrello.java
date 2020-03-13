@@ -138,6 +138,22 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
             		customFValue = customFieldItem.getString("number");
             }
             
+            if (status.equals("5")){
+						// récupérer la carte 
+						//JSONObject testcard = tt.getCard("5e6baa50f6eefa7cacff98cc");;
+						//card.put("name",  "TEST");
+						//String test = tt.call("/boards/"+settings.getString("boardId")+"/cards","put","test").toString();
+				
+						tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Adresse"),new JSONObject().put("value",new JSONObject().put("text","toto")));
+						AppLog.info(getClass(), "CARD 666", card.toString(), getGrant());
+						card.put("name", "alphabeta");
+						tt.updateCard(card.getString("id"), card);
+						AppLog.info(getClass(), "tetststst-----------------", card.getString("id"), getGrant());
+						//AppLog.info(getClass(), "tttttttt---------aaaaaaa", tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Adresse"),new JSONObject().put("value",new JSONObject().put("text","toto"))).toString(), getGrant());
+						// mise à jour de la carte 
+						
+					}
+            
             
             // Get Grant des objets Livraison et Quantité
 			ObjectDB obj = Grant.getSystemAdmin().getObject("webhook_" + o, o);
@@ -214,9 +230,9 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
 								JSONObject att_card = tt.getCard(str);
 								AppLog.info(getClass(), "Trello------------------",att_card.toString(), getGrant());
 								//JSONObject att_card_cf == tt.getCustomField()
-								if (att_card.has("name")){
-									objq.setFieldValue("defiQuantiteNumCommande", att_card.getString("name"));
-								}
+								//if (att_card.has("name")){
+								//	objq.setFieldValue("defiQuantiteNumCommande", att_card.getString("name"));
+								//}
 								/*if (att_card.has("due")){
 									objq.setFieldValue("defiQunatiteDateChargement", att_card.getString("due"));
 								}*/
@@ -236,7 +252,7 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
 								JSONObject qte = qte_i.getJSONObject("value");
 								if (qte.has("number")){
 									AppLog.info(getClass(), "Trello TEST",qte.getString("number"), getGrant());
-									objq.setFieldValue("defiQuantiteQte", Integer.parseInt(qte.getString("number")));
+									objq.setFieldValue("defiQuantiteQte", Double.parseDouble(qte.getString("number")));
 								}
 								
 								JSONObject tonnage_i = cf_json.getJSONObject(1);
@@ -252,32 +268,48 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
 									AppLog.info(getClass(), "Trello TEST",refp.getString("text"), getGrant());
 									objq.setFieldValue("defiQuantiteRefProduit", refp.getString("text"));
 								}
+								
 								for (int i = 0; i < cf_json.length(); i++){
 									JSONObject cs = cf_json.getJSONObject(i);
+									AppLog.info(getClass(), "TOTO---------------------CS", cs.toString(), getGrant());
 				                    if(cs.getString("idCustomField").equals("5e4af84bcd0b6c73365a1f20"))
 				                    {
 				                        JSONObject numc = cs.getJSONObject("value");
 										if (numc.has("text")){
+			
 											objq.setFieldValue("defiQuantiteNumCommande", numc.getString("text"));
 										}
 				                    }
+				                  // Chercher le champs id ligne de commande   
+				                  if(cs.getString("idCustomField").equals("5e6b943e9405a033888e385e"))
+				                    {
+				                    	// Récupérer le json qui contient la valeur du customfield
+				                        JSONObject numlc = cs.getJSONObject("value");
+										//if (numlc.has("text")){
+											ObjectDB lc_q = getGrant().getTmpObject("DF_ligne_commande");
+											// Récupère la valeur du text dans le json value 
+										    //lc_q.setFieldFilter("rows_id",numlc.getString("text"));
+										    
+										    //AppLog.info(getClass(), "Id ligne de commande ---------------", numlc.getString("text"), getGrant());
+										    //AppLog.info(getClass(), "---------------", lc_q.toString(), getGrant());
+											objq.setFieldValue("DF_Quantite_DF_ligne_commande_id",numlc.getString("text"));
+											//objq.setFieldValue("defiQuantiteNumCommande", numc.getString("text"));
+										//}
+				                    }
 								}
-								//objq.setFieldValue("DF_Quantite_DF_Livraison_id", obj.getRowId());
+								
+	
+				
 								objq.save();
 								AppLog.info(getClass(), "CMMMM-----------------",obj.getFieldValue("defiLivraisonIdCommande"), getGrant());
 								AppLog.info(getClass(), "AAAAA-----------------",objq.getFieldValue("defiQuantiteNumCommande"), getGrant());
-								/*for(String uc2: unique_commande) {
-									if (objq.getFieldValue("defiQuantiteNumCommande").equals(uc2)){
-										obj.resetFilters();
-										obj.setFieldFilter("defiLivraisonIdCommande",uc2);
-										objq.setFieldValue("DF_Quantite_DF_Livraison_id", obj.getRowId());
-										objq.save();
-									}
-								}*/
+				
 								for(String row:rows_id){
 									if(obj.select(row)){
 										if (obj.getFieldValue("defiLivraisonIdCommande").equals(objq.getFieldValue("defiQuantiteNumCommande"))){
 											objq.setFieldValue("DF_Quantite_DF_Livraison_id", row);
+											
+										    
 											objq.save();
 										}
 									}
@@ -292,7 +324,7 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
 								
 						}
 						
-					
+				
 					
 						
 					

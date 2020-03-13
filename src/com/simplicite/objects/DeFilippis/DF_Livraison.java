@@ -255,7 +255,7 @@ public class DF_Livraison extends com.simplicite.util.ObjectDB {
 	
 
 	
-	public byte[] pubPdf(){
+	public byte[] pubPdfBL(){
 		String url = "http://wkhtml2pdf/";
 		String user = null;
 		String password = null;

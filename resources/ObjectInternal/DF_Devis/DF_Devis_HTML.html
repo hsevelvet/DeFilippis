@@ -5,24 +5,24 @@
     <title>DEVIS DEFILIPPIS</title>
     
     <style>
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-	padding: 0;
-	border: 0;
-}
-	
+	html, body, div, span, applet, object, iframe,
+	h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+	a, abbr, acronym, address, big, cite, code,
+	del, dfn, em, img, ins, kbd, q, s, samp,
+	small, strike, strong, sub, sup, tt, var,
+	b, u, i, center,
+	dl, dt, dd, ol, ul, li,
+	fieldset, form, label, legend,
+	table, caption, tbody, tfoot, thead, tr, th, td,
+	article, aside, canvas, details, embed,
+	figure, figcaption, footer, header, hgroup,
+	menu, nav, output, ruby, section, summary,
+	time, mark, audio, video {
+		margin: 0;
+		padding: 0;
+		border: 0;
+	}
+		
 	html {
 		font-size: 11px;
 		font-family:Arial, sans-serif;
@@ -96,7 +96,7 @@ time, mark, audio, video {
 		xposition:-webkit-sticky;
 		xtop:-1px;
 		will-change:transform;
-		xfont-size:12px;
+		color:#fff !important;
 	}
 	
 	.tg .thref {
@@ -151,41 +151,33 @@ time, mark, audio, video {
 	tfoot td.vide {
 	
 	}
-	tfoot td.conditions1 {
-		background-color:#ddd;
-		font-size:10px;
+	td.conditions1, td.conditions2, td.totallibelle, td.totalvaleur, td.tvalibelle, td.tvavaleur, td.totalttclibelle, td.totalttcvaleur {
+		background-color:#A6C4E0;
 	}
-	tfoot td.conditions2 {
-		background-color:#ddd;
+	tfoot td.conditions1, tfoot td.conditions2 {
 		font-size:10px;
-	}
+	}	
 	tfoot td.totallibelle {
-		background-color:#ddd;
 		text-align:right;
 		font-weight:bold;
 	}
 	tfoot td.totalvaleur {
-		background-color:#ddd;
 		text-align:right;
 		font-weight:bold;
 	}	
 	tfoot td.tvalibelle {
-		background-color:#ddd;
 		text-align:right;
 		font-weight:bold;		
 	}
 	tfoot td.tvavaleur {
-		background-color:#ddd;
 		text-align:right;	
 		font-weight:bold;
 	}	
 	tfoot td.totalttclibelle {
-		background-color:#ddd;
 		text-align:right;
 		font-weight:bold;		
 	}
 	tfoot td.totalttcvaleur {
-		background-color:#ddd;
 		text-align:right;	
 		font-weight:bold;
 	}	
@@ -228,6 +220,11 @@ time, mark, audio, video {
 	td.cgvleft {
 		width:50%;
 	}
+	
+	h1, h2 {
+		color:#004C8E;
+	}
+	
 	h2 {
 		padding:7px 0 0 0;
 	}
@@ -236,6 +233,11 @@ time, mark, audio, video {
 	}
 	h4 {
 		margin:8px 0 0 0;
+	}
+	
+	p.cordialement {
+		margin:20px 10px;
+		text-align:right;
 	}
 	
 	</style>	
@@ -252,37 +254,38 @@ time, mark, audio, video {
             <tr class="top">
                 <td colspan="2">
 				
+					<img src="https://www.raultgranit.com/upload/partenaire/0001/181129-091132-de-filippis-mineral-conseil_large.jpg"  style="width:120px;">
+					
 					{{#rows}}
                     <table>
                         <tr>
                             <td class="title">
-                                <img src="https://www.eurovia.fr/zbwi.axd/cropsz/320x158/~/media/4543035/de_filippis_entreprise.jpg"  style="width:120px;">
-								<p>&nbsp;</p>
-								<strong>Contact DEFILIPPIS :</strong> {{DF_Devis_DF_utilisateur_interne_id__defiUsrNomComplet}}<br/>								
-								06 46 10 53 05 - david.henrion@mineralconseil.fr<br/><br/>
 
 								DEFILIPPIS Minéral Conseil <br/>
                                 175 Avenue des Frères Lumière.<br/>
-                                69730 Genay<br/>
-                                Tél : 04 78 98 15 49
+								FRANCE - 69726 Genay<br/>
+                                Tél : 04 78 98 15 49 / www.mineralconseil.fr<br/>
+								SAS - RCS LYON 612 029 298 - FR 29 612 029 298<br/>
 								
-								
+								<strong>Suiveur Affaire :</strong> {{DF_Devis_DF_utilisateur_interne_id__defiUsrNomComplet}}<br/>								
+								{{#rows_u}}{{usr_work_num}} - {{usr_login}}{{/rows_u}}
+								<br/>
+								<strong>Rédacteur Devis :</strong> {{defiDevisRedacteur}}<br/>	
+					
                             </td>
                             <td style="text-align:right">
-										<p>&nbsp;</p>
-										<p>&nbsp;</p>
-										<p>&nbsp;</p>
 										<strong>Client </strong>: {{DF_Devis_DF_Client_id__defiClientNom}}<br/>
 										<strong>Contact </strong>:  {{DF_Devis_DF_Contact_id__defiContactPrenom}} {{DF_Devis_DF_Contact_id__defiContactNom}}<br/>
-										<strong>Email </strong>: {{DF_Devis_DF_Client_id__defiClientEmail}}<br/>										
+										<strong>Email </strong>: {{DF_Devis_DF_Client_id__defiClientEmail}}<br/>
+										<br/>										
 										<strong>Date d'émission </strong>: {{defiDevisDateEmission}}<br/>
 										<!--<strong>Ref Projet </strong>: {{defiDevisTitre}}-->
                             </td>                            
                         </tr>
 						<tr>
 							<td colspan="2" style="vertical-align:bottom;text-align:center">
-								<h1>Devis N° <strong>{{defiDevisNumero}}.{{defiDevisIndice}}</strong></h1>
-								<h2>{{defiDevisTitreProjet}} - {{defiDevisLieuProjet}}</h2>
+								<h1>{{defiDevisTitreProjet}} - {{defiDevisLieuProjet}}</h1>
+								<h2>DEVIS N°{{defiDevisNumero}}.{{defiDevisIndice}}</h2>								
 							</td>
 						</tr>
                     </table>
@@ -294,33 +297,22 @@ time, mark, audio, video {
             
          <table class="tg">
 			<thead>
-				<tr style="background-color: #1abc9c;">
+				<tr style="background-color: #004C8E;">
 				    <th class="tg-ul38 thref">Réf<br></th>
 				    <th class="tg-ul38 thtype">Type de pierre</th>
 				    <th class="tg-ul38 thdesignation">Désignation</th>
 				    <th class="tg-ul38 thunite">Unité</th>
 				    <th class="tg-ul38 thquantite">Qté</th>
-				    <th class="tg-ul38 thprixu">Prix Rendu<br/>Unitaire<br/>Euros HT<br></th>
+				    <th class="tg-ul38 thprixu">Prix Unitaire € HT</th>
 				    <th class="tg-ul38 thprixt">TOTAL € HT</th>
 				</tr>
 			</thead>
 			
-			<tbody>
-				<!-- 
-				<tr>
-					<td class="ref">5,2,2</td>
-					<td class="type">PORPHYRE</td>
-					<td class="designation">PavésDessus naturel - Chants Clivés Couleurs mélangées - Avec Big Bag Dim (cm):20x14x ep 12,1ml=5u (joints inclus de 1,5cm)20*14*11/14- 1 rang l=15cm</td>
-					<td class="unite">ml</td>
-					<td class="quantite">930,00</td>
-					<td class="prixu">10,95 €</td>
-					<td class="prixt">10 183,50&nbsp;€</td>
-				</tr>-->
-				
+			<tbody>				
 				{{#rows_l}}
 				<tr>
 					<td class="ref">{{defiLigneDevisNPrix}}</td>
-					<td class="type">{{DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdAppellationCommerciale}}</td>
+					<td class="type">{{DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdTypeGeologique}}</td>
 					<td class="designation">{{defiLigneDevisDesignation}}</td>
 					<td class="unite">{{defiLigneDevisUnite}}</td>
 					<td class="quantite">{{defiLigneDevisQuantite}}</td>
@@ -333,7 +325,10 @@ time, mark, audio, video {
 		{{#rows}}
 			<tfoot>
 				<tr>
-					<td class="vide" colspan="7">&nbsp;</td>
+					<td class="vide" colspan="7">
+						Nombre de camion (U) : <strong>{{defiDevisNombreCamions}}</strong></br>
+						Poids total (T) : <strong>{{defiDevisPoidsTotal}}</strong>
+					</td>
 				</tr>
 				<tr>
 					<td class="conditions1" rowspan="3" >
@@ -348,7 +343,7 @@ time, mark, audio, video {
 							<li>Acompte: <strong>{{defiDevisAccompte}}</strong></li>
 							<li>Paiement: <strong>{{defiDevisDelaiPaiement}}</strong></li>
 							<li>Validité de l'offre : <strong>{{defiDevisDateValiditeOffre}}</strong></li>
-							<li>Indexation monétaire:<strong>non</strong></li>
+							<li>COndition de mise à disposition :"Prix Rendu Unitaire Non déchargé"</li>
 						</ul>
 					</td>
 					<td class="totallibelle">
@@ -366,15 +361,14 @@ time, mark, audio, video {
 				</tr>				
 			</tfoot>
 		</table>
-		<table border="0">
-			<tr>
-				<td>
-				Nombre de camion (U) : <strong>{{defiDevisNombreCamions}}</strong></br>
-				Poids total (T) : <strong>{{defiDevisPoidsTotal}}</strong>
-				</td>
-			</tr>
-		</table>	
 		{{/rows}}
+		
+		
+		<p class="cordialement">
+		Nous restons à votre disposition pour tout renseignement,<br/><br/>
+		L'équipe Minéral Conseil
+		</p>
+		
 	
  </div>
  
