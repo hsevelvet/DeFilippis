@@ -214,6 +214,21 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
 										obj.setFieldValue("df_livraison_quantite_chargee", customFValue);
 								}
 								
+								ObjectDB aac = Grant.getSystemAdmin().getObject("webhook_"+"DF_Commande","DF_Commande");
+								
+								synchronized(aac){
+									aac.resetFilters();
+									aac.setFieldFilter("defiCommandeNumero", uc);
+									
+									for (String[] a : aac.search()){
+										aac.setValues(a);
+										AppLog.info(getClass(), "hkkldkkjmlk----------------mlmklmmkl", aac.getRowId(), getGrant());
+										obj.setFieldValue("DF_Livraison_DF_Commande_id",aac.getRowId());
+										
+										obj.setFieldValue("DF_Livraison_DF_Affaire_id", aac.getFieldValue("DF_Commande_DF_Affaire_id"));
+									}
+								}
+						
 								obj.save();
 								
 								
@@ -270,8 +285,24 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
 				                    {
 				                        JSONObject numc = cs.getJSONObject("value");
 				                        objq.setFieldValue("defiQuantiteNumCommande", numc.getString("text"));
+				                        
+				                        /*ObjectDB aac = getGrant().getTmpObject("DF_Commande");
+										aac.resetFilters();
+										aac.setFieldFilter("defiCommandeNumero", numc.getString("text"));
+										AppLog.info(getClass(), "aaaaaaaa---------",aac.toString(), getGrant());
+										List<String[]> rows = aac.search();
+										if (rows.size() > 0){
+											//AppLog.info(getClass(), "cccccccccc-------",aac.toString(), getGrant());
 										
-				                    }
+											//AppLog.info(getClass(), "aaaaaaaa---------",aac.toString(), getGrant());
+											obj.setFieldValue("DF_Livraison_DF_Commande_id",aac.getRowId());
+											obj.save();*/
+																
+										}						
+										
+										
+										
+				                    
 				                    // Chercher quantité commande
 				                    if(cs.getString("idCustomField").equals("5e4ad07f4bcdbc6e6de1cdf9"))
 				                    {
@@ -297,12 +328,21 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
 				                    if(cs.getString("idCustomField").equals("5e6b943e9405a033888e385e"))
 				                    {
 				                        JSONObject lcID = cs.getJSONObject("value");
-				                        ObjectDB lc = getGrant().getTmpObject("DF_ligne_commande");
-										lc.resetFilters();
-										lc.setFieldFilter("row_id","159");
-										AppLog.info(getClass(), "TTTTESTTTTTT HSE-------", lc.toString(), getGrant());
+				                        ObjectDB lc = Grant.getSystemAdmin().getObject("webhook_"+"DF_ligne_commande","DF_ligne_commande");
+				                        synchronized(lc){
+				                        	lc.resetFilters();
+											lc.setFieldFilter("defiLigneCommandeId",lcID.getString("text"));
+											for(String[] lce : lc.search()){
+														lc.setValues(lce);
+														objq.setFieldValue("DF_Quantite_DF_ligne_commande_id",lc.getRowId());
+														AppLog.info(getClass(), "LLLLLLLLLLLLL--------", lc.getRowId(),getGrant());
+												}
+											
 								
-				                        objq.setFieldValue("DF_Quantite_DF_ligne_commande_id",lc.getRowId());
+				                        	
+				                    		
+				                        }
+										
 										
 				                    }
 

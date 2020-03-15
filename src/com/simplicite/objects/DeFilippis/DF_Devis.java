@@ -356,10 +356,10 @@ public class DF_Devis extends ObjectDB {
 		d.setFieldFilter("row_id",getRowId());
 
 		
-		ObjectDB ld = getGrant().getTmpObject("DF_Ligne_Devis");
+		ObjectDB ld = getGrant().getObject("DF_Ligne_Devis","DF_Ligne_Devis");
 		ld.resetFilters();
 		ld.setFieldFilter("DF_Ligne_Devis_DF_Devis_id",getRowId());
-		
+	
 		// user
 		ObjectDB u = getGrant().getTmpObject("User");
 		u.resetFilters();

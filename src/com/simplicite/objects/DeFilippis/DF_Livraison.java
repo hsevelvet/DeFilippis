@@ -29,23 +29,6 @@ public class DF_Livraison extends ObjectDB {
 	
 	
 
-	@Override
-	public void initUpdate() {
-		ObjectDB aac = getGrant().getTmpObject("DF_Commande");
-		aac.resetFilters();
-		aac.setFieldFilter("defiCommandeNumero","12345");
-		
-		List<String[]> rows = aac.search(false);
-		if (rows.size() > 0){
-			//AppLog.info(getClass(), "cccccccccc-------",aac.toString(), getGrant());
-		
-			AppLog.info(getClass(), "aaaaaaaa---------",aac.toString(), getGrant());
-								
-		}						
-		setFieldValue("DF_Livraison_DF_Commande_id",aac.getRowId());
-		save();
-	}
-
 
 	@Override
 	public void postLoad() {
