@@ -46,11 +46,12 @@ public class DF_Commande extends ObjectDB {
 			double c = o.getCount();
 			double t = Double.parseDouble(o.getField("defiLigneCommandePrixTotalEXW").getListOperatorValue());
 			setFieldValue("defiCommandeMontantHT", t);
+			save();
 
 
 	}
 	}
-	/*
+	
 	@Override
 	public String postCreate() {
 		ObjectDB a = getGrant().getTmpObject("DF_Affaire");

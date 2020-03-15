@@ -254,7 +254,7 @@
 										<strong>Client </strong>: DF_Livraison_DF_Commande_DF_Client_id__defiClientNom<br/>
 										<strong>Contact </strong>: DF_Livraison_DF_Commande_DF_Contact_id__defiContactPrenom DF_Livraison_DF_Contact_id__defiContactNom<br/>
 										<strong>Email </strong>: DF_Livraison_DF_Commande_DF_Client_id__defiClientEmail<br/>
-										<strong>Référence Commande </strong>: DF_Livraison_DF_Affaire_id__defiAfrLibelleChantier - DF_Livraison_DF_Affaire_id__defiAfrLieuAffaire
+										<strong>Référence Commande </strong>: defiCommandeNumero
 										
 										<br/>
 										<strong>Date de livraison </strong>: {{df_livraison_date_livraison_estimee}}<br/>
@@ -275,6 +275,11 @@
             </tr>            
             </table>
             
+			
+			{{#rows_lignescommandes}
+				
+			{{/rows_lignescommandes}
+			
          <table class="tg">
 			<thead>
 				<tr style="background-color:#33DAFF">
@@ -293,7 +298,7 @@
 					<td class="type">{{defiQuantiteRefProduit}}</td>
 					<td class="designation">defiQuantiteDesignation</td>
 					<td class="unite">defiQuantiteUnite</td>
-					<td class="quantite">defiQuantiteQte</td>
+					<td class="quantite">{{defiQuantiteQte}}</td>
 				</tr>
 				{{/rows_l}}
 				

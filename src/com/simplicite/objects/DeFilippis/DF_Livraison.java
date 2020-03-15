@@ -21,11 +21,31 @@ import com.simplicite.util.tools.PDFTool;
 /**
  * Trello card business object example
  */
-public class DF_Livraison extends com.simplicite.util.ObjectDB {
+public class DF_Livraison extends ObjectDB {
 	private static final long serialVersionUID = 1L;
 
 	private TrelloTool tt = null;
 	private JSONObject settings = null;
+	
+	
+
+	@Override
+	public void initUpdate() {
+		ObjectDB aac = getGrant().getTmpObject("DF_Commande");
+		aac.resetFilters();
+		aac.setFieldFilter("defiCommandeNumero","12345");
+		
+		List<String[]> rows = aac.search(false);
+		if (rows.size() > 0){
+			//AppLog.info(getClass(), "cccccccccc-------",aac.toString(), getGrant());
+		
+			AppLog.info(getClass(), "aaaaaaaa---------",aac.toString(), getGrant());
+								
+		}						
+		setFieldValue("DF_Livraison_DF_Commande_id",aac.getRowId());
+		save();
+	}
+
 
 	@Override
 	public void postLoad() {
@@ -227,15 +247,28 @@ public class DF_Livraison extends com.simplicite.util.ObjectDB {
 		);
 		
 		
+		// Livraison
 		ObjectDB bl = getGrant().getTmpObject("DF_Livraison");
-	    
-
 		bl.setFieldFilter("row_id",getRowId());
 
-		
+		// Quantite
 		ObjectDB q = getGrant().getTmpObject("DF_Quantite");
 		q.resetFilters();
 		q.setFieldFilter("DF_Quantite_DF_Livraison",getRowId());
+		
+		// LignesCommande
+		ObjectDB lignescommandes = getGrant().getTmpObject("DF_ligne_commande");
+		lignescommandes.resetFilters();
+		lignescommandes.setFieldFilter("row_id",q.getFieldValue("DF_Quantite_DF_ligne_commande_id"));
+		
+		// Client 	
+		ObjectDB client = getGrant().getTmpObject("DF_Client");
+		client.resetFilters();
+		// Filtrer sur les commandes avec l'id sur la livraison
+		ObjectDB commande = getGrant().getTmpObject("DF_Commande");
+		commande.resetFilters();
+		commande.setFieldFilter("row_id",getFieldValue("DF_Livraison_DF_Commande_id"));
+		client.setFieldFilter("row_id",commande.getFieldValue("DF_Commande_DF_Client_id"));
 		
 		List<String[]> rows_l = q.search(false);
 		if (rows_l.size() > 0){
@@ -243,7 +276,9 @@ public class DF_Livraison extends com.simplicite.util.ObjectDB {
 			this,
 			"DF_BL_HTML", 
 			"{'rows':"+bl.toJSON(bl.search(), null, false, false)+
-			",'rows_l':"+q.toJSON(rows_l, null, false, false)+"}"
+			",'rows_l':"+q.toJSON(rows_l, null, false, false)+
+			",'rows_client':"+client.toJSON(client.search(), null, false, false)+
+			",'rows_lignescommandes':"+lignescommandes.toJSON(lignescommandes.search(), null, false, false)+"}"
 			));
 		}
 		

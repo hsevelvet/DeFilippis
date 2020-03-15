@@ -160,6 +160,7 @@ public class DF_Devis extends ObjectDB {
 		//s.setValue(num);
 		c.setFieldValue("DF_Commande_DF_Affaire_id", getFieldValue("DF_Devis_DF_Chantier_id"));
 		c.setFieldValue("DF_Commande_DF_utilisateur_interne_id", getFieldValue("DF_Devis_DF_utilisateur_interne_id"));	
+		c.setFieldValue("defiCommandeRedacteur", getFieldValue("defiDevisRedacteur"));
 		c.setStatus("IN");	
 		c.setFieldValue("DF_Commande_DF_Affaire_id.defiAfrLibelleChantier", getFieldValue("DF_Devis_DF_Chantier_id.defiAfrLibelleChantier"));
 		c.setFieldValue("DF_Commande_DF_utilisateur_interne_id.defiUsrNomComplet", getFieldValue("DF_Devis_DF_utilisateur_interne_id.defiUsrNomComplet"));
@@ -169,7 +170,7 @@ public class DF_Devis extends ObjectDB {
 		c.setFieldValue("defiCommandeIntituleAffaire",intitule_affaire);
 		c.setFieldValue("defiCommandePoidsTotal",poids_total);
 		c.setFieldValue("defiCommandeNombreCamions",nb_camions);
-		c.save();
+		//c.save();
 		
 		// Get valeurs ligne devis
 		
@@ -185,6 +186,7 @@ public class DF_Devis extends ObjectDB {
 				String apl_com = ld.getFieldValue("defiPrdAppellationCommerciale");
 				String finition = ld.getFieldValue("defiPrdFinitionFacesVues");
 				String unite_p = ld.getFieldValue("defiPrdUnite");
+				String designation = ld.getFieldValue("defiLigneDevisDesignation");
 
 				double poids_u = ld.getField("defiLigneDevisPoidsTotal").getDouble(0);
 				double prd_long = ld.getField("defiPrdLongueur").getDouble(0);
@@ -204,6 +206,10 @@ public class DF_Devis extends ObjectDB {
 				ObjectField s2 = lc.getField("defiLigneCommandeId");
 				s2.setValue(lc.getRowId());
 				
+				
+		
+		
+				
 				lc.setFieldValue("defiLigneCommandeReferenceProduit",ref_prod);
 				lc.setFieldValue("defiLigneCommandeTypeGeologique", type_geo);
 				lc.setFieldValue("defiLigneCommandeAppellationCommerciale",apl_com);
@@ -214,8 +220,14 @@ public class DF_Devis extends ObjectDB {
 				lc.setFieldValue("defiLigneCommandePoidsUnitaire",poids_u);
 				lc.setFieldValue("defiLigneCommandeUnite",unite_p);
 				lc.setFieldValue("defiLigneCommandeQuantite",prd_qte);
+				lc.setFieldValue("defiLigneCommandeDesignation",designation);
 				lc.setFieldValue("defiLigneCommandePrixEXWUnitaire",cmd_prix_exw_u);
-				//lc.setFieldValue("defiLigneCommandePrixTotalEXW",cmd_total_exw);
+				
+				double prix_unitaire = lc.getField("defiLigneCommandePrixEXWUnitaire").getDouble(0);
+				double qte =  lc.getField("defiLigneCommandeQuantite").getDouble(0);
+				lc.setFieldValue("defiLigneCommandePrixTotalEXW",prix_unitaire * qte);
+				
+				
 
 				lc.setFieldValue("DF_ligne_commande_DF_Commande_id",c.getRowId());
 
@@ -223,6 +235,11 @@ public class DF_Devis extends ObjectDB {
 				
 			}
 		}
+		/*
+		ObjectDB lc = getGrant().getTmpObject("DF_ligne_commande");
+		double t = Double.parseDouble(lc.getField("defiLigneCommandePrixTotalEXW").getListOperatorValue());
+		c.setFieldValue("defiCommandeMontantHT", t);
+		c.save();*/
 		
 		return sendRedirect(HTMLTool.getFormURL("DF_Commande","the_main_DF_Commande", c.getRowId(),""));
 	}	

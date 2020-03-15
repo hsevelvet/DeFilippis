@@ -193,9 +193,10 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
 						// Créer les données livraison
 						for(String uc: unique_commande) {
 								obj.create();
+								
+								
 								obj.setFieldValue("defiLivraisonIdCommande", uc);
 							
-								
 								if (card.has("name")){
 									obj.setFieldValue("defiLivraisonIntituleCamion", card.getString("name"));
 								}
@@ -214,6 +215,8 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
 								}
 								
 								obj.save();
+								
+								
 								rows_id.add(obj.getRowId());
 							
 						// if uc matches with num commande sur quanité 

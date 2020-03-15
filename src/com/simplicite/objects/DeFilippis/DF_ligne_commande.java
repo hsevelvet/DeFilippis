@@ -16,6 +16,17 @@ public class DF_ligne_commande extends ObjectDB {
 		double qte =  getField("defiLigneCommandeQuantite").getDouble(0);
 		
 		setFieldValue("defiLigneCommandePrixTotalEXW", prix_unitaire*qte);
+		save();
 	}
 	
+
+/*	
+	@Override
+	public void () {
+		double prix_unitaire = getField("defiLigneCommandePrixEXWUnitaire").getDouble(0);
+		double qte =  getField("defiLigneCommandeQuantite").getDouble(0);
+		
+		setFieldValue("defiLigneCommandePrixTotalEXW", prix_unitaire*qte);
+	}
+*/	
 }
