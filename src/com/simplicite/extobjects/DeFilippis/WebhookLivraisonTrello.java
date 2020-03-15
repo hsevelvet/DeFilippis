@@ -138,7 +138,7 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
             		customFValue = customFieldItem.getString("number");
             }
             
-            if (status.equals("5")){
+            /*if (status.equals("5")){
 						// récupérer la carte 
 						//JSONObject testcard = tt.getCard("5e6baa50f6eefa7cacff98cc");;
 						//card.put("name",  "TEST");
@@ -152,7 +152,7 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
 						//AppLog.info(getClass(), "tttttttt---------aaaaaaa", tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Adresse"),new JSONObject().put("value",new JSONObject().put("text","toto"))).toString(), getGrant());
 						// mise à jour de la carte 
 						
-					}
+					}*/
             
             
             // Get Grant des objets Livraison et Quantité
@@ -251,19 +251,9 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
 									objq.setFieldValue("defiQuantiteAdresse", adresse.getString("text"));
 								}*/
 								
-								JSONObject qte_i = cf_json.getJSONObject(2);
-								JSONObject qte = qte_i.getJSONObject("value");
-								if (qte.has("number")){
-									AppLog.info(getClass(), "Trello TEST",qte.getString("number"), getGrant());
-									objq.setFieldValue("defiQuantiteQte", Double.parseDouble(qte.getString("number")));
-								}
+							
 								
-								JSONObject tonnage_i = cf_json.getJSONObject(1);
-								JSONObject tonnage = tonnage_i.getJSONObject("value");
-								if (tonnage.has("number")){
-									AppLog.info(getClass(), "Trello TEST",tonnage.getString("number"), getGrant());
-									objq.setFieldValue("defiQuantiteTonnage", Double.parseDouble(tonnage.getString("number")));
-								}
+					
 								
 								JSONObject refp_i = cf_json.getJSONObject(3);
 								JSONObject refp = refp_i.getJSONObject("value");
@@ -275,31 +265,49 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
 								for (int i = 0; i < cf_json.length(); i++){
 									JSONObject cs = cf_json.getJSONObject(i);
 									AppLog.info(getClass(), "TOTO---------------------CS", cs.toString(), getGrant());
+									// Chercher num commande
 				                    if(cs.getString("idCustomField").equals("5e4af84bcd0b6c73365a1f20"))
 				                    {
 				                        JSONObject numc = cs.getJSONObject("value");
-										if (numc.has("text")){
-			
-											objq.setFieldValue("defiQuantiteNumCommande", numc.getString("text"));
-										}
+				                        objq.setFieldValue("defiQuantiteNumCommande", numc.getString("text"));
+										
 				                    }
-				                  // Chercher le champs id ligne de commande   
-				                  if(cs.getString("idCustomField").equals("5e6b943e9405a033888e385e"))
+				                    // Chercher quantité commande
+				                    if(cs.getString("idCustomField").equals("5e4ad07f4bcdbc6e6de1cdf9"))
 				                    {
-				                    	// Récupérer le json qui contient la valeur du customfield
-				                        JSONObject numlc = cs.getJSONObject("value");
-										//if (numlc.has("text")){
-											ObjectDB lc_q = getGrant().getTmpObject("DF_ligne_commande");
-											// Récupère la valeur du text dans le json value 
-										    //lc_q.setFieldFilter("rows_id",numlc.getString("text"));
-										    
-										    //AppLog.info(getClass(), "Id ligne de commande ---------------", numlc.getString("text"), getGrant());
-										    //AppLog.info(getClass(), "---------------", lc_q.toString(), getGrant());
-											objq.setFieldValue("DF_Quantite_DF_ligne_commande_id",numlc.getString("text"));
-											//objq.setFieldValue("defiQuantiteNumCommande", numc.getString("text"));
-										//}
+				                        JSONObject qteC = cs.getJSONObject("value");
+				                        objq.setFieldValue("defiQuantiteQte", Double.parseDouble(qteC.getString("number")));
+										
 				                    }
+				                    // Chercher Poids Unitaire commande
+				                    if(cs.getString("idCustomField").equals("5e610e279cc788890583a5a6"))
+				                    {
+				                        JSONObject tonnageC = cs.getJSONObject("value");
+				                        objq.setFieldValue("defiQuantitePoidsUnitaire", Double.valueOf(tonnageC.getString("number")));
+										
+				                    }
+				                    // Chercher Ref Produit
+				                    if(cs.getString("idCustomField").equals("5e4ad07518679b5fe7059699"))
+				                    {
+				                        JSONObject refC = cs.getJSONObject("value");
+				                        objq.setFieldValue("defiQuantiteRefProduit", refC.getString("text"));
+										
+				                    }
+				                    
+				                    if(cs.getString("idCustomField").equals("5e6b943e9405a033888e385e"))
+				                    {
+				                        JSONObject lcID = cs.getJSONObject("value");
+				                        ObjectDB lc = getGrant().getTmpObject("DF_ligne_commande");
+										lc.resetFilters();
+										lc.setFieldFilter("row_id","159");
+										AppLog.info(getClass(), "TTTTESTTTTTT HSE-------", lc.toString(), getGrant());
+								
+				                        objq.setFieldValue("DF_Quantite_DF_ligne_commande_id",lc.getRowId());
+										
+				                    }
+
 								}
+								
 								
 	
 				

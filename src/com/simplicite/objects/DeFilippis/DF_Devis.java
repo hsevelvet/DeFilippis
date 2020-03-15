@@ -179,6 +179,7 @@ public class DF_Devis extends ObjectDB {
 			ld.resetFilters();
 			ld.setFieldFilter("DF_Ligne_Devis_DF_Devis_id",this.getRowId());
 			
+			
 			for(String[] lde : ld.search()){
 				ld.setValues(lde);
 				String ref_prod = ld.getFieldValue("defiPrdId");
@@ -299,6 +300,7 @@ public class DF_Devis extends ObjectDB {
 		synchronized(ld2){
 			ld2.resetFilters();
 			ld2.setFieldFilter("DF_Ligne_Devis_DF_Devis_id",getRowId());
+			
 			
 			for(String[] lde : ld2.search()){
 				ld2.setValues(lde);

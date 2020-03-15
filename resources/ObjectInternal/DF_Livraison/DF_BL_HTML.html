@@ -276,9 +276,7 @@
             </table>
             
 			
-			{{#rows_lignescommandes}
-				
-			{{/rows_lignescommandes}
+			
 			
          <table class="tg">
 			<thead>
@@ -296,7 +294,8 @@
 				<tr>
 					<td class="ref">defiQuantiteNPrix</td>
 					<td class="type">{{defiQuantiteRefProduit}}</td>
-					<td class="designation">defiQuantiteDesignation</td>
+			
+					{{#rows_lignescommandes}}<td class="designation">{{defiLigneCommandeDesignation}}</td>{{/rows_lignescommandes}}
 					<td class="unite">defiQuantiteUnite</td>
 					<td class="quantite">{{defiQuantiteQte}}</td>
 				</tr>
