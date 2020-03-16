@@ -5446,9 +5446,24 @@ paths:
         type: integer
         required: false
       - in: query
+        name: DF_Quantite_DF_ligne_commande_id__defiLigneCommandeDesignation
+        description: Search filter for Désignation DF ligne commande
+        type: string
+        required: false
+      - in: query
+        name: DF_Quantite_DF_ligne_commande_id__defiLigneCommandeTypeGeologique
+        description: Search filter for Type Géologique DF ligne commande
+        type: string
+        required: false
+      - in: query
         name: defiQuantiteTonnage
         description: Search filter for Tonnage
         type: number
+        required: false
+      - in: query
+        name: DF_Quantite_DF_ligne_commande_id__defiLigneCommandeUnite
+        description: Search filter for Unité DF ligne commande
+        type: string
         required: false
       - in: query
         name: defiQuantiteTrigrammeSuiveur
@@ -5474,6 +5489,11 @@ paths:
         name: DF_Quantite_DF_ligne_commande_id__defiLigneCommandeId
         description: Search filter for Id ligne commande
         type: string
+        required: false
+      - in: query
+        name: DF_Quantite_DF_ligne_commande_id__defiLigneCommandePrixEXWUnitaire
+        description: Search filter for Prix EXW unitaire DF ligne commande
+        type: number
         required: false
       tags:
       - DF_Quantite
@@ -5623,7 +5643,7 @@ paths:
         required: false
       - in: query
         name: DF_Livraison_DF_Affaire_id__defiAfrNumero
-        description: Search filter for Numéro d'affaire Affaires
+        description: Search filter for Numéro d'affaire
         type: string
         required: false
       - in: query
@@ -5638,7 +5658,7 @@ paths:
         required: false
       - in: query
         name: DF_Livraison_DF_Commande_id__defiCommandeNumero
-        description: Search filter for Numéro de Commande Commandes
+        description: Search filter for Numéro de commande
         type: string
         required: false
       tags:
@@ -6347,20 +6367,8 @@ definitions:
   DF_Quantite:
     type: object
     properties:
-      defiQuantiteQte:
-        description: Quantité
-        type: integer
-      defiQuantitePoidsUnitaire:
-        description: Poids Unitaire
-        type: number
-      defiQuantiteRefProduit:
-        description: Référence Produit
-        type: string
       DF_Quantite_DF_Livraison_id:
         description: Livraisons
-        type: string
-      DF_Quantite_DF_Livraison_id__defiLivraisonId:
-        description: defi livraison id Livraisons
         type: string
       defiQuantiteNumCommande:
         description: Numéro de commande
@@ -6371,6 +6379,27 @@ definitions:
       defiQuantiteId:
         description: defi quantite id
         type: string
+      DF_Quantite_DF_ligne_commande_id__defiLigneCommandeDesignation:
+        description: Désignation DF ligne commande
+        type: string
+      DF_Quantite_DF_ligne_commande_id__defiLigneCommandePrixEXWUnitaire:
+        description: Prix EXW unitaire DF ligne commande
+        type: number
+      defiQuantiteQte:
+        description: Quantité
+        type: integer
+      defiQuantitePoidsUnitaire:
+        description: Poids Unitaire
+        type: number
+      defiQuantiteRefProduit:
+        description: Référence Produit
+        type: string
+      DF_Quantite_DF_Livraison_id__defiLivraisonId:
+        description: defi livraison id Livraisons
+        type: string
+      DF_Quantite_DF_ligne_commande_id__defiLigneCommandeUnite:
+        description: Unité DF ligne commande
+        type: string
       defiQuantiteTonnage:
         description: Tonnage
         type: number
@@ -6379,6 +6408,9 @@ definitions:
         type: string
       row_id:
         description: Unique technical row ID
+        type: string
+      DF_Quantite_DF_ligne_commande_id__defiLigneCommandeTypeGeologique:
+        description: Type Géologique DF ligne commande
         type: string
       DF_Quantite_DF_ligne_commande_id:
         description: DF ligne commande
@@ -6927,13 +6959,13 @@ definitions:
         description: Id Commande Commandes
         type: string
       DF_Livraison_DF_Commande_id__defiCommandeNumero:
-        description: Numéro de Commande Commandes
+        description: Numéro de commande
         type: string
       df_livraison_quantite_chargee:
         description: Quantité Chargée
         type: number
       DF_Livraison_DF_Affaire_id__defiAfrNumero:
-        description: Numéro d'affaire Affaires
+        description: Numéro d'affaire
         type: string
       df_livraison_trellocardid:
         description: df_livraison_trellocardid

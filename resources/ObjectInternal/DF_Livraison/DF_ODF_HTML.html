@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>BL DEFILIPPIS</title>
+    <title>ODF DEFILIPPIS</title>
     
     <style>
 	html, body, div, span, applet, object, iframe,
@@ -72,20 +72,20 @@
 		overflow:hidden;
 		word-break:normal;
 		border-color:#222;
+		
 	}
 	
 	.tg .tg-ul38{
 		text-align:center;
 		vertical-align:top;
 		position:sticky;
-		xposition:-webkit-sticky;
-		xtop:-1px;
 		will-change:transform;
-		xfont-size:12px;
+		color:#fff !important;
 	}
 	
 	.tg .thref {
 		width:80px;
+		
 	}
 	.tg .thtype {
 		
@@ -187,10 +187,6 @@
 	td.cgvleft {
 		width:50%;
 	}
-	
-	h1, h2 {
-		color:#004C8E;
-	}		
 	h2 {
 		padding:7px 0 0 0;
 	}
@@ -211,7 +207,7 @@
 		text-align:left;
 		vertical-align:top;
 		border:solid 1px black;
-		height:150px;
+		min-height:150px;
 	}
 	.signature_span {
 		font-weight:bold;
@@ -230,99 +226,107 @@
         <table cellpadding="0" cellspacing="0" border="0">
             <tr class="top">
                 <td colspan="2">
-
-					<img src="https://www.raultgranit.com/upload/partenaire/0001/181129-091132-de-filippis-mineral-conseil_large.jpg"  style="width:120px;">	
 				
-					{{#rows}}
+					
                     <table>
                         <tr>
                             <td class="title">
+                                <img src="https://www.eurovia.fr/zbwi.axd/cropsz/320x158/~/media/4543035/de_filippis_entreprise.jpg"  style="width:120px;">
+								<p>&nbsp;</p>
+								<strong>Affaire suivie par :</strong> defiUsrNomComplet<br/>								
+								06 46 10 53 05 - david.henrion@mineralconseil.fr<br/><br/>
 
-								<!--DEFILIPPIS Minéral Conseil <br/>-->
+								DEFILIPPIS Minéral Conseil <br/>
                                 175 Avenue des Frères Lumière.<br/>
-								FRANCE - 69726 Genay<br/>
-                                Tél : 04 78 98 15 49 / www.mineralconseil.fr<br/>
-								SAS - RCS LYON 612 029 298 - FR 29 612 029 298
-								<br/><br/>
-								
-								<strong>Suiveur Affaire :</strong> DF_Livraison_DF_Commande_DF_utilisateur_interne_id__defiUsrNomComplet<br/>								
-								06 46 10 53 05 - david.henrion@mineralconseil.fr<br/>
+                                69730 Genay<br/>
+                                Tél : 04 78 98 15 49
 								
 								
                             </td>
                             <td style="text-align:right">
-										<strong>Client </strong>: DF_Livraison_DF_Commande_DF_Client_id__defiClientNom<br/>
-										<strong>Contact </strong>: DF_Livraison_DF_Commande_DF_Contact_id__defiContactPrenom DF_Livraison_DF_Contact_id__defiContactNom<br/>
-										<strong>Email </strong>: DF_Livraison_DF_Commande_DF_Client_id__defiClientEmail<br/>
-										<strong>Référence Commande </strong>: defiCommandeNumero
-										
+										<p>&nbsp;</p>
+										<p>&nbsp;</p>
+										<p>&nbsp;</p>
+										<strong>Client </strong>: defiClientNom<br/>
+										<strong>Contact </strong>:  defiContactNom<br/>
+										<strong>Email </strong>: defiClientEmail<br/>
 										<br/>
-										<strong>Date de livraison </strong>: {{df_livraison_date_livraison_estimee}}<br/>
-										<strong>N° de bon fournisseur </strong>: {{df_livraison_num_bl_fournisseur}}<br/>
-										
+										<br/>
+										REF. RELEVE CONTRAD : defiLivraisonID, defiLivraisonID, defiLivraisonID
+										<br/>
                             </td>                            
                         </tr>
 						<tr>
 							<td colspan="2" style="vertical-align:bottom;text-align:center">
-								<h1>BON DE LIVRAISON N° <strong>{{defiLivraisonId}}</strong></h1>
-								<!--<h2>À nous retourner dûment accepté et signé. Merci.</h2>-->
+								<h1>ORDRE DE FACTURATION </h1>
+								<h2>Référence Chantier : NUMERO OTP</h2>
 							</td>
 						</tr>
                     </table>
-                    {{/rows}}
+                    
                     
                 </td>
             </tr>            
             </table>
             
-			
-			
-				
-			
-			
-			
          <table class="tg">
 			<thead>
-				<tr style="background-color:#33DAFF">
+				<tr style="background-color:#000">
 					<th class="tg-ul38 thref">Ref</th>
-				    <th class="tg-ul38 thtype">Type de pierre</th>
 				    <th class="tg-ul38 thdesignation">Désignation</th>
 				    <th class="tg-ul38 thunite">Unité</th>
 				    <th class="tg-ul38 thquantite">Qté</th>
+				    <th class="tg-ul38 thprixu">P.U<br></th>
+				    <th class="tg-ul38 thprixt">MONTANT</th>					
 				</tr>
 			</thead>
 			
 			<tbody>
-			
 				{{#rows_l}}
 				<tr>
+					
 					<td class="ref">{{defiQuantiteRefProduit}}</td>
-					<td class="type">{{DF_Quantite_DF_ligne_commande_id__defiLigneCommandeTypeGeologique}}</td>
 					<td class="designation">{{DF_Quantite_DF_ligne_commande_id__defiLigneCommandeDesignation}}</td>
-
 					<td class="unite">{{DF_Quantite_DF_ligne_commande_id__defiLigneCommandeUnite}}</td>
 					<td class="quantite">{{defiQuantiteQte}}</td>
+					<td class="prixu">DF_Quantite__DF_LigneCommande_defiLigneCommandePU&nbsp;€</td>
+					<td class="prixt">DF_Quantite__DF_LigneCommande_defiLigneCommandePT&nbsp;€</td>
 				</tr>
 				{{/rows_l}}
-			
+				
 			</tbody>
+	{{#rows}}
+			<tfoot>
+				<tr>
+					<td class="vide" colspan="6">&nbsp;</td>
+				</tr>
+				<tr>
+					<td class="conditions2" rowspan="3" colspan="4" >
+						VISA DE LA COMPTABILITE 
+					</td>				
+					<td class="totallibelle">
+						TOTAL HT
+					</td>
+					<td class="totalvaleur">PrixTotalHT €</td>
+				</tr>		
+				<tr>
+					<td class="tvalibelle">TVA 20,00%</td>
+					<td class="tvavaleur">  €</td>
+				</tr>
+				<tr>
+					<td class="totalttclibelle">TOTAL TTC</td>
+					<td class="totalttcvaleur">PrixTotal €</td>					
+				</tr>				
+			</tfoot>
 			
 		</table>
 		
-	{{#rows}}
-	<div>
-		<p>
-			<br/>
-				<strong>Poids Total : {{df_livraison_quantite_chargee}} Tonnes</strong>
-			<br/><br/>
-		</p>
-	</div>
 	{{/rows}}
 	
 	<table class="signature">
 		<tr>
 			<td>
-				<span class="signature_span">Date et signature</span>
+				<span class="signature_span">NOM DU CONDUCTEUR DE TRAVAUX ET VISA</span>
 			</td>
 		</tr>	
 	</table>

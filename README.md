@@ -641,12 +641,16 @@ Objet metier pour produit.
 | `defiQuantiteRefProduit`                                     | char(30)                                 |          | yes       |          | -                                                                                |
 | `defiQuantitePoidsUnitaire`                                  | float(5, 2)                              |          | yes       |          | -                                                                                |
 | `defiQuantiteQte`                                            | int(20)                                  |          | yes       |          | -                                                                                |
+| _Ref. `DF_Quantite_DF_ligne_commande_id.defiLigneCommandeDesignation`_ | _text(200)_                              |          |           |          | -                                                                                |
+| _Ref. `DF_Quantite_DF_ligne_commande_id.defiLigneCommandeTypeGeologique`_ | _char(100)_                              |          |           |          | -                                                                                |
 | `defiQuantiteTonnage`                                        | float(20, 0)                             |          | yes       |          | -                                                                                |
+| _Ref. `DF_Quantite_DF_ligne_commande_id.defiLigneCommandeUnite`_ | _char(4)_                                |          |           |          | -                                                                                |
 | `defiQuantiteTrigrammeSuiveur`                               | char(10)                                 |          | yes       |          | -                                                                                |
 | `DF_Quantite_DF_Livraison_id` link to **`DF_Livraison`**     | id                                       |          | yes       |          | -                                                                                |
 | _Ref. `DF_Quantite_DF_Livraison_id.defiLivraisonId`_         | _char(100)_                              |          |           |          | -                                                                                |
 | `DF_Quantite_DF_ligne_commande_id` link to **`DF_ligne_commande`** | id                                       |          | yes       |          | -                                                                                |
 | _Ref. `DF_Quantite_DF_ligne_commande_id.defiLigneCommandeId`_ | _char(20)_                               |          |           |          | -                                                                                |
+| _Ref. `DF_Quantite_DF_ligne_commande_id.defiLigneCommandePrixEXWUnitaire`_ | _float(10, 2)_                           |          |           |          | -                                                                                |
 
 ### Custom actions
 

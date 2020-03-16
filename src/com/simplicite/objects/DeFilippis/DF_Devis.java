@@ -360,11 +360,16 @@ public class DF_Devis extends ObjectDB {
 		ld.resetFilters();
 		ld.setFieldFilter("DF_Ligne_Devis_DF_Devis_id",getRowId());
 	
-		// user
+		// user (Suiveur)
 		ObjectDB u = getGrant().getTmpObject("User");
 		u.resetFilters();
 		//ObjectDB ui = getGrant().getTmpObject("DF_utilisateur_interne");
 		u.setFieldFilter("row_id",getFieldValue("DF_Devis_DF_utilisateur_interne_id"));
+		
+		// user (Redacteur)
+		ObjectDB redacteur = getGrant().getTmpObject("User");
+		redacteur.resetFilters();
+		redacteur.setFieldFilter("row_id",getFieldValue("DF_Devis_DF_utilisateur_interne_id"));		
 		
 		AppLog.info(getClass(), "test user --------- pdf",u.toJSON(u.search(), null, false, false).toString() , getGrant());
 		//u.setFieldFilter("DF_Ligne_Devis_DF_Devis_id",getRowId());

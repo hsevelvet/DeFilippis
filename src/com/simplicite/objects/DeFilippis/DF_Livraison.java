@@ -4,11 +4,15 @@ import org.json.JSONArray;
 import java.util.HashMap;
 import com.simplicite.util.AppLog;
 import com.simplicite.util.Globals;
+import com.simplicite.util.Grant;
 import com.simplicite.util.Message;
 import com.simplicite.util.Tool;
 import com.simplicite.util.exceptions.APIException;
 import com.simplicite.util.tools.HTMLTool;
 import com.simplicite.util.tools.TrelloTool;
+
+import java.util.List;
+
 
 import java.util.*;
 import com.simplicite.util.ObjectDB;
@@ -235,14 +239,17 @@ public class DF_Livraison extends ObjectDB {
 		bl.setFieldFilter("row_id",getRowId());
 
 		// Quantite
-		ObjectDB q = getGrant().getTmpObject("DF_Quantite");
+		ObjectDB q = Grant.getSystemAdmin().getObject("DF_Quantite","DF_Quantite");
 		q.resetFilters();
-		q.setFieldFilter("DF_Quantite_DF_Livraison",getRowId());
+		q.setFieldFilter("DF_Quantite_DF_Livraison_id",getRowId());
+		//AppLog.info(getClass(), "jhflqkjgmsg!m--------cs;vknkbj", q.toString(), getGrant());
 		
-		// LignesCommande
-		ObjectDB lignescommandes = getGrant().getTmpObject("DF_ligne_commande");
-		lignescommandes.resetFilters();
-		lignescommandes.setFieldFilter("row_id",q.getFieldValue("DF_Quantite_DF_ligne_commande_id"));
+		ObjectDB lignescommandes = Grant.getSystemAdmin().getObject("DF_ligne_commande","DF_ligne_commande");
+		//lignescommandes.resetFilters();
+		//lignescommandes.setFieldFilter("row_id",q.getFieldValue("DF_Quantite_DF_ligne_commande_id"));
+		
+		
+		
 		
 		// Client 	
 		ObjectDB client = getGrant().getTmpObject("DF_Client");
@@ -253,22 +260,17 @@ public class DF_Livraison extends ObjectDB {
 		commande.setFieldFilter("row_id",getFieldValue("DF_Livraison_DF_Commande_id"));
 		client.setFieldFilter("row_id",commande.getFieldValue("DF_Commande_DF_Client_id"));
 		
-		List<String[]> rows_l = q.search(false);
-		if (rows_l.size() > 0){
-			wp.append(MustacheTool.apply(
-			this,
-			"DF_BL_HTML", 
-			"{'rows':"+bl.toJSON(bl.search(), null, false, false)+
-			",'rows_l':"+q.toJSON(rows_l, null, false, false)+
-			",'rows_client':"+client.toJSON(client.search(), null, false, false)+
-			",'rows_lignescommandes':"+lignescommandes.toJSON(lignescommandes.search(), null, false, false)+"}"
-			));
-		}
-		
-
-
-		return wp.getHTML();
 	
+		wp.append(MustacheTool.apply(
+								this,
+								"DF_BL_HTML", 
+								"{'rows':"+bl.toJSON(bl.search(), null, false, false)+
+								",'rows_l':"+q.toJSON(q.search(), null, false, false)+
+								",'rows_client':"+client.toJSON(client.search(), null, false, false)+
+							    "}"
+								));
+		
+		return wp.getHTML();
 	}
 	
 
@@ -281,6 +283,69 @@ public class DF_Livraison extends ObjectDB {
 		
 		JSONObject postData = new JSONObject();
 		postData.put("contents", Tool.toBase64(pubBL()));
+
+		String[] headers = {"Content-Type:application/json"};
+		String encoding = Globals.BINARY;
+		byte[] pdf = null;
+		
+		try{
+			pdf = Tool.readUrlAsByteArray(url, user, password, postData.toString(), headers, encoding);
+		}catch(Exception e){
+			AppLog.error(getClass(), "pubPdf", "------------", e, getGrant());
+		}
+		return pdf;
+	}
+	
+	
+		////////////////////////// Print ODF //////////////////////////////////////////////
+	public String pubODF(){
+		
+		
+		BootstrapWebPage wp = new BootstrapWebPage(
+			HTMLTool.getRoot(), 
+			"Webpage publication pattern example", 
+			true
+		);
+		
+		
+		
+		//String html = "";
+		DF_Livraison livraison = (DF_Livraison) getGrant().getTmpObject("DF_Livraison");
+		ObjectDB q = Grant.getSystemAdmin().getObject("DF_Quantite","DF_Quantite");
+		List<String[]> q_search = new ArrayList<String[]>();
+		for (String id: getSelectedIds()){
+			
+			synchronized(livraison){
+				livraison.resetValues();
+				livraison.select(id);
+				// Quantite
+				
+				q.resetFilters();
+				q.setFieldFilter("DF_Quantite_DF_Livraison_id",livraison.getRowId());
+				AppLog.info(getClass(), "jdhqlkfsgj:", q.search().toString(), getGrant());
+				q_search.addAll(q.search());
+				
+		
+			}
+		}
+		wp.append(MustacheTool.apply(
+								this,
+								"DF_ODF_HTML", 
+								"{'rows_l':"+q.toJSON(q_search, null, false, false)+"}"
+								));
+	    
+		
+		return wp.getHTML();
+}
+	
+	public byte[] pubPdfODF(){
+		String url = "http://wkhtml2pdf/";
+		String user = null;
+		String password = null;
+	
+		
+		JSONObject postData = new JSONObject();
+		postData.put("contents", Tool.toBase64(pubODF()));
 
 		String[] headers = {"Content-Type:application/json"};
 		String encoding = Globals.BINARY;
