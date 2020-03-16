@@ -116,10 +116,11 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
 					AppLog.info(getClass(), "HSE_ATTACHMENT", id_c, getGrant());
 					attach_id = getAttachmentID(id_c);
 					
-					String id_list = attach_id.get(0);
+					/*String id_list = attach_id.get(0);
+					AppLog.info(getClass(), "HSE MLJMKCSM", id_list, getGrant());
 					JSONObject att_card = tt.getCard(id_list);
 					
-					AppLog.info(getClass(), "HSE ATT", att_card.toString(), getGrant());
+					AppLog.info(getClass(), "HSE ATT", att_card.toString(), getGrant());*/
 				}
 					
 
@@ -138,21 +139,28 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
             		customFValue = customFieldItem.getString("number");
             }
             
-            /*if (status.equals("5")){
+            if (status.equals("5")){
 						// récupérer la carte 
 						//JSONObject testcard = tt.getCard("5e6baa50f6eefa7cacff98cc");;
 						//card.put("name",  "TEST");
 						//String test = tt.call("/boards/"+settings.getString("boardId")+"/cards","put","test").toString();
+						
+						for(String str: attach_id) {
+							JSONObject att_card = tt.getCard(str);
+							
+							att_card.put("name","test-hse");
+							tt.updateCard(att_card.getString("id"), att_card);
+						}
 				
-						tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Adresse"),new JSONObject().put("value",new JSONObject().put("text","toto")));
-						AppLog.info(getClass(), "CARD 666", card.toString(), getGrant());
-						card.put("name", "alphabeta");
-						tt.updateCard(card.getString("id"), card);
+						//tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Adresse"),new JSONObject().put("value",new JSONObject().put("text","toto")));
+						//AppLog.info(getClass(), "CARD 666", card.toString(), getGrant());
+						//card.put("name", "alphabeta");
+						
 						AppLog.info(getClass(), "tetststst-----------------", card.getString("id"), getGrant());
 						//AppLog.info(getClass(), "tttttttt---------aaaaaaa", tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Adresse"),new JSONObject().put("value",new JSONObject().put("text","toto"))).toString(), getGrant());
 						// mise à jour de la carte 
 						
-					}*/
+					}
             
             
             // Get Grant des objets Livraison et Quantité
