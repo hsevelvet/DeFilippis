@@ -187,6 +187,11 @@
 	td.cgvleft {
 		width:50%;
 	}
+	
+	
+	h1, h2 {
+		color:#004C8E;
+	}		
 	h2 {
 		padding:7px 0 0 0;
 	}
@@ -227,12 +232,13 @@
             <tr class="top">
                 <td colspan="2">
 				
-					
+					<img src="https://www.raultgranit.com/upload/partenaire/0001/181129-091132-de-filippis-mineral-conseil_large.jpg"  style="width:120px;">
+									
+						
                     <table>
                         <tr>
                             <td class="title">
-                                <img src="https://www.eurovia.fr/zbwi.axd/cropsz/320x158/~/media/4543035/de_filippis_entreprise.jpg"  style="width:120px;">
-								<p>&nbsp;</p>
+  
 								<strong>Affaire suivie par :</strong> defiUsrNomComplet<br/>								
 								06 46 10 53 05 - david.henrion@mineralconseil.fr<br/><br/>
 
@@ -247,19 +253,19 @@
 										<p>&nbsp;</p>
 										<p>&nbsp;</p>
 										<p>&nbsp;</p>
-										<strong>Client </strong>: defiClientNom<br/>
+										<strong>Client </strong>: {{#client}}{{defiClientNom}}{{/client}}<br/>
 										<strong>Contact </strong>:  defiContactNom<br/>
 										<strong>Email </strong>: defiClientEmail<br/>
 										<br/>
 										<br/>
-										REF. RELEVE CONTRAD : defiLivraisonID, defiLivraisonID, defiLivraisonID
+										REF. RELEVE CONTRAD : {{#bl}} {{defiLivraisonId}}, {{/bl}}
 										<br/>
                             </td>                            
                         </tr>
 						<tr>
 							<td colspan="2" style="vertical-align:bottom;text-align:center">
 								<h1>ORDRE DE FACTURATION </h1>
-								<h2>Référence Chantier : NUMERO OTP</h2>
+								<h2>Référence Chantier : {{#cl}}{{defiCommandeNumero}}{{/cl}}</h2>
 							</td>
 						</tr>
                     </table>
@@ -289,7 +295,7 @@
 					<td class="designation">{{DF_Quantite_DF_ligne_commande_id__defiLigneCommandeDesignation}}</td>
 					<td class="unite">{{DF_Quantite_DF_ligne_commande_id__defiLigneCommandeUnite}}</td>
 					<td class="quantite">{{defiQuantiteQte}}</td>
-					<td class="prixu">DF_Quantite__DF_LigneCommande_defiLigneCommandePU&nbsp;€</td>
+					<td class="prixu">{{DF_Quantite_DF_ligne_commande_id__defiLigneCommandePrixEXWUnitaire}}&nbsp;€</td>
 					<td class="prixt">DF_Quantite__DF_LigneCommande_defiLigneCommandePT&nbsp;€</td>
 				</tr>
 				{{/rows_l}}

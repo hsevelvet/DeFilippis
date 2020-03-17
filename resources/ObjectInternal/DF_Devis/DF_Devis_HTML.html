@@ -100,13 +100,13 @@
 	}
 	
 	.tg .thref {
-		width:80px;
+		width:60px;
 	}
 	.tg .thtype {
 		
 	}
 	.tg .thdesignation {
-		min-width:280px;
+		min-width:290px;
 	}
 	.tg .thunite {
 	
@@ -118,7 +118,7 @@
 		width:85px;
 	}
 	.tg .thprixt {
-		width:100px;
+		width:90px;
 	}	
 
 	
@@ -266,6 +266,7 @@
 								FRANCE - 69726 Genay<br/>
                                 Tél : 04 78 98 15 49 / www.mineralconseil.fr<br/>
 								SAS - RCS LYON 612 029 298 - FR 29 612 029 298<br/>
+								<br/>
 								
 								<strong>Suiveur Affaire :</strong> {{DF_Devis_DF_utilisateur_interne_id__defiUsrNomComplet}}<br/>								
 								{{#rows_u}}{{usr_work_num}} - {{usr_login}}{{/rows_u}}
@@ -316,8 +317,8 @@
 					<td class="designation">{{defiLigneDevisDesignation}}</td>
 					<td class="unite">{{defiLigneDevisUnite}}</td>
 					<td class="quantite">{{defiLigneDevisQuantite}}</td>
-					<td class="prixu">{{defiLigneDevisPrixVenteCalcule}}&nbsp;€</td>
-					<td class="prixt">{{defiLigneDevisPrixVenteImpose}}&nbsp;€</td>
+					<td class="prixu">{{defiLigneDevisPrixUnitaireImpose}}&nbsp;€</td>
+					<td class="prixt">{{{defiLigneDevisPrixVenteImpose}}}&nbsp;€</td>
 				</tr>
 				{{/rows_l}}
 				
@@ -331,19 +332,18 @@
 					</td>
 				</tr>
 				<tr>
-					<td class="conditions1" rowspan="3" >
-						Conditions de mise à disposition de la marchandise
-					</td>
-					<td class="conditions2" rowspan="3" colspan="4" >
-						<ul>
-							<li>Délais prévisionnel à confirmer au moment de la commande : <strong>1ère livraison le {{defiDevisDelaisPrevisionnel}} si commande avant {{defiDevisDateValiditeOffre}}</strong></li>
+					<td class="conditions2" rowspan="3" colspan="5" >
+					<p>Conditions de mise à disposition de la marchandise : </p>
+					<ul>
+							<li>Délais prévisionnel à confirmer au moment de la commande : {{defiDevisDelaisPrevisionnel}}</li>						
+							<!--<strong>1ère livraison le {{defiDevisDelaisPrevisionnel}} si commande avant {{defiDevisDateValiditeOffre}}</strong></li>-->
 							<li>Cadence de livraison maximale hebdomadaire : <strong>{{defiDevisCadenceLivraison}}</strong></li>
 							<li>Facturation : <strong>Entreprise De Filippis</strong></li>
 							<li>Prix valable pour camion complet 24 tonnes</strong></li>
 							<li>Acompte: <strong>{{defiDevisAccompte}}</strong></li>
 							<li>Paiement: <strong>{{defiDevisDelaiPaiement}}</strong></li>
 							<li>Validité de l'offre : <strong>{{defiDevisDateValiditeOffre}}</strong></li>
-							<li>COndition de mise à disposition :"Prix Rendu Unitaire Non déchargé"</li>
+							<li>COndition de mise à disposition :Prix Rendu Unitaire Non déchargé</li>
 						</ul>
 					</td>
 					<td class="totallibelle">
@@ -353,7 +353,7 @@
 				</tr>		
 				<tr>
 					<td class="tvalibelle">TVA 20,00%</td>
-					<td class="tvavaleur">  €</td>
+					<td class="tvavaleur">{{#tva}}{{prix_tva}}{{/tva}}  €</td>
 				</tr>
 				<tr>
 					<td class="totalttclibelle">TOTAL TTC</td>

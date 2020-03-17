@@ -5103,6 +5103,7 @@ paths:
         required: false
         enum:
         - Transformation-Devis-Affaire
+        - Performance-Clients
         - Transformation-Devis-Affaire2
       - in: query
         name: _crosstabcubes

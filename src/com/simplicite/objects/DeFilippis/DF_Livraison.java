@@ -249,15 +249,15 @@ public class DF_Livraison extends ObjectDB {
 		//lignescommandes.setFieldFilter("row_id",q.getFieldValue("DF_Quantite_DF_ligne_commande_id"));
 		
 		
+		// Commande
+		ObjectDB commande = getGrant().getTmpObject("DF_Commande");
+		commande.resetFilters();
+		commande.setFieldFilter("row_id",getFieldValue("DF_Livraison_DF_Commande_id"));
 		
 		
 		// Client 	
 		ObjectDB client = getGrant().getTmpObject("DF_Client");
 		client.resetFilters();
-		// Filtrer sur les commandes avec l'id sur la livraison
-		ObjectDB commande = getGrant().getTmpObject("DF_Commande");
-		commande.resetFilters();
-		commande.setFieldFilter("row_id",getFieldValue("DF_Livraison_DF_Commande_id"));
 		client.setFieldFilter("row_id",commande.getFieldValue("DF_Commande_DF_Client_id"));
 		
 	
@@ -266,6 +266,7 @@ public class DF_Livraison extends ObjectDB {
 								"DF_BL_HTML", 
 								"{'rows':"+bl.toJSON(bl.search(), null, false, false)+
 								",'rows_l':"+q.toJSON(q.search(), null, false, false)+
+								",'rows_commande':"+commande.toJSON(commande.search(), null, false, false)+								
 								",'rows_client':"+client.toJSON(client.search(), null, false, false)+
 							    "}"
 								));
@@ -308,31 +309,50 @@ public class DF_Livraison extends ObjectDB {
 		);
 		
 		
-		
 		//String html = "";
 		DF_Livraison livraison = (DF_Livraison) getGrant().getTmpObject("DF_Livraison");
+		livraison.resetValues();
 		ObjectDB q = Grant.getSystemAdmin().getObject("DF_Quantite","DF_Quantite");
+		ObjectDB commande_livraison = Grant.getSystemAdmin().getObject("DF_Commande","DF_Commande");
+		ObjectDB client = Grant.getSystemAdmin().getObject("DF_Client","DF_Client");
+
 		List<String[]> q_search = new ArrayList<String[]>();
+		List<String[]> livraison_search = new ArrayList<String[]>();
+		//List<String[]> commande_search = new ArrayList<String[]>();
+
 		for (String id: getSelectedIds()){
 			
 			synchronized(livraison){
-				livraison.resetValues();
+				
 				livraison.select(id);
-				// Quantite
 				
 				q.resetFilters();
 				q.setFieldFilter("DF_Quantite_DF_Livraison_id",livraison.getRowId());
-				AppLog.info(getClass(), "jdhqlkfsgj:", q.search().toString(), getGrant());
+				livraison.setFieldFilter("row_id", livraison.getRowId());
+				commande_livraison.resetFilters();
+				commande_livraison.setFieldFilter("row_id",livraison.getFieldValue("DF_Livraison_DF_Commande_id"));
+				AppLog.info(getClass(), "method--------------", commande_livraison.getFieldValue("DF_Commande_DF_Client_id"), getGrant());
+
+				livraison_search.addAll(livraison.search());
 				q_search.addAll(q.search());
-				
-		
 			}
+			
+	
 		}
+		//commande_livraison.select(commande_livraison.getRowId());
+		client.resetFilters();
+		AppLog.info(getClass(), "method--------------", commande_livraison.getRowId() ,getGrant());
+		client.setFieldFilter("row_id",commande_livraison.getFieldValue("DF_Commande_DF_Client_id"));
 		wp.append(MustacheTool.apply(
-								this,
-								"DF_ODF_HTML", 
-								"{'rows_l':"+q.toJSON(q_search, null, false, false)+"}"
-								));
+			this,
+			"DF_ODF_HTML", 
+			"{'rows_l':"+q.toJSON(q_search, null, false, false)+
+			",'bl':"+livraison.toJSON(livraison_search, null, false, false)+
+			",'cl':"+commande_livraison.toJSON(commande_livraison.search(), null, false, false)+
+			",'client':"+client.toJSON(client.search(), null, false, false)+
+			"}"
+		));
+			
 	    
 		
 		return wp.getHTML();

@@ -94,8 +94,8 @@ Objet metier pour client.
 | `defiClientAdresse3`                                         | char(32)                                 |          | yes       |          | -                                                                                |
 | `defiClientCedex`                                            | char(32)                                 |          | yes       |          | -                                                                                |
 | `defiClientPays`                                             | char(32)                                 |          | yes       |          | -                                                                                |
-| `defiClientTauxTransformation`                               | bigdec(4, 2)                             |          | yes       |          | -                                                                                |
-| `defiClientSommeCommandes`                                   | int(4)                                   |          | yes       |          | -                                                                                |
+| `defiClientTauxTransformation`                               | bigdec(4, 2)                             |          |           |          | -                                                                                |
+| `defiClientSommeCommandes`                                   | int(4)                                   |          |           |          | -                                                                                |
 | `defiClientIdKheops`                                         | char(12)                                 |          | yes       |          | -                                                                                |
 
 ### Lists
@@ -274,7 +274,7 @@ Objet metier pour devis.
 | `defiDevisPoidsTotal`                                        | float(9, 2)                              |          |           |          | -                                                                                |
 | `defiDevisNombreCamions`                                     | float(9, 2)                              |          |           |          | -                                                                                |
 | `defiDevisFicheTechnique`                                    | document                                 |          | yes       |          | -                                                                                |
-| `defiDevisDelaisPrevisionnel`                                | char(32)                                 |          | yes       |          | -                                                                                |
+| `defiDevisDelaisPrevisionnel`                                | char(100)                                |          | yes       |          | -                                                                                |
 | `defiDevisCadenceLivraison`                                  | char(100)                                |          | yes       |          | -                                                                                |
 | `defiDevisOrdreFacturation`                                  | char(100)                                |          |           |          | -                                                                                |
 | `defiDevisDateValiditeOffre`                                 | date                                     |          | yes       |          | -                                                                                |

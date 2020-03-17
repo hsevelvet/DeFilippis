@@ -359,6 +359,11 @@ public class DF_Commande extends ObjectDB {
 		ObjectDB client = getGrant().getTmpObject("DF_Client");
 		client.resetFilters();
 		client.setFieldFilter("row_id",getFieldValue("DF_Commande_DF_Client_id"));
+		
+		// Contact 
+		ObjectDB contact = getGrant().getTmpObject("DF_Contact");
+		contact.resetFilters();
+		contact.setFieldFilter("DF_Contact_DF_Client_id",client.getRowId());
 				
 		
 		List<String[]> rows_l = lc.search(false);

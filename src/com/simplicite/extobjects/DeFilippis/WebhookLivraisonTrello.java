@@ -116,11 +116,11 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
 					AppLog.info(getClass(), "HSE_ATTACHMENT", id_c, getGrant());
 					attach_id = getAttachmentID(id_c);
 					
-					/*String id_list = attach_id.get(0);
-					AppLog.info(getClass(), "HSE MLJMKCSM", id_list, getGrant());
-					JSONObject att_card = tt.getCard(id_list);
+					//String id_list = attach_id.get(0);
+					//AppLog.info(getClass(), "HSE MLJMKCSM", id_list, getGrant());
+					//JSONObject att_card = tt.getCard(id_list);
 					
-					AppLog.info(getClass(), "HSE ATT", att_card.toString(), getGrant());*/
+					//AppLog.info(getClass(), "HSE ATT", att_card.toString(), getGrant());
 				}
 					
 
@@ -138,29 +138,9 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
             	if (customFieldItem.has("number"))
             		customFValue = customFieldItem.getString("number");
             }
+            AppLog.info(getClass(), "mljqsckjqmvs_____", status, getGrant());
             
-            if (status.equals("5")){
-						// récupérer la carte 
-						//JSONObject testcard = tt.getCard("5e6baa50f6eefa7cacff98cc");;
-						//card.put("name",  "TEST");
-						//String test = tt.call("/boards/"+settings.getString("boardId")+"/cards","put","test").toString();
-						
-						for(String str: attach_id) {
-							JSONObject att_card = tt.getCard(str);
-							
-							att_card.put("name","test-hse");
-							tt.updateCard(att_card.getString("id"), att_card);
-						}
-				
-						//tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Adresse"),new JSONObject().put("value",new JSONObject().put("text","toto")));
-						//AppLog.info(getClass(), "CARD 666", card.toString(), getGrant());
-						//card.put("name", "alphabeta");
-						
-						AppLog.info(getClass(), "tetststst-----------------", card.getString("id"), getGrant());
-						//AppLog.info(getClass(), "tttttttt---------aaaaaaa", tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Adresse"),new JSONObject().put("value",new JSONObject().put("text","toto"))).toString(), getGrant());
-						// mise à jour de la carte 
-						
-					}
+           
             
             
             // Get Grant des objets Livraison et Quantité
@@ -395,6 +375,66 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
 			}
 		
 			
+			 if (status.equals("5")){
+						
+						// récupérer les cartes en pièce jointe 
+						 for(String str: attach_id) {
+							JSONObject att_card = tt.getCard(str);
+							AppLog.info(getClass(), "attachments -----------test", att_card.toString(), getGrant());
+							// récupérer le custom field : id ligne de commande
+							String cf_v = tt.call("/cards/"+att_card.getString("id")+"/customFieldItems","get","").toString();
+							JSONArray  cf_json = new JSONArray(cf_v);
+							String id_ligne_commande = null;
+							for (int i = 0; i < cf_json.length(); i++){
+									JSONObject cs = cf_json.getJSONObject(i);
+									// Vérifier si l'idcustomfield = id ligne de commande
+									if(cs.getString("idCustomField").equals("5e6b943e9405a033888e385e"))
+				                    {
+				                        JSONObject id_ligne_commande_js = cs.getJSONObject("value");
+				                        // récupérer la valeur id ligne de commande
+				                    	id_ligne_commande = id_ligne_commande_js.getString("text");
+				                    	AppLog.info(getClass(), "Id ligne commande Value", id_ligne_commande, getGrant());
+										
+				                    }
+							}
+							
+							// faire un call sur les cartes de la première liste 
+							String prem_liste = tt.call("/lists/5e4a8f43ad23676d8487ff9c/cards","get","").toString();
+							JSONArray cards_json = new JSONArray(prem_liste);
+							
+							for (int i = 0; i < cards_json.length(); i++){
+								JSONObject card_1 = cards_json.getJSONObject(i);
+								
+								String cf_v_1 = tt.call("/cards/"+card_1.getString("id")+"/customFieldItems","get","").toString();
+								JSONArray  cf_json_1 = new JSONArray(cf_v_1);
+								// boucler sur les cartes de la liste 1 
+								for (int j = 0; j < cf_json_1.length(); j++){
+									JSONObject cs_1 = cf_json_1.getJSONObject(j);
+									
+									// Vérifier si l'idcustomfield = id ligne de commande
+									if(cs_1.getString("idCustomField").equals("5e6b943e9405a033888e385e"))
+				                    {
+				                        JSONObject id_ligne_commande_js_1 = cs_1.getJSONObject("value");
+				                        AppLog.info(getClass(), "TESTSSTSTST------------", id_ligne_commande_js_1.toString(), getGrant());
+				                        // récupérer la valeur id ligne de commande
+				                        String id_ligne_commande_1 = id_ligne_commande_js_1.getString("text");
+				                        // renommer la carte dans la liste 1
+				                        if (id_ligne_commande_1 == id_ligne_commande){
+				                        	card_1.put("name","test_successful_hs");
+				                        	
+				                        }
+				                        //card_1.put("name","test_successful");
+										tt.updateCard(card_1.getString("id"), card_1);
+				                    }
+							}
+								
+							}
+					
+						}
+				
+						
+					}
+			
 			}
 			
 	
@@ -404,6 +444,8 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
 			AppLog.error(getClass(), "updateCard", null, e, getGrant());
 		}
 	}
+	
+	
 
     @Override
 	public Object post(Parameters params) throws HTTPException {

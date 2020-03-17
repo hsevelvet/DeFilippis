@@ -27,6 +27,9 @@ import com.simplicite.util.tools.*;
 import com.simplicite.util.tools.HTMLTool; 
 import com.simplicite.webapp.web.BootstrapWebPage;
 import com.simplicite.util.tools.PDFTool;
+import com.simplicite.util.tools.MailTool;
+import com.simplicite.util.Mail;
+
 
 /**
  * Business object DF_Devis
@@ -194,8 +197,8 @@ public class DF_Devis extends ObjectDB {
 				double prd_larg = ld.getField("defiPrdLargeur").getDouble(0);
 				double prd_eps = ld.getField("defiPrdEpaisseur").getDouble(0);
 				double prd_qte = ld.getField("defiLigneDevisQuantite").getDouble(0);
-				double cmd_prix_exw_u = ld.getField("defiLigneDevisPrixExwUnitaire").getDouble(0);
-				double cmd_total_exw = ld.getField("defiLigneDevisPrixVenteImpose").getDouble(0);
+				double cmd_prix_exw_u = ld.getField("defiLigneDevisPrixUnitaireImpose").getDouble(0);
+				double cmd_total_exw = ld.getField("defiLigneDevisPrixUnitaireImpose").getDouble(0);
 				
 				
 				ObjectDB lc = getGrant().getTmpObject("DF_ligne_commande");
@@ -378,6 +381,10 @@ public class DF_Devis extends ObjectDB {
 		// contact 
 		// produits finis 
 		
+		List<String> tva = new ArrayList<String>();
+		double prix_total = getField("defiDevisPrixTotalHT").getDouble();
+		double prix_tva = prix_total*0.2;
+		tva.add(Double.toString(prix_tva));
 		//List<String[]> rows_l = ;
 		//if (rows_l.size() > 0){
 			wp.append(MustacheTool.apply(
@@ -385,8 +392,11 @@ public class DF_Devis extends ObjectDB {
 			"DF_Devis_HTML", 
 			"{'rows':"+d.toJSON(d.search(), null, false, false)+
 			",'rows_l':"+ld.toJSON(ld.search(), null, false, false)+
-			",'rows_u':"+u.toJSON(u.search(), null, false, false)+"}"
+			",'rows_u':"+u.toJSON(u.search(), null, false, false)+
+			",'tva':"+ "[{'prix_tva':"+Double.toString(prix_tva)+"}]"+
+			"}"
 			));
+			AppLog.info(getClass(), "ldqjklf",Double.toString(prix_tva) , getGrant());
 			
 		//}
 		return wp.getHTML();
@@ -404,6 +414,18 @@ public class DF_Devis extends ObjectDB {
 		String[] headers = {"Content-Type:application/json"};
 		String encoding = Globals.BINARY;
 		byte[] pdf = null;
+		
+		ObjectDB devis = getGrant().getTmpObject("DF_Devis");
+		ObjectField devis_fiche = devis.getField("defiDevisFicheTechnique"); // must be of type file
+
+// https://www.simplicite.io/resources/4.0/javadoc/com/simplicite/util/tools/MailTool.html
+		new Mail(getGrant()).send(
+					"alfredtw19@gmail.com",
+					"hsenoussi@velvetconsulting.com",
+					"test-hs",
+					"<html><body>" +
+					"<h3>Hello,</h3>" +
+					"</body></html>");
 		
 	
 		try{
