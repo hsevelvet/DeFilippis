@@ -196,12 +196,12 @@ public class DF_Commande extends ObjectDB {
 					int_aff.replace(" " , "");
 					String firstCharsIntitule = int_aff.substring(0, 7);
 					
-					String fourns = getFieldValue("DF_Commande_DF_Fournisseurs_id.defiFournNom");
-					fourns.replace(" " , "");
-					String firstCharsFourns = fourns.substring(0, 3);
+					//String fourns = getFieldValue("DF_Commande_DF_Fournisseurs_id.defiFournNom");
+					//fourns.replace(" " , "");
+					//String firstCharsFourns = fourns.substring(0, 3);
 					
 					
-					card.put("name",  (firstCharsIntitule+"."+getFieldValue("defiCommandeIntituleCommande")+"."+firstCharsFourns+"."+lc.getFieldValue("defiLigneCommandeReferenceProduit")+"."+lc.getFieldValue("defiLigneCommandeQuantite")).toUpperCase());
+					card.put("name",  (firstCharsIntitule+"."+getFieldValue("defiCommandeIntituleCommande")+"."+lc.getFieldValue("defiLigneCommandeReferenceProduit")+"."+lc.getFieldValue("defiLigneCommandeQuantite")).toUpperCase());
 					//card.put("desc", createDesc());
 					card.put("desc","\n**Date Livraison confirmée**: "+getFieldValue("defiCommandeDatePremierCamion")+"\n"+"\n**Contact Déchargement Privilégié**: "+"\n"+"\n**Contact En Cas De Problème**: "+"\n"+"\n**Quantité Initiale**: "+ lc.getFieldValue("defiLigneCommandeQuantite"));
 					card.put("due", getFieldValue("defiCommandeDatePremierCamion"));
@@ -360,10 +360,10 @@ public class DF_Commande extends ObjectDB {
 		client.resetFilters();
 		client.setFieldFilter("row_id",getFieldValue("DF_Commande_DF_Client_id"));
 		
-		// Contact 
-		ObjectDB contact = getGrant().getTmpObject("DF_Contact");
-		contact.resetFilters();
-		contact.setFieldFilter("DF_Contact_DF_Client_id",client.getRowId());
+		// Contact Client
+		ObjectDB contact_client = getGrant().getTmpObject("DF_Contact");
+		contact_client.resetFilters();
+		contact_client.setFieldFilter("row_id",getFieldValue("DF_Commande_DF_Contact_id"));
 				
 		
 		List<String[]> rows_l = lc.search(false);
@@ -375,7 +375,9 @@ public class DF_Commande extends ObjectDB {
 			"{'rows':"+c.toJSON(c.search(), null, false, false)+
 			",'rows_l':"+lc.toJSON(rows_l, null, false, false)+
 			",'rows_u':"+u.toJSON(u.search(), null, false, false)+
-			",'rows_client':"+client.toJSON(client.search(), null, false, false)+"}"
+			",'rows_client':"+client.toJSON(client.search(), null, false, false)+
+			",'contact_client':"+contact_client.toJSON(contact_client.search(), null, false, false)+
+			"}"
 			));
 			AppLog.info(getClass(), "client ------------------",client.toJSON(client.search(), null, false, false).toString() , getGrant());
 			

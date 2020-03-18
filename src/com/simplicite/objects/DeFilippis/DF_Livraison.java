@@ -259,6 +259,12 @@ public class DF_Livraison extends ObjectDB {
 		ObjectDB client = getGrant().getTmpObject("DF_Client");
 		client.resetFilters();
 		client.setFieldFilter("row_id",commande.getFieldValue("DF_Commande_DF_Client_id"));
+		AppLog.info(getClass(), "hhmldkqmdslfksd-------77",commande.getFieldValue("DF_Commande_DF_Client_id"),getGrant());
+		
+		// Contact Client
+		ObjectDB contact_client = getGrant().getTmpObject("DF_Contact");
+		contact_client.resetFilters();
+		contact_client.setFieldFilter("row_id",commande.getFieldValue("DF_Commande_DF_Contact_id"));		
 		
 	
 		wp.append(MustacheTool.apply(
@@ -268,6 +274,7 @@ public class DF_Livraison extends ObjectDB {
 								",'rows_l':"+q.toJSON(q.search(), null, false, false)+
 								",'rows_commande':"+commande.toJSON(commande.search(), null, false, false)+								
 								",'rows_client':"+client.toJSON(client.search(), null, false, false)+
+								",'contact_client':"+contact_client.toJSON(contact_client.search(), null, false, false)+								
 							    "}"
 								));
 		
@@ -313,8 +320,9 @@ public class DF_Livraison extends ObjectDB {
 		DF_Livraison livraison = (DF_Livraison) getGrant().getTmpObject("DF_Livraison");
 		livraison.resetValues();
 		ObjectDB q = Grant.getSystemAdmin().getObject("DF_Quantite","DF_Quantite");
-		ObjectDB commande_livraison = Grant.getSystemAdmin().getObject("DF_Commande","DF_Commande");
+		ObjectDB commande_livraison = getGrant().getTmpObject("DF_Commande");
 		ObjectDB client = Grant.getSystemAdmin().getObject("DF_Client","DF_Client");
+		ObjectDB contact_client = getGrant().getTmpObject("DF_Contact");
 
 		List<String[]> q_search = new ArrayList<String[]>();
 		List<String[]> livraison_search = new ArrayList<String[]>();
@@ -331,18 +339,37 @@ public class DF_Livraison extends ObjectDB {
 				livraison.setFieldFilter("row_id", livraison.getRowId());
 				commande_livraison.resetFilters();
 				commande_livraison.setFieldFilter("row_id",livraison.getFieldValue("DF_Livraison_DF_Commande_id"));
-				AppLog.info(getClass(), "method--------------", commande_livraison.getFieldValue("DF_Commande_DF_Client_id"), getGrant());
+				//AppLog.info(getClass(), "method--------------", commande_livraison.getFieldValue("DF_Commande_DF_Client_id"), getGrant());
+				
+				//commande_livraison.select(commande_livraison.getRowId());
+				client.resetFilters();
+				
+				AppLog.info(getClass(), "method commandelivraison--------------", livraison.getFieldValue("DF_Livraison_DF_Commande_id") ,getGrant());
+				
+				
+				
+				
+				
+				// Contact Client 
+				contact_client.resetFilters();
+				contact_client.setFieldFilter("row_id",commande_livraison.getFieldValue("DF_Commande_DF_Contact_id"));	
 
 				livraison_search.addAll(livraison.search());
 				q_search.addAll(q.search());
 			}
 			
+			
+			
 	
 		}
-		//commande_livraison.select(commande_livraison.getRowId());
-		client.resetFilters();
-		AppLog.info(getClass(), "method--------------", commande_livraison.getRowId() ,getGrant());
-		client.setFieldFilter("row_id",commande_livraison.getFieldValue("DF_Commande_DF_Client_id"));
+			ObjectDB commande_client = getGrant().getTmpObject("DF_Commande");
+			commande_client.resetFilters();
+			commande_client.setFieldFilter("row_id",livraison.getFieldValue("DF_Livraison_DF_Commande_id"));
+				
+			AppLog.info(getClass(), "method commande client------------", commande_client.getRowId(), getGrant());
+			client.setFieldFilter("row_id",commande_client.getFieldValue("DF_Commande_DF_Client_id"));
+			//contact_client.setFieldFilter("row_id",commande_client.getFieldValue("DF_Commande_DF_Contact_id"));
+		
 		wp.append(MustacheTool.apply(
 			this,
 			"DF_ODF_HTML", 
@@ -350,9 +377,12 @@ public class DF_Livraison extends ObjectDB {
 			",'bl':"+livraison.toJSON(livraison_search, null, false, false)+
 			",'cl':"+commande_livraison.toJSON(commande_livraison.search(), null, false, false)+
 			",'client':"+client.toJSON(client.search(), null, false, false)+
+			",'contact_client':"+contact_client.toJSON(contact_client.search(), null, false, false)+			
 			"}"
 		));
-			
+		
+		livraison.setFieldValue("df_livraison_statut","6");
+		livraison.save();
 	    
 		
 		return wp.getHTML();

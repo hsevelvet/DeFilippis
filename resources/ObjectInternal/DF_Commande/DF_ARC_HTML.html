@@ -216,6 +216,11 @@
 		font-weight:bold;
 	}
 	
+	p.cordialement {
+		margin:20px 10px;
+		text-align:right;
+	}	
+	
 	</style>	
 </head>
 
@@ -244,28 +249,29 @@
                                 175 Avenue des Frères Lumière.<br/>
 								FRANCE - 69726 Genay<br/>
                                 Tél : 04 78 98 15 49 / www.mineralconseil.fr<br/>
-								SAS - RCS LYON 612 029 298 - FR 29 612 029 298
-								
-								
+								SAS - RCS LYON 612 029 298 - FR 29 612 029 298<br/>
+																
                             </td>
                             <td style="text-align:right">
 										{{#rows_client}}
-										<strong>Client </strong>:{{defiClientNom}}<br/>
+										<strong>Client </strong>: {{defiClientNom}}<br/>
 										{{/rows_client}}
 											
-										<strong>Contact </strong>:  DF_Commande_DF_Contact_id__defiContactPrenom DF_Commande_DF_Contact_id__defiContactNom<br/>
-										<strong>Email </strong>: DF_Commande_DF_Client_id__defiClientEmail<br/>	
+										<strong>Contact </strong>: {{#contact_client}}{{defiContactPrenom}} {{defiContactNom}}{{/contact_client}}<br/>
+										<strong>Email </strong>: {{#contact_client}}{{defiContactEmail}}{{/contact_client}}<br/>	
 										<br/>
 										
-										<strong>Date d'émission </strong>:{{defiCommandeDate}}<br/>
-										<strong>Référence Commande </strong>: {{DF_Commande_DF_Affaire_id__defiAfrLibelleChantier}} - {{DF_Commande_DF_Affaire_id__defiAfrLieuAffaire}}
+										<strong>Date d'émission </strong>: {{defiCommandeDate}}<br/>
+										<strong>Référence Commande </strong>: {{defiCommandeNumero}}
 							
                             </td>                            
                         </tr>
 						<tr>
 							<td colspan="2" style="vertical-align:bottom;text-align:center">
-								<h1>ACCUSÉ RÉCEPTION DE COMMANDE N° <strong>{{defiCommandeNumero}}</strong></h1>
-								<h2>À nous retourner dûment accepté et signé. Merci.</h2>
+								<br/>
+								<h1>ACCUSÉ RÉCEPTION DE COMMANDE</h1>
+								<h2>{{DF_Commande_DF_Affaire_id__defiAfrLibelleChantier}} - {{DF_Commande_DF_Affaire_id__defiAfrLieuAffaire}}</h2>
+								
 							</td>
 						</tr>
                     </table>
@@ -332,13 +338,14 @@
 			<br/><br/>			
 			<span class="1234">ADRESSE DE LIVRAISON :</span>  {{defiCommandeAdresseLivraison}}
 			<br/><br/>
-			<span class="1234">PAIEMENT :</span> defiCommandeDelaiPaiement	
+			<!--<span class="1234">PAIEMENT :</span> defiCommandeDelaiPaiement	-->
 			<br/>
 		</p>
 	</div>
 	
 	{{/rows}}
-	
+	<br/>
+	<p class="cordialement">À nous retourner dûment accepté et signé. Merci.</p>
 	
  </div>
  

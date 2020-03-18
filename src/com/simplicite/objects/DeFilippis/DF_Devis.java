@@ -165,6 +165,7 @@ public class DF_Devis extends ObjectDB {
 		c.setFieldValue("DF_Commande_DF_Affaire_id", getFieldValue("DF_Devis_DF_Chantier_id"));
 		c.setFieldValue("DF_Commande_DF_utilisateur_interne_id", getFieldValue("DF_Devis_DF_utilisateur_interne_id"));	
 		c.setFieldValue("DF_Commande_DF_Client_id", getFieldValue("DF_Devis_DF_Client_id"));
+		c.setFieldValue("DF_Commande_DF_Contact_id", getFieldValue("DF_Devis_DF_Contact_id"));
 		c.setFieldValue("defiCommandeRedacteur", Redacteur);
 		c.setStatus("IN");	
 		//c.setFieldValue("DF_Commande_DF_Affaire_id.defiAfrLibelleChantier", libelle_affaire );
@@ -294,7 +295,7 @@ public class DF_Devis extends ObjectDB {
 		o.setFieldValue("defiDevisCoefficientGlobal", coef_global);
 		o.setFieldValue("defiDevisPoidsTotal",poids_total);
 		o.setFieldValue("defiDevisNombreCamions",nb_camions);
-		o.save();
+		//o.save();
 		
 		setFieldValue("defiDevisIndice",indice_next);
     	validate();

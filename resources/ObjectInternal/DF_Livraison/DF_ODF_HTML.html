@@ -234,12 +234,11 @@
 				
 					<img src="https://www.raultgranit.com/upload/partenaire/0001/181129-091132-de-filippis-mineral-conseil_large.jpg"  style="width:120px;">
 									
-						
                     <table>
                         <tr>
                             <td class="title">
   
-								<strong>Affaire suivie par :</strong> defiUsrNomComplet<br/>								
+								<strong>Affaire suivie par :</strong> David Henrion<br/>								
 								06 46 10 53 05 - david.henrion@mineralconseil.fr<br/><br/>
 
 								DEFILIPPIS Minéral Conseil <br/>
@@ -250,20 +249,18 @@
 								
                             </td>
                             <td style="text-align:right">
-										<p>&nbsp;</p>
-										<p>&nbsp;</p>
-										<p>&nbsp;</p>
 										<strong>Client </strong>: {{#client}}{{defiClientNom}}{{/client}}<br/>
-										<strong>Contact </strong>:  defiContactNom<br/>
-										<strong>Email </strong>: defiClientEmail<br/>
+										<strong>Contact </strong>: {{#contact_client}}{{defiContactPrenom}} {{defiContactNom}}{{/contact_client}}<br/>
+										<strong>Email </strong>: {{#contact_client}}{{defiContactEmail}}{{/contact_client}}<br/>	
 										<br/>
 										<br/>
-										REF. RELEVE CONTRAD : {{#bl}} {{defiLivraisonId}}, {{/bl}}
+										<strong>REF. RELEVE CONTRAD <strong>: {{#bl}} {{defiLivraisonId}}, {{/bl}}
 										<br/>
                             </td>                            
                         </tr>
 						<tr>
 							<td colspan="2" style="vertical-align:bottom;text-align:center">
+								<br/>
 								<h1>ORDRE DE FACTURATION </h1>
 								<h2>Référence Chantier : {{#cl}}{{defiCommandeNumero}}{{/cl}}</h2>
 							</td>
@@ -273,7 +270,7 @@
                     
                 </td>
             </tr>            
-            </table>
+        </table>
             
          <table class="tg">
 			<thead>
@@ -296,24 +293,21 @@
 					<td class="unite">{{DF_Quantite_DF_ligne_commande_id__defiLigneCommandeUnite}}</td>
 					<td class="quantite">{{defiQuantiteQte}}</td>
 					<td class="prixu">{{DF_Quantite_DF_ligne_commande_id__defiLigneCommandePrixEXWUnitaire}}&nbsp;€</td>
-					<td class="prixt">DF_Quantite__DF_LigneCommande_defiLigneCommandePT&nbsp;€</td>
+					<td class="prixt">0&nbsp;€</td>
 				</tr>
 				{{/rows_l}}
 				
 			</tbody>
-	{{#rows}}
+
 			<tfoot>
 				<tr>
-					<td class="vide" colspan="6">&nbsp;</td>
-				</tr>
-				<tr>
 					<td class="conditions2" rowspan="3" colspan="4" >
-						VISA DE LA COMPTABILITE 
+						
 					</td>				
 					<td class="totallibelle">
 						TOTAL HT
 					</td>
-					<td class="totalvaleur">PrixTotalHT €</td>
+					<td class="totalvaleur"> €</td>
 				</tr>		
 				<tr>
 					<td class="tvalibelle">TVA 20,00%</td>
@@ -326,9 +320,16 @@
 			</tfoot>
 			
 		</table>
-		
-	{{/rows}}
+		<br/>
+	<table class="signature">
+		<tr>
+			<td>
+				<span class="signature_span">VISA DE LA COMPTABILITE </span>
+			</td>
+		</tr>	
+	</table>
 	
+	<br/>	
 	<table class="signature">
 		<tr>
 			<td>
@@ -336,6 +337,7 @@
 			</td>
 		</tr>	
 	</table>
+	
 	
  </div>
 

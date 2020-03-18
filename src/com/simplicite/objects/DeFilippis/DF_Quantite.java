@@ -10,6 +10,15 @@ import com.simplicite.util.tools.*;
 public class DF_Quantite extends ObjectDB {
 	private static final long serialVersionUID = 1L;
 	
+	
+	@Override
+	public void initUpdate() {
+		Double qte = getField("defiQuantiteQte").getDouble(0);
+		Double poids_u = getField("defiQuantitePoidsUnitaire").getDouble(0);
+		
+		setFieldValue("defiQuantiteTonnage", qte*poids_u);
+	}
+	
 	public String createAllTrelloCards(){
 		try {
 		ObjectDB o = getGrant().getTmpObject("DF_Livraison");

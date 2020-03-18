@@ -248,11 +248,10 @@
                             </td>
                             <td style="text-align:right">
 										<strong>Client </strong>: {{#rows_client}} {{defiClientNom}} {{/rows_client}} <br/>
-										<strong>Contact </strong>: DF_Livraison_DF_Commande_DF_Contact_id__defiContactPrenom DF_Livraison_DF_Contact_id__defiContactNom<br/>
-										<strong>Email </strong>: DF_Livraison_DF_Commande_DF_Client_id__defiClientEmail<br/>
-										<strong>Référence Commande </strong>: {{#rows_commande}}{{defiCommandeNumero}}{{/rows_commande}}
-										
+										<strong>Contact </strong>: {{#contact_client}}{{defiContactPrenom}} {{defiContactNom}}{{/contact_client}}<br/>
+										<strong>Email </strong>: {{#contact_client}}{{defiContactEmail}}{{/contact_client}}<br/>
 										<br/>
+										<strong>Référence Commande </strong>: {{#rows_commande}}{{defiCommandeNumero}}{{/rows_commande}}<br/>
 										<strong>Date de livraison </strong>: {{df_livraison_date_livraison_estimee}}<br/>
 										<strong>N° de bon fournisseur </strong>: {{df_livraison_num_bl_fournisseur}}<br/>
 										

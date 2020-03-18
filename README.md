@@ -130,6 +130,8 @@ objet metier pour commande.
 | `defiCommandeIdLivraison`                                    | int(11)                                  |          | yes       |          | -                                                                                |
 | `defiCommandeIntituleAffaire`                                | char(100)                                |          | yes       |          | -                                                                                |
 | `defiCommandeLieuAffaire`                                    | char(100)                                |          | yes       |          | -                                                                                |
+| _Ref. `DF_Commande_DF_Contact_id.defiContactNom`_            | _char(36)_                               |          |           |          | -                                                                                |
+| _Ref. `DF_Commande_DF_Contact_id.defiContactPrenom`_         | _char(32)_                               |          |           |          | -                                                                                |
 | `defiCommandeIntituleCommande`                               | char(70)                                 |          | yes       |          | -                                                                                |
 | `defiCommandeStatut`                                         | enum(7) using `DF_COMMANDE_STATUT` list  |          | yes       |          | -                                                                                |
 | `DF_Commande_DF_Client_id` link to **`DF_Client`**           | id                                       |          | yes       |          | -                                                                                |
@@ -505,7 +507,6 @@ Objet métier pour fournisseur.
 | `defiLivraisonIntituleCamion`                                | char(100)                                |          | yes       |          | -                                                                                |
 | `df_livraison_statut`                                        | enum(7) using `DF_LIVRAISON_STATUT` list | yes      | yes       |          | -                                                                                |
 | `defiLivraisonIdCommande`                                    | char(100)                                | yes      | yes       |          | -                                                                                |
-| `df_livraison_nom_transporteur`                              | char(100)                                |          | yes       |          | -                                                                                |
 | `df_livraison_trellocardid`                                  | char(30)                                 |          | yes       |          | -                                                                                |
 | `DF_Contact_DF_Livraison_id`                                 | id                                       |          | yes       |          | -                                                                                |
 | `df_livraison_statut`                                        | enum(7) using `DF_LIVRAISON_STATUT` list | yes      | yes       |          | -                                                                                |
@@ -521,6 +522,8 @@ Objet métier pour fournisseur.
 | `DF_Livraison_DF_Commande_id` link to **`DF_Commande`**      | id                                       |          | yes       |          | -                                                                                |
 | _Ref. `DF_Livraison_DF_Commande_id.defiCommandeId`_          | _char(50)_                               |          |           |          | -                                                                                |
 | _Ref. `DF_Livraison_DF_Commande_id.defiCommandeNumero`_      | _char(32)_                               |          |           |          | -                                                                                |
+| `DF_Livraison_DF_Transport_id` link to **`DF_Transport`**    | id                                       |          | yes       |          | -                                                                                |
+| _Ref. `DF_Livraison_DF_Transport_id.defiTrspNom`_            | _char(36)_                               |          |           |          | -                                                                                |
 
 ### Lists
 
@@ -531,10 +534,6 @@ Objet métier pour fournisseur.
     - `4` En cours d'achememinement
     - `5` Panne
     - `6` Livraison effecutée
-
-### Custom actions
-
-* `Livraison-CreateTicketTrello`: 
 
 `DF_Prix_Transport` business object definition
 ----------------------------------------------
@@ -676,11 +675,11 @@ Objet metier pour produit.
 | `defiTrspId`                                                 | int(11)                                  |          | yes       |          | -                                                                                |
 | `defiTrspNom`                                                | char(36)                                 | yes*     | yes       |          | -                                                                                |
 | `DF_Transport_DF_Chantier_id` link to **`DF_Affaire`**       | id                                       |          | yes       |          | -                                                                                |
-| `DF_Transport_DF_Livraison_id` link to **`DF_Livraison`**    | id                                       |          | yes       |          | -                                                                                |
 | `defiTrspPaysOrigine`                                        | char(70)                                 |          | yes       |          | -                                                                                |
 | `defiTrsptelephone`                                          | phone(100)                               |          | yes       |          | -                                                                                |
 | `defiTrspEmail`                                              | email(100)                               |          | yes       |          | -                                                                                |
 | `defiTrspAdresse`                                            | char(100)                                |          | yes       |          | -                                                                                |
+| `defiTrspTrigramme`                                          | char(5)                                  |          | yes       |          | -                                                                                |
 
 `DF_utilisateur_interne` business object definition
 ---------------------------------------------------
