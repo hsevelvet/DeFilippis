@@ -38,7 +38,7 @@ public class DF_Client extends ObjectDB {
 					c += 1;
 				}
 				
-				setFieldValue("defiClientTauxTransformation", (1-(c/nb_devis))*100);
+				setFieldValue("defiClientTauxTransformation", (1-(c/nb_devis)));
 			}
 		}
 		// calcul de somme de commandes 

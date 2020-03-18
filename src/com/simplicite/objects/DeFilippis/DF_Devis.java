@@ -155,25 +155,27 @@ public class DF_Devis extends ObjectDB {
 		
 		double poids_total = getField("defiDevisPoidsTotal").getDouble(0);
 		double nb_camions = getField("defiDevisNombreCamions").getDouble(0);
-		
+		String libelle_affaire = getFieldValue("DF_Devis_DF_Chantier_id.defiAfrLibelleChantier");
+		String User = getFieldValue("DF_Devis_DF_utilisateur_interne_id.defiUsrNomComplet");
+		String Redacteur = getFieldValue("defiDevisRedacteur");
 		
 		// Set Commande
 		c.create();
-		//ObjectField s = c.getField("defiCommandeId");
-		//s.setValue(num);
+
 		c.setFieldValue("DF_Commande_DF_Affaire_id", getFieldValue("DF_Devis_DF_Chantier_id"));
 		c.setFieldValue("DF_Commande_DF_utilisateur_interne_id", getFieldValue("DF_Devis_DF_utilisateur_interne_id"));	
-		c.setFieldValue("defiCommandeRedacteur", getFieldValue("defiDevisRedacteur"));
-		c.setStatus("IN");	
-		c.setFieldValue("DF_Commande_DF_Affaire_id.defiAfrLibelleChantier", getFieldValue("DF_Devis_DF_Chantier_id.defiAfrLibelleChantier"));
-		c.setFieldValue("DF_Commande_DF_utilisateur_interne_id.defiUsrNomComplet", getFieldValue("DF_Devis_DF_utilisateur_interne_id.defiUsrNomComplet"));
 		c.setFieldValue("DF_Commande_DF_Client_id", getFieldValue("DF_Devis_DF_Client_id"));
+		c.setFieldValue("defiCommandeRedacteur", Redacteur);
+		c.setStatus("IN");	
+		//c.setFieldValue("DF_Commande_DF_Affaire_id.defiAfrLibelleChantier", libelle_affaire );
+		//c.setFieldValue("DF_Commande_DF_utilisateur_interne_id.defiUsrNomComplet", User );
+	
 		//c.setFieldValue("defiCommandeSuiveurAffaire", getFieldValue("DF_Devis_DF_utilisateur_interne_id.defiUsrNomComplet"));
 		c.setFieldValue("defiCommandeLieuAffaire",lieu_affaire);
 		c.setFieldValue("defiCommandeIntituleAffaire",intitule_affaire);
 		c.setFieldValue("defiCommandePoidsTotal",poids_total);
 		c.setFieldValue("defiCommandeNombreCamions",nb_camions);
-		//c.save();
+		c.save();
 		
 		// Get valeurs ligne devis
 		
@@ -381,10 +383,10 @@ public class DF_Devis extends ObjectDB {
 		// contact 
 		// produits finis 
 		
-		List<String> tva = new ArrayList<String>();
+		//List<String> tva = new ArrayList<String>();
 		double prix_total = getField("defiDevisPrixTotalHT").getDouble();
 		double prix_tva = prix_total*0.2;
-		tva.add(Double.toString(prix_tva));
+		//tva.add(Double.toString(prix_tva));
 		//List<String[]> rows_l = ;
 		//if (rows_l.size() > 0){
 			wp.append(MustacheTool.apply(

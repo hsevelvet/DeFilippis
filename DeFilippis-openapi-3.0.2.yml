@@ -51,7 +51,7 @@ components:
           description: Désignation DF ligne commande
           type: string
         DF_Quantite_DF_ligne_commande_id__defiLigneCommandePrixEXWUnitaire:
-          description: Prix EXW unitaire DF ligne commande
+          description: Prix de vente unitaire imposé DF ligne commande
           type: number
         defiQuantiteQte:
           description: Quantité
@@ -150,13 +150,13 @@ components:
           description: Secteur Activité Client
           type: string
           enum:
-          - MO
           - AR
+          - MO
           - MDO
           - T
           - ATPG
-          - ATP
           - V
+          - ATP
           - N
           - EA
           - P
@@ -479,17 +479,11 @@ components:
         defiCommandeTrelloId:
           description: Commande Trello Id
           type: string
-        DF_Commande_DF_Fournisseurs_id__defiFournNom:
-          description: Nom Fournisseur
-          type: string
         defiCommandePieceJointeTransport:
           description: Pièce Jointe Transport
           type: object
         DF_Commande_DF_Contact_id__defiContactId:
           description: Id Contact Contacts
-          type: string
-        DF_Commande_DF_Contact_id__defiContactNom:
-          description: Contact Fournisseur
           type: string
         defiCommandeTransporteur:
           description: Transporteur
@@ -757,7 +751,7 @@ components:
           description: Longueur (cm)
           type: number
         defiLigneCommandePrixEXWUnitaire:
-          description: Prix EXW unitaire
+          description: Prix de vente unitaire imposé
           type: number
         defiLigneCommandeTypeGeologique:
           description: Type Géologique
@@ -1015,13 +1009,13 @@ components:
           description: Secteur Activité
           type: string
           enum:
-          - MO
           - AR
+          - MO
           - MDO
           - T
           - ATPG
-          - ATP
           - V
+          - ATP
           - N
           - EA
           - P
@@ -2244,13 +2238,13 @@ paths:
       - schema:
           type: string
           enum:
-          - MO
           - AR
+          - MO
           - MDO
           - T
           - ATPG
-          - ATP
           - V
+          - ATP
           - N
           - EA
           - P
@@ -3673,7 +3667,7 @@ paths:
           type: number
         in: query
         name: defiLigneCommandePrixEXWUnitaire
-        description: Search filter for Prix EXW unitaire
+        description: Search filter for Prix de vente unitaire imposé
         required: false
       - schema:
           type: string
@@ -6879,6 +6873,20 @@ paths:
         required: false
       - schema:
           type: string
+          enum:
+          - HT_COMMANDES_STATUTS_MOIS
+        in: query
+        name: _crosstab
+        description: Apply pivot table
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _crosstabcubes
+        description: Pivot table data as cubes?
+        required: false
+      - schema:
+          type: string
         in: query
         name: DF_Commande_DF_Affaire_id__defiAfrLibelleChantier
         description: Search filter for Titre Affaire
@@ -7084,12 +7092,6 @@ paths:
       - schema:
           type: string
         in: query
-        name: DF_Commande_DF_Fournisseurs_id__defiFournNom
-        description: Search filter for Nom Fournisseur
-        required: false
-      - schema:
-          type: string
-        in: query
         name: DF_Commande_DF_Fournisseurs_id__defiFournId
         description: Search filter for Id Fournisseur Fournisseurs
         required: false
@@ -7104,12 +7106,6 @@ paths:
         in: query
         name: DF_Commande_DF_Contact_id__defiContactId
         description: Search filter for Id Contact Contacts
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: DF_Commande_DF_Contact_id__defiContactNom
-        description: Search filter for Contact Fournisseur
         required: false
       - schema:
           type: string
@@ -8042,7 +8038,7 @@ paths:
           type: string
           enum:
           - Transformation-Devis-Affaire
-          - Performance-Clients
+          - HT_DEVIS_CLIENT_STATUTS
           - Transformation-Devis-Affaire2
         in: query
         name: _crosstab
@@ -8508,7 +8504,7 @@ paths:
           type: number
         in: query
         name: DF_Quantite_DF_ligne_commande_id__defiLigneCommandePrixEXWUnitaire
-        description: Search filter for Prix EXW unitaire DF ligne commande
+        description: Search filter for Prix de vente unitaire imposé DF ligne commande
         required: false
       tags:
       - DF_Quantite
@@ -8811,13 +8807,13 @@ paths:
       - schema:
           type: string
           enum:
-          - MO
           - AR
+          - MO
           - MDO
           - T
           - ATPG
-          - ATP
           - V
+          - ATP
           - N
           - EA
           - P

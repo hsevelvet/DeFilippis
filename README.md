@@ -156,11 +156,9 @@ objet metier pour commande.
 | `DF_Commande_DF_Affaire_id` link to **`DF_Affaire`**         | id                                       |          | yes       |          | -                                                                                |
 | `defiCommandeTrelloId`                                       | char(30)                                 |          | yes       |          | -                                                                                |
 | `DF_Commande_DF_Fournisseurs_id` link to **`DF_Fournisseurs`** | id                                       |          | yes       |          | -                                                                                |
-| _Ref. `DF_Commande_DF_Fournisseurs_id.defiFournNom`_         | _char(36)_                               |          |           |          | -                                                                                |
 | _Ref. `DF_Commande_DF_Fournisseurs_id.defiFournId`_          | _char(11)_                               |          |           |          | -                                                                                |
 | `DF_Commande_DF_Contact_id` link to **`DF_Contact`**         | id                                       |          | yes       |          | -                                                                                |
 | _Ref. `DF_Commande_DF_Contact_id.defiContactId`_             | _char(11)_                               |          |           |          | -                                                                                |
-| _Ref. `DF_Commande_DF_Contact_id.defiContactNom`_            | _char(36)_                               |          |           |          | -                                                                                |
 | `DF_Commande_DF_utilisateur_interne_id` link to **`DF_utilisateur_interne`** | id                                       |          | yes       |          | -                                                                                |
 | _Ref. `DF_Commande_DF_utilisateur_interne_id.usr_login`_     | _regexp(100)_                            |          |           | yes      | _Login_                                                                          |
 | _Ref. `DF_Commande_DF_utilisateur_interne_id.defiUsrNomComplet`_ | _char(70)_                               |          |           |          | -                                                                                |
@@ -295,7 +293,7 @@ Objet metier pour devis.
 | `defiDevisPieceJointe4`                                      | document                                 |          | yes       |          | -                                                                                |
 | `defiDevisIndice`                                            | char(3)                                  |          |           |          | -                                                                                |
 | `defiDevisCompteurDate`                                      | int(100)                                 |          |           |          | -                                                                                |
-| `defiDevisRedacteur`                                         | char(70)                                 |          | yes       |          | -                                                                                |
+| `defiDevisRedacteur`                                         | char(70)                                 |          |           |          | -                                                                                |
 
 ### Lists
 

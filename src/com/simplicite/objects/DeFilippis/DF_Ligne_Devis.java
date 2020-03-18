@@ -69,7 +69,7 @@ public class DF_Ligne_Devis extends ObjectDB {
         String ap_commerciale = getField("defiPrdAppellationCommerciale").getValue();
 
 		//double mvp = getField("defiPrdMasseVolumique").getDouble(0);
-		double mvp = getField("defiLigneDevisMasseVolumique").getDouble(0);
+		double mvp = getField("DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdMasseVolumique").getDouble(0);
 		//calcul longueur
 		String longueur = getFieldValue("defiLigneDevisLongueur");
 		double lng = 0;
@@ -235,14 +235,16 @@ public class DF_Ligne_Devis extends ObjectDB {
        double pvc = getField("defiLigneDevisPrixVenteCalcule").getDouble(0);
        if (pvi == 0){
        	setFieldValue("defiLigneDevisPrixUnitaireImpose", pvc);
+       	setFieldValue("defiLigneDevisPrixVenteImpose",pvc*qte);
        }
        else{
        	setFieldValue("defiLigneDevisPrixUnitaireImpose", pvi);
+       	setFieldValue("defiLigneDevisPrixVenteImpose",pvi*qte);
        }
        
        // calcul total vente imposé
        
-       setFieldValue("defiLigneDevisPrixVenteImpose",pvi*qte);
+       
 
 	}
 }
