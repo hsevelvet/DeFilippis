@@ -188,7 +188,7 @@ public class DF_Devis extends ObjectDB {
 			
 			for(String[] lde : ld.search()){
 				ld.setValues(lde);
-				String ref_prod = ld.getFieldValue("defiPrdId");
+				String ref_prod = ld.getFieldValue("defiLigneDevisNPrix");
 				String type_geo = ld.getFieldValue("defiPrdTypeGeologique");
 				String apl_com = ld.getFieldValue("defiPrdAppellationCommerciale");
 				String finition = ld.getFieldValue("defiPrdFinitionFacesVues");

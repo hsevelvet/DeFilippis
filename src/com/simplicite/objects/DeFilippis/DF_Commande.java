@@ -200,8 +200,13 @@ public class DF_Commande extends ObjectDB {
 					//fourns.replace(" " , "");
 					//String firstCharsFourns = fourns.substring(0, 3);
 					
+					double poids_unitaire = lc.getField("defiLigneCommandePoidsUnitaire").getDouble();
+					double quantite_lc = lc.getField("defiLigneCommandeQuantite").getDouble();
 					
-					card.put("name",  (firstCharsIntitule+"."+getFieldValue("defiCommandeIntituleCommande")+"."+lc.getFieldValue("defiLigneCommandeReferenceProduit")+"."+lc.getField("defiLigneCommandePoidsUnitaire").getDouble()*lc.getField("defiCommandeQuantite").getDouble()).toUpperCase());
+					double tonnage_carte = quantite_lc*poids_unitaire;
+					
+					
+					card.put("name",  (firstCharsIntitule+"."+getFieldValue("defiCommandeIntituleCommande")+"."+lc.getFieldValue("defiLigneCommandeReferenceProduit")+"."+ tonnage_carte).toUpperCase());
 					//card.put("desc", createDesc());
 					card.put("desc","\n**Date Livraison confirmée**: "+getFieldValue("defiCommandeDatePremierCamion")+"\n"+"\n**Contact Déchargement Privilégié**: "+getFieldValue("defiCommandeContactLivraison")+"\n"+"\n**Contact En Cas De Problème**: "+"\n"+"\n**Quantité Initiale**: "+ lc.getFieldValue("defiLigneCommandeQuantite"));
 					card.put("due", getFieldValue("defiCommandeDatePremierCamion"));
