@@ -163,11 +163,6 @@ paths:
         type: string
         required: false
       - in: query
-        name: DF_Chantier_DF_Plan_Livraison_id
-        description: Search filter for Plan Livraison
-        type: string
-        required: false
-      - in: query
         name: defiAfrCoefficientVenteInitial
         description: Search filter for Coefficient de vente initial
         type: number
@@ -6398,9 +6393,6 @@ definitions:
   DF_Affaire:
     type: object
     properties:
-      DF_Chantier_DF_Plan_Livraison_id:
-        description: Plan Livraison
-        type: string
       DF_Chantier_DF_Client_id__defiClientAdresse:
         description: Adresse Client
         type: string

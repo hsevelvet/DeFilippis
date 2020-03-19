@@ -86,9 +86,6 @@ components:
     DF_Affaire:
       type: object
       properties:
-        DF_Chantier_DF_Plan_Livraison_id:
-          description: Plan Livraison
-          type: string
         DF_Chantier_DF_Client_id__defiClientAdresse:
           description: Adresse Client
           type: string
@@ -2273,12 +2270,6 @@ paths:
         in: query
         name: DF_Chantier_DF_Client_id__defiClientRegion
         description: Search filter for Region Client
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: DF_Chantier_DF_Plan_Livraison_id
-        description: Search filter for Plan Livraison
         required: false
       - schema:
           type: number

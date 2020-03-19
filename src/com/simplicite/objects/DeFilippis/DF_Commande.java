@@ -201,9 +201,9 @@ public class DF_Commande extends ObjectDB {
 					//String firstCharsFourns = fourns.substring(0, 3);
 					
 					
-					card.put("name",  (firstCharsIntitule+"."+getFieldValue("defiCommandeIntituleCommande")+"."+lc.getFieldValue("defiLigneCommandeReferenceProduit")+"."+lc.getFieldValue("defiLigneCommandeQuantite")).toUpperCase());
+					card.put("name",  (firstCharsIntitule+"."+getFieldValue("defiCommandeIntituleCommande")+"."+lc.getFieldValue("defiLigneCommandeReferenceProduit")+"."+lc.getField("defiLigneCommandePoidsUnitaire").getDouble()*lc.getField("defiCommandeQuantite").getDouble()).toUpperCase());
 					//card.put("desc", createDesc());
-					card.put("desc","\n**Date Livraison confirmée**: "+getFieldValue("defiCommandeDatePremierCamion")+"\n"+"\n**Contact Déchargement Privilégié**: "+"\n"+"\n**Contact En Cas De Problème**: "+"\n"+"\n**Quantité Initiale**: "+ lc.getFieldValue("defiLigneCommandeQuantite"));
+					card.put("desc","\n**Date Livraison confirmée**: "+getFieldValue("defiCommandeDatePremierCamion")+"\n"+"\n**Contact Déchargement Privilégié**: "+getFieldValue("defiCommandeContactLivraison")+"\n"+"\n**Contact En Cas De Problème**: "+"\n"+"\n**Quantité Initiale**: "+ lc.getFieldValue("defiLigneCommandeQuantite"));
 					card.put("due", getFieldValue("defiCommandeDatePremierCamion"));
 					card = tt.addCard(getIDList(getFieldValue("defiCommandeStatut")), card);
 									

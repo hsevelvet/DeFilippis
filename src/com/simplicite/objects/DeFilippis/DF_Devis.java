@@ -295,7 +295,7 @@ public class DF_Devis extends ObjectDB {
 		o.setFieldValue("defiDevisCoefficientGlobal", coef_global);
 		o.setFieldValue("defiDevisPoidsTotal",poids_total);
 		o.setFieldValue("defiDevisNombreCamions",nb_camions);
-		//o.save();
+		o.save();
 		
 		setFieldValue("defiDevisIndice",indice_next);
     	validate();
@@ -443,24 +443,20 @@ public class DF_Devis extends ObjectDB {
 
 	public String generateFile() {
 		ObjectDB hst = getGrant().getTmpObject("DF_Hist_Docs");
-		
 
-		ByteArrayOutputStream baos = null;
 		try {
 			synchronized(hst){
 				hst.resetFilters();
-				hst.setFieldFilter("DF_Hist_Docs_DF_Devis_id",getRowId());
+
+					hst.create();	
+					hst.getField("defiHstDocsDevis").setDocument(hst, "Devis.pdf", this.pubPdf());
 				
-				for(String[] hstc : hst.search()){
-					hst.setValues(hstc);
-					hst.create();
-					hst.getField("defiHstDocsDevis").setDocument(hst, "Devis", pubPdf());
 					hst.setFieldValue("DF_Hist_Docs_DF_Devis_id",getRowId());
+					
 					hst.save();
-		    		
-				}
+				
 			}
-			return Message.formatSimpleInfo("Finished OK");
+			return Message.formatSimpleInfo("Fichier Historisé");
 		}	
 		catch(Exception e) {
 		    AppLog.error(getClass(), "generateFile", "error...", e, getGrant());
