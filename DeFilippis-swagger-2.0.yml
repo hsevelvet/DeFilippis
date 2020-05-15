@@ -3480,10 +3480,12 @@ paths:
         type: string
         required: false
         enum:
-        - FCD
-        - FCN
         - EXW
         - FOB
+        - DAP
+        - DPU
+        - FCD
+        - FCN
       - in: query
         name: defiDevisPoidsTotal
         description: Search filter for Poids total (T)
@@ -4382,13 +4384,13 @@ paths:
         type: string
         required: false
         enum:
-        - MO
         - AR
+        - MO
         - MDO
         - T
         - ATPG
-        - ATP
         - V
+        - ATP
         - N
         - EA
         - P
@@ -7132,10 +7134,12 @@ definitions:
         description: Incoterm Prix
         type: string
         enum:
-        - FCD
-        - FCN
         - EXW
         - FOB
+        - DAP
+        - DPU
+        - FCD
+        - FCN
       DF_Devis_DF_Contact_id__defiContactId:
         description: Contact
         type: string
@@ -7322,13 +7326,13 @@ definitions:
         description: Secteur Activité
         type: string
         enum:
-        - MO
         - AR
+        - MO
         - MDO
         - T
         - ATPG
-        - ATP
         - V
+        - ATP
         - N
         - EA
         - P

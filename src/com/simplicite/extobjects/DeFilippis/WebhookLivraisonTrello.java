@@ -210,7 +210,7 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
 							                        if (id_ligne_commande_1.equals(id_ligne_commande)){
 							                        	
 							                        	tt.setCardCustomFieldItem(card_1.getString("id"),getIDCustomField("Quantité"),new JSONObject().put("value",new JSONObject().put("number","1")));
-							                        	card_1.put("name","test_successful_hs");
+							                        	//card_1.put("name","test_successful_hs");
 							                        	tt.updateCard(card_1.getString("id"), card_1);
 							                        	
 							                        }

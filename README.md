@@ -312,10 +312,12 @@ Objet metier pour devis.
     - `EI` Emballage Inclus
     - `HE` Hors coût d'emballage
 * `DF_DEVIS_INCOTERM_PRIX`
-    - `FCD` Franco chantier déchargé
-    - `FCN` Franco chantier non déchargé
-    - `EXW` Ex Work
-    - `FOB` FOB
+    - `EXW` EXW - Sortie d’usine
+    - `FOB` FOB - Chargé sur Navire
+    - `DAP` DAP - Rendu Chantier Non Déchargé
+    - `DPU` DPU - Rendu Chantier déchargé
+    - `FCD` FCD - Franco chantier déchargé
+    - `FCN` FCN - Franco chantier non déchargé
 * `DF_DEVIS_ACCOMPTE`
     - `000` Pas d'accompte
     - `030` 30% à la commande

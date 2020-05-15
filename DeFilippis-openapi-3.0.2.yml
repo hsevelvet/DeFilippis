@@ -825,10 +825,12 @@ components:
           description: Incoterm Prix
           type: string
           enum:
-          - FCD
-          - FCN
           - EXW
           - FOB
+          - DAP
+          - DPU
+          - FCD
+          - FCN
         DF_Devis_DF_Contact_id__defiContactId:
           description: Contact
           type: string
@@ -1015,13 +1017,13 @@ components:
           description: Secteur Activité
           type: string
           enum:
-          - MO
           - AR
+          - MO
           - MDO
           - T
           - ATPG
-          - ATP
           - V
+          - ATP
           - N
           - EA
           - P
@@ -6230,10 +6232,12 @@ paths:
       - schema:
           type: string
           enum:
-          - FCD
-          - FCN
           - EXW
           - FOB
+          - DAP
+          - DPU
+          - FCD
+          - FCN
         in: query
         name: defiDevisIncotermPrix
         description: Search filter for Incoterm Prix
@@ -7304,13 +7308,13 @@ paths:
       - schema:
           type: string
           enum:
-          - MO
           - AR
+          - MO
           - MDO
           - T
           - ATPG
-          - ATP
           - V
+          - ATP
           - N
           - EA
           - P
