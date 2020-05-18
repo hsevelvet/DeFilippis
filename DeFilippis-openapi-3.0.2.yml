@@ -1024,17 +1024,17 @@ components:
           description: Secteur Activité
           type: string
           enum:
-          - MDO
-          - MO
           - AR
+          - MO
+          - MDO
           - T
           - ATPG
           - V
           - ATP
           - N
           - EA
-          - A
           - P
+          - A
         defiClientAdresse:
           description: Adresse
           type: string
@@ -7318,17 +7318,17 @@ paths:
       - schema:
           type: string
           enum:
-          - MDO
-          - MO
           - AR
+          - MO
+          - MDO
           - T
           - ATPG
           - V
           - ATP
           - N
           - EA
-          - A
           - P
+          - A
         in: query
         name: defiClientIdSecteurActivite
         description: Search filter for Secteur Activité

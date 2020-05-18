@@ -4384,17 +4384,17 @@ paths:
         type: string
         required: false
         enum:
-        - MDO
-        - MO
         - AR
+        - MO
+        - MDO
         - T
         - ATPG
         - V
         - ATP
         - N
         - EA
-        - A
         - P
+        - A
       - in: query
         name: defiClientRegion
         description: Search filter for Region
@@ -7334,17 +7334,17 @@ definitions:
         description: Secteur Activité
         type: string
         enum:
-        - MDO
-        - MO
         - AR
+        - MO
+        - MDO
         - T
         - ATPG
         - V
         - ATP
         - N
         - EA
-        - A
         - P
+        - A
       defiClientAdresse:
         description: Adresse
         type: string

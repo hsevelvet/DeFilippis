@@ -9,20 +9,15 @@ import com.simplicite.util.tools.*;
 */
 public class DF_Client extends ObjectDB {
 	private static final long serialVersionUID = 1L;
-	/*
-	@Override
-	public void initUpdate() {
-		Integer id = Integer.valueOf(getRowId());
-		String cli_id = String.format("%04d",id);
-		setFieldValue("defiClientId",cli_id);
-	}*/
+
+	// Utilisation du hook perValdiate : Valorisation des champs avant validation du formulaire
 	
 	@Override
 	public List<String> preValidate() {
 		List<String> msgs = new ArrayList<String>();
 		
 		
-		// calcul du taux de transformation	
+		// calcul du taux de transformation	(devis en chantier / total devis)
 		ObjectDB devis = getGrant().getTmpObject("DF_Devis");
 		synchronized(devis){
 			devis.resetFilters();
@@ -41,7 +36,8 @@ public class DF_Client extends ObjectDB {
 				setFieldValue("defiClientTauxTransformation", (1-(c/nb_devis)));
 			}
 		}
-		// calcul de somme de commandes 
+
+		// calcul de somme de commandes (somme des commandes réalisées,i.e: statut Terminé)
 		ObjectDB commandes = getGrant().getTmpObject("DF_Commande");
 		synchronized(commandes){
 			commandes.resetFilters();
