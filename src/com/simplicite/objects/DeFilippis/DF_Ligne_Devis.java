@@ -14,21 +14,10 @@ public class DF_Ligne_Devis extends ObjectDB {
 	@Override
 	public List<String> postValidate() {
 		List<String> msgs = new ArrayList<String>();
-		
-		//msgs.add(Message.formatInfo("INFO_CODE", "Message", "fieldName"));
-		//msgs.add(Message.formatWarning("WARNING_CODE", "Message", "fieldName"));
-		//msgs.add(Message.formatError("ERROR_CODE", "Message", "fieldName"));
+
+		// Méthode pour convertir les unités après validatiion du formulaire
 		
 		if (this.isNew())
-			//getField("defiLigneDevisPrixUnitaireHT").setValue(getField("defiPrdPrixUnitaireHT").getValue());
-			//getField("defiLigneDevisUnite").setValue(getField("defiPrdUnite").getValue());
-			//getField("defiLigneDevisLargeur").setValue(getField("defiPrdLargeur").getValue());
-			//getField("defiLigneDevisLongueur").setValue(getField("defiPrdLongueur").getValue());
-			//getField("defiLigneDevisEpaisseur").setValue(getField("defiPrdEpaisseur").getValue());
-			//getField("defiLigneDevisMasseVolumique").setValue(getField("defiPrdMasseVolumique").getValue());
-			//getField("defiLigneDevisNomProduit").setValue(getField("defiPrdTypeGeologique").getValue());
-			//getField("defiLigneDevisDesignationProduit").setValue(getField("defiPrdType").getValue());
-			//getField("defiLigneDevisFinition").setValue(getField("defiPrdFinitionFacesVues").getValue());
 			
 			// conversion tonne
 			if (getFieldValue("DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdUnite").equals("T") ){
@@ -55,22 +44,15 @@ public class DF_Ligne_Devis extends ObjectDB {
 	@Override
 	public void initUpdate(){
 		
-		// set id ligne devis
-		/*
-		Integer id = Integer.valueOf(this.getRowId());
-		String id_ld = String.format("%04d",id);
 		
-		setFieldValue("defiLigneDevisId",id_ld);
-		*/
         // accès aux valeurs 
         String unite = getField("defiLigneDevisUnite").getValue(); 
         String des_produit = getField("defiPrdTypeProduit").getValue(); 
         String fin_produit = getField("defiPrdFinitionFacesVues").getValue();
         String ap_commerciale = getField("defiPrdAppellationCommerciale").getValue();
-
-		//double mvp = getField("defiPrdMasseVolumique").getDouble(0);
 		double mvp = getField("DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdMasseVolumique").getDouble(0);
-		//calcul longueur
+
+		//calcul longueur bornée
 		String longueur = getFieldValue("defiLigneDevisLongueur");
 		double lng = 0;
 		if (longueur.contains("/")){
@@ -82,7 +64,7 @@ public class DF_Ligne_Devis extends ObjectDB {
 		}
 		setFieldValue("defiLigneDevisLongueur",lng);
 		
-		//calcul largeur
+		//calcul largeur bornée
 		String largeur = getFieldValue("defiLigneDevisLargeur");
 		double lrg = 0;
 		if (largeur.contains("/")){
@@ -94,21 +76,16 @@ public class DF_Ligne_Devis extends ObjectDB {
 		}
 		setFieldValue("defiLigneDevisLargeur",lrg);
 		
-		//double lrg = getField("defiPrdLargeur").getDouble(0);
-		//double lrg = getField("defiLigneDevisLargeur").getDouble(0);
-		//double ep = getField("defiPrdEpaisseur").getDouble(0);
+		// Get valeurs référence produit
 		double ep = getField("defiLigneDevisEpaisseur").getDouble(0);
 		int qte = getField("defiLigneDevisQuantite").getInt(0);
 		double dim_joint = getField("defiLigneDevisDimensionJoints").getDouble(0);
 		double ptr = getField("DF_Ligne_Devis_DF_Prix_Transport_id.defiPrTrspPrix").getDouble(0);
 		double prc = getField("defiLigneDevisPrixUnitaireHT").getDouble(0);
 		String aut_fin = getFieldValue("DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdAutresFinitions");
-		String appelation_commerciale = getFieldValue("DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdAppellationCommerciale");
 		
-		// designation ligne devis
-		
-		String designation =  appelation_commerciale+"\t"+des_produit +"\t"+ fin_produit+"\t"+aut_fin+"\n"+lng +"\t" + " x "+lrg+"\t" +" x ep. "+ep+"\t" + "Joints inclus de " +dim_joint +" cm";
-		
+		// valorisation : designation ligne devis		
+		String designation =  des_produit +"\t"+ fin_produit+"\t"+aut_fin+"\n"+lng +"\t" + " x "+lrg+"\t" +" x ep. "+ep+"\t" + "Joins inclus de " +dim_joint +" cm";
 		setFieldValue("defiLigneDevisDesignation",designation);
 		
 		
@@ -116,7 +93,6 @@ public class DF_Ligne_Devis extends ObjectDB {
 		if (getFieldValue("DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdUnite").equals("T")) setFieldValue("defiLigneDevisPrixExwTonne",prc);
 		else {setFieldValue("defiLigneDevisPrixExwUnitaire",prc);}
 
-		
 		Double pexwu = getField("defiLigneDevisPrixExwUnitaire").getDouble(0); 
 		Double pexwt = getField("defiLigneDevisPrixExwTonne").getDouble(0);
 		
@@ -242,10 +218,5 @@ public class DF_Ligne_Devis extends ObjectDB {
        	setFieldValue("defiLigneDevisPrixUnitaireImpose", pvi);
        	setFieldValue("defiLigneDevisPrixVenteImpose",pvi*qte);
        }
-       
-       // calcul total vente imposé
-       
-       
-
 	}
 }
