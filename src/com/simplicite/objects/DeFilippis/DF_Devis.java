@@ -69,7 +69,7 @@ public class DF_Devis extends ObjectDB {
 	
 	
 	
-	
+	// Valoriser la date validité d'offre lors de la création d'un devis : date actuelle + 3 mois
 	@Override
 	public void initCreate() {
 		Date date = new Date();
@@ -82,12 +82,8 @@ public class DF_Devis extends ObjectDB {
 	@Override
 	public void initUpdate() {
 		
-		// set values Devis
+		// Création du titre devis
 		String num_devis = getFieldValue("defiDevisNumero");
-		//String full_name = getFieldValue("defiUsrNomComplet");
-		//String[] nameparts = full_name.split(" ");
-		//String trigramme = String.valueOf(nameparts[0].charAt(0)).toUpperCase() +
-		//String.valueOf(nameparts[1].charAt(0)).toUpperCase() + String.valueOf(nameparts[1].charAt(2)).toUpperCase();
 		String trigramme = getFieldValue("DF_Devis_DF_utilisateur_interne_id.defiUsrTrigramme");
 		String lieu = getFieldValue("defiDevisLieuProjet");
 		String projet = getFieldValue("defiDevisTitreProjet");
@@ -97,7 +93,7 @@ public class DF_Devis extends ObjectDB {
 		String titre_devis = trigramme + "." + lieu + "." + projet + "." + num_devis + "." + indice;
 		setFieldValue("defiDevisTitre",titre_devis);
 		
-		// set values ligne devis
+		// Création du compteur date : utile pour dashboards (devis en chantier > 45j)
 		ObjectDB o = getGrant().getTmpObject("DF_Ligne_Devis");
 		o.resetFilters();
 		o.getField("DF_Ligne_Devis_DF_Devis_id").setFilter(getRowId());
@@ -108,7 +104,7 @@ public class DF_Devis extends ObjectDB {
 		Date date_cur = Tool.fromDateTime(c_dateString);
 		double date_diff = days(date_em,date_cur);
 		setFieldValue("defiDevisCompteurDate",date_diff);
-		
+		// Alimentation des champs devis nécessitant des calculs sur ligne devis
 		List<String[]> rows = o.search(false);
 		if (rows.size() > 0){
 			double c = o.getCount();
@@ -119,13 +115,15 @@ public class DF_Devis extends ObjectDB {
 			double pt = Double.parseDouble(o.getField("defiLigneDevisPoidsTotal").getListOperatorValue());
 			
 			
-			
+			// Nombre de camions 
 			setFieldValue("defiDevisNombreCamions", nbc);
+			// Poids Total
 			setFieldValue("defiDevisPoidsTotal", pt);
-			
+			// Prix Total HT
 			setFieldValue("defiDevisPrixTotalHT", t);
-			
+			// Prix Total TTC
 			setFieldValue("defiDevisPrixTotal", t + t*0.2);
+			// Coefficition global : total ventes / total achats
 			setFieldValue("defiDevisCoefficientGlobal", t/total_achat);
 		}
 	}
@@ -139,7 +137,10 @@ public class DF_Devis extends ObjectDB {
 		
 		return msgs;
 	}
-	
+
+	/**
+ 	* Action : Initialisation Commande
+	*/
 
 	public String initialCommande(){
 		
@@ -168,10 +169,6 @@ public class DF_Devis extends ObjectDB {
 		c.setFieldValue("DF_Commande_DF_Contact_id", getFieldValue("DF_Devis_DF_Contact_id"));
 		c.setFieldValue("defiCommandeRedacteur", Redacteur);
 		c.setStatus("IN");	
-		//c.setFieldValue("DF_Commande_DF_Affaire_id.defiAfrLibelleChantier", libelle_affaire );
-		//c.setFieldValue("DF_Commande_DF_utilisateur_interne_id.defiUsrNomComplet", User );
-	
-		//c.setFieldValue("defiCommandeSuiveurAffaire", getFieldValue("DF_Devis_DF_utilisateur_interne_id.defiUsrNomComplet"));
 		c.setFieldValue("defiCommandeLieuAffaire",lieu_affaire);
 		c.setFieldValue("defiCommandeIntituleAffaire",intitule_affaire);
 		c.setFieldValue("defiCommandePoidsTotal",poids_total);
@@ -206,16 +203,12 @@ public class DF_Devis extends ObjectDB {
 				
 				ObjectDB lc = getGrant().getTmpObject("DF_ligne_commande");
 				lc.resetFilters();
-				
+				// set des valeurs ligne commande
 				lc.create();
 		
 		
 				ObjectField s2 = lc.getField("defiLigneCommandeId");
 				s2.setValue(lc.getRowId());
-				
-				
-		
-		
 				
 				lc.setFieldValue("defiLigneCommandeReferenceProduit",ref_prod);
 				lc.setFieldValue("defiLigneCommandeTypeGeologique", type_geo);
@@ -242,31 +235,27 @@ public class DF_Devis extends ObjectDB {
 				
 			}
 		}
-		/*
-		ObjectDB lc = getGrant().getTmpObject("DF_ligne_commande");
-		double t = Double.parseDouble(lc.getField("defiLigneCommandePrixTotalEXW").getListOperatorValue());
-		c.setFieldValue("defiCommandeMontantHT", t);
-		c.save();*/
-		
+
+		// sendRedirect pour se rederiger vers la page commande au moment d'éxécution de l'action : initialisation commande 
 		return sendRedirect(HTMLTool.getFormURL("DF_Commande","the_main_DF_Commande", c.getRowId(),""));
 	}	
 	
-	
+	/**
+ 	* Action : Versionner Devis
+	*/
 	public void versionnerDevis(){
 		ObjectDB o =  getGrant().getTmpObject("DF_Devis");
 		o.resetFilters();
 		
-		// Versionner Devis	
 		
-		
-		// Versionner Devis	
+		// Fonction pour incrémenter l'indice
 		String indice_current = getFieldValue("defiDevisIndice");
 		char x = indice_current.charAt(0);
     	String indice_next = String.valueOf( (char) (x + 1));
     	
     	
 		
-		
+		// Get des valeurs Devis
 		String num = getField("defiDevisNumero").getValue();
 		String titre = getField("defiDevisTitre").getValue();
 		String lieu_affaire = getFieldValue("defiDevisLieuProjet");
@@ -279,7 +268,8 @@ public class DF_Devis extends ObjectDB {
 		
 		double poids_total = getField("defiDevisPoidsTotal").getDouble(0);
 		double nb_camions = getField("defiDevisNombreCamions").getDouble(0);
-		
+
+		// Set des valeurs devis
 		o.create();
 		o.setStatus("VR");
 		o.setFieldValue("defiDevisIndice",indice_current);
@@ -296,12 +286,12 @@ public class DF_Devis extends ObjectDB {
 		o.setFieldValue("defiDevisPoidsTotal",poids_total);
 		o.setFieldValue("defiDevisNombreCamions",nb_camions);
 		o.save();
-		
+		// incrémentation d'indice du devis actuel
 		setFieldValue("defiDevisIndice",indice_next);
     	validate();
     	save();
 		
-		// Versionner Ligne_Devis
+		// Get des valeurs ligne devis
 		ObjectDB ld2 = getGrant().getTmpObject("DF_Ligne_Devis");
 		synchronized(ld2){
 			ld2.resetFilters();
@@ -324,7 +314,7 @@ public class DF_Devis extends ObjectDB {
 				double cmd_prix_exw_u = ld2.getField("defiLigneDevisPrixExwUnitaire").getDouble(0);
 				double cmd_total_exw = ld2.getField("defiLigneDevisTotalEXWHT").getDouble(0);
 
-				
+				// set des valeurs ligne devis
 				ld2.create();
 				
 				ld2.setFieldValue("defiPrdId",ref_prod);
@@ -347,6 +337,7 @@ public class DF_Devis extends ObjectDB {
 }
 
 }
+
 	////////////////////////////// Print DEVIS //////////////////////////////////////
 	public String pubDevis(){
 		BootstrapWebPage wp = new BootstrapWebPage(
@@ -355,10 +346,8 @@ public class DF_Devis extends ObjectDB {
 			true
 		);
 		
-	// Ajout de valeurs de Devis
+		// Ajout de valeurs de Devis
 	    ObjectDB d = getGrant().getTmpObject("DF_Devis");
-	    
-
 		d.setFieldFilter("row_id",getRowId());
 
 		
@@ -369,28 +358,17 @@ public class DF_Devis extends ObjectDB {
 		// user (Suiveur)
 		ObjectDB u = getGrant().getTmpObject("User");
 		u.resetFilters();
-		//ObjectDB ui = getGrant().getTmpObject("DF_utilisateur_interne");
 		u.setFieldFilter("row_id",getFieldValue("DF_Devis_DF_utilisateur_interne_id"));
 		
 		// user (Redacteur)
 		ObjectDB redacteur = getGrant().getTmpObject("User");
 		redacteur.resetFilters();
 		redacteur.setFieldFilter("row_id",getFieldValue("DF_Devis_DF_utilisateur_interne_id"));		
-		
-		AppLog.info(getClass(), "test user --------- pdf",u.toJSON(u.search(), null, false, false).toString() , getGrant());
-		//u.setFieldFilter("DF_Ligne_Devis_DF_Devis_id",getRowId());
-		// affaire 
-		// client 
-		// contact 
-		// produits finis 
-		
-		//List<String> tva = new ArrayList<String>();
+
 		double prix_total = getField("defiDevisPrixTotalHT").getDouble();
 		double prix_tva = prix_total*0.2;
-		//tva.add(Double.toString(prix_tva));
-		//List<String[]> rows_l = ;
-		//if (rows_l.size() > 0){
-			wp.append(MustacheTool.apply(
+	
+		wp.append(MustacheTool.apply(
 			this,
 			"DF_Devis_HTML", 
 			"{'rows':"+d.toJSON(d.search(), null, false, false)+
@@ -399,9 +377,7 @@ public class DF_Devis extends ObjectDB {
 			",'tva':"+ "[{'prix_tva':"+Double.toString(prix_tva)+"}]"+
 			"}"
 			));
-			AppLog.info(getClass(), "ldqjklf",Double.toString(prix_tva) , getGrant());
-			
-		//}
+
 		return wp.getHTML();
 	
 	}
@@ -421,7 +397,7 @@ public class DF_Devis extends ObjectDB {
 		ObjectDB devis = getGrant().getTmpObject("DF_Devis");
 		ObjectField devis_fiche = devis.getField("defiDevisFicheTechnique"); // must be of type file
 
-// https://www.simplicite.io/resources/4.0/javadoc/com/simplicite/util/tools/MailTool.html
+		// https://www.simplicite.io/resources/4.0/javadoc/com/simplicite/util/tools/MailTool.html
 		new Mail(getGrant()).send(
 					"alfredtw19@gmail.com",
 					"hsenoussi@velvetconsulting.com",
@@ -440,7 +416,7 @@ public class DF_Devis extends ObjectDB {
 		}
 		return pdf;
 	}
-
+	// Méthode pour historiser un Devis
 	public String generateFile() {
 		ObjectDB hst = getGrant().getTmpObject("DF_Hist_Docs");
 
@@ -450,7 +426,6 @@ public class DF_Devis extends ObjectDB {
 
 					hst.create();	
 					hst.getField("defiHstDocsDevis").setDocument(hst, "Devis.pdf", this.pubPdf());
-				
 					hst.setFieldValue("DF_Hist_Docs_DF_Devis_id",getRowId());
 					
 					hst.save();
@@ -463,40 +438,5 @@ public class DF_Devis extends ObjectDB {
 		    return Message.formatSimpleError("Error...");
 		}
 	}
-	
-	/**
-	 * Order receipt publication as PDF
-	 * @param ord Order object
-	 
-	public static byte[] pubDevis(DF_Devis ord) {
-		try (ByteArrayOutputStream bos = new java.io.ByteArrayOutputStream()) {
-			Document pdf = PDFTool.open(bos);
-
-			// Logo
-			//pdf.add(PDFTool.getImage("https://www.eurovia.fr/zbwi.axd/cropsz/320x158/~/media/4543035/de_filippis_entreprise.jpg"));
-
-			pdf.add(new Paragraph(ord.getGrant().T("DEMO_RECEIPT"), PDFTool.TITLE1));
-
-			ObjectField f = ord.getField("defiDevisTitre");
-			pdf.add(new Paragraph(f.getDisplay() + ": " + f.getValue(), PDFTool.TITLE2));
-			f = ord.getField("defiDevisDateEmission");
-			pdf.add(new Paragraph(f.getDisplay() + ": " + ord.getGrant().toFormattedDate(f.getValue())));
-			
-
 		
-			PDFTool.close(pdf);
-			return bos.toByteArray();
-		} catch (Exception e) {
-			AppLog.error(DF_Devis.class, "orderReceipt", "Unable to generate order receipt", e, ord.getGrant());
-			return null;
-		}
-	}*/
-
-	
-	/** Publication: PDF receipt */
-	//public Object printDevisReceipt(PrintTemplate pt) {
-	//	return pubDevis(this); // Implemented in common class
-	//}
-
-	
 }
