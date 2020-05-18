@@ -94,7 +94,7 @@ public class DF_Livraison extends ObjectDB {
 		String desc = "";
 		desc += "\n**Ligne de commande ID**: "+getFieldValue("df_livraison_id_ligne_commande");
 		desc += "\n**Quantité**: "+getFieldValue("df_livraison_quantite_chargee");
-		//desc += "\n**Statut Livraison**: "+getFieldValue("df_livraison_statut");
+
 		desc += "\n**Date Livraison Estimée**: "+getFieldValue("df_livraison_date_livraison_estimee");
 		desc += "\n";
 		desc += "\n**Num BL Client**: "+getFieldValue("df_livraison_num_bl_client");
@@ -128,7 +128,6 @@ public class DF_Livraison extends ObjectDB {
 			
 
 			tt.updateCustomField(idCustomFieldQuantite,data);
-			//AppLog.info(getClass(), "DangLog-----------------------------------------------------------------------", getInstanceName(), getGrant());
 			String id = getFieldValue("df_livraison_trellocardid");
 			JSONObject card = tt.getCard(id);
 			card.put("name", getFieldValue("df_livraison_id"));
@@ -242,11 +241,10 @@ public class DF_Livraison extends ObjectDB {
 		ObjectDB q = Grant.getSystemAdmin().getObject("DF_Quantite","DF_Quantite");
 		q.resetFilters();
 		q.setFieldFilter("DF_Quantite_DF_Livraison_id",getRowId());
-		//AppLog.info(getClass(), "jhflqkjgmsg!m--------cs;vknkbj", q.toString(), getGrant());
+	
 		
 		ObjectDB lignescommandes = Grant.getSystemAdmin().getObject("DF_ligne_commande","DF_ligne_commande");
-		//lignescommandes.resetFilters();
-		//lignescommandes.setFieldFilter("row_id",q.getFieldValue("DF_Quantite_DF_ligne_commande_id"));
+
 		
 		
 		// Commande
@@ -316,7 +314,7 @@ public class DF_Livraison extends ObjectDB {
 		);
 		
 		
-		//String html = "";
+
 		DF_Livraison livraison = (DF_Livraison) getGrant().getTmpObject("DF_Livraison");
 		livraison.resetValues();
 		ObjectDB q = Grant.getSystemAdmin().getObject("DF_Quantite","DF_Quantite");
@@ -326,7 +324,7 @@ public class DF_Livraison extends ObjectDB {
 
 		List<String[]> q_search = new ArrayList<String[]>();
 		List<String[]> livraison_search = new ArrayList<String[]>();
-		//List<String[]> commande_search = new ArrayList<String[]>();
+	
 
 		for (String id: getSelectedIds()){
 			
@@ -339,16 +337,7 @@ public class DF_Livraison extends ObjectDB {
 				livraison.setFieldFilter("row_id", livraison.getRowId());
 				commande_livraison.resetFilters();
 				commande_livraison.setFieldFilter("row_id",livraison.getFieldValue("DF_Livraison_DF_Commande_id"));
-				//AppLog.info(getClass(), "method--------------", commande_livraison.getFieldValue("DF_Commande_DF_Client_id"), getGrant());
-				
-				//commande_livraison.select(commande_livraison.getRowId());
 				client.resetFilters();
-				
-				AppLog.info(getClass(), "method commandelivraison--------------", livraison.getFieldValue("DF_Livraison_DF_Commande_id") ,getGrant());
-				
-				
-				
-				
 				
 				// Contact Client 
 				contact_client.resetFilters();
@@ -365,10 +354,7 @@ public class DF_Livraison extends ObjectDB {
 			ObjectDB commande_client = getGrant().getTmpObject("DF_Commande");
 			commande_client.resetFilters();
 			commande_client.setFieldFilter("row_id",livraison.getFieldValue("DF_Livraison_DF_Commande_id"));
-				
-			AppLog.info(getClass(), "method commande client------------", commande_client.getRowId(), getGrant());
 			client.setFieldFilter("row_id",commande_client.getFieldValue("DF_Commande_DF_Client_id"));
-			//contact_client.setFieldFilter("row_id",commande_client.getFieldValue("DF_Commande_DF_Contact_id"));
 		
 		wp.append(MustacheTool.apply(
 			this,
