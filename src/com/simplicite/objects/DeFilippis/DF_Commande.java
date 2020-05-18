@@ -33,16 +33,23 @@ public class DF_Commande extends ObjectDB {
 	
 	private TrelloTool tt = null;
 	private JSONObject settings = null;
+
+	/**
+	 * Valorisation du champs Montant Commande à chaque fois où on enregistre une nouvelle valeur de ligne commande 
+	 */
+
 	
 	@Override
 	public void initUpdate() {
-		// set values ligne devis
+		// Création Objet temporaire ligne commande
 		ObjectDB o = getGrant().getTmpObject("DF_ligne_commande");
 		o.resetFilters();
+		// filtrer sur les lignes commandes liées à notre commande
 		o.getField("DF_ligne_commande_DF_Commande_id").setFilter(getRowId());
 		
 		List<String[]> rows = o.search(false);
 		if (rows.size() > 0){
+			// Itérer sur toutes les lignes de commandes et sommer la valeur de Prix Total 
 			double c = o.getCount();
 			double t = Double.parseDouble(o.getField("defiLigneCommandePrixTotalEXW").getListOperatorValue());
 			setFieldValue("defiCommandeMontantHT", t);
@@ -51,34 +58,15 @@ public class DF_Commande extends ObjectDB {
 
 	}
 	}
+
 	
-	@Override
-	public String postCreate() {
-		ObjectDB a = getGrant().getTmpObject("DF_Affaire");
-		a.resetFilters();
-		
-		a.create();
-		
-		String num_affaire = getField("defiDevisTitre").getValue();
-		String lieu_affaire = getFieldValue("defiDevisLieuProjet");
-		String intitule_affaire = getFieldValue("defiDevisTitreProjet");
-		
-		a.setFieldValue("defiAfrNumero",num_affaire);
-		a.setFieldValue("defiAfrLibelleChantier",lieu_affaire);
-		a.setFieldValue("defiAfrLieuAffaire",intitule_affaire);
-		
-		a.save();
-		
-		//return Message.formatInfo("INFO_CODE", "Message", "fieldName");
-		//return Message.formatWarning("WARNING_CODE", "Message", "fieldName");
-		//return Message.formatError("ERROR_CODE", "Message", "fieldName");
-		return null;
-	}
 	
 	/**
 	 * Action - Création cartes Trello 
 	 */
 	
+	
+	// Enregistrement du webhook après chargement des valeurs dans la base de données 
 
 	@Override
 	public void postLoad() {
@@ -130,11 +118,12 @@ public class DF_Commande extends ObjectDB {
 			return null;
 		} catch (APIException e) { // Prevents deletion if card creation fails
 			AppLog.error(getClass(), "postLoad", null, e, getGrant());
-			return null;//Message.formatSimpleError("Card deletion error: " + e.getMessage());
+			return null;
 		}
 	}
 	
 
+	// Méthode exécutée lors de mise à jour des cartes
 	
 	public String updateCard(){
 		if (tt == null) return null;
@@ -175,14 +164,17 @@ public class DF_Commande extends ObjectDB {
 			return Message.formatSimpleError("Card update error: " + e.getMessage());
 		}
 	}
+
+	// Méthode de création des cartes à partir d'une commande
 	public String createCard(){
 		if (tt == null) return null;
-		Double poids = getField("defiCommandePoidsTotal").getDouble(0);
 		
+		// Création d'objet temporaire : ligne de commande
 		ObjectDB lc = getGrant().getTmpObject("DF_ligne_commande");
 		try {
 		    JSONObject card = new JSONObject();
 		    synchronized(lc){
+				// Filtrer sur les lignes de commandes correspondantes à la commande qui lance l'action
 				lc.resetFilters();
 				lc.getField("DF_ligne_commande_DF_Commande_id").setFilter(getRowId());
 				long c = lc.getCount();
@@ -191,7 +183,7 @@ public class DF_Commande extends ObjectDB {
 					lc.setValues(lce);
 					
 					
-					
+					// Récupérer les 7 premières lettres du libellé de l'affaire
 					String int_aff = getFieldValue("DF_Commande_DF_Affaire_id.defiAfrLibelleChantier");
 					int_aff.replace(" " , "");
 					String firstCharsIntitule = int_aff.substring(0, 7);
@@ -202,14 +194,15 @@ public class DF_Commande extends ObjectDB {
 					
 					double poids_unitaire = lc.getField("defiLigneCommandePoidsUnitaire").getDouble();
 					double quantite_lc = lc.getField("defiLigneCommandeQuantite").getDouble();
-					
 					double tonnage_carte = quantite_lc*poids_unitaire;
 					
-					
+					// Nom de la carte
 					card.put("name",  (firstCharsIntitule+"."+getFieldValue("defiCommandeIntituleCommande")+"."+lc.getFieldValue("defiLigneCommandeReferenceProduit")+"."+ tonnage_carte).toUpperCase());
-					//card.put("desc", createDesc());
+					// Description de la carte
 					card.put("desc","\n**Date Livraison confirmée**: "+getFieldValue("defiCommandeDatePremierCamion")+"\n"+"\n**Contact Déchargement Privilégié**: "+getFieldValue("defiCommandeContactLivraison")+"\n"+"\n**Contact En Cas De Problème**: "+"\n"+"\n**Quantité Initiale**: "+ lc.getFieldValue("defiLigneCommandeQuantite"));
+					// Date limie de la carte 
 					card.put("due", getFieldValue("defiCommandeDatePremierCamion"));
+					// Emplacement de la carte
 					card = tt.addCard(getIDList(getFieldValue("defiCommandeStatut")), card);
 									
 					//Mise à jour les informations custom fields
@@ -217,17 +210,13 @@ public class DF_Commande extends ObjectDB {
 					tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Numéro de commande"),new JSONObject().put("value",new JSONObject().put("text",getFieldValue("defiCommandeNumero"))));
 					tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Adresse"),new JSONObject().put("value",new JSONObject().put("text",getFieldValue("defiCommandeAdresseLivraison"))));
 					tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Quantité"),new JSONObject().put("value",new JSONObject().put("number",lc.getFieldValue("defiLigneCommandeQuantite"))));
-		    		
-		    		tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Référence Produit"),new JSONObject().put("value",new JSONObject().put("text",lc.getFieldValue("defiLigneCommandeReferenceProduit"))));
-		    		
+		    		tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Référence Produit"),new JSONObject().put("value",new JSONObject().put("text",lc.getFieldValue("defiLigneCommandeReferenceProduit"))));	
 		    		tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Poids Unitaire"),new JSONObject().put("value",new JSONObject().put("number",lc.getFieldValue("defiLigneCommandePoidsUnitaire"))));
-		    		
 		    		tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Ville"),new JSONObject().put("value",new JSONObject().put("text",getFieldValue("DF_Commande_DF_Affaire_id.defiAfrLieuAffaire"))));
-		    	//	tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Trigramme Suiveur"),new JSONObject().put("value",new JSONObject().put("text",getFieldValue("DF_Commande_DF_utilisateur_interne_id.defiUsrTrigramme"))));
 		    		tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Id Ligne de commande"),new JSONObject().put("value",new JSONObject().put("text",lc.getFieldValue("defiLigneCommandeId"))));
 				}
 		    		}
-		    	AppLog.info(getClass(), "preCreate", card.toString(2), getGrant());
+
 				setFieldValue("defiCommandeTrelloId", card.getString("id"));
 				save();
 				validate();
@@ -286,7 +275,7 @@ public class DF_Commande extends ObjectDB {
 		return id;
 	}
 	
-		// Récupérer Id de l'attachement avec le nom de l'attachement	
+	// Récupérer Id de l'attachement avec le nom de l'attachement	
 	public String getIDAttachment(String AttachmentName){
 		String id_a = null;
 		try {
@@ -384,12 +373,12 @@ public class DF_Commande extends ObjectDB {
 			",'contact_client':"+contact_client.toJSON(contact_client.search(), null, false, false)+
 			"}"
 			));
-			AppLog.info(getClass(), "client ------------------",client.toJSON(client.search(), null, false, false).toString() , getGrant());
+			
 			
 					
 			
 		}
-		//return "<html><head><meta charset=\"utf-8\"></head><h1>Simplicité / Docker Compose / wkhtml2pdf</h1><p>...by Simplicité</p></html>";
+		
 		return wp_arc.getHTML();
 	
 	}
@@ -402,7 +391,7 @@ public class DF_Commande extends ObjectDB {
 		
 		JSONObject postData = new JSONObject();
 		postData.put("contents", Tool.toBase64(pubARC()));
-		AppLog.info(getClass(), "ARCCCCCCCCCCCCC", pubARC(), getGrant());
+		
 
 		String[] headers = {"Content-Type:application/json"};
 		String encoding = Globals.BINARY;
