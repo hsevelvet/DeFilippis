@@ -13,6 +13,7 @@ public class DF_Quantite extends ObjectDB {
 	
 	@Override
 	public void initUpdate() {
+		// Mise à jour du tonnage lors de changement de quantité produit
 		Double qte = getField("defiQuantiteQte").getDouble(0);
 		Double poids_u = getField("defiQuantitePoidsUnitaire").getDouble(0);
 		
