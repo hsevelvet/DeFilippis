@@ -1,14 +1,14 @@
 {
-    "date": "Mon May 11 20:59:13 UTC 2020",
-    "name": "DeFilippis",
+    "date": "Fri May 15 08:45:44 UTC 2020",
+    "name": "Defi",
     "format": "xml",
     "description": "",
-    "files": ["DeFilippis.xml"],
+    "files": ["Defi.xml"],
     "repository": {"origin": {
         "password": "HsenoussiV2019",
         "uri": "https://github.com/hsevelvet/DeFilippis.git",
         "username": "hsevelvet"
     }},
     "version": "0.1",
-    "dependencies": [{"Simplicite": "4.0"}]
+    "dependencies": {"Simplicite": "4.0"}
 }

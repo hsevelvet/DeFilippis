@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simplicite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.simplicite.fr/base" xsi:schemaLocation="http://www.simplicite.fr/base https://www.simplicite.io/resources/schemas/base.xsd">
+<object>
+	<name>Module</name>
+	<action>upsert</action>
+	<data>
+		<mdl_name>Defi</mdl_name>
+		<mdl_version>0.1</mdl_version>
+		<mdl_prefix/>
+		<mdl_url><![CDATA[{
+	"type": "git",
+	"origin": {
+		"uri": "https://github.com/hsevelvet/DeFilippis.git",
+		"username": "hsevelvet",
+		"password": "HsenoussiV2019"
+	}
+}]]></mdl_url>
+		<mdl_lastupd>2020-05-15 08:45:44</mdl_lastupd>
+		<mdl_comment/>
+	</data>
+</object>
+</simplicite>
