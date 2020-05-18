@@ -1,0 +1,346 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ODF DEFILIPPIS</title>
+    
+    <style>
+	html, body, div, span, applet, object, iframe,
+	h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+	a, abbr, acronym, address, big, cite, code,
+	del, dfn, em, img, ins, kbd, q, s, samp,
+	small, strike, strong, sub, sup, tt, var,
+	b, u, i, center,
+	dl, dt, dd, ol, ul, li,
+	fieldset, form, label, legend,
+	table, caption, tbody, tfoot, thead, tr, th, td,
+	article, aside, canvas, details, embed,
+	figure, figcaption, footer, header, hgroup,
+	menu, nav, output, ruby, section, summary,
+	time, mark, audio, video {
+		margin: 0;
+		padding: 0;
+		border: 0;
+	}
+		
+	html {
+		font-size: 11px;
+		font-family:Arial, sans-serif;
+	}
+	
+	body {
+		line-height: 1;
+	}
+	
+    .bl-box {
+		max-width: 100%;
+        margin: auto;
+        line-height: 18px;
+        font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+        color: #555;
+    }
+    .bl-box table {
+        width: 100%;
+        line-height: inherit;
+        text-align: left;
+    }
+    .bl-box table td {
+        padding: 5px;
+        vertical-align: top;
+    }
+    
+    
+	
+	.tg  {
+		border-collapse:collapse;
+		border-spacing:0px !important;
+	}
+	.tg td {
+		padding:5px 5px;
+		border-style:solid;
+		border-width:1px !important;
+		overflow:hidden;
+		word-break:normal;
+		border-color:#222;
+		background-color:white;
+	}
+	.tg th{
+		font-weight:bold;
+		padding:5px 5px;
+		border-style:solid;
+		border-width:1px;
+		overflow:hidden;
+		word-break:normal;
+		border-color:#222;
+		
+	}
+	
+	.tg .tg-ul38{
+		text-align:center;
+		vertical-align:top;
+		position:sticky;
+		will-change:transform;
+		color:#fff !important;
+	}
+	
+	.tg .thref {
+		width:80px;
+		
+	}
+	.tg .thtype {
+		
+	}
+	.tg .thdesignation {
+		min-width:280px;
+	}
+	.tg .thunite {
+	
+	}
+	.tg .thquantite {
+	
+	}
+	.tg .thprixu {
+		width:85px;
+	}
+	.tg .thprixt {
+		width:100px;
+	}	
+
+	
+	.tg td.ref {
+		text-align:center;
+	}
+	.tg td.type {
+		text-align:center;
+	}
+	.tg td.designation {
+		text-align:left;
+	}
+	.tg td.unite {
+		text-align:center;
+	}
+	.tg td.quantite {
+		text-align:center;
+	}
+	.tg td.prixu {
+		text-align:right;
+	}
+	.tg td.prixt {
+		text-align:right;
+	}
+	
+	tfoot {
+		xbackground-color:#ccc;
+	}	
+	
+	tfoot td.vide {
+	
+	}
+
+	tfoot td.totallibelle {
+		background-color:#fff;
+		text-align:left;
+		font-weight:bold;
+	}
+	tfoot td.totalvaleur {
+		background-color:#fff;
+		text-align:right;
+		font-weight:bold;
+	}	
+
+	tfoot ul {		
+		margin: 0 15px;
+		padding: 5px;
+	}	
+	tfoot ul li {
+		list-style: square;
+		margin: 0;
+		padding: 0;
+	}
+
+	/** saut de page **/
+	div.breakafter {
+	  page-break-after: always;
+	}
+	
+	
+	/** CGV **/
+    .cgv-box {
+        margin: auto;
+        padding: 10px;
+        border: 1px solid #eee;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+        font-size: 9px;
+        line-height: 14px;
+        font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+        color: #555;
+    }
+    .cgv-box table {
+        width: 100%;
+        line-height: inherit;
+        text-align: left;
+    }
+    .cgv-box table td {
+        padding: 5px;
+        vertical-align: top;
+    }  
+	td.cgvleft {
+		width:50%;
+	}
+	
+	
+	h1, h2 {
+		color:#004C8E;
+	}		
+	h2 {
+		padding:7px 0 0 0;
+	}
+	h3 {
+		text-align:center;
+	}
+	h4 {
+		margin:8px 0 0 0;
+	}
+	
+	.1234 {
+		font-color:red !important;
+		font-weight:bold;
+	}
+	
+	.signature {
+		width:70% !important;
+		text-align:left;
+		vertical-align:top;
+		border:solid 1px black;
+		min-height:150px;
+	}
+	.signature_span {
+		font-weight:bold;
+	}
+	
+	</style>	
+</head>
+
+<body>
+
+	<!--<div class="header">
+	
+	</div>-->
+
+    <div class="bl-box">
+        <table cellpadding="0" cellspacing="0" border="0">
+            <tr class="top">
+                <td colspan="2">
+				
+					<img src="https://www.raultgranit.com/upload/partenaire/0001/181129-091132-de-filippis-mineral-conseil_large.jpg"  style="width:120px;">
+									
+                    <table>
+                        <tr>
+                            <td class="title">
+  
+								<strong>Affaire suivie par :</strong> David Henrion<br/>								
+								06 46 10 53 05 - david.henrion@mineralconseil.fr<br/><br/>
+
+								DEFILIPPIS Minéral Conseil <br/>
+                                175 Avenue des Frères Lumière.<br/>
+                                69730 Genay<br/>
+                                Tél : 04 78 98 15 49
+								
+								
+                            </td>
+                            <td style="text-align:right">
+										<strong>Client </strong>: {{#client}}{{defiClientNom}}{{/client}}<br/>
+										<strong>Contact </strong>: {{#contact_client}}{{defiContactPrenom}} {{defiContactNom}}{{/contact_client}}<br/>
+										<strong>Email </strong>: {{#contact_client}}{{defiContactEmail}}{{/contact_client}}<br/>	
+										<br/>
+										<br/>
+										<strong>REF. RELEVE CONTRAD <strong>: {{#bl}} {{defiLivraisonId}}, {{/bl}}
+										<br/>
+                            </td>                            
+                        </tr>
+						<tr>
+							<td colspan="2" style="vertical-align:bottom;text-align:center">
+								<br/>
+								<h1>ORDRE DE FACTURATION </h1>
+								<h2>Référence Chantier : {{#cl}}{{defiCommandeNumero}}{{/cl}}</h2>
+							</td>
+						</tr>
+                    </table>
+                    
+                    
+                </td>
+            </tr>            
+        </table>
+            
+         <table class="tg">
+			<thead>
+				<tr style="background-color:#000">
+					<th class="tg-ul38 thref">Ref</th>
+				    <th class="tg-ul38 thdesignation">Désignation</th>
+				    <th class="tg-ul38 thunite">Unité</th>
+				    <th class="tg-ul38 thquantite">Qté</th>
+				    <th class="tg-ul38 thprixu">P.U<br></th>
+				    <th class="tg-ul38 thprixt">MONTANT</th>					
+				</tr>
+			</thead>
+			
+			<tbody>
+				{{#rows_l}}
+				<tr>
+					
+					<td class="ref">{{defiQuantiteRefProduit}}</td>
+					<td class="designation">{{DF_Quantite_DF_ligne_commande_id__defiLigneCommandeDesignation}}</td>
+					<td class="unite">{{DF_Quantite_DF_ligne_commande_id__defiLigneCommandeUnite}}</td>
+					<td class="quantite">{{defiQuantiteQte}}</td>
+					<td class="prixu">{{DF_Quantite_DF_ligne_commande_id__defiLigneCommandePrixEXWUnitaire}}&nbsp;€</td>
+					<td class="prixt">0&nbsp;€</td>
+				</tr>
+				{{/rows_l}}
+				
+			</tbody>
+
+			<tfoot>
+				<tr>
+					<td class="conditions2" rowspan="3" colspan="4" >
+						
+					</td>				
+					<td class="totallibelle">
+						TOTAL HT
+					</td>
+					<td class="totalvaleur"> €</td>
+				</tr>		
+				<tr>
+					<td class="tvalibelle">TVA 20,00%</td>
+					<td class="tvavaleur">  €</td>
+				</tr>
+				<tr>
+					<td class="totalttclibelle">TOTAL TTC</td>
+					<td class="totalttcvaleur">PrixTotal €</td>					
+				</tr>				
+			</tfoot>
+			
+		</table>
+		<br/>
+	<table class="signature">
+		<tr>
+			<td>
+				<span class="signature_span">VISA DE LA COMPTABILITE </span>
+			</td>
+		</tr>	
+	</table>
+	
+	<br/>	
+	<table class="signature">
+		<tr>
+			<td>
+				<span class="signature_span">NOM DU CONDUCTEUR DE TRAVAUX ET VISA</span>
+			</td>
+		</tr>	
+	</table>
+	
+	
+ </div>
+
+
+</body>
+</html>

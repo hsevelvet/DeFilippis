@@ -1,9 +1,9 @@
 {
-    "date": "Fri May 15 08:45:44 UTC 2020",
-    "name": "Defi",
+    "date": "Mon May 18 02:17:47 UTC 2020",
+    "name": "DeFilippis",
     "format": "xml",
     "description": "",
-    "files": ["Defi.xml"],
+    "files": ["DeFilippis.xml"],
     "repository": {"origin": {
         "password": "HsenoussiV2019",
         "uri": "https://github.com/hsevelvet/DeFilippis.git",

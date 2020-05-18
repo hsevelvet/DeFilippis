@@ -1,0 +1,454 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>DEVIS DEFILIPPIS</title>
+    
+    <style>
+	html, body, div, span, applet, object, iframe,
+	h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+	a, abbr, acronym, address, big, cite, code,
+	del, dfn, em, img, ins, kbd, q, s, samp,
+	small, strike, strong, sub, sup, tt, var,
+	b, u, i, center,
+	dl, dt, dd, ol, ul, li,
+	fieldset, form, label, legend,
+	table, caption, tbody, tfoot, thead, tr, th, td,
+	article, aside, canvas, details, embed,
+	figure, figcaption, footer, header, hgroup,
+	menu, nav, output, ruby, section, summary,
+	time, mark, audio, video {
+		margin: 0;
+		padding: 0;
+		border: 0;
+	}
+		
+	html {
+		font-size: 11px;
+		font-family:Arial, sans-serif;
+	}
+	
+	body {
+		line-height: 1;
+	}
+	
+    .invoice-box {
+		max-width: 100%;
+        margin: auto;
+        line-height: 18px;
+        font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+        color: #555;
+    }
+    
+    .invoice-box table {
+        width: 100%;
+        line-height: inherit;
+        text-align: left;
+    }
+    
+    .invoice-box table td {
+        padding: 5px;
+        vertical-align: top;
+    }
+    
+    
+    .invoice-box table tr.top table td {
+        padding-bottom: 20px;
+    }
+    
+    .invoice-box table tr.top table td.title {
+        xfont-size: 45px;
+        xline-height: 45px;
+        color: #333;
+    }
+    
+    
+    
+    
+	
+	.tg  {
+		border-collapse:collapse;
+		border-spacing:0px !important;
+	}
+	.tg td {
+		padding:5px 5px;
+		border-style:solid;
+		border-width:1px !important;
+		overflow:hidden;
+		word-break:normal;
+		border-color:#222;
+		background-color:white;
+	}
+	.tg th{
+		font-weight:bold;
+		padding:5px 5px;
+		border-style:solid;
+		border-width:1px;
+		overflow:hidden;
+		word-break:normal;
+		border-color:#222;
+	}
+	
+	.tg .tg-ul38{
+		text-align:center;
+		vertical-align:top;
+		position:sticky;
+		xposition:-webkit-sticky;
+		xtop:-1px;
+		will-change:transform;
+		color:#fff !important;
+	}
+	
+	.tg .thref {
+		width:60px;
+	}
+	.tg .thtype {
+		
+	}
+	.tg .thdesignation {
+		min-width:290px;
+	}
+	.tg .thunite {
+	
+	}
+	.tg .thquantite {
+	
+	}
+	.tg .thprixu {
+		width:85px;
+	}
+	.tg .thprixt {
+		width:90px;
+	}	
+
+	
+	.tg td.ref {
+		text-align:center;
+	}
+	.tg td.type {
+		text-align:center;
+	}
+	.tg td.designation {
+		text-align:left;
+	}
+	.tg td.unite {
+		text-align:center;
+	}
+	.tg td.quantite {
+		text-align:center;
+	}
+	.tg td.prixu {
+		text-align:right;
+	}
+	.tg td.prixt {
+		text-align:right;
+	}
+	
+	tfoot {
+		xbackground-color:#ccc;
+	}	
+	
+	tfoot td.vide {
+	
+	}
+	td.conditions1, td.conditions2, td.totallibelle, td.totalvaleur, td.tvalibelle, td.tvavaleur, td.totalttclibelle, td.totalttcvaleur {
+		background-color:#A6C4E0;
+	}
+	tfoot td.conditions1, tfoot td.conditions2 {
+		font-size:10px;
+	}	
+	tfoot td.totallibelle {
+		text-align:right;
+		font-weight:bold;
+	}
+	tfoot td.totalvaleur {
+		text-align:right;
+		font-weight:bold;
+	}	
+	tfoot td.tvalibelle {
+		text-align:right;
+		font-weight:bold;		
+	}
+	tfoot td.tvavaleur {
+		text-align:right;	
+		font-weight:bold;
+	}	
+	tfoot td.totalttclibelle {
+		text-align:right;
+		font-weight:bold;		
+	}
+	tfoot td.totalttcvaleur {
+		text-align:right;	
+		font-weight:bold;
+	}	
+	tfoot ul {		
+		margin: 0 15px;
+		padding: 5px;
+	}	
+	tfoot ul li {
+		list-style: square;
+		margin: 0;
+		padding: 0;
+	}
+
+	/** saut de page **/
+	div.breakafter {
+	  page-break-after: always;
+	}
+	
+	
+	/** CGV **/
+    .cgv-box {
+        margin: auto;
+        padding: 10px;
+        border: 1px solid #eee;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+        font-size: 9px;
+        line-height: 14px;
+        font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+        color: #555;
+    }
+    .cgv-box table {
+        width: 100%;
+        line-height: inherit;
+        text-align: left;
+    }
+    .cgv-box table td {
+        padding: 5px;
+        vertical-align: top;
+    }  
+	td.cgvleft {
+		width:50%;
+	}
+	
+	h1, h2 {
+		color:#004C8E;
+	}
+	
+	h2 {
+		padding:7px 0 0 0;
+	}
+	h3 {
+		text-align:center;
+	}
+	h4 {
+		margin:8px 0 0 0;
+	}
+	
+	p.cordialement {
+		margin:20px 10px;
+		text-align:right;
+	}
+	
+	</style>	
+</head>
+
+<body>
+
+	<!--<div class="header">
+	
+	</div>-->
+
+    <div class="invoice-box">
+        <table cellpadding="0" cellspacing="0" border="0">
+            <tr class="top">
+                <td colspan="2">
+				
+					<img src="https://www.raultgranit.com/upload/partenaire/0001/181129-091132-de-filippis-mineral-conseil_large.jpg"  style="width:120px;">
+					
+					{{#rows}}
+                    <table>
+                        <tr>
+                            <td class="title">
+
+								DEFILIPPIS Minéral Conseil <br/>
+                                175 Avenue des Frères Lumière.<br/>
+								FRANCE - 69726 Genay<br/>
+                                Tél : 04 78 98 15 49 / www.mineralconseil.fr<br/>
+								SAS - RCS LYON 612 029 298 - FR 29 612 029 298<br/>
+								<br/>
+								
+								<strong>Suiveur Affaire :</strong> {{DF_Devis_DF_utilisateur_interne_id__defiUsrNomComplet}}<br/>								
+								{{#rows_u}}{{usr_work_num}} - {{usr_login}}{{/rows_u}}
+								<br/>
+								<strong>Rédacteur Devis :</strong> {{defiDevisRedacteur}}<br/>	
+					
+                            </td>
+                            <td style="text-align:right">
+										<strong>Client </strong>: {{DF_Devis_DF_Client_id__defiClientNom}}<br/>
+										<strong>Contact </strong>:  {{DF_Devis_DF_Contact_id__defiContactPrenom}} {{DF_Devis_DF_Contact_id__defiContactNom}}<br/>
+										<strong>Email </strong>: {{DF_Devis_DF_Client_id__defiClientEmail}}<br/>
+										<br/>										
+										<strong>Date d'émission </strong>: {{defiDevisDateEmission}}<br/>
+										<!--<strong>Ref Projet </strong>: {{defiDevisTitre}}-->
+                            </td>                            
+                        </tr>
+						<tr>
+							<td colspan="2" style="vertical-align:bottom;text-align:center">
+								<h1>{{defiDevisTitreProjet}} - {{defiDevisLieuProjet}}</h1>
+								<h2>DEVIS N°{{defiDevisNumero}}.{{defiDevisIndice}}</h2>								
+							</td>
+						</tr>
+                    </table>
+                    {{/rows}}
+                    
+                </td>
+            </tr>            
+            </table>
+            
+         <table class="tg">
+			<thead>
+				<tr style="background-color: #004C8E;">
+				    <th class="tg-ul38 thref">Réf<br></th>
+				    <th class="tg-ul38 thtype">Type de pierre</th>
+				    <th class="tg-ul38 thdesignation">Désignation</th>
+				    <th class="tg-ul38 thunite">Unité</th>
+				    <th class="tg-ul38 thquantite">Qté</th>
+				    <th class="tg-ul38 thprixu">Prix Unitaire € HT</th>
+				    <th class="tg-ul38 thprixt">TOTAL € HT</th>
+				</tr>
+			</thead>
+			
+			<tbody>				
+				{{#rows_l}}
+				<tr>
+					<td class="ref">{{defiLigneDevisNPrix}}</td>
+					<td class="type">{{DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdTypeGeologique}}</td>
+					<td class="designation">{{defiLigneDevisDesignation}}</td>
+					<td class="unite">{{defiLigneDevisUnite}}</td>
+					<td class="quantite">{{defiLigneDevisQuantite}}</td>
+					<td class="prixu">{{defiLigneDevisPrixUnitaireImpose}}&nbsp;€</td>
+					<td class="prixt">{{{defiLigneDevisPrixVenteImpose}}}&nbsp;€</td>
+				</tr>
+				{{/rows_l}}
+				
+			</tbody>
+		{{#rows}}
+			<tfoot>
+				<tr>
+					<td class="vide" colspan="7">
+						Nombre de camion (U) : <strong>{{defiDevisNombreCamions}}</strong></br>
+						Poids total (T) : <strong>{{defiDevisPoidsTotal}}</strong>
+					</td>
+				</tr>
+				<tr>
+					<td class="conditions2" rowspan="3" colspan="5" >
+					<p>Conditions de mise à disposition de la marchandise : </p>
+					<ul>
+							<li>Délais prévisionnel à confirmer au moment de la commande : {{defiDevisDelaisPrevisionnel}}</li>						
+							<!--<strong>1ère livraison le {{defiDevisDelaisPrevisionnel}} si commande avant {{defiDevisDateValiditeOffre}}</strong></li>-->
+							<li>Cadence de livraison maximale hebdomadaire : <strong>{{defiDevisCadenceLivraison}}</strong></li>
+							<li>Facturation : <strong>Entreprise De Filippis</strong></li>
+							<li>Prix valable pour <strong> camion complet 24 tonnes</strong></li>
+							<li>Acompte: <strong>{{defiDevisAccompte}}</strong></li>
+							<li>Paiement: <strong>{{defiDevisDelaiPaiement}}</strong></li>
+							<li>Validité de l'offre : <strong>{{defiDevisDateValiditeOffre}}</strong></li>
+							<li>Condition de mise à disposition : <strong>{{defiDevisIncotermPrix}}</strong></li>
+						</ul>
+					</td>
+					<td class="totallibelle">
+						TOTAL HT
+					</td>
+					<td class="totalvaleur">{{defiDevisPrixTotalHT}} €</td>
+				</tr>		
+				<tr>
+					<td class="tvalibelle">TVA 20,00%</td>
+					<td class="tvavaleur">{{#tva}}{{prix_tva}}{{/tva}} €</td>
+				</tr>
+				<tr>
+					<td class="totalttclibelle">TOTAL TTC</td>
+					<td class="totalttcvaleur">{{defiDevisPrixTotal}} €</td>					
+				</tr>				
+			</tfoot>
+		</table>
+		{{/rows}}
+		
+		
+		<p class="cordialement">
+		Nous restons à votre disposition pour tout renseignement,<br/><br/>
+		L'équipe Minéral Conseil
+		</p>
+		
+	
+ </div>
+ 
+<div class="breakafter"></div>
+
+<div class="cgv-box">
+<h3>Conditions particulières de vente</h3>
+	<table cellpadding="0" cellspacing="0" border="0">
+		<tr>
+			<td class="cgvleft">
+<h4>0 – NATURE DU DEVIS</h4>
+<p>Sauf mention particulière, les devis établis par Minéral Conseil concernent la fourniture livrée seule, non déchargée : les prix s’entendent franco chantier, non déchargés, emballage inclus. Aucune prestation de pose, de reprise ou de taille n’est comprise dans cette offre</p>
+
+<h4>1 – CONDITIONS D’APPLICATION</h4>
+<p>La signature du bon de commande par l’Acheteur emporte acceptation sans réserve des présentes conditions particulières de vente et des conditions générales du Fournisseur, à l’exclusion de toute autre document émanant de l’Acheteur.</p>
+
+<h4>2 – DELAIS DE COMMANDE</h4>
+<p>Sauf stipulation contraire, les devis établis par le Fournisseur sont valables pendant un délai de 90 jours.
+Pour être valables, les commandes devront être passées par écrit.</p>
+
+<h4>3 – DELAIS ET RETARDS DE FOURNITURE</h4>
+Les délais de fabrication sont donnés à titre indicatif et pourront être modifiés compte tenu du programme de fabrication  du Fournisseur.
+Celui-ci aura également la possibilité de décaler la date prévue pour la fourniture des matériaux, pour toute autre cause qui ne lui serait pas directement imputable. Il devra dans ce cas en avertir l’Acheteur dans les plus brefs délais. 
+Le dépassement des délais d’exécution ne saurait donner lieu au versement de dommages et intérêts, ni à des retenues ou annulations des commandes déjà passées. 
+
+<h4>4 – CARACTERISTIQUES DES MATERIAUX FOURNIS</h4>
+<p>La pierre étant  un matériau naturel, des variations de teintes peuvent se produire ; elles ne pourront en aucun cas donner lieu à réclamation<br/>
+Contrairement aux produits manufacturés, les roches naturelles (granit, pierres marbrières, autres roches, …) présentent souvent des irrégularités de structure et d’aspect ; En aucun cas les particularités telles que notamment les veinages, verriers, stylolithes, microfissures fermées, concrétions de calcite et fossiles ne pourront être considérées comme des défauts et faire l’objet de refus ou de réduction de prix. <br/>
+Des échantillons pourront être proposés par l’Acheteur au Fournisseur ; Ces échantillons définissent le type de matériaux, leur provenance et leur tonalité générale. Ils n’impliquent aucune identité de couleur, de dessin, ou de veinage entre l’échantillon et la fourniture. 
+</p>
+
+<h4>5 – TRANSPORT ET LIVRAISON DES MATERIAUX</h4>
+<p>Sauf mention contraire, le prix de fourniture des matériaux ne comprend pas le transport ni la livraison des matériaux sur le site de l’Acheteur. <br/>
+Celui-ci devra donc prendre à sa charge l’enlèvement des matériaux et leur transport, à partir du site du Fournisseur.<br/>
+Au cas où le prix prévu comprendrait des frais de transport, les éventuelles augmentations de ces frais (droits de douane, taxes diverses, taux de frêt, …) intervenant avant la livraison seront à la charge de l’Acheteur.<br/>
+Les matériaux voyagent aux frais, risques et périls du Client, sauf stipulation contraire expresse.<br/>
+Les prix pourront être indexés par le Fournisseur en fonction de l’évolution du cours du dollar, si les Matériaux sont achetés par le Fournisseur dans une devise étrangère.
+</p>
+
+<h4>6 – TRANSFERT DES RISQUES</h4>
+<p>Le Fournisseur n’est pas responsable des dégâts occasionnés par le stockage, la pose, ou l’entretien défectueux des produits vendus. <br/>
+Les risques seront à la charge de l’Acheteur dès réception des matériaux, nonobstant la réserve de propriété. <br/>
+La réception des matériaux correspond au jour où ceux-ci sont enlevés par l’Acheteur sur le site du Fournisseur, ou acheminés par le Fournisseur sur le site de son Acheteur.
+</p>
+
+
+			</td>
+			<td class="cgvright">
+
+
+<h4>7 – CONSEILS D’UTILISATION ET DE MISE EN ŒUVRE</h4>
+<p>La mise en œuvre et l’entretien des marbres et pierres calcaires devra être  conforme aux DTU et aux prescriptions des normes NF EN en vigueur. <br/>
+Il est expressément rappelé par le Fournisseur les conseils d’utilisation et de mise en œuvre suivants : <br/>
+- Pour les mortiers ou chape de pose : il est conseillé d’utiliser un ciment HTS ou un mélange de 50% ciment blanc et  50% chaux hydraulique + sable blanc fin et propre (à ne pas trop « mouiller ») et d’effectuer un « saupoudrage » au ciment blanc. <br/>
+-  Les sous-couches à base de liant contenant des alcalins (ciments gris…) sont strictement à proscrire ou doivent être désolidarisées de façon étanche des chapes de pose ou des mortiers colles.<br/>
+- Les sous-couches et /ou chapes de pose doivent être drainées afin d’éviter les remontées d’eau par capillarité.<br/>
+- Pour les mortiers colles et mortiers de jointoiement, il est impératif de vérifier auprès du Fournisseur qu’ils ne sont pas susceptibles de tâcher la pierre ou le marbre.<br/>
+- Après la pose et pour protéger le dallage, il est fortement déconseillé de couvrir les matériaux avec un film étanche, qui bloquerait l’évaporation de l’eau de construction. <br/>
+- L’usage des sels de déneigement et de traitement des eaux peut endommager les dallages et pavages calcaires et marbriers, sans aucune responsabilité du Fournisseur à ce titre. <br/>
+- Le Fournisseur ne pourra être tenu responsable d’éventuels désordres causés par l’application de produits de traitement qu’il  n’aurait pas validés<br/>
+- Ces conseils d’entretien devront être communiqués par l’Acheteur aux intermédiaires, applicateurs, maîtres d’œuvre et maîtres d’ouvrage auxquels la marchandise est destinée.<br/>
+</p>
+
+<h4>8 – GARANTIES ET RECLAMATIONS</h4>
+<p>A défaut de réserves écrites émises par l’Acheteur lors de la livraison, ou au plus tard dans les 48 heures suivant la livraison des matériaux, ceux-ci seront réputés conformes à la commande en quantité et en qualité. <br/>
+Après la réception, le Fournisseur ne sera responsable ni des vices cachés intrinsèques au matériau, ni des dégâts occasionnés par le gel, le salpêtre, le ciment, ou par toute autre cause extérieure, ni des écornures ou épaufrures survenues au cours de manutentions ; aucun rabais ne pourra donc être accordé sur ces fondements.<br/>
+La responsabilité du Fournisseur sera limitée au respect des normes, DTU et usages de la profession, qui précisent les conditions dans lesquelles une roche naturelle est adaptée ou non à une application. <br/>
+L’évolution de l’aspect des matériaux et leur vieillissement sont liés à la non-homogénéité de leur structure. Aucune réclamation ne sera admise sur ce fondement, sauf à ce que leur dégradation soit anormale et compromette l’usage prévu de l’ouvrage.<br/>
+En cas de réclamation justifiée et effectuée dans les délais, la responsabilité du Fournisseur sera limitée au remplacement des matériaux défectueux ou au remboursement du prix perçu, à l’exclusion de tout autre chef de préjudice.
+</p>
+
+<h4>9 – RESERVE DE PROPRIETE</h4>
+<p>Le Fournisseur se réserve la propriété des matériaux jusqu’au complet paiement de leur prix. En cas de non-paiement aux dates et lieux convenus, la vente pourra être résolue de plein droit, 15 jours après une mise en demeure restée vaine. La résolution de la vente entraînera l’obligation de restitution immédiate au Vendeur, aux frais et risques de l’Acheteur, même en cas d’utilisation des matériaux par celui-ci.
+</p>
+
+			</td>
+		</tr>
+	</table>
+</div>
+
+
+</body>
+</html>
