@@ -148,17 +148,17 @@ components:
           description: Secteur Activité Client
           type: string
           enum:
-          - AR
-          - MO
           - MDO
-          - T
+          - MO
+          - AR
           - ATPG
+          - T
           - V
           - ATP
           - N
           - EA
-          - P
           - A
+          - P
         DF_Chantier_DF_Client_id__defiClientId:
           description: Id Client
           type: string
@@ -1024,17 +1024,17 @@ components:
           description: Secteur Activité
           type: string
           enum:
-          - AR
-          - MO
           - MDO
-          - T
+          - MO
+          - AR
           - ATPG
+          - T
           - V
           - ATP
           - N
           - EA
-          - P
           - A
+          - P
         defiClientAdresse:
           description: Adresse
           type: string
@@ -1976,8 +1976,8 @@ components:
           - BE
           - CH
           - IE
-          - CA
           - US
+          - CA
         usr_title:
           description: Title
           type: string
@@ -2190,14 +2190,14 @@ paths:
       - schema:
           type: string
         in: query
-        name: DF_Chantier_DF_Client_id__defiClientNom
-        description: Search filter for Nom Client
+        name: DF_Affaire_DF_Contact_id__defiContactNom
+        description: Search filter for Nom Contacts
         required: false
       - schema:
           type: string
         in: query
-        name: DF_Affaire_DF_Contact_id__defiContactNom
-        description: Search filter for Nom Contacts
+        name: DF_Chantier_DF_Client_id__defiClientNom
+        description: Search filter for Nom Client
         required: false
       - schema:
           type: string
@@ -2256,17 +2256,17 @@ paths:
       - schema:
           type: string
           enum:
-          - AR
-          - MO
           - MDO
-          - T
+          - MO
+          - AR
           - ATPG
+          - T
           - V
           - ATP
           - N
           - EA
-          - P
           - A
+          - P
         in: query
         name: DF_Chantier_DF_Client_id__defiClientIdSecteurActivite
         description: Search filter for Secteur Activité Client
@@ -2976,18 +2976,18 @@ paths:
         required: false
       - schema:
           type: string
-        in: query
-        name: defiPrdId
-        description: Search filter for Id Produit
-        required: false
-      - schema:
-          type: string
           enum:
           - '2'
           - '1'
         in: query
         name: defiPrdCategoriePrix
         description: Search filter for Catégorie Prix
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: defiPrdId
+        description: Search filter for Id Produit
         required: false
       - schema:
           type: string
@@ -4735,16 +4735,16 @@ paths:
         description: Search filter for Poids Total (T)
         required: false
       - schema:
-          type: number
-        in: query
-        name: defiCommandeNombreCamions
-        description: Search filter for Nombre de camions
-        required: false
-      - schema:
           type: string
         in: query
         name: defiCommandeSuiveurAffaire
         description: Search filter for Suiveur de l'affaire
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: defiCommandeNombreCamions
+        description: Search filter for Nombre de camions
         required: false
       - schema:
           type: string
@@ -6106,14 +6106,14 @@ paths:
       - schema:
           type: string
         in: query
-        name: DF_Devis_DF_utilisateur_interne_id__defiUsrTrigramme
-        description: Search filter for Trigramme
+        name: DF_Devis_DF_Chantier_id__defiAfrLibelleChantier
+        description: Search filter for Titre Affaire DF chantier
         required: false
       - schema:
           type: string
         in: query
-        name: DF_Devis_DF_Chantier_id__defiAfrLibelleChantier
-        description: Search filter for Titre Affaire DF chantier
+        name: DF_Devis_DF_utilisateur_interne_id__defiUsrTrigramme
+        description: Search filter for Trigramme
         required: false
       - schema:
           type: string
@@ -6149,14 +6149,14 @@ paths:
       - schema:
           type: string
         in: query
-        name: defiDevisLieuProjet
-        description: Search filter for Ville Projet
+        name: defiDevisDateEmission
+        description: Search filter for Date Emission
         required: false
       - schema:
           type: string
         in: query
-        name: defiDevisDateEmission
-        description: Search filter for Date Emission
+        name: defiDevisLieuProjet
+        description: Search filter for Ville Projet
         required: false
       - schema:
           type: string
@@ -7318,17 +7318,17 @@ paths:
       - schema:
           type: string
           enum:
-          - AR
-          - MO
           - MDO
-          - T
+          - MO
+          - AR
           - ATPG
+          - T
           - V
           - ATP
           - N
           - EA
-          - P
           - A
+          - P
         in: query
         name: defiClientIdSecteurActivite
         description: Search filter for Secteur Activité
@@ -8615,8 +8615,8 @@ paths:
           - BE
           - CH
           - IE
-          - CA
           - US
+          - CA
         in: query
         name: usr_country
         description: Search filter for Country
@@ -8950,8 +8950,8 @@ paths:
       - schema:
           type: string
         in: query
-        name: defiLigneDevisRow
-        description: Search filter for defi ligne devis row
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdAppellationCommerciale
+        description: Search filter for Appellation Commerciale
         required: false
       - schema:
           type: string
@@ -8962,8 +8962,8 @@ paths:
       - schema:
           type: string
         in: query
-        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdAppellationCommerciale
-        description: Search filter for Appellation Commerciale
+        name: defiLigneDevisRow
+        description: Search filter for defi ligne devis row
         required: false
       - schema:
           type: string
@@ -8973,18 +8973,6 @@ paths:
         in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdCategoriePrix
         description: Search filter for Catégorie Prix
-        required: false
-      - schema:
-          type: number
-        in: query
-        name: defiLigneDevisPrixTransportReference
-        description: Search filter for Prix Transport Référence
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdAutresFinitions
-        description: Search filter for Autres finitions
         required: false
       - schema:
           type: string
@@ -8999,6 +8987,18 @@ paths:
         in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdTypeProduit
         description: Search filter for Type produit
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdAutresFinitions
+        description: Search filter for Autres finitions
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: defiLigneDevisPrixTransportReference
+        description: Search filter for Prix Transport Référence
         required: false
       - schema:
           type: string

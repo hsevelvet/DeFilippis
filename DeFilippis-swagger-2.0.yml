@@ -81,13 +81,13 @@ paths:
         type: string
         required: false
       - in: query
-        name: DF_Chantier_DF_Client_id__defiClientNom
-        description: Search filter for Nom Client
+        name: DF_Affaire_DF_Contact_id__defiContactNom
+        description: Search filter for Nom Contacts
         type: string
         required: false
       - in: query
-        name: DF_Affaire_DF_Contact_id__defiContactNom
-        description: Search filter for Nom Contacts
+        name: DF_Chantier_DF_Client_id__defiClientNom
+        description: Search filter for Nom Client
         type: string
         required: false
       - in: query
@@ -141,17 +141,17 @@ paths:
         type: string
         required: false
         enum:
-        - AR
-        - MO
         - MDO
-        - T
+        - MO
+        - AR
         - ATPG
+        - T
         - V
         - ATP
         - N
         - EA
-        - P
         - A
+        - P
       - in: query
         name: DF_Chantier_DF_Client_id__defiClientAdresse
         description: Search filter for Adresse Client
@@ -746,11 +746,6 @@ paths:
         type: boolean
         required: false
       - in: query
-        name: defiPrdId
-        description: Search filter for Id Produit
-        type: string
-        required: false
-      - in: query
         name: defiPrdCategoriePrix
         description: Search filter for Catégorie Prix
         type: string
@@ -758,6 +753,11 @@ paths:
         enum:
         - '2'
         - '1'
+      - in: query
+        name: defiPrdId
+        description: Search filter for Id Produit
+        type: string
+        required: false
       - in: query
         name: defiPrdTypeGeologique
         description: Search filter for Type Géologique
@@ -2216,14 +2216,14 @@ paths:
         type: number
         required: false
       - in: query
-        name: defiCommandeNombreCamions
-        description: Search filter for Nombre de camions
-        type: number
-        required: false
-      - in: query
         name: defiCommandeSuiveurAffaire
         description: Search filter for Suiveur de l'affaire
         type: string
+        required: false
+      - in: query
+        name: defiCommandeNombreCamions
+        description: Search filter for Nombre de camions
+        type: number
         required: false
       - in: query
         name: defiCommandeTransporteur
@@ -3360,13 +3360,13 @@ paths:
         - I
         - C
       - in: query
-        name: DF_Devis_DF_utilisateur_interne_id__defiUsrTrigramme
-        description: Search filter for Trigramme
+        name: DF_Devis_DF_Chantier_id__defiAfrLibelleChantier
+        description: Search filter for Titre Affaire DF chantier
         type: string
         required: false
       - in: query
-        name: DF_Devis_DF_Chantier_id__defiAfrLibelleChantier
-        description: Search filter for Titre Affaire DF chantier
+        name: DF_Devis_DF_utilisateur_interne_id__defiUsrTrigramme
+        description: Search filter for Trigramme
         type: string
         required: false
       - in: query
@@ -3397,13 +3397,13 @@ paths:
         type: string
         required: false
       - in: query
-        name: defiDevisLieuProjet
-        description: Search filter for Ville Projet
+        name: defiDevisDateEmission
+        description: Search filter for Date Emission
         type: string
         required: false
       - in: query
-        name: defiDevisDateEmission
-        description: Search filter for Date Emission
+        name: defiDevisLieuProjet
+        description: Search filter for Ville Projet
         type: string
         required: false
       - in: query
@@ -4384,17 +4384,17 @@ paths:
         type: string
         required: false
         enum:
-        - AR
-        - MO
         - MDO
-        - T
+        - MO
+        - AR
         - ATPG
+        - T
         - V
         - ATP
         - N
         - EA
-        - P
         - A
+        - P
       - in: query
         name: defiClientRegion
         description: Search filter for Region
@@ -5575,8 +5575,8 @@ paths:
         - BE
         - CH
         - IE
-        - CA
         - US
+        - CA
       - in: query
         name: row_module_id
         description: Search filter for Module
@@ -5851,8 +5851,8 @@ paths:
         type: boolean
         required: false
       - in: query
-        name: defiLigneDevisRow
-        description: Search filter for defi ligne devis row
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdAppellationCommerciale
+        description: Search filter for Appellation Commerciale
         type: string
         required: false
       - in: query
@@ -5861,8 +5861,8 @@ paths:
         type: string
         required: false
       - in: query
-        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdAppellationCommerciale
-        description: Search filter for Appellation Commerciale
+        name: defiLigneDevisRow
+        description: Search filter for defi ligne devis row
         type: string
         required: false
       - in: query
@@ -5873,16 +5873,6 @@ paths:
         enum:
         - '2'
         - '1'
-      - in: query
-        name: defiLigneDevisPrixTransportReference
-        description: Search filter for Prix Transport Référence
-        type: number
-        required: false
-      - in: query
-        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdAutresFinitions
-        description: Search filter for Autres finitions
-        type: string
-        required: false
       - in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdTypeProduit
         description: Search filter for Type produit
@@ -5896,6 +5886,16 @@ paths:
         - BORNE
         - CANIVEAU
         - PIECE
+      - in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdAutresFinitions
+        description: Search filter for Autres finitions
+        type: string
+        required: false
+      - in: query
+        name: defiLigneDevisPrixTransportReference
+        description: Search filter for Prix Transport Référence
+        type: number
+        required: false
       - in: query
         name: defiLigneDevisId
         description: Search filter for Ligne Devis ID
@@ -6458,17 +6458,17 @@ definitions:
         description: Secteur Activité Client
         type: string
         enum:
-        - AR
-        - MO
         - MDO
-        - T
+        - MO
+        - AR
         - ATPG
+        - T
         - V
         - ATP
         - N
         - EA
-        - P
         - A
+        - P
       DF_Chantier_DF_Client_id__defiClientId:
         description: Id Client
         type: string
@@ -7334,17 +7334,17 @@ definitions:
         description: Secteur Activité
         type: string
         enum:
-        - AR
-        - MO
         - MDO
-        - T
+        - MO
+        - AR
         - ATPG
+        - T
         - V
         - ATP
         - N
         - EA
-        - P
         - A
+        - P
       defiClientAdresse:
         description: Adresse
         type: string
@@ -8286,8 +8286,8 @@ definitions:
         - BE
         - CH
         - IE
-        - CA
         - US
+        - CA
       usr_title:
         description: Title
         type: string
