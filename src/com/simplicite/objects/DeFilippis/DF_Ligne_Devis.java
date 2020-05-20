@@ -15,7 +15,7 @@ public class DF_Ligne_Devis extends ObjectDB {
 	public List<String> postValidate() {
 		List<String> msgs = new ArrayList<String>();
 
-		// Méthode pour convertir les unités après validatiion du formulaire
+		// Méthode pour convertir les unités après validatiion du formulaire /
 		
 		if (this.isNew())
 			
