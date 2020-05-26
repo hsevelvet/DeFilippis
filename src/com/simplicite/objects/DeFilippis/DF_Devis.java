@@ -15,7 +15,8 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import java.io.IOException;
-
+import java.lang.Object;
+import com.simplicite.util.tools.MailTool; 
 
 
 import java.util.*;
@@ -291,6 +292,7 @@ public class DF_Devis extends ObjectDB {
     	validate();
     	save();
 		
+		
 		// Get des valeurs ligne devis
 		ObjectDB ld2 = getGrant().getTmpObject("DF_Ligne_Devis");
 		synchronized(ld2){
@@ -333,6 +335,8 @@ public class DF_Devis extends ObjectDB {
 				ld2.setFieldValue("DF_Ligne_Devis_DF_Devis_id",o.getRowId());
 
 				ld2.save();
+				
+				
 	}
 }
 
@@ -397,7 +401,7 @@ public class DF_Devis extends ObjectDB {
 		ObjectDB devis = getGrant().getTmpObject("DF_Devis");
 		ObjectField devis_fiche = devis.getField("defiDevisFicheTechnique"); // must be of type file
 
-		// https://www.simplicite.io/resources/4.0/javadoc/com/simplicite/util/tools/MailTool.html
+		/**https://www.simplicite.io/resources/4.0/javadoc/com/simplicite/util/tools/MailTool.html
 		new Mail(getGrant()).send(
 					"alfredtw19@gmail.com",
 					"hsenoussi@velvetconsulting.com",
@@ -405,8 +409,13 @@ public class DF_Devis extends ObjectDB {
 					"<html><body>" +
 					"<h3>Hello,</h3>" +
 					"</body></html>");
-		
-	
+		**/
+		MailTool mail = new MailTool();
+		mail.addRcpt("hsenoussi@velvetconsulting.com");
+		mail.setSubject("Test Mail");
+		//mail.addAttach(obj, myObjectFile); 
+		mail.setContent("<p>Hello</p>");
+		mail.send();
 		try{
 			pdf = Tool.readUrlAsByteArray(url, user, password, postData.toString(), headers, encoding);
 			
