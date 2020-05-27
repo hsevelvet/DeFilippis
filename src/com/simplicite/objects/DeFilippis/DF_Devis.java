@@ -410,12 +410,7 @@ public class DF_Devis extends ObjectDB {
 					"<h3>Hello,</h3>" +
 					"</body></html>");
 		**/
-		MailTool mail = new MailTool();
-		mail.addRcpt("hsenoussi@velvetconsulting.com");
-		mail.setSubject("Test Mail");
-		//mail.addAttach(obj, myObjectFile); 
-		mail.setContent("<p>Hello</p>");
-		mail.send();
+
 		try{
 			pdf = Tool.readUrlAsByteArray(url, user, password, postData.toString(), headers, encoding);
 			
@@ -440,12 +435,8 @@ public class DF_Devis extends ObjectDB {
 					ObjectField file = hst.getField("defiHstDocsDevis");
 					
 					hst.save();
-					MailTool mail = new MailTool();
-					mail.addRcpt("hsenoussi@velvetconsulting.com");
-					mail.setSubject("Test Mail");
-					mail.addAttach(hst, file); 
-					mail.setContent("<p>Hello</p>");
-					mail.send();
+			
+				
 				
 			}
 			return Message.formatSimpleInfo("Fichier Historisé");
@@ -454,6 +445,18 @@ public class DF_Devis extends ObjectDB {
 		    AppLog.error(getClass(), "generateFile", "error...", e, getGrant());
 		    return Message.formatSimpleError("Error...");
 		}
+	}
+	
+	// Méthode Envoi mail
+	public String SendMailDevis(){
+		MailTool mail = new MailTool();
+		mail.addRcpt("hsenoussi@velvetconsulting.com");
+		mail.setSubject("Test Mail");
+		//mail.addAttach(obj, myObjectFile); 
+		mail.setContent("<p>Hello</p>");
+		mail.send();
+		
+		return null;
 	}
 		
 }
