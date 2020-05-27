@@ -83,10 +83,18 @@ public class DF_Ligne_Devis extends ObjectDB {
 		double ptr = getField("DF_Ligne_Devis_DF_Prix_Transport_id.defiPrTrspPrix").getDouble(0);
 		double prc = getField("defiLigneDevisPrixUnitaireHT").getDouble(0);
 		String aut_fin = getFieldValue("DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdAutresFinitions");
+		String appel_com = getFieldValue("DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdAppellationCommerciale");
+		String type_prd = getFieldValue("DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdCategoriePrix");
 		
 		// valorisation : designation ligne devis		
 		String designation =  des_produit +"\t"+ fin_produit+"\t"+aut_fin+"\n"+lng +"\t" + " x "+lrg+"\t" +" x ep. "+ep+"\t" + "Joins inclus de " +dim_joint +" cm";
-		setFieldValue("defiLigneDevisDesignation",designation);
+		if (type_prd.equals("1")){
+			setFieldValue("defiLigneDevisDesignation",appel_com);	
+		}
+		if (type_prd.equals("2")){
+			setFieldValue("defiLigneDevisDesignation",designation);	
+		}
+		
 		
 		
 		// conversion tonne

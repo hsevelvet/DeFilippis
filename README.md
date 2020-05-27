@@ -334,6 +334,7 @@ Objet metier pour devis.
 
 ### Custom actions
 
+* `Envoyer-mail`: 
 * `Historiser`: 
 * `Initialisation-Commande`: 
 * `versionner-devis`: 

@@ -5874,6 +5874,11 @@ paths:
         - '2'
         - '1'
       - in: query
+        name: defiLigneDevisPrixTransportReference
+        description: Search filter for Prix Transport Référence
+        type: number
+        required: false
+      - in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdTypeProduit
         description: Search filter for Type produit
         type: string
@@ -5892,11 +5897,6 @@ paths:
         type: string
         required: false
       - in: query
-        name: defiLigneDevisPrixTransportReference
-        description: Search filter for Prix Transport Référence
-        type: number
-        required: false
-      - in: query
         name: defiLigneDevisId
         description: Search filter for Ligne Devis ID
         type: string
@@ -5905,6 +5905,11 @@ paths:
         name: defiLigneDevisQuantite
         description: Search filter for Quantité
         type: integer
+        required: false
+      - in: query
+        name: defiLigneDevisMasseVolumique
+        description: Search filter for Masse Volumique
+        type: number
         required: false
       - in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdFinitionFacesVues
@@ -6117,11 +6122,6 @@ paths:
         name: defiLigneDevisDesignationProduit
         description: Search filter for Désignation Produit
         type: string
-        required: false
-      - in: query
-        name: defiLigneDevisMasseVolumique
-        description: Search filter for Masse Volumique
-        type: number
         required: false
       - in: query
         name: defiLigneDevisNomProduit
@@ -6630,14 +6630,14 @@ definitions:
       DF_Ligne_Devis_DF_Prix_Transport_id__defiPrTspId:
         description: Id Prix Transport Prix Transport
         type: string
+      defiLigneDevisMasseVolumique:
+        description: Masse Volumique
+        type: number
       defiLigneDevisUnite:
         description: Unité LigneD
         type: string
       defiLigneDevisEpaisseur:
         description: Epaisseur / Hauteur (cm)
-        type: number
-      defiLigneDevisMasseVolumique:
-        description: Masse Volumique
         type: number
       DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdLargeur:
         description: Largeur (cm)

@@ -437,7 +437,15 @@ public class DF_Devis extends ObjectDB {
 					hst.getField("defiHstDocsDevis").setDocument(hst, "Devis.pdf", this.pubPdf());
 					hst.setFieldValue("DF_Hist_Docs_DF_Devis_id",getRowId());
 					
+					ObjectField file = hst.getField("defiHstDocsDevis");
+					
 					hst.save();
+					MailTool mail = new MailTool();
+					mail.addRcpt("hsenoussi@velvetconsulting.com");
+					mail.setSubject("Test Mail");
+					mail.addAttach(hst, file); 
+					mail.setContent("<p>Hello</p>");
+					mail.send();
 				
 			}
 			return Message.formatSimpleInfo("Fichier Historisé");
