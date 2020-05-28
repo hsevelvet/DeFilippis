@@ -56,7 +56,7 @@
 		border-spacing:0px !important;
 	}
 	.tg td {
-		padding:5px 5px;
+		padding:10px 7px !important;
 		border-style:solid;
 		border-width:1px !important;
 		overflow:hidden;
@@ -79,6 +79,7 @@
 		vertical-align:top;
 		position:sticky;
 		will-change:transform;
+		color:#fff !important;
 	}
 	
 	.tg .thref {
@@ -222,6 +223,18 @@
 	}	
 	
 	</style>	
+	<script>
+		function fPrix(nombre){
+		  nombre += '';
+		  var sep = '&nbsp;';
+		  var reg = /(\d+)(\d{3})/;
+		  while( reg.test( nombre)) {
+			nombre = nombre.replace( reg, '$1' +sep +'$2');
+		  }
+		  /*return nombre;*/
+		  document.write(nombre+"&nbsp;&euro;");
+		}
+	</script>	
 </head>
 
 <body>
@@ -283,7 +296,7 @@
           
          <table class="tg">
 			<thead>
-				<tr style="background-color:#FFC300">
+				<tr style="background-color:#004C8E">
 				    <th class="tg-ul38 thtype">Type de pierre</th>
 				    <th class="tg-ul38 thdesignation">Désignation</th>
 				    <th class="tg-ul38 thunite">Unité</th>
@@ -301,8 +314,8 @@
 					<td class="designation">{{defiLigneCommandeDesignation}}</td>
 					<td class="unite">{{defiLigneCommandeUnite}}</td>
 					<td class="quantite">{{defiLigneCommandeQuantite}}</td>
-					<td class="prixu">{{defiLigneCommandePrixEXWUnitaire}}&nbsp;€</td>
-					<td class="prixt">{{defiLigneCommandePrixTotalEXW}}&nbsp;€</td>
+					<td class="prixu"><script>fPrix({{defiLigneCommandePrixEXWUnitaire}});</script></td>
+					<td class="prixt"><script>fPrix({{defiLigneCommandePrixTotalEXW}});</script></td>
 				</tr>
 				{{/rows_l}}
 				
@@ -317,7 +330,7 @@
 						Prix HT livré non déchargé 
 					</td>
 					<td class="totalvaleur">
-						{{defiCommandeMontantHT}} €
+						<script>fPrix({{defiCommandeMontantHT}});</script>
 					</td>
 				</tr>				
 			</tfoot>
@@ -345,7 +358,10 @@
 	
 	{{/rows}}
 	<br/>
-	<p class="cordialement">À nous retourner dûment accepté et signé. Merci.</p>
+	<p class="cordialement">À nous retourner dûment accepté et signé.<br/>
+		Nous restons à votre disposition pour tout renseignement,<br/><br/>
+		L'équipe Minéral Conseil
+	</p>
 	
  </div>
  

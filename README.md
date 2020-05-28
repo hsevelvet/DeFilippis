@@ -349,8 +349,8 @@ Objet métier pour fournisseur.
 
 | Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
-| `defiFournId`                                                | char(11)                                 | *        | yes       |          | -                                                                                |
 | `defiFournNom`                                               | char(36)                                 | yes      | yes       |          | -                                                                                |
+| `defiFournId`                                                | char(11)                                 | *        | yes       |          | -                                                                                |
 | `defiFournTelephone`                                         | phone(100)                               | yes      | yes       |          | -                                                                                |
 | `defiFournEmail`                                             | email(100)                               | yes      | yes       |          | -                                                                                |
 | `defiFournDescription`                                       | text(10000)                              |          | yes       |          | -                                                                                |
@@ -384,6 +384,7 @@ Objet métier pour fournisseur.
 | `defiLigneCommandePrixTotalEXW`                              | float(100, 2)                            |          | yes       |          | -                                                                                |
 | `DF_ligne_commande_DF_Produit_Finis_id` link to **`DF_Produit_Finis`** | id                                       |          | yes       |          | -                                                                                |
 | `DF_ligne_commande_DF_Commande_id` link to **`DF_Commande`** | id                                       |          | yes       |          | -                                                                                |
+| _Ref. `DF_ligne_commande_DF_Fournisseurs_id.defiFournNom`_   | _char(36)_                               |          |           |          | -                                                                                |
 | _Ref. `DF_ligne_commande_DF_Commande_id.defiCommandeId`_     | _char(50)_                               |          |           |          | -                                                                                |
 | `defiLigneCommandePrixEXWUnitaire`                           | float(10, 2)                             |          | yes       |          | -                                                                                |
 | `defiLigneCommandeReferenceProduit`                          | char(100)                                |          | yes       |          | -                                                                                |
@@ -396,6 +397,8 @@ Objet métier pour fournisseur.
 | `defiLigneCommandePoidsUnitaire`                             | float(10, 2)                             |          | yes       |          | -                                                                                |
 | `defiLigneCommandeUnite`                                     | char(4)                                  |          | yes       |          | -                                                                                |
 | `defiLigneCommandeDesignation`                               | text(200)                                |          | yes       |          | -                                                                                |
+| `DF_ligne_commande_DF_Fournisseurs_id` link to **`DF_Fournisseurs`** | id                                       |          | yes       |          | -                                                                                |
+| _Ref. `DF_ligne_commande_DF_Fournisseurs_id.defiFournId`_    | _char(11)_                               |          |           |          | -                                                                                |
 
 `DF_Ligne_Devis` business object definition
 -------------------------------------------

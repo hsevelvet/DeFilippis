@@ -44,7 +44,7 @@ paths:
         required: false
       - in: query
         name: defiAfrNumero
-        description: Search filter for Numéro d'affaire
+        description: Search filter for Numéro d'affaire (OTP)
         type: string
         required: false
       - in: query
@@ -1314,6 +1314,11 @@ paths:
         type: string
         required: false
       - in: query
+        name: DF_ligne_commande_DF_Fournisseurs_id__defiFournNom
+        description: Search filter for Nom Fournisseur
+        type: string
+        required: false
+      - in: query
         name: DF_ligne_commande_DF_Commande_id
         description: Search filter for DF commande
         type: string
@@ -1376,6 +1381,16 @@ paths:
       - in: query
         name: defiLigneCommandeDesignation
         description: Search filter for Désignation
+        type: string
+        required: false
+      - in: query
+        name: DF_ligne_commande_DF_Fournisseurs_id
+        description: Search filter for Fournisseurs
+        type: string
+        required: false
+      - in: query
+        name: DF_ligne_commande_DF_Fournisseurs_id__defiFournId
+        description: Search filter for Id Fournisseur Fournisseurs
         type: string
         required: false
       tags:
@@ -3859,13 +3874,13 @@ paths:
         type: boolean
         required: false
       - in: query
-        name: defiFournId
-        description: Search filter for Id Fournisseur
+        name: defiFournNom
+        description: Search filter for Nom Fournisseur
         type: string
         required: false
       - in: query
-        name: defiFournNom
-        description: Search filter for Nom Fournisseur
+        name: defiFournId
+        description: Search filter for Id Fournisseur
         type: string
         required: false
       - in: query
@@ -4382,7 +4397,7 @@ paths:
         required: false
       - in: query
         name: DF_Commande_DF_utilisateur_interne_id__defiUsrNomComplet
-        description: Search filter for Nom Complet Rédacteur
+        description: Search filter for defi usr nom complet Rédacteur
         type: string
         required: false
       - in: query
@@ -5376,13 +5391,13 @@ paths:
         type: string
         required: false
       - in: query
-        name: DF_Devis_DF_Contact_id__defiContactEmail
-        description: Search filter for E-mail Contacts
+        name: defiDevisNumero
+        description: Search filter for Numéro de devis
         type: string
         required: false
       - in: query
-        name: defiDevisNumero
-        description: Search filter for Numéro de devis
+        name: DF_Devis_DF_Contact_id__defiContactEmail
+        description: Search filter for E-mail Contacts
         type: string
         required: false
       - in: query
@@ -5672,7 +5687,7 @@ paths:
         required: false
       - in: query
         name: df_livraison_num_bl_fournisseur
-        description: Search filter for Num BL Fournisseur
+        description: Search filter for Référence Document Fournisseur
         type: string
         required: false
       - in: query
@@ -5687,7 +5702,7 @@ paths:
         required: false
       - in: query
         name: DF_Livraison_DF_Affaire_id__defiAfrNumero
-        description: Search filter for Numéro d'affaire Affaires
+        description: Search filter for Numéro d'affaire (OTP)
         type: string
         required: false
       - in: query
@@ -5702,7 +5717,7 @@ paths:
         required: false
       - in: query
         name: DF_Livraison_DF_Commande_id__defiCommandeNumero
-        description: Search filter for Numéro de Commande Commandes
+        description: Search filter for Numéro de commande
         type: string
         required: false
       - in: query
@@ -6480,7 +6495,7 @@ definitions:
         description: Region Client
         type: string
       defiAfrNumero:
-        description: Numéro d'affaire
+        description: Numéro d'affaire (OTP)
         type: string
       DF_Chantier_DF_Client_id__defiClientTelephone:
         description: Téléphone Client
@@ -6799,7 +6814,7 @@ definitions:
         description: Adresse Livraison
         type: string
       DF_Commande_DF_utilisateur_interne_id__defiUsrNomComplet:
-        description: Nom Complet Rédacteur
+        description: defi usr nom complet Rédacteur
         type: string
       defiCommandeSuiveurAffaire:
         description: Suiveur de l'affaire
@@ -6957,7 +6972,7 @@ definitions:
         description: Id Affaire Affaires
         type: string
       df_livraison_num_bl_fournisseur:
-        description: Num BL Fournisseur
+        description: Référence Document Fournisseur
         type: string
       defiLivraisonId:
         description: defi livraison id
@@ -6976,7 +6991,7 @@ definitions:
         description: Id Commande Commandes
         type: string
       DF_Livraison_DF_Commande_id__defiCommandeNumero:
-        description: Numéro de Commande Commandes
+        description: Numéro de commande
         type: string
       DF_Livraison_DF_Transport_id:
         description: Transports
@@ -6988,7 +7003,7 @@ definitions:
         description: Quantité Chargée
         type: number
       DF_Livraison_DF_Affaire_id__defiAfrNumero:
-        description: Numéro d'affaire Affaires
+        description: Numéro d'affaire (OTP)
         type: string
       df_livraison_trellocardid:
         description: df_livraison_trellocardid
@@ -7081,6 +7096,9 @@ definitions:
       defiLigneCommandeId:
         description: Id ligne commande
         type: string
+      DF_ligne_commande_DF_Fournisseurs_id__defiFournId:
+        description: Id Fournisseur Fournisseurs
+        type: string
       defiLigneCommandeAppellationCommerciale:
         description: Appellation Commerciale
         type: string
@@ -7099,6 +7117,9 @@ definitions:
       defiLigneCommandeReferenceProduit:
         description: Référence Produit
         type: string
+      DF_ligne_commande_DF_Fournisseurs_id:
+        description: Fournisseurs
+        type: string
       DF_ligne_commande_DF_Commande_id__defiCommandeId:
         description: Id Commande DF commande
         type: string
@@ -7113,6 +7134,9 @@ definitions:
         type: number
       defiLigneCommandeTypeGeologique:
         description: Type Géologique
+        type: string
+      DF_ligne_commande_DF_Fournisseurs_id__defiFournNom:
+        description: Nom Fournisseur
         type: string
       DF_ligne_commande_DF_Produit_Finis_id:
         description: DF produit finis

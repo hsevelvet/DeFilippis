@@ -62,7 +62,7 @@ public class DF_Ligne_Devis extends ObjectDB {
 		else{
 			lng = Double.parseDouble(longueur);
 		}
-		setFieldValue("defiLigneDevisLongueur",lng);
+		//setFieldValue("defiLigneDevisLongueur",lng);
 		
 		//calcul largeur bornée
 		String largeur = getFieldValue("defiLigneDevisLargeur");
@@ -74,7 +74,7 @@ public class DF_Ligne_Devis extends ObjectDB {
 		else{
 			lrg = Double.parseDouble(largeur);
 		}
-		setFieldValue("defiLigneDevisLargeur",lrg);
+		//setFieldValue("defiLigneDevisLargeur",lrg);
 		
 		// Get valeurs référence produit
 		double ep = getField("defiLigneDevisEpaisseur").getDouble(0);
@@ -87,7 +87,7 @@ public class DF_Ligne_Devis extends ObjectDB {
 		String type_prd = getFieldValue("DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdCategoriePrix");
 		
 		// valorisation : designation ligne devis		
-		String designation =  des_produit +"\t"+ fin_produit+"\t"+aut_fin+"\n"+lng +"\t" + " x "+lrg+"\t" +" x ep. "+ep+"\t" + "Joins inclus de " +dim_joint +" cm";
+		String designation =  des_produit +"\t"+ fin_produit+"\t"+aut_fin+"\n"+lng +"\t" + " x "+lrg+"\t" +" x ep. "+ep+"\t" + "Joint inclus de " +dim_joint +" cm";
 		if (type_prd.equals("1")){
 			setFieldValue("defiLigneDevisDesignation",appel_com);	
 		}

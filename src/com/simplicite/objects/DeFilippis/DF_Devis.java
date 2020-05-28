@@ -370,7 +370,9 @@ public class DF_Devis extends ObjectDB {
 		redacteur.setFieldFilter("row_id",getFieldValue("DF_Devis_DF_utilisateur_interne_id"));		
 
 		double prix_total = getField("defiDevisPrixTotalHT").getDouble();
-		double prix_tva = prix_total*0.2;
+		
+
+		double prix_tva = (int)(Math.round(prix_total*0.2 * 100))/100.0;
 	
 		wp.append(MustacheTool.apply(
 			this,
@@ -449,6 +451,7 @@ public class DF_Devis extends ObjectDB {
 	
 	// Méthode Envoi mail
 	public String SendMailDevis(){
+		
 		MailTool mail = new MailTool();
 		mail.addRcpt("hsenoussi@velvetconsulting.com");
 		mail.setSubject("Test Mail");
