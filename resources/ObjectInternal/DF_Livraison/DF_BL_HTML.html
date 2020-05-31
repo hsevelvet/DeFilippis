@@ -81,7 +81,7 @@
 		xposition:-webkit-sticky;
 		xtop:-1px;
 		will-change:transform;
-		xfont-size:12px;
+		color:#fff !important;
 	}
 	
 	.tg .thref {
@@ -265,7 +265,7 @@
 										<strong>Email </strong>: {{#contact_client}}{{defiContactEmail}}{{/contact_client}}<br/>
 										<br/>
 										<strong>Référence Commande </strong>: {{#rows_commande}}{{defiCommandeNumero}}{{/rows_commande}}<br/>
-										<strong>Date de livraison </strong>: {{df_livraison_date_livraison_estimee}}<br/>
+										<strong>Date de livraison </strong>: <script>var dateliv = "{{df_livraison_date_livraison_estimee}}"; document.write(dateliv.substring(0,10));</script><br/>
 										<strong>N° de bon fournisseur </strong>: {{df_livraison_num_bl_fournisseur}}<br/>
 										
                             </td>                            

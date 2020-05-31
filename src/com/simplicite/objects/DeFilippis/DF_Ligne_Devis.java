@@ -87,7 +87,7 @@ public class DF_Ligne_Devis extends ObjectDB {
 		String type_prd = getFieldValue("DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdCategoriePrix");
 		
 		// valorisation : designation ligne devis		
-		String designation =  des_produit +"\t"+ fin_produit+"\t"+aut_fin+"\n"+lng +"\t" + " x "+lrg+"\t" +" x ep. "+ep+"\t" + "Joint inclus de " +dim_joint +" cm";
+		String designation =  ap_commerciale+" "+ des_produit +" "+ fin_produit+" "+aut_fin+"\n"+lng +" " + " x "+lrg+"\t" +" x ep. "+ep+" " + "Joint inclus de " +dim_joint +" cm";
 		if (type_prd.equals("1")){
 			setFieldValue("defiLigneDevisDesignation",appel_com);	
 		}
@@ -201,7 +201,13 @@ public class DF_Ligne_Devis extends ObjectDB {
         // calcul prix déboursé sec
         double pexwut = getField("defiLigneDevisPrixExwUnite").getDouble(0);
         double ptu = getField("defiLigneDevisPrixTransportUnitaire").getDouble(0);
-        setFieldValue("defiLigneDevisPrixUnitaireSec",pexwut + ptu);
+    	if (type_prd.equals("1")){
+    		setFieldValue("defiLigneDevisPrixUnitaireSec",prc);	
+    	}
+    	else{
+    		setFieldValue("defiLigneDevisPrixUnitaireSec",pexwut + ptu);
+    	}
+        
         
         // calcul total achat reference ht
         setFieldValue("defiLigneDevisTotalEXWHT", pexwut * qte);

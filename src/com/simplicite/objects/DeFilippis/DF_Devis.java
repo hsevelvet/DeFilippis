@@ -41,6 +41,19 @@ public class DF_Devis extends ObjectDB {
 	private static final long serialVersionUID = 1L;
 	
 	
+	/** Mail Option
+	/** Default Message 
+	public static final String DEFAULT_MESSAGE = "test message";
+	
+	/** Init Default Message 
+	public void initAction(Action action){
+		if("Envoyer-mail".equals(action.getName())){
+			ObjectField f = action.getConfirmField(getGrant().getLang(),"defiDevisMail");
+			if (f!=null) f.setDefaultValue(String.valueOf(DEFAULT_MESSAGE));
+			}
+	}*/
+	
+	
 	// compteur date
 	static long days(Date start, Date end){
 	    //Ignore argument check
