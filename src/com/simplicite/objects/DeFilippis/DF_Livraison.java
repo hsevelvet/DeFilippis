@@ -324,6 +324,8 @@ public class DF_Livraison extends ObjectDB {
 
 		List<String[]> q_search = new ArrayList<String[]>();
 		List<String[]> livraison_search = new ArrayList<String[]>();
+		
+		
 	
 
 		for (String id: getSelectedIds()){
@@ -355,6 +357,12 @@ public class DF_Livraison extends ObjectDB {
 			commande_client.resetFilters();
 			commande_client.setFieldFilter("row_id",livraison.getFieldValue("DF_Livraison_DF_Commande_id"));
 			client.setFieldFilter("row_id",commande_client.getFieldValue("DF_Commande_DF_Client_id"));
+			
+		//q.setFieldFilter("DF_Quantite_DF_Livraison_id",livraison.getRowId());	
+		//double prix_u = getField("DF_Quantite_DF_ligne_commande_id.defiLigneCommandePrixEXWUnitaire").getDouble(0);
+		//double qte = q.getField("defiQuantiteQte").getDouble(3);
+		
+		//double montant = 10 * qte;
 		
 		wp.append(MustacheTool.apply(
 			this,
@@ -363,7 +371,8 @@ public class DF_Livraison extends ObjectDB {
 			",'bl':"+livraison.toJSON(livraison_search, null, false, false)+
 			",'cl':"+commande_livraison.toJSON(commande_livraison.search(), null, false, false)+
 			",'client':"+client.toJSON(client.search(), null, false, false)+
-			",'contact_client':"+contact_client.toJSON(contact_client.search(), null, false, false)+			
+			",'contact_client':"+contact_client.toJSON(contact_client.search(), null, false, false)+
+			",'montant':"+"[{'montant_l':"+Double.toString(8)+"}]"+
 			"}"
 		));
 		

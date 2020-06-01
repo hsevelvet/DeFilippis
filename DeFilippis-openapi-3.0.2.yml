@@ -752,7 +752,7 @@ components:
           description: Désignation
           type: string
         defiLigneCommandeReferenceProduit:
-          description: Référence Produit
+          description: N° Prix
           type: string
         DF_ligne_commande_DF_Fournisseurs_id:
           description: Fournisseurs
@@ -927,6 +927,9 @@ components:
           type: number
         DF_Devis_DF_Client_id__defiClientEmail:
           description: E-mail client
+          type: string
+        DF_Devis_DF_utilisateur_interne_id__defiUsrRedacteur:
+          description: Rédacteur DF utilisateur interne
           type: string
         defiDevisDateEmission:
           description: Date Emission
@@ -3700,7 +3703,7 @@ paths:
           type: string
         in: query
         name: defiLigneCommandeReferenceProduit
-        description: Search filter for Référence Produit
+        description: Search filter for N° Prix
         required: false
       - schema:
           type: string
@@ -8469,6 +8472,12 @@ paths:
         in: query
         name: defiDevisRedacteur
         description: Search filter for Rédacteur Devis
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Devis_DF_utilisateur_interne_id__defiUsrRedacteur
+        description: Search filter for Rédacteur DF utilisateur interne
         required: false
       tags:
       - DF_Devis

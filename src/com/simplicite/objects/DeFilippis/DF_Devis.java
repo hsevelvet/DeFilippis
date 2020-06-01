@@ -9,6 +9,8 @@ import com.lowagie.text.Paragraph;
 import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
 
+import com.simplicite.util.EnumItem;
+
 import org.jsoup.Jsoup;
 import org.jsoup.helper.Validate;
 import org.jsoup.nodes.Document;
@@ -386,6 +388,21 @@ public class DF_Devis extends ObjectDB {
 		
 
 		double prix_tva = (int)(Math.round(prix_total*0.2 * 100))/100.0;
+		
+	
+		int index_accompte = d.getField("defiDevisAccompte").getList().getItemIndex(getFieldValue("defiDevisAccompte"),false);
+		String accompte = d.getField("defiDevisAccompte").getList().getValue(index_accompte);
+		
+		int index_paiement = d.getField("defiDevisDelaiPaiement").getList().getItemIndex(getFieldValue("defiDevisDelaiPaiement"),false);
+		String paiement = d.getField("defiDevisDelaiPaiement").getList().getValue(index_accompte);
+		
+		int index_pack_transp = d.getField("defiDevisPackagingTransport").getList().getItemIndex(getFieldValue("defiDevisPackagingTransport"),false);
+		String pack_transp = d.getField("defiDevisPackagingTransport").getList().getValue(index_accompte);
+		
+		int index_contenance = d.getField("defiDevisContenance").getList().getItemIndex(getFieldValue("defiDevisContenance"),false);
+		String contenance = d.getField("defiDevisContenance").getList().getValue(index_accompte);
+		
+
 	
 		wp.append(MustacheTool.apply(
 			this,
@@ -394,6 +411,10 @@ public class DF_Devis extends ObjectDB {
 			",'rows_l':"+ld.toJSON(ld.search(), null, false, false)+
 			",'rows_u':"+u.toJSON(u.search(), null, false, false)+
 			",'tva':"+ "[{'prix_tva':"+Double.toString(prix_tva)+"}]"+
+			",'accompte':"+ "[{'accompte_l':"+accompte+"}]"+
+			",'paiement':"+ "[{'paiement_l':"+paiement+"}]"+
+			",'pack_transp':"+ "[{'pack_transp_l':"+pack_transp+"}]"+
+			",'contenance':"+ "[{'contenance_l':"+contenance+"}]"+
 			"}"
 			));
 

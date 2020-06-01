@@ -1335,7 +1335,7 @@ paths:
         required: false
       - in: query
         name: defiLigneCommandeReferenceProduit
-        description: Search filter for Référence Produit
+        description: Search filter for N° Prix
         type: string
         required: false
       - in: query
@@ -5444,6 +5444,11 @@ paths:
         description: Search filter for Rédacteur Devis
         type: string
         required: false
+      - in: query
+        name: DF_Devis_DF_utilisateur_interne_id__defiUsrRedacteur
+        description: Search filter for Rédacteur DF utilisateur interne
+        type: string
+        required: false
       tags:
       - DF_Devis
   /rest/DF_Quantite:
@@ -7115,7 +7120,7 @@ definitions:
         description: Désignation
         type: string
       defiLigneCommandeReferenceProduit:
-        description: Référence Produit
+        description: N° Prix
         type: string
       DF_ligne_commande_DF_Fournisseurs_id:
         description: Fournisseurs
@@ -7290,6 +7295,9 @@ definitions:
         type: number
       DF_Devis_DF_Client_id__defiClientEmail:
         description: E-mail client
+        type: string
+      DF_Devis_DF_utilisateur_interne_id__defiUsrRedacteur:
+        description: Rédacteur DF utilisateur interne
         type: string
       defiDevisDateEmission:
         description: Date Emission

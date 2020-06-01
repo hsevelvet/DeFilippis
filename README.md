@@ -295,6 +295,7 @@ Objet metier pour devis.
 | `defiDevisIndice`                                            | char(3)                                  |          |           |          | -                                                                                |
 | `defiDevisCompteurDate`                                      | int(100)                                 |          |           |          | -                                                                                |
 | `defiDevisRedacteur`                                         | char(70)                                 |          |           |          | -                                                                                |
+| _Ref. `DF_Devis_DF_utilisateur_interne_id.defiUsrRedacteur`_ | _char(70)_                               |          |           |          | -                                                                                |
 
 ### Lists
 
