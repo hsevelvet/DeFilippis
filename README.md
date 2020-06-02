@@ -164,6 +164,7 @@ objet metier pour commande.
 | _Ref. `DF_Commande_DF_utilisateur_interne_id.usr_login`_     | _regexp(100)_                            |          |           | yes      | _Login_                                                                          |
 | _Ref. `DF_Commande_DF_utilisateur_interne_id.defiUsrNomComplet`_ | _char(70)_                               |          |           |          | -                                                                                |
 | `defiCommandeRedacteur`                                      | char(100)                                |          | yes       |          | -                                                                                |
+| `defiCommandeMontantLivraisons`                              | float(10, 2)                             |          | yes       |          | -                                                                                |
 
 ### Lists
 
@@ -400,6 +401,7 @@ Objet métier pour fournisseur.
 | `defiLigneCommandeDesignation`                               | text(200)                                |          | yes       |          | -                                                                                |
 | `DF_ligne_commande_DF_Fournisseurs_id` link to **`DF_Fournisseurs`** | id                                       |          | yes       |          | -                                                                                |
 | _Ref. `DF_ligne_commande_DF_Fournisseurs_id.defiFournId`_    | _char(11)_                               |          |           |          | -                                                                                |
+| `defiLigneCommandeFournisseur`                               | char(100)                                |          | yes       |          | -                                                                                |
 
 `DF_Ligne_Devis` business object definition
 -------------------------------------------
@@ -468,6 +470,7 @@ Objet métier pour fournisseur.
 | `DF_Ligne_Devis_DF_Prix_Transport_id` link to **`DF_Prix_Transport`** | id                                       |          | yes       |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Prix_Transport_id.defiPrTspId`_     | _char(11)_                               |          |           |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Prix_Transport_id.defiPrTrspPrix`_  | _float(9, 2)_                            |          |           |          | -                                                                                |
+| `defiLigneDevisFournisseur`                                  | char(100)                                |          | yes       |          | -                                                                                |
 
 ### Lists
 
@@ -530,6 +533,7 @@ Objet métier pour fournisseur.
 | _Ref. `DF_Livraison_DF_Commande_id.defiCommandeNumero`_      | _char(32)_                               |          |           |          | -                                                                                |
 | `DF_Livraison_DF_Transport_id` link to **`DF_Transport`**    | id                                       |          | yes       |          | -                                                                                |
 | _Ref. `DF_Livraison_DF_Transport_id.defiTrspNom`_            | _char(36)_                               |          |           |          | -                                                                                |
+| `defiLivraisonTotalHT`                                       | float(10, 2)                             |          | yes       |          | -                                                                                |
 
 ### Lists
 
@@ -654,6 +658,7 @@ Objet metier pour produit.
 | `DF_Quantite_DF_ligne_commande_id` link to **`DF_ligne_commande`** | id                                       |          | yes       |          | -                                                                                |
 | _Ref. `DF_Quantite_DF_ligne_commande_id.defiLigneCommandeId`_ | _char(20)_                               |          |           |          | -                                                                                |
 | _Ref. `DF_Quantite_DF_ligne_commande_id.defiLigneCommandePrixEXWUnitaire`_ | _float(10, 2)_                           |          |           |          | -                                                                                |
+| `defiQuantiteMontant`                                        | float(10, 2)                             |          | yes       |          | -                                                                                |
 
 ### Custom actions
 

@@ -48,7 +48,9 @@
         padding: 5px;
         vertical-align: top;
     }
-    
+    .invoice-box table tr.top table td {
+        xpadding-bottom: 20px;
+    }    
     
 	
 	.tg  {
@@ -199,11 +201,15 @@
 		text-align: justify;
 	}		
 	
+	
 	h1, h2 {
 		color:#004C8E;
 	}	
+	h1 {
+		margin:15px 0 5px 0;
+	}
 	h2 {
-		padding:7px 0 0 0;
+		margin:10px 0 20px 0;
 	}
 	h3 {
 		text-align:center;
@@ -236,34 +242,34 @@
 		}
 	</script>	
 </head>
-
 <body>
-
     <div class="arc-box">
         <table cellpadding="0" cellspacing="0" border="0">
             <tr class="top">
                 <td colspan="2">
-
-					<img src="https://www.raultgranit.com/upload/partenaire/0001/181129-091132-de-filippis-mineral-conseil_large.jpg"  style="width:120px;">
-									
-								
+		
 									
 					{{#rows}}
                     <table>
-                        <tr>
-                            <td class="title">
-
-								<strong>Suiveur Affaire :</strong>{{DF_Commande_DF_utilisateur_interne_id__defiUsrNomComplet}}<br/>									
-								{{#rows_u}}{{usr_work_num}} - {{usr_login}}{{/rows_u}}<br/>
-								
-								
-								<br/>
-								DEFILIPPIS Minéral Conseil <br/>
+						<tr>
+							<td class="title" colspan="2" style="font-size: 8px;line-height: 14px;color: #333;">
+								<img src="https://nsm09.casimages.com/img/2020/06/02//20060207455325239716829796.png" style="height:45px;float:left;margin-right:15px">
+										
                                 175 Avenue des Frères Lumière.<br/>
 								FRANCE - 69726 Genay<br/>
                                 Tél : 04 78 98 15 49 / www.mineralconseil.fr<br/>
 								SAS - RCS LYON 612 029 298 - FR 29 612 029 298<br/>
-																
+												
+								<hr style="border:solid 1px #eee;margin-bottom:20px">
+							</td>
+						</tr>					
+                        <tr>
+                            <td>
+								<strong>Suiveur Affaire :</strong>{{DF_Commande_DF_utilisateur_interne_id__defiUsrNomComplet}}<br/>									
+								{{#rows_u}}
+								<strong>Tel : </strong>{{usr_work_num}}<br/>
+								<strong>Email : </strong>{{usr_login}}<br/>
+								{{/rows_u}}
                             </td>
                             <td style="text-align:right">
 										{{#rows_client}}
@@ -281,9 +287,9 @@
                         </tr>
 						<tr>
 							<td colspan="2" style="vertical-align:bottom;text-align:center">
-								<br/>
-								<h1>ACCUSÉ RÉCEPTION DE COMMANDE</h1>
-								<h2>{{DF_Commande_DF_Affaire_id__defiAfrLibelleChantier}} - {{DF_Commande_DF_Affaire_id__defiAfrLieuAffaire}}</h2>
+								
+								<h1>{{DF_Commande_DF_Affaire_id__defiAfrLibelleChantier}} - {{DF_Commande_DF_Affaire_id__defiAfrLieuAffaire}}</h1>
+								<h2>ACCUSÉ RÉCEPTION DE COMMANDE</h2>
 								
 							</td>
 						</tr>
@@ -327,7 +333,7 @@
 				</tr>
 				<tr>
 					<td class="totallibelle" colspan="5">
-						Prix HT livré non déchargé 
+						Prix HT 
 					</td>
 					<td class="totalvaleur">
 						<script>fPrix({{defiCommandeMontantHT}});</script>
@@ -345,7 +351,7 @@
 			<i>Le délai de fabrication court à partir de la reception des documents techniques et le présent ARC validés par vos soins
 			(fiches pierres, quantité, finition et détails éventuels par référence d'articles)</i>
 			<br/><br/>
-			<span class="1234">POIDS BRUT :</span> {{defiCommandePoidsTotal}}
+			<span class="1234">POIDS BRUT :</span> {{defiCommandePoidsTotal}} Tonnes
 			<br/><br/>
 			<span class="1234">NOMBRE DE CAMIONS :</span> {{defiCommandeNombreCamions}}
 			<br/><br/>			

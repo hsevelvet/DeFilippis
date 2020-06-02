@@ -50,6 +50,9 @@ components:
         DF_Quantite_DF_ligne_commande_id__defiLigneCommandeDesignation:
           description: Désignation DF ligne commande
           type: string
+        defiQuantiteMontant:
+          description: Montant
+          type: number
         DF_Quantite_DF_ligne_commande_id__defiLigneCommandePrixEXWUnitaire:
           description: Prix de vente unitaire imposé DF ligne commande
           type: number
@@ -257,6 +260,9 @@ components:
         DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdEpaisseur:
           description: Epaisseur (cm)
           type: number
+        defiLigneDevisFournisseur:
+          description: Fournisseur
+          type: string
         defiLigneDevisNPrix:
           description: N° de prix
           type: string
@@ -320,14 +326,14 @@ components:
         DF_Ligne_Devis_DF_Prix_Transport_id__defiPrTspId:
           description: Id Prix Transport Prix Transport
           type: string
-        defiLigneDevisMasseVolumique:
-          description: Masse Volumique
-          type: number
         defiLigneDevisUnite:
           description: Unité LigneD
           type: string
         defiLigneDevisEpaisseur:
           description: Epaisseur / Hauteur (cm)
+          type: number
+        defiLigneDevisMasseVolumique:
+          description: Masse Volumique
           type: number
         DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdLargeur:
           description: Largeur (cm)
@@ -523,6 +529,9 @@ components:
         defiCommandeContactLivraison:
           description: Contact Livraison
           type: string
+        defiCommandeMontantLivraisons:
+          description: Montant Livraisons
+          type: number
         defiCommandeDate:
           description: Date de commande
           type: string
@@ -627,6 +636,9 @@ components:
         DF_Livraison_DF_Commande_id__defiCommandeId:
           description: Id Commande Commandes
           type: string
+        defiLivraisonTotalHT:
+          description: Total HT Livraison
+          type: number
         DF_Livraison_DF_Commande_id__defiCommandeNumero:
           description: Numéro de commande
           type: string
@@ -756,6 +768,9 @@ components:
           type: string
         DF_ligne_commande_DF_Fournisseurs_id:
           description: Fournisseurs
+          type: string
+        defiLigneCommandeFournisseur:
+          description: Nom Fournisseur
           type: string
         DF_ligne_commande_DF_Commande_id__defiCommandeId:
           description: Id Commande DF commande
@@ -3771,6 +3786,12 @@ paths:
         name: DF_ligne_commande_DF_Fournisseurs_id__defiFournId
         description: Search filter for Id Fournisseur Fournisseurs
         required: false
+      - schema:
+          type: string
+        in: query
+        name: defiLigneCommandeFournisseur
+        description: Search filter for Nom Fournisseur
+        required: false
       tags:
       - DF_ligne_commande
   /rest/DF_test/{row_id}:
@@ -5127,12 +5148,6 @@ paths:
         description: Search filter for Quantité
         required: false
       - schema:
-          type: number
-        in: query
-        name: defiLigneDevisMasseVolumique
-        description: Search filter for Masse Volumique
-        required: false
-      - schema:
           type: string
         in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdFinitionFacesVues
@@ -5384,6 +5399,12 @@ paths:
         description: Search filter for Désignation Produit
         required: false
       - schema:
+          type: number
+        in: query
+        name: defiLigneDevisMasseVolumique
+        description: Search filter for Masse Volumique
+        required: false
+      - schema:
           type: string
         in: query
         name: defiLigneDevisNomProduit
@@ -5406,6 +5427,12 @@ paths:
         in: query
         name: DF_Ligne_Devis_DF_Prix_Transport_id__defiPrTrspPrix
         description: Search filter for Prix Transport Référence
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: defiLigneDevisFournisseur
+        description: Search filter for Fournisseur
         required: false
       tags:
       - DF_Ligne_Devis
@@ -7233,6 +7260,12 @@ paths:
         name: defiCommandeRedacteur
         description: Search filter for Rédacteur Commande
         required: false
+      - schema:
+          type: number
+        in: query
+        name: defiCommandeMontantLivraisons
+        description: Search filter for Montant Livraisons
+        required: false
       tags:
       - DF_Commande
   /rest/DF_Livraison/{row_id}/publication:DF-ODF:
@@ -8616,6 +8649,12 @@ paths:
         name: DF_Quantite_DF_ligne_commande_id__defiLigneCommandePrixEXWUnitaire
         description: Search filter for Prix de vente unitaire imposé DF ligne commande
         required: false
+      - schema:
+          type: number
+        in: query
+        name: defiQuantiteMontant
+        description: Search filter for Montant
+        required: false
       tags:
       - DF_Quantite
   /rest/DF_Livraison/{row_id}/publication:BL-PDF:
@@ -8818,6 +8857,12 @@ paths:
         in: query
         name: DF_Livraison_DF_Transport_id__defiTrspNom
         description: Search filter for Nom Transporteur
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: defiLivraisonTotalHT
+        description: Search filter for Total HT Livraison
         required: false
       tags:
       - DF_Livraison

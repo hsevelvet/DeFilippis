@@ -191,9 +191,12 @@
 	
 	h1, h2 {
 		color:#004C8E;
-	}		
+	}	
+	h1 {
+		margin:15px 0 5px 0;
+	}
 	h2 {
-		padding:7px 0 0 0;
+		margin:10px 0 20px 0;
 	}
 	h3 {
 		text-align:center;
@@ -232,22 +235,23 @@
             <tr class="top">
                 <td colspan="2">
 				
-					<img src="https://www.raultgranit.com/upload/partenaire/0001/181129-091132-de-filippis-mineral-conseil_large.jpg"  style="width:120px;">
-									
                     <table>
-                        <tr>
-                            <td class="title">
-  
-								<strong>Affaire suivie par :</strong> David Henrion<br/>								
-								06 46 10 53 05 - david.henrion@mineralconseil.fr<br/><br/>
-
-								DEFILIPPIS Minéral Conseil <br/>
+						<tr>
+							<td class="title" colspan="2" style="font-size: 8px;line-height: 14px;color: #333;">
+								<img src="https://nsm09.casimages.com/img/2020/06/02//20060207455325239716829796.png" style="height:45px;float:left;margin-right:15px">
+										
                                 175 Avenue des Frères Lumière.<br/>
-                                69730 Genay<br/>
-                                Tél : 04 78 98 15 49
-								
-								
-                            </td>
+								FRANCE - 69726 Genay<br/>
+                                Tél : 04 78 98 15 49 / www.mineralconseil.fr<br/>
+								SAS - RCS LYON 612 029 298 - FR 29 612 029 298<br/>
+												
+								<hr style="border:solid 1px #eee;margin-bottom:20px">
+							</td>
+						</tr>					
+                        <tr>
+							<td>
+								<strong>Suiveur Affaire : </strong>{{#cl}}{{defiCommandeRedacteur}}{{/cl}}
+							</td>
                             <td style="text-align:right">
 										<strong>Client </strong>: {{#client}}{{defiClientNom}}{{/client}}<br/>
 										<strong>Contact </strong>: {{#contact_client}}{{defiContactPrenom}} {{defiContactNom}}{{/contact_client}}<br/>
@@ -262,7 +266,7 @@
 							<td colspan="2" style="vertical-align:bottom;text-align:center">
 								<br/>
 								<h1>ORDRE DE FACTURATION </h1>
-								<h2>Référence Chantier : {{#cl}}{{defiCommandeNumero}}{{/cl}}</h2>
+								<h2>Numéro d'affaire OTP : {{#cl}}{{defiCommandeNumero}}{{/cl}}</h2>
 							</td>
 						</tr>
                     </table>
@@ -274,7 +278,7 @@
             
          <table class="tg">
 			<thead>
-				<tr style="background-color:#000">
+				<tr style="background-color:#004C8E">
 					<th class="tg-ul38 thref">Ref</th>
 				    <th class="tg-ul38 thdesignation">Désignation</th>
 				    <th class="tg-ul38 thunite">Unité</th>
@@ -293,12 +297,12 @@
 					<td class="unite">{{DF_Quantite_DF_ligne_commande_id__defiLigneCommandeUnite}}</td>
 					<td class="quantite">{{defiQuantiteQte}}</td>
 					<td class="prixu">{{DF_Quantite_DF_ligne_commande_id__defiLigneCommandePrixEXWUnitaire}}&nbsp;€</td>
-					<td class="prixt">{{#montant}}{{montant_l}}{{/montant}} €</td>
+					<td class="prixt">{{defiQuantiteMontant}}&nbsp;€</td>
 				</tr>
 				{{/rows_l}}
 				
 			</tbody>
-
+			{{#cl}}
 			<tfoot>
 				<tr>
 					<td class="conditions2" rowspan="3" colspan="4" >
@@ -307,7 +311,7 @@
 					<td class="totallibelle">
 						TOTAL HT
 					</td>
-					<td class="totalvaleur"> €</td>
+					<td class="totalvaleur">{{defiCommandeMontantLivraisons}} €</td>
 				</tr>		
 				<tr>
 					<td class="tvalibelle">TVA 20,00%</td>
@@ -318,7 +322,7 @@
 					<td class="totalttcvaleur">PrixTotal €</td>					
 				</tr>				
 			</tfoot>
-			
+			{{/cl}}
 		</table>
 		<br/>
 	<!--<table class="signature">

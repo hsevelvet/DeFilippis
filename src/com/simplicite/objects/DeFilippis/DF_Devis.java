@@ -207,6 +207,13 @@ public class DF_Devis extends ObjectDB {
 				String finition = ld.getFieldValue("defiPrdFinitionFacesVues");
 				String unite_p = ld.getFieldValue("defiPrdUnite");
 				String designation = ld.getFieldValue("defiLigneDevisDesignation");
+				
+				ObjectDB pf = getGrant().getTmpObject("DF_Produit_Finis");
+				pf.resetFilters();
+				pf.setFieldFilter("DF_Ligne_Devis_DF_Produit_Finis_id", ld.getRowId());
+				
+				String fournisseur = pf.getFieldValue("DF_Produit_Finis_DF_Fournisseurs_id.defiFournNom");
+				AppLog.info(getClass(), "mdqldsfqqsdqs", fournisseur, getGrant());
 
 				double poids_u = ld.getField("defiLigneDevisPoidsTotal").getDouble(0);
 				double prd_long = ld.getField("defiPrdLongueur").getDouble(0);
@@ -225,7 +232,7 @@ public class DF_Devis extends ObjectDB {
 		
 				ObjectField s2 = lc.getField("defiLigneCommandeId");
 				s2.setValue(lc.getRowId());
-				
+				lc.setFieldValue("defiLigneCommandeFournisseur", fournisseur);
 				lc.setFieldValue("defiLigneCommandeReferenceProduit",ref_prod);
 				lc.setFieldValue("defiLigneCommandeTypeGeologique", type_geo);
 				lc.setFieldValue("defiLigneCommandeAppellationCommerciale",apl_com);
@@ -389,20 +396,22 @@ public class DF_Devis extends ObjectDB {
 
 		double prix_tva = (int)(Math.round(prix_total*0.2 * 100))/100.0;
 		
-	
+		// Get des valeurs enum sur devis
 		int index_accompte = d.getField("defiDevisAccompte").getList().getItemIndex(getFieldValue("defiDevisAccompte"),false);
 		String accompte = d.getField("defiDevisAccompte").getList().getValue(index_accompte);
 		
 		int index_paiement = d.getField("defiDevisDelaiPaiement").getList().getItemIndex(getFieldValue("defiDevisDelaiPaiement"),false);
-		String paiement = d.getField("defiDevisDelaiPaiement").getList().getValue(index_accompte);
+		String paiement = d.getField("defiDevisDelaiPaiement").getList().getValue(index_paiement);
 		
 		int index_pack_transp = d.getField("defiDevisPackagingTransport").getList().getItemIndex(getFieldValue("defiDevisPackagingTransport"),false);
-		String pack_transp = d.getField("defiDevisPackagingTransport").getList().getValue(index_accompte);
+		String pack_transp = d.getField("defiDevisPackagingTransport").getList().getValue(index_pack_transp);
 		
 		int index_contenance = d.getField("defiDevisContenance").getList().getItemIndex(getFieldValue("defiDevisContenance"),false);
-		String contenance = d.getField("defiDevisContenance").getList().getValue(index_accompte);
+		String contenance = d.getField("defiDevisContenance").getList().getValue(index_contenance);
 		
-
+		int index_conditions = d.getField("defiDevisIncotermPrix").getList().getItemIndex(getFieldValue("defiDevisIncotermPrix"),false);
+		String conditions = d.getField("defiDevisIncotermPrix").getList().getValue(index_conditions);
+		
 	
 		wp.append(MustacheTool.apply(
 			this,
@@ -415,6 +424,7 @@ public class DF_Devis extends ObjectDB {
 			",'paiement':"+ "[{'paiement_l':"+paiement+"}]"+
 			",'pack_transp':"+ "[{'pack_transp_l':"+pack_transp+"}]"+
 			",'contenance':"+ "[{'contenance_l':"+contenance+"}]"+
+			",'conditions':"+ "[{'conditions_l':"+conditions+"}]"+
 			"}"
 			));
 
@@ -485,12 +495,14 @@ public class DF_Devis extends ObjectDB {
 	
 	// Méthode Envoi mail
 	public String SendMailDevis(){
+		ObjectDB devis = getGrant().getTmpObject("DF_Devis");
+		ObjectField devis_fiche = devis.getField("defiDevisFicheTechnique");
 		
 		MailTool mail = new MailTool();
 		mail.addRcpt("hsenoussi@velvetconsulting.com");
 		mail.setSubject("Test Mail");
-		//mail.addAttach(obj, myObjectFile); 
-		mail.setContent("<p>Hello</p>");
+		mail.addAttach(devis, devis_fiche); 
+		mail.setContent("Mail Text");
 		mail.send();
 		
 		return null;

@@ -10,14 +10,27 @@ import com.simplicite.util.tools.*;
 public class DF_Quantite extends ObjectDB {
 	private static final long serialVersionUID = 1L;
 	
+	@Override
+	public void initCreate() {
+		Double qte = getField("defiQuantiteQte").getDouble(0);
+		Double prix_u = getField("DF_Quantite_DF_ligne_commande_id.defiLigneCommandePrixEXWUnitaire").getDouble(0);
+		
+		setFieldValue("defiQuantiteMontant", qte*prix_u);
+		save();
+	}
 	
 	@Override
 	public void initUpdate() {
 		// Mise à jour du tonnage lors de changement de quantité produit
 		Double qte = getField("defiQuantiteQte").getDouble(0);
 		Double poids_u = getField("defiQuantitePoidsUnitaire").getDouble(0);
+		Double prix_u = getField("DF_Quantite_DF_ligne_commande_id.defiLigneCommandePrixEXWUnitaire").getDouble(0);
 		
 		setFieldValue("defiQuantiteTonnage", qte*poids_u);
+		setFieldValue("defiQuantiteMontant", qte*prix_u);
+		validate();
+		save();
+		
 	}
 	
 	public String createAllTrelloCards(){

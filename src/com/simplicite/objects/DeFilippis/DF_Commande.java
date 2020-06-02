@@ -54,9 +54,47 @@ public class DF_Commande extends ObjectDB {
 			double t = Double.parseDouble(o.getField("defiLigneCommandePrixTotalEXW").getListOperatorValue());
 			setFieldValue("defiCommandeMontantHT", t);
 			save();
-
-
+			
+		}
+		
+			
 	}
+	
+	@Override
+	public List<String> postValidate() {
+		List<String> msgs = new ArrayList<>();
+		
+		//msgs.add(Message.formatInfo("INFO_CODE", "Message", "fieldName"));
+		//msgs.add(Message.formatWarning("WARNING_CODE", "Message", "fieldName"));
+		//msgs.add(Message.formatError("ERROR_CODE", "Message", "fieldName"));
+		
+		ObjectDB livraison = getGrant().getTmpObject("DF_Livraison");
+		livraison.getField("DF_Livraison_DF_Commande_id").setFilter(getRowId());
+		
+		DF_Livraison livraisons = (DF_Livraison) getGrant().getTmpObject("DF_Livraison");
+		livraisons.resetValues();
+	
+		double somme = 0;
+		//AppLog.info(getClass(), "commmmmmmmm", String.valueOf(somme), getGrant());
+		for (String id: livraison.getSelectedIds()){
+			
+			synchronized(livraisons){
+				AppLog.info(getClass(), "commmmmmmmm", String.valueOf(id), getGrant());
+				livraisons.select(id);
+				
+				double montant = Double.parseDouble(livraisons.getField("defiLivraisonTotalHT").getListOperatorValue());
+				AppLog.info(getClass(), "commmmmmmmm", String.valueOf(montant), getGrant());
+				somme = somme+montant;
+				AppLog.info(getClass(), "commmmmmmmm", String.valueOf(somme), getGrant());
+				
+			
+		
+				setFieldValue("defiCommandeMontantLivraisons", somme);
+				save();}
+		
+		}
+		
+		return msgs;
 	}
 
 	
@@ -193,6 +231,7 @@ public class DF_Commande extends ObjectDB {
 					//String firstCharsFourns = fourns.substring(0, 3);
 					
 					double poids_unitaire = lc.getField("defiLigneCommandePoidsUnitaire").getDouble();
+					
 					double quantite_lc = lc.getField("defiLigneCommandeQuantite").getDouble();
 					double tonnage_carte = quantite_lc*poids_unitaire;
 					

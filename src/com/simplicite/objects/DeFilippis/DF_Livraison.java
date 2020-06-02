@@ -31,7 +31,6 @@ public class DF_Livraison extends ObjectDB {
 	private TrelloTool tt = null;
 	private JSONObject settings = null;
 	
-	
 
 
 	@Override
@@ -224,6 +223,21 @@ public class DF_Livraison extends ObjectDB {
         return id;
 	}
 	
+	@Override
+	public void initUpdate() {
+		
+		ObjectDB q = getGrant().getTmpObject("DF_Quantite");
+		q.resetFilters();
+		
+		List<String[]> rows = q.search(false);
+		if (rows.size() > 0){
+			double c = q.getCount();
+			double t = Double.parseDouble(q.getField("defiQuantiteMontant").getListOperatorValue());
+			setFieldValue("defiLivraisonTotalHT", t);
+			
+		}	
+	}
+	
 		////////////////////////// Print BL //////////////////////////////////////////////
 	public String pubBL(){
 		BootstrapWebPage wp = new BootstrapWebPage(
@@ -347,22 +361,22 @@ public class DF_Livraison extends ObjectDB {
 
 				livraison_search.addAll(livraison.search());
 				q_search.addAll(q.search());
+				
+				
+				
+				
 			}
 			
 			
 			
 	
 		}
-			ObjectDB commande_client = getGrant().getTmpObject("DF_Commande");
-			commande_client.resetFilters();
-			commande_client.setFieldFilter("row_id",livraison.getFieldValue("DF_Livraison_DF_Commande_id"));
-			client.setFieldFilter("row_id",commande_client.getFieldValue("DF_Commande_DF_Client_id"));
+		ObjectDB commande_client = getGrant().getTmpObject("DF_Commande");
+		commande_client.resetFilters();
+		commande_client.setFieldFilter("row_id",livraison.getFieldValue("DF_Livraison_DF_Commande_id"));
+		client.setFieldFilter("row_id",commande_client.getFieldValue("DF_Commande_DF_Client_id"));
 			
-		//q.setFieldFilter("DF_Quantite_DF_Livraison_id",livraison.getRowId());	
-		//double prix_u = getField("DF_Quantite_DF_ligne_commande_id.defiLigneCommandePrixEXWUnitaire").getDouble(0);
-		//double qte = q.getField("defiQuantiteQte").getDouble(3);
 		
-		//double montant = 10 * qte;
 		
 		wp.append(MustacheTool.apply(
 			this,
@@ -372,7 +386,6 @@ public class DF_Livraison extends ObjectDB {
 			",'cl':"+commande_livraison.toJSON(commande_livraison.search(), null, false, false)+
 			",'client':"+client.toJSON(client.search(), null, false, false)+
 			",'contact_client':"+contact_client.toJSON(contact_client.search(), null, false, false)+
-			",'montant':"+"[{'montant_l':"+Double.toString(8)+"}]"+
 			"}"
 		));
 		

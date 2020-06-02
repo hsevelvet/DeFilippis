@@ -53,14 +53,14 @@
     
     
     .invoice-box table tr.top table td {
-        padding-bottom: 20px;
+        xpadding-bottom: 20px;
     }
     
-    .invoice-box table tr.top table td.title {
-        xfont-size: 45px;
-        xline-height: 45px;
+    /*.invoice-box table tr.top table td.title {
+        font-size: 8px;
+        line-height: 14px;
         color: #333;
-    }
+    }*/
     
     
     
@@ -221,12 +221,15 @@
 		width:50%;
 	}
 	
+	
 	h1, h2 {
 		color:#004C8E;
+	}	
+	h1 {
+		margin:15px 0 5px 0;
 	}
-	
 	h2 {
-		padding:7px 0 0 0;
+		margin:10px 0 20px 0;
 	}
 	h3 {
 		text-align:center;
@@ -254,47 +257,43 @@
 		  document.write(nombre+"&nbsp;&euro;");
 		}
 	</script>
-	
 </head>
-
 <body>
-
-	<!--<div class="header">
-	
-	</div>-->
-
     <div class="invoice-box">
         <table cellpadding="0" cellspacing="0" border="0">
             <tr class="top">
                 <td colspan="2">
 				
-					<img src="https://www.raultgranit.com/upload/partenaire/0001/181129-091132-de-filippis-mineral-conseil_large.jpg"  style="width:120px;">
-					
+
 					{{#rows}}
                     <table>
-                        <tr>
-                            <td class="title">
-
-								DEFILIPPIS Minéral Conseil <br/>
+						<tr>
+							<td class="title" colspan="2" style="font-size: 8px;line-height: 14px;color: #333;">
+								<img src="https://nsm09.casimages.com/img/2020/06/02//20060207455325239716829796.png" style="height:45px;float:left;margin-right:15px">
+										
                                 175 Avenue des Frères Lumière.<br/>
 								FRANCE - 69726 Genay<br/>
                                 Tél : 04 78 98 15 49 / www.mineralconseil.fr<br/>
 								SAS - RCS LYON 612 029 298 - FR 29 612 029 298<br/>
-								<br/>
-								
+												
+								<hr style="border:solid 1px #eee;margin-bottom:20px">
+							</td>
+						</tr>
+						<tr>
+							<td>
 								<strong>Suiveur Affaire :</strong> {{DF_Devis_DF_utilisateur_interne_id__defiUsrNomComplet}}<br/>								
-								{{#rows_u}}{{usr_work_num}} - {{usr_login}}{{/rows_u}}
-								<br/>
-								<strong>Rédacteur Devis :</strong> {{defiDevisRedacteur}}<br/>	
-					
-                            </td>
+								{{#rows_u}}
+								<strong>Tel : </strong>{{usr_work_num}}<br/>
+								<strong>Email : </strong>{{usr_login}}<br/>
+								{{/rows_u}}
+							</td>
                             <td style="text-align:right">
-										<strong>Client </strong>: {{DF_Devis_DF_Client_id__defiClientNom}}<br/>
-										<strong>Contact </strong>:  {{DF_Devis_DF_Contact_id__defiContactPrenom}} {{DF_Devis_DF_Contact_id__defiContactNom}}<br/>
-										<strong>Email </strong>: {{DF_Devis_DF_Client_id__defiClientEmail}}<br/>
-										<br/>										
-										<strong>Date d'émission </strong>: {{defiDevisDateEmission}}<br/>
-										<!--<strong>Ref Projet </strong>: {{defiDevisTitre}}-->
+								<strong>Client </strong>: {{DF_Devis_DF_Client_id__defiClientNom}}<br/>
+								<strong>Contact </strong>:  {{DF_Devis_DF_Contact_id__defiContactPrenom}} {{DF_Devis_DF_Contact_id__defiContactNom}}<br/>
+								<strong>Email </strong>: {{DF_Devis_DF_Client_id__defiClientEmail}}<br/>
+								<br/>										
+								<strong>Date d'émission </strong>: {{defiDevisDateEmission}}<br/>
+								<!--<strong>Ref Projet </strong>: {{defiDevisTitre}}-->
                             </td>                            
                         </tr>
 						<tr>
@@ -349,15 +348,16 @@
 					<td class="conditions2" rowspan="3" colspan="5" >
 					<p>Conditions de mise à disposition de la marchandise : </p>
 					<ul>
-							<li>Délais prévisionnel à confirmer au moment de la commande : {{defiDevisDelaisPrevisionnel}}</li>						
+							<li>Délais prévisionnel à confirmer au moment de la commande : <strong>{{defiDevisDelaisPrevisionnel}}</strong></li>						
 							<!--<strong>1ère livraison le {{defiDevisDelaisPrevisionnel}} si commande avant {{defiDevisDateValiditeOffre}}</strong></li>-->
 							<li>Cadence de livraison maximale hebdomadaire : <strong>{{defiDevisCadenceLivraison}}</strong></li>
 							<li>Facturation : <strong>Entreprise De Filippis</strong></li>
-							<li>Prix valable pour <strong> {{#contenance}}({{contenance_l}}){{/contenance}}</strong></li>
-							<li>Acompte: <strong>{{#accompte}}({{accompte_l}}){{/accompte}}</strong></li>
-							<li>Paiement: <strong>{{#paiement}}({{paiement_l}}){{/paiement}}</strong></li>
+							<li>Prix valable pour : <strong> {{#contenance}}{{contenance_l}}{{/contenance}}</strong></li>
+							<li>Acompte : <strong>{{#accompte}}{{accompte_l}}{{/accompte}}</strong></li>
+							<li>Paiement: <strong>{{#paiement}}{{paiement_l}}{{/paiement}}</strong></li>
 							<li>Validité de l'offre : <strong>{{defiDevisDateValiditeOffre}}</strong></li>
-							<li>Condition de mise à disposition : <strong>{{#pack_transp}}({{pack_transp_l}}){{/pack_transp}}</strong></li>
+							<li>Packaging transport : <strong>{{#pack_transp}}{{pack_transp_l}}{{/pack_transp}}</strong></li>
+							<li>Condition de mise à disposition : <strong>{{#conditions}}{{conditions_l}}{{/conditions}}</strong></li>
 						</ul>
 					</td>
 					<td class="totallibelle">

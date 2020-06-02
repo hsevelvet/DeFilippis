@@ -190,9 +190,12 @@
 	
 	h1, h2 {
 		color:#004C8E;
-	}		
+	}	
+	h1 {
+		margin:15px 0 5px 0;
+	}
 	h2 {
-		padding:7px 0 0 0;
+		margin:10px 0 20px 0;
 	}
 	h3 {
 		text-align:center;
@@ -243,22 +246,25 @@
             <tr class="top">
                 <td colspan="2">
 
-					<img src="https://www.raultgranit.com/upload/partenaire/0001/181129-091132-de-filippis-mineral-conseil_large.jpg"  style="width:120px;">	
-				
 					{{#rows}}
                     <table>
-                        <tr>
-                            <td class="title">
-
-								<!--DEFILIPPIS Minéral Conseil <br/>-->
+						<tr>
+							<td class="title" colspan="2" style="font-size: 8px;line-height: 14px;color: #333;">
+								<img src="https://nsm09.casimages.com/img/2020/06/02//20060207455325239716829796.png" style="height:45px;float:left;margin-right:15px">
+										
                                 175 Avenue des Frères Lumière.<br/>
 								FRANCE - 69726 Genay<br/>
                                 Tél : 04 78 98 15 49 / www.mineralconseil.fr<br/>
-								SAS - RCS LYON 612 029 298 - FR 29 612 029 298
-								<br/><br/>
-								
-								
-                            </td>
+								SAS - RCS LYON 612 029 298 - FR 29 612 029 298<br/>
+												
+								<hr style="border:solid 1px #eee;margin-bottom:20px">
+							</td>
+						</tr>						
+                        <tr>
+							<td>
+								<strong>Suiveur Affaire :</strong>{{#rows_commande}}{{defiCommandeRedacteur}}{{/rows_commande}}<br/>	
+														
+							</td>
                             <td style="text-align:right">
 										<strong>Client </strong>: {{#rows_client}} {{defiClientNom}} {{/rows_client}} <br/>
 										<strong>Contact </strong>: {{#contact_client}}{{defiContactPrenom}} {{defiContactNom}}{{/contact_client}}<br/>
