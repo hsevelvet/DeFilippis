@@ -302,7 +302,7 @@
 				{{/rows_l}}
 				
 			</tbody>
-			{{#cl}}
+			
 			<tfoot>
 				<tr>
 					<td class="conditions2" rowspan="3" colspan="4" >
@@ -311,18 +311,18 @@
 					<td class="totallibelle">
 						TOTAL HT
 					</td>
-					<td class="totalvaleur">{{defiCommandeMontantLivraisons}} €</td>
+					<td class="totalvaleur">{{#total_ht}}({{total_ht_l}}){{/total_ht}} €</td>
 				</tr>		
 				<tr>
 					<td class="tvalibelle">TVA 20,00%</td>
-					<td class="tvavaleur">  €</td>
+					<td class="tvavaleur"> {{#tva}}({{prix_tva}}){{/tva}} €</td>
 				</tr>
 				<tr>
 					<td class="totalttclibelle">TOTAL TTC</td>
-					<td class="totalttcvaleur">PrixTotal €</td>					
+					<td class="totalttcvaleur">{{#total_ttc}}({{total_ttc_l}}){{/total_ttc}} €</td>					
 				</tr>				
 			</tfoot>
-			{{/cl}}
+			
 		</table>
 		<br/>
 	<!--<table class="signature">
