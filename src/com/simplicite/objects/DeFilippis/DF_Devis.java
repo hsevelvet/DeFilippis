@@ -173,22 +173,42 @@ public class DF_Devis extends ObjectDB {
 		double poids_total = getField("defiDevisPoidsTotal").getDouble(0);
 		double nb_camions = getField("defiDevisNombreCamions").getDouble(0);
 		String libelle_affaire = getFieldValue("DF_Devis_DF_Chantier_id.defiAfrLibelleChantier");
-		String User = getFieldValue("DF_Devis_DF_utilisateur_interne_id.defiUsrNomComplet");
+		String User = getFieldValue("DF_Devis_DF_utilisateur_interne_id.defiUsrNC");
 		String Redacteur = getFieldValue("defiDevisRedacteur");
+		
+		int index_accompte = getField("defiDevisAccompte").getList().getItemIndex(getFieldValue("defiDevisAccompte"),false);
+		String accompte = getField("defiDevisAccompte").getList().getValue(index_accompte);
+		
+		int index_conditions = getField("defiDevisIncotermPrix").getList().getItemIndex(getFieldValue("defiDevisIncotermPrix"),false);
+		String conditions = getField("defiDevisIncotermPrix").getList().getValue(index_conditions);
+		
+		int index_contenance = getField("defiDevisContenance").getList().getItemIndex(getFieldValue("defiDevisContenance"),false);
+		String contenance = getField("defiDevisContenance").getList().getValue(index_contenance);
+		
+		int index_pack_transp = getField("defiDevisPackagingTransport").getList().getItemIndex(getFieldValue("defiDevisPackagingTransport"),false);
+		String pack_transp = getField("defiDevisPackagingTransport").getList().getValue(index_pack_transp);
 		
 		// Set Commande
 		c.create();
 
 		c.setFieldValue("DF_Commande_DF_Affaire_id", getFieldValue("DF_Devis_DF_Chantier_id"));
 		c.setFieldValue("DF_Commande_DF_utilisateur_interne_id", getFieldValue("DF_Devis_DF_utilisateur_interne_id"));	
-		c.setFieldValue("DF_Commande_DF_Client_id", getFieldValue("DF_Devis_DF_Client_id"));
-		c.setFieldValue("DF_Commande_DF_Contact_id", getFieldValue("DF_Devis_DF_Contact_id"));
+		c.setFieldValue("DF_Commande_DF_Client_id", this.getFieldValue("DF_Devis_DF_Client_id"));
+		c.setFieldValue("DF_Commande_DF_Contact_id", this.getFieldValue("DF_Devis_DF_Contact_id"));
 		c.setFieldValue("defiCommandeRedacteur", Redacteur);
 		c.setStatus("IN");	
 		c.setFieldValue("defiCommandeLieuAffaire",lieu_affaire);
 		c.setFieldValue("defiCommandeIntituleAffaire",intitule_affaire);
 		c.setFieldValue("defiCommandePoidsTotal",poids_total);
 		c.setFieldValue("defiCommandeNombreCamions",nb_camions);
+		
+		c.setFieldValue("defiCommandeAccompte",accompte);
+		c.setFieldValue("defiCommandeIncotermPrix",conditions);
+		c.setFieldValue("defiCommandeContenance",contenance);
+		c.setFieldValue("defiCommandePackagingTransport",pack_transp);
+		c.setFieldValue("defiCommandeCadenceLivraison",getFieldValue("defiDevisCadenceLivraison"));
+		
+		c.validate();
 		c.save();
 		
 		// Get valeurs ligne devis

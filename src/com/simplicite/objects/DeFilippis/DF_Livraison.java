@@ -228,6 +228,8 @@ public class DF_Livraison extends ObjectDB {
 		
 		ObjectDB q = getGrant().getTmpObject("DF_Quantite");
 		q.resetFilters();
+		q.setFieldFilter("DF_Quantite_DF_Livraison_id", getRowId());
+		
 		
 		List<String[]> rows = q.search(false);
 		if (rows.size() > 0){
@@ -332,8 +334,9 @@ public class DF_Livraison extends ObjectDB {
 		DF_Livraison livraison = (DF_Livraison) getGrant().getTmpObject("DF_Livraison");
 		livraison.resetValues();
 		ObjectDB q = Grant.getSystemAdmin().getObject("DF_Quantite","DF_Quantite");
-		ObjectDB commande_livraison = getGrant().getTmpObject("DF_Commande");
-		ObjectDB client = Grant.getSystemAdmin().getObject("DF_Client","DF_Client");
+		ObjectDB commande_livraison = Grant.getSystemAdmin().getObject("DF_Commande","DF_Commande");
+		//ObjectDB client = Grant.getSystemAdmin().getObject("DF_Client","DF_Client");
+		ObjectDB client = getGrant().getTmpObject("DF_Client");
 		ObjectDB contact_client = getGrant().getTmpObject("DF_Contact");
 
 		List<String[]> q_search = new ArrayList<String[]>();
@@ -347,38 +350,67 @@ public class DF_Livraison extends ObjectDB {
 			synchronized(livraison){
 				
 				livraison.select(id);
-				
+				AppLog.info(getClass(), "cliiiiient", id, getGrant());
+				ObjectDB qt = getGrant().getTmpObject("DF_Quantite");
 				q.resetFilters();
 				q.setFieldFilter("DF_Quantite_DF_Livraison_id",livraison.getRowId());
+				q.save();
+				
 				livraison.setFieldFilter("row_id", livraison.getRowId());
 				
 				commande_livraison.resetFilters();
 				commande_livraison.setFieldFilter("row_id",livraison.getFieldValue("DF_Livraison_DF_Commande_id"));
-				client.resetFilters();
-				
-				
-				//double montant = Double.parseDouble(getFieldValue("defiLivraisonTotalHT"));
-				//AppLog.info(getClass(), "commmmmmmmm1", String.valueOf(montant), getGrant());
-				//somme = somme+montant;
-				//AppLog.info(getClass(), "commmmmmmmm2", String.valueOf(somme), getGrant());
-				
-			
-		
-				/**commande_livraison.setFieldValue("defiCommandeMontantLivraisons", somme);
-				commande_livraison.save();*/
-				
-				
+				commande_livraison.save();
+				AppLog.info(getClass(), "cliiiiient", commande_livraison.getRowId(), getGrant());
+				//client.resetFilters();
 				
 				
 				// Contact Client 
 				contact_client.resetFilters();
 				contact_client.setFieldFilter("row_id",commande_livraison.getFieldValue("DF_Commande_DF_Contact_id"));	
+				
+				// Client
+				client.resetFilters();
+				client.setFieldFilter("row_id",commande_livraison.getFieldValue("DF_Commande_DF_Client_id"));
+				
 
 				livraison_search.addAll(livraison.search());
 				q_search.addAll(q.search());
 				
+				List<Double>rows = new ArrayList<>();
+				List<String> ids = getSelectedIds();
 				
 				
+				if (!Tool.isEmpty(ids)) {
+					for (int k = 0; k < ids.size(); k++)
+						if (livraison.select(ids.get(k)))
+							rows.add(livraison.getField("defiLivraisonTotalHT").getDouble(0));
+				} else {
+					rows.add(0.0);
+				}
+				
+				double total_livraison = rows.stream().mapToDouble(Double::doubleValue).sum();
+				AppLog.info(getClass(), "rows", rows.toString(), getGrant());
+		
+				// calcul tva 
+				double prix_tva = (int)(Math.round(total_livraison*0.2 * 100))/100.0;
+		
+				// calcul total ttc
+				double total_ttc = prix_tva+total_livraison;
+				
+				wp.append(MustacheTool.apply(
+						this,
+						"DF_ODF_HTML", 
+						"{'rows_l':"+q.toJSON(q_search, null, false, false)+
+						",'bl':"+livraison.toJSON(livraison_search, null, false, false)+
+						",'cl':"+commande_livraison.toJSON(commande_livraison.search(), null, false, false)+
+						",'client':"+client.toJSON(client.search(), null, false, false)+
+						",'contact_client':"+contact_client.toJSON(contact_client.search(), null, false, false)+
+						",'total_ht':"+ "[{'total_ht_l':"+Double.toString(total_livraison)+"}]"+
+						",'tva':"+ "[{'prix_tva':"+Double.toString(prix_tva)+"}]"+
+						",'total_ttc':"+ "[{'total_ttc_l':"+Double.toString(total_ttc)+"}]"+
+						"}"
+				));
 				
 			}
 			
@@ -387,48 +419,36 @@ public class DF_Livraison extends ObjectDB {
 	
 		}
 		// calcul montant total ht
-		DF_Livraison livraison2 = (DF_Livraison) getGrant().getTmpObject("DF_Livraison");
-		livraison2.resetValues();
-		List<Double>rows = new ArrayList<>();
-		List<String> ids = getSelectedIds();
-		AppLog.info(getClass(), "ids", ids.toString(), getGrant());
+		//DF_Livraison livraison2 = (DF_Livraison) getGrant().getTmpObject("DF_Livraison");
+		//livraison2.resetValues();
+		//List<Double>rows = new ArrayList<>();
+		//List<String> ids = getSelectedIds();
+		//AppLog.info(getClass(), "ids", ids.toString(), getGrant());
 		
-		if (!Tool.isEmpty(ids)) {
-			for (int k = 0; k < ids.size(); k++)
-				if (livraison2.select(ids.get(k)))
-					rows.add(livraison2.getField("defiLivraisonTotalHT").getDouble(0));
-			} else {
-					rows.add(0.0);
-			}
-		double total_livraison = rows.stream().mapToDouble(Double::doubleValue).sum();
-		AppLog.info(getClass(), "rows", rows.toString(), getGrant());
 		
-		// calcul tva 
-		double prix_tva = (int)(Math.round(total_livraison*0.2 * 100))/100.0;
 		
-		// calcul total ttc
-		double total_ttc = prix_tva+total_livraison;
+		// Contact Client 
+		//contact_client.resetFilters();
+		//contact_client.setFieldFilter("row_id",commande_livraison.getFieldValue("DF_Commande_DF_Contact_id"));	
+		//contact_client.save();
+				
+		// Client
+		//client.resetFilters();
+		//client.setFieldFilter("row_id",commande_livraison.getFieldValue("DF_Commande_DF_Client_id"));
+		//AppLog.info(getClass(), "cliiiiient", commande_livraison.getFieldValue("DF_Commande_DF_Client_id"), getGrant());
+		//client.save();
 		
-		ObjectDB commande_client = getGrant().getTmpObject("DF_Commande");
+		
+		
+		
+		/*ObjectDB commande_client = getGrant().getTmpObject("DF_Commande");
 		commande_client.resetFilters();
 		commande_client.setFieldFilter("row_id",livraison.getFieldValue("DF_Livraison_DF_Commande_id"));
 		client.setFieldFilter("row_id",commande_client.getFieldValue("DF_Commande_DF_Client_id"));
-			
+		*/	
 		
 		
-		wp.append(MustacheTool.apply(
-			this,
-			"DF_ODF_HTML", 
-			"{'rows_l':"+q.toJSON(q_search, null, false, false)+
-			",'bl':"+livraison.toJSON(livraison_search, null, false, false)+
-			",'cl':"+commande_livraison.toJSON(commande_livraison.search(), null, false, false)+
-			",'client':"+client.toJSON(client.search(), null, false, false)+
-			",'contact_client':"+contact_client.toJSON(contact_client.search(), null, false, false)+
-			",'total_ht':"+ "[{'total_ht_l':"+Double.toString(total_livraison)+"}]"+
-			",'tva':"+ "[{'prix_tva':"+Double.toString(prix_tva)+"}]"+
-			",'total_ttc':"+ "[{'total_ttc_l':"+Double.toString(total_ttc)+"}]"+
-			"}"
-		));
+		
 		
 		livraison.setFieldValue("df_livraison_statut","6");
 		livraison.save();

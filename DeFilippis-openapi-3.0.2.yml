@@ -453,14 +453,8 @@ components:
         defiCommandeMontantHT:
           description: Montant Commande HT
           type: number
-        defiCommandeAdresseLivraison:
-          description: Adresse Livraison
-          type: string
-        DF_Commande_DF_utilisateur_interne_id__defiUsrNomComplet:
-          description: defi usr nom complet Rédacteur
-          type: string
-        defiCommandeSuiveurAffaire:
-          description: Suiveur de l'affaire
+        defiCommandePackagingTransport:
+          description: Packaging Transport
           type: string
         defiCommandeStatut:
           description: Statut Commande
@@ -471,38 +465,26 @@ components:
           - LI
           - TE
           - AN
+        defiCommandeIncotermPrix:
+          description: Incoterm Prix
+          type: string
         defiCommandePJCommandeTransport:
           description: Commande Transport
           type: object
         defiCommandeIdLivraison:
           description: Id Livraison
           type: integer
-        defiCommandeRedacteur:
-          description: Rédacteur Commande
+        DF_Commande_DF_Contact_id__defiContactEmail:
+          description: E-mail Contacts
           type: string
         defiCommandeTrelloId:
           description: Commande Trello Id
           type: string
-        DF_Commande_DF_Contact_id__defiContactNom:
-          description: Nom Contacts
-          type: string
-        defiCommandePieceJointeTransport:
-          description: Pièce Jointe Transport
-          type: object
         DF_Commande_DF_Contact_id__defiContactId:
           description: Id Contact Contacts
           type: string
-        defiCommandeTransporteur:
-          description: Transporteur
-          type: string
         DF_Commande_DF_Affaire_id__defiAfrLibelleChantier:
           description: Titre Affaire
-          type: string
-        DF_Commande_DF_utilisateur_interne_id:
-          description: Rédacteur
-          type: string
-        DF_Commande_DF_Client_id__defiClientId:
-          description: Id Client DF client
           type: string
         defiCommandeDatePremierCamion:
           description: Date du premier camion
@@ -511,34 +493,13 @@ components:
         defiCommandeNumero:
           description: Numéro de Commande
           type: string
-        defiCommandeDetail:
-          description: Détail de commande
-          type: string
-        defiCommandeNombreCamions:
-          description: Nombre de camions
-          type: number
-        DF_Commande_DF_utilisateur_interne_id__usr_login:
-          description: Login
-          type: string
-        DF_Commande_DF_Affaire_id__defiAfrLieuAffaire:
-          description: Ville Affaire Affaires
-          type: string
         defiCommandeId:
           description: Id Commande
           type: string
-        defiCommandeContactLivraison:
-          description: Contact Livraison
-          type: string
-        defiCommandeMontantLivraisons:
-          description: Montant Livraisons
-          type: number
         defiCommandeDate:
           description: Date de commande
           type: string
           example: yyyy-MM-dd
-        defiCommandePoidsTotal:
-          description: Poids Total (T)
-          type: number
         DF_Commande_DF_Fournisseurs_id__defiFournId:
           description: Id Fournisseur Fournisseurs
           type: string
@@ -548,20 +509,8 @@ components:
         defiCommandePieceJointe2:
           description: Pièce Jointe 2
           type: object
-        defiCommandeCadenceLivraison:
-          description: Cadence de livraison hebdomadaire estimée
-          type: number
         defiCommandeIntituleAffaire:
           description: Titre Affaire
-          type: string
-        DF_Commande_DF_Fournisseurs_id:
-          description: Fournisseurs
-          type: string
-        defiCommandeIntituleCommande:
-          description: Intitulé de commande
-          type: string
-        DF_Commande_DF_Contact_id__defiContactPrenom:
-          description: Prénom Contacts
           type: string
         defiCommandePJCommandeFournisseur:
           description: Commande Fournisseur
@@ -572,14 +521,8 @@ components:
         defiCommandeContactFournisseur:
           description: Contact Fournisseur
           type: string
-        defiCommandePJFournisseur:
-          description: Pièce Jointe Fournisseur
-          type: object
-        DF_Commande_DF_Contact_id:
-          description: Contacts
-          type: string
-        row_id:
-          description: Unique technical row ID
+        defiCommandeContenance:
+          description: Contenance
           type: string
         defiCommandeLieuAffaire:
           description: Ville Affaire
@@ -589,6 +532,81 @@ components:
           type: string
         DF_Commande_DF_Affaire_id:
           description: Affaires
+          type: string
+        DF_Commande_DF_Client_id__defiClientNom:
+          description: Nom Client DF client
+          type: string
+        defiCommandeAdresseLivraison:
+          description: Adresse Livraison
+          type: string
+        defiCommandeSuiveurAffaire:
+          description: Suiveur de l'affaire
+          type: string
+        defiCommandeRedacteur:
+          description: Rédacteur Commande
+          type: string
+        DF_Commande_DF_Contact_id__defiContactNom:
+          description: Nom Contacts
+          type: string
+        DF_Commande_DF_utilisateur_interne_id__defiUsrNC:
+          description: Nom Suiveur
+          type: string
+        defiCommandePieceJointeTransport:
+          description: Pièce Jointe Transport
+          type: object
+        defiCommandeTransporteur:
+          description: Transporteur
+          type: string
+        DF_Commande_DF_utilisateur_interne_id:
+          description: Rédacteur
+          type: string
+        DF_Commande_DF_Client_id__defiClientId:
+          description: Id Client DF client
+          type: string
+        defiCommandeDetail:
+          description: Détail de commande
+          type: string
+        defiCommandeNombreCamions:
+          description: Nombre de camions
+          type: number
+        DF_Commande_DF_utilisateur_interne_id__usr_login:
+          description: Login
+          type: string
+        defiCommandeAccompte:
+          description: Accompte
+          type: string
+        DF_Commande_DF_Affaire_id__defiAfrLieuAffaire:
+          description: Ville Affaire Affaires
+          type: string
+        defiCommandeContactLivraison:
+          description: Contact Livraison
+          type: string
+        defiCommandeMontantLivraisons:
+          description: Montant Livraisons
+          type: number
+        defiCommandePoidsTotal:
+          description: Poids Total (T)
+          type: number
+        defiCommandeCadenceLivraison:
+          description: Cadence de livraison hebdomadaire estimée
+          type: string
+        DF_Commande_DF_Fournisseurs_id:
+          description: Fournisseurs
+          type: string
+        defiCommandeIntituleCommande:
+          description: Intitulé de commande
+          type: string
+        DF_Commande_DF_Contact_id__defiContactPrenom:
+          description: Prénom Contacts
+          type: string
+        defiCommandePJFournisseur:
+          description: Pièce Jointe Fournisseur
+          type: object
+        DF_Commande_DF_Contact_id:
+          description: Contacts
+          type: string
+        row_id:
+          description: Unique technical row ID
           type: string
     Error403:
       type: object
@@ -917,6 +935,9 @@ components:
         DF_Devis_DF_Contact_id__defiContactEmail:
           description: E-mail Contacts
           type: string
+        DF_Devis_DF_utilisateur_interne_id__defiUsrNC:
+          description: Suiveur de l'affaire
+          type: string
         defiDevisDelaiPaiement:
           description: Délai de paiement
           type: string
@@ -942,9 +963,6 @@ components:
           type: number
         DF_Devis_DF_Client_id__defiClientEmail:
           description: E-mail client
-          type: string
-        DF_Devis_DF_utilisateur_interne_id__defiUsrRedacteur:
-          description: Rédacteur DF utilisateur interne
           type: string
         defiDevisDateEmission:
           description: Date Emission
@@ -977,9 +995,6 @@ components:
         defiDevisPieceJointe1:
           description: Pièce Jointe 1
           type: object
-        DF_Devis_DF_utilisateur_interne_id__defiUsrNomComplet:
-          description: Suiveur de l'affaire
-          type: string
         defiDevisRedacteur:
           description: Rédacteur Devis
           type: string
@@ -1983,9 +1998,6 @@ components:
         usr_minrows:
           description: Taille minimale des listes
           type: integer
-        defiUsrRedacteur:
-          description: Rédacteur
-          type: string
         row_module_id:
           description: Module
           type: string
@@ -2067,9 +2079,6 @@ components:
         usr_last_name:
           description: Last name
           type: string
-        defiUsrNomComplet:
-          description: Nom Complet
-          type: string
         usr_cell_num:
           description: Mobile/cellular phone number
           type: string
@@ -2088,6 +2097,9 @@ components:
         usr_maxrows:
           description: Taille maximale des listes
           type: integer
+        defiUsrNC:
+          description: Nom Complet
+          type: string
         row_id:
           description: Unique technical row ID
           type: string
@@ -4157,6 +4169,12 @@ paths:
         required: false
       - schema:
           type: string
+        in: query
+        name: defiUsrNC
+        description: Search filter for Nom Complet
+        required: false
+      - schema:
+          type: string
           enum:
           - ENU
           - FRA
@@ -4169,12 +4187,6 @@ paths:
         in: query
         name: usr_image_id
         description: Search filter for Picture
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: defiUsrNomComplet
-        description: Search filter for Nom Complet
         required: false
       - schema:
           type: string
@@ -4898,12 +4910,6 @@ paths:
         in: query
         name: usr_cell_num
         description: Search filter for Mobile/cellular phone number
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: defiUsrRedacteur
-        description: Search filter for Rédacteur
         required: false
       - schema:
           type: string
@@ -7017,26 +7023,26 @@ paths:
       - schema:
           type: string
         in: query
+        name: defiCommandeNumero
+        description: Search filter for Numéro de Commande
+        required: false
+      - schema:
+          type: string
+        in: query
         name: defiCommandeId
         description: Search filter for Id Commande
         required: false
       - schema:
           type: string
         in: query
-        name: defiCommandeNumero
-        description: Search filter for Numéro de Commande
+        name: defiCommandeIntituleAffaire
+        description: Search filter for Titre Affaire
         required: false
       - schema:
           type: integer
         in: query
         name: defiCommandeIdLivraison
         description: Search filter for Id Livraison
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: defiCommandeIntituleAffaire
-        description: Search filter for Titre Affaire
         required: false
       - schema:
           type: string
@@ -7053,6 +7059,12 @@ paths:
       - schema:
           type: string
         in: query
+        name: DF_Commande_DF_utilisateur_interne_id__defiUsrNC
+        description: Search filter for Nom Suiveur
+        required: false
+      - schema:
+          type: string
+        in: query
         name: DF_Commande_DF_Contact_id__defiContactPrenom
         description: Search filter for Prénom Contacts
         required: false
@@ -7061,6 +7073,12 @@ paths:
         in: query
         name: defiCommandeIntituleCommande
         description: Search filter for Intitulé de commande
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Commande_DF_Client_id
+        description: Search filter for DF client
         required: false
       - schema:
           type: string
@@ -7073,12 +7091,6 @@ paths:
         in: query
         name: defiCommandeStatut
         description: Search filter for Statut Commande
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: DF_Commande_DF_Client_id
-        description: Search filter for DF client
         required: false
       - schema:
           type: string
@@ -7097,6 +7109,12 @@ paths:
         in: query
         name: defiCommandeDate
         description: Search filter for Date de commande
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Commande_DF_Client_id__defiClientNom
+        description: Search filter for Nom Client DF client
         required: false
       - schema:
           type: string
@@ -7159,7 +7177,7 @@ paths:
         description: Search filter for Contact Transporteur
         required: false
       - schema:
-          type: number
+          type: string
         in: query
         name: defiCommandeCadenceLivraison
         description: Search filter for Cadence de livraison hebdomadaire estimée
@@ -7251,12 +7269,6 @@ paths:
       - schema:
           type: string
         in: query
-        name: DF_Commande_DF_utilisateur_interne_id__defiUsrNomComplet
-        description: Search filter for defi usr nom complet Rédacteur
-        required: false
-      - schema:
-          type: string
-        in: query
         name: defiCommandeRedacteur
         description: Search filter for Rédacteur Commande
         required: false
@@ -7265,6 +7277,36 @@ paths:
         in: query
         name: defiCommandeMontantLivraisons
         description: Search filter for Montant Livraisons
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Commande_DF_Contact_id__defiContactEmail
+        description: Search filter for E-mail Contacts
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: defiCommandePackagingTransport
+        description: Search filter for Packaging Transport
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: defiCommandeIncotermPrix
+        description: Search filter for Incoterm Prix
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: defiCommandeAccompte
+        description: Search filter for Accompte
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: defiCommandeContenance
+        description: Search filter for Contenance
         required: false
       tags:
       - DF_Commande
@@ -8234,7 +8276,7 @@ paths:
       - schema:
           type: string
         in: query
-        name: DF_Devis_DF_utilisateur_interne_id__defiUsrNomComplet
+        name: DF_Devis_DF_utilisateur_interne_id__defiUsrNC
         description: Search filter for Suiveur de l'affaire
         required: false
       - schema:
@@ -8505,12 +8547,6 @@ paths:
         in: query
         name: defiDevisRedacteur
         description: Search filter for Rédacteur Devis
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: DF_Devis_DF_utilisateur_interne_id__defiUsrRedacteur
-        description: Search filter for Rédacteur DF utilisateur interne
         required: false
       tags:
       - DF_Devis

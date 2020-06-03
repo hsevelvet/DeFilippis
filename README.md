@@ -130,6 +130,7 @@ objet metier pour commande.
 | `defiCommandeIntituleAffaire`                                | char(100)                                |          | yes       |          | -                                                                                |
 | `defiCommandeLieuAffaire`                                    | char(100)                                |          | yes       |          | -                                                                                |
 | _Ref. `DF_Commande_DF_Contact_id.defiContactNom`_            | _char(36)_                               |          |           |          | -                                                                                |
+| _Ref. `DF_Commande_DF_utilisateur_interne_id.defiUsrNC`_     | _char(70)_                               |          |           |          | -                                                                                |
 | _Ref. `DF_Commande_DF_Contact_id.defiContactPrenom`_         | _char(32)_                               |          |           |          | -                                                                                |
 | `defiCommandeIntituleCommande`                               | char(70)                                 |          | yes       |          | -                                                                                |
 | `defiCommandeStatut`                                         | enum(7) using `DF_COMMANDE_STATUT` list  |          | yes       |          | -                                                                                |
@@ -137,6 +138,7 @@ objet metier pour commande.
 | _Ref. `DF_Commande_DF_Client_id.defiClientId`_               | _char(11)_                               |          |           |          | -                                                                                |
 | `defiCommandeDetail`                                         | char(100)                                |          | yes       |          | -                                                                                |
 | `defiCommandeDate`                                           | date                                     | yes      | yes       |          | -                                                                                |
+| _Ref. `DF_Commande_DF_Client_id.defiClientNom`_              | _char(36)_                               |          |           |          | -                                                                                |
 | `defiCommandePieceJointe1`                                   | document                                 |          | yes       |          | -                                                                                |
 | `defiCommandePieceJointe2`                                   | document                                 |          | yes       |          | -                                                                                |
 | `defiCommandePoidsTotal`                                     | float(6, 2)                              |          | yes       |          | -                                                                                |
@@ -147,7 +149,7 @@ objet metier pour commande.
 | `defiCommandeAdresseLivraison`                               | char(150)                                |          | yes       |          | -                                                                                |
 | `defiCommandeContactLivraison`                               | char(70)                                 |          | yes       |          | -                                                                                |
 | `defiCommandeContactTransporteur`                            | char(100)                                |          | yes       |          | -                                                                                |
-| `defiCommandeCadenceLivraison`                               | float(6, 2)                              |          | yes       |          | -                                                                                |
+| `defiCommandeCadenceLivraison`                               | char(100)                                |          | yes       |          | -                                                                                |
 | `defiCommandeMontantHT`                                      | float(10, 2)                             |          | yes       |          | -                                                                                |
 | `defiCommandePieceJointeTransport`                           | document                                 |          | yes       |          | -                                                                                |
 | `defiCommandePJCommandeTransport`                            | document                                 |          | yes       |          | -                                                                                |
@@ -162,9 +164,13 @@ objet metier pour commande.
 | _Ref. `DF_Commande_DF_Contact_id.defiContactId`_             | _char(11)_                               |          |           |          | -                                                                                |
 | `DF_Commande_DF_utilisateur_interne_id` link to **`DF_utilisateur_interne`** | id                                       |          | yes       |          | -                                                                                |
 | _Ref. `DF_Commande_DF_utilisateur_interne_id.usr_login`_     | _regexp(100)_                            |          |           | yes      | _Login_                                                                          |
-| _Ref. `DF_Commande_DF_utilisateur_interne_id.defiUsrNomComplet`_ | _char(70)_                               |          |           |          | -                                                                                |
 | `defiCommandeRedacteur`                                      | char(100)                                |          | yes       |          | -                                                                                |
 | `defiCommandeMontantLivraisons`                              | float(10, 2)                             |          | yes       |          | -                                                                                |
+| _Ref. `DF_Commande_DF_Contact_id.defiContactEmail`_          | _email(100)_                             |          |           |          | -                                                                                |
+| `defiCommandePackagingTransport`                             | char(100)                                |          | yes       |          | -                                                                                |
+| `defiCommandeIncotermPrix`                                   | char(100)                                |          | yes       |          | -                                                                                |
+| `defiCommandeAccompte`                                       | char(100)                                |          | yes       |          | -                                                                                |
+| `defiCommandeContenance`                                     | char(100)                                |          | yes       |          | -                                                                                |
 
 ### Lists
 
@@ -254,7 +260,7 @@ Objet metier pour devis.
 | `defiDevisTitre`                                             | char(100)                                | yes*     |           |          | -                                                                                |
 | `defiDevisStatut`                                            | enum(7) using `STATUT_DEVIS` list        | yes      | yes       |          | -                                                                                |
 | `defiDevisTitreProjet`                                       | char(100)                                | yes      | yes       |          | -                                                                                |
-| _Ref. `DF_Devis_DF_utilisateur_interne_id.defiUsrNomComplet`_ | _char(70)_                               |          |           |          | -                                                                                |
+| _Ref. `DF_Devis_DF_utilisateur_interne_id.defiUsrNC`_        | _char(70)_                               |          |           |          | -                                                                                |
 | `defiDevisLieuProjet`                                        | char(32)                                 | yes      | yes       |          | -                                                                                |
 | `defiDevisDateEmission`                                      | date                                     | yes      | yes       |          | -                                                                                |
 | `DF_Devis_DF_Chantier_id` link to **`DF_Affaire`**           | id                                       |          | yes       |          | -                                                                                |
@@ -296,7 +302,6 @@ Objet metier pour devis.
 | `defiDevisIndice`                                            | char(3)                                  |          |           |          | -                                                                                |
 | `defiDevisCompteurDate`                                      | int(100)                                 |          |           |          | -                                                                                |
 | `defiDevisRedacteur`                                         | char(70)                                 |          |           |          | -                                                                                |
-| _Ref. `DF_Devis_DF_utilisateur_interne_id.defiUsrRedacteur`_ | _char(70)_                               |          |           |          | -                                                                                |
 
 ### Lists
 
@@ -701,9 +706,8 @@ Objet metier pour produit.
 
 | Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
-| _Ref. `DF_Commande_DF_utilisateur_interne_id.defiUsrNomComplet`_ | _char(70)_                               |          |           |          | -                                                                                |
+| `defiUsrNC`                                                  | char(70)                                 |          | yes       |          | -                                                                                |
 | `defiUsrTrigramme`                                           | char(5)                                  |          | yes       |          | -                                                                                |
-| `defiUsrRedacteur`                                           | char(70)                                 |          | yes       |          | -                                                                                |
 
 `DF_Process_01` business process definition
 -------------------------------------------

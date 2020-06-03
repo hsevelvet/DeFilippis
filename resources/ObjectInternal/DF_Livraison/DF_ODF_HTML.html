@@ -262,12 +262,12 @@
 						</tr>					
                         <tr>
 							<td>
-								<strong>Suiveur Affaire : </strong>{{#cl}}{{defiCommandeRedacteur}}{{/cl}}
+								<strong>Suiveur Affaire : </strong>{{#cl}}{{DF_Commande_DF_utilisateur_interne_id__defiUsrNC}}{{/cl}}
 							</td>
                             <td style="text-align:right">
-										<strong>Client </strong>: {{#client}}{{defiClientNom}}{{/client}}<br/>
-										<strong>Contact </strong>: {{#contact_client}}{{defiContactPrenom}} {{defiContactNom}}{{/contact_client}}<br/>
-										<strong>Email </strong>: {{#contact_client}}{{defiContactEmail}}{{/contact_client}}<br/>	
+										<strong>Client </strong>: {{#cl}}{{DF_Commande_DF_Client_id__defiClientNom}}{{/cl}}<br/>
+										<strong>Contact </strong>: {{#cl}}{{DF_Commande_DF_Contact_id__defiContactPrenom}} {{DF_Commande_DF_Contact_id__defiContactNom}}{{/cl}}<br/>
+										<strong>Email </strong>: {{#cl}}{{DF_Commande_DF_Contact_id__defiContactEmail}}{{/cl}}<br/>	
 										<br/>
 										<br/>
 										<strong>REF. RELEVE CONTRAD <strong>: {{#bl}} {{defiLivraisonId}}, {{/bl}}
