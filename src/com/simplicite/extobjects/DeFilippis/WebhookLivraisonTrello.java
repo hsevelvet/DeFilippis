@@ -224,10 +224,17 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
 								if (card.has("name")){
 									obj.setFieldValue("defiLivraisonIntituleCamion", card.getString("name"));
 								}
-								
+									
 								String card_json_string = tt.call("/cards/"+card.getString("id"),"get","").toString();
 								JSONObject  card_json = new JSONObject(card_json_string);
-								obj.setFieldValue("df_livraison_date_livraison_estimee", card_json.getString("due"));
+								
+								if (card_json.get("due")!=null){
+									obj.setFieldValue("df_livraison_date_livraison_estimee", card_json.get("due"));
+								}
+								else{
+									obj.setFieldValue("df_livraison_date_livraison_estimee", null);;
+								}
+								
 								if (status!=null){
 									obj.setFieldValue("df_livraison_statut", status);
 								}
@@ -325,25 +332,34 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
 				                    // Chercher Trigramme Transporteur 
 				                    
 				                    String truck_customfield = tt.call("/cards/"+card.getString("id")+"/customFieldItems","get","").toString();
+				                    JSONArray  truck_json = new JSONArray(truck_customfield);
+									if (truck_json.length() !=0){
+										AppLog.info(getClass(), "-------------1", truck_json.toString(), getGrant());
+										JSONObject tjson = truck_json.getJSONObject(0);
 									
-									JSONArray  truck_json = new JSONArray(truck_customfield);
-									JSONObject tjson = truck_json.getJSONObject(0);
-				                    if(tjson.getString("idCustomField").equals("5e721809b1759f6e20a2b522"))
-				                    {
-				                    	JSONObject trigTrsp = tjson.getJSONObject("value");
-				                        String trigramme_trsp = trigTrsp.getString("text");
-				                        ObjectDB trsp = Grant.getSystemAdmin().getObject("webhook_"+"DF_Transport","DF_Transport");
-				                        synchronized(trsp){
-				                        	trsp.resetFilters();
-				                        	trsp.setFieldFilter("defiTrspTrigramme",trigramme_trsp);
-											for(String[] tr : trsp.search()){
-												trsp.setValues(tr);
-												obj.setFieldValue("DF_Livraison_DF_Transport_id",trsp.getRowId());
-												obj.save();
+				                    	if(tjson.getString("idCustomField").equals("5e721809b1759f6e20a2b522"))
+				                    	{
+				                    		JSONObject trigTrsp = tjson.getJSONObject("value");
+				                        	String trigramme_trsp = trigTrsp.getString("text");
+				                        
+				                        	if(trigTrsp.get("text")!=null){
+				                        		ObjectDB trsp = Grant.getSystemAdmin().getObject("webhook_"+"DF_Transport","DF_Transport");
+				                        		synchronized(trsp){
+				                        			trsp.resetFilters();
+				                        			trsp.setFieldFilter("defiTrspTrigramme",trigramme_trsp);
+													for(String[] tr : trsp.search()){
+														trsp.setValues(tr);
+														obj.setFieldValue("DF_Livraison_DF_Transport_id",trsp.getRowId());
+														obj.save();
 											}
 				                        }	
 										
+				                        } else{obj.save();}
+				                        
 				                    }
+									}
+									
+									
 				                    
 				                    
 

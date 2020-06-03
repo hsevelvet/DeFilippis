@@ -222,6 +222,18 @@
 	}
 	
 	</style>	
+	<script>
+		function fPrix(nombre){
+		  nombre += '';
+		  var sep = '&nbsp;';
+		  var reg = /(\d+)(\d{3})/;
+		  while( reg.test( nombre)) {
+			nombre = nombre.replace( reg, '$1' +sep +'$2');
+		  }
+		  /*return nombre;*/
+		  document.write(nombre+"&nbsp;&euro;");
+		}
+	</script>		
 </head>
 
 <body>
@@ -296,8 +308,8 @@
 					<td class="designation">{{DF_Quantite_DF_ligne_commande_id__defiLigneCommandeDesignation}}</td>
 					<td class="unite">{{DF_Quantite_DF_ligne_commande_id__defiLigneCommandeUnite}}</td>
 					<td class="quantite">{{defiQuantiteQte}}</td>
-					<td class="prixu">{{DF_Quantite_DF_ligne_commande_id__defiLigneCommandePrixEXWUnitaire}}&nbsp;€</td>
-					<td class="prixt">{{defiQuantiteMontant}}&nbsp;€</td>
+					<td class="prixu"><script>fPrix({{DF_Quantite_DF_ligne_commande_id__defiLigneCommandePrixEXWUnitaire}});</script></td>
+					<td class="prixt"><script>fPrix({{defiQuantiteMontant}});</script></td>
 				</tr>
 				{{/rows_l}}
 				
@@ -311,15 +323,15 @@
 					<td class="totallibelle">
 						TOTAL HT
 					</td>
-					<td class="totalvaleur">{{#total_ht}}({{total_ht_l}}){{/total_ht}} €</td>
+					<td class="totalvaleur">{{#total_ht}}<script>fPrix({{total_ht_l}});</script>{{/total_ht}}</td>
 				</tr>		
 				<tr>
 					<td class="tvalibelle">TVA 20,00%</td>
-					<td class="tvavaleur"> {{#tva}}({{prix_tva}}){{/tva}} €</td>
+					<td class="tvavaleur"> {{#tva}}<script>fPrix({{prix_tva}});</script>{{/tva}}</td>
 				</tr>
 				<tr>
 					<td class="totalttclibelle">TOTAL TTC</td>
-					<td class="totalttcvaleur">{{#total_ttc}}({{total_ttc_l}}){{/total_ttc}} €</td>					
+					<td class="totalttcvaleur">{{#total_ttc}}<script>fPrix({{total_ttc_l}});</script>{{/total_ttc}}</td>					
 				</tr>				
 			</tfoot>
 			
