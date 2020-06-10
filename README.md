@@ -476,6 +476,7 @@ Objet métier pour fournisseur.
 | _Ref. `DF_Ligne_Devis_DF_Prix_Transport_id.defiPrTspId`_     | _char(11)_                               |          |           |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Prix_Transport_id.defiPrTrspPrix`_  | _float(9, 2)_                            |          |           |          | -                                                                                |
 | `defiLigneDevisFournisseur`                                  | char(100)                                |          | yes       |          | -                                                                                |
+| `defiLigneDevisPrixTrsp`                                     | float(10, 2)                             |          | yes       |          | -                                                                                |
 
 ### Lists
 

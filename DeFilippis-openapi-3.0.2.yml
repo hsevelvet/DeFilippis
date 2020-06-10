@@ -326,18 +326,21 @@ components:
         DF_Ligne_Devis_DF_Prix_Transport_id__defiPrTspId:
           description: Id Prix Transport Prix Transport
           type: string
+        defiLigneDevisMasseVolumique:
+          description: Masse Volumique
+          type: number
         defiLigneDevisUnite:
           description: Unité LigneD
           type: string
         defiLigneDevisEpaisseur:
           description: Epaisseur / Hauteur (cm)
           type: number
-        defiLigneDevisMasseVolumique:
-          description: Masse Volumique
-          type: number
         DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdLargeur:
           description: Largeur (cm)
           type: string
+        defiLigneDevisPrixTrsp:
+          description: Prix Transport
+          type: number
         defiLigneDevisPrixTransportReference:
           description: Prix Transport Référence
           type: number
@@ -5154,6 +5157,12 @@ paths:
         description: Search filter for Quantité
         required: false
       - schema:
+          type: number
+        in: query
+        name: defiLigneDevisMasseVolumique
+        description: Search filter for Masse Volumique
+        required: false
+      - schema:
           type: string
         in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdFinitionFacesVues
@@ -5405,12 +5414,6 @@ paths:
         description: Search filter for Désignation Produit
         required: false
       - schema:
-          type: number
-        in: query
-        name: defiLigneDevisMasseVolumique
-        description: Search filter for Masse Volumique
-        required: false
-      - schema:
           type: string
         in: query
         name: defiLigneDevisNomProduit
@@ -5439,6 +5442,12 @@ paths:
         in: query
         name: defiLigneDevisFournisseur
         description: Search filter for Fournisseur
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: defiLigneDevisPrixTrsp
+        description: Search filter for Prix Transport
         required: false
       tags:
       - DF_Ligne_Devis

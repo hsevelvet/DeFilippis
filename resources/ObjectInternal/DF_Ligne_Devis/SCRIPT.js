@@ -14,6 +14,9 @@ var DF_Ligne_Devis = typeof DF_Ligne_Devis !== "undefined" ? DF_Ligne_Devis : (f
 				var des = $ui.getUIField(ctn, obj, "DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdTypeProduit");
 				var nom = $ui.getUIField(ctn, obj, "DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdTypeGeologique");
 				var fin = $ui.getUIField(ctn, obj, "DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdFinitionFacesVues");
+				
+				var ptrsp = $ui.getUIField(ctn, obj, "DF_Ligne_Devis_DF_Prix_Transport_id.defiPrTrspPrix");
+				
 				prix.ui.on("change", function() {
 					$ui.getUIField(ctn, obj, "defiLigneDevisPrixUnitaireHT").ui.val(prix.ui.val());
 				});
@@ -40,6 +43,10 @@ var DF_Ligne_Devis = typeof DF_Ligne_Devis !== "undefined" ? DF_Ligne_Devis : (f
 				});
 				nom.ui.on("change", function() {
 					$ui.getUIField(ctn, obj, "defiLigneDevisNomProduit").ui.val(nom.ui.val());
+				});
+				
+				ptrsp.ui.on("change", function() {
+					$ui.getUIField(ctn, obj, "defiLigneDevisPrixTrsp").ui.val(ptrsp.ui.val());
 				});
 				
 				//fin.ui.on("change", function() {
