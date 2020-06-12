@@ -5,6 +5,8 @@ var DF_Ligne_Devis = typeof DF_Ligne_Devis !== "undefined" ? DF_Ligne_Devis : (f
 		try {
 			// Helper to dynamically change unit price when selecting product (also done on server side)
 			o.locals.ui.form.onload = function(ctn, obj) {
+				var ap_com = $ui.getUIField(ctn, obj, "DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdAppellationCommerciale");
+				var type_prd = $ui.getUIField(ctn, obj, "DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdTypeProduit");
 				var prix = $ui.getUIField(ctn, obj, "DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdPrixUnitaireHT");
 				var unit = $ui.getUIField(ctn, obj, "DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdUnite");
 				var lrg = $ui.getUIField(ctn, obj, "DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdLargeur");
@@ -13,9 +15,22 @@ var DF_Ligne_Devis = typeof DF_Ligne_Devis !== "undefined" ? DF_Ligne_Devis : (f
 				var mvp = $ui.getUIField(ctn, obj, "DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdMasseVolumique");
 				var des = $ui.getUIField(ctn, obj, "DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdTypeProduit");
 				var nom = $ui.getUIField(ctn, obj, "DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdTypeGeologique");
-				var fin = $ui.getUIField(ctn, obj, "DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdFinitionFacesVues");
+				
+				var finition = $ui.getUIField(ctn, obj, "DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdFinitionFacesVues");
+				var aut_fin = $ui.getUIField(ctn, obj, "DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdAutresFinitions");
 				
 				var ptrsp = $ui.getUIField(ctn, obj, "DF_Ligne_Devis_DF_Prix_Transport_id.defiPrTrspPrix");
+				var categ_prix = $ui.getUIField(ctn, obj, "DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdCategoriePrix");
+				
+				
+				ap_com.ui.on("change", function(){
+					$ui.getUIField(ctn, obj, "defiLigneDevisAppellationCommerciale").ui.val(ap_com.ui.val());
+				});
+				
+				type_prd.ui.on("change", function(){
+					$ui.getUIField(ctn, obj, "defiLigneDevisTypePrd").ui.val(type_prd.ui.val());
+				});
+				
 				
 				prix.ui.on("change", function() {
 					$ui.getUIField(ctn, obj, "defiLigneDevisPrixUnitaireHT").ui.val(prix.ui.val());
@@ -38,20 +53,26 @@ var DF_Ligne_Devis = typeof DF_Ligne_Devis !== "undefined" ? DF_Ligne_Devis : (f
 					$ui.getUIField(ctn, obj, "defiLigneDevisMasseVolumique").ui.val(mvp.ui.val());
 				});
 				
+				finition.ui.on("change", function() {
+					$ui.getUIField(ctn, obj, "defiLigneDevisFinitionFV").ui.val(finition.ui.val());
+				});
+				aut_fin.ui.on("change", function() {
+					$ui.getUIField(ctn, obj, "defiLigneDevisAutresFinitions").ui.val(aut_fin.ui.val());
+				});
 				des.ui.on("change", function() {
 					$ui.getUIField(ctn, obj, "defiLigneDevisDesignationProduit").ui.val(des.ui.val());
 				});
 				nom.ui.on("change", function() {
-					$ui.getUIField(ctn, obj, "defiLigneDevisNomProduit").ui.val(nom.ui.val());
+					$ui.getUIField(ctn, obj, "defiLigneDevisTypeGeo").ui.val(nom.ui.val());
 				});
 				
 				ptrsp.ui.on("change", function() {
 					$ui.getUIField(ctn, obj, "defiLigneDevisPrixTrsp").ui.val(ptrsp.ui.val());
 				});
 				
-				//fin.ui.on("change", function() {
-				//	$ui.getUIField(ctn, obj, "defiLigneDevisFinition").ui.val(fin.ui.val());
-				//});
+				categ_prix.ui.on("change", function() {
+					$ui.getUIField(ctn, obj, "defiLigneDevisCatPrix").ui.val(categ_prix.ui.val());
+				});
 				
 			};
 		} catch(e) { console.error(e.message); } finally { cbk && cbk(); }

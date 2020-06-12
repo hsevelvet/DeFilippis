@@ -151,17 +151,17 @@ components:
           description: Secteur Activité Client
           type: string
           enum:
-          - MDO
           - MO
+          - MDO
           - AR
-          - ATPG
           - T
-          - V
+          - ATPG
           - ATP
+          - V
           - N
           - EA
-          - A
           - P
+          - A
         DF_Chantier_DF_Client_id__defiClientId:
           description: Id Client
           type: string
@@ -237,6 +237,9 @@ components:
         defiLigneDevisPrixExwUnite:
           description: Prix EXW / U
           type: number
+        defiLigneDevisAppellationCommerciale:
+          description: Appellation Commerciale
+          type: string
         DF_Ligne_Devis_DF_Devis_id:
           description: DF devis
           type: string
@@ -278,6 +281,9 @@ components:
           - LUS
           - TEC
           - PRE
+        defiLigneDevisAutresFinitions:
+          description: Autres Finitions
+          type: string
         defiLigneDevisTotalEXWHT:
           description: Total EXW HT
           type: number
@@ -326,15 +332,41 @@ components:
         DF_Ligne_Devis_DF_Prix_Transport_id__defiPrTspId:
           description: Id Prix Transport Prix Transport
           type: string
+        defiLigneDevisCatPrix:
+          description: Catégorie Prix
+          type: string
+          enum:
+          - '2'
+          - '1'
+        defiLigneDevisFinitionFV:
+          description: Finition Faces Vues
+          type: string
+        defiLigneDevisTypeGeo:
+          description: Type Géologique
+          type: string
+          enum:
+          - GRA
+          - CAL
+          - GRE
+          - POR
+          - BAS
+          - LUS
+          - TEC
+          - PRE
         defiLigneDevisMasseVolumique:
           description: Masse Volumique
           type: number
-        defiLigneDevisUnite:
-          description: Unité LigneD
-          type: string
         defiLigneDevisEpaisseur:
           description: Epaisseur / Hauteur (cm)
           type: number
+        defiLigneDevisUnite:
+          description: Unité
+          type: string
+          enum:
+          - M2
+          - ML
+          - T
+          - U
         DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdLargeur:
           description: Largeur (cm)
           type: string
@@ -386,6 +418,17 @@ components:
         defiLigneDevisPrixUnitaireSec:
           description: Prix unitaire sec
           type: number
+        defiLigneDevisTypePrd:
+          description: Type Produit
+          type: string
+          enum:
+          - PAVE
+          - DALLE
+          - BORDURE
+          - BANC
+          - BORNE
+          - CANIVEAU
+          - PIECE
         defiLigneDevisTotalAchatHT:
           description: Total Achat HT
           type: number
@@ -1069,17 +1112,17 @@ components:
           description: Secteur Activité
           type: string
           enum:
-          - MDO
           - MO
+          - MDO
           - AR
-          - ATPG
           - T
-          - V
+          - ATPG
           - ATP
+          - V
           - N
           - EA
-          - A
           - P
+          - A
         defiClientAdresse:
           description: Adresse
           type: string
@@ -2018,8 +2061,8 @@ components:
           - BE
           - CH
           - IE
-          - US
           - CA
+          - US
         usr_title:
           description: Title
           type: string
@@ -2298,17 +2341,17 @@ paths:
       - schema:
           type: string
           enum:
-          - MDO
           - MO
+          - MDO
           - AR
-          - ATPG
           - T
-          - V
+          - ATPG
           - ATP
+          - V
           - N
           - EA
-          - A
           - P
+          - A
         in: query
         name: DF_Chantier_DF_Client_id__defiClientIdSecteurActivite
         description: Search filter for Secteur Activité Client
@@ -4954,8 +4997,8 @@ paths:
           - BE
           - CH
           - IE
-          - US
           - CA
+          - US
         in: query
         name: usr_country
         description: Search filter for Country
@@ -5171,12 +5214,6 @@ paths:
       - schema:
           type: string
         in: query
-        name: defiLigneDevisUnite
-        description: Search filter for Unité LigneD
-        required: false
-      - schema:
-          type: string
-        in: query
         name: DF_Ligne_Devis_DF_Devis_id
         description: Search filter for DF devis
         required: false
@@ -5340,17 +5377,6 @@ paths:
         description: Search filter for Epaisseur (cm)
         required: false
       - schema:
-          type: string
-          enum:
-          - M2
-          - ML
-          - T
-          - U
-        in: query
-        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdUnite
-        description: Search filter for Unité
-        required: false
-      - schema:
           type: number
         in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdPrixUnitaireHT
@@ -5421,6 +5447,17 @@ paths:
         required: false
       - schema:
           type: string
+          enum:
+          - M2
+          - ML
+          - T
+          - U
+        in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdUnite
+        description: Search filter for Unité
+        required: false
+      - schema:
+          type: string
         in: query
         name: DF_Ligne_Devis_DF_Prix_Transport_id
         description: Search filter for Prix Transport
@@ -5448,6 +5485,73 @@ paths:
         in: query
         name: defiLigneDevisPrixTrsp
         description: Search filter for Prix Transport
+        required: false
+      - schema:
+          type: string
+          enum:
+          - '2'
+          - '1'
+        in: query
+        name: defiLigneDevisCatPrix
+        description: Search filter for Catégorie Prix
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: defiLigneDevisAppellationCommerciale
+        description: Search filter for Appellation Commerciale
+        required: false
+      - schema:
+          type: string
+          enum:
+          - M2
+          - ML
+          - T
+          - U
+        in: query
+        name: defiLigneDevisUnite
+        description: Search filter for Unité
+        required: false
+      - schema:
+          type: string
+          enum:
+          - PAVE
+          - DALLE
+          - BORDURE
+          - BANC
+          - BORNE
+          - CANIVEAU
+          - PIECE
+        in: query
+        name: defiLigneDevisTypePrd
+        description: Search filter for Type Produit
+        required: false
+      - schema:
+          type: string
+          enum:
+          - GRA
+          - CAL
+          - GRE
+          - POR
+          - BAS
+          - LUS
+          - TEC
+          - PRE
+        in: query
+        name: defiLigneDevisTypeGeo
+        description: Search filter for Type Géologique
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: defiLigneDevisFinitionFV
+        description: Search filter for Finition Faces Vues
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: defiLigneDevisAutresFinitions
+        description: Search filter for Autres Finitions
         required: false
       tags:
       - DF_Ligne_Devis
@@ -9013,17 +9117,17 @@ paths:
       - schema:
           type: string
           enum:
-          - MDO
           - MO
+          - MDO
           - AR
-          - ATPG
           - T
-          - V
+          - ATPG
           - ATP
+          - V
           - N
           - EA
-          - A
           - P
+          - A
         in: query
         name: defiClientIdSecteurActivite
         description: Search filter for Secteur Activité

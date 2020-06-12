@@ -427,7 +427,6 @@ Objet métier pour fournisseur.
 | `defiLigneDevisId`                                           | char(11)                                 | yes*     | yes       |          | -                                                                                |
 | `defiLigneDevisQuantite`                                     | int(11)                                  | yes      | yes       |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdFinitionFacesVues`_ | _char(70)_                               |          |           |          | -                                                                                |
-| `defiLigneDevisUnite`                                        | char(3)                                  |          | yes       |          | -                                                                                |
 | `DF_Ligne_Devis_DF_Devis_id` link to **`DF_Devis`**          | id                                       | yes      | yes       |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdMasseVolumique`_ | _bigdec(8, 2)_                           |          |           |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Devis_id.defiDevisTitre`_           | _char(100)_                              |          |           |          | -                                                                                |
@@ -456,7 +455,6 @@ Objet métier pour fournisseur.
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdLongueur`_  | _char(20)_                               |          |           |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdLargeur`_   | _char(20)_                               |          |           |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdEpaisseur`_ | _float(5, 2)_                            |          |           |          | -                                                                                |
-| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdUnite`_     | _enum(7) using `DEFIPRDUNITE` list_      |          |           |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdPrixUnitaireHT`_ | _float(10, 2)_                           |          |           |          | -                                                                                |
 | `defiLigneDevisLongueur`                                     | char(20)                                 |          | yes       |          | -                                                                                |
 | `defiLigneDevisPrixVenteImpose`                              | bigdec(15, 2)                            |          | yes       |          | -                                                                                |
@@ -477,6 +475,13 @@ Objet métier pour fournisseur.
 | _Ref. `DF_Ligne_Devis_DF_Prix_Transport_id.defiPrTrspPrix`_  | _float(9, 2)_                            |          |           |          | -                                                                                |
 | `defiLigneDevisFournisseur`                                  | char(100)                                |          | yes       |          | -                                                                                |
 | `defiLigneDevisPrixTrsp`                                     | float(10, 2)                             |          | yes       |          | -                                                                                |
+| `defiLigneDevisCatPrix`                                      | enum(7) using `DEFIPRDCATEGORIEPRIX` list | yes      | yes       |          | -                                                                                |
+| `defiLigneDevisAppellationCommerciale`                       | char(200)                                |          | yes       |          | -                                                                                |
+| `defiLigneDevisUnite`                                        | enum(7) using `DEFIPRDUNITE` list        |          | yes       |          | -                                                                                |
+| `defiLigneDevisTypePrd`                                      | enum(7) using `DEFIPRDTYPEPRODUIT` list  |          | yes       |          | -                                                                                |
+| `defiLigneDevisTypeGeo`                                      | enum(7) using `DEFIPRDTYPEGEOLOGIQUE` list |          | yes       |          | -                                                                                |
+| `defiLigneDevisFinitionFV`                                   | char(70)                                 |          | yes       |          | -                                                                                |
+| `defiLigneDevisAutresFinitions`                              | char(70)                                 |          | yes       |          | -                                                                                |
 
 ### Lists
 
@@ -500,14 +505,14 @@ Objet métier pour fournisseur.
     - `LUS` Luserne
     - `TEC` Terre cuite
     - `PRE` Produit de réemploi
+* `DEFILIGNEDEVISCONVERSIONUNITE`
+    - `61` m²
+    - `62` ml
 * `DEFIPRDUNITE`
     - `M2` m²
     - `ML` ml
     - `T` T
     - `U` U
-* `DEFILIGNEDEVISCONVERSIONUNITE`
-    - `61` m²
-    - `62` ml
 
 `DF_Livraison` business object definition
 -----------------------------------------
