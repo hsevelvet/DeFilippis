@@ -4106,6 +4106,53 @@ paths:
         required: true
       tags:
       - DF_utilisateur_interne
+  /rest/DF_Livraison/{row_id}/action:Historiser-ODF:
+    get:
+      summary: Call a custom action for a DF_Livraison business object record or for
+        all records
+      security:
+      - bearerAuth: []
+      operationId: obj-df_livraison-action-historiser-odf
+      responses:
+        '200':
+          description: Success in calling the custom action
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActionResult'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_Livraison
   /:
     get:
       summary: Get user session information
@@ -4179,6 +4226,53 @@ paths:
         required: true
       tags:
       - DF_Devis
+  /rest/DF_Livraison/{row_id}/action:Historiser-BL:
+    get:
+      summary: Call a custom action for a DF_Livraison business object record or for
+        all records
+      security:
+      - bearerAuth: []
+      operationId: obj-df_livraison-action-historiser-bl
+      responses:
+        '200':
+          description: Success in calling the custom action
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActionResult'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - DF_Livraison
   /rest/DF_utilisateur_interne:
     get:
       summary: Search DF_utilisateur_interne business object records or get contextualized
