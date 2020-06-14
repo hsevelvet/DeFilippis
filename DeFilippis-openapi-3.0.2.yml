@@ -1370,8 +1370,14 @@ components:
         DF_Hist_Docs_DF_Devis_id__defiDevisTitre:
           description: Titre Devis Devis
           type: string
+        DF_Hist_Docs_DF_Livraison_id:
+          description: Livraisons
+          type: string
         DF_Hist_Docs_DF_Devis_id:
           description: Devis
+          type: string
+        DF_Hist_Docs_DF_Livraison_id__defiLivraisonId:
+          description: defi livraison id Livraisons
           type: string
         defiHstDocsDevis:
           description: defi hst docs devis
@@ -3572,6 +3578,18 @@ paths:
         in: query
         name: DF_Hist_Docs_DF_Devis_id__defiDevisTitre
         description: Search filter for Titre Devis Devis
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Hist_Docs_DF_Livraison_id
+        description: Search filter for Livraisons
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Hist_Docs_DF_Livraison_id__defiLivraisonId
+        description: Search filter for defi livraison id Livraisons
         required: false
       tags:
       - DF_Hist_Docs

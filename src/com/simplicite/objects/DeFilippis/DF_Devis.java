@@ -23,6 +23,7 @@ import com.simplicite.util.tools.MailTool;
 
 import java.util.*;
 import java.util.Date;
+import java.text.SimpleDateFormat;  
 import com.simplicite.util.*;
 import com.simplicite.util.ObjectDB;
 import com.simplicite.objects.DeFilippis.DF_Ligne_Devis;
@@ -493,9 +494,11 @@ public class DF_Devis extends ObjectDB {
 		try {
 			synchronized(hst){
 				hst.resetFilters();
-
+					SimpleDateFormat formatter = new SimpleDateFormat("dd_MM_yyyy-HH");  
+    				Date date = new Date();  
+    
 					hst.create();	
-					hst.getField("defiHstDocsDevis").setDocument(hst, "Devis.pdf", this.pubPdf());
+					hst.getField("defiHstDocsDevis").setDocument(hst, "Devis-"+formatter.format(date).toString()+".pdf", this.pubPdf());
 					hst.setFieldValue("DF_Hist_Docs_DF_Devis_id",getRowId());
 					
 					ObjectField file = hst.getField("defiHstDocsDevis");

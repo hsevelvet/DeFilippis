@@ -13,6 +13,8 @@ import com.simplicite.util.tools.TrelloTool;
 
 import java.util.List;
 
+import java.util.Date;
+import java.text.SimpleDateFormat;  
 
 import java.util.*;
 import com.simplicite.util.ObjectDB;
@@ -318,6 +320,37 @@ public class DF_Livraison extends ObjectDB {
 		return pdf;
 	}
 	
+	// Méthode pour historiser un BL
+	public String generateBL() {
+		ObjectDB hst = getGrant().getTmpObject("DF_Hist_Docs");
+
+		try {
+			synchronized(hst){
+				hst.resetFilters();
+				
+					SimpleDateFormat formatter = new SimpleDateFormat("dd_MM_yyyy-HH");  
+    				Date date = new Date();  
+
+
+					hst.create();	
+					hst.getField("defiHstDocsDevis").setDocument(hst, "BL"+formatter.format(date).toString()+".pdf", this.pubPdfBL());
+					hst.setFieldValue("DF_Hist_Docs_DF_Livraison_id",getRowId());
+					
+					//ObjectField file = hst.getField("defiHstDocsDevis");
+					
+					hst.save();
+			
+				
+				
+			}
+			return Message.formatSimpleInfo("Fichier Historisé");
+		}	
+		catch(Exception e) {
+		    AppLog.error(getClass(), "generateFile", "error...", e, getGrant());
+		    return Message.formatSimpleError("Error...");
+		}
+	}
+	
 	
 		////////////////////////// Print ODF //////////////////////////////////////////////
 	public String pubODF(){
@@ -477,5 +510,36 @@ public class DF_Livraison extends ObjectDB {
 		}
 		return pdf;
 	}
+	
+	// Méthode pour historiser un BL
+	public String generateODF() {
+		ObjectDB hst = getGrant().getTmpObject("DF_Hist_Docs");
+
+		try {
+			synchronized(hst){
+				hst.resetFilters();
+					SimpleDateFormat formatter = new SimpleDateFormat("dd_MM_yyyy-HH");  
+    				Date date = new Date();  
+   
+					hst.create();	
+					hst.getField("defiHstDocsDevis").setDocument(hst, "ODF-"+formatter.format(date).toString()+".pdf", this.pubPdfODF());
+					hst.setFieldValue("DF_Hist_Docs_DF_Livraison_id",getRowId());
+					
+					//ObjectField file = hst.getField("defiHstDocsDevis");
+					
+					hst.save();
+			
+				
+				
+			}
+			return Message.formatSimpleInfo("Fichier Historisé");
+		}	
+		catch(Exception e) {
+		    AppLog.error(getClass(), "generateFile", "error...", e, getGrant());
+		    return Message.formatSimpleError("Error...");
+		}
+	}
+	
+	
 	
 }

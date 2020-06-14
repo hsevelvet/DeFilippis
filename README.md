@@ -376,6 +376,8 @@ Objet métier pour fournisseur.
 | `defiHstDocsDevis`                                           | document                                 |          | yes       |          | -                                                                                |
 | `DF_Hist_Docs_DF_Devis_id` link to **`DF_Devis`**            | id                                       |          | yes       |          | -                                                                                |
 | _Ref. `DF_Hist_Docs_DF_Devis_id.defiDevisTitre`_             | _char(100)_                              |          |           |          | -                                                                                |
+| `DF_Hist_Docs_DF_Livraison_id` link to **`DF_Livraison`**    | id                                       |          | yes       |          | -                                                                                |
+| _Ref. `DF_Hist_Docs_DF_Livraison_id.defiLivraisonId`_        | _char(100)_                              |          |           |          | -                                                                                |
 
 `DF_ligne_commande` business object definition
 ----------------------------------------------
@@ -555,6 +557,11 @@ Objet métier pour fournisseur.
     - `4` En cours d'achememinement
     - `5` Panne
     - `6` Livraison effecutée
+
+### Custom actions
+
+* `Historiser-BL`: 
+* `Historiser-ODF`: 
 
 `DF_Prix_Transport` business object definition
 ----------------------------------------------
