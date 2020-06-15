@@ -141,17 +141,17 @@ paths:
         type: string
         required: false
         enum:
-        - MO
         - MDO
         - AR
-        - T
+        - MO
         - ATPG
+        - T
         - ATP
         - V
         - N
         - EA
-        - P
         - A
+        - P
       - in: query
         name: DF_Chantier_DF_Client_id__defiClientAdresse
         description: Search filter for Adresse Client
@@ -2552,8 +2552,8 @@ paths:
         - BE
         - CH
         - IE
-        - CA
         - US
+        - CA
       - in: query
         name: row_module_id
         description: Search filter for Module
@@ -2671,13 +2671,13 @@ paths:
         type: string
         required: false
       - in: query
-        name: defiLigneDevisNPrix
-        description: Search filter for N° de prix
+        name: defiLigneDevisRow
+        description: Search filter for defi ligne devis row
         type: string
         required: false
       - in: query
-        name: defiLigneDevisRow
-        description: Search filter for defi ligne devis row
+        name: defiLigneDevisNPrix
+        description: Search filter for N° de prix
         type: string
         required: false
       - in: query
@@ -2688,11 +2688,6 @@ paths:
         enum:
         - '2'
         - '1'
-      - in: query
-        name: defiLigneDevisPrixTransportReference
-        description: Search filter for Prix Transport Référence
-        type: number
-        required: false
       - in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdTypeProduit
         description: Search filter for Type produit
@@ -2710,6 +2705,11 @@ paths:
         name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdAutresFinitions
         description: Search filter for Autres finitions
         type: string
+        required: false
+      - in: query
+        name: defiLigneDevisPrixTransportReference
+        description: Search filter for Prix Transport Référence
+        type: number
         required: false
       - in: query
         name: defiLigneDevisId
@@ -5371,6 +5371,11 @@ paths:
         - I
         - C
       - in: query
+        name: defiDevisCreatedDT
+        description: Search filter for Date de Création
+        type: string
+        required: false
+      - in: query
         name: DF_Devis_DF_Chantier_id__defiAfrLibelleChantier
         description: Search filter for Titre Affaire DF chantier
         type: string
@@ -5582,13 +5587,13 @@ paths:
         type: string
         required: false
       - in: query
-        name: defiDevisNumero
-        description: Search filter for Numéro de devis
+        name: DF_Devis_DF_Contact_id__defiContactEmail
+        description: Search filter for E-mail Contacts
         type: string
         required: false
       - in: query
-        name: DF_Devis_DF_Contact_id__defiContactEmail
-        description: Search filter for E-mail Contacts
+        name: defiDevisNumero
+        description: Search filter for Numéro de devis
         type: string
         required: false
       - in: query
@@ -6022,17 +6027,17 @@ paths:
         type: string
         required: false
         enum:
-        - MO
         - MDO
         - AR
-        - T
+        - MO
         - ATPG
+        - T
         - ATP
         - V
         - N
         - EA
-        - P
         - A
+        - P
       - in: query
         name: defiClientRegion
         description: Search filter for Region
@@ -6715,17 +6720,17 @@ definitions:
         description: Secteur Activité Client
         type: string
         enum:
-        - MO
         - MDO
         - AR
-        - T
+        - MO
         - ATPG
+        - T
         - ATP
         - V
         - N
         - EA
-        - P
         - A
+        - P
       DF_Chantier_DF_Client_id__defiClientId:
         description: Id Client
         type: string
@@ -7608,6 +7613,10 @@ definitions:
       defiDevisPieceJointe1:
         description: Pièce Jointe 1
         type: object
+      defiDevisCreatedDT:
+        description: Date de Création
+        type: string
+        example: yyyy-MM-dd HH:mm:ss
       defiDevisRedacteur:
         description: Rédacteur Devis
         type: string
@@ -7679,17 +7688,17 @@ definitions:
         description: Secteur Activité
         type: string
         enum:
-        - MO
         - MDO
         - AR
-        - T
+        - MO
         - ATPG
+        - T
         - ATP
         - V
         - N
         - EA
-        - P
         - A
+        - P
       defiClientAdresse:
         description: Adresse
         type: string
@@ -8634,8 +8643,8 @@ definitions:
         - BE
         - CH
         - IE
-        - CA
         - US
+        - CA
       usr_title:
         description: Title
         type: string
