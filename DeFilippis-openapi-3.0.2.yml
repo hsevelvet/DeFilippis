@@ -675,6 +675,9 @@ components:
           description: Date Livraison Estimée
           type: string
           example: yyyy-MM-dd
+        DF_Livraison_DF_Affaire_id__defiAfrLibelleChantier:
+          description: Titre Affaire
+          type: string
         DF_Livraison_DF_Affaire_id:
           description: Affaires
           type: string
@@ -880,7 +883,7 @@ components:
       type: object
       properties:
         defiFournNom:
-          description: Nom Fournisseur
+          description: Nom
           type: string
         defiFournDescription:
           description: Description
@@ -1234,11 +1237,11 @@ components:
         defiPrdLargeur:
           description: Largeur
           type: string
+        DF_Produit_Finis_DF_Fournisseurs_id__defiFournNom:
+          description: Nom Fournisseurs
+          type: string
         defiPrdMasseVolumique:
           description: Masse Volumique
-          type: string
-        DF_Produit_Finis_DF_Fournisseurs_id__defiFournNom:
-          description: Nom Fournisseur Fournisseurs
           type: string
         DF_Produit_Finis_DF_Fournisseurs_id:
           description: Fournisseurs
@@ -6359,6 +6362,18 @@ paths:
         required: false
       - schema:
           type: string
+        in: query
+        name: DF_Produit_Finis_DF_Fournisseurs_id__defiFournNom
+        description: Search filter for Nom Fournisseurs
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Produit_Finis_DF_Fournisseurs_id
+        description: Search filter for Fournisseurs
+        required: false
+      - schema:
+          type: string
           enum:
           - GRA
           - CAL
@@ -6430,14 +6445,14 @@ paths:
       - schema:
           type: string
         in: query
-        name: df_produit_commentaire
-        description: Search filter for Commentaire
+        name: defiPrdLargeur
+        description: Search filter for Largeur
         required: false
       - schema:
           type: string
         in: query
-        name: defiPrdLargeur
-        description: Search filter for Largeur
+        name: df_produit_commentaire
+        description: Search filter for Commentaire
         required: false
       - schema:
           type: number
@@ -6478,18 +6493,6 @@ paths:
         in: query
         name: defiPrdMasseVolumique
         description: Search filter for Masse Volumique
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: DF_Produit_Finis_DF_Fournisseurs_id
-        description: Search filter for Fournisseurs
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: DF_Produit_Finis_DF_Fournisseurs_id__defiFournNom
-        description: Search filter for Nom Fournisseur Fournisseurs
         required: false
       tags:
       - DF_Produit_Finis
@@ -6879,7 +6882,7 @@ paths:
           type: string
         in: query
         name: defiFournNom
-        description: Search filter for Nom Fournisseur
+        description: Search filter for Nom
         required: false
       - schema:
           type: string
@@ -9062,6 +9065,12 @@ paths:
         in: query
         name: df_livraison_statut
         description: Search filter for Statut Livraison
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Livraison_DF_Affaire_id__defiAfrLibelleChantier
+        description: Search filter for Titre Affaire
         required: false
       - schema:
           type: string

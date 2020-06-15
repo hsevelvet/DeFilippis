@@ -532,6 +532,7 @@ Objet métier pour fournisseur.
 | `defiLivraisonIntituleCamion`                                | char(100)                                |          | yes       |          | -                                                                                |
 | `df_livraison_statut`                                        | enum(7) using `DF_LIVRAISON_STATUT` list | yes      | yes       |          | -                                                                                |
 | `defiLivraisonIdCommande`                                    | char(100)                                | yes      | yes       |          | -                                                                                |
+| _Ref. `DF_Livraison_DF_Affaire_id.defiAfrLibelleChantier`_   | _char(36)_                               |          |           |          | -                                                                                |
 | `df_livraison_trellocardid`                                  | char(30)                                 |          | yes       |          | -                                                                                |
 | `DF_Contact_DF_Livraison_id`                                 | id                                       |          | yes       |          | -                                                                                |
 | `df_livraison_statut`                                        | enum(7) using `DF_LIVRAISON_STATUT` list | yes      | yes       |          | -                                                                                |
@@ -594,6 +595,8 @@ Objet metier pour produit.
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
 | `defiPrdId`                                                  | char(11)                                 | yes*     | yes       |          | -                                                                                |
 | `defiPrdCategoriePrix`                                       | enum(7) using `DEFIPRDCATEGORIEPRIX` list | yes      | yes       |          | -                                                                                |
+| `DF_Produit_Finis_DF_Fournisseurs_id` link to **`DF_Fournisseurs`** | id                                       |          | yes       |          | -                                                                                |
+| _Ref. `DF_Produit_Finis_DF_Fournisseurs_id.defiFournNom`_    | _char(36)_                               |          |           |          | -                                                                                |
 | `defiPrdTypeGeologique`                                      | enum(7) using `DEFIPRDTYPEGEOLOGIQUE` list | yes      | yes       |          | -                                                                                |
 | `defiPrdCouleur`                                             | multi(100) using `DF_PRODUIT_COULEUR` list |          | yes       |          | -                                                                                |
 | `defiPrdAppellationCommerciale`                              | char(200)                                |          | yes       |          | -                                                                                |
@@ -608,8 +611,6 @@ Objet metier pour produit.
 | `defiPrdUnite`                                               | enum(7) using `DEFIPRDUNITE` list        | yes      | yes       |          | -                                                                                |
 | `defiPrdPrixUnitaireHT`                                      | float(10, 2)                             | yes      | yes       |          | -                                                                                |
 | `defiPrdMasseVolumique`                                      | bigdec(8, 2)                             | yes      | yes       |          | -                                                                                |
-| `DF_Produit_Finis_DF_Fournisseurs_id` link to **`DF_Fournisseurs`** | id                                       |          | yes       |          | -                                                                                |
-| _Ref. `DF_Produit_Finis_DF_Fournisseurs_id.defiFournNom`_    | _char(36)_                               |          |           |          | -                                                                                |
 
 ### Lists
 
