@@ -73,8 +73,22 @@ public class DF_Ligne_Devis extends ObjectDB {
 		
 		//setFieldValue("defiLigneDevisLargeur",lrg);
 		
+		// Calcul epaisseur bornée
+		String epaisseur = getFieldValue("defiLigneDevisEpaisseur");
+		double ep = 0;
+		if(epaisseur != null && !epaisseur.isEmpty()){
+			if (epaisseur.contains("/")){
+				String [] ep_parts = epaisseur.split("/");
+				ep = (Double.parseDouble(ep_parts[0])+Double.parseDouble(ep_parts[1]))/2;
+			}
+			else{
+				ep = Double.parseDouble(epaisseur);
+			}
+		}
+		
+		
 		// Get valeurs référence produit
-		double ep = getField("defiLigneDevisEpaisseur").getDouble(0);
+		//double ep = getField("defiLigneDevisEpaisseur").getDouble(0);
 		int qte = getField("defiLigneDevisQuantite").getInt(0);
 		double dim_joint = getField("defiLigneDevisDimensionJoints").getDouble(0);
 		double ptr = getField("defiLigneDevisPrixTrsp").getDouble(0);
@@ -110,8 +124,9 @@ public class DF_Ligne_Devis extends ObjectDB {
 						AppLog.info(getClass(), "changed-----changed", "44444", getGrant());
 					//
 					if (n_rangs > 1){
-					
-					setFieldValue("defiLigneDevisLargeur", Math.round(lrg*n_rangs+dim_joint));
+						
+					lrg = Math.round(lrg*n_rangs+dim_joint);
+					//setFieldValue("defiLigneDevisLargeur", Math.round(lrg*n_rangs+dim_joint));
 					
 				} 
 				}
@@ -121,7 +136,8 @@ public class DF_Ligne_Devis extends ObjectDB {
 				break;
 			
 			default :
-				setFieldValue("defiLigneDevisLargeur", lrg);
+				lrg = lrg;
+				//setFieldValue("defiLigneDevisLargeur", lrg);
 				
 		}
 		// calcul nombre d'éléments par unité sans joint

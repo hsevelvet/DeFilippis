@@ -265,7 +265,7 @@ components:
           - '62'
         DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdEpaisseur:
           description: Epaisseur (cm)
-          type: number
+          type: string
         defiLigneDevisFournisseur:
           description: Fournisseur
           type: string
@@ -358,7 +358,7 @@ components:
           - PRE
         defiLigneDevisEpaisseur:
           description: Epaisseur / Hauteur (cm)
-          type: number
+          type: string
         defiLigneDevisMasseVolumique:
           description: Masse Volumique
           type: number
@@ -1215,7 +1215,7 @@ components:
           type: string
         defiPrdEpaisseur:
           description: Hauteur / Epaisseur
-          type: number
+          type: string
         defiPrdId:
           description: Id Produit
           type: string
@@ -5499,7 +5499,7 @@ paths:
         description: Search filter for Largeur (cm)
         required: false
       - schema:
-          type: number
+          type: string
         in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdEpaisseur
         description: Search filter for Epaisseur (cm)
@@ -5556,7 +5556,7 @@ paths:
         description: Search filter for Prix Vente Unitaire Imposé
         required: false
       - schema:
-          type: number
+          type: string
         in: query
         name: defiLigneDevisEpaisseur
         description: Search filter for Epaisseur / Hauteur (cm)
@@ -6464,7 +6464,7 @@ paths:
         description: Search filter for Commentaire
         required: false
       - schema:
-          type: number
+          type: string
         in: query
         name: defiPrdEpaisseur
         description: Search filter for Hauteur / Epaisseur

@@ -2868,7 +2868,7 @@ paths:
       - in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdEpaisseur
         description: Search filter for Epaisseur (cm)
-        type: number
+        type: string
         required: false
       - in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdPrixUnitaireHT
@@ -2916,7 +2916,7 @@ paths:
       - in: query
         name: defiLigneDevisEpaisseur
         description: Search filter for Epaisseur / Hauteur (cm)
-        type: number
+        type: string
         required: false
       - in: query
         name: defiLigneDevisDesignationProduit
@@ -3690,7 +3690,7 @@ paths:
       - in: query
         name: defiPrdEpaisseur
         description: Search filter for Hauteur / Epaisseur
-        type: number
+        type: string
         required: false
       - in: query
         name: defiPrdSource
@@ -6849,7 +6849,7 @@ definitions:
         - '62'
       DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdEpaisseur:
         description: Epaisseur (cm)
-        type: number
+        type: string
       defiLigneDevisFournisseur:
         description: Fournisseur
         type: string
@@ -6942,7 +6942,7 @@ definitions:
         - PRE
       defiLigneDevisEpaisseur:
         description: Epaisseur / Hauteur (cm)
-        type: number
+        type: string
       defiLigneDevisMasseVolumique:
         description: Masse Volumique
         type: number
@@ -7799,7 +7799,7 @@ definitions:
         type: string
       defiPrdEpaisseur:
         description: Hauteur / Epaisseur
-        type: number
+        type: string
       defiPrdId:
         description: Id Produit
         type: string
