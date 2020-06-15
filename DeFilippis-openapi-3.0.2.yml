@@ -231,6 +231,9 @@ components:
           - ML
           - T
           - U
+        defiLigneDevisU:
+          description: U
+          type: string
         defiLigneDevisPrixVenteCalcule:
           description: Prix Vente Unitaire Calculé
           type: number
@@ -353,11 +356,11 @@ components:
           - LUS
           - TEC
           - PRE
-        defiLigneDevisMasseVolumique:
-          description: Masse Volumique
-          type: number
         defiLigneDevisEpaisseur:
           description: Epaisseur / Hauteur (cm)
+          type: number
+        defiLigneDevisMasseVolumique:
+          description: Masse Volumique
           type: number
         defiLigneDevisUnite:
           description: Unité
@@ -5312,12 +5315,6 @@ paths:
         description: Search filter for Quantité
         required: false
       - schema:
-          type: number
-        in: query
-        name: defiLigneDevisMasseVolumique
-        description: Search filter for Masse Volumique
-        required: false
-      - schema:
           type: string
         in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdFinitionFacesVues
@@ -5552,6 +5549,12 @@ paths:
         description: Search filter for Désignation Produit
         required: false
       - schema:
+          type: number
+        in: query
+        name: defiLigneDevisMasseVolumique
+        description: Search filter for Masse Volumique
+        required: false
+      - schema:
           type: string
         in: query
         name: defiLigneDevisNomProduit
@@ -5664,6 +5667,12 @@ paths:
         in: query
         name: defiLigneDevisAutresFinitions
         description: Search filter for Autres Finitions
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: defiLigneDevisU
+        description: Search filter for U
         required: false
       tags:
       - DF_Ligne_Devis

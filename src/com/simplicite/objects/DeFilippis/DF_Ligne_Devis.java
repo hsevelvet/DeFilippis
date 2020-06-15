@@ -17,27 +17,27 @@ public class DF_Ligne_Devis extends ObjectDB {
 
 		// Méthode pour convertir les unités après validatiion du formulaire /
 		
-		if (this.isNew())
+		//if (this.isNew())
 			
 			// conversion tonne
 			if (getFieldValue("defiLigneDevisUnite").equals("T") ){
 				String c_unite = getFieldValue("defiLigneDevisConversionUnite");
 					
-				if (c_unite.equals("61")) setFieldValue("defiLigneDevisUnite","M2");
-				else if (c_unite.equals("62")) setFieldValue("defiLigneDevisUnite","ML");
+				if (c_unite.equals("61")) setFieldValue("defiLigneDevisU","M2");
+				else if (c_unite.equals("62")) setFieldValue("defiLigneDevisU","ML");
 			}
 			
 			// conversion m²
 			if (getFieldValue("defiLigneDevisUnite").equals("M2") ){
 				String c_unite = getFieldValue("defiLigneDevisConversionUnite");
 					
-				if (c_unite.equals("61")) setFieldValue("defiLigneDevisUnite","M2");
-				else if (c_unite.equals("62")) setFieldValue("defiLigneDevisUnite","ML");
+				if (c_unite.equals("61")) setFieldValue("defiLigneDevisU","M2");
+				else if (c_unite.equals("62")) setFieldValue("defiLigneDevisU","ML");
 			}
 			
 		
 		// accès aux valeurs 
-        String unite = getField("defiLigneDevisUnite").getValue(); 
+        String unite = getField("defiLigneDevisU").getValue(); 
         String des_produit = getField("defiPrdTypeProduit").getValue(); 
         String fin_produit = getField("defiPrdFinitionFacesVues").getValue();
         String ap_commerciale = getField("defiPrdAppellationCommerciale").getValue();

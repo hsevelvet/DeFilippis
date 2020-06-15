@@ -484,6 +484,7 @@ Objet métier pour fournisseur.
 | `defiLigneDevisTypeGeo`                                      | enum(7) using `DEFIPRDTYPEGEOLOGIQUE` list |          | yes       |          | -                                                                                |
 | `defiLigneDevisFinitionFV`                                   | char(70)                                 |          | yes       |          | -                                                                                |
 | `defiLigneDevisAutresFinitions`                              | char(70)                                 |          | yes       |          | -                                                                                |
+| `defiLigneDevisU`                                            | char(70)                                 |          | yes       |          | -                                                                                |
 
 ### Lists
 
