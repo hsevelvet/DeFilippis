@@ -1289,6 +1289,9 @@ components:
         DF_Contact_DF_Fournisseurs_id__defiFournNom:
           description: Nom Fournisseur
           type: string
+        defiContactNomClient:
+          description: Nom Client
+          type: string
         defiContactNom:
           description: Nom
           type: string
@@ -5935,6 +5938,12 @@ paths:
       - schema:
           type: string
         in: query
+        name: DF_Contact_DF_Fournisseurs_id__defiFournNom
+        description: Search filter for Nom Fournisseur
+        required: false
+      - schema:
+          type: string
+        in: query
         name: DF_Contact_DF_Client_id__defiClientNom
         description: Search filter for Nom Client
         required: false
@@ -6056,8 +6065,8 @@ paths:
       - schema:
           type: string
         in: query
-        name: DF_Contact_DF_Fournisseurs_id__defiFournNom
-        description: Search filter for Nom Fournisseur
+        name: defiContactNomClient
+        description: Search filter for Nom Client
         required: false
       tags:
       - DF_Contact

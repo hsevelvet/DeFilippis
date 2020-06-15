@@ -1,4 +1,5 @@
 
+
 var DF_Ligne_Devis = typeof DF_Ligne_Devis !== "undefined" ? DF_Ligne_Devis : (function($) {
 	// Responsive UI hook
 	Simplicite.UI.hooks.DF_Ligne_Devis = function(o, cbk) {

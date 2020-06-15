@@ -197,6 +197,7 @@ Objet metier pour contact.
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
 | `defiContactId`                                              | char(11)                                 | yes*     | yes       |          | -                                                                                |
 | _Ref. `DF_Contact_DF_Transport_id.defiTrspNom`_              | _char(36)_                               |          |           |          | -                                                                                |
+| _Ref. `DF_Contact_DF_Fournisseurs_id.defiFournNom`_          | _char(36)_                               |          |           |          | -                                                                                |
 | _Ref. `DF_Contact_DF_Client_id.defiClientNom`_               | _char(36)_                               |          |           |          | -                                                                                |
 | `defiContactCivilite`                                        | enum(7) using `CIVILITE_CLIENT_CONTACT` list |          | yes       |          | -                                                                                |
 | `defiContactNom`                                             | char(36)                                 | yes      | yes       |          | -                                                                                |
@@ -214,7 +215,7 @@ Objet metier pour contact.
 | `defiContactTypeContact`                                     | enum(7) using `DEFICONTACTTYPECONTACT` list | yes      | yes       |          | -                                                                                |
 | `DF_Contact_DF_Fournisseurs_id` link to **`DF_Fournisseurs`** | id                                       |          | yes       |          | -                                                                                |
 | _Ref. `DF_Contact_DF_Fournisseurs_id.defiFournId`_           | _char(11)_                               |          |           |          | -                                                                                |
-| _Ref. `DF_Contact_DF_Fournisseurs_id.defiFournNom`_          | _char(36)_                               |          |           |          | -                                                                                |
+| `defiContactNomClient`                                       | char(100)                                |          | yes       |          | -                                                                                |
 
 ### Lists
 
