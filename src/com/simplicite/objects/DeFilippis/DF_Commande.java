@@ -182,46 +182,49 @@ public class DF_Commande extends ObjectDB {
 		    		
 				for(String[] lce : lc.search()){
 					lc.setValues(lce);
+					// Mettre condition sur export trello si produit est de catégorie pierre
 					
-					
-					// Récupérer les 7 premières lettres du libellé de l'affaire
-					String int_aff = getFieldValue("DF_Commande_DF_Affaire_id.defiAfrLibelleChantier");
-					int_aff.replace(" " , "");
-					String firstCharsIntitule = int_aff.substring(0, 7);
+					if (lc.getFieldValue("defiLigneCommandeCatPrix").equals("Pierre")){
+						// Récupérer les 7 premières lettres du libellé de l'affaire
+						String int_aff = getFieldValue("DF_Commande_DF_Affaire_id.defiAfrLibelleChantier");
+						int_aff.replace(" " , "");
+						String firstCharsIntitule = int_aff.substring(0, 7);
 					
 					//String fourns = getFieldValue("DF_Commande_DF_Fournisseurs_id.defiFournNom");
 					//fourns.replace(" " , "");
 					//String firstCharsFourns = fourns.substring(0, 3);
 					
-					double poids_unitaire = lc.getField("defiLigneCommandePoidsUnitaire").getDouble();
+						double poids_unitaire = lc.getField("defiLigneCommandePoidsUnitaire").getDouble();
 					
-					double quantite_lc = lc.getField("defiLigneCommandeQuantite").getDouble();
-					double tonnage_carte = quantite_lc*poids_unitaire;
+						double quantite_lc = lc.getField("defiLigneCommandeQuantite").getDouble();
+						double tonnage_carte = quantite_lc*poids_unitaire;
 					
 					// Nom de la carte
-					card.put("name",  (firstCharsIntitule+"."+getFieldValue("defiCommandeIntituleCommande")+"."+lc.getFieldValue("defiLigneCommandeReferenceProduit")+"."+ tonnage_carte).toUpperCase());
+						card.put("name",  (firstCharsIntitule+"."+getFieldValue("defiCommandeIntituleCommande")+"."+lc.getFieldValue("defiLigneCommandeReferenceProduit")+"."+ tonnage_carte).toUpperCase());
 					// Description de la carte
-					card.put("desc","\n**Date Livraison confirmée**: "+getFieldValue("defiCommandeDatePremierCamion")+"\n"+"\n**Contact Déchargement Privilégié**: "+getFieldValue("defiCommandeContactLivraison")+"\n"+"\n**Contact En Cas De Problème**: "+"\n"+"\n**Quantité Initiale**: "+ lc.getFieldValue("defiLigneCommandeQuantite"));
+						card.put("desc","\n**Date Livraison confirmée**: "+getFieldValue("defiCommandeDatePremierCamion")+"\n"+"\n**Contact Déchargement Privilégié**: "+getFieldValue("defiCommandeContactLivraison")+"\n"+"\n**Contact En Cas De Problème**: "+"\n"+"\n**Quantité Initiale**: "+ lc.getFieldValue("defiLigneCommandeQuantite"));
 					// Date limie de la carte 
-					card.put("due", getFieldValue("defiCommandeDatePremierCamion"));
+						card.put("due", getFieldValue("defiCommandeDatePremierCamion"));
 					// Emplacement de la carte
-					card = tt.addCard(getIDList(getFieldValue("defiCommandeStatut")), card);
+						card = tt.addCard(getIDList(getFieldValue("defiCommandeStatut")), card);
 									
 					//Mise à jour les informations custom fields
 					
-					tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Numéro de commande"),new JSONObject().put("value",new JSONObject().put("text",getFieldValue("defiCommandeNumero"))));
-					tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Adresse"),new JSONObject().put("value",new JSONObject().put("text",getFieldValue("defiCommandeAdresseLivraison"))));
-					tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Quantité"),new JSONObject().put("value",new JSONObject().put("number",lc.getFieldValue("defiLigneCommandeQuantite"))));
-		    		tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Référence Produit"),new JSONObject().put("value",new JSONObject().put("text",lc.getFieldValue("defiLigneCommandeReferenceProduit"))));	
-		    		tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Poids Unitaire"),new JSONObject().put("value",new JSONObject().put("number",lc.getFieldValue("defiLigneCommandePoidsUnitaire"))));
-		    		tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Ville"),new JSONObject().put("value",new JSONObject().put("text",getFieldValue("DF_Commande_DF_Affaire_id.defiAfrLieuAffaire"))));
-		    		tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Id Ligne de commande"),new JSONObject().put("value",new JSONObject().put("text",lc.getFieldValue("defiLigneCommandeId"))));
-				}
-		    		}
+						tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Numéro de commande"),new JSONObject().put("value",new JSONObject().put("text",getFieldValue("defiCommandeNumero"))));
+						tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Adresse"),new JSONObject().put("value",new JSONObject().put("text",getFieldValue("defiCommandeAdresseLivraison"))));
+						tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Quantité"),new JSONObject().put("value",new JSONObject().put("number",lc.getFieldValue("defiLigneCommandeQuantite"))));
+		    			tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Référence Produit"),new JSONObject().put("value",new JSONObject().put("text",lc.getFieldValue("defiLigneCommandeReferenceProduit"))));	
+		    			tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Poids Unitaire"),new JSONObject().put("value",new JSONObject().put("number",lc.getFieldValue("defiLigneCommandePoidsUnitaire"))));
+		    			tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Ville"),new JSONObject().put("value",new JSONObject().put("text",getFieldValue("DF_Commande_DF_Affaire_id.defiAfrLieuAffaire"))));
+		    			tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Id Ligne de commande"),new JSONObject().put("value",new JSONObject().put("text",lc.getFieldValue("defiLigneCommandeId"))));
+					}
+		    			}
 
-				setFieldValue("defiCommandeTrelloId", card.getString("id"));
-				save();
-				validate();
+					setFieldValue("defiCommandeTrelloId", card.getString("id"));
+					save();
+					validate();
+					}
+					
 				return Message.formatSimpleInfo("Trello card created");					
 					
 		} catch (APIException e) { // Prevents creation if card creation fails

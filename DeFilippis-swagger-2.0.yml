@@ -1324,13 +1324,13 @@ paths:
         type: string
         required: false
       - in: query
-        name: DF_ligne_commande_DF_Fournisseurs_id__defiFournNom
-        description: Search filter for Nom Fournisseur
+        name: DF_ligne_commande_DF_Commande_id
+        description: Search filter for DF commande
         type: string
         required: false
       - in: query
-        name: DF_ligne_commande_DF_Commande_id
-        description: Search filter for DF commande
+        name: DF_ligne_commande_DF_Fournisseurs_id__defiFournNom
+        description: Search filter for Nom Fournisseur
         type: string
         required: false
       - in: query
@@ -1406,6 +1406,11 @@ paths:
       - in: query
         name: defiLigneCommandeFournisseur
         description: Search filter for Nom Fournisseur
+        type: string
+        required: false
+      - in: query
+        name: defiLigneCommandeCatPrix
+        description: Search filter for Catégorie Prix
         type: string
         required: false
       tags:
@@ -7409,6 +7414,9 @@ definitions:
       defiLigneCommandePoidsUnitaire:
         description: Poids Unitaire (T)
         type: number
+      defiLigneCommandeCatPrix:
+        description: Catégorie Prix
+        type: string
       defiLigneCommandeDesignation:
         description: Désignation
         type: string

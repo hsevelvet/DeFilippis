@@ -411,6 +411,7 @@ Objet métier pour fournisseur.
 | `DF_ligne_commande_DF_Fournisseurs_id` link to **`DF_Fournisseurs`** | id                                       |          | yes       |          | -                                                                                |
 | _Ref. `DF_ligne_commande_DF_Fournisseurs_id.defiFournId`_    | _char(11)_                               |          |           |          | -                                                                                |
 | `defiLigneCommandeFournisseur`                               | char(100)                                |          | yes       |          | -                                                                                |
+| `defiLigneCommandeCatPrix`                                   | char(100)                                |          | yes       |          | -                                                                                |
 
 `DF_Ligne_Devis` business object definition
 -------------------------------------------

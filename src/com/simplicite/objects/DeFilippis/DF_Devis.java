@@ -244,6 +244,9 @@ public class DF_Devis extends ObjectDB {
 				double cmd_prix_exw_u = ld.getField("defiLigneDevisPrixUnitaireImpose").getDouble(0);
 				double cmd_total_exw = ld.getField("defiLigneDevisPrixUnitaireImpose").getDouble(0);
 				
+				int index_cat_prix = ld.getField("defiLigneDevisCatPrix").getList().getItemIndex(ld.getFieldValue("defiLigneDevisCatPrix"),false);
+				String cat_prix = ld.getField("defiLigneDevisCatPrix").getList().getValue(index_cat_prix);
+				
 				
 				ObjectDB lc = getGrant().getTmpObject("DF_ligne_commande");
 				lc.resetFilters();
@@ -254,6 +257,7 @@ public class DF_Devis extends ObjectDB {
 				ObjectField s2 = lc.getField("defiLigneCommandeId");
 				s2.setValue(lc.getRowId());
 				lc.setFieldValue("defiLigneCommandeFournisseur", fournisseur);
+				lc.setFieldValue("defiLigneCommandeCatPrix",cat_prix);
 				lc.setFieldValue("defiLigneCommandeReferenceProduit",ref_prod);
 				lc.setFieldValue("defiLigneCommandeTypeGeologique", type_geo);
 				lc.setFieldValue("defiLigneCommandeAppellationCommerciale",apl_com);

@@ -830,6 +830,9 @@ components:
         defiLigneCommandePoidsUnitaire:
           description: Poids Unitaire (T)
           type: number
+        defiLigneCommandeCatPrix:
+          description: Catégorie Prix
+          type: string
         defiLigneCommandeDesignation:
           description: Désignation
           type: string
@@ -3782,14 +3785,14 @@ paths:
       - schema:
           type: string
         in: query
-        name: DF_ligne_commande_DF_Fournisseurs_id__defiFournNom
-        description: Search filter for Nom Fournisseur
+        name: DF_ligne_commande_DF_Commande_id
+        description: Search filter for DF commande
         required: false
       - schema:
           type: string
         in: query
-        name: DF_ligne_commande_DF_Commande_id
-        description: Search filter for DF commande
+        name: DF_ligne_commande_DF_Fournisseurs_id__defiFournNom
+        description: Search filter for Nom Fournisseur
         required: false
       - schema:
           type: string
@@ -3880,6 +3883,12 @@ paths:
         in: query
         name: defiLigneCommandeFournisseur
         description: Search filter for Nom Fournisseur
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: defiLigneCommandeCatPrix
+        description: Search filter for Catégorie Prix
         required: false
       tags:
       - DF_ligne_commande
