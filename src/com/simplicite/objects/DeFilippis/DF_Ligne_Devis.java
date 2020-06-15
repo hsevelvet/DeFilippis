@@ -241,7 +241,7 @@ public class DF_Ligne_Devis extends ObjectDB {
        Double pvi = getField("defiLigneDevisPrixUnitaireImpose").getDouble(0);
        double pvc = getField("defiLigneDevisPrixVenteCalcule").getDouble(0);
        if (pvi == 0){
-       	setFieldValue("defiLigneDevisPrixUnitaireImpose", pvc);
+       	//setFieldValue("defiLigneDevisPrixUnitaireImpose", pvc);
        	setFieldValue("defiLigneDevisPrixVenteImpose",pvc*qte);
        }
        else{
