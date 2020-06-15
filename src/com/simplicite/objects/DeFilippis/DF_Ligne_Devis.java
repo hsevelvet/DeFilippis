@@ -96,7 +96,7 @@ public class DF_Ligne_Devis extends ObjectDB {
 		
 		// conversion tonne
 		if (getFieldValue("defiLigneDevisUnite").equals("T")) setFieldValue("defiLigneDevisPrixExwTonne",prc);
-		else {setFieldValue("defiLigneDevisPrixExwUnitaire",prc);}
+		else if (prc != 0){setFieldValue("defiLigneDevisPrixExwUnitaire",prc);}
 
 		Double pexwu = getField("defiLigneDevisPrixExwUnitaire").getDouble(0); 
 		Double pexwt = getField("defiLigneDevisPrixExwTonne").getDouble(0);
@@ -211,7 +211,14 @@ public class DF_Ligne_Devis extends ObjectDB {
         double pexwut = getField("defiLigneDevisPrixExwUnite").getDouble(0);
         double ptu = getField("defiLigneDevisPrixTransportUnitaire").getDouble(0);
     	if (type_prd.equals("1")){
-    		setFieldValue("defiLigneDevisPrixUnitaireSec",prc);	
+    		if (prc == 0){
+    			setFieldValue("defiLigneDevisPrixUnitaireSec",getFieldValue("defiLigneDevisPrixExwUnitaire"));
+    			
+    		}
+    		else{
+    			setFieldValue("defiLigneDevisPrixUnitaireSec",prc);
+    		}
+    			
     	}
     	else{
     		setFieldValue("defiLigneDevisPrixUnitaireSec",pexwut + ptu);

@@ -262,8 +262,11 @@
 						</tr>						
                         <tr>
 							<td>
-								<strong>Suiveur Affaire :</strong>{{#rows_commande}}{{defiCommandeRedacteur}}{{/rows_commande}}<br/>	
-														
+								<strong>Suiveur Affaire :</strong>{{#rows_commande}}{{DF_Commande_DF_utilisateur_interne_id__defiUsrNC}}{{/rows_commande}}<br/>	
+								{{#rows_u}}
+								<strong>Tel : </strong>{{usr_work_num}}<br/>
+								<strong>Email : </strong>{{usr_login}}<br/>
+								{{/rows_u}}														
 							</td>
                             <td style="text-align:right">
 										<strong>Client </strong>: {{#rows_client}} {{defiClientNom}} {{/rows_client}} <br/>
@@ -278,7 +281,8 @@
                         </tr>
 						<tr>
 							<td colspan="2" style="vertical-align:bottom;text-align:center">
-								<h1>BON DE LIVRAISON N° <strong>{{defiLivraisonId}}</strong></h1>
+								<h1>{{#rows_commande}}{{DF_Commande_DF_Affaire_id__defiAfrLibelleChantier}} - {{DF_Commande_DF_Affaire_id__defiAfrLieuAffaire}}{{/rows_commande}}</h1>
+								<h2>BON DE LIVRAISON N° <strong>{{defiLivraisonId}}</strong></h2>
 								<!--<h2>À nous retourner dûment accepté et signé. Merci.</h2>-->
 							</td>
 						</tr>

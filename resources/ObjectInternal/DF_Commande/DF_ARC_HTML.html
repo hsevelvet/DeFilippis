@@ -120,7 +120,7 @@
 		text-align:center;
 	}
 	.tg td.quantite {
-		text-align:center;
+		text-align:right;
 	}
 	.tg td.prixu {
 		text-align:right;
@@ -301,8 +301,9 @@
             </table>
           
          <table class="tg">
-			<thead>
+			<!--<thead>-->
 				<tr style="background-color:#004C8E">
+					<th class="tg-ul38 thref">Réf<br></th>
 				    <th class="tg-ul38 thtype">Type de pierre</th>
 				    <th class="tg-ul38 thdesignation">Désignation</th>
 				    <th class="tg-ul38 thunite">Unité</th>
@@ -310,12 +311,12 @@
 				    <th class="tg-ul38 thprixu">P.U. HT<br></th>
 				    <th class="tg-ul38 thprixt">MONTANT € HT</th>
 				</tr>
-			</thead>
+			<!--</thead>-->
 			
 			<tbody>
 				{{#rows_l}}
 				<tr>
-
+					<td class="ref">{{defiLigneCommandeReferenceProduit}}</td>
 					<td class="type">{{defiLigneCommandeTypeGeologique}}</td>
 					<td class="designation">{{defiLigneCommandeDesignation}}</td>
 					<td class="unite">{{defiLigneCommandeUnite}}</td>
@@ -329,11 +330,11 @@
 		{{#rows}}
 			<tfoot>
 				<tr>
-					<td class="vide" colspan="6">&nbsp;</td>
+					<td class="vide" colspan="7">&nbsp;</td>
 				</tr>
 				<tr>
-					<td class="totallibelle" colspan="5">
-						Prix HT 
+					<td class="totallibelle" colspan="6">
+						Prix HT {{#defiCommandeIncotermPrix}}({{defiCommandeIncotermPrix}}){{/defiCommandeIncotermPrix}}
 					</td>
 					<td class="totalvaleur">
 						<script>fPrix({{defiCommandeMontantHT}});</script>

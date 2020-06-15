@@ -263,32 +263,45 @@ public class DF_Livraison extends ObjectDB {
 		
 		ObjectDB lignescommandes = Grant.getSystemAdmin().getObject("DF_ligne_commande","DF_ligne_commande");
 
-		
-		
+		ObjectDB contact_client = getGrant().getTmpObject("DF_Contact");
+		ObjectDB client = getGrant().getTmpObject("DF_Client");
+		ObjectDB u = getGrant().getTmpObject("User");
 		// Commande
 		ObjectDB commande = getGrant().getTmpObject("DF_Commande");
-		commande.resetFilters();
-		commande.setFieldFilter("row_id",getFieldValue("DF_Livraison_DF_Commande_id"));
+		synchronized(commande){
+			commande.resetFilters();
+			commande.setFieldFilter("row_id",bl.getFieldValue("DF_Livraison_DF_Commande_id"));
+			
+			for(String[] ce : commande.search()){
+				commande.setValues(ce);
+				AppLog.info(getClass(), "hhmldkqmdslfksd-------77",commande.toString(),getGrant());
+				
+				// Suiveur
+				
+				u.resetFilters();
+				u.setFieldFilter("row_id",commande.getFieldValue("DF_Commande_DF_utilisateur_interne_id"));		
 		
 		
-		// Client 	
-		ObjectDB client = getGrant().getTmpObject("DF_Client");
-		client.resetFilters();
-		client.setFieldFilter("row_id",commande.getFieldValue("DF_Commande_DF_Client_id"));
-		AppLog.info(getClass(), "hhmldkqmdslfksd-------77",commande.getFieldValue("DF_Commande_DF_Client_id"),getGrant());
+				// Client 	
+				
+				client.resetFilters();
+				client.setFieldFilter("row_id",commande.getFieldValue("DF_Commande_DF_Client_id"));
+				AppLog.info(getClass(), "hhmldkqmdslfksd-------77",commande.getFieldValue("DF_Commande_DF_Client_id"),getGrant());
 		
-		// Contact Client
-		ObjectDB contact_client = getGrant().getTmpObject("DF_Contact");
-		contact_client.resetFilters();
-		contact_client.setFieldFilter("row_id",commande.getFieldValue("DF_Commande_DF_Contact_id"));		
-		
-	
+				// Contact Client
+				
+				contact_client.resetFilters();
+				contact_client.setFieldFilter("row_id",commande.getFieldValue("DF_Commande_DF_Contact_id"));
+				
+			}
+		}
 		wp.append(MustacheTool.apply(
 								this,
 								"DF_BL_HTML", 
 								"{'rows':"+bl.toJSON(bl.search(), null, false, false)+
 								",'rows_l':"+q.toJSON(q.search(), null, false, false)+
 								",'rows_commande':"+commande.toJSON(commande.search(), null, false, false)+								
+								",'rows_u':"+u.toJSON(u.search(), null, false, false)+								
 								",'rows_client':"+client.toJSON(client.search(), null, false, false)+
 								",'contact_client':"+contact_client.toJSON(contact_client.search(), null, false, false)+								
 							    "}"

@@ -135,7 +135,7 @@
 		text-align:center;
 	}
 	.tg td.quantite {
-		text-align:center;
+		text-align:right;
 	}
 	.tg td.prixu {
 		text-align:right;
@@ -290,7 +290,8 @@
                             <td style="text-align:right">
 								<strong>Client </strong>: {{DF_Devis_DF_Client_id__defiClientNom}}<br/>
 								<strong>Contact </strong>:  {{DF_Devis_DF_Contact_id__defiContactPrenom}} {{DF_Devis_DF_Contact_id__defiContactNom}}<br/>
-								<strong>Email </strong>: {{DF_Devis_DF_Client_id__defiClientEmail}}<br/>
+								<strong>Email </strong>: {{DF_Devis_DF_Contact_id__defiContactEmail}}<br/>
+								<strong>Tel </strong>: {{DF_Devis_DF_Contact_id__defiContactPortable}}<br/>
 								<br/>										
 								<strong>Date d'émission </strong>: {{defiDevisDateEmission}}<br/>
 								<!--<strong>Ref Projet </strong>: {{defiDevisTitre}}-->
@@ -310,7 +311,7 @@
             </table>
             
          <table class="tg">
-			<thead>
+			<!--<thead>-->
 				<tr style="background-color: #004C8E;">
 				    <th class="tg-ul38 thref">Réf<br></th>
 				    <th class="tg-ul38 thtype">Type de pierre</th>
@@ -320,7 +321,7 @@
 				    <th class="tg-ul38 thprixu">Prix Unitaire € HT</th>
 				    <th class="tg-ul38 thprixt">TOTAL € HT</th>
 				</tr>
-			</thead>
+			<!--</thead>-->
 			
 			<tbody>				
 				{{#rows_l}}
