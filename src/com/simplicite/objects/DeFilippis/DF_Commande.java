@@ -202,7 +202,8 @@ public class DF_Commande extends ObjectDB {
 					// Nom de la carte
 						card.put("name",  (firstCharsIntitule+"."+getFieldValue("defiCommandeIntituleCommande")+"."+lc.getFieldValue("defiLigneCommandeReferenceProduit")+"."+ tonnage_carte).toUpperCase());
 					// Description de la carte
-						card.put("desc","\n**Date Livraison confirmée**: "+getFieldValue("defiCommandeDatePremierCamion")+"\n"+"\n**Contact Déchargement Privilégié**: "+getFieldValue("defiCommandeContactLivraison")+"\n"+"\n**Contact En Cas De Problème**: "+"\n"+"\n**Quantité Initiale**: "+ lc.getFieldValue("defiLigneCommandeQuantite"));
+						card.put("desc","\n**Numéro de commande**: "+getFieldValue("defiCommandeNumero")+"\n**Titre Affaire / Nom Affaire**: "+int_aff+"\n**Date Livraison confirmée**: "+getFieldValue("defiCommandeDatePremierCamion")+"\n"+"\n**Contact Déchargement Privilégié**: "+getFieldValue("defiCommandeContactLivraison")+"\n"+"\n**Contact En Cas De Problème**: "+"\n"+"\n**Quantité Initiale**: "+ lc.getFieldValue("defiLigneCommandeQuantite"));
+						
 					// Date limie de la carte 
 						card.put("due", getFieldValue("defiCommandeDatePremierCamion"));
 					// Emplacement de la carte

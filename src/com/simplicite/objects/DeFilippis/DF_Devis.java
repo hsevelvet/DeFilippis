@@ -223,10 +223,10 @@ public class DF_Devis extends ObjectDB {
 			for(String[] lde : ld.search()){
 				ld.setValues(lde);
 				String ref_prod = ld.getFieldValue("defiLigneDevisNPrix");
-				String type_geo = ld.getFieldValue("defiPrdTypeGeologique");
-				String apl_com = ld.getFieldValue("defiPrdAppellationCommerciale");
-				String finition = ld.getFieldValue("defiPrdFinitionFacesVues");
-				String unite_p = ld.getFieldValue("defiPrdUnite");
+				String type_geo = ld.getFieldValue("defiLigneDevisTypeGeo");
+				String apl_com = ld.getFieldValue("defiLigneDevisAppellationCommerciale");
+				String finition = ld.getFieldValue("defiLigneDevisFinitionFV");
+				String unite_p = ld.getFieldValue("defiLigneDevisUnite");
 				String designation = ld.getFieldValue("defiLigneDevisDesignation");
 				
 				ObjectDB pf = getGrant().getTmpObject("DF_Produit_Finis");
@@ -237,9 +237,9 @@ public class DF_Devis extends ObjectDB {
 				AppLog.info(getClass(), "mdqldsfqqsdqs", fournisseur, getGrant());
 
 				double poids_u = ld.getField("defiLigneDevisPoidsTotal").getDouble(0);
-				double prd_long = ld.getField("defiPrdLongueur").getDouble(0);
-				double prd_larg = ld.getField("defiPrdLargeur").getDouble(0);
-				double prd_eps = ld.getField("defiPrdEpaisseur").getDouble(0);
+				double prd_long = ld.getField("defiLigneDevisLongueur").getDouble(0);
+				double prd_larg = ld.getField("defiLigneDevisLargeur").getDouble(0);
+				double prd_eps = ld.getField("defiLigneDevisEpaisseur").getDouble(0);
 				double prd_qte = ld.getField("defiLigneDevisQuantite").getDouble(0);
 				double cmd_prix_exw_u = ld.getField("defiLigneDevisPrixUnitaireImpose").getDouble(0);
 				double cmd_total_exw = ld.getField("defiLigneDevisPrixUnitaireImpose").getDouble(0);

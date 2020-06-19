@@ -8,7 +8,7 @@
   <description>Simplicite module: DeFilippis</description>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <simplicite.url>https://simplicite.mineralconseil.fr</simplicite.url>
+    <simplicite.url>http://18.157.188.27:81</simplicite.url>
     <simplicite.version>4.0.P24</simplicite.version>
     <maven.compiler.source>14</maven.compiler.source>
     <maven.compiler.target>14</maven.compiler.target>
