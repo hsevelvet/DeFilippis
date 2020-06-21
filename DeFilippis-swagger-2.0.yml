@@ -3615,6 +3615,11 @@ paths:
         type: string
         required: false
       - in: query
+        name: defiPrdLongueur
+        description: Search filter for Longueur
+        type: string
+        required: false
+      - in: query
         name: defiPrdTypeGeologique
         description: Search filter for Type Géologique
         type: string
@@ -3673,18 +3678,13 @@ paths:
         type: string
         required: false
       - in: query
-        name: defiPrdLongueur
-        description: Search filter for Longueur
+        name: df_produit_commentaire
+        description: Search filter for Commentaire
         type: string
         required: false
       - in: query
         name: defiPrdLargeur
         description: Search filter for Largeur
-        type: string
-        required: false
-      - in: query
-        name: df_produit_commentaire
-        description: Search filter for Commentaire
         type: string
         required: false
       - in: query

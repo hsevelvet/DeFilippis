@@ -6383,6 +6383,12 @@ paths:
         required: false
       - schema:
           type: string
+        in: query
+        name: defiPrdLongueur
+        description: Search filter for Longueur
+        required: false
+      - schema:
+          type: string
           enum:
           - GRA
           - CAL
@@ -6448,20 +6454,14 @@ paths:
       - schema:
           type: string
         in: query
-        name: defiPrdLongueur
-        description: Search filter for Longueur
+        name: df_produit_commentaire
+        description: Search filter for Commentaire
         required: false
       - schema:
           type: string
         in: query
         name: defiPrdLargeur
         description: Search filter for Largeur
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: df_produit_commentaire
-        description: Search filter for Commentaire
         required: false
       - schema:
           type: string
