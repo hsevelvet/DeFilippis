@@ -209,6 +209,13 @@ public class DF_Devis extends ObjectDB {
 		c.setFieldValue("defiCommandePackagingTransport",pack_transp);
 		c.setFieldValue("defiCommandeCadenceLivraison",getFieldValue("defiDevisCadenceLivraison"));
 		
+		Date date = new Date();
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(date);
+		cal.add(Calendar.WEEK_OF_MONTH,6);
+		c.setFieldValue("defiCommandeDate", date);
+		c.setFieldValue("defiCommandeDatePremierCamion",cal.getTime());
+		
 		c.validate();
 		c.save();
 		
