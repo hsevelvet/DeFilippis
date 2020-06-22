@@ -204,7 +204,7 @@ Objet metier pour contact.
 | `defiContactPrenom`                                          | char(32)                                 | yes      | yes       |          | -                                                                                |
 | `defiContactIdEmploi`                                        | enum(7) using `DF_CONTACT_ID_EMPLOI` list |          | yes       |          | -                                                                                |
 | `defiContactStatut`                                          | enum(7) using `DF_CONTACT_STATUT` list   | yes      | yes       |          | -                                                                                |
-| `defiContactTelephone`                                       | phone(100)                               | yes      | yes       |          | -                                                                                |
+| `defiContactTelephone`                                       | phone(100)                               |          | yes       |          | -                                                                                |
 | `defiContactPortable`                                        | phone(100)                               | yes      | yes       |          | -                                                                                |
 | `defiContactEmail`                                           | email(100)                               | yes      | yes       |          | -                                                                                |
 | `defiContactCommentaire`                                     | text(100)                                |          | yes       |          | -                                                                                |
@@ -439,8 +439,8 @@ Objet métier pour fournisseur.
 | `defiLigneDevisPoidsTotal`                                   | float(9, 2)                              |          | yes       |          | -                                                                                |
 | `defiLigneDevisPrixTransportReference`                       | float(9, 2)                              | yes      | yes       |          | -                                                                                |
 | `defiLigneDevisNombreCamions`                                | float(9, 2)                              |          | yes       |          | -                                                                                |
-| `defiLigneDevisMasseUnitaireAcJoints`                        | float(8, 2)                              |          | yes       |          | -                                                                                |
-| `defiLigneDevisMasseUnitaireSsJoints`                        | float(8, 2)                              |          | yes       |          | -                                                                                |
+| `defiLigneDevisMasseUnitaireAcJoints`                        | float(8, 1)                              |          | yes       |          | -                                                                                |
+| `defiLigneDevisMasseUnitaireSsJoints`                        | float(8, 1)                              |          | yes       |          | -                                                                                |
 | `defiLigneDevisPrixUnitaireSec`                              | float(10, 2)                             |          | yes       |          | -                                                                                |
 | `defiLigneDevisPrixTransportUnitaire`                        | float(10, 2)                             |          | yes       |          | -                                                                                |
 | `defiLigneDevisTotalEXWHT`                                   | float(11, 2)                             |          | yes       |          | -                                                                                |
@@ -449,8 +449,8 @@ Objet métier pour fournisseur.
 | `defiLigneDevisPrixVenteCalcule`                             | float(6, 2)                              |          | yes       |          | -                                                                                |
 | `defiLigneDevisNPrix`                                        | char(10)                                 | yes      | yes       |          | -                                                                                |
 | `defiLigneDevisDesignation`                                  | text(100)                                | yes      |           |          | -                                                                                |
-| `defiLigneDevisNombreElementsSsJoints`                       | float(5, 2)                              |          | yes       |          | -                                                                                |
-| `defiLigneDevisNombreElementsAcJoints`                       | float(5, 2)                              |          | yes       |          | -                                                                                |
+| `defiLigneDevisNombreElementsSsJoints`                       | float(5, 1)                              |          | yes       |          | -                                                                                |
+| `defiLigneDevisNombreElementsAcJoints`                       | float(5, 1)                              |          | yes       |          | -                                                                                |
 | `defiLigneDevisPrixExwUnite`                                 | float(9, 2)                              |          | yes       |          | -                                                                                |
 | `defiLigneDevisPrixExwUnitaire`                              | float(10, 2)                             |          | yes       |          | -                                                                                |
 | `defiLigneDevisPrixExwTonne`                                 | float(9, 2)                              |          | yes       |          | -                                                                                |
@@ -581,7 +581,7 @@ Objet métier pour fournisseur.
 | _Ref. `DF_Prix_Transport_DF_Transport_id.defiTrspNom`_       | _char(36)_                               |          |           |          | -                                                                                |
 | `defiPrTrspPrix`                                             | float(9, 2)                              | yes      | yes       |          | -                                                                                |
 | `defiPrTrspLieuEnlevement`                                   | char(100)                                | yes      | yes       |          | -                                                                                |
-| `defiPrTrspDepartementLivraison`                             | char(20)                                 |          | yes       |          | -                                                                                |
+| `defiPrTrspDepartementLivraison`                             | char(20)                                 | yes      | yes       |          | -                                                                                |
 | `defiPrTspId`                                                | char(11)                                 | yes*     | yes       |          | -                                                                                |
 
 `DF_Produit_Finis` business object definition

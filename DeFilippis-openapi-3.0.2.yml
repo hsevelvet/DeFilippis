@@ -988,7 +988,7 @@ components:
           description: Titre Projet
           type: string
         DF_Devis_DF_Contact_id__defiContactEmail:
-          description: E-mail Contacts
+          description: E-mail Contact
           type: string
         DF_Devis_DF_utilisateur_interne_id__defiUsrNC:
           description: Suiveur de l'affaire
@@ -1074,7 +1074,7 @@ components:
           type: string
           example: yyyy-MM-dd
         defiDevisPrixTotal:
-          description: Prix Total
+          description: Prix Total TTC
           type: number
         defiDevisCoefficientGlobal:
           description: Coefficient Global
@@ -1241,7 +1241,7 @@ components:
           description: Largeur
           type: string
         DF_Produit_Finis_DF_Fournisseurs_id__defiFournNom:
-          description: Nom Fournisseurs
+          description: Nom Fournisseur
           type: string
         defiPrdMasseVolumique:
           description: Masse Volumique
@@ -6373,7 +6373,7 @@ paths:
           type: string
         in: query
         name: DF_Produit_Finis_DF_Fournisseurs_id__defiFournNom
-        description: Search filter for Nom Fournisseurs
+        description: Search filter for Nom Fournisseur
         required: false
       - schema:
           type: string
@@ -8584,7 +8584,7 @@ paths:
           type: number
         in: query
         name: defiDevisPrixTotal
-        description: Search filter for Prix Total
+        description: Search filter for Prix Total TTC
         required: false
       - schema:
           type: string
@@ -8753,7 +8753,7 @@ paths:
           type: string
         in: query
         name: DF_Devis_DF_Contact_id__defiContactEmail
-        description: Search filter for E-mail Contacts
+        description: Search filter for E-mail Contact
         required: false
       - schema:
           type: string
@@ -9952,9 +9952,9 @@ tags:
 - name: DF_Hist_Docs
   description: Historique Documents
 - name: DF_ligne_commande
-  description: DF ligne commande
+  description: Lignes Commande
 - name: DF_Ligne_Devis
-  description: DF ligne devis
+  description: Lignes Devis
 - name: DF_Livraison
   description: Livraisons
 - name: DF_Prix_Transport
