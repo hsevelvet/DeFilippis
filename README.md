@@ -263,6 +263,7 @@ Objet metier pour devis.
 | `defiDevisStatut`                                            | enum(7) using `STATUT_DEVIS` list        | yes      | yes       |          | -                                                                                |
 | `defiDevisTitreProjet`                                       | char(100)                                | yes      | yes       |          | -                                                                                |
 | _Ref. `DF_Devis_DF_utilisateur_interne_id.defiUsrNC`_        | _char(70)_                               |          |           |          | -                                                                                |
+| _Ref. `DF_Devis_DF_Contact_id.defiContactCivilite`_          | _enum(7) using `CIVILITE_CLIENT_CONTACT` list_ |          |           |          | -                                                                                |
 | `defiDevisLieuProjet`                                        | char(32)                                 | yes      | yes       |          | -                                                                                |
 | `defiDevisDateEmission`                                      | date                                     | yes      | yes       |          | -                                                                                |
 | `DF_Devis_DF_Chantier_id` link to **`DF_Affaire`**           | id                                       |          | yes       |          | -                                                                                |
@@ -317,6 +318,9 @@ Objet metier pour devis.
     - `CH` Chantier
     - `PE` Perdu
     - `VR` Versionné
+* `CIVILITE_CLIENT_CONTACT`
+    - `M` Mr
+    - `F` Mme
 * `DF_DEVIS_PACKAGING_TRANSPORT`
     - `EI` Emballage Inclus
     - `HE` Hors coût d'emballage

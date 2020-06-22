@@ -1073,6 +1073,12 @@ components:
           description: Date Validité offre
           type: string
           example: yyyy-MM-dd
+        DF_Devis_DF_Contact_id__defiContactCivilite:
+          description: Civilité Contacts
+          type: string
+          enum:
+          - M
+          - F
         defiDevisPrixTotal:
           description: Prix Total TTC
           type: number
@@ -8543,6 +8549,15 @@ paths:
         in: query
         name: DF_Devis_DF_utilisateur_interne_id__defiUsrNC
         description: Search filter for Suiveur de l'affaire
+        required: false
+      - schema:
+          type: string
+          enum:
+          - M
+          - F
+        in: query
+        name: DF_Devis_DF_Contact_id__defiContactCivilite
+        description: Search filter for Civilité Contacts
         required: false
       - schema:
           type: string

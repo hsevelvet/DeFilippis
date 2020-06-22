@@ -5423,6 +5423,14 @@ paths:
         type: string
         required: false
       - in: query
+        name: DF_Devis_DF_Contact_id__defiContactCivilite
+        description: Search filter for Civilité Contacts
+        type: string
+        required: false
+        enum:
+        - M
+        - F
+      - in: query
         name: defiDevisDateEmission
         description: Search filter for Date Emission
         type: string
@@ -7657,6 +7665,12 @@ definitions:
         description: Date Validité offre
         type: string
         example: yyyy-MM-dd
+      DF_Devis_DF_Contact_id__defiContactCivilite:
+        description: Civilité Contacts
+        type: string
+        enum:
+        - M
+        - F
       defiDevisPrixTotal:
         description: Prix Total TTC
         type: number

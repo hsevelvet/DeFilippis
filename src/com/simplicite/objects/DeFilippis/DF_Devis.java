@@ -532,11 +532,18 @@ public class DF_Devis extends ObjectDB {
 		ObjectDB devis = getGrant().getTmpObject("DF_Devis");
 		ObjectField devis_fiche = devis.getField("defiDevisFicheTechnique");
 		
+		String email_address = this.getFieldValue("defiDevisContactMail");
+		AppLog.info(getClass(), "Address", email_address, getGrant());
+		
 		MailTool mail = new MailTool();
-		mail.addRcpt("hsenoussi@velvetconsulting.com");
-		mail.setSubject("Test Mail");
-		mail.addAttach(devis, devis_fiche); 
-		mail.setContent("Mail Text");
+		mail.addRcpt(email_address);
+		mail.setSubject("Devis");
+		mail.addAttach(devis, devis_fiche);
+		
+		//String content = "Bonjour [CIVILITE]"+getFieldValue("DF_Devis_DF_Client_id__defiClientNom")+", Vous trouverez ci-joint notre offre en fourniture seule pour l’affaire [TITRE PROJET] à [VILLE PROJET], ainsi que les fiches techniques des produits associés.Les prix s'entendent [INCOTERM PRIX], [PACKAGING TRANSPORT] Je reste à votre disposition pour tous renseignements. Cordialement,";
+		//setFieldValue("defiDevisMail",content);
+		String content = devis.getFieldValue("defiDevisMail");
+		mail.setContent(content);
 		mail.send();
 		
 		return null;
