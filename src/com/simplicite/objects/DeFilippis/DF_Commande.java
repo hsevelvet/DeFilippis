@@ -197,7 +197,7 @@ public class DF_Commande extends ObjectDB {
 						double poids_unitaire = lc.getField("defiLigneCommandePoidsUnitaire").getDouble();
 					
 						double quantite_lc = lc.getField("defiLigneCommandeQuantite").getDouble();
-						double tonnage_carte = quantite_lc*poids_unitaire;
+						int tonnage_carte = (int)Math.round(quantite_lc*poids_unitaire);
 					
 					// Nom de la carte
 						card.put("name",  (firstCharsIntitule+"."+getFieldValue("defiCommandeIntituleCommande")+"."+lc.getFieldValue("defiLigneCommandeReferenceProduit")+"."+ tonnage_carte).toUpperCase());
