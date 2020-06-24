@@ -47,14 +47,15 @@ public class DF_Devis extends ObjectDB {
 	/** Mail Option
 	/** Default Message 
 	public static final String DEFAULT_MESSAGE = "test message";
-	
-	/** Init Default Message 
+	*/
+	//Init Default Message 
+	public static final String DEFAULT_MESSAGE = "test message";
 	public void initAction(Action action){
 		if("Envoyer-mail".equals(action.getName())){
-			ObjectField f = action.getConfirmField(getGrant().getLang(),"defiDevisMail");
-			if (f!=null) f.setDefaultValue(String.valueOf(DEFAULT_MESSAGE));
+			ObjectField f = action.getConfirmField(getGrant().getLang(),"defiDevisContactMail");
+			//if (f!=null) f.setDefaultValue(String.valueOf(DEFAULT_MESSAGE));
 			}
-	}*/
+	}
 	
 	
 	// compteur date
@@ -529,20 +530,20 @@ public class DF_Devis extends ObjectDB {
 	}
 	
 	// Méthode Envoi mail
-	public String SendMailDevis(){
+	public String SendMailDevis(Map<String, String> params){
 		ObjectDB devis = getGrant().getTmpObject("DF_Devis");
 		ObjectField devis_fiche = devis.getField("defiDevisFicheTechnique");
 		//ObjectField email_address = devis.getField("defiDevisContactMail");
 		
-		//String email_address_st = email_address.getValue();
-		//AppLog.info(getClass(), "Address", email_address.toString(), getGrant());
+		String email_address = params.get("defiDevisContactMail") ;
+		AppLog.info(getClass(), "Address", params.get("defiDevisContactMail"), getGrant());
 		
 		MailTool mail = new MailTool();
-		mail.addRcpt(getFieldValue("defiDevisContactMail"));
+		mail.addRcpt(email_address);
 		mail.setSubject("Devis");
 		mail.addAttach(devis, devis_fiche);
 		
-		String content = devis.getFieldValue("defiDevisMail");
+		String content = params.get("defiDevisMail");
 		mail.setContent(content);
 		mail.send();
 		
