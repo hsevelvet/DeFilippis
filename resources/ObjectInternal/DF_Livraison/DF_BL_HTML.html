@@ -190,6 +190,7 @@
 	
 	h1, h2 {
 		color:#004C8E;
+		line-height:normal;
 	}	
 	h1 {
 		margin:15px 0 5px 0;
@@ -204,21 +205,27 @@
 		margin:8px 0 0 0;
 	}
 	
-	.1234 {
-		font-color:red !important;
-		font-weight:bold;
+	p.cordialement {
+		margin:20px 10px;
+		text-align:right;
 	}
 	
 	.signature {
-		width:70% !important;
+		width:50% !important;	
+		margin: 25px 0 auto auto;
 		text-align:left;
 		vertical-align:top;
 		border:solid 1px black;
 		height:150px;
+		page-break-inside: avoid;
 	}
 	.signature_span {
 		font-weight:bold;
-	}
+	}	
+	
+	div.coordclient {		
+		font-size:13px;
+	}	
 	
 	</style>	
 	<script>
@@ -233,6 +240,15 @@
 		  /*return nombre;*/
 		  document.write(nombre+"&nbsp;&euro;");
 		}
+		function fval(chaine){
+			
+			if(chaine=="null"){
+				document.write("");
+			}
+			else {
+				document.write(chaine);
+			}	
+		}		
 	</script>	
 	
 </head>
@@ -263,20 +279,23 @@
 						</tr>						
                         <tr>
 							<td>
-								<strong>Suiveur Affaire :</strong>{{#rows_commande}}{{DF_Commande_DF_utilisateur_interne_id__defiUsrNC}}{{/rows_commande}}<br/>	
+								<strong>Suiveur Affaire : </strong>{{#rows_commande}}{{DF_Commande_DF_utilisateur_interne_id__defiUsrNC}}{{/rows_commande}}<br/>	
 								{{#rows_u}}
-								<strong>Tel : </strong>{{usr_work_num}}<br/>
-								<strong>Email : </strong>{{usr_login}}<br/>
+								<strong>Tel : </strong>{{usr_cell_num}}<br/>
+								<strong>Email : </strong>{{usr_email}}<br/>
 								{{/rows_u}}														
 							</td>
                             <td style="text-align:right">
-										<strong>Client </strong>: {{#rows_client}} {{defiClientNom}} {{/rows_client}} <br/>
-										<strong>Contact </strong>: {{#contact_client}}{{defiContactPrenom}} {{defiContactNom}}{{/contact_client}}<br/>
-										<strong>Email </strong>: {{#contact_client}}{{defiContactEmail}}{{/contact_client}}<br/>
-										<br/>
-										<strong>Référence Commande </strong>: {{#rows_commande}}{{defiCommandeNumero}}{{/rows_commande}}<br/>
-										<strong>Date de livraison </strong>: <script>var dateliv = "{{df_livraison_date_livraison_estimee}}"; document.write(dateliv.substring(0,10));</script><br/>
-										<strong>N° de bon fournisseur </strong>: {{df_livraison_num_bl_fournisseur}}<br/>
+								<div class="coordclient">
+									<strong>Client </strong>: {{#rows_client}} {{defiClientNom}} {{/rows_client}} <br/>
+									<strong>Contact </strong>: {{#contact_client}}{{defiContactPrenom}} {{defiContactNom}}{{/contact_client}}<br/>
+									<strong>Email </strong>: {{#contact_client}}{{defiContactEmail}}{{/contact_client}}<br/>
+								</div>
+								<br/>
+								<strong>Référence Commande </strong>: {{#rows_commande}}{{defiCommandeNumero}}{{/rows_commande}}<br/>
+								<strong>Date de livraison </strong>: <script>var dateliv = "{{df_livraison_date_livraison_estimee}}"; document.write(dateliv.substring(0,10));</script><br/>
+								<strong>Transporteur </strong>: {{DF_Livraison_DF_Transport_id__defiTrspNom}}<br/>
+								<strong>N° de bon fournisseur </strong>: {{df_livraison_num_bl_fournisseur}}<br/>
 										
                             </td>                            
                         </tr>
@@ -293,13 +312,7 @@
                 </td>
             </tr>            
             </table>
-            
-			
-			
-				
-			
-			
-			
+            			
          <table class="tg">
 			<thead>
 				<tr style="background-color:#004C8E">
@@ -316,10 +329,10 @@
 				{{#rows_l}}
 				<tr>
 					<td class="ref">{{defiQuantiteRefProduit}}</td>
-					<td class="type">{{DF_Quantite_DF_ligne_commande_id__defiLigneCommandeTypeGeologique}}</td>
+					<td class="type"><script>fval("{{DF_Quantite_DF_ligne_commande_id__defiLigneCommandeTypeGeologique}}");</script></td>
 					<td class="designation">{{DF_Quantite_DF_ligne_commande_id__defiLigneCommandeDesignation}}</td>
 
-					<td class="unite">{{DF_Quantite_DF_ligne_commande_id__defiLigneCommandeUnite}}</td>
+					<td class="unite"><script>fval("{{DF_Quantite_DF_ligne_commande_id__defiLigneCommandeUnite}}")</script></td>
 					<td class="quantite">{{defiQuantiteQte}}</td>
 				</tr>
 				{{/rows_l}}
@@ -336,8 +349,7 @@
 			<br/>
 				<strong>Nombre de palettes : {{defiLivraisonNbrPalettes}}</strong>
 			<br/><br/>
-		</p>
-		<p>&nbsp;</p>
+		</p>		
 	</div>
 	{{/rows}}
 	
@@ -348,6 +360,11 @@
 			</td>
 		</tr>	
 	</table>
+	
+	<p class="cordialement"><strong>Pour toute réclamation, merci de bien vouloir noter les réserves sur le Bon de Livraison et la CMR</strong><br/>
+		Nous restons à votre disposition pour tout renseignement,<br/><br/>
+		L'équipe Minéral Conseil
+	</p>				
 	
  </div>
 

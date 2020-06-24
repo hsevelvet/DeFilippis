@@ -15,7 +15,7 @@
 		"password": "HsenoussiV2019"
 	}
 }]]></mdl_url>
-		<mdl_lastupd>2020-06-24 16:52:00</mdl_lastupd>
+		<mdl_lastupd>2020-06-24 23:12:36</mdl_lastupd>
 		<mdl_comment/>
 	</data>
 </object>
@@ -452,7 +452,7 @@
 		<usr_extra>1</usr_extra>
 		<usr_subhead>1</usr_subhead>
 		<usr_logout>2020-03-13 14:54:33</usr_logout>
-		<usr_last_logon>2020-06-24 17:03:44</usr_last_logon>
+		<usr_last_logon>2020-06-24 22:34:34</usr_last_logon>
 		<usr_dateformat/>
 		<usr_uuid/>
 	</data>
@@ -520,7 +520,7 @@
 		<usr_extra>1</usr_extra>
 		<usr_subhead>1</usr_subhead>
 		<usr_logout>2020-02-24 13:28:09</usr_logout>
-		<usr_last_logon>2020-06-24 17:03:06</usr_last_logon>
+		<usr_last_logon>2020-06-24 17:05:28</usr_last_logon>
 		<usr_dateformat/>
 		<usr_uuid/>
 	</data>
@@ -890,7 +890,16 @@
 	<data>
 		<usp_user_id.usr_login>designer</usp_user_id.usr_login>
 		<usp_param_id.sys_code>HISTORY Home</usp_param_id.sys_code>
-		<usp_value><![CDATA[[{"object":"Function","rowId":"4290","label":"Fonction : USR-CMS-V"},
+		<usp_value><![CDATA[[{"object":"Module","rowId":"39","label":"Module : DeFilippis"},
+{"object":"DF_Ligne_Devis","rowId":"251","label":"Lignes Devis : LD-00251"},
+{"object":"DF_Devis","rowId":"115","label":"Devis : AGN.CANNES.Avenue FOCH.2020.00115.A"},
+{"object":"DF_Commande","rowId":"143","label":"Commandes : CO-00143"},
+{"object":"ObjectFieldSystem","rowId":"18822","label":"Attribut d'objet : DF_Produit_Finis defiPrdLongueur 4"},
+{"object":"Field","rowId":"8911","label":"Attribut : defiPrdLongueur"},
+{"object":"DF_Produit_Finis","rowId":"13","label":"Produits Finis : PRD-00001"},
+{"object":"ObjectFieldSystem","rowId":"18815","label":"Attribut d'objet : DF_Produit_Finis defiPrdCategoriePrix 1"},
+{"object":"Field","rowId":"8905","label":"Attribut : defiPrdCategoriePrix"},
+{"object":"Function","rowId":"4290","label":"Fonction : USR-CMS-V"},
 {"object":"Grant","rowId":"7345","label":"Habilitation : DeFilippisAdmin USR-CMS User"},
 {"object":"Function","rowId":"105","label":"Fonction : USR-CMS"},
 {"object":"ObjectSystem","rowId":"105","label":"Objet / Domaine : User"},
@@ -900,16 +909,7 @@
 {"object":"DF_Devis","rowId":"112","label":"Devis : DHN.BRIVE.Petits hommes.2020.00112.A"},
 {"object":"DF_Quantite","rowId":"1059","label":"Quantité : QTE-01059"},
 {"object":"DF_Quantite","rowId":"1058","label":"Quantité : QTE-01058"},
-{"object":"DF_Livraison","rowId":"706","label":"Livraisons : LVR-00706"},
-{"object":"Module","rowId":"39","label":"Module : DeFilippis"},
-{"object":"SystemParam","rowId":"263","label":"Paramètre système : MAIL_SERVICE"},
-{"object":"Model","rowId":"18","label":"Modèle métier : AffaireEtat"},
-{"object":"FieldList","rowId":"16688","label":"Liste de valeurs : DF_STATUT_AFFAIRE"},
-{"object":"Field","rowId":"8755","label":"Attribut : defiAfrStatut"},
-{"object":"DF_Affaire","rowId":"51","label":"Affaires : AFR-00051"},
-{"object":"DF_Affaire","rowId":"49","label":"Affaires : AFR-00049"},
-{"object":"DF_Affaire","rowId":"50","label":"Affaires : AFR-00050"},
-{"object":"DF_Devis","rowId":"106","label":"Devis : HSE.37000 TOUR.Place de l'église.2020.00106.B"}]]]></usp_value>
+{"object":"DF_Livraison","rowId":"706","label":"Livraisons : LVR-00706"}]]]></usp_value>
 		<usp_param_id.sys_type/>
 		<usp_param_id.sys_value><![CDATA[empty]]></usp_param_id.sys_value>
 		<usp_param_id.sys_desc/>
@@ -955,7 +955,7 @@
 	<data>
 		<usp_user_id.usr_login>designer</usp_user_id.usr_login>
 		<usp_param_id.sys_code>UI_EDITOR_PREFS</usp_param_id.sys_code>
-		<usp_value><![CDATA[{"explore":[{"module":"DeFilippis","id":"38","items":[{"field":"obo_script_id","label":"Objet métier","list":[{"docId":"2513","id":"1999","label":"DF_Affaire"},{"docId":"2514","id":"2000","label":"DF_Client"},{"docId":"2556","id":"2001","label":"DF_Commande"},{"docId":"2516","id":"2002","label":"DF_Contact"},{"docId":"2619","id":"2003","label":"DF_Devis"},{"docId":"2518","id":"2006","label":"DF_ligne_commande"},{"docId":"2519","id":"2007","label":"DF_Ligne_Devis"},{"docId":"2603","id":"2008","label":"DF_Livraison"},{"docId":"2521","id":"2010","label":"DF_Produit_Finis"},{"docId":"2522","id":"2011","label":"DF_Quantite"},{"docId":"2523","id":"2013","label":"DF_Transport"}],"open":true,"object":"ObjectInternal"},{"field":"obe_script_id","label":"Objet externe","list":[{"docId":"2511","id":"1997","label":"Test"},{"docId":"2512","id":"1998","label":"WebhookLivraisonTrello"}],"open":true,"object":"ObjectExternal"},{"field":"pcs_script_id","label":"Processus métier","list":[{"docId":"2524","id":"9","label":"DF_Process_01"}],"open":true,"object":"BPMProcess"},{"field":"res_file","label":"Ressource","list":[{"docId":"2525","id":"258","label":"Objet métier/DF_Commande * DF_ARC_HTML"},{"docId":"2526","id":"259","label":"Objet métier/DF_Contact * SCRIPT"},{"docId":"2607","id":"263","label":"Objet métier/DF_Devis * DF_Devis_HTML"},{"docId":"2608","id":"264","label":"Objet métier/DF_Devis * DF_Devis_Script"},{"docId":"2577","id":"260","label":"Objet métier/DF_Ligne_Devis * SCRIPT"},{"docId":"2530","id":"261","label":"Objet métier/DF_Livraison * DF_BL_HTML"},{"docId":"2531","id":"262","label":"Objet métier/DF_Livraison * DF_ODF_HTML"}],"open":true,"object":"Resource"}],"open":true},{"module":"SimStore","id":"37","items":[{"field":"obe_script_id","label":"Objet externe","list":[{"docId":"2450","id":"1988","label":"StoStore"}],"open":false,"object":"ObjectExternal"},{"field":"res_file","label":"Ressource","list":[{"docId":"2451","id":"255","label":"Objet externe/StoStore * STYLE"},{"docId":"2453","id":"251","label":"Objet externe/StoStore * TEMPLATE"},{"docId":"1939","id":"252","label":"Objet externe/StoStore * SCRIPT"}],"open":false,"object":"Resource"}],"open":false}],"tabs":[{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"1999"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2001"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2003"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2006"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2008"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2010"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2007"},{"field":"res_file","scope":"","type":"js","object":"Resource","rowId":"260"},{"field":"res_file","scope":"","type":"html","object":"Resource","rowId":"263"},{"field":"res_file","scope":"","type":"js","object":"Resource","rowId":"259"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2002"},{"field":"res_file","scope":"","type":"js","object":"Resource","rowId":"264"}],"selected":"ObjectInternal_obo_script_id_2003"}]]></usp_value>
+		<usp_value><![CDATA[{"explore":[{"module":"DeFilippis","id":"39","items":[{"field":"obo_script_id","label":"Objet métier","list":[{"docId":"5235","id":"2022","label":"DF_Affaire"},{"docId":"5236","id":"2023","label":"DF_Client"},{"docId":"5237","id":"2024","label":"DF_Commande"},{"docId":"5238","id":"2025","label":"DF_Contact"},{"docId":"5239","id":"2038","label":"DF_Devis"},{"docId":"5240","id":"2029","label":"DF_ligne_commande"},{"docId":"5241","id":"2030","label":"DF_Ligne_Devis"},{"docId":"5242","id":"2031","label":"DF_Livraison"},{"docId":"5243","id":"2033","label":"DF_Produit_Finis"},{"docId":"5244","id":"2034","label":"DF_Quantite"},{"docId":"5245","id":"2036","label":"DF_Transport"}],"open":false,"object":"ObjectInternal"},{"field":"obe_script_id","label":"Objet externe","list":[{"docId":"5233","id":"2020","label":"Test"},{"docId":"5234","id":"2021","label":"WebhookLivraisonTrello"}],"open":false,"object":"ObjectExternal"},{"field":"pcs_script_id","label":"Processus métier","list":[{"docId":"5246","id":"10","label":"DF_Process_01"}],"open":false,"object":"BPMProcess"},{"field":"res_file","label":"Ressource","list":[{"docId":"5266","id":"264","label":"Objet métier/DF_Commande * DF_ARC_HTML"},{"docId":"5248","id":"270","label":"Objet métier/DF_Contact * SCRIPT"},{"docId":"5084","id":"266","label":"Objet métier/DF_Ligne_Devis * SCRIPT"},{"docId":"5265","id":"267","label":"Objet métier/DF_Livraison * DF_BL_HTML"},{"docId":"5264","id":"268","label":"Objet métier/DF_Livraison * DF_ODF_HTML"},{"docId":"5267","id":"269","label":"Objet métier/DF_Devis * DF_Devis_HTML"},{"docId":"5251","id":"271","label":"Objet métier/DF_Devis * DF_Devis_Script"}],"open":true,"object":"Resource"}],"open":true},{"module":"SimStore","id":"37","items":[{"field":"obe_script_id","label":"Objet externe","list":[{"docId":"4192","id":"1988","label":"StoStore"}],"open":false,"object":"ObjectExternal"},{"field":"res_file","label":"Ressource","list":[{"docId":"4188","id":"251","label":"Objet externe/StoStore * TEMPLATE"},{"docId":"4144","id":"252","label":"Objet externe/StoStore * SCRIPT"}],"open":false,"object":"Resource"}],"open":false}],"tabs":[{"field":"res_file","scope":"","type":"html","object":"Resource","rowId":"263"},{"field":"res_file","scope":"","type":"js","object":"Resource","rowId":"264"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2038"},{"field":"res_file","scope":"","type":"html","object":"Resource","rowId":"269"},{"field":"res_file","scope":"","type":"html","object":"Resource","rowId":"268"},{"field":"res_file","scope":"","type":"html","object":"Resource","rowId":"267"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2024"}],"selected":"Resource_res_file_268"}]]></usp_value>
 		<usp_param_id.sys_type/>
 		<usp_param_id.sys_value><![CDATA[empty]]></usp_param_id.sys_value>
 		<usp_param_id.sys_desc/>
@@ -1011,7 +1011,8 @@ DF_Produit_Finis:1,addlist,listedit:reload,prefs,copy,export,updall,delall,delet
 	<data>
 		<usp_user_id.usr_login>dhenrion.recettead@gmail.com</usp_user_id.usr_login>
 		<usp_param_id.sys_code>HISTORY DeFilippis</usp_param_id.sys_code>
-		<usp_value><![CDATA[[{"object":"DF_Devis","rowId":"115","label":"Devis : AGN.CANNES.Avenue FOCH.2020.00115.A"},
+		<usp_value><![CDATA[[{"object":"DF_Affaire","rowId":"50","label":"Affaires : AFR-00050"},
+{"object":"DF_Devis","rowId":"115","label":"Devis : AGN.CANNES.Avenue FOCH.2020.00115.A"},
 {"object":"DF_Devis","rowId":"113","label":"Devis : .VERETZ.REAMENAGEMENT DES QUAIS HENRI IV.2020.00113.B"},
 {"object":"DF_Devis","rowId":"112","label":"Devis : DHN.BRIVE.Petits hommes.2020.00112.A"}]]]></usp_value>
 		<usp_param_id.sys_type/>

@@ -224,6 +224,7 @@
 	
 	h1, h2 {
 		color:#004C8E;
+		line-height:normal;
 	}	
 	h1 {
 		margin:15px 0 5px 0;
@@ -245,7 +246,7 @@
 	
 	.signature {
 		width:50% !important;	
-		margin: auto 0 auto auto;
+		margin: 25px 0 auto auto;
 		text-align:left;
 		vertical-align:top;
 		border:solid 1px black;
@@ -308,10 +309,10 @@
 						</tr>
 						<tr>
 							<td>
-								<strong>Suiveur Affaire :</strong> {{DF_Devis_DF_utilisateur_interne_id__defiUsrNC}}<br/>								
+								<strong>Suiveur Affaire : </strong>{{DF_Devis_DF_utilisateur_interne_id__defiUsrNC}}<br/>								
 								{{#rows_u}}
-								<strong>Tel : </strong>{{usr_work_num}}<br/>
-								<strong>Email : </strong>{{usr_login}}<br/>
+								<strong>Tel : </strong>{{usr_cell_num}}<br/>
+								<strong>Email : </strong>{{usr_email}}<br/>
 								{{/rows_u}}
 							</td>
                             <td style="text-align:right">
@@ -347,8 +348,8 @@
 				    <th class="tg-ul38 thdesignation">Désignation</th>
 				    <th class="tg-ul38 thunite">Unité</th>
 				    <th class="tg-ul38 thquantite">Qté</th>
-				    <th class="tg-ul38 thprixu">Prix Unitaire € HT</th>
-				    <th class="tg-ul38 thprixt">TOTAL € HT</th>
+				    <th class="tg-ul38 thprixu">P.U. HT</th>
+				    <th class="tg-ul38 thprixt">TOTAL €</th>
 				</tr>
 			<!--</thead>-->
 			
@@ -408,19 +409,18 @@
 		{{/rows}}
 		
 		
+		<table class="signature">
+			<tr>
+				<td>
+					<span class="signature_span">Bon pour accord<br/>Date et signature</span>
+				</td>
+			</tr>	
+		</table>
+		
 		<p class="cordialement">
 		Nous restons à votre disposition pour tout renseignement,<br/>
 		L'équipe Minéral Conseil
-		</p>
-		
-	<table class="signature">
-		<tr>
-			<td>
-				<span class="signature_span">Bon pour accord<br/>Date et signature</span>
-			</td>
-		</tr>	
-	</table>
-		
+		</p>		
 	
  </div>
  

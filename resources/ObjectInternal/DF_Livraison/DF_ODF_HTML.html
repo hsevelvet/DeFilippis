@@ -134,37 +134,37 @@
 	}	
 	
 	tfoot td.vide {
-	
+		background-color:#A6C4E0;
 	}
 
 	tfoot td.totallibelle {
-		background-color:#fff;
+		background-color:#A6C4E0;
 		text-align:left;
 		font-weight:bold;
 	}
 	tfoot td.totalvaleur {
-		background-color:#fff;
+		background-color:#A6C4E0;
 		text-align:right;
 		font-weight:bold;
 	}	
 	
 	tfoot td.totalttclibelle{
-		background-color:#fff;
+		background-color:#A6C4E0;
 		text-align:left;
 		font-weight:bold;	
 	}
 	tfoot td.totalttcvaleur {
-		background-color:#fff;
+		background-color:#A6C4E0;
 		text-align:right;
 		font-weight:bold;
 	}
 	tfoot td.tvalibelle{
-		background-color:#fff;
+		background-color:#A6C4E0;
 		text-align:left;
 		font-weight:bold;
 	}
 	tfoot td.tvavaleur {
-		background-color:#fff;
+		background-color:#A6C4E0;
 		text-align:right;
 		font-weight:bold;
 	}
@@ -212,6 +212,7 @@
 	
 	h1, h2 {
 		color:#004C8E;
+		line-height:normal;
 	}	
 	h1 {
 		margin:15px 0 5px 0;
@@ -226,21 +227,27 @@
 		margin:8px 0 0 0;
 	}
 	
-	.1234 {
-		font-color:red !important;
-		font-weight:bold;
+	p.cordialement {
+		margin:20px 10px;
+		text-align:right;
 	}
 	
 	.signature {
-		width:70% !important;
+		width:50% !important;	
+		margin: 25px 0 auto auto;
 		text-align:left;
 		vertical-align:top;
 		border:solid 1px black;
-		min-height:150px;
+		height:150px;
+		page-break-inside: avoid;
 	}
 	.signature_span {
 		font-weight:bold;
-	}
+	}	
+	
+	div.coordclient {		
+		font-size:13px;
+	}	
 	
 	</style>	
 	<script>
@@ -255,7 +262,16 @@
 		  /*return nombre;*/
 		  document.write(nombre+"&nbsp;&euro;");
 		}
-	</script>		
+		function fval(chaine){
+			
+			if(chaine=="null"){
+				document.write("");
+			}
+			else {
+				document.write(chaine);
+			}	
+		}		
+	</script>	
 </head>
 
 <body>
@@ -287,20 +303,21 @@
 								<strong>Suiveur Affaire : </strong>{{#cl}}{{DF_Commande_DF_utilisateur_interne_id__defiUsrNC}}{{/cl}}
 							</td>
                             <td style="text-align:right">
-										<strong>Client </strong>: {{#cl}}{{DF_Commande_DF_Client_id__defiClientNom}}{{/cl}}<br/>
-										<strong>Contact </strong>: {{#cl}}{{DF_Commande_DF_Contact_id__defiContactPrenom}} {{DF_Commande_DF_Contact_id__defiContactNom}}{{/cl}}<br/>
-										<strong>Email </strong>: {{#cl}}{{DF_Commande_DF_Contact_id__defiContactEmail}}{{/cl}}<br/>	
-										<br/>
-										<br/>
-										<strong>REF. RELEVE CONTRAD <strong>: {{#bl}} {{defiLivraisonId}}, {{/bl}}
-										<br/>
+								<div class="coordclient">
+									<strong>Client </strong>: {{#cl}}{{DF_Commande_DF_Client_id__defiClientNom}}{{/cl}}<br/>
+									<strong>Contact </strong>: {{#cl}}{{DF_Commande_DF_Contact_id__defiContactPrenom}} {{DF_Commande_DF_Contact_id__defiContactNom}}{{/cl}}<br/>
+									<strong>Email </strong>: {{#cl}}{{DF_Commande_DF_Contact_id__defiContactEmail}}{{/cl}}<br/>	
+								</div>
+								<br/>
+								<strong>N° BL associé(s)<strong> : {{#bl}} {{defiLivraisonId}}, {{/bl}}<br/>
+								<strong>N° OTP : {{#cl}}{{defiCommandeNumero}}{{/cl}}
+								<br/>
                             </td>                            
                         </tr>
 						<tr>
 							<td colspan="2" style="vertical-align:bottom;text-align:center">
-								<br/>
-								<h1>ORDRE DE FACTURATION </h1>
-								<h2>Numéro d'affaire OTP : {{#cl}}{{defiCommandeNumero}}{{/cl}}</h2>
+								<h1>{{#cl}}{{DF_Commande_DF_Affaire_id__defiAfrLibelleChantier}} - {{DF_Commande_DF_Affaire_id__defiAfrLieuAffaire}}{{/cl}}</h1>
+								<h2>ORDRE DE FACTURATION du <script>var ladate = new Date();document.write(ladate.getDate()+"/"+(ladate.getMonth()+1)+"/"+ladate.getFullYear());</script></h2>
 							</td>
 						</tr>
                     </table>
@@ -317,8 +334,8 @@
 				    <th class="tg-ul38 thdesignation">Désignation</th>
 				    <th class="tg-ul38 thunite">Unité</th>
 				    <th class="tg-ul38 thquantite">Qté</th>
-				    <th class="tg-ul38 thprixu">P.U<br></th>
-				    <th class="tg-ul38 thprixt">MONTANT</th>					
+				    <th class="tg-ul38 thprixu">P.U. HT<br></th>
+				    <th class="tg-ul38 thprixt">TOTAL €</th>					
 				</tr>
 			</thead>
 			
@@ -339,7 +356,7 @@
 			
 			<tfoot>
 				<tr>
-					<td class="conditions2" rowspan="3" colspan="4" >
+					<td class="vide" rowspan="3" colspan="4" >
 						
 					</td>				
 					<td class="totallibelle">

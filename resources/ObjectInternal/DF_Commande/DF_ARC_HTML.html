@@ -138,12 +138,12 @@
 	}
 
 	tfoot td.totallibelle {
-		background-color:#fff;
+		background-color:#A6C4E0;
 		text-align:left;
 		font-weight:bold;
 	}
 	tfoot td.totalvaleur {
-		background-color:#fff;
+		background-color:#A6C4E0;
 		text-align:right;
 		font-weight:bold;
 	}	
@@ -204,6 +204,7 @@
 	
 	h1, h2 {
 		color:#004C8E;
+		line-height:normal;
 	}	
 	h1 {
 		margin:15px 0 5px 0;
@@ -218,14 +219,27 @@
 		margin:8px 0 0 0;
 	}
 	
-	.1234 {
-		font-color:red !important;
-		font-weight:bold;
-	}
 	
 	p.cordialement {
 		margin:20px 10px;
 		text-align:right;
+	}
+	
+	.signature {
+		width:50% !important;	
+		margin: 25px 0 auto auto;
+		text-align:left;
+		vertical-align:top;
+		border:solid 1px black;
+		height:150px;
+		page-break-inside: avoid;
+	}
+	.signature_span {
+		font-weight:bold;
+	}	
+	
+	div.coordclient {		
+		font-size:13px;
 	}	
 	
 	</style>	
@@ -241,6 +255,15 @@
 		  /*return nombre;*/
 		  document.write(nombre+"&nbsp;&euro;");
 		}
+		function fval(chaine){
+			
+			if(chaine=="null"){
+				document.write("");
+			}
+			else {
+				document.write(chaine);
+			}	
+		}		
 	</script>	
 </head>
 <body>
@@ -266,19 +289,21 @@
 						</tr>					
                         <tr>
                             <td>
-								<strong>Suiveur Affaire :</strong>{{DF_Commande_DF_utilisateur_interne_id__defiUsrNC}}<br/>									
+								<strong>Suiveur Affaire : </strong>{{DF_Commande_DF_utilisateur_interne_id__defiUsrNC}}<br/>									
 								{{#rows_u}}
-								<strong>Tel : </strong>{{usr_work_num}}<br/>
-								<strong>Email : </strong>{{usr_login}}<br/>
+								<strong>Tel : </strong>{{usr_cell_num}}<br/>
+								<strong>Email : </strong>{{usr_email}}<br/>
 								{{/rows_u}}
                             </td>
                             <td style="text-align:right">
+								<div class="coordclient">
 										{{#rows_client}}
 										<strong>Client </strong>: {{defiClientNom}}<br/>
 										{{/rows_client}}
 											
 										<strong>Contact </strong>: {{#contact_client}}{{defiContactPrenom}} {{defiContactNom}}{{/contact_client}}<br/>
 										<strong>Email </strong>: {{#contact_client}}{{defiContactEmail}}{{/contact_client}}<br/>	
+								</div>
 										<br/>
 										
 										<strong>Date d'émission </strong>: {{defiCommandeDate}}<br/>
@@ -310,7 +335,7 @@
 				    <th class="tg-ul38 thunite">Unité</th>
 				    <th class="tg-ul38 thquantite">Qté</th>
 				    <th class="tg-ul38 thprixu">P.U. HT<br></th>
-				    <th class="tg-ul38 thprixt">MONTANT € HT</th>
+				    <th class="tg-ul38 thprixt">TOTAL €</th>
 				</tr>
 			<!--</thead>-->
 			
@@ -318,9 +343,9 @@
 				{{#rows_l}}
 				<tr>
 					<td class="ref">{{defiLigneCommandeReferenceProduit}}</td>
-					<td class="type">{{defiLigneCommandeTypeGeologique}}</td>
+					<td class="type"><script>fval("{{defiLigneCommandeTypeGeologique}}");</script></td>
 					<td class="designation">{{defiLigneCommandeDesignation}}</td>
-					<td class="unite">{{defiLigneCommandeUnite}}</td>
+					<td class="unite"><script>fval("{{defiLigneCommandeUnite}}");</script></td>
 					<td class="quantite">{{defiLigneCommandeQuantite}}</td>
 					<td class="prixu"><script>fPrix({{defiLigneCommandePrixEXWUnitaire}});</script></td>
 					<td class="prixt"><script>fPrix({{defiLigneCommandePrixTotalEXW}});</script></td>
@@ -348,28 +373,37 @@
 	<div>
 		<p>
 			<br/>
-			<span class="1234">DATE DE MISE A DISPOSITION DU PREMIER SEMI (à vous confirmer) :</span> {{defiCommandeDatePremierCamion}}
+			<strong>
+				DATE DE MISE A DISPOSITION DU PREMIER SEMI (à vous confirmer) : {{defiCommandeDatePremierCamion}}
+				<br/>
+				<i>Le délai de fabrication court à partir de la reception des documents techniques et le présent ARC validés par vos soins
+				(fiches pierres, quantité, finition et détails éventuels par référence d'articles)</i>
+			</strong>
+			
+			<br/><br/>
+			<span class="1234">Poids :</span> {{defiCommandePoidsTotal}} Tonnes
 			<br/>
-			<i>Le délai de fabrication court à partir de la reception des documents techniques et le présent ARC validés par vos soins
-			(fiches pierres, quantité, finition et détails éventuels par référence d'articles)</i>
-			<br/><br/>
-			<span class="1234">POIDS BRUT :</span> {{defiCommandePoidsTotal}} Tonnes
-			<br/><br/>
-			<span class="1234">NOMBRE DE CAMIONS :</span> {{defiCommandeNombreCamions}}
-			<br/><br/>			
-			<span class="1234">ADRESSE DE LIVRAISON :</span>  {{defiCommandeAdresseLivraison}}
-			<br/><br/>
-			<!--<span class="1234">PAIEMENT :</span> defiCommandeDelaiPaiement	-->
+			<span class="1234">Nombre de camions :</span> {{defiCommandeNombreCamions}}
 			<br/>
+			<span class="1234">Adresse de livraisson :</span>  {{defiCommandeAdresseLivraison}}
+			
 		</p>
 	</div>
 	
 	{{/rows}}
-	<br/>
-	<p class="cordialement">À nous retourner dûment accepté et signé.<br/>
+	<table class="signature">
+		<tr>
+			<td>
+				<span class="signature_span">Date et signature</span>
+			</td>
+		</tr>	
+	</table>	
+	
+	<p class="cordialement"><strong>À nous retourner dûment accepté et signé.</strong><br/>
 		Nous restons à votre disposition pour tout renseignement,<br/><br/>
 		L'équipe Minéral Conseil
-	</p>
+	</p>			
+				
 	
  </div>
  
