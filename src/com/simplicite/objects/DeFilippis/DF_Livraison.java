@@ -268,12 +268,15 @@ public class DF_Livraison extends ObjectDB {
 		ObjectDB u = getGrant().getTmpObject("User");
 		// Commande
 		ObjectDB commande = getGrant().getTmpObject("DF_Commande");
+		//List<String[]> commande_search = new ArrayList<String[]>();
 		synchronized(commande){
 			commande.resetFilters();
-			commande.setFieldFilter("row_id",bl.getFieldValue("DF_Livraison_DF_Commande_id"));
+			commande.setFieldFilter("row_id",getFieldValue("DF_Livraison_DF_Commande_id"));
+			AppLog.info(getClass(), "Suiveur Livraison1", getFieldValue("DF_Livraison_DF_Commande_id"), getGrant());
 			
 			for(String[] ce : commande.search()){
 				commande.setValues(ce);
+				AppLog.info(getClass(), "Suiveur Livraison", commande.getFieldValue("DF_Commande_DF_utilisateur_interne_id.defiUsrNC"), getGrant());
 				AppLog.info(getClass(), "hhmldkqmdslfksd-------77",commande.toString(),getGrant());
 				
 				// Suiveur
@@ -292,6 +295,8 @@ public class DF_Livraison extends ObjectDB {
 				
 				contact_client.resetFilters();
 				contact_client.setFieldFilter("row_id",commande.getFieldValue("DF_Commande_DF_Contact_id"));
+				
+			//	commande_search.addAll(commande.search());
 				
 			}
 		}
