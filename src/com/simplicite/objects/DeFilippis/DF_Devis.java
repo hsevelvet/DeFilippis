@@ -250,7 +250,7 @@ public class DF_Devis extends ObjectDB {
 				double prd_eps = ld.getField("defiLigneDevisEpaisseur").getDouble(0);
 				double prd_qte = ld.getField("defiLigneDevisQuantite").getDouble(0);
 				double cmd_prix_exw_u = ld.getField("defiLigneDevisPrixUnitaireImpose").getDouble(0);
-				double cmd_total_exw = ld.getField("defiLigneDevisPrixUnitaireImpose").getDouble(0);
+				double cmd_prix_calc = ld.getField("defiLigneDevisPrixVenteCalcule").getDouble(0);
 				
 				int index_cat_prix = ld.getField("defiLigneDevisCatPrix").getList().getItemIndex(ld.getFieldValue("defiLigneDevisCatPrix"),false);
 				String cat_prix = ld.getField("defiLigneDevisCatPrix").getList().getValue(index_cat_prix);
@@ -264,7 +264,7 @@ public class DF_Devis extends ObjectDB {
 		
 				ObjectField s2 = lc.getField("defiLigneCommandeId");
 				s2.setValue(lc.getRowId());
-				lc.setFieldValue("defiLigneCommandeFournisseur", fournisseur);
+				//lc.setFieldValue("defiLigneCommandeFournisseur", fournisseur);
 				lc.setFieldValue("defiLigneCommandeCatPrix",cat_prix);
 				lc.setFieldValue("defiLigneCommandeReferenceProduit",ref_prod);
 				lc.setFieldValue("defiLigneCommandeTypeGeologique", type_geo);
@@ -277,7 +277,11 @@ public class DF_Devis extends ObjectDB {
 				lc.setFieldValue("defiLigneCommandeUnite",unite_p);
 				lc.setFieldValue("defiLigneCommandeQuantite",prd_qte);
 				lc.setFieldValue("defiLigneCommandeDesignation",designation);
-				lc.setFieldValue("defiLigneCommandePrixEXWUnitaire",cmd_prix_exw_u);
+				if (cmd_prix_exw_u != 0){
+					lc.setFieldValue("defiLigneCommandePrixEXWUnitaire",cmd_prix_exw_u);
+				} else{
+					lc.setFieldValue("defiLigneCommandePrixEXWUnitaire",cmd_prix_calc);
+				}
 				
 				double prix_unitaire = lc.getField("defiLigneCommandePrixEXWUnitaire").getDouble(0);
 				double qte =  lc.getField("defiLigneCommandeQuantite").getDouble(0);
