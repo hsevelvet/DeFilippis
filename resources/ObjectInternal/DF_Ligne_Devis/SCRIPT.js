@@ -17,6 +17,8 @@ var DF_Ligne_Devis = typeof DF_Ligne_Devis !== "undefined" ? DF_Ligne_Devis : (f
 				var des = $ui.getUIField(ctn, obj, "DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdTypeProduit");
 				var nom = $ui.getUIField(ctn, obj, "DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdTypeGeologique");
 				
+				var type_geo = $ui.getUIField(ctn, obj, "defiLigneDevisTypeGeo");
+				
 				var finition = $ui.getUIField(ctn, obj, "DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdFinitionFacesVues");
 				var aut_fin = $ui.getUIField(ctn, obj, "DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdAutresFinitions");
 				
@@ -65,6 +67,10 @@ var DF_Ligne_Devis = typeof DF_Ligne_Devis !== "undefined" ? DF_Ligne_Devis : (f
 				});
 				nom.ui.on("change", function() {
 					$ui.getUIField(ctn, obj, "defiLigneDevisTypeGeo").ui.val(nom.ui.val());
+				});
+				
+				type_geo.ui.on("change", function() {
+					$ui.getUIField(ctn, obj, "defiLigneDevisTypePierre").ui.val(type_geo.ui.val());
 				});
 				
 				ptrsp.ui.on("change", function() {

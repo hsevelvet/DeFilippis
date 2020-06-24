@@ -243,6 +243,23 @@
 		text-align:right;
 	}
 	
+	.signature {
+		width:50% !important;	
+		margin: auto 0 auto auto;
+		text-align:left;
+		vertical-align:top;
+		border:solid 1px black;
+		height:150px;
+		page-break-inside: avoid;
+	}
+	.signature_span {
+		font-weight:bold;
+	}	
+	
+	div.coordclient {		
+		font-size:13px;
+	}
+	
 	</style>	
 	
 	<script>
@@ -256,6 +273,15 @@
 		  }
 		  /*return nombre;*/
 		  document.write(nombre+"&nbsp;&euro;");
+		}
+		function fval(chaine){
+			
+			if(chaine=="null"){
+				document.write("");
+			}
+			else {
+				document.write(chaine);
+			}	
 		}
 	</script>
 </head>
@@ -289,10 +315,12 @@
 								{{/rows_u}}
 							</td>
                             <td style="text-align:right">
-								<strong>Client </strong>: {{DF_Devis_DF_Client_id__defiClientNom}}<br/>
-								<strong>Contact </strong>:  {{DF_Devis_DF_Contact_id__defiContactPrenom}} {{DF_Devis_DF_Contact_id__defiContactNom}}<br/>
-								<strong>Email </strong>: {{DF_Devis_DF_Contact_id__defiContactEmail}}<br/>
-								<strong>Tel </strong>: {{DF_Devis_DF_Contact_id__defiContactPortable}}<br/>
+								<div class="coordclient">
+									<strong>Client </strong>: {{DF_Devis_DF_Client_id__defiClientNom}}<br/>
+									<strong>Contact </strong>:  {{DF_Devis_DF_Contact_id__defiContactPrenom}} {{DF_Devis_DF_Contact_id__defiContactNom}}<br/>
+									<strong>Email </strong>: {{DF_Devis_DF_Contact_id__defiContactEmail}}<br/>
+									<strong>Tel </strong>: {{DF_Devis_DF_Contact_id__defiContactPortable}}<br/>
+								</div>
 								<br/>										
 								<strong>Date d'émission </strong>: {{defiDevisDateEmission}}<br/>
 								<!--<strong>Ref Projet </strong>: {{defiDevisTitre}}-->
@@ -328,11 +356,11 @@
 				{{#rows_l}}
 				<tr>
 					<td class="ref">{{defiLigneDevisNPrix}}</td>
-					<td class="type">{{defiLigneDevisTypeGeo}}</td>
+					<td class="type"><script>fval("{{defiLigneDevisTypePierre}}");</script></td>
 					<td class="designation">{{defiLigneDevisDesignation}}</td>
-					<td class="unite">{{defiLigneDevisUnite}}</td>
+					<td class="unite"><script>fval("{{defiLigneDevisUnite}}");</script></td>
 					<td class="quantite">{{defiLigneDevisQuantite}}</td>
-					<td class="prixu"><script>fPrix({{defiLigneDevisPrixUnitaireImpose}});</script></td>
+					<td class="prixu"><script>fPrix({{defiLigneDevisPrixVenteImpose}}/{{defiLigneDevisQuantite}});</script></td>
 					<td class="prixt"><script>fPrix({{defiLigneDevisPrixVenteImpose}});</script></td>
 				</tr>
 				{{/rows_l}}
@@ -342,7 +370,7 @@
 			<tfoot>
 				<tr>
 					<td class="vide" colspan="7">
-						Nombre de camion (U) : <strong>{{defiDevisNombreCamions}}</strong></br>
+						Nombre de camion (U) : <strong>{{defiDevisNombreCamions}}</strong><br/>
 						Poids total (T) : <strong>{{defiDevisPoidsTotal}}</strong>
 					</td>
 				</tr>
@@ -381,9 +409,17 @@
 		
 		
 		<p class="cordialement">
-		Nous restons à votre disposition pour tout renseignement,<br/><br/>
+		Nous restons à votre disposition pour tout renseignement,<br/>
 		L'équipe Minéral Conseil
 		</p>
+		
+	<table class="signature">
+		<tr>
+			<td>
+				<span class="signature_span">Bon pour accord<br/>Date et signature</span>
+			</td>
+		</tr>	
+	</table>
 		
 	
  </div>

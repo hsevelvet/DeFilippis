@@ -511,6 +511,7 @@ public class DF_Devis extends ObjectDB {
 					hst.create();	
 					hst.getField("defiHstDocsDevis").setDocument(hst, "Devis-"+formatter.format(date).toString()+".pdf", this.pubPdf());
 					hst.setFieldValue("DF_Hist_Docs_DF_Devis_id",getRowId());
+					hst.setFieldValue("defiHstDocsDateEmission",date);
 					
 					ObjectField file = hst.getField("defiHstDocsDevis");
 					

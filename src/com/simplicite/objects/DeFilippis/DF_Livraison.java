@@ -353,7 +353,7 @@ public class DF_Livraison extends ObjectDB {
 					hst.create();	
 					hst.getField("defiHstDocsDevis").setDocument(hst, "BL"+formatter.format(date).toString()+".pdf", this.pubPdfBL());
 					hst.setFieldValue("DF_Hist_Docs_DF_Livraison_id",getRowId());
-					
+					hst.setFieldValue("defiHstDocsDateEmission",date);
 					//ObjectField file = hst.getField("defiHstDocsDevis");
 					
 					hst.save();
@@ -509,6 +509,7 @@ public class DF_Livraison extends ObjectDB {
 					hst.create();	
 					hst.getField("defiHstDocsDevis").setDocument(hst, "ODF-"+formatter.format(date).toString()+".pdf", this.pubPdfODF());
 					hst.setFieldValue("DF_Hist_Docs_DF_Livraison_id",getRowId());
+					hst.setFieldValue("defiHstDocsDateEmission",date);
 					
 					//ObjectField file = hst.getField("defiHstDocsDevis");
 					

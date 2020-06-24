@@ -379,9 +379,11 @@ Objet métier pour fournisseur.
 | Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
 | `defiHistDocsId`                                             | char(100)                                | yes*     | yes       |          | -                                                                                |
+| `defiHstDocsNumDoc`                                          | int(7)                                   |          | yes       |          | -                                                                                |
 | `defiHstDocsDevis`                                           | document                                 |          | yes       |          | -                                                                                |
-| `DF_Hist_Docs_DF_Devis_id` link to **`DF_Devis`**            | id                                       |          | yes       |          | -                                                                                |
+| `defiHstDocsDateEmission`                                    | date                                     |          | yes       |          | -                                                                                |
 | _Ref. `DF_Hist_Docs_DF_Devis_id.defiDevisTitre`_             | _char(100)_                              |          |           |          | -                                                                                |
+| `DF_Hist_Docs_DF_Devis_id` link to **`DF_Devis`**            | id                                       |          | yes       |          | -                                                                                |
 | `DF_Hist_Docs_DF_Livraison_id` link to **`DF_Livraison`**    | id                                       |          | yes       |          | -                                                                                |
 | _Ref. `DF_Hist_Docs_DF_Livraison_id.defiLivraisonId`_        | _char(100)_                              |          |           |          | -                                                                                |
 
@@ -492,6 +494,7 @@ Objet métier pour fournisseur.
 | `defiLigneDevisFinitionFV`                                   | char(70)                                 |          | yes       |          | -                                                                                |
 | `defiLigneDevisAutresFinitions`                              | char(70)                                 |          | yes       |          | -                                                                                |
 | `defiLigneDevisU`                                            | char(70)                                 |          | yes       |          | -                                                                                |
+| `defiLigneDevisTypePierre`                                   | char(70)                                 |          | yes       |          | -                                                                                |
 
 ### Lists
 

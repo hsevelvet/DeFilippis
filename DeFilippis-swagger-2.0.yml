@@ -1150,18 +1150,28 @@ paths:
         type: string
         required: false
       - in: query
+        name: defiHstDocsNumDoc
+        description: Search filter for Numéro de document
+        type: integer
+        required: false
+      - in: query
         name: defiHstDocsDevis
-        description: Search filter for defi hst docs devis
+        description: Search filter for Document
+        type: string
+        required: false
+      - in: query
+        name: defiHstDocsDateEmission
+        description: Search filter for Date émission
+        type: string
+        required: false
+      - in: query
+        name: DF_Hist_Docs_DF_Devis_id__defiDevisTitre
+        description: Search filter for Référence Devis
         type: string
         required: false
       - in: query
         name: DF_Hist_Docs_DF_Devis_id
         description: Search filter for Devis
-        type: string
-        required: false
-      - in: query
-        name: DF_Hist_Docs_DF_Devis_id__defiDevisTitre
-        description: Search filter for Titre Devis Devis
         type: string
         required: false
       - in: query
@@ -1171,7 +1181,7 @@ paths:
         required: false
       - in: query
         name: DF_Hist_Docs_DF_Livraison_id__defiLivraisonId
-        description: Search filter for defi livraison id Livraisons
+        description: Search filter for Référence Livraison
         type: string
         required: false
       tags:
@@ -2671,11 +2681,6 @@ paths:
         type: boolean
         required: false
       - in: query
-        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdAppellationCommerciale
-        description: Search filter for Appellation Commerciale
-        type: string
-        required: false
-      - in: query
         name: defiLigneDevisNPrix
         description: Search filter for N° de prix
         type: string
@@ -2683,6 +2688,11 @@ paths:
       - in: query
         name: defiLigneDevisRow
         description: Search filter for defi ligne devis row
+        type: string
+        required: false
+      - in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdAppellationCommerciale
+        description: Search filter for Appellation Commerciale
         type: string
         required: false
       - in: query
@@ -2724,11 +2734,6 @@ paths:
       - in: query
         name: defiLigneDevisQuantite
         description: Search filter for Quantité
-        type: integer
-        required: false
-      - in: query
-        name: defiLigneDevisMasseVolumique
-        description: Search filter for Masse Volumique
         type: integer
         required: false
       - in: query
@@ -2929,6 +2934,11 @@ paths:
         type: string
         required: false
       - in: query
+        name: defiLigneDevisMasseVolumique
+        description: Search filter for Masse Volumique
+        type: integer
+        required: false
+      - in: query
         name: defiLigneDevisNomProduit
         description: Search filter for Nom Produit
         type: string
@@ -3031,6 +3041,11 @@ paths:
       - in: query
         name: defiLigneDevisU
         description: Search filter for U
+        type: string
+        required: false
+      - in: query
+        name: defiLigneDevisTypePierre
+        description: Search filter for Type Geo
         type: string
         required: false
       tags:
@@ -6879,6 +6894,9 @@ definitions:
       defiLigneDevisAutresFinitions:
         description: Autres Finitions
         type: string
+      defiLigneDevisTypePierre:
+        description: Type Geo
+        type: string
       defiLigneDevisTotalEXWHT:
         description: Total EXW HT
         type: number
@@ -6948,12 +6966,12 @@ definitions:
         - LUS
         - TEC
         - PRE
-      defiLigneDevisMasseVolumique:
-        description: Masse Volumique
-        type: integer
       defiLigneDevisEpaisseur:
         description: Epaisseur / Hauteur (cm)
         type: string
+      defiLigneDevisMasseVolumique:
+        description: Masse Volumique
+        type: integer
       defiLigneDevisUnite:
         description: Unité
         type: string
@@ -7982,7 +8000,7 @@ definitions:
     type: object
     properties:
       DF_Hist_Docs_DF_Devis_id__defiDevisTitre:
-        description: Titre Devis Devis
+        description: Référence Devis
         type: string
       DF_Hist_Docs_DF_Livraison_id:
         description: Livraisons
@@ -7990,11 +8008,15 @@ definitions:
       DF_Hist_Docs_DF_Devis_id:
         description: Devis
         type: string
+      defiHstDocsDateEmission:
+        description: Date émission
+        type: string
+        example: yyyy-MM-dd
       DF_Hist_Docs_DF_Livraison_id__defiLivraisonId:
-        description: defi livraison id Livraisons
+        description: Référence Livraison
         type: string
       defiHstDocsDevis:
-        description: defi hst docs devis
+        description: Document
         type: object
       row_id:
         description: Unique technical row ID
@@ -8002,6 +8024,9 @@ definitions:
       defiHistDocsId:
         description: defi hist docs id
         type: string
+      defiHstDocsNumDoc:
+        description: Numéro de document
+        type: integer
   TreeviewData:
     type: object
     properties:
