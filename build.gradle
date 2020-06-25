@@ -15,7 +15,7 @@ sourceSets {
 
 repositories {
     maven {
-        url = 'http://18.157.188.27:84/maven'
+        url = 'https://simplicite.mineralconseil.fr/maven'
     }
     mavenCentral()
 }

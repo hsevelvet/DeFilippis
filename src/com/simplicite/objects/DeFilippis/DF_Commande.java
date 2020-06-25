@@ -202,7 +202,7 @@ public class DF_Commande extends ObjectDB {
 					// Nom de la carte
 						card.put("name",  (firstCharsIntitule+"."+getFieldValue("defiCommandeIntituleCommande")+"."+lc.getFieldValue("defiLigneCommandeReferenceProduit")+"."+ tonnage_carte).toUpperCase());
 					// Description de la carte
-						card.put("desc","\n**Numéro de commande**: "+getFieldValue("defiCommandeNumero")+"\n**Titre Affaire / Nom Affaire**: "+int_aff+"\n**Fournisseur**: "+fourns+"\n**Date Livraison confirmée**: "+getFieldValue("defiCommandeDatePremierCamion")+"\n"+"\n**Contact Déchargement Privilégié**: "+getFieldValue("defiCommandeContactLivraison")+"\n"+"\n**Contact En Cas De Problème**: "+"\n"+"\n**Quantité Initiale**: "+ lc.getFieldValue("defiLigneCommandeQuantite"));
+						card.put("desc","\n**Numéro de commande**: "+getFieldValue("defiCommandeNumero")+"\n**Titre Affaire / Nom Affaire**: "+int_aff+"\n**Date Livraison confirmée**: "+getFieldValue("defiCommandeDatePremierCamion")+"\n"+"\n**Contact Déchargement Privilégié**: "+getFieldValue("defiCommandeContactLivraison")+"\n"+"\n**Contact En Cas De Problème**: "+"\n"+"\n**Quantité Initiale**: "+ lc.getFieldValue("defiLigneCommandeQuantite"));
 						
 					// Date limie de la carte 
 						card.put("due", getFieldValue("defiCommandeDatePremierCamion"));
@@ -218,6 +218,7 @@ public class DF_Commande extends ObjectDB {
 		    			tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Poids Unitaire"),new JSONObject().put("value",new JSONObject().put("number",lc.getFieldValue("defiLigneCommandePoidsUnitaire"))));
 		    			tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Ville"),new JSONObject().put("value",new JSONObject().put("text",getFieldValue("DF_Commande_DF_Affaire_id.defiAfrLieuAffaire"))));
 		    			tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Id Ligne de commande"),new JSONObject().put("value",new JSONObject().put("text",lc.getFieldValue("defiLigneCommandeId"))));
+		    			tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Fournisseur"),new JSONObject().put("value",new JSONObject().put("text",fourns)));
 					}
 		    			}
 
