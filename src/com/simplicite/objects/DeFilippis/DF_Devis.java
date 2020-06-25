@@ -277,7 +277,10 @@ public class DF_Devis extends ObjectDB {
 					lc.setFieldValue("DF_ligne_commande_DF_Fournisseurs_id", " ");
 				}else{
 					lc.getField("DF_ligne_commande_DF_Fournisseurs_id").setValue(fournisseur);
+					//lc.setFieldValue("defiLigneCommandeFournisseur", lc.getFieldValue("DF_ligne_commande_DF_Fournisseurs_id.defiFournNom"));
+					//lc.save();
 				}
+				
 				
 				lc.setFieldValue("defiLigneCommandeCatPrix",cat_prix);
 				lc.setFieldValue("defiLigneCommandeReferenceProduit",ref_prod);

@@ -9,7 +9,8 @@ import com.simplicite.util.tools.*;
  */
 public class DF_ligne_commande extends ObjectDB {
 	private static final long serialVersionUID = 1L;
-	
+
+
 	// Mise à jour du prix total de ligne commande en fonction de changement de quantité 
 	@Override
 	public void initUpdate() {
@@ -17,6 +18,10 @@ public class DF_ligne_commande extends ObjectDB {
 		double qte =  getField("defiLigneCommandeQuantite").getDouble(0);
 		
 		setFieldValue("defiLigneCommandePrixTotalEXW", prix_unitaire*qte);
+		
+		String Nom_Fournisseur =  getFieldValue("DF_ligne_commande_DF_Fournisseurs_id.defiFournNom");
+		setFieldValue("defiLigneCommandeFournisseur", Nom_Fournisseur);
+	
 		save();
 	}
 	

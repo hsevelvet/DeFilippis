@@ -190,7 +190,7 @@ public class DF_Commande extends ObjectDB {
 						int_aff.replace(" " , "");
 						String firstCharsIntitule = int_aff.substring(0, 7);
 					
-						String fourns = lc.getFieldValue("DF_ligne_commande_DF_Fournisseurs_id.defiFournNom");
+						String fourns = lc.getFieldValue("defiLigneCommandeFournisseur");
 						//fourns.replace(" " , "");
 						//String firstCharsFourns = fourns.substring(0, 3);
 					
