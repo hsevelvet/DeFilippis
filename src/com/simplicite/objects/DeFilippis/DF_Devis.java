@@ -237,12 +237,20 @@ public class DF_Devis extends ObjectDB {
 				String unite_p = ld.getFieldValue("defiLigneDevisUnite");
 				String designation = ld.getFieldValue("defiLigneDevisDesignation");
 				
+				// Recherche fournisseur produit
 				ObjectDB pf = getGrant().getTmpObject("DF_Produit_Finis");
-				pf.resetFilters();
-				pf.setFieldFilter("DF_Ligne_Devis_DF_Produit_Finis_id", ld.getRowId());
+				String fournisseur = null;
+				synchronized(pf){
+					pf.resetFilters();
 				
-				String fournisseur = pf.getFieldValue("DF_Produit_Finis_DF_Fournisseurs_id.defiFournNom");
-				AppLog.info(getClass(), "mdqldsfqqsdqs", fournisseur, getGrant());
+					pf.setFieldFilter("row_id",ld.getFieldValue("DF_Ligne_Devis_DF_Produit_Finis_id"));
+					for(String[] pfe : pf.search()){
+						pf.setValues(pfe);
+						fournisseur = pf.getFieldValue("DF_Produit_Finis_DF_Fournisseurs_id");
+						AppLog.info(getClass(), "fournisseur", fournisseur, getGrant());
+					}
+				}
+				
 
 				double poids_u = ld.getField("defiLigneDevisPoidsTotal").getDouble(0);
 				double prd_long = ld.getField("defiLigneDevisLongueur").getDouble(0);
@@ -264,7 +272,13 @@ public class DF_Devis extends ObjectDB {
 		
 				ObjectField s2 = lc.getField("defiLigneCommandeId");
 				s2.setValue(lc.getRowId());
-				//lc.setFieldValue("defiLigneCommandeFournisseur", fournisseur);
+				if (fournisseur.equals(null) || fournisseur.isEmpty() || fournisseur.equals("")){
+					AppLog.info(getClass(), "fournisseur2", fournisseur, getGrant());
+					lc.setFieldValue("DF_ligne_commande_DF_Fournisseurs_id", " ");
+				}else{
+					lc.getField("DF_ligne_commande_DF_Fournisseurs_id").setValue(fournisseur);
+				}
+				
 				lc.setFieldValue("defiLigneCommandeCatPrix",cat_prix);
 				lc.setFieldValue("defiLigneCommandeReferenceProduit",ref_prod);
 				lc.setFieldValue("defiLigneCommandeTypeGeologique", type_geo);
