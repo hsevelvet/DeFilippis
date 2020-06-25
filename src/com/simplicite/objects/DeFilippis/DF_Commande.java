@@ -190,9 +190,9 @@ public class DF_Commande extends ObjectDB {
 						int_aff.replace(" " , "");
 						String firstCharsIntitule = int_aff.substring(0, 7);
 					
-					//String fourns = getFieldValue("DF_Commande_DF_Fournisseurs_id.defiFournNom");
-					//fourns.replace(" " , "");
-					//String firstCharsFourns = fourns.substring(0, 3);
+						String fourns = lc.getFieldValue("DF_ligne_commande_DF_Fournisseurs_id.defiFournNom");
+						//fourns.replace(" " , "");
+						//String firstCharsFourns = fourns.substring(0, 3);
 					
 						double poids_unitaire = lc.getField("defiLigneCommandePoidsUnitaire").getDouble();
 					
@@ -202,7 +202,7 @@ public class DF_Commande extends ObjectDB {
 					// Nom de la carte
 						card.put("name",  (firstCharsIntitule+"."+getFieldValue("defiCommandeIntituleCommande")+"."+lc.getFieldValue("defiLigneCommandeReferenceProduit")+"."+ tonnage_carte).toUpperCase());
 					// Description de la carte
-						card.put("desc","\n**Numéro de commande**: "+getFieldValue("defiCommandeNumero")+"\n**Titre Affaire / Nom Affaire**: "+int_aff+"\n**Date Livraison confirmée**: "+getFieldValue("defiCommandeDatePremierCamion")+"\n"+"\n**Contact Déchargement Privilégié**: "+getFieldValue("defiCommandeContactLivraison")+"\n"+"\n**Contact En Cas De Problème**: "+"\n"+"\n**Quantité Initiale**: "+ lc.getFieldValue("defiLigneCommandeQuantite"));
+						card.put("desc","\n**Numéro de commande**: "+getFieldValue("defiCommandeNumero")+"\n**Titre Affaire / Nom Affaire**: "+int_aff+"\n**Fournisseur**: "+fourns+"\n**Date Livraison confirmée**: "+getFieldValue("defiCommandeDatePremierCamion")+"\n"+"\n**Contact Déchargement Privilégié**: "+getFieldValue("defiCommandeContactLivraison")+"\n"+"\n**Contact En Cas De Problème**: "+"\n"+"\n**Quantité Initiale**: "+ lc.getFieldValue("defiLigneCommandeQuantite"));
 						
 					// Date limie de la carte 
 						card.put("due", getFieldValue("defiCommandeDatePremierCamion"));
