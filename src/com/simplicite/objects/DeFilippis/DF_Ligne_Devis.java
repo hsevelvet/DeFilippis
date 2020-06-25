@@ -50,7 +50,7 @@ public class DF_Ligne_Devis extends ObjectDB {
 			
 		
 		// accès aux valeurs 
-        String unite = getField("defiLigneDevisU").getValue(); 
+        String unite = getField("defiLigneDevisUnite").getValue(); 
         String des_produit = getField("defiPrdTypeProduit").getValue(); 
         String fin_produit = getField("defiPrdFinitionFacesVues").getValue();
         String ap_commerciale = getField("defiPrdAppellationCommerciale").getValue();
@@ -169,7 +169,7 @@ public class DF_Ligne_Devis extends ObjectDB {
 					setFieldValue("defiLigneDevisNombreElementsSsJoints", 1);
 					break;
 			}
-        }
+       
 		
         // calcul masse unitaire sans joint
         switch(unite){
@@ -183,7 +183,7 @@ public class DF_Ligne_Devis extends ObjectDB {
 				setFieldValue("defiLigneDevisMasseUnitaireSsJoints", Math.round(mvp*(ep / 100)));
 				break;
 		}
-        
+        }
         // calcul nombre d'éléments par unité avec joint
         if ((lng + dim_joint == 0) || (lrg + dim_joint == 0)){
         	setFieldValue("defiLigneDevisNombreElementsAcJoints", 0);
