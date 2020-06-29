@@ -137,12 +137,12 @@
 	
 	}
 
-	tfoot td.totallibelle {
+	tfoot td.totallibelle, tfoot td.totallibelletva, tfoot td.totallibellettc {
 		background-color:#A6C4E0;
 		text-align:left;
 		font-weight:bold;
 	}
-	tfoot td.totalvaleur {
+	tfoot td.totalvaleur, tfoot td.totalvaleurtva, tfoot td.totalvaleurttc {
 		background-color:#A6C4E0;
 		text-align:right;
 		font-weight:bold;
@@ -366,6 +366,22 @@
 						<script>fPrix({{defiCommandeMontantHT}});</script>
 					</td>
 				</tr>				
+				<tr>
+					<td class="totallibelletva" colspan="6">
+						TVA
+					</td>
+					<td class="totalvaleurtva">
+						<script>fPrix({{defiCommandeMontantHT}}*0.2);</script>
+					</td>
+				</tr>
+				<tr>
+					<td class="totallibellettc" colspan="6">
+						Montant TTC
+					</td>
+					<td class="totalvaleurttc">
+						<script>fPrix({{defiCommandeMontantHT}}*1.2);</script>
+					</td>
+				</tr>					
 			</tfoot>
 		</table>
 		
