@@ -556,6 +556,10 @@ public class DF_Devis extends ObjectDB {
 	public String SendMailDevis(Map<String, String> params){
 		ObjectDB devis = getGrant().getTmpObject("DF_Devis");
 		ObjectField devis_fiche = devis.getField("defiDevisFicheTechnique");
+		ObjectField devis_pj1 = devis.getField("defiDevisPieceJointe1");
+		ObjectField devis_pj2 = devis.getField("defiDevisPieceJointe2");
+		ObjectField devis_pj3 = devis.getField("defiDevisPieceJointe3");
+		ObjectField devis_pj4 = devis.getField("defiDevisPieceJointe4");
 		//ObjectField email_address = devis.getField("defiDevisContactMail");
 		
 		SimpleDateFormat formatter = new SimpleDateFormat("dd_MM_yyyy-HH");  
@@ -572,8 +576,13 @@ public class DF_Devis extends ObjectDB {
 		MailTool mail = new MailTool();
 		mail.addRcpt(email_address);
 		mail.setSubject(getFieldValue("defiDevisTitre"));
-		mail.addAttach(devis, devis_fiche);
+		
 		mail.addAttach(devis, devis_pdf);
+		mail.addAttach(devis, devis_fiche);
+		mail.addAttach(devis, devis_pj1);
+		mail.addAttach(devis, devis_pj2);
+		mail.addAttach(devis, devis_pj3);
+		mail.addAttach(devis, devis_pj4);
 		
 		String content = params.get("defiDevisMail");
 		mail.setContent(content);
