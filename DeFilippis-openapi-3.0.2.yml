@@ -151,17 +151,17 @@ components:
           description: Secteur Activité Client
           type: string
           enum:
-          - MO
-          - AR
           - MDO
+          - AR
+          - MO
           - ATPG
           - T
           - V
           - ATP
           - N
           - EA
-          - P
           - A
+          - P
         DF_Chantier_DF_Client_id__defiClientId:
           description: Id Client
           type: string
@@ -1143,17 +1143,17 @@ components:
           description: Secteur Activité
           type: string
           enum:
-          - MO
-          - AR
           - MDO
+          - AR
+          - MO
           - ATPG
           - T
           - V
           - ATP
           - N
           - EA
-          - P
           - A
+          - P
         defiClientAdresse:
           description: Adresse
           type: string
@@ -2114,8 +2114,8 @@ components:
           - BE
           - CH
           - IE
-          - US
           - CA
+          - US
         usr_title:
           description: Title
           type: string
@@ -2397,17 +2397,17 @@ paths:
       - schema:
           type: string
           enum:
-          - MO
-          - AR
           - MDO
+          - AR
+          - MO
           - ATPG
           - T
           - V
           - ATP
           - N
           - EA
-          - P
           - A
+          - P
         in: query
         name: DF_Chantier_DF_Client_id__defiClientIdSecteurActivite
         description: Search filter for Secteur Activité Client
@@ -5195,8 +5195,8 @@ paths:
           - BE
           - CH
           - IE
-          - US
           - CA
+          - US
         in: query
         name: usr_country
         description: Search filter for Country
@@ -9419,17 +9419,17 @@ paths:
       - schema:
           type: string
           enum:
-          - MO
-          - AR
           - MDO
+          - AR
+          - MO
           - ATPG
           - T
           - V
           - ATP
           - N
           - EA
-          - P
           - A
+          - P
         in: query
         name: defiClientIdSecteurActivite
         description: Search filter for Secteur Activité

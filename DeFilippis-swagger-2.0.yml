@@ -141,17 +141,17 @@ paths:
         type: string
         required: false
         enum:
-        - MO
-        - AR
         - MDO
+        - AR
+        - MO
         - ATPG
         - T
         - V
         - ATP
         - N
         - EA
-        - P
         - A
+        - P
       - in: query
         name: DF_Chantier_DF_Client_id__defiClientAdresse
         description: Search filter for Adresse Client
@@ -2582,8 +2582,8 @@ paths:
         - BE
         - CH
         - IE
-        - US
         - CA
+        - US
       - in: query
         name: row_module_id
         description: Search filter for Module
@@ -6133,17 +6133,17 @@ paths:
         type: string
         required: false
         enum:
-        - MO
-        - AR
         - MDO
+        - AR
+        - MO
         - ATPG
         - T
         - V
         - ATP
         - N
         - EA
-        - P
         - A
+        - P
       - in: query
         name: defiClientRegion
         description: Search filter for Region
@@ -6826,17 +6826,17 @@ definitions:
         description: Secteur Activité Client
         type: string
         enum:
-        - MO
-        - AR
         - MDO
+        - AR
+        - MO
         - ATPG
         - T
         - V
         - ATP
         - N
         - EA
-        - P
         - A
+        - P
       DF_Chantier_DF_Client_id__defiClientId:
         description: Id Client
         type: string
@@ -7818,17 +7818,17 @@ definitions:
         description: Secteur Activité
         type: string
         enum:
-        - MO
-        - AR
         - MDO
+        - AR
+        - MO
         - ATPG
         - T
         - V
         - ATP
         - N
         - EA
-        - P
         - A
+        - P
       defiClientAdresse:
         description: Adresse
         type: string
@@ -8789,8 +8789,8 @@ definitions:
         - BE
         - CH
         - IE
-        - US
         - CA
+        - US
       usr_title:
         description: Title
         type: string

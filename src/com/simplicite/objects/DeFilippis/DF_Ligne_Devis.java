@@ -113,8 +113,13 @@ public class DF_Ligne_Devis extends ObjectDB {
 		int index_type = getField("defiLigneDevisTypePrd").getList().getItemIndex(getFieldValue("defiLigneDevisTypePrd"),false);
 		String type_pr = getField("defiLigneDevisTypePrd").getList().getValue(index_type);
 		
+		int index_type_geo = getField("defiLigneDevisTypeGeo").getList().getItemIndex(getFieldValue("defiLigneDevisTypeGeo"),false);
+		String type_geo = getField("defiLigneDevisTypeGeo").getList().getValue(index_type_geo);
+		
+		setFieldValue("defiLigneDevisTypePierre", type_geo);
+		
 		// valorisation : designation ligne devis		
-		String designation = type_pr+" "+ appel_com +" "+ fin_produit+" "+aut_fin+"\n"+lng +" " + " x "+lrg+"\t" +" x ep. "+ep+" " + "Joint inclus de " +dim_joint +" cm";
+		String designation = type_pr+" "+ appel_com +" "+ fin_produit+" "+aut_fin+"\n"+longueur +" " + " x "+largeur+"\t" +" x ep. "+epaisseur+" " + "Joint inclus de " +dim_joint +" cm";
 		if (type_prd.equals("1")){
 			setFieldValue("defiLigneDevisDesignation",appel_com);	
 		}
