@@ -118,8 +118,14 @@ public class DF_Ligne_Devis extends ObjectDB {
 		
 		setFieldValue("defiLigneDevisTypePierre", type_geo);
 		
-		// valorisation : designation ligne devis		
-		String designation = type_pr+" "+ appel_com +" "+ fin_produit+" "+aut_fin+"\n"+longueur +" " + " x "+largeur+"\t" +" x ep. "+epaisseur+" " + "Joint inclus de " +dim_joint +" cm";
+		String designation = null;
+		// valorisation : designation ligne devis
+		if (getFieldValue("defiLigneDevisTypePrd").equals("PAVE") || getFieldValue("defiLigneDevisTypePrd").equals("DALLE")){
+			designation = type_pr+" "+ appel_com +" "+ fin_produit+" "+aut_fin+"\n"+longueur +" " + " x "+largeur+"\t" +" x ep. "+epaisseur+" " + "Joint inclus de " +dim_joint +" cm";
+		} else{
+			designation = type_pr+" "+ appel_com +" "+ fin_produit+" "+aut_fin+"\n"+longueur +" " + " x "+largeur+"\t" +" x ep. "+epaisseur;
+		}
+		
 		if (type_prd.equals("1")){
 			setFieldValue("defiLigneDevisDesignation",appel_com);	
 		}
