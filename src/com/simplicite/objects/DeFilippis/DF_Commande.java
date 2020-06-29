@@ -429,7 +429,7 @@ public class DF_Commande extends ObjectDB {
 					hst.getField("defiHstDocsDevis").setDocument(hst, "ARC-"+formatter.format(date).toString()+".pdf", this.pubPdfARC());
 					hst.setFieldValue("DF_Hist_Docs_DF_Commande_id",getRowId());
 					hst.setFieldValue("defiHstDocsDateEmission",date);
-					hst.setFieldValue("defiHstTitre", this.getFieldValue("defiCommandeNumero"));
+					hst.setFieldValue("defiHstTitre", this.getFieldValue("defiCommandeIntituleCommande"));
 					
 					ObjectField file = hst.getField("defiHstDocsDevis");
 					
