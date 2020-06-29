@@ -81,13 +81,13 @@ paths:
         type: string
         required: false
       - in: query
-        name: DF_Affaire_DF_Contact_id__defiContactNom
-        description: Search filter for Nom Contacts
+        name: DF_Chantier_DF_Client_id__defiClientNom
+        description: Search filter for Nom Client
         type: string
         required: false
       - in: query
-        name: DF_Chantier_DF_Client_id__defiClientNom
-        description: Search filter for Nom Client
+        name: DF_Affaire_DF_Contact_id__defiContactNom
+        description: Search filter for Nom Contacts
         type: string
         required: false
       - in: query
@@ -141,11 +141,11 @@ paths:
         type: string
         required: false
         enum:
-        - MO
         - MDO
         - AR
-        - ATPG
+        - MO
         - T
+        - ATPG
         - ATP
         - V
         - N
@@ -1161,7 +1161,7 @@ paths:
         required: false
       - in: query
         name: defiHstDocsDateEmission
-        description: Search filter for Date émission
+        description: Search filter for Date d'historisation
         type: string
         required: false
       - in: query
@@ -1182,6 +1182,11 @@ paths:
       - in: query
         name: DF_Hist_Docs_DF_Livraison_id__defiLivraisonId
         description: Search filter for Référence Livraison
+        type: string
+        required: false
+      - in: query
+        name: defiHstTitre
+        description: Search filter for Titre
         type: string
         required: false
       tags:
@@ -1334,13 +1339,13 @@ paths:
         type: string
         required: false
       - in: query
-        name: DF_ligne_commande_DF_Commande_id
-        description: Search filter for DF commande
+        name: DF_ligne_commande_DF_Fournisseurs_id__defiFournNom
+        description: Search filter for Nom Fournisseur
         type: string
         required: false
       - in: query
-        name: DF_ligne_commande_DF_Fournisseurs_id__defiFournNom
-        description: Search filter for Nom Fournisseur
+        name: DF_ligne_commande_DF_Commande_id
+        description: Search filter for DF commande
         type: string
         required: false
       - in: query
@@ -2530,6 +2535,11 @@ paths:
         type: string
         required: false
       - in: query
+        name: defiUsrEmail
+        description: Search filter for Email Suiveur
+        type: string
+        required: false
+      - in: query
         name: usr_address1
         description: Search filter for Address line 1
         type: string
@@ -2567,8 +2577,8 @@ paths:
         - BE
         - CH
         - IE
-        - CA
         - US
+        - CA
       - in: query
         name: row_module_id
         description: Search filter for Module
@@ -2681,8 +2691,8 @@ paths:
         type: boolean
         required: false
       - in: query
-        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdAppellationCommerciale
-        description: Search filter for Appellation Commerciale
+        name: defiLigneDevisRow
+        description: Search filter for defi ligne devis row
         type: string
         required: false
       - in: query
@@ -2691,8 +2701,8 @@ paths:
         type: string
         required: false
       - in: query
-        name: defiLigneDevisRow
-        description: Search filter for defi ligne devis row
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdAppellationCommerciale
+        description: Search filter for Appellation Commerciale
         type: string
         required: false
       - in: query
@@ -2734,11 +2744,6 @@ paths:
       - in: query
         name: defiLigneDevisQuantite
         description: Search filter for Quantité
-        type: integer
-        required: false
-      - in: query
-        name: defiLigneDevisMasseVolumique
-        description: Search filter for Masse Volumique
         type: integer
         required: false
       - in: query
@@ -2937,6 +2942,11 @@ paths:
         name: defiLigneDevisDesignationProduit
         description: Search filter for Désignation Produit
         type: string
+        required: false
+      - in: query
+        name: defiLigneDevisMasseVolumique
+        description: Search filter for Masse Volumique
+        type: integer
         required: false
       - in: query
         name: defiLigneDevisNomProduit
@@ -3251,6 +3261,11 @@ paths:
         type: boolean
         required: false
       - in: query
+        name: DF_Contact_DF_Fournisseurs_id__defiFournNom
+        description: Search filter for Nom Fournisseur
+        type: string
+        required: false
+      - in: query
         name: DF_Contact_DF_Transport_id__defiTrspNom
         description: Search filter for Nom Transporteur
         type: string
@@ -3258,11 +3273,6 @@ paths:
       - in: query
         name: defiContactId
         description: Search filter for Id Contact
-        type: string
-        required: false
-      - in: query
-        name: DF_Contact_DF_Fournisseurs_id__defiFournNom
-        description: Search filter for Nom Fournisseur
         type: string
         required: false
       - in: query
@@ -3620,13 +3630,13 @@ paths:
         type: string
         required: false
       - in: query
-        name: DF_Produit_Finis_DF_Fournisseurs_id__defiFournNom
-        description: Search filter for Nom Fournisseur
+        name: DF_Produit_Finis_DF_Fournisseurs_id
+        description: Search filter for Fournisseurs
         type: string
         required: false
       - in: query
-        name: DF_Produit_Finis_DF_Fournisseurs_id
-        description: Search filter for Fournisseurs
+        name: DF_Produit_Finis_DF_Fournisseurs_id__defiFournNom
+        description: Search filter for Nom Fournisseurs
         type: string
         required: false
       - in: query
@@ -3693,13 +3703,13 @@ paths:
         type: string
         required: false
       - in: query
-        name: df_produit_commentaire
-        description: Search filter for Commentaire
+        name: defiPrdLargeur
+        description: Search filter for Largeur
         type: string
         required: false
       - in: query
-        name: defiPrdLargeur
-        description: Search filter for Largeur
+        name: df_produit_commentaire
+        description: Search filter for Commentaire
         type: string
         required: false
       - in: query
@@ -4381,24 +4391,24 @@ paths:
         type: string
         required: false
       - in: query
-        name: defiCommandeNumero
-        description: Search filter for Numéro de Commande
-        type: string
-        required: false
-      - in: query
         name: defiCommandeId
         description: Search filter for Id Commande
         type: string
         required: false
       - in: query
-        name: defiCommandeIntituleAffaire
-        description: Search filter for Titre Affaire
+        name: defiCommandeNumero
+        description: Search filter for Numéro de Commande
         type: string
         required: false
       - in: query
         name: defiCommandeIdLivraison
         description: Search filter for Id Livraison
         type: integer
+        required: false
+      - in: query
+        name: defiCommandeIntituleAffaire
+        description: Search filter for Titre Affaire
+        type: string
         required: false
       - in: query
         name: defiCommandeLieuAffaire
@@ -4426,11 +4436,6 @@ paths:
         type: string
         required: false
       - in: query
-        name: DF_Commande_DF_Client_id
-        description: Search filter for DF client
-        type: string
-        required: false
-      - in: query
         name: defiCommandeStatut
         description: Search filter for Statut Commande
         type: string
@@ -4441,6 +4446,11 @@ paths:
         - LI
         - TE
         - AN
+      - in: query
+        name: DF_Commande_DF_Client_id
+        description: Search filter for DF client
+        type: string
+        required: false
       - in: query
         name: DF_Commande_DF_Client_id__defiClientId
         description: Search filter for Id Client DF client
@@ -4477,14 +4487,14 @@ paths:
         type: number
         required: false
       - in: query
-        name: defiCommandeSuiveurAffaire
-        description: Search filter for Suiveur de l'affaire
-        type: string
-        required: false
-      - in: query
         name: defiCommandeNombreCamions
         description: Search filter for Nombre de camions
         type: number
+        required: false
+      - in: query
+        name: defiCommandeSuiveurAffaire
+        description: Search filter for Suiveur de l'affaire
+        type: string
         required: false
       - in: query
         name: defiCommandeTransporteur
@@ -5401,13 +5411,13 @@ paths:
         type: string
         required: false
       - in: query
-        name: DF_Devis_DF_Chantier_id__defiAfrLibelleChantier
-        description: Search filter for Titre Affaire DF chantier
+        name: DF_Devis_DF_utilisateur_interne_id__defiUsrTrigramme
+        description: Search filter for Trigramme
         type: string
         required: false
       - in: query
-        name: DF_Devis_DF_utilisateur_interne_id__defiUsrTrigramme
-        description: Search filter for Trigramme
+        name: DF_Devis_DF_Chantier_id__defiAfrLibelleChantier
+        description: Search filter for Titre Affaire DF chantier
         type: string
         required: false
       - in: query
@@ -5551,6 +5561,11 @@ paths:
         type: string
         required: false
       - in: query
+        name: DF_Devis_DF_utilisateur_interne_id__defiUsrEmail
+        description: Search filter for Email Suiveur DF utilisateur interne
+        type: string
+        required: false
+      - in: query
         name: defiDevisDelaisPrevisionnel
         description: Search filter for Délais prévisionnel
         type: string
@@ -5621,7 +5636,7 @@ paths:
         required: false
       - in: query
         name: DF_Devis_DF_Contact_id__defiContactEmail
-        description: Search filter for E-mail Contact
+        description: Search filter for E-mail Contacts
         type: string
         required: false
       - in: query
@@ -5671,6 +5686,11 @@ paths:
       - in: query
         name: defiDevisRedacteur
         description: Search filter for Rédacteur Devis
+        type: string
+        required: false
+      - in: query
+        name: defiDevisEmailPDF
+        description: Search filter for Devis Email
         type: string
         required: false
       tags:
@@ -5866,6 +5886,11 @@ paths:
         name: _doc
         description: Documentation?
         type: boolean
+        required: false
+      - in: query
+        name: defiLivraisonNumBL
+        description: Search filter for Numéro de BL
+        type: string
         required: false
       - in: query
         name: defiLivraisonIntituleCamion
@@ -6065,11 +6090,11 @@ paths:
         type: string
         required: false
         enum:
-        - MO
         - MDO
         - AR
-        - ATPG
+        - MO
         - T
+        - ATPG
         - ATP
         - V
         - N
@@ -6758,11 +6783,11 @@ definitions:
         description: Secteur Activité Client
         type: string
         enum:
-        - MO
         - MDO
         - AR
-        - ATPG
+        - MO
         - T
+        - ATPG
         - ATP
         - V
         - N
@@ -6966,12 +6991,12 @@ definitions:
         - LUS
         - TEC
         - PRE
-      defiLigneDevisMasseVolumique:
-        description: Masse Volumique
-        type: integer
       defiLigneDevisEpaisseur:
         description: Epaisseur / Hauteur (cm)
         type: string
+      defiLigneDevisMasseVolumique:
+        description: Masse Volumique
+        type: integer
       defiLigneDevisUnite:
         description: Unité
         type: string
@@ -7300,6 +7325,9 @@ definitions:
       df_livraison_num_bl_fournisseur:
         description: Référence Document Fournisseur
         type: string
+      defiLivraisonNumBL:
+        description: Numéro de BL
+        type: string
       defiLivraisonId:
         description: defi livraison id
         type: string
@@ -7558,6 +7586,9 @@ definitions:
       defiDevisCompteurDate:
         description: Compteur Date
         type: integer
+      defiDevisEmailPDF:
+        description: Devis Email
+        type: object
       defiDevisIndice:
         description: Indice
         type: string
@@ -7598,7 +7629,7 @@ definitions:
         description: Titre Projet
         type: string
       DF_Devis_DF_Contact_id__defiContactEmail:
-        description: E-mail Contact
+        description: E-mail Contacts
         type: string
       DF_Devis_DF_utilisateur_interne_id__defiUsrNC:
         description: Suiveur de l'affaire
@@ -7610,6 +7641,9 @@ definitions:
         - 45J
         - 30I
         - 1CO
+      DF_Devis_DF_utilisateur_interne_id__defiUsrEmail:
+        description: Email Suiveur DF utilisateur interne
+        type: string
       defiDevisTitre:
         description: Titre Devis
         type: string
@@ -7741,11 +7775,11 @@ definitions:
         description: Secteur Activité
         type: string
         enum:
-        - MO
         - MDO
         - AR
-        - ATPG
+        - MO
         - T
+        - ATPG
         - ATP
         - V
         - N
@@ -7857,7 +7891,7 @@ definitions:
         description: Largeur
         type: string
       DF_Produit_Finis_DF_Fournisseurs_id__defiFournNom:
-        description: Nom Fournisseur
+        description: Nom Fournisseurs
         type: string
       defiPrdMasseVolumique:
         description: Masse Volumique
@@ -8008,8 +8042,11 @@ definitions:
       DF_Hist_Docs_DF_Devis_id:
         description: Devis
         type: string
+      defiHstTitre:
+        description: Titre
+        type: string
       defiHstDocsDateEmission:
-        description: Date émission
+        description: Date d'historisation
         type: string
         example: yyyy-MM-dd
       DF_Hist_Docs_DF_Livraison_id__defiLivraisonId:
@@ -8706,8 +8743,8 @@ definitions:
         - BE
         - CH
         - IE
-        - CA
         - US
+        - CA
       usr_title:
         description: Title
         type: string
@@ -8740,6 +8777,9 @@ definitions:
         example: yyyy-MM-dd HH:mm:ss
       usr_first_name:
         description: First name
+        type: string
+      defiUsrEmail:
+        description: Email Suiveur
         type: string
       usr_home_num:
         description: Tél. domicile

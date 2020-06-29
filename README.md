@@ -283,6 +283,7 @@ Objet metier pour devis.
 | `defiDevisPoidsTotal`                                        | float(9, 2)                              |          |           |          | -                                                                                |
 | `defiDevisNombreCamions`                                     | float(9, 2)                              |          |           |          | -                                                                                |
 | `defiDevisFicheTechnique`                                    | document                                 |          | yes       |          | -                                                                                |
+| _Ref. `DF_Devis_DF_utilisateur_interne_id.defiUsrEmail`_     | _email(100)_                             |          |           |          | -                                                                                |
 | `defiDevisDelaisPrevisionnel`                                | char(100)                                |          | yes       |          | -                                                                                |
 | `defiDevisCadenceLivraison`                                  | char(100)                                |          | yes       |          | -                                                                                |
 | `defiDevisOrdreFacturation`                                  | char(100)                                |          |           |          | -                                                                                |
@@ -305,6 +306,7 @@ Objet metier pour devis.
 | `defiDevisIndice`                                            | char(3)                                  |          |           |          | -                                                                                |
 | `defiDevisCompteurDate`                                      | int(100)                                 |          |           |          | -                                                                                |
 | `defiDevisRedacteur`                                         | char(70)                                 |          |           |          | -                                                                                |
+| `defiDevisEmailPDF`                                          | document                                 |          | yes       |          | -                                                                                |
 
 ### Lists
 
@@ -386,6 +388,7 @@ Objet métier pour fournisseur.
 | `DF_Hist_Docs_DF_Devis_id` link to **`DF_Devis`**            | id                                       |          | yes       |          | -                                                                                |
 | `DF_Hist_Docs_DF_Livraison_id` link to **`DF_Livraison`**    | id                                       |          | yes       |          | -                                                                                |
 | _Ref. `DF_Hist_Docs_DF_Livraison_id.defiLivraisonId`_        | _char(100)_                              |          |           |          | -                                                                                |
+| `defiHstTitre`                                               | char(200)                                |          | yes       |          | -                                                                                |
 
 `DF_ligne_commande` business object definition
 ----------------------------------------------
@@ -538,6 +541,7 @@ Objet métier pour fournisseur.
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
 | `defiLivraisonId`                                            | char(100)                                | yes*     | yes       |          | -                                                                                |
 | `defiLivraisonIntituleCamion`                                | char(100)                                |          | yes       |          | -                                                                                |
+| `defiLivraisonNumBL`                                         | char(10)                                 |          | yes       |          | -                                                                                |
 | `df_livraison_statut`                                        | enum(7) using `DF_LIVRAISON_STATUT` list | yes      | yes       |          | -                                                                                |
 | `defiLivraisonIdCommande`                                    | char(100)                                | yes      | yes       |          | -                                                                                |
 | _Ref. `DF_Livraison_DF_Affaire_id.defiAfrLibelleChantier`_   | _char(36)_                               |          |           |          | -                                                                                |
@@ -733,6 +737,7 @@ Objet metier pour produit.
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
 | `defiUsrNC`                                                  | char(70)                                 |          | yes       |          | -                                                                                |
 | `defiUsrTrigramme`                                           | char(5)                                  |          | yes       |          | -                                                                                |
+| `defiUsrEmail`                                               | email(100)                               |          | yes       |          | -                                                                                |
 
 `DF_Process_01` business process definition
 -------------------------------------------

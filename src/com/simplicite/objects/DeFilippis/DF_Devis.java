@@ -362,6 +362,7 @@ public class DF_Devis extends ObjectDB {
 		o.setFieldValue("defiDevisCoefficientGlobal", coef_global);
 		o.setFieldValue("defiDevisPoidsTotal",poids_total);
 		o.setFieldValue("defiDevisNombreCamions",nb_camions);
+		o.setFieldValue("DF_Devis_DF_Chantier_id.defiAfrNumero", getFieldValue("DF_Devis_DF_Chantier_id.defiAfrNumero"));
 		o.save();
 		// incrémentation d'indice du devis actuel
 		setFieldValue("defiDevisIndice",indice_next);
@@ -534,6 +535,7 @@ public class DF_Devis extends ObjectDB {
 					hst.getField("defiHstDocsDevis").setDocument(hst, "Devis-"+formatter.format(date).toString()+".pdf", this.pubPdf());
 					hst.setFieldValue("DF_Hist_Docs_DF_Devis_id",getRowId());
 					hst.setFieldValue("defiHstDocsDateEmission",date);
+					hst.setFieldValue("defiHstTitre", this.getFieldValue("defiDevisTitre"));
 					
 					ObjectField file = hst.getField("defiHstDocsDevis");
 					
@@ -556,13 +558,22 @@ public class DF_Devis extends ObjectDB {
 		ObjectField devis_fiche = devis.getField("defiDevisFicheTechnique");
 		//ObjectField email_address = devis.getField("defiDevisContactMail");
 		
+		SimpleDateFormat formatter = new SimpleDateFormat("dd_MM_yyyy-HH");  
+    	Date date = new Date();  
+    
+		
+		devis.getField("defiDevisEmailPDF").setDocument(devis, "Devis-"+formatter.format(date).toString()+".pdf", this.pubPdf());
+		
+		ObjectField devis_pdf = devis.getField("defiDevisEmailPDF");
+		
 		String email_address = params.get("defiDevisContactMail") ;
 		AppLog.info(getClass(), "Address", params.get("defiDevisContactMail"), getGrant());
 		
 		MailTool mail = new MailTool();
 		mail.addRcpt(email_address);
-		mail.setSubject("Devis");
+		mail.setSubject(getFieldValue("defiDevisTitre"));
 		mail.addAttach(devis, devis_fiche);
+		mail.addAttach(devis, devis_pdf);
 		
 		String content = params.get("defiDevisMail");
 		mail.setContent(content);

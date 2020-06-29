@@ -52,7 +52,7 @@ public class DF_Ligne_Devis extends ObjectDB {
 		// accès aux valeurs 
         String unite = getField("defiLigneDevisUnite").getValue(); 
         String des_produit = getField("defiPrdTypeProduit").getValue(); 
-        String fin_produit = getField("defiPrdFinitionFacesVues").getValue();
+        String fin_produit = getField("defiLigneDevisFinitionFV").getValue();
         String ap_commerciale = getField("defiPrdAppellationCommerciale").getValue();
 		double mvp = getField("defiLigneDevisMasseVolumique").getDouble(0);
 
@@ -106,12 +106,15 @@ public class DF_Ligne_Devis extends ObjectDB {
 		double dim_joint = getField("defiLigneDevisDimensionJoints").getDouble(0);
 		double ptr = getField("defiLigneDevisPrixTrsp").getDouble(0);
 		double prc = getField("defiLigneDevisPrixUnitaireHT").getDouble(0);
-		String aut_fin = getFieldValue("DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdAutresFinitions");
+		String aut_fin = getFieldValue("defiLigneDevisAutresFinitions");
 		String appel_com = getFieldValue("defiLigneDevisAppellationCommerciale");
 		String type_prd = getFieldValue("defiLigneDevisCatPrix");
 		
+		int index_type = getField("defiLigneDevisTypePrd").getList().getItemIndex(getFieldValue("defiLigneDevisTypePrd"),false);
+		String type_pr = getField("defiLigneDevisTypePrd").getList().getValue(index_type);
+		
 		// valorisation : designation ligne devis		
-		String designation =  ap_commerciale+" "+ des_produit +" "+ fin_produit+" "+aut_fin+"\n"+lng +" " + " x "+lrg+"\t" +" x ep. "+ep+" " + "Joint inclus de " +dim_joint +" cm";
+		String designation = type_pr+" "+ appel_com +" "+ fin_produit+" "+aut_fin+"\n"+lng +" " + " x "+lrg+"\t" +" x ep. "+ep+" " + "Joint inclus de " +dim_joint +" cm";
 		if (type_prd.equals("1")){
 			setFieldValue("defiLigneDevisDesignation",appel_com);	
 		}
