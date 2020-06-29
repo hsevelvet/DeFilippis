@@ -452,7 +452,7 @@
 		<usr_extra>1</usr_extra>
 		<usr_subhead>1</usr_subhead>
 		<usr_logout>2020-03-13 14:54:33</usr_logout>
-		<usr_last_logon>2020-06-25 16:03:32</usr_last_logon>
+		<usr_last_logon>2020-06-29 07:20:08</usr_last_logon>
 		<usr_dateformat/>
 		<usr_uuid/>
 	</data>
@@ -493,25 +493,25 @@
 	<data>
 		<usr_login>dhenrion.recettead@gmail.com</usr_login>
 		<usr_lang>FRA</usr_lang>
-		<usr_image_id>3023</usr_image_id>
+		<usr_image_id>files/User/dhenrion.recettead@gmail.com.jpg</usr_image_id>
 		<usr_timezone/>
 		<usr_minrows>20</usr_minrows>
 		<usr_maxrows>50</usr_maxrows>
 		<usr_active>1</usr_active>
-		<usr_title/>
+		<usr_title>MR</usr_title>
 		<usr_last_name>HENRION</usr_last_name>
 		<usr_first_name>David</usr_first_name>
-		<usr_email/>
+		<usr_email>david.henrion@mineralconseil.fr</usr_email>
 		<usr_home_id.viw_name>DeFilippis</usr_home_id.viw_name>
 		<usr_work_num>0101010101</usr_work_num>
 		<usr_home_num/>
-		<usr_cell_num/>
-		<usr_address1/>
+		<usr_cell_num>0646105305</usr_cell_num>
+		<usr_address1>175 avenue des Frères Lumière</usr_address1>
 		<usr_address2/>
-		<usr_zipcode/>
-		<usr_city/>
-		<usr_state/>
-		<usr_country/>
+		<usr_zipcode>69730</usr_zipcode>
+		<usr_city>GENAY</usr_city>
+		<usr_state>Rhone Alpes </usr_state>
+		<usr_country>FR</usr_country>
 		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
 		<usr_menu>1</usr_menu>
 		<usr_menu_defhidden>0</usr_menu_defhidden>
@@ -520,7 +520,7 @@
 		<usr_extra>1</usr_extra>
 		<usr_subhead>1</usr_subhead>
 		<usr_logout>2020-02-24 13:28:09</usr_logout>
-		<usr_last_logon>2020-06-25 12:13:57</usr_last_logon>
+		<usr_last_logon>2020-06-29 07:04:31</usr_last_logon>
 		<usr_dateformat/>
 		<usr_uuid/>
 	</data>
@@ -890,10 +890,10 @@
 	<data>
 		<usp_user_id.usr_login>designer</usp_user_id.usr_login>
 		<usp_param_id.sys_code>HISTORY Home</usp_param_id.sys_code>
-		<usp_value><![CDATA[[{"object":"DF_Commande","rowId":"141","label":"Commandes : CO-00141"},
+		<usp_value><![CDATA[[{"object":"Module","rowId":"39","label":"Module : DeFilippis"},
+{"object":"DF_Commande","rowId":"141","label":"Commandes : CO-00141"},
 {"object":"DF_Ligne_Devis","rowId":"247","label":"Lignes Devis : LD-00247"},
 {"object":"DF_Devis","rowId":"113","label":"Devis : .VERETZ.REAMENAGEMENT DES QUAIS HENRI IV.2020.00113.C"},
-{"object":"Module","rowId":"39","label":"Module : DeFilippis"},
 {"object":"DF_Commande","rowId":"140","label":"Commandes : CO-00140"},
 {"object":"DF_Commande","rowId":"143","label":"Commandes : CO-00143"},
 {"object":"DF_ligne_commande","rowId":"403","label":"Lignes Commande : 403"},
@@ -982,15 +982,6 @@ DF_Produit_Finis:1,addlist,listedit:reload,prefs,copy,export,updall,delall,delet
 	</data>
 	<data>
 		<usp_user_id.usr_login>dhenrion.recettead@gmail.com</usp_user_id.usr_login>
-		<usp_param_id.sys_code>FORCE_CHANGE_PASSWORD</usp_param_id.sys_code>
-		<usp_value><![CDATA[yes]]></usp_value>
-		<usp_param_id.sys_type>PRV</usp_param_id.sys_type>
-		<usp_param_id.sys_value><![CDATA[empty]]></usp_param_id.sys_value>
-		<usp_param_id.sys_desc><![CDATA[Force password change (set at user level)]]></usp_param_id.sys_desc>
-		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
-	</data>
-	<data>
-		<usp_user_id.usr_login>dhenrion.recettead@gmail.com</usp_user_id.usr_login>
 		<usp_param_id.sys_code>HISTORY</usp_param_id.sys_code>
 		<usp_value><![CDATA[[{"object":"DF_Devis","rowId":"45","label":"Devis : DHN.GENAY.PLACE DE L'EGLISE.2020.00044.A"},
 {"object":"DF_Affaire","rowId":"2","label":"Affaires"},
@@ -1015,6 +1006,32 @@ DF_Produit_Finis:1,addlist,listedit:reload,prefs,copy,export,updall,delall,delet
 		<usp_param_id.sys_type>APP</usp_param_id.sys_type>
 		<usp_param_id.sys_value><![CDATA[empty]]></usp_param_id.sys_value>
 		<usp_param_id.sys_desc><![CDATA[User navigation history]]></usp_param_id.sys_desc>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<usp_user_id.usr_login>dhenrion.recettead@gmail.com</usp_user_id.usr_login>
+		<usp_param_id.sys_code>HISTORY DeFilippis</usp_param_id.sys_code>
+		<usp_value><![CDATA[[{"object":"DF_Client","rowId":"1","label":"Clients : CLT-00001"},
+{"object":"DF_Fournisseurs","rowId":"1","label":"Fournisseurs : FRN-00001"},
+{"object":"DF_Produit_Finis","rowId":"15","label":"Produits Finis : PRD-00007"},
+{"object":"DF_Produit_Finis","rowId":"13","label":"Produits Finis : PRD-00001"},
+{"object":"DF_Transport","rowId":"1","label":"Transports : PEREZ TRANSPORT"},
+{"object":"DF_utilisateur_interne","rowId":"29","label":"Utilisateurs Internes : David HENRION"},
+{"object":"DF_Ligne_Devis","rowId":"267","label":"Lignes Devis : LD-00267"},
+{"object":"DF_Devis","rowId":"107","label":"Devis : DHN.TOURS METROPOLE VAL-DE-LOIRE.Place de l'église.2020.00106.A"},
+{"object":"DF_Affaire","rowId":"69","label":"Affaires : AFR-00069"},
+{"object":"DF_Devis","rowId":"117","label":"Devis : DHN.19400 MARCILLAC.Essai 3.2020.00117.A"},
+{"object":"DF_ligne_commande","rowId":"427","label":"Lignes Commande : 427"},
+{"object":"DF_Commande","rowId":"148","label":"Commandes : CO-00148"},
+{"object":"DF_Commande","rowId":"149","label":"Commandes : CO-00149"},
+{"object":"DF_Affaire","rowId":"62","label":"Affaires : AFR-00062"},
+{"object":"DF_Affaire","rowId":"58","label":"Affaires : AFR-00058"},
+{"object":"DF_Affaire","rowId":"50","label":"Affaires : AFR-00050"},
+{"object":"DF_Ligne_Devis","rowId":"247","label":"Lignes Devis : LD-00247"},
+{"object":"DF_Devis","rowId":"113","label":"Devis : .VERETZ.REAMENAGEMENT DES QUAIS HENRI IV.2020.00113.C"}]]]></usp_value>
+		<usp_param_id.sys_type/>
+		<usp_param_id.sys_value><![CDATA[empty]]></usp_param_id.sys_value>
+		<usp_param_id.sys_desc/>
 		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
 	</data>
 	<data>
