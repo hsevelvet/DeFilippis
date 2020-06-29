@@ -184,6 +184,7 @@ objet metier pour commande.
 ### Custom actions
 
 * `CommandeTrello`: 
+* `Historiser-ARC`: 
 
 `DF_Contact` business object definition
 ---------------------------------------
@@ -389,6 +390,9 @@ Objet métier pour fournisseur.
 | `DF_Hist_Docs_DF_Livraison_id` link to **`DF_Livraison`**    | id                                       |          | yes       |          | -                                                                                |
 | _Ref. `DF_Hist_Docs_DF_Livraison_id.defiLivraisonId`_        | _char(100)_                              |          |           |          | -                                                                                |
 | `defiHstTitre`                                               | char(200)                                |          | yes       |          | -                                                                                |
+| `DF_Hist_Docs_DF_Commande_id` link to **`DF_Commande`**      | id                                       |          | yes       |          | -                                                                                |
+| _Ref. `DF_Hist_Docs_DF_Commande_id.defiCommandeId`_          | _char(50)_                               |          |           |          | -                                                                                |
+| _Ref. `DF_Hist_Docs_DF_Commande_id.defiCommandeNumero`_      | _char(32)_                               |          |           |          | -                                                                                |
 
 `DF_ligne_commande` business object definition
 ----------------------------------------------

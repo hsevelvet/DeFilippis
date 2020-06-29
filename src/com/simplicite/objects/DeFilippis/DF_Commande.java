@@ -17,6 +17,9 @@ import java.io.ByteArrayOutputStream;
 import com.simplicite.util.PrintTemplate;
 import org.json.JSONObject;
 
+import java.util.Date;
+import java.text.SimpleDateFormat;  
+
 import com.lowagie.text.Image;
 import com.lowagie.text.Paragraph;
 import com.lowagie.text.pdf.PdfPCell;
@@ -410,6 +413,37 @@ public class DF_Commande extends ObjectDB {
 			AppLog.error(getClass(), "pubPdf", "------------", e, getGrant());
 		}
 		return pdf;
+	}
+	
+	// Méthode pour historiser un Devis
+	public String generateARC() {
+		ObjectDB hst = getGrant().getTmpObject("DF_Hist_Docs");
+
+		try {
+			synchronized(hst){
+				hst.resetFilters();
+					SimpleDateFormat formatter = new SimpleDateFormat("dd_MM_yyyy-HH");  
+    				Date date = new Date();  
+    
+					hst.create();	
+					hst.getField("defiHstDocsDevis").setDocument(hst, "ARC-"+formatter.format(date).toString()+".pdf", this.pubPdfARC());
+					hst.setFieldValue("DF_Hist_Docs_DF_Commande_id",getRowId());
+					hst.setFieldValue("defiHstDocsDateEmission",date);
+					hst.setFieldValue("defiHstTitre", this.getFieldValue("defiCommandeNumero"));
+					
+					ObjectField file = hst.getField("defiHstDocsDevis");
+					
+					hst.save();
+			
+				
+				
+			}
+			return Message.formatSimpleInfo("Fichier Historisé");
+		}	
+		catch(Exception e) {
+		    AppLog.error(getClass(), "generateFile", "error...", e, getGrant());
+		    return Message.formatSimpleError("Error...");
+		}
 	}
 	
 		

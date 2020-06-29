@@ -1189,6 +1189,21 @@ paths:
         description: Search filter for Titre
         type: string
         required: false
+      - in: query
+        name: DF_Hist_Docs_DF_Commande_id
+        description: Search filter for Commandes
+        type: string
+        required: false
+      - in: query
+        name: DF_Hist_Docs_DF_Commande_id__defiCommandeId
+        description: Search filter for Id Commande Commandes
+        type: string
+        required: false
+      - in: query
+        name: DF_Hist_Docs_DF_Commande_id__defiCommandeNumero
+        description: Search filter for Numéro de Commande Commandes
+        type: string
+        required: false
       tags:
       - DF_Hist_Docs
   /rest/DF_Prix_Transport:
@@ -5183,6 +5198,44 @@ paths:
         required: false
       tags:
       - DF_test
+  /rest/DF_Commande/{row_id}/action:Historiser-ARC:
+    get:
+      summary: Call a custom action for a DF_Commande business object record or for
+        all records
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-df_commande-action-historiser-arc
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/ActionResult'
+          description: Success in calling the custom action
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      tags:
+      - DF_Commande
   /rest/DF_Client/{row_id}:
     post:
       summary: Create a new DF_Clientbusiness object record
@@ -8042,27 +8095,36 @@ definitions:
       DF_Hist_Docs_DF_Devis_id:
         description: Devis
         type: string
-      defiHstTitre:
-        description: Titre
+      DF_Hist_Docs_DF_Commande_id__defiCommandeId:
+        description: Id Commande Commandes
+        type: string
+      DF_Hist_Docs_DF_Commande_id:
+        description: Commandes
         type: string
       defiHstDocsDateEmission:
         description: Date d'historisation
         type: string
         example: yyyy-MM-dd
+      defiHstDocsNumDoc:
+        description: Numéro de document
+        type: integer
+      defiHistDocsId:
+        description: defi hist docs id
+        type: string
+      defiHstTitre:
+        description: Titre
+        type: string
       DF_Hist_Docs_DF_Livraison_id__defiLivraisonId:
         description: Référence Livraison
         type: string
       defiHstDocsDevis:
         description: Document
         type: object
+      DF_Hist_Docs_DF_Commande_id__defiCommandeNumero:
+        description: Numéro de Commande Commandes
+        type: string
       row_id:
         description: Unique technical row ID
-        type: string
-      defiHstDocsNumDoc:
-        description: Numéro de document
-        type: integer
-      defiHistDocsId:
-        description: defi hist docs id
         type: string
   TreeviewData:
     type: object
@@ -8899,6 +8961,6 @@ tags:
 - name: DF_test
   description: DF_test
 - name: DF_Transport
-  description: Transports
+  description: Transporteurs
 - name: DF_utilisateur_interne
   description: Utilisateurs Internes
