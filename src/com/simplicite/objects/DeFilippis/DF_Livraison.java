@@ -529,7 +529,7 @@ public class DF_Livraison extends ObjectDB {
 						
 						for(String[] cmde : commande.search()){
 							commande.setValues(cmde);
-							hst.setFieldValue("defiHstTitre", "ODF - "+commande.getFieldValue("defiCommandeNumero"));
+							hst.setFieldValue("defiHstTitre", "ODF - "+commande.getFieldValue("defiCommandeNumero")+" - "+formatter.format(date).toString());
 						}
 					}
 					//ObjectField file = hst.getField("defiHstDocsDevis");
