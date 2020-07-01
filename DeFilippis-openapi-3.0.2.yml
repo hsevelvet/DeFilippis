@@ -151,17 +151,17 @@ components:
           description: Secteur Activité Client
           type: string
           enum:
-          - MDO
           - AR
+          - MDO
           - MO
-          - ATPG
           - T
+          - ATPG
           - V
           - ATP
           - N
           - EA
-          - A
           - P
+          - A
         DF_Chantier_DF_Client_id__defiClientId:
           description: Id Client
           type: string
@@ -263,6 +263,22 @@ components:
           enum:
           - '61'
           - '62'
+        DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdCouleur:
+          description: Couleur Produits Finis
+          type: array
+          items:
+            type: string
+            enum:
+            - GR
+            - BE
+            - BL
+            - RG
+            - 'NO'
+            - RS
+            - VE
+            - OC
+            - JA
+            - MA
         DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdEpaisseur:
           description: Epaisseur (cm)
           type: string
@@ -323,6 +339,22 @@ components:
           enum:
           - '2'
           - '1'
+        defiLigneDevisCouleur:
+          description: Couleur
+          type: array
+          items:
+            type: string
+            enum:
+            - GR
+            - BE
+            - BL
+            - RG
+            - 'NO'
+            - RS
+            - VE
+            - OC
+            - JA
+            - MA
         DF_Ligne_Devis_DF_Prix_Transport_id:
           description: Prix Transport
           type: string
@@ -359,12 +391,12 @@ components:
           - LUS
           - TEC
           - PRE
-        defiLigneDevisMasseVolumique:
-          description: Masse Volumique
-          type: integer
         defiLigneDevisEpaisseur:
           description: Epaisseur / Hauteur (cm)
           type: string
+        defiLigneDevisMasseVolumique:
+          description: Masse Volumique
+          type: integer
         defiLigneDevisUnite:
           description: Unité
           type: string
@@ -1152,17 +1184,17 @@ components:
           description: Secteur Activité
           type: string
           enum:
-          - MDO
           - AR
+          - MDO
           - MO
-          - ATPG
           - T
+          - ATPG
           - V
           - ATP
           - N
           - EA
-          - A
           - P
+          - A
         defiClientAdresse:
           description: Adresse
           type: string
@@ -2406,17 +2438,17 @@ paths:
       - schema:
           type: string
           enum:
-          - MDO
           - AR
+          - MDO
           - MO
-          - ATPG
           - T
+          - ATPG
           - V
           - ATP
           - N
           - EA
-          - A
           - P
+          - A
         in: query
         name: DF_Chantier_DF_Client_id__defiClientIdSecteurActivite
         description: Search filter for Secteur Activité Client
@@ -5350,6 +5382,12 @@ paths:
       - schema:
           type: string
         in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdAppellationCommerciale
+        description: Search filter for Appellation Commerciale
+        required: false
+      - schema:
+          type: string
+        in: query
         name: defiLigneDevisNPrix
         description: Search filter for N° de prix
         required: false
@@ -5361,18 +5399,18 @@ paths:
         required: false
       - schema:
           type: string
-        in: query
-        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdAppellationCommerciale
-        description: Search filter for Appellation Commerciale
-        required: false
-      - schema:
-          type: string
           enum:
           - '2'
           - '1'
         in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdCategoriePrix
         description: Search filter for Catégorie Prix
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdAutresFinitions
+        description: Search filter for Autres finitions
         required: false
       - schema:
           type: string
@@ -5397,12 +5435,6 @@ paths:
       - schema:
           type: string
         in: query
-        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdAutresFinitions
-        description: Search filter for Autres finitions
-        required: false
-      - schema:
-          type: string
-        in: query
         name: defiLigneDevisId
         description: Search filter for Ligne Devis ID
         required: false
@@ -5411,12 +5443,6 @@ paths:
         in: query
         name: defiLigneDevisQuantite
         description: Search filter for Quantité
-        required: false
-      - schema:
-          type: integer
-        in: query
-        name: defiLigneDevisMasseVolumique
-        description: Search filter for Masse Volumique
         required: false
       - schema:
           type: string
@@ -5441,6 +5467,23 @@ paths:
         in: query
         name: DF_Ligne_Devis_DF_Devis_id__defiDevisTitre
         description: Search filter for Titre Devis
+        required: false
+      - schema:
+          type: string
+          enum:
+          - GR
+          - BE
+          - BL
+          - RG
+          - 'NO'
+          - RS
+          - VE
+          - OC
+          - JA
+          - MA
+        in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdCouleur
+        description: Search filter for Couleur Produits Finis
         required: false
       - schema:
           type: number
@@ -5653,6 +5696,12 @@ paths:
         description: Search filter for Désignation Produit
         required: false
       - schema:
+          type: integer
+        in: query
+        name: defiLigneDevisMasseVolumique
+        description: Search filter for Masse Volumique
+        required: false
+      - schema:
           type: string
         in: query
         name: defiLigneDevisNomProduit
@@ -5783,6 +5832,23 @@ paths:
         in: query
         name: defiLigneDevisPoidsUnitaire
         description: Search filter for Poids Unitaire (Kg)
+        required: false
+      - schema:
+          type: string
+          enum:
+          - GR
+          - BE
+          - BL
+          - RG
+          - 'NO'
+          - RS
+          - VE
+          - OC
+          - JA
+          - MA
+        in: query
+        name: defiLigneDevisCouleur
+        description: Search filter for Couleur
         required: false
       tags:
       - DF_Ligne_Devis
@@ -9446,17 +9512,17 @@ paths:
       - schema:
           type: string
           enum:
-          - MDO
           - AR
+          - MDO
           - MO
-          - ATPG
           - T
+          - ATPG
           - V
           - ATP
           - N
           - EA
-          - A
           - P
+          - A
         in: query
         name: defiClientIdSecteurActivite
         description: Search filter for Secteur Activité

@@ -116,12 +116,31 @@ public class DF_Ligne_Devis extends ObjectDB {
 		int index_type_geo = getField("defiLigneDevisTypeGeo").getList().getItemIndex(getFieldValue("defiLigneDevisTypeGeo"),false);
 		String type_geo = getField("defiLigneDevisTypeGeo").getList().getValue(index_type_geo);
 		
+		String[] couleur_array = Tool.enumToArray(getFieldValue("defiLigneDevisCouleur"));
+		String couleur_designation = "";
+		
+		for(int i=0; i< couleur_array.length; i++){
+			int index_couleur = getField("defiLigneDevisCouleur").getList().getItemIndex(couleur_array[i],false);
+			String couleur = getField("defiLigneDevisCouleur").getList().getValue(index_couleur);
+			couleur_designation +=" "+couleur;
+			AppLog.info(getClass(), "index_couleur", couleur, getGrant());
+		}
+		
+		
+		//int index_couleur = getField("defiLigneDevisCouleur").getList().getItemIndex(getFieldValue("defiLigneDevisCouleur"),false);
+		//String couleur = getField("defiLigneDevisCouleur").getList().getValue(index_couleur);
+		
+		AppLog.info(getClass(), "index_couleur", String.valueOf(Tool.enumToArray(getFieldValue("defiLigneDevisCouleur"))), getGrant());
+		
+		//setFieldValue("defiLigneDevisCouleur", getFieldValue("DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdCouleur"));
+		
+		
 		setFieldValue("defiLigneDevisTypePierre", type_geo);
 		
 		String designation = null;
 		// valorisation : designation ligne devis
 		if (getFieldValue("defiLigneDevisTypePrd").equals("PAVE") || getFieldValue("defiLigneDevisTypePrd").equals("DALLE")){
-			designation = type_pr+" "+ appel_com +" "+ fin_produit+" "+aut_fin+"\n"+longueur +" " + " x "+largeur+"\t" +" x ep. "+epaisseur+" " + "Joint inclus de " +dim_joint +" cm";
+			designation = type_pr+" "+ appel_com +" "+couleur_designation+" "+ fin_produit+" "+aut_fin+"\n"+longueur +" " + " x "+largeur+"\t" +" x ep. "+epaisseur+" " + "Joint inclus de " +dim_joint +" cm";
 		} else{
 			designation = type_pr+" "+ appel_com +" "+ fin_produit+" "+aut_fin+"\n"+longueur +" " + " x "+largeur+"\t" +" x ep. "+epaisseur;
 		}

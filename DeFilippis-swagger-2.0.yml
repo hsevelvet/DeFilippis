@@ -141,17 +141,17 @@ paths:
         type: string
         required: false
         enum:
-        - MDO
         - AR
+        - MDO
         - MO
-        - ATPG
         - T
+        - ATPG
         - V
         - ATP
         - N
         - EA
-        - A
         - P
+        - A
       - in: query
         name: DF_Chantier_DF_Client_id__defiClientAdresse
         description: Search filter for Adresse Client
@@ -2701,6 +2701,11 @@ paths:
         type: boolean
         required: false
       - in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdAppellationCommerciale
+        description: Search filter for Appellation Commerciale
+        type: string
+        required: false
+      - in: query
         name: defiLigneDevisNPrix
         description: Search filter for N° de prix
         type: string
@@ -2711,11 +2716,6 @@ paths:
         type: string
         required: false
       - in: query
-        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdAppellationCommerciale
-        description: Search filter for Appellation Commerciale
-        type: string
-        required: false
-      - in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdCategoriePrix
         description: Search filter for Catégorie Prix
         type: string
@@ -2723,6 +2723,11 @@ paths:
         enum:
         - '2'
         - '1'
+      - in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdAutresFinitions
+        description: Search filter for Autres finitions
+        type: string
+        required: false
       - in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdTypeProduit
         description: Search filter for Type produit
@@ -2742,11 +2747,6 @@ paths:
         type: number
         required: false
       - in: query
-        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdAutresFinitions
-        description: Search filter for Autres finitions
-        type: string
-        required: false
-      - in: query
         name: defiLigneDevisId
         description: Search filter for Ligne Devis ID
         type: string
@@ -2754,11 +2754,6 @@ paths:
       - in: query
         name: defiLigneDevisQuantite
         description: Search filter for Quantité
-        type: integer
-        required: false
-      - in: query
-        name: defiLigneDevisMasseVolumique
-        description: Search filter for Masse Volumique
         type: integer
         required: false
       - in: query
@@ -2781,6 +2776,22 @@ paths:
         description: Search filter for Titre Devis
         type: string
         required: false
+      - in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdCouleur
+        description: Search filter for Couleur Produits Finis
+        type: string
+        required: false
+        enum:
+        - GR
+        - BE
+        - BL
+        - RG
+        - 'NO'
+        - RS
+        - VE
+        - OC
+        - JA
+        - MA
       - in: query
         name: defiLigneDevisDimensionJoints
         description: Search filter for Dimension des joints (cm)
@@ -2959,6 +2970,11 @@ paths:
         type: string
         required: false
       - in: query
+        name: defiLigneDevisMasseVolumique
+        description: Search filter for Masse Volumique
+        type: integer
+        required: false
+      - in: query
         name: defiLigneDevisNomProduit
         description: Search filter for Nom Produit
         type: string
@@ -3073,6 +3089,22 @@ paths:
         description: Search filter for Poids Unitaire (Kg)
         type: number
         required: false
+      - in: query
+        name: defiLigneDevisCouleur
+        description: Search filter for Couleur
+        type: string
+        required: false
+        enum:
+        - GR
+        - BE
+        - BL
+        - RG
+        - 'NO'
+        - RS
+        - VE
+        - OC
+        - JA
+        - MA
       tags:
       - DF_Ligne_Devis
   /rest/DF_Transport/{row_id}:
@@ -6148,17 +6180,17 @@ paths:
         type: string
         required: false
         enum:
-        - MDO
         - AR
+        - MDO
         - MO
-        - ATPG
         - T
+        - ATPG
         - V
         - ATP
         - N
         - EA
-        - A
         - P
+        - A
       - in: query
         name: defiClientRegion
         description: Search filter for Region
@@ -6841,17 +6873,17 @@ definitions:
         description: Secteur Activité Client
         type: string
         enum:
-        - MDO
         - AR
+        - MDO
         - MO
-        - ATPG
         - T
+        - ATPG
         - V
         - ATP
         - N
         - EA
-        - A
         - P
+        - A
       DF_Chantier_DF_Client_id__defiClientId:
         description: Id Client
         type: string
@@ -6953,6 +6985,22 @@ definitions:
         enum:
         - '61'
         - '62'
+      DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdCouleur:
+        description: Couleur Produits Finis
+        type: array
+        items:
+          type: string
+          enum:
+          - GR
+          - BE
+          - BL
+          - RG
+          - 'NO'
+          - RS
+          - VE
+          - OC
+          - JA
+          - MA
       DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdEpaisseur:
         description: Epaisseur (cm)
         type: string
@@ -7013,6 +7061,22 @@ definitions:
         enum:
         - '2'
         - '1'
+      defiLigneDevisCouleur:
+        description: Couleur
+        type: array
+        items:
+          type: string
+          enum:
+          - GR
+          - BE
+          - BL
+          - RG
+          - 'NO'
+          - RS
+          - VE
+          - OC
+          - JA
+          - MA
       DF_Ligne_Devis_DF_Prix_Transport_id:
         description: Prix Transport
         type: string
@@ -7049,12 +7113,12 @@ definitions:
         - LUS
         - TEC
         - PRE
-      defiLigneDevisMasseVolumique:
-        description: Masse Volumique
-        type: integer
       defiLigneDevisEpaisseur:
         description: Epaisseur / Hauteur (cm)
         type: string
+      defiLigneDevisMasseVolumique:
+        description: Masse Volumique
+        type: integer
       defiLigneDevisUnite:
         description: Unité
         type: string
@@ -7842,17 +7906,17 @@ definitions:
         description: Secteur Activité
         type: string
         enum:
-        - MDO
         - AR
+        - MDO
         - MO
-        - ATPG
         - T
+        - ATPG
         - V
         - ATP
         - N
         - EA
-        - A
         - P
+        - A
       defiClientAdresse:
         description: Adresse
         type: string

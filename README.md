@@ -448,6 +448,7 @@ Objet métier pour fournisseur.
 | `DF_Ligne_Devis_DF_Devis_id` link to **`DF_Devis`**          | id                                       | yes      | yes       |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdMasseVolumique`_ | _bigdec(8, 2)_                           |          |           |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Devis_id.defiDevisTitre`_           | _char(100)_                              |          |           |          | -                                                                                |
+| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdCouleur`_   | _multi(100) using `DF_PRODUIT_COULEUR` list_ |          |           |          | -                                                                                |
 | `defiLigneDevisDimensionJoints`                              | float(4, 2)                              | yes      | yes       |          | -                                                                                |
 | `defiLigneDevisPoidsTotal`                                   | float(9, 2)                              |          |           |          | -                                                                                |
 | `defiLigneDevisPrixTransportReference`                       | float(9, 2)                              | yes      | yes       |          | -                                                                                |
@@ -503,6 +504,7 @@ Objet métier pour fournisseur.
 | `defiLigneDevisU`                                            | char(70)                                 |          | yes       |          | -                                                                                |
 | `defiLigneDevisTypePierre`                                   | char(70)                                 |          | yes       |          | -                                                                                |
 | `defiLigneDevisPoidsUnitaire`                                | float(10, 2)                             |          |           |          | -                                                                                |
+| `defiLigneDevisCouleur`                                      | multi(100) using `DF_PRODUIT_COULEUR` list |          | yes       |          | -                                                                                |
 
 ### Lists
 
@@ -517,6 +519,17 @@ Objet métier pour fournisseur.
     - `BORNE` Borne
     - `CANIVEAU` Caniveau
     - `PIECE` Pièce Spéciale
+* `DF_PRODUIT_COULEUR`
+    - `GR` Gris
+    - `BE` Beige
+    - `BL` Bleu
+    - `RG` Rouge
+    - `NO` Noire
+    - `RS` Rose
+    - `VE` Vert
+    - `OC` Ocre
+    - `JA` Jaune
+    - `MA` Marron
 * `DEFIPRDTYPEGEOLOGIQUE`
     - `GRA` Granit
     - `CAL` Calcaire
