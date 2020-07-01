@@ -447,6 +447,9 @@ components:
         defiLigneDevisMasseUnitaireAcJoints:
           description: Masse Unitaire avec Joints (kg/unité)
           type: integer
+        defiLigneDevisPoidsUnitaire:
+          description: Poids Unitaire (Kg)
+          type: number
         defiLigneDevisLargeur:
           description: Largeur (cm)
           type: string
@@ -834,7 +837,7 @@ components:
           description: DF commande
           type: string
         defiLigneCommandePoidsUnitaire:
-          description: Poids Unitaire (T)
+          description: Poids Unitaire (Kg)
           type: number
         defiLigneCommandeCatPrix:
           description: Catégorie Prix
@@ -869,6 +872,9 @@ components:
         DF_ligne_commande_DF_Fournisseurs_id__defiFournNom:
           description: Nom Fournisseur
           type: string
+        defiLigneCommandePoidsTotal:
+          description: Poids Total (T)
+          type: number
         DF_ligne_commande_DF_Produit_Finis_id:
           description: DF produit finis
           type: string
@@ -3846,14 +3852,14 @@ paths:
       - schema:
           type: string
         in: query
-        name: DF_ligne_commande_DF_Commande_id
-        description: Search filter for DF commande
+        name: DF_ligne_commande_DF_Fournisseurs_id__defiFournNom
+        description: Search filter for Nom Fournisseur
         required: false
       - schema:
           type: string
         in: query
-        name: DF_ligne_commande_DF_Fournisseurs_id__defiFournNom
-        description: Search filter for Nom Fournisseur
+        name: DF_ligne_commande_DF_Commande_id
+        description: Search filter for DF commande
         required: false
       - schema:
           type: string
@@ -3913,7 +3919,7 @@ paths:
           type: number
         in: query
         name: defiLigneCommandePoidsUnitaire
-        description: Search filter for Poids Unitaire (T)
+        description: Search filter for Poids Unitaire (Kg)
         required: false
       - schema:
           type: string
@@ -3950,6 +3956,12 @@ paths:
         in: query
         name: defiLigneCommandeCatPrix
         description: Search filter for Catégorie Prix
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: defiLigneCommandePoidsTotal
+        description: Search filter for Poids Total (T)
         required: false
       tags:
       - DF_ligne_commande
@@ -5338,12 +5350,6 @@ paths:
       - schema:
           type: string
         in: query
-        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdAppellationCommerciale
-        description: Search filter for Appellation Commerciale
-        required: false
-      - schema:
-          type: string
-        in: query
         name: defiLigneDevisNPrix
         description: Search filter for N° de prix
         required: false
@@ -5355,24 +5361,18 @@ paths:
         required: false
       - schema:
           type: string
+        in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdAppellationCommerciale
+        description: Search filter for Appellation Commerciale
+        required: false
+      - schema:
+          type: string
           enum:
           - '2'
           - '1'
         in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdCategoriePrix
         description: Search filter for Catégorie Prix
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdAutresFinitions
-        description: Search filter for Autres finitions
-        required: false
-      - schema:
-          type: number
-        in: query
-        name: defiLigneDevisPrixTransportReference
-        description: Search filter for Prix Transport Référence
         required: false
       - schema:
           type: string
@@ -5387,6 +5387,18 @@ paths:
         in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdTypeProduit
         description: Search filter for Type produit
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: defiLigneDevisPrixTransportReference
+        description: Search filter for Prix Transport Référence
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdAutresFinitions
+        description: Search filter for Autres finitions
         required: false
       - schema:
           type: string
@@ -5765,6 +5777,12 @@ paths:
         in: query
         name: defiLigneDevisTypePierre
         description: Search filter for Type Geo
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: defiLigneDevisPoidsUnitaire
+        description: Search filter for Poids Unitaire (Kg)
         required: false
       tags:
       - DF_Ligne_Devis

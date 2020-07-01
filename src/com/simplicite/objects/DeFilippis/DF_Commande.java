@@ -197,11 +197,12 @@ public class DF_Commande extends ObjectDB {
 						//fourns.replace(" " , "");
 						//String firstCharsFourns = fourns.substring(0, 3);
 					
-						double poids_unitaire = lc.getField("defiLigneCommandePoidsUnitaire").getDouble();
+						double poids_total = lc.getField("defiLigneCommandePoidsTotal").getDouble();
 					
 						double quantite_lc = lc.getField("defiLigneCommandeQuantite").getDouble();
-						int tonnage_carte = (int)Math.round(quantite_lc*poids_unitaire);
-					
+						// int tonnage_carte = (int)Math.round(poids_total);
+						String tonnage_carte = String.valueOf(poids_total);
+						tonnage_carte = tonnage_carte.replace(".",",");
 					// Nom de la carte
 						card.put("name",  (firstCharsIntitule+"."+getFieldValue("defiCommandeIntituleCommande")+"."+lc.getFieldValue("defiLigneCommandeReferenceProduit")+"."+ tonnage_carte).toUpperCase());
 					// Description de la carte

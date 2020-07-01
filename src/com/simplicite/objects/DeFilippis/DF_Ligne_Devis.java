@@ -230,9 +230,11 @@ public class DF_Ligne_Devis extends ObjectDB {
         double musj = getField("defiLigneDevisMasseUnitaireSsJoints").getDouble(0);
 		if (muaj == 0){
         	setFieldValue("defiLigneDevisPoidsTotal", ((musj * qte) / 1000));
+        	setFieldValue("defiLigneDevisPoidsUnitaire", musj);
         }
         else{
         	setFieldValue("defiLigneDevisPoidsTotal", ((muaj * qte) / 1000));
+        	setFieldValue("defiLigneDevisPoidsUnitaire", muaj);
         }
         
         // calcul prix transport / unité

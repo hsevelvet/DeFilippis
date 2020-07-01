@@ -424,6 +424,7 @@ Objet métier pour fournisseur.
 | _Ref. `DF_ligne_commande_DF_Fournisseurs_id.defiFournId`_    | _char(11)_                               |          |           |          | -                                                                                |
 | `defiLigneCommandeFournisseur`                               | char(100)                                |          | yes       |          | -                                                                                |
 | `defiLigneCommandeCatPrix`                                   | char(100)                                |          | yes       |          | -                                                                                |
+| `defiLigneCommandePoidsTotal`                                | float(10, 1)                             |          | yes       |          | -                                                                                |
 
 `DF_Ligne_Devis` business object definition
 -------------------------------------------
@@ -448,7 +449,7 @@ Objet métier pour fournisseur.
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdMasseVolumique`_ | _bigdec(8, 2)_                           |          |           |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Devis_id.defiDevisTitre`_           | _char(100)_                              |          |           |          | -                                                                                |
 | `defiLigneDevisDimensionJoints`                              | float(4, 2)                              | yes      | yes       |          | -                                                                                |
-| `defiLigneDevisPoidsTotal`                                   | float(9, 2)                              |          | yes       |          | -                                                                                |
+| `defiLigneDevisPoidsTotal`                                   | float(9, 2)                              |          |           |          | -                                                                                |
 | `defiLigneDevisPrixTransportReference`                       | float(9, 2)                              | yes      | yes       |          | -                                                                                |
 | `defiLigneDevisNombreCamions`                                | float(9, 2)                              |          | yes       |          | -                                                                                |
 | `defiLigneDevisMasseUnitaireAcJoints`                        | int(8)                                   |          | yes       |          | -                                                                                |
@@ -501,6 +502,7 @@ Objet métier pour fournisseur.
 | `defiLigneDevisAutresFinitions`                              | char(70)                                 |          | yes       |          | -                                                                                |
 | `defiLigneDevisU`                                            | char(70)                                 |          | yes       |          | -                                                                                |
 | `defiLigneDevisTypePierre`                                   | char(70)                                 |          | yes       |          | -                                                                                |
+| `defiLigneDevisPoidsUnitaire`                                | float(10, 2)                             |          |           |          | -                                                                                |
 
 ### Lists
 

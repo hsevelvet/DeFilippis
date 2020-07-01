@@ -252,7 +252,7 @@ public class DF_Devis extends ObjectDB {
 				}
 				
 
-				double poids_u = ld.getField("defiLigneDevisPoidsTotal").getDouble(0);
+				double poids_u = ld.getField("defiLigneDevisPoidsUnitaire").getDouble(0);
 				double prd_long = ld.getField("defiLigneDevisLongueur").getDouble(0);
 				double prd_larg = ld.getField("defiLigneDevisLargeur").getDouble(0);
 				double prd_eps = ld.getField("defiLigneDevisEpaisseur").getDouble(0);
@@ -293,6 +293,7 @@ public class DF_Devis extends ObjectDB {
 				lc.setFieldValue("defiLigneCommandePoidsUnitaire",poids_u);
 				lc.setFieldValue("defiLigneCommandeUnite",unite_p);
 				lc.setFieldValue("defiLigneCommandeQuantite",prd_qte);
+				lc.setFieldValue("defiLigneCommandePoidsTotal", (prd_qte * poids_u)/1000);
 				lc.setFieldValue("defiLigneCommandeDesignation",designation);
 				if (cmd_prix_exw_u != 0){
 					lc.setFieldValue("defiLigneCommandePrixEXWUnitaire",cmd_prix_exw_u);
