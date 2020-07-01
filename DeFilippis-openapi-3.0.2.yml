@@ -1432,12 +1432,12 @@ components:
         row_id:
           description: Unique technical row ID
           type: string
-        defiHstDocsNumDoc:
-          description: Numéro de document
-          type: integer
         defiHistDocsId:
           description: defi hist docs id
           type: string
+        defiHstDocsNumDoc:
+          description: Numéro de document
+          type: integer
     TreeviewData:
       type: object
       properties:
@@ -3609,16 +3609,22 @@ paths:
         description: Documentation?
         required: false
       - schema:
-          type: integer
+          type: string
         in: query
-        name: defiHstDocsNumDoc
-        description: Search filter for Numéro de document
+        name: defiHstTitre
+        description: Search filter for Titre
         required: false
       - schema:
           type: string
         in: query
         name: defiHistDocsId
         description: Search filter for defi hist docs id
+        required: false
+      - schema:
+          type: integer
+        in: query
+        name: defiHstDocsNumDoc
+        description: Search filter for Numéro de document
         required: false
       - schema:
           type: string
@@ -3643,12 +3649,6 @@ paths:
         in: query
         name: DF_Hist_Docs_DF_Devis_id
         description: Search filter for Devis
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: defiHstTitre
-        description: Search filter for Titre
         required: false
       - schema:
           type: string

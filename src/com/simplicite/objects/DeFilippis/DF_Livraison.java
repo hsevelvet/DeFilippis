@@ -354,7 +354,18 @@ public class DF_Livraison extends ObjectDB {
 					hst.getField("defiHstDocsDevis").setDocument(hst, "BL"+formatter.format(date).toString()+".pdf", this.pubPdfBL());
 					hst.setFieldValue("DF_Hist_Docs_DF_Commande_id",this.getFieldValue("DF_Livraison_DF_Commande_id"));
 					hst.setFieldValue("defiHstDocsDateEmission",date);
-					hst.setFieldValue("defiHstTitre", this.getFieldValue("defiLivraisonNumBL"));
+					
+					ObjectDB commande = getGrant().getTmpObject("DF_Commande");
+	
+					synchronized(commande){
+						commande.resetFilters();
+						commande.setFieldFilter("row_id",this.getFieldValue("DF_Livraison_DF_Commande_id"));
+						
+						for(String[] cmde : commande.search()){
+							commande.setValues(cmde);
+							hst.setFieldValue("defiHstTitre", "BL - "+commande.getFieldValue("defiCommandeNumero")+" - "+this.getFieldValue("defiLivraisonNumBL"));
+						}
+					}
 					
 					hst.save();
 			
@@ -510,8 +521,17 @@ public class DF_Livraison extends ObjectDB {
 					hst.getField("defiHstDocsDevis").setDocument(hst, "ODF-"+formatter.format(date).toString()+".pdf", this.pubPdfODF());
 					hst.setFieldValue("DF_Hist_Docs_DF_Commande_id",this.getFieldValue("DF_Livraison_DF_Commande_id"));
 					hst.setFieldValue("defiHstDocsDateEmission",date);
-					//hst.setFieldValue("defiHstTitre", this.getFieldValue("defiLivraisonNumBL"));
-					
+					ObjectDB commande = getGrant().getTmpObject("DF_Commande");
+	
+					synchronized(commande){
+						commande.resetFilters();
+						commande.setFieldFilter("row_id",this.getFieldValue("DF_Livraison_DF_Commande_id"));
+						
+						for(String[] cmde : commande.search()){
+							commande.setValues(cmde);
+							hst.setFieldValue("defiHstTitre", "ODF - "+commande.getFieldValue("defiCommandeNumero"));
+						}
+					}
 					//ObjectField file = hst.getField("defiHstDocsDevis");
 					
 					hst.save();
