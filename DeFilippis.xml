@@ -460,7 +460,7 @@
 		<usr_extra>1</usr_extra>
 		<usr_subhead>1</usr_subhead>
 		<usr_logout>2020-07-01 14:52:32</usr_logout>
-		<usr_last_logon>2020-07-01 15:00:49</usr_last_logon>
+		<usr_last_logon>2020-07-01 15:35:29</usr_last_logon>
 		<usr_dateformat/>
 		<usr_uuid/>
 	</data>
@@ -789,7 +789,8 @@
 	<data>
 		<usp_user_id.usr_login>aguendjian.recettead@gmail.com</usp_user_id.usr_login>
 		<usp_param_id.sys_code>HISTORY DeFilippis</usp_param_id.sys_code>
-		<usp_value><![CDATA[[{"object":"DF_Ligne_Devis","rowId":"279","label":"Lignes Devis : LD-00279"},
+		<usp_value><![CDATA[[{"object":"DF_Ligne_Devis","rowId":"280","label":"Lignes Devis : LD-00280"},
+{"object":"DF_Ligne_Devis","rowId":"279","label":"Lignes Devis : LD-00279"},
 {"object":"DF_Devis","rowId":"128","label":"Devis : AGN.BRIVE LA GAILLARDE.BRIVE LA GAILLARDE.2020.00128.A"},
 {"object":"DF_Contact","rowId":"33","label":"Contacts : CT-00033"},
 {"object":"DF_Client","rowId":"28","label":"Clients : CLT-00028"},
@@ -895,6 +896,7 @@
 		<usp_param_id.sys_code>ACTION_PREFS</usp_param_id.sys_code>
 		<usp_value><![CDATA[DF_Hist_Docs:1,addlist,listedit:reload,prefs,copy,exportxml,export,updall,delall,delete
 DF_Produit_Finis:1,addlist,listedit:reload,prefs,copy,exportxml,export,updall,delall,delete
+DF_Ligne_Devis:1,addlist,listedit:reload,prefs,copy,exportxml,export,updall,delall,delete
 ]]></usp_value>
 		<usp_param_id.sys_type>LFL</usp_param_id.sys_type>
 		<usp_param_id.sys_value><![CDATA[empty]]></usp_param_id.sys_value>
@@ -913,26 +915,26 @@ DF_Produit_Finis:1,addlist,listedit:reload,prefs,copy,exportxml,export,updall,de
 	<data>
 		<usp_user_id.usr_login>designer</usp_user_id.usr_login>
 		<usp_param_id.sys_code>HISTORY Home</usp_param_id.sys_code>
-		<usp_value><![CDATA[[{"object":"DF_Ligne_Devis","rowId":"247","label":"Lignes Devis : LD-00247"},
-{"object":"DF_Devis","rowId":"113","label":"Devis : .VERETZ.REAMENAGEMENT DES QUAIS HENRI IV.2020.00113.E"},
-{"object":"DF_Ligne_Devis","rowId":"271","label":"Lignes Devis : LD-00271"},
-{"object":"DF_Devis","rowId":"125","label":"Devis : DHN.38000 GRENOBLE.Tramway Ligne E.2020.00125.A"},
-{"object":"ObjectFieldSystem","rowId":"18972","label":"Attribut d'objet : DF_Devis defiPrdCouleur 343"},
-{"object":"Field","rowId":"8906","label":"Attribut : defiPrdCouleur"},
-{"object":"FieldList","rowId":"16694","label":"Liste de valeurs : DEFILIGNEDEVISCOULEUR"},
-{"object":"Field","rowId":"9060","label":"Attribut : defiLigneDevisCouleur"},
-{"object":"ObjectInternal","rowId":"2030","label":"Objet métier : DF_Ligne_Devis"},
-{"object":"DF_Ligne_Devis","rowId":"261","label":"Lignes Devis : LD-00261"},
-{"object":"DF_Devis","rowId":"118","label":"Devis : AGN.69002 LYON.QUAI PERRACHE.2020.00118.A"},
-{"object":"Field","rowId":"8915","label":"Attribut : defiPrdTypeGeologique"},
-{"object":"DF_Produit_Finis","rowId":"17","label":"Produits Finis : PRD-00009"},
+		<usp_value><![CDATA[[{"object":"Module","rowId":"39","label":"Module : DeFilippis"},
+{"object":"FieldListCode","rowId":"19100","label":"Code de liste : STATUT_DEVIS ES"},
+{"object":"FieldList","rowId":"16689","label":"Liste de valeurs : STATUT_DEVIS"},
+{"object":"Field","rowId":"8839","label":"Attribut : defiDevisStatut"},
+{"object":"DF_Devis","rowId":"113","label":"Devis : DHN.ELBEUF.REAMENAGEMENT DES QUAIS HENRI IV.2020.00113.E"},
+{"object":"CrosstabAxis","rowId":"85","label":"Axe de tableau croisé : HT_DEVIS_CLIENT_STATUTS Colonne 3"},
+{"object":"Crosstab","rowId":"23","label":"Tableau croisé : HT_DEVIS_CLIENT_STATUTS"},
+{"object":"FieldListValue","rowId":"25398","label":"Valeur de liste traduite : STATUT_DEVIS CH Français"},
+{"object":"FieldListCode","rowId":"19103","label":"Code de liste : STATUT_DEVIS CH"},
+{"object":"FieldListValue","rowId":"25395","label":"Valeur de liste traduite : STATUT_DEVIS ES Français"},
+{"object":"FieldListCode","rowId":"19104","label":"Code de liste : STATUT_DEVIS PE"},
+{"object":"FieldListCode","rowId":"19102","label":"Code de liste : STATUT_DEVIS NE"},
+{"object":"FieldListCode","rowId":"19101","label":"Code de liste : STATUT_DEVIS ET"},
+{"object":"ObjectInternal","rowId":"2038","label":"Objet métier : DF_Devis"},
+{"object":"DF_Produit_Finis","rowId":"31","label":"Produits Finis : PRD-00031"},
+{"object":"DF_Produit_Finis","rowId":"30","label":"Produits Finis : PRD-00030"},
+{"object":"DF_Produit_Finis","rowId":"29","label":"Produits Finis : PRD-00029"},
+{"object":"DF_Produit_Finis","rowId":"28","label":"Produits Finis : PRD-00028"},
 {"object":"DF_Produit_Finis","rowId":"18","label":"Produits Finis : PRD-00010"},
-{"object":"DF_Produit_Finis","rowId":"16","label":"Produits Finis : PRD-00008"},
-{"object":"DF_Produit_Finis","rowId":"19","label":"Produits Finis : PRD-00011"},
-{"object":"DF_Produit_Finis","rowId":"13","label":"Produits Finis : PRD-00001"},
-{"object":"Module","rowId":"39","label":"Module : DeFilippis"},
-{"object":"TranslateObject","rowId":"58485","label":"Traduction objet : Objet DF_Prix_Transport Français"},
-{"object":"ObjectInternal","rowId":"2032","label":"Objet métier : DF_Prix_Transport"}]]]></usp_value>
+{"object":"DF_Produit_Finis","rowId":"17","label":"Produits Finis : PRD-00009"}]]]></usp_value>
 		<usp_param_id.sys_type/>
 		<usp_param_id.sys_value><![CDATA[empty]]></usp_param_id.sys_value>
 		<usp_param_id.sys_desc/>
@@ -953,6 +955,7 @@ DF_Produit_Finis:1,addlist,listedit:reload,prefs,copy,exportxml,export,updall,de
 		<usp_param_id.sys_code>LIST_PREFS</usp_param_id.sys_code>
 		<usp_value><![CDATA[DF_Hist_Docs:defiHstDocsNumDoc,defiHstTitre,defiHstDocsDateEmission,defiHstDocsDevis:
 DF_Produit_Finis:DF_Produit_Finis_DF_Fournisseurs_id.defiFournNom,defiPrdCategoriePrix,defiPrdTypeGeologique,defiPrdCouleur,defiPrdAppellationCommerciale,defiPrdTypeProduit,defiPrdFinitionFacesVues,defiPrdAutresFinitions,defiPrdUnite,defiPrdPrixUnitaireHT,defiPrdLongueur,defiPrdLargeur,defiPrdEpaisseur:
+DF_Ligne_Devis:defiLigneDevisNPrix,defiLigneDevisCatPrix,defiLigneDevisQuantite,defiLigneDevisAppellationCommerciale,DF_Ligne_Devis_DF_Prix_Transport_id.defiPrTrspPrix,defiLigneDevisPrixTrsp,defiLigneDevisPoidsUnitaire,defiLigneDevisDimensionJoints,defiLigneDevisRangs,defiLigneDevisConversionUnite,defiLigneDevisTypeGeo,defiLigneDevisTypePrd,defiLigneDevisLongueur,defiLigneDevisLargeur,defiLigneDevisEpaisseur,defiLigneDevisFinitionFV,defiLigneDevisUnite,defiLigneDevisCouleur,defiLigneDevisPrixVenteCalcule,defiLigneDevisPrixUnitaireImpose,defiLigneDevisPrixVenteImpose,defiLigneDevisCoef:
 ]]></usp_value>
 		<usp_param_id.sys_type>LFL</usp_param_id.sys_type>
 		<usp_param_id.sys_value><![CDATA[empty]]></usp_param_id.sys_value>
@@ -982,6 +985,7 @@ DF_Produit_Finis:DF_Produit_Finis_DF_Fournisseurs_id.defiFournNom,defiPrdCategor
 		<usp_param_id.sys_code>SEARCH_PREFS</usp_param_id.sys_code>
 		<usp_value><![CDATA[DF_Hist_Docs:defiHstTitre,defiHstDocsNumDoc,defiHstDocsDateEmission,DF_Hist_Docs_DF_Devis_id.defiDevisTitre,DF_Hist_Docs_DF_Commande_id.defiCommandeId,DF_Hist_Docs_DF_Commande_id.defiCommandeNumero:
 DF_Produit_Finis:defiPrdCategoriePrix,DF_Produit_Finis_DF_Fournisseurs_id.defiFournNom,defiPrdLongueur,defiPrdTypeGeologique,defiPrdCouleur,defiPrdAppellationCommerciale,defiPrdTypeProduit,defiPrdFinitionFacesVues,defiPrdAutresFinitions,df_produit_commentaire,defiPrdLargeur,defiPrdEpaisseur,defiPrdSource,defiPrdUnite,defiPrdPrixUnitaireHT,defiPrdMasseVolumique:
+DF_Ligne_Devis:DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdAppellationCommerciale,DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdCategoriePrix,DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdAutresFinitions,DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdTypeProduit,defiLigneDevisId,defiLigneDevisQuantite,DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdFinitionFacesVues,DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdMasseVolumique,DF_Ligne_Devis_DF_Devis_id.defiDevisTitre,DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdCouleur,defiLigneDevisDimensionJoints,defiLigneDevisPoidsTotal,defiLigneDevisNombreCamions,defiLigneDevisMasseUnitaireAcJoints,defiLigneDevisMasseUnitaireSsJoints,defiLigneDevisPrixUnitaireSec,defiLigneDevisPrixTransportUnitaire,defiLigneDevisTotalEXWHT,defiLigneDevisTotalAchatHT,defiLigneDevisCoef,defiLigneDevisPrixVenteCalcule,defiLigneDevisDesignation,defiLigneDevisNombreElementsSsJoints,defiLigneDevisNombreElementsAcJoints,defiLigneDevisPrixExwUnite,defiLigneDevisPrixExwUnitaire,defiLigneDevisPrixExwTonne,DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdTypeGeologique,DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdLongueur,DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdLargeur,DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdEpaisseur,defiLigneDevisLongueur,defiLigneDevisPrixVenteImpose,defiLigneDevisPrixUnitaireHT,defiLigneDevisRangs,defiLigneDevisLargeur,defiLigneDevisConversionUnite,defiLigneDevisPrixUnitaireImpose,defiLigneDevisEpaisseur,defiLigneDevisMasseVolumique,defiLigneDevisNomProduit,DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdUnite,DF_Ligne_Devis_DF_Prix_Transport_id.defiPrTspId,DF_Ligne_Devis_DF_Prix_Transport_id.defiPrTrspPrix,defiLigneDevisFournisseur,defiLigneDevisPrixTrsp,defiLigneDevisCatPrix,defiLigneDevisAppellationCommerciale,defiLigneDevisUnite,defiLigneDevisTypePrd,defiLigneDevisTypeGeo,defiLigneDevisFinitionFV,defiLigneDevisAutresFinitions,defiLigneDevisU,defiLigneDevisTypePierre,defiLigneDevisPoidsUnitaire,defiLigneDevisCouleur:
 ]]></usp_value>
 		<usp_param_id.sys_type>LFL</usp_param_id.sys_type>
 		<usp_param_id.sys_value><![CDATA[empty]]></usp_param_id.sys_value>
@@ -26062,7 +26066,7 @@ Objet metier pour produit.]]></obo_comment>
 		<obf_ref_export>1</obf_ref_export>
 		<obf_copy/>
 		<obf_ref_order/>
-		<obf_fld_visible/>
+		<obf_fld_visible>3</obf_fld_visible>
 		<obf_fld_required/>
 		<obf_fld_updatable/>
 		<obf_fld_research/>
@@ -27222,7 +27226,7 @@ Objet metier pour produit.]]></obo_comment>
 		<obf_ref_export>1</obf_ref_export>
 		<obf_copy/>
 		<obf_ref_order/>
-		<obf_fld_visible>2</obf_fld_visible>
+		<obf_fld_visible>3</obf_fld_visible>
 		<obf_fld_required/>
 		<obf_fld_updatable/>
 		<obf_fld_research/>
