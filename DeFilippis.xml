@@ -460,7 +460,7 @@
 		<usr_extra>1</usr_extra>
 		<usr_subhead>1</usr_subhead>
 		<usr_logout>2020-03-13 14:54:33</usr_logout>
-		<usr_last_logon>2020-06-29 15:33:06</usr_last_logon>
+		<usr_last_logon>2020-07-01 07:51:53</usr_last_logon>
 		<usr_dateformat/>
 		<usr_uuid/>
 	</data>
@@ -528,7 +528,7 @@
 		<usr_extra>1</usr_extra>
 		<usr_subhead>1</usr_subhead>
 		<usr_logout>2020-02-24 13:28:09</usr_logout>
-		<usr_last_logon>2020-06-29 07:04:31</usr_last_logon>
+		<usr_last_logon>2020-07-01 07:50:13</usr_last_logon>
 		<usr_dateformat/>
 		<usr_uuid/>
 	</data>
@@ -898,26 +898,26 @@
 	<data>
 		<usp_user_id.usr_login>designer</usp_user_id.usr_login>
 		<usp_param_id.sys_code>HISTORY Home</usp_param_id.sys_code>
-		<usp_value><![CDATA[[{"object":"ObjectInternal","rowId":"2025","label":"Objet métier : DF_Contact"},
+		<usp_value><![CDATA[[{"object":"ObjectInternal","rowId":"2033","label":"Objet métier : DF_Produit_Finis"},
+{"object":"DF_Produit_Finis","rowId":"13","label":"Produits Finis : PRD-00001"},
+{"object":"ObjectFieldSystem","rowId":"18764","label":"Attribut d'objet : DF_Ligne_Devis defiPrdTypeGeologique 1120"},
+{"object":"Field","rowId":"8915","label":"Attribut : defiPrdTypeGeologique"},
+{"object":"ObjectFieldSystem","rowId":"18765","label":"Attribut d'objet : DF_Ligne_Devis defiPrdLongueur 1130"},
+{"object":"Field","rowId":"8911","label":"Attribut : defiPrdLongueur"},
+{"object":"Module","rowId":"39","label":"Module : DeFilippis"},
+{"object":"ObjectInternal","rowId":"2025","label":"Objet métier : DF_Contact"},
 {"object":"DF_Contact","rowId":"2","label":"Contacts : CT-00002"},
 {"object":"ObjectFieldArea","rowId":"333","label":"Zone d'attributs : Commande-Client"},
 {"object":"ObjectInternal","rowId":"2024","label":"Objet métier : DF_Commande"},
 {"object":"DF_Commande","rowId":"137","label":"Commandes : CO-00137"},
 {"object":"ObjectInternal","rowId":"2022","label":"Objet métier : DF_Affaire"},
 {"object":"DF_Affaire","rowId":"49","label":"Affaires : AFR-00049"},
-{"object":"ObjectInternal","rowId":"2033","label":"Objet métier : DF_Produit_Finis"},
-{"object":"DF_Produit_Finis","rowId":"13","label":"Produits Finis : PRD-00001"},
 {"object":"FieldList","rowId":"16668","label":"Liste de valeurs : DEFIPRDTYPEPRODUIT"},
 {"object":"Field","rowId":"9039","label":"Attribut : defiLigneDevisTypePrd"},
 {"object":"DF_Ligne_Devis","rowId":"228","label":"Lignes Devis : LD-00228"},
 {"object":"DF_Devis","rowId":"107","label":"Devis : DHN.TOURS METROPOLE VAL-DE-LOIRE.Place de l'église.2020.00106.A"},
-{"object":"Module","rowId":"39","label":"Module : DeFilippis"},
 {"object":"DF_Livraison","rowId":"716","label":"Livraisons : LVR-00716"},
-{"object":"BPMStateTranGroup","rowId":"209","label":"Habilitation transition d'état : Acheminement DeFilippisDev DF_Livraison"},
-{"object":"BPMStateTranGroup","rowId":"208","label":"Habilitation transition d'état : Acheminement DeFilippisAgent DF_Livraison"},
-{"object":"BPMStateTranGroup","rowId":"207","label":"Habilitation transition d'état : Acheminement DeFilippisAdmin DF_Livraison"},
-{"object":"BPMStateTransition","rowId":"107","label":"Transition d'états : Acheminement"},
-{"object":"BPMStateTranGroup","rowId":"206","label":"Habilitation transition d'état : Livraison DeFilippisAgent DF_Livraison"}]]]></usp_value>
+{"object":"BPMStateTranGroup","rowId":"209","label":"Habilitation transition d'état : Acheminement DeFilippisDev DF_Livraison"}]]]></usp_value>
 		<usp_param_id.sys_type/>
 		<usp_param_id.sys_value><![CDATA[empty]]></usp_param_id.sys_value>
 		<usp_param_id.sys_desc/>
@@ -990,15 +990,6 @@ DF_Produit_Finis:1,addlist,listedit:reload,prefs,copy,export,updall,delall,delet
 	</data>
 	<data>
 		<usp_user_id.usr_login>dhenrion.recettead@gmail.com</usp_user_id.usr_login>
-		<usp_param_id.sys_code>FORCE_CHANGE_PASSWORD</usp_param_id.sys_code>
-		<usp_value><![CDATA[yes]]></usp_value>
-		<usp_param_id.sys_type>PRV</usp_param_id.sys_type>
-		<usp_param_id.sys_value><![CDATA[empty]]></usp_param_id.sys_value>
-		<usp_param_id.sys_desc><![CDATA[Force password change (set at user level)]]></usp_param_id.sys_desc>
-		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
-	</data>
-	<data>
-		<usp_user_id.usr_login>dhenrion.recettead@gmail.com</usp_user_id.usr_login>
 		<usp_param_id.sys_code>HISTORY</usp_param_id.sys_code>
 		<usp_value><![CDATA[[{"object":"DF_Devis","rowId":"45","label":"Devis : DHN.GENAY.PLACE DE L'EGLISE.2020.00044.A"},
 {"object":"DF_Affaire","rowId":"2","label":"Affaires"},
@@ -1023,6 +1014,34 @@ DF_Produit_Finis:1,addlist,listedit:reload,prefs,copy,export,updall,delall,delet
 		<usp_param_id.sys_type>APP</usp_param_id.sys_type>
 		<usp_param_id.sys_value><![CDATA[empty]]></usp_param_id.sys_value>
 		<usp_param_id.sys_desc><![CDATA[User navigation history]]></usp_param_id.sys_desc>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<usp_user_id.usr_login>dhenrion.recettead@gmail.com</usp_user_id.usr_login>
+		<usp_param_id.sys_code>HISTORY DeFilippis</usp_param_id.sys_code>
+		<usp_value><![CDATA[[{"object":"DF_Commande","rowId":"137","label":"Commandes : CO-00137"},
+{"object":"DF_Livraison","rowId":"718","label":"Livraisons : LVR-00718"},
+{"object":"DF_Livraison","rowId":"719","label":"Livraisons : LVR-00719"},
+{"object":"DF_Livraison","rowId":"706","label":"Livraisons : LVR-00706"},
+{"object":"DF_Hist_Docs","rowId":"75","label":"Historique Documents : HST-00075"},
+{"object":"DF_Ligne_Devis","rowId":"258","label":"Lignes Devis : LD-00258"},
+{"object":"DF_Devis","rowId":"116","label":"Devis : DHN.37000 TOURS.Place des léopards.2020.00116.A"},
+{"object":"DF_Produit_Finis","rowId":"13","label":"Produits Finis : PRD-00001"},
+{"object":"DF_Ligne_Devis","rowId":"278","label":"Lignes Devis : LD-00278"},
+{"object":"DF_Ligne_Devis","rowId":"261","label":"Lignes Devis : LD-00261"},
+{"object":"DF_Devis","rowId":"118","label":"Devis : AGN.69002 LYON.QUAI PERRACHE.2020.00118.A"},
+{"object":"DF_Commande","rowId":"149","label":"Commandes : CO-00149"},
+{"object":"DF_Devis","rowId":"107","label":"Devis : DHN.TOURS METROPOLE VAL-DE-LOIRE.Place de l'église.2020.00106.A"},
+{"object":"DF_Livraison","rowId":"720","label":"Livraisons : LVR-00720"},
+{"object":"DF_ligne_commande","rowId":"454","label":"Lignes Commande : 454"},
+{"object":"DF_Commande","rowId":"156","label":"Commandes : CO-00156"},
+{"object":"DF_Ligne_Devis","rowId":"257","label":"Lignes Devis : LD-00257"},
+{"object":"DF_Ligne_Devis","rowId":"256","label":"Lignes Devis : LD-00256"},
+{"object":"DF_ligne_commande","rowId":"432","label":"Lignes Commande : 432"},
+{"object":"DF_Commande","rowId":"155","label":"Commandes : CO-00155"}]]]></usp_value>
+		<usp_param_id.sys_type/>
+		<usp_param_id.sys_value><![CDATA[empty]]></usp_param_id.sys_value>
+		<usp_param_id.sys_desc/>
 		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
 	</data>
 	<data>
@@ -26019,7 +26038,7 @@ Objet metier pour produit.]]></obo_comment>
 		<obf_fld_visible>0</obf_fld_visible>
 		<obf_fld_required>0</obf_fld_required>
 		<obf_fld_updatable>2</obf_fld_updatable>
-		<obf_fld_research/>
+		<obf_fld_research>1</obf_fld_research>
 		<obf_fld_more>0</obf_fld_more>
 		<obf_fld_listmore/>
 		<obf_fld_researchreq/>
