@@ -151,17 +151,17 @@ components:
           description: Secteur Activité Client
           type: string
           enum:
-          - AR
           - MDO
+          - AR
           - MO
           - ATPG
           - T
-          - ATP
           - V
+          - ATP
           - N
           - EA
-          - P
           - A
+          - P
         DF_Chantier_DF_Client_id__defiClientId:
           description: Id Client
           type: string
@@ -942,7 +942,7 @@ components:
           description: Contact
           type: string
         DF_Devis_DF_Chantier_id__defiAfrLibelleChantier:
-          description: Titre Affaire DF chantier
+          description: Titre Affaire
           type: string
         defiDevisContenance:
           description: Contenance
@@ -1103,6 +1103,9 @@ components:
         defiDevisFicheTechnique:
           description: Fiche Technique
           type: object
+        DF_Devis_DF_Chantier_id__defiAfrLieuAffaire:
+          description: Ville Affaire DF chantier
+          type: string
         defiDevisCadenceLivraison:
           description: Cadence de livraison hebdomadaire
           type: string
@@ -2397,17 +2400,17 @@ paths:
       - schema:
           type: string
           enum:
-          - AR
           - MDO
+          - AR
           - MO
           - ATPG
           - T
-          - ATP
           - V
+          - ATP
           - N
           - EA
-          - P
           - A
+          - P
         in: query
         name: DF_Chantier_DF_Client_id__defiClientIdSecteurActivite
         description: Search filter for Secteur Activité Client
@@ -8605,6 +8608,12 @@ paths:
         required: false
       - schema:
           type: string
+        in: query
+        name: defiDevisCreatedDT
+        description: Search filter for Date de Création
+        required: false
+      - schema:
+          type: string
           enum:
           - I
           - C
@@ -8615,14 +8624,8 @@ paths:
       - schema:
           type: string
         in: query
-        name: defiDevisCreatedDT
-        description: Search filter for Date de Création
-        required: false
-      - schema:
-          type: string
-        in: query
         name: DF_Devis_DF_Chantier_id__defiAfrLibelleChantier
-        description: Search filter for Titre Affaire DF chantier
+        description: Search filter for Titre Affaire
         required: false
       - schema:
           type: string
@@ -8791,6 +8794,12 @@ paths:
       - schema:
           type: string
         in: query
+        name: DF_Devis_DF_Chantier_id__defiAfrLieuAffaire
+        description: Search filter for Ville Affaire DF chantier
+        required: false
+      - schema:
+          type: string
+        in: query
         name: defiDevisFicheTechnique
         description: Search filter for Fiche Technique
         required: false
@@ -8884,14 +8893,14 @@ paths:
       - schema:
           type: string
         in: query
-        name: defiDevisNumero
-        description: Search filter for Numéro de devis
+        name: DF_Devis_DF_Contact_id__defiContactEmail
+        description: Search filter for E-mail Contact
         required: false
       - schema:
           type: string
         in: query
-        name: DF_Devis_DF_Contact_id__defiContactEmail
-        description: Search filter for E-mail Contact
+        name: defiDevisNumero
+        description: Search filter for Numéro de devis
         required: false
       - schema:
           type: string

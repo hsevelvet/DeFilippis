@@ -141,17 +141,17 @@ paths:
         type: string
         required: false
         enum:
-        - AR
         - MDO
+        - AR
         - MO
         - ATPG
         - T
-        - ATP
         - V
+        - ATP
         - N
         - EA
-        - P
         - A
+        - P
       - in: query
         name: DF_Chantier_DF_Client_id__defiClientAdresse
         description: Search filter for Adresse Client
@@ -5441,6 +5441,11 @@ paths:
         type: boolean
         required: false
       - in: query
+        name: defiDevisCreatedDT
+        description: Search filter for Date de Création
+        type: string
+        required: false
+      - in: query
         name: DF_Devis_DF_Chantier_id__defiAfrStatut
         description: Search filter for Statut Affaire DF chantier
         type: string
@@ -5449,13 +5454,8 @@ paths:
         - I
         - C
       - in: query
-        name: defiDevisCreatedDT
-        description: Search filter for Date de Création
-        type: string
-        required: false
-      - in: query
         name: DF_Devis_DF_Chantier_id__defiAfrLibelleChantier
-        description: Search filter for Titre Affaire DF chantier
+        description: Search filter for Titre Affaire
         type: string
         required: false
       - in: query
@@ -5599,6 +5599,11 @@ paths:
         type: number
         required: false
       - in: query
+        name: DF_Devis_DF_Chantier_id__defiAfrLieuAffaire
+        description: Search filter for Ville Affaire DF chantier
+        type: string
+        required: false
+      - in: query
         name: defiDevisFicheTechnique
         description: Search filter for Fiche Technique
         type: string
@@ -5678,13 +5683,13 @@ paths:
         type: string
         required: false
       - in: query
-        name: defiDevisNumero
-        description: Search filter for Numéro de devis
+        name: DF_Devis_DF_Contact_id__defiContactEmail
+        description: Search filter for E-mail Contact
         type: string
         required: false
       - in: query
-        name: DF_Devis_DF_Contact_id__defiContactEmail
-        description: Search filter for E-mail Contact
+        name: defiDevisNumero
+        description: Search filter for Numéro de devis
         type: string
         required: false
       - in: query
@@ -6826,17 +6831,17 @@ definitions:
         description: Secteur Activité Client
         type: string
         enum:
-        - AR
         - MDO
+        - AR
         - MO
         - ATPG
         - T
-        - ATP
         - V
+        - ATP
         - N
         - EA
-        - P
         - A
+        - P
       DF_Chantier_DF_Client_id__defiClientId:
         description: Id Client
         type: string
@@ -7617,7 +7622,7 @@ definitions:
         description: Contact
         type: string
       DF_Devis_DF_Chantier_id__defiAfrLibelleChantier:
-        description: Titre Affaire DF chantier
+        description: Titre Affaire
         type: string
       defiDevisContenance:
         description: Contenance
@@ -7778,6 +7783,9 @@ definitions:
       defiDevisFicheTechnique:
         description: Fiche Technique
         type: object
+      DF_Devis_DF_Chantier_id__defiAfrLieuAffaire:
+        description: Ville Affaire DF chantier
+        type: string
       defiDevisCadenceLivraison:
         description: Cadence de livraison hebdomadaire
         type: string
