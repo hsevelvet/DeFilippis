@@ -1386,17 +1386,17 @@ paths:
       - in: query
         name: defiLigneCommandeLongueur
         description: Search filter for Longueur (cm)
-        type: number
+        type: string
         required: false
       - in: query
         name: defiLigneCommandeLargeur
         description: Search filter for Largeur (cm)
-        type: number
+        type: string
         required: false
       - in: query
         name: defiLigneCommandeEpaisseur
         description: Search filter for Hauteur / Epaisseur (cm)
-        type: number
+        type: string
         required: false
       - in: query
         name: defiLigneCommandePoidsUnitaire
@@ -6031,7 +6031,7 @@ paths:
         required: false
       - in: query
         name: df_livraison_quantite_chargee
-        description: Search filter for Quantité Chargée
+        description: Search filter for Poids Total
         type: number
         required: false
       - in: query
@@ -7490,7 +7490,7 @@ definitions:
         description: Nom Transporteur
         type: string
       df_livraison_quantite_chargee:
-        description: Quantité Chargée
+        description: Poids Total
         type: number
       DF_Livraison_DF_Affaire_id__defiAfrNumero:
         description: Numéro d'affaire (OTP)
@@ -7594,7 +7594,7 @@ definitions:
         type: string
       defiLigneCommandeEpaisseur:
         description: Hauteur / Epaisseur (cm)
-        type: number
+        type: string
       DF_ligne_commande_DF_Commande_id:
         description: DF commande
         type: string
@@ -7624,7 +7624,7 @@ definitions:
         type: string
       defiLigneCommandeLongueur:
         description: Longueur (cm)
-        type: number
+        type: string
       defiLigneCommandePrixEXWUnitaire:
         description: Prix de vente unitaire imposé
         type: number
@@ -7651,7 +7651,7 @@ definitions:
         type: string
       defiLigneCommandeLargeur:
         description: Largeur (cm)
-        type: number
+        type: string
   ArrayOfDF_Hist_Docs:
     type: array
     items:

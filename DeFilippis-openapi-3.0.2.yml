@@ -763,7 +763,7 @@ components:
           description: Nom Transporteur
           type: string
         df_livraison_quantite_chargee:
-          description: Quantité Chargée
+          description: Poids Total
           type: number
         DF_Livraison_DF_Affaire_id__defiAfrNumero:
           description: Numéro d'affaire (OTP)
@@ -867,7 +867,7 @@ components:
           type: string
         defiLigneCommandeEpaisseur:
           description: Hauteur / Epaisseur (cm)
-          type: number
+          type: string
         DF_ligne_commande_DF_Commande_id:
           description: DF commande
           type: string
@@ -897,7 +897,7 @@ components:
           type: string
         defiLigneCommandeLongueur:
           description: Longueur (cm)
-          type: number
+          type: string
         defiLigneCommandePrixEXWUnitaire:
           description: Prix de vente unitaire imposé
           type: number
@@ -924,7 +924,7 @@ components:
           type: string
         defiLigneCommandeLargeur:
           description: Largeur (cm)
-          type: number
+          type: string
     ArrayOfDF_Hist_Docs:
       type: array
       items:
@@ -3933,19 +3933,19 @@ paths:
         description: Search filter for Finition Faces Vues
         required: false
       - schema:
-          type: number
+          type: string
         in: query
         name: defiLigneCommandeLongueur
         description: Search filter for Longueur (cm)
         required: false
       - schema:
-          type: number
+          type: string
         in: query
         name: defiLigneCommandeLargeur
         description: Search filter for Largeur (cm)
         required: false
       - schema:
-          type: number
+          type: string
         in: query
         name: defiLigneCommandeEpaisseur
         description: Search filter for Hauteur / Epaisseur (cm)
@@ -9343,7 +9343,7 @@ paths:
           type: number
         in: query
         name: df_livraison_quantite_chargee
-        description: Search filter for Quantité Chargée
+        description: Search filter for Poids Total
         required: false
       - schema:
           type: string

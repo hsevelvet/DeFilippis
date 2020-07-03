@@ -253,9 +253,12 @@ public class DF_Devis extends ObjectDB {
 				
 
 				double poids_u = ld.getField("defiLigneDevisPoidsUnitaire").getDouble(0);
-				double prd_long = ld.getField("defiLigneDevisLongueur").getDouble(0);
-				double prd_larg = ld.getField("defiLigneDevisLargeur").getDouble(0);
-				double prd_eps = ld.getField("defiLigneDevisEpaisseur").getDouble(0);
+				//double prd_long = ld.getField("defiLigneDevisLongueur").getDouble(0);
+				//double prd_larg = ld.getField("defiLigneDevisLargeur").getDouble(0);
+				//double prd_eps = ld.getField("defiLigneDevisEpaisseur").getDouble(0);
+				String prd_long = ld.getFieldValue("defiLigneDevisLongueur");
+				String prd_larg = ld.getFieldValue("defiLigneDevisLargeur");
+				String prd_eps = ld.getFieldValue("defiLigneDevisEpaisseur");
 				double prd_qte = ld.getField("defiLigneDevisQuantite").getDouble(0);
 				double cmd_prix_exw_u = ld.getField("defiLigneDevisPrixUnitaireImpose").getDouble(0);
 				double cmd_prix_calc = ld.getField("defiLigneDevisPrixVenteCalcule").getDouble(0);

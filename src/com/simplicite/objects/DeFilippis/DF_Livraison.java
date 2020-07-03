@@ -237,7 +237,9 @@ public class DF_Livraison extends ObjectDB {
 		if (rows.size() > 0){
 			double c = q.getCount();
 			double t = Double.parseDouble(q.getField("defiQuantiteMontant").getListOperatorValue());
+			double p = Double.parseDouble(q.getField("defiQuantiteTonnage").getListOperatorValue());
 			setFieldValue("defiLivraisonTotalHT", t);
+			setFieldValue("df_livraison_quantite_chargee",p);
 			save();
 		}	
 	}

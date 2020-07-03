@@ -18,6 +18,9 @@ import com.simplicite.util.exceptions.APIException;
 import com.simplicite.util.tools.HTMLTool;
 import com.simplicite.util.tools.TrelloTool;
 
+import java.util.Date;
+import java.text.SimpleDateFormat; 
+
 
 /**
  * External object WebhoonkLivraisonTrello
@@ -228,11 +231,14 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
 								String card_json_string = tt.call("/cards/"+card.getString("id"),"get","").toString();
 								JSONObject  card_json = new JSONObject(card_json_string);
 								
+								Date date = new Date();
+								
 								if (card_json.get("due")!=null){
-									obj.setFieldValue("df_livraison_date_livraison_estimee", card_json.get("due"));
+									//obj.setFieldValue("df_livraison_date_livraison_estimee", card_json.get("due"));
+									obj.setFieldValue("df_livraison_date_livraison_estimee", date);
 								}
 								else{
-									obj.setFieldValue("df_livraison_date_livraison_estimee", null);;
+									obj.setFieldValue("df_livraison_date_livraison_estimee", date);;
 								}
 								
 								if (status!=null){
@@ -323,6 +329,7 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
 				                        synchronized(lc){
 				                        	lc.resetFilters();
 											lc.setFieldFilter("defiLigneCommandeId",lcID.getString("text"));
+											AppLog.info(getClass(), "lc-----lc", lcID.getString("text"), getGrant());
 											for(String[] lce : lc.search()){
 														lc.setValues(lce);
 														objq.setFieldValue("DF_Quantite_DF_ligne_commande_id",lc.getRowId());
@@ -373,12 +380,12 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
 										if (obj.getFieldValue("defiLivraisonIdCommande").equals(objq.getFieldValue("defiQuantiteNumCommande"))){
 											AppLog.info(getClass(), "livr----------------qte", row, getGrant());
 											objq.setFieldValue("DF_Quantite_DF_Livraison_id", row);
-											/**Double qte = objq.getField("defiQuantiteQte").getDouble(0);
+											Double qte = objq.getField("defiQuantiteQte").getDouble(0);
 											Double poids_u = objq.getField("defiQuantitePoidsUnitaire").getDouble(0);
 											Double prix_u = objq.getField("DF_Quantite_DF_ligne_commande_id.defiLigneCommandePrixEXWUnitaire").getDouble(0);
 		
-											objq.setFieldValue("defiQuantiteTonnage", qte*poids_u);
-											objq.setFieldValue("defiQuantiteMontant", qte*prix_u);*/
+											objq.setFieldValue("defiQuantiteTonnage", qte*poids_u/1000);
+											objq.setFieldValue("defiQuantiteMontant", qte*prix_u);
 											objq.save();
 										}
 									}

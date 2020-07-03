@@ -12,11 +12,14 @@ public class DF_Quantite extends ObjectDB {
 	
 	@Override
 	public void initCreate() {
-		Double qte = getField("defiQuantiteQte").getDouble(0);
-		Double prix_u = getField("DF_Quantite_DF_ligne_commande_id.defiLigneCommandePrixEXWUnitaire").getDouble(0);
+		//Double qte = getField("defiQuantiteQte").getDouble(0);
+		/*Double poids_u = getField("defiQuantitePoidsUnitaire").getDouble(0);
+		/*Double prix_u = getField("DF_Quantite_DF_ligne_commande_id.defiLigneCommandePrixEXWUnitaire").getDouble(0);
 		
 		setFieldValue("defiQuantiteMontant", qte*prix_u);
-		save();
+		setFieldValue("defiQuantiteTonnage", qte*poids_u/1000);*/
+		//validate();
+		//save();
 	}
 	
 	@Override
@@ -26,7 +29,7 @@ public class DF_Quantite extends ObjectDB {
 		Double poids_u = getField("defiQuantitePoidsUnitaire").getDouble(0);
 		Double prix_u = getField("DF_Quantite_DF_ligne_commande_id.defiLigneCommandePrixEXWUnitaire").getDouble(0);
 		
-		setFieldValue("defiQuantiteTonnage", qte*poids_u);
+		setFieldValue("defiQuantiteTonnage", qte*poids_u/1000);
 		setFieldValue("defiQuantiteMontant", qte*prix_u);
 		validate();
 		save();
