@@ -274,6 +274,7 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
 						
 						
 						}
+						Double prix_u = null;
 						
 						// Remplir l'objet quantités avec les informations de cartes en PJ de camions 
 						synchronized(objq){
@@ -322,6 +323,9 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
 										
 				                    }
 				                    // Chercher Id Ligne Commande
+				                    
+				                    
+				                    //Double prix_u = null;
 				                    if(cs.getString("idCustomField").equals("5e6b943e9405a033888e385e"))
 				                    {
 				                        JSONObject lcID = cs.getJSONObject("value");
@@ -333,6 +337,8 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
 											for(String[] lce : lc.search()){
 														lc.setValues(lce);
 														objq.setFieldValue("DF_Quantite_DF_ligne_commande_id",lc.getRowId());
+														prix_u = lc.getField("defiLigneCommandePrixEXWUnitaire").getDouble(0);
+														AppLog.info(getClass(), "livr----------------prix", String.valueOf(prix_u), getGrant());
 												}
 				                        }
 				                    }
@@ -380,12 +386,33 @@ public class WebhookLivraisonTrello extends com.simplicite.webapp.services.RESTS
 										if (obj.getFieldValue("defiLivraisonIdCommande").equals(objq.getFieldValue("defiQuantiteNumCommande"))){
 											AppLog.info(getClass(), "livr----------------qte", row, getGrant());
 											objq.setFieldValue("DF_Quantite_DF_Livraison_id", row);
+											objq.save();
 											Double qte = objq.getField("defiQuantiteQte").getDouble(0);
+											AppLog.info(getClass(), "livr----------------qte", String.valueOf(qte), getGrant());
 											Double poids_u = objq.getField("defiQuantitePoidsUnitaire").getDouble(0);
-											Double prix_u = objq.getField("DF_Quantite_DF_ligne_commande_id.defiLigneCommandePrixEXWUnitaire").getDouble(0);
-		
+											AppLog.info(getClass(), "livr----------------qte", String.valueOf(poids_u), getGrant());
+											
+											
+											/**ObjectDB lc = Grant.getSystemAdmin().getObject("webhook_"+"DF_ligne_commande","DF_ligne_commande");
+				                        	synchronized(lc){
+				                        		lc.resetFilters();
+												lc.setFieldFilter("defiLigneCommandeId",objq.getFieldValue("DF_Quantite_DF_ligne_commande_id.defiLigneCommandeId"));
+			
+												for(String[] lce : lc.search()){
+														lc.setValues(lce);
+														//objq.setFieldValue("DF_Quantite_DF_ligne_commande_id",lc.getRowId());
+														Double prix_u = lc.getField("defiLigneCommandePrixEXWUnitaire").getDouble(0);
+														AppLog.info(getClass(), "livr----------------prix", String.valueOf(prix_u), getGrant());
+												}
+				                    		}
+											*/
+											
+						
 											objq.setFieldValue("defiQuantiteTonnage", qte*poids_u/1000);
+											//objq.setFieldValue("defiQuantitePrixUnitaire", prix_u);
 											objq.setFieldValue("defiQuantiteMontant", qte*prix_u);
+											
+											objq.validate();
 											objq.save();
 										}
 									}

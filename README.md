@@ -414,9 +414,9 @@ Objet métier pour fournisseur.
 | `defiLigneCommandeTypeGeologique`                            | char(100)                                |          | yes       |          | -                                                                                |
 | `defiLigneCommandeAppellationCommerciale`                    | char(100)                                |          | yes       |          | -                                                                                |
 | `defiLigneCommandeFinitionFacesVues`                         | char(100)                                |          | yes       |          | -                                                                                |
-| `defiLigneCommandeLongueur`                                  | char(5)                                  |          | yes       |          | -                                                                                |
-| `defiLigneCommandeLargeur`                                   | char(5)                                  |          | yes       |          | -                                                                                |
-| `defiLigneCommandeEpaisseur`                                 | char(5)                                  |          | yes       |          | -                                                                                |
+| `defiLigneCommandeLongueur`                                  | char(20)                                 |          | yes       |          | -                                                                                |
+| `defiLigneCommandeLargeur`                                   | char(20)                                 |          | yes       |          | -                                                                                |
+| `defiLigneCommandeEpaisseur`                                 | char(10)                                 |          | yes       |          | -                                                                                |
 | `defiLigneCommandePoidsUnitaire`                             | float(10, 2)                             |          | yes       |          | -                                                                                |
 | `defiLigneCommandeUnite`                                     | char(4)                                  |          | yes       |          | -                                                                                |
 | `defiLigneCommandeDesignation`                               | text(200)                                |          | yes       |          | -                                                                                |
@@ -566,7 +566,7 @@ Objet métier pour fournisseur.
 | `df_livraison_trellocardid`                                  | char(30)                                 |          | yes       |          | -                                                                                |
 | `DF_Contact_DF_Livraison_id`                                 | id                                       |          | yes       |          | -                                                                                |
 | `df_livraison_statut`                                        | enum(7) using `DF_LIVRAISON_STATUT` list | yes      | yes       |          | -                                                                                |
-| `df_livraison_quantite_chargee`                              | float(11, 0)                             |          | yes       |          | -                                                                                |
+| `df_livraison_quantite_chargee`                              | float(11, 1)                             |          | yes       |          | -                                                                                |
 | `df_livraison_date_livraison_estimee`                        | date                                     |          | yes       |          | -                                                                                |
 | `defiLivraisonNbrPalettes`                                   | int(100)                                 |          | yes       |          | -                                                                                |
 | `df_livraison_num_bl_fournisseur`                            | char(11)                                 |          | yes       |          | -                                                                                |
@@ -712,6 +712,7 @@ Objet metier pour produit.
 | _Ref. `DF_Quantite_DF_ligne_commande_id.defiLigneCommandeId`_ | _char(20)_                               |          |           |          | -                                                                                |
 | _Ref. `DF_Quantite_DF_ligne_commande_id.defiLigneCommandePrixEXWUnitaire`_ | _float(10, 2)_                           |          |           |          | -                                                                                |
 | `defiQuantiteMontant`                                        | float(10, 2)                             |          | yes       |          | -                                                                                |
+| `defiQuantitePrixUnitaire`                                   | float(10, 2)                             |          | yes       |          | -                                                                                |
 
 ### Custom actions
 

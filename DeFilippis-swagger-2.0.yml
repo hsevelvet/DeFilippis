@@ -1335,7 +1335,7 @@ paths:
         required: false
       - in: query
         name: defiLigneCommandePrixTotalEXW
-        description: Search filter for Prix Total EXW
+        description: Search filter for Prix de Vente Total
         type: number
         required: false
       - in: query
@@ -5854,13 +5854,13 @@ paths:
         type: string
         required: false
       - in: query
-        name: DF_Quantite_DF_ligne_commande_id__defiLigneCommandeTypeGeologique
-        description: Search filter for Type Géologique DF ligne commande
+        name: DF_Quantite_DF_Livraison_id__defiLivraisonNumBL
+        description: Search filter for Numéro de BL Livraisons
         type: string
         required: false
       - in: query
-        name: DF_Quantite_DF_Livraison_id__defiLivraisonNumBL
-        description: Search filter for Numéro de BL Livraisons
+        name: DF_Quantite_DF_ligne_commande_id__defiLigneCommandeTypeGeologique
+        description: Search filter for Type Géologique DF ligne commande
         type: string
         required: false
       - in: query
@@ -5900,12 +5900,17 @@ paths:
         required: false
       - in: query
         name: DF_Quantite_DF_ligne_commande_id__defiLigneCommandePrixEXWUnitaire
-        description: Search filter for Prix de vente unitaire imposé DF ligne commande
+        description: Search filter for Prix Unitaire
         type: number
         required: false
       - in: query
         name: defiQuantiteMontant
         description: Search filter for Montant
+        type: number
+        required: false
+      - in: query
+        name: defiQuantitePrixUnitaire
+        description: Search filter for Prix Unitaire
         type: number
         required: false
       tags:
@@ -6765,6 +6770,9 @@ definitions:
       DF_Quantite_DF_Livraison_id:
         description: Livraisons
         type: string
+      defiQuantitePrixUnitaire:
+        description: Prix Unitaire
+        type: number
       defiQuantiteNumCommande:
         description: Numéro de commande
         type: string
@@ -6781,7 +6789,7 @@ definitions:
         description: Montant
         type: number
       DF_Quantite_DF_ligne_commande_id__defiLigneCommandePrixEXWUnitaire:
-        description: Prix de vente unitaire imposé DF ligne commande
+        description: Prix Unitaire
         type: number
       defiQuantiteQte:
         description: Quantité
@@ -7581,7 +7589,7 @@ definitions:
     type: object
     properties:
       defiLigneCommandePrixTotalEXW:
-        description: Prix Total EXW
+        description: Prix de Vente Total
         type: number
       defiLigneCommandeId:
         description: Id ligne commande

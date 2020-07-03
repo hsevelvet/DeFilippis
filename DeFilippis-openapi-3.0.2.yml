@@ -38,6 +38,9 @@ components:
         DF_Quantite_DF_Livraison_id:
           description: Livraisons
           type: string
+        defiQuantitePrixUnitaire:
+          description: Prix Unitaire
+          type: number
         defiQuantiteNumCommande:
           description: Numéro de commande
           type: string
@@ -54,7 +57,7 @@ components:
           description: Montant
           type: number
         DF_Quantite_DF_ligne_commande_id__defiLigneCommandePrixEXWUnitaire:
-          description: Prix de vente unitaire imposé DF ligne commande
+          description: Prix Unitaire
           type: number
         defiQuantiteQte:
           description: Quantité
@@ -854,7 +857,7 @@ components:
       type: object
       properties:
         defiLigneCommandePrixTotalEXW:
-          description: Prix Total EXW
+          description: Prix de Vente Total
           type: number
         defiLigneCommandeId:
           description: Id ligne commande
@@ -3876,7 +3879,7 @@ paths:
           type: number
         in: query
         name: defiLigneCommandePrixTotalEXW
-        description: Search filter for Prix Total EXW
+        description: Search filter for Prix de Vente Total
         required: false
       - schema:
           type: string
@@ -9133,14 +9136,14 @@ paths:
       - schema:
           type: string
         in: query
-        name: DF_Quantite_DF_ligne_commande_id__defiLigneCommandeTypeGeologique
-        description: Search filter for Type Géologique DF ligne commande
+        name: DF_Quantite_DF_Livraison_id__defiLivraisonNumBL
+        description: Search filter for Numéro de BL Livraisons
         required: false
       - schema:
           type: string
         in: query
-        name: DF_Quantite_DF_Livraison_id__defiLivraisonNumBL
-        description: Search filter for Numéro de BL Livraisons
+        name: DF_Quantite_DF_ligne_commande_id__defiLigneCommandeTypeGeologique
+        description: Search filter for Type Géologique DF ligne commande
         required: false
       - schema:
           type: number
@@ -9188,13 +9191,19 @@ paths:
           type: number
         in: query
         name: DF_Quantite_DF_ligne_commande_id__defiLigneCommandePrixEXWUnitaire
-        description: Search filter for Prix de vente unitaire imposé DF ligne commande
+        description: Search filter for Prix Unitaire
         required: false
       - schema:
           type: number
         in: query
         name: defiQuantiteMontant
         description: Search filter for Montant
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: defiQuantitePrixUnitaire
+        description: Search filter for Prix Unitaire
         required: false
       tags:
       - DF_Quantite
