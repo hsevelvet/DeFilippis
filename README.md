@@ -524,7 +524,7 @@ Objet métier pour fournisseur.
     - `BE` Beige
     - `BL` Bleu
     - `RG` Rouge
-    - `NO` Noire
+    - `NO` Noir
     - `RS` Rose
     - `VE` Vert
     - `OC` Ocre
@@ -661,7 +661,7 @@ Objet metier pour produit.
     - `BE` Beige
     - `BL` Bleu
     - `RG` Rouge
-    - `NO` Noire
+    - `NO` Noir
     - `RS` Rose
     - `VE` Vert
     - `OC` Ocre

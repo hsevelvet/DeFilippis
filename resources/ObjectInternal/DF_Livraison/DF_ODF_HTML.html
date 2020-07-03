@@ -82,7 +82,10 @@
 		will-change:transform;
 		color:#fff !important;
 	}
-	
+
+	.tg .thnumbl {
+				
+	}	
 	.tg .thref {
 		width:80px;
 		
@@ -330,6 +333,7 @@
          <table class="tg">
 			<thead>
 				<tr style="background-color:#004C8E">
+					<th class="tg-ul38 thnumbl">N°&nbsp;de&nbsp;BL</th>
 					<th class="tg-ul38 thref">Ref</th>
 				    <th class="tg-ul38 thdesignation">Désignation</th>
 				    <th class="tg-ul38 thunite">Unité</th>
@@ -342,7 +346,7 @@
 			<tbody>
 				{{#rows_l}}
 				<tr>
-					
+					<td class="ref">BL</td> <!-- DF_Quantite_DF_Livraison_id__defiLivraisonNumBL -->
 					<td class="ref">{{defiQuantiteRefProduit}}</td>
 					<td class="designation">{{DF_Quantite_DF_ligne_commande_id__defiLigneCommandeDesignation}}</td>
 					<td class="unite">{{DF_Quantite_DF_ligne_commande_id__defiLigneCommandeUnite}}</td>
@@ -356,7 +360,7 @@
 			
 			<tfoot>
 				<tr>
-					<td class="vide" rowspan="3" colspan="4" >
+					<td class="vide" rowspan="3" colspan="5" >
 						
 					</td>				
 					<td class="totallibelle">
