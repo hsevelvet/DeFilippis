@@ -127,14 +127,6 @@ public class DF_Ligne_Devis extends ObjectDB {
 		}
 		
 		
-		//int index_couleur = getField("defiLigneDevisCouleur").getList().getItemIndex(getFieldValue("defiLigneDevisCouleur"),false);
-		//String couleur = getField("defiLigneDevisCouleur").getList().getValue(index_couleur);
-		
-		AppLog.info(getClass(), "index_couleur", String.valueOf(Tool.enumToArray(getFieldValue("defiLigneDevisCouleur"))), getGrant());
-		
-		//setFieldValue("defiLigneDevisCouleur", getFieldValue("DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdCouleur"));
-		
-		
 		setFieldValue("defiLigneDevisTypePierre", type_geo);
 		
 		String designation = null;
@@ -142,7 +134,7 @@ public class DF_Ligne_Devis extends ObjectDB {
 		if (getFieldValue("defiLigneDevisTypePrd").equals("PAVE") || getFieldValue("defiLigneDevisTypePrd").equals("DALLE")){
 			designation = type_pr+" "+ appel_com +" "+couleur_designation+" "+ fin_produit+" "+aut_fin+"\n"+longueur +" " + " x "+largeur+"\t" +" x ep. "+epaisseur+" " + "Joint inclus de " +dim_joint +" cm";
 		} else{
-			designation = type_pr+" "+ appel_com +" "+ fin_produit+" "+aut_fin+"\n"+longueur +" " + " x "+largeur+"\t" +" x ep. "+epaisseur;
+			designation = type_pr+" "+ appel_com +" "+couleur_designation+" "+fin_produit+" "+aut_fin+"\n"+longueur +" " + " x "+largeur+"\t" +" x ep. "+epaisseur;
 		}
 		
 		if (type_prd.equals("1")){
