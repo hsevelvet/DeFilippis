@@ -4569,6 +4569,11 @@ paths:
         type: string
         required: false
       - in: query
+        name: DF_Commande_DF_utilisateur_interne_id__defiUsrTrigramme
+        description: Search filter for Trigramme Rédacteur
+        type: string
+        required: false
+      - in: query
         name: defiCommandeCadenceLivraison
         description: Search filter for Cadence de livraison hebdomadaire estimée
         type: string
@@ -7414,6 +7419,9 @@ definitions:
         type: number
       defiCommandeCadenceLivraison:
         description: Cadence de livraison hebdomadaire estimée
+        type: string
+      DF_Commande_DF_utilisateur_interne_id__defiUsrTrigramme:
+        description: Trigramme Rédacteur
         type: string
       DF_Commande_DF_Fournisseurs_id:
         description: Fournisseurs

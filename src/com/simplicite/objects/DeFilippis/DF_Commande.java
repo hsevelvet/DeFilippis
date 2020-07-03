@@ -223,6 +223,8 @@ public class DF_Commande extends ObjectDB {
 		    			tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Ville"),new JSONObject().put("value",new JSONObject().put("text",getFieldValue("DF_Commande_DF_Affaire_id.defiAfrLieuAffaire"))));
 		    			tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Id Ligne de commande"),new JSONObject().put("value",new JSONObject().put("text",lc.getFieldValue("defiLigneCommandeId"))));
 		    			tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Fournisseur"),new JSONObject().put("value",new JSONObject().put("text",fourns)));
+		    			tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Trigramme Suiveur"),new JSONObject().put("value",new JSONObject().put("text",getFieldValue("DF_Commande_DF_utilisateur_interne_id.defiUsrTrigramme"))));
+		    			
 					}
 		    			}
 

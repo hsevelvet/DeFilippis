@@ -683,6 +683,9 @@ components:
         defiCommandeCadenceLivraison:
           description: Cadence de livraison hebdomadaire estimée
           type: string
+        DF_Commande_DF_utilisateur_interne_id__defiUsrTrigramme:
+          description: Trigramme Rédacteur
+          type: string
         DF_Commande_DF_Fournisseurs_id:
           description: Fournisseurs
           type: string
@@ -7597,6 +7600,12 @@ paths:
         in: query
         name: defiCommandeContactTransporteur
         description: Search filter for Contact Transporteur
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Commande_DF_utilisateur_interne_id__defiUsrTrigramme
+        description: Search filter for Trigramme Rédacteur
         required: false
       - schema:
           type: string
