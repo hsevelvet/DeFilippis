@@ -82,7 +82,7 @@ paths:
         required: false
       - in: query
         name: DF_Affaire_DF_Contact_id__defiContactNom
-        description: Search filter for Nom Contacts
+        description: Search filter for Nom Contact
         type: string
         required: false
       - in: query
@@ -141,17 +141,17 @@ paths:
         type: string
         required: false
         enum:
-        - MO
-        - MDO
         - AR
+        - MDO
+        - MO
         - ATPG
         - T
         - ATP
         - V
         - N
         - EA
-        - P
         - A
+        - P
       - in: query
         name: DF_Chantier_DF_Client_id__defiClientAdresse
         description: Search filter for Adresse Client
@@ -3342,7 +3342,7 @@ paths:
         required: false
       - in: query
         name: defiContactPrenom
-        description: Search filter for Prénom
+        description: Search filter for Prénom Contact
         type: string
         required: false
       - in: query
@@ -4469,7 +4469,7 @@ paths:
         required: false
       - in: query
         name: DF_Commande_DF_Contact_id__defiContactNom
-        description: Search filter for Nom Contacts
+        description: Search filter for Nom Contact
         type: string
         required: false
       - in: query
@@ -6860,7 +6860,7 @@ definitions:
         description: Client
         type: string
       DF_Affaire_DF_Contact_id__defiContactNom:
-        description: Nom Contacts
+        description: Nom Contact
         type: string
       DF_Chantier_DF_Client_id__defiClientCedex:
         description: CEDEX Client
@@ -6894,17 +6894,17 @@ definitions:
         description: Secteur Activité Client
         type: string
         enum:
-        - MO
-        - MDO
         - AR
+        - MDO
+        - MO
         - ATPG
         - T
         - ATP
         - V
         - N
         - EA
-        - P
         - A
+        - P
       DF_Chantier_DF_Client_id__defiClientId:
         description: Id Client
         type: string
@@ -7379,7 +7379,7 @@ definitions:
         description: Nom Suiveur
         type: string
       DF_Commande_DF_Contact_id__defiContactNom:
-        description: Nom Contacts
+        description: Nom Contact
         type: string
       defiCommandePieceJointeTransport:
         description: Pièce Jointe Transport
@@ -8147,7 +8147,7 @@ definitions:
         description: Nom Client
         type: string
       defiContactPrenom:
-        description: Prénom
+        description: Prénom Contact
         type: string
       DF_Contact_DF_Transport_id__defiTrspNom:
         description: Nom Transporteur

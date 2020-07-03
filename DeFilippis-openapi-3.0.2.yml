@@ -123,7 +123,7 @@ components:
           description: Client
           type: string
         DF_Affaire_DF_Contact_id__defiContactNom:
-          description: Nom Contacts
+          description: Nom Contact
           type: string
         DF_Chantier_DF_Client_id__defiClientCedex:
           description: CEDEX Client
@@ -157,17 +157,17 @@ components:
           description: Secteur Activité Client
           type: string
           enum:
-          - MO
-          - MDO
           - AR
+          - MDO
+          - MO
           - ATPG
           - T
           - ATP
           - V
           - N
           - EA
-          - P
           - A
+          - P
         DF_Chantier_DF_Client_id__defiClientId:
           description: Id Client
           type: string
@@ -642,7 +642,7 @@ components:
           description: Nom Suiveur
           type: string
         DF_Commande_DF_Contact_id__defiContactNom:
-          description: Nom Contacts
+          description: Nom Contact
           type: string
         defiCommandePieceJointeTransport:
           description: Pièce Jointe Transport
@@ -1410,7 +1410,7 @@ components:
           description: Nom Client
           type: string
         defiContactPrenom:
-          description: Prénom
+          description: Prénom Contact
           type: string
         DF_Contact_DF_Transport_id__defiTrspNom:
           description: Nom Transporteur
@@ -2382,7 +2382,7 @@ paths:
           type: string
         in: query
         name: DF_Affaire_DF_Contact_id__defiContactNom
-        description: Search filter for Nom Contacts
+        description: Search filter for Nom Contact
         required: false
       - schema:
           type: string
@@ -2447,17 +2447,17 @@ paths:
       - schema:
           type: string
           enum:
-          - MO
-          - MDO
           - AR
+          - MDO
+          - MO
           - ATPG
           - T
           - ATP
           - V
           - N
           - EA
-          - P
           - A
+          - P
         in: query
         name: DF_Chantier_DF_Client_id__defiClientIdSecteurActivite
         description: Search filter for Secteur Activité Client
@@ -6144,7 +6144,7 @@ paths:
           type: string
         in: query
         name: defiContactPrenom
-        description: Search filter for Prénom
+        description: Search filter for Prénom Contact
         required: false
       - schema:
           type: string
@@ -7485,7 +7485,7 @@ paths:
           type: string
         in: query
         name: DF_Commande_DF_Contact_id__defiContactNom
-        description: Search filter for Nom Contacts
+        description: Search filter for Nom Contact
         required: false
       - schema:
           type: string

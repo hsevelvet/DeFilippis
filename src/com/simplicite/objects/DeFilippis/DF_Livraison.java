@@ -404,6 +404,7 @@ public class DF_Livraison extends ObjectDB {
 		
 		ObjectDB client = getGrant().getTmpObject("DF_Client");
 		ObjectDB contact_client = getGrant().getTmpObject("DF_Contact");
+		ObjectDB u = getGrant().getTmpObject("User");
 
 		List<String[]> q_search = new ArrayList<String[]>();
 		List<String[]> livraison_search = new ArrayList<String[]>();
@@ -428,8 +429,15 @@ public class DF_Livraison extends ObjectDB {
 				
 				commande_livraison.resetFilters();
 				commande_livraison.setFieldFilter("row_id",livraison.getFieldValue("DF_Livraison_DF_Commande_id"));
+				
+				// Suiveur
+				
+				
+				
+				u.resetFilters();
+				u.setFieldFilter("row_id",commande_livraison.getFieldValue("DF_Commande_DF_utilisateur_interne_id"));
 				//commande_livraison.save();
-				//AppLog.info(getClass(), "cliiiiient", commande_livraison.getRowId(), getGrant());
+				AppLog.info(getClass(), "cliiiiient", commande_livraison.getFieldValue("DF_Commande_DF_utilisateur_interne_id"), getGrant());
 				client.resetFilters();
 				
 				
@@ -473,6 +481,7 @@ public class DF_Livraison extends ObjectDB {
 						"{'rows_l':"+q.toJSON(q_search, null, false, false)+
 						",'bl':"+livraison.toJSON(livraison_search, null, false, false)+
 						",'cl':"+commande_livraison.toJSON(commande_livraison.search(), null, false, false)+
+						",'usr':"+u.toJSON(u.search(), null, false, false)+
 						",'client':"+client.toJSON(client.search(), null, false, false)+
 						",'contact_client':"+contact_client.toJSON(contact_client.search(), null, false, false)+
 						",'total_ht':"+ "[{'total_ht_l':"+Double.toString(total_livraison)+"}]"+
@@ -509,7 +518,7 @@ public class DF_Livraison extends ObjectDB {
 		return pdf;
 	}
 	
-	// Méthode pour historiser un BL
+	// Méthode pour historiser un ODF
 	public String generateODF() {
 		ObjectDB hst = getGrant().getTmpObject("DF_Hist_Docs");
 

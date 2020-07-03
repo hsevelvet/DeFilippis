@@ -303,7 +303,11 @@
 						</tr>					
                         <tr>
 							<td>
-								<strong>Suiveur Affaire : </strong>{{#cl}}{{DF_Commande_DF_utilisateur_interne_id__defiUsrNC}}{{/cl}}
+								<strong>Suiveur Affaire : </strong>{{#cl}}{{DF_Commande_DF_utilisateur_interne_id__defiUsrNC}}{{/cl}}<br/>
+								{{#usr}}
+								<strong>Tel : </strong>{{usr_cell_num}}<br/>
+								<strong>Email : </strong>{{usr_email}}<br/>
+								{{/usr}}
 							</td>
                             <td style="text-align:right">
 								<div class="coordclient">
