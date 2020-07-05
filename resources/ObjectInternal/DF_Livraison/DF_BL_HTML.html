@@ -249,6 +249,17 @@
 				document.write(chaine);
 			}	
 		}		
+		function fFormatDate(date){ // au format 2020-07-04
+			var dateFormat = "";
+			
+			var annee = date.substring(0, 4);
+			var mois = date.substring(5, 7);
+			var jour = date.substring(8, 10);
+			
+			dateFormat = jour+"/"+mois+"/"+annee;
+			
+			document.write(dateFormat); // au format 04/07/2020
+		}			
 	</script>	
 	
 </head>
@@ -293,16 +304,16 @@
 								</div>
 								<br/>
 								<strong>Référence Commande </strong>: {{#rows_commande}}{{defiCommandeNumero}}{{/rows_commande}}<br/>
-								<strong>Date de livraison </strong>: <script>var dateliv = "{{df_livraison_date_livraison_estimee}}"; document.write(dateliv.substring(0,10));</script><br/>
-								<strong>Transporteur </strong>: {{DF_Livraison_DF_Transport_id__defiTrspNom}}<br/>
-								<strong>N° de bon fournisseur </strong>: {{df_livraison_num_bl_fournisseur}}<br/>
+								<strong>Date de livraison </strong>: <script>var dateliv = "{{df_livraison_date_livraison_estimee}}"; fFormatDate(dateliv.substring(0,10));</script><br/>
+								<strong>Transporteur </strong>: <script>fval("{{DF_Livraison_DF_Transport_id__defiTrspNom}}");</script><br/>
+								<strong>N° de bon fournisseur </strong>: <script>fval("{{df_livraison_num_bl_fournisseur}}");</script><br/>
 										
                             </td>                            
                         </tr>
 						<tr>
 							<td colspan="2" style="vertical-align:bottom;text-align:center">
 								<h1>{{#rows_commande}}{{DF_Commande_DF_Affaire_id__defiAfrLibelleChantier}} - {{DF_Commande_DF_Affaire_id__defiAfrLieuAffaire}}{{/rows_commande}}</h1>
-								<h2>BON DE LIVRAISON N° <strong>{{defiLivraisonNumBL}}</strong></h2>
+								<h2>BON DE LIVRAISON N° <strong><script>fval("{{defiLivraisonNumBL}}");</script></strong></h2>
 								<!--<h2>À nous retourner dûment accepté et signé. Merci.</h2>-->
 							</td>
 						</tr>
@@ -347,7 +358,7 @@
 			<br/>
 				<strong>Poids Total : {{df_livraison_quantite_chargee}} Tonnes</strong>
 			<br/>
-				<strong>Nombre de palettes : {{defiLivraisonNbrPalettes}}</strong>
+				<strong>Nombre de palettes : <script>fval("{{defiLivraisonNbrPalettes}}");</script></strong>
 			<br/><br/>
 		</p>		
 	</div>
