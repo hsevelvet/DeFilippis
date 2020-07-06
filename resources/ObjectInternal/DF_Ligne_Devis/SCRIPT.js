@@ -16,7 +16,7 @@ var DF_Ligne_Devis = typeof DF_Ligne_Devis !== "undefined" ? DF_Ligne_Devis : (f
 				var mvp = $ui.getUIField(ctn, obj, "DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdMasseVolumique");
 				var des = $ui.getUIField(ctn, obj, "DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdTypeProduit");
 				var nom = $ui.getUIField(ctn, obj, "DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdTypeGeologique");
-				
+				var fournisseur = $ui.getUIField(ctn, obj, "DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdFournisseur");
 				var couleur = $ui.getUIField(ctn, obj, "DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdCouleur");
 				
 				var type_geo = $ui.getUIField(ctn, obj, "defiLigneDevisTypeGeo");
@@ -27,6 +27,9 @@ var DF_Ligne_Devis = typeof DF_Ligne_Devis !== "undefined" ? DF_Ligne_Devis : (f
 				var ptrsp = $ui.getUIField(ctn, obj, "DF_Ligne_Devis_DF_Prix_Transport_id.defiPrTrspPrix");
 				var categ_prix = $ui.getUIField(ctn, obj, "DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdCategoriePrix");
 				
+				fournisseur.ui.on("change", function(){
+					$ui.getUIField(ctn, obj, "defiLigneDevisFournisseur").ui.val(fournisseur.ui.val());
+				});
 				
 				ap_com.ui.on("change", function(){
 					$ui.getUIField(ctn, obj, "defiLigneDevisAppellationCommerciale").ui.val(ap_com.ui.val());

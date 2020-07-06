@@ -236,10 +236,11 @@ public class DF_Devis extends ObjectDB {
 				String finition = ld.getFieldValue("defiLigneDevisFinitionFV");
 				String unite_p = ld.getFieldValue("defiLigneDevisUnite");
 				String designation = ld.getFieldValue("defiLigneDevisDesignation");
+				String fournisseur = ld.getFieldValue("defiLigneDevisFournisseur");
 				
 				// Recherche fournisseur produit
 				ObjectDB pf = getGrant().getTmpObject("DF_Produit_Finis");
-				String fournisseur = null;
+				/**String fournisseur = null;
 				synchronized(pf){
 					pf.resetFilters();
 				
@@ -249,7 +250,7 @@ public class DF_Devis extends ObjectDB {
 						fournisseur = pf.getFieldValue("DF_Produit_Finis_DF_Fournisseurs_id");
 						AppLog.info(getClass(), "fournisseur", fournisseur, getGrant());
 					}
-				}
+				}*/
 				
 
 				double poids_u = ld.getField("defiLigneDevisPoidsUnitaire").getDouble(0);
@@ -273,18 +274,18 @@ public class DF_Devis extends ObjectDB {
 				lc.create();
 		
 		
-				ObjectField s2 = lc.getField("defiLigneCommandeId");
-				s2.setValue(lc.getRowId());
-				if (fournisseur.equals(null) || fournisseur.isEmpty() || fournisseur.equals("")){
+				//ObjectField s2 = lc.getField("defiLigneCommandeId");
+				//s2.setValue(lc.getRowId());
+				/**if (fournisseur.equals(null) || fournisseur.isEmpty() || fournisseur.equals("")){
 					AppLog.info(getClass(), "fournisseur2", fournisseur, getGrant());
 					lc.setFieldValue("DF_ligne_commande_DF_Fournisseurs_id", " ");
 				}else{
 					lc.getField("DF_ligne_commande_DF_Fournisseurs_id").setValue(fournisseur);
 					//lc.setFieldValue("defiLigneCommandeFournisseur", lc.getFieldValue("DF_ligne_commande_DF_Fournisseurs_id.defiFournNom"));
 					//lc.save();
-				}
+				}*/
 				
-				
+				lc.setFieldValue("defiLigneCommandeNmFourn", fournisseur);
 				lc.setFieldValue("defiLigneCommandeCatPrix",cat_prix);
 				lc.setFieldValue("defiLigneCommandeReferenceProduit",ref_prod);
 				lc.setFieldValue("defiLigneCommandeTypeGeologique", type_geo);
@@ -311,7 +312,7 @@ public class DF_Devis extends ObjectDB {
 				
 
 				lc.setFieldValue("DF_ligne_commande_DF_Commande_id",c.getRowId());
-
+				lc.validate();
 				lc.save();
 				
 			}

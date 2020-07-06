@@ -20,8 +20,8 @@ public class DF_ligne_commande extends ObjectDB {
 		
 		setFieldValue("defiLigneCommandePrixTotalEXW", prix_unitaire*qte);
 		setFieldValue("defiLigneCommandePoidsTotal", (qte*poids_u)/1000);
-		String Nom_Fournisseur =  getFieldValue("DF_ligne_commande_DF_Fournisseurs_id.defiFournNom");
-		setFieldValue("defiLigneCommandeFournisseur", Nom_Fournisseur);
+		//String Nom_Fournisseur =  getFieldValue("DF_ligne_commande_DF_Fournisseurs_id.defiFournNom");
+		//setFieldValue("defiLigneCommandeNmFourn", Nom_Fournisseur);
 	
 		save();
 	}

@@ -423,9 +423,9 @@ Objet métier pour fournisseur.
 | `defiLigneCommandeDesignation`                               | text(200)                                |          | yes       |          | -                                                                                |
 | `DF_ligne_commande_DF_Fournisseurs_id` link to **`DF_Fournisseurs`** | id                                       |          | yes       |          | -                                                                                |
 | _Ref. `DF_ligne_commande_DF_Fournisseurs_id.defiFournId`_    | _char(11)_                               |          |           |          | -                                                                                |
-| `defiLigneCommandeFournisseur`                               | char(100)                                |          | yes       |          | -                                                                                |
 | `defiLigneCommandeCatPrix`                                   | char(100)                                |          | yes       |          | -                                                                                |
 | `defiLigneCommandePoidsTotal`                                | float(10, 1)                             |          | yes       |          | -                                                                                |
+| `defiLigneCommandeNmFourn`                                   | char(100)                                |          | yes       |          | -                                                                                |
 
 `DF_Ligne_Devis` business object definition
 -------------------------------------------
@@ -449,6 +449,7 @@ Objet métier pour fournisseur.
 | `DF_Ligne_Devis_DF_Devis_id` link to **`DF_Devis`**          | id                                       | yes      | yes       |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdMasseVolumique`_ | _bigdec(8, 2)_                           |          |           |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Devis_id.defiDevisTitre`_           | _char(100)_                              |          |           |          | -                                                                                |
+| _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdFournisseur`_ | _char(100)_                              |          |           |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdCouleur`_   | _multi(100) using `DF_PRODUIT_COULEUR` list_ |          |           |          | -                                                                                |
 | `defiLigneDevisDimensionJoints`                              | float(4, 2)                              | yes      | yes       |          | -                                                                                |
 | `defiLigneDevisPoidsTotal`                                   | float(9, 2)                              |          |           |          | -                                                                                |
@@ -642,6 +643,7 @@ Objet metier pour produit.
 | `defiPrdUnite`                                               | enum(7) using `DEFIPRDUNITE` list        | yes      | yes       |          | -                                                                                |
 | `defiPrdPrixUnitaireHT`                                      | float(10, 2)                             | yes      | yes       |          | -                                                                                |
 | `defiPrdMasseVolumique`                                      | bigdec(8, 2)                             | yes      | yes       |          | -                                                                                |
+| `defiPrdFournisseur`                                         | char(100)                                |          | yes       |          | -                                                                                |
 
 ### Lists
 
