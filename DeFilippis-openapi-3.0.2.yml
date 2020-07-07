@@ -158,12 +158,12 @@ components:
           type: string
           enum:
           - MDO
-          - MO
           - AR
-          - ATPG
+          - MO
           - T
-          - ATP
+          - ATPG
           - V
+          - ATP
           - N
           - EA
           - P
@@ -696,7 +696,7 @@ components:
           description: Intitulé de commande
           type: string
         DF_Commande_DF_Contact_id__defiContactPrenom:
-          description: Prénom Contacts
+          description: Prénom Contact
           type: string
         defiCommandePJFournisseur:
           description: Pièce Jointe Fournisseur
@@ -992,7 +992,7 @@ components:
           description: Contact
           type: string
         DF_Devis_DF_Chantier_id__defiAfrLibelleChantier:
-          description: Titre Affaire DF chantier
+          description: Titre Affaire
           type: string
         defiDevisContenance:
           description: Contenance
@@ -1047,7 +1047,7 @@ components:
           description: Titre Projet
           type: string
         DF_Devis_DF_Contact_id__defiContactEmail:
-          description: E-mail Contacts
+          description: E-mail Contact
           type: string
         DF_Devis_DF_utilisateur_interne_id__defiUsrNC:
           description: Suiveur de l'affaire
@@ -1197,12 +1197,12 @@ components:
           type: string
           enum:
           - MDO
-          - MO
           - AR
-          - ATPG
+          - MO
           - T
-          - ATP
+          - ATPG
           - V
+          - ATP
           - N
           - EA
           - P
@@ -1312,7 +1312,7 @@ components:
           description: Largeur
           type: string
         DF_Produit_Finis_DF_Fournisseurs_id__defiFournNom:
-          description: Nom Fournisseurs
+          description: Nom Fournisseur
           type: string
         defiPrdMasseVolumique:
           description: Masse Volumique
@@ -2375,14 +2375,14 @@ paths:
       - schema:
           type: string
         in: query
-        name: defiAfrDateDebut
-        description: Search filter for Date début
+        name: DF_Chantier_DF_Client_id__defiClientTelephone
+        description: Search filter for Téléphone Client
         required: false
       - schema:
           type: string
         in: query
-        name: DF_Chantier_DF_Client_id__defiClientTelephone
-        description: Search filter for Téléphone Client
+        name: defiAfrDateDebut
+        description: Search filter for Date début
         required: false
       - schema:
           type: string
@@ -2454,12 +2454,12 @@ paths:
           type: string
           enum:
           - MDO
-          - MO
           - AR
-          - ATPG
+          - MO
           - T
-          - ATP
+          - ATPG
           - V
+          - ATP
           - N
           - EA
           - P
@@ -3899,14 +3899,14 @@ paths:
       - schema:
           type: string
         in: query
-        name: DF_ligne_commande_DF_Commande_id
-        description: Search filter for DF commande
+        name: DF_ligne_commande_DF_Fournisseurs_id__defiFournNom
+        description: Search filter for Nom Fournisseur
         required: false
       - schema:
           type: string
         in: query
-        name: DF_ligne_commande_DF_Fournisseurs_id__defiFournNom
-        description: Search filter for Nom Fournisseur
+        name: DF_ligne_commande_DF_Commande_id
+        description: Search filter for DF commande
         required: false
       - schema:
           type: string
@@ -5422,10 +5422,10 @@ paths:
         description: Search filter for Catégorie Prix
         required: false
       - schema:
-          type: number
+          type: string
         in: query
-        name: defiLigneDevisPrixTransportReference
-        description: Search filter for Prix Transport Référence
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdAutresFinitions
+        description: Search filter for Autres finitions
         required: false
       - schema:
           type: string
@@ -5442,10 +5442,10 @@ paths:
         description: Search filter for Type produit
         required: false
       - schema:
-          type: string
+          type: number
         in: query
-        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdAutresFinitions
-        description: Search filter for Autres finitions
+        name: defiLigneDevisPrixTransportReference
+        description: Search filter for Prix Transport Référence
         required: false
       - schema:
           type: string
@@ -6116,6 +6116,12 @@ paths:
       - schema:
           type: string
         in: query
+        name: DF_Contact_DF_Transport_id__defiTrspNom
+        description: Search filter for Nom Transporteur
+        required: false
+      - schema:
+          type: string
+        in: query
         name: defiContactId
         description: Search filter for Id Contact
         required: false
@@ -6124,12 +6130,6 @@ paths:
         in: query
         name: DF_Contact_DF_Fournisseurs_id__defiFournNom
         description: Search filter for Nom Fournisseur
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: DF_Contact_DF_Transport_id__defiTrspNom
-        description: Search filter for Nom Transporteur
         required: false
       - schema:
           type: string
@@ -6550,14 +6550,14 @@ paths:
       - schema:
           type: string
         in: query
-        name: DF_Produit_Finis_DF_Fournisseurs_id__defiFournNom
-        description: Search filter for Nom Fournisseurs
+        name: DF_Produit_Finis_DF_Fournisseurs_id
+        description: Search filter for Fournisseurs
         required: false
       - schema:
           type: string
         in: query
-        name: DF_Produit_Finis_DF_Fournisseurs_id
-        description: Search filter for Fournisseurs
+        name: DF_Produit_Finis_DF_Fournisseurs_id__defiFournNom
+        description: Search filter for Nom Fournisseur
         required: false
       - schema:
           type: string
@@ -7466,14 +7466,14 @@ paths:
       - schema:
           type: string
         in: query
-        name: defiCommandeNumero
-        description: Search filter for Numéro de Commande
+        name: defiCommandeId
+        description: Search filter for Id Commande
         required: false
       - schema:
           type: string
         in: query
-        name: defiCommandeId
-        description: Search filter for Id Commande
+        name: defiCommandeNumero
+        description: Search filter for Numéro de Commande
         required: false
       - schema:
           type: string
@@ -7509,13 +7509,19 @@ paths:
           type: string
         in: query
         name: DF_Commande_DF_Contact_id__defiContactPrenom
-        description: Search filter for Prénom Contacts
+        description: Search filter for Prénom Contact
         required: false
       - schema:
           type: string
         in: query
         name: defiCommandeIntituleCommande
         description: Search filter for Intitulé de commande
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Commande_DF_Client_id
+        description: Search filter for DF client
         required: false
       - schema:
           type: string
@@ -7528,12 +7534,6 @@ paths:
         in: query
         name: defiCommandeStatut
         description: Search filter for Statut Commande
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: DF_Commande_DF_Client_id
-        description: Search filter for DF client
         required: false
       - schema:
           type: string
@@ -8725,6 +8725,12 @@ paths:
         required: false
       - schema:
           type: string
+        in: query
+        name: defiDevisCreatedDT
+        description: Search filter for Date de Création
+        required: false
+      - schema:
+          type: string
           enum:
           - I
           - C
@@ -8735,14 +8741,8 @@ paths:
       - schema:
           type: string
         in: query
-        name: defiDevisCreatedDT
-        description: Search filter for Date de Création
-        required: false
-      - schema:
-          type: string
-        in: query
         name: DF_Devis_DF_Chantier_id__defiAfrLibelleChantier
-        description: Search filter for Titre Affaire DF chantier
+        description: Search filter for Titre Affaire
         required: false
       - schema:
           type: string
@@ -9010,14 +9010,14 @@ paths:
       - schema:
           type: string
         in: query
-        name: defiDevisNumero
-        description: Search filter for Numéro de devis
+        name: DF_Devis_DF_Contact_id__defiContactEmail
+        description: Search filter for E-mail Contact
         required: false
       - schema:
           type: string
         in: query
-        name: DF_Devis_DF_Contact_id__defiContactEmail
-        description: Search filter for E-mail Contacts
+        name: defiDevisNumero
+        description: Search filter for Numéro de devis
         required: false
       - schema:
           type: string
@@ -9157,8 +9157,8 @@ paths:
       - schema:
           type: string
         in: query
-        name: DF_Quantite_DF_ligne_commande_id__defiLigneCommandeDesignation
-        description: Search filter for Désignation DF ligne commande
+        name: DF_Quantite_DF_ligne_commande_id__defiLigneCommandeTypeGeologique
+        description: Search filter for Type Géologique DF ligne commande
         required: false
       - schema:
           type: string
@@ -9169,8 +9169,8 @@ paths:
       - schema:
           type: string
         in: query
-        name: DF_Quantite_DF_ligne_commande_id__defiLigneCommandeTypeGeologique
-        description: Search filter for Type Géologique DF ligne commande
+        name: DF_Quantite_DF_ligne_commande_id__defiLigneCommandeDesignation
+        description: Search filter for Désignation DF ligne commande
         required: false
       - schema:
           type: number
@@ -9558,12 +9558,12 @@ paths:
           type: string
           enum:
           - MDO
-          - MO
           - AR
-          - ATPG
+          - MO
           - T
-          - ATP
+          - ATPG
           - V
+          - ATP
           - N
           - EA
           - P
