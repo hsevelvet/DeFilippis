@@ -259,6 +259,7 @@ Objet metier pour devis.
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
 | _Ref. `DF_Devis_DF_Chantier_id.defiAfrStatut`_               | _enum(7) using `DF_STATUT_AFFAIRE` list_ |          |           |          | -                                                                                |
 | `defiDevisCreatedDT`                                         | datetime                                 |          | yes       |          | -                                                                                |
+| `defiDevisId`                                                | char(70)                                 | *        | yes       |          | -                                                                                |
 | _Ref. `DF_Devis_DF_utilisateur_interne_id.defiUsrTrigramme`_ | _char(5)_                                |          |           |          | -                                                                                |
 | _Ref. `DF_Devis_DF_Chantier_id.defiAfrLibelleChantier`_      | _char(36)_                               |          |           |          | -                                                                                |
 | `defiDevisTitre`                                             | char(100)                                | yes*     |           |          | -                                                                                |
@@ -310,6 +311,7 @@ Objet metier pour devis.
 | `defiDevisCompteurDate`                                      | int(100)                                 |          |           |          | -                                                                                |
 | `defiDevisRedacteur`                                         | char(70)                                 |          |           |          | -                                                                                |
 | `defiDevisEmailPDF`                                          | document                                 |          | yes       |          | -                                                                                |
+| `defiDevisTotalAchatTransport`                               | float(10, 2)                             |          | yes       |          | -                                                                                |
 
 ### Lists
 
@@ -439,6 +441,7 @@ Objet métier pour fournisseur.
 | `defiLigneDevisRow`                                          | char(10)                                 |          |           |          | -                                                                                |
 | `defiLigneDevisNPrix`                                        | char(10)                                 | yes      | yes       |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdAppellationCommerciale`_ | _char(200)_                              |          |           |          | -                                                                                |
+| _Ref. `DF_Ligne_Devis_DF_Devis_id.defiDevisId`_              | _char(70)_                               |          |           |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdCategoriePrix`_ | _enum(7) using `DEFIPRDCATEGORIEPRIX` list_ |          |           |          | -                                                                                |
 | `defiLigneDevisPrixTransportReference`                       | float(9, 2)                              | yes      | yes       |          | -                                                                                |
 | _Ref. `DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdAutresFinitions`_ | _char(70)_                               |          |           |          | -                                                                                |
