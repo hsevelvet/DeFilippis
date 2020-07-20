@@ -191,7 +191,14 @@ public class DF_Commande extends ObjectDB {
 						// Récupérer les 7 premières lettres du libellé de l'affaire
 						String int_aff = getFieldValue("DF_Commande_DF_Affaire_id.defiAfrLibelleChantier");
 						int_aff.replace(" " , "");
-						String firstCharsIntitule = int_aff.substring(0, 7);
+						String firstCharsIntitule ="";
+						
+						if (int_aff.length()>=7){
+							firstCharsIntitule = int_aff.substring(0, 7);
+						} else{
+							firstCharsIntitule = int_aff;
+						}
+						
 					
 						String fourns = lc.getFieldValue("defiLigneCommandeNmFourn");
 						//fourns.replace(" " , "");
@@ -429,7 +436,7 @@ public class DF_Commande extends ObjectDB {
     				Date date = new Date();  
     
 					hst.create();	
-					hst.getField("defiHstDocsDevis").setDocument(hst, "ARC-"+formatter.format(date).toString()+".pdf", this.pubPdfARC());
+					hst.getField("defiHstDocsDevis").setDocument(hst, "ARC-"+this.getFieldValue("defiCommandeIntituleCommande")+"-"+formatter.format(date).toString()+".pdf", this.pubPdfARC());
 					hst.setFieldValue("DF_Hist_Docs_DF_Commande_id",getRowId());
 					hst.setFieldValue("defiHstDocsDateEmission",date);
 					hst.setFieldValue("defiHstTitre","ARC - "+this.getFieldValue("defiCommandeNumero"));

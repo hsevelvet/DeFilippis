@@ -26,11 +26,11 @@ public class DF_Ligne_Devis extends ObjectDB {
 				if (c_unite.equals("61")) 
 				{
 					setFieldValue("defiLigneDevisU","M2");
-					setFieldValue("defiLigneDevisUnite","M2");
+					//setFieldValue("defiLigneDevisUnite","M2");
 				}
 				else if (c_unite.equals("62")) {
 					setFieldValue("defiLigneDevisU","ML");
-					setFieldValue("defiLigneDevisUnite","ML");
+					//setFieldValue("defiLigneDevisUnite","ML");
 				}
 			}
 			
@@ -50,7 +50,7 @@ public class DF_Ligne_Devis extends ObjectDB {
 			
 		
 		// accès aux valeurs 
-        String unite = getField("defiLigneDevisUnite").getValue(); 
+        String unite = getField("defiLigneDevisU").getValue(); 
         String des_produit = getField("defiPrdTypeProduit").getValue(); 
         String fin_produit = getField("defiLigneDevisFinitionFV").getValue();
         String ap_commerciale = getField("defiPrdAppellationCommerciale").getValue();
@@ -102,7 +102,7 @@ public class DF_Ligne_Devis extends ObjectDB {
 		
 		// Get valeurs référence produit
 		//double ep = getField("defiLigneDevisEpaisseur").getDouble(0);
-		int qte = getField("defiLigneDevisQuantite").getInt(0);
+		double qte = getField("defiLigneDevisQuantite").getDouble(0);
 		double dim_joint = getField("defiLigneDevisDimensionJoints").getDouble(0);
 		double ptr = getField("defiLigneDevisPrixTrsp").getDouble(0);
 		double prc = getField("defiLigneDevisPrixUnitaireHT").getDouble(0);
@@ -123,19 +123,32 @@ public class DF_Ligne_Devis extends ObjectDB {
 			int index_couleur = getField("defiLigneDevisCouleur").getList().getItemIndex(couleur_array[i],false);
 			String couleur = getField("defiLigneDevisCouleur").getList().getValue(index_couleur);
 			couleur_designation +=" "+couleur;
-			AppLog.info(getClass(), "index_couleur", couleur, getGrant());
 		}
 		
+		
+
 		
 		setFieldValue("defiLigneDevisTypePierre", type_geo);
-		
+	
 		String designation = null;
-		// valorisation : designation ligne devis
-		if (getFieldValue("defiLigneDevisTypePrd").equals("PAVE") || getFieldValue("defiLigneDevisTypePrd").equals("DALLE")){
-			designation = type_pr+" "+ appel_com +" "+couleur_designation+" "+ fin_produit+" "+aut_fin+"\n"+longueur +" " + " x "+largeur+"\t" +" x ep. "+epaisseur+" " + "Joint inclus de " +dim_joint +" cm";
-		} else{
-			designation = type_pr+" "+ appel_com +" "+couleur_designation+" "+fin_produit+" "+aut_fin+"\n"+longueur +" " + " x "+largeur+"\t" +" x ep. "+epaisseur;
+		if (couleur_designation.contains("null")||couleur_designation==null){
+			// valorisation : designation ligne devis
+			if (getFieldValue("defiLigneDevisTypePrd").equals("PAVE") || getFieldValue("defiLigneDevisTypePrd").equals("DALLE")){
+				designation = type_pr+" "+ appel_com +" "+ fin_produit+" "+aut_fin+"\n"+longueur +" " + " x "+largeur+"\t" +" x ep. "+epaisseur+" " + "Joint inclus de " +dim_joint +" cm";
+			} else{
+				designation = type_pr+" "+ appel_com +" "+fin_produit+" "+aut_fin+"\n"+longueur +" " + " x "+largeur+"\t" +" x ep. "+epaisseur;
+			}
 		}
+		else {
+			// valorisation : designation ligne devis
+			if (getFieldValue("defiLigneDevisTypePrd").equals("PAVE") || getFieldValue("defiLigneDevisTypePrd").equals("DALLE")){
+				designation = type_pr+" "+ appel_com +" "+couleur_designation+" "+ fin_produit+" "+aut_fin+"\n"+longueur +" " + " x "+largeur+"\t" +" x ep. "+epaisseur+" " + "Joint inclus de " +dim_joint +" cm";
+			} else{
+				designation = type_pr+" "+ appel_com +" "+couleur_designation+" "+fin_produit+" "+aut_fin+"\n"+longueur +" " + " x "+largeur+"\t" +" x ep. "+epaisseur;
+			}
+			
+		}
+		
 		
 		if (type_prd.equals("1")){
 			setFieldValue("defiLigneDevisDesignation",appel_com);	

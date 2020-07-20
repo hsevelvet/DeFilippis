@@ -154,38 +154,38 @@
 	td.conditions1, td.conditions2, td.totallibelle, td.totalvaleur, td.tvalibelle, td.tvavaleur, td.totalttclibelle, td.totalttcvaleur {
 		background-color:#A6C4E0;
 	}
-	tfoot td.conditions1, tfoot td.conditions2 {
+	td.conditions1, td.conditions2 {
 		font-size:10px;
 	}	
-	tfoot td.totallibelle {
+	td.totallibelle {
 		text-align:right;
 		font-weight:bold;
 	}
-	tfoot td.totalvaleur {
+	td.totalvaleur {
 		text-align:right;
 		font-weight:bold;
 	}	
-	tfoot td.tvalibelle {
+	td.tvalibelle {
 		text-align:right;
 		font-weight:bold;		
 	}
-	tfoot td.tvavaleur {
+	td.tvavaleur {
 		text-align:right;	
 		font-weight:bold;
 	}	
-	tfoot td.totalttclibelle {
+	td.totalttclibelle {
 		text-align:right;
 		font-weight:bold;		
 	}
-	tfoot td.totalttcvaleur {
+	td.totalttcvaleur {
 		text-align:right;	
 		font-weight:bold;
 	}	
-	tfoot ul {		
+	ul.inthefoot {		
 		margin: 0 15px;
 		padding: 5px;
 	}	
-	tfoot ul li {
+	ul.inthefoot li {
 		list-style: square;
 		margin: 0;
 		padding: 0;
@@ -305,6 +305,16 @@
 			
 			document.write(dateFormat); // au format 04/07/2020
 		}
+		function funite (unite,catPrix) {
+			
+			/*document.write(catPrix);*/
+			if(catPrix == "1"){ /* si prix FFT */
+				document.write("FFT");
+			}
+			else {
+				fval(unite);
+			}	
+		}
 	</script>
 </head>
 <body>
@@ -380,7 +390,7 @@
 					<td class="ref">{{defiLigneDevisNPrix}}</td>
 					<td class="type"><script>fval("{{defiLigneDevisTypePierre}}");</script></td>
 					<td class="designation">{{defiLigneDevisDesignation}}</td>
-					<td class="unite"><script>fval("{{defiLigneDevisUnite}}");</script></td>
+					<td class="unite"><script>funite("{{defiLigneDevisUnite}}","{{defiLigneDevisCatPrix}}");</script></td>
 					<td class="quantite">{{defiLigneDevisQuantite}}</td>
 					<td class="prixu"><script>fPrix(fTrouvePrixUnitaire({{defiLigneDevisPrixVenteCalcule}},{{defiLigneDevisPrixUnitaireImpose}}));</script></td> <!-- fPrix({{defiLigneDevisPrixVenteImpose}}/{{defiLigneDevisQuantite}}); -->
 					<td class="prixt"><script>fPrix({{defiLigneDevisPrixVenteImpose}});</script></td>
@@ -389,7 +399,7 @@
 				
 			</tbody>
 		{{#rows}}
-			<tfoot>
+			<!--<tfoot>-->
 				<tr>
 					<td class="vide" colspan="7">
 						Nombre de camion (U) : <strong>{{defiDevisNombreCamions}}</strong><br/>
@@ -399,15 +409,15 @@
 				<tr>
 					<td class="conditions2" rowspan="3" colspan="5" >
 					<p>Conditions de mise à disposition de la marchandise : </p>
-					<ul>
+					<ul class="inthefoot">
 							<li>Délais prévisionnel à confirmer au moment de la commande : <strong>{{defiDevisDelaisPrevisionnel}}</strong></li>						
 							<!--<strong>1ère livraison le {{defiDevisDelaisPrevisionnel}} si commande avant {{defiDevisDateValiditeOffre}}</strong></li>-->
-							<li>Cadence de livraison maximale hebdomadaire : <strong>{{defiDevisCadenceLivraison}}</strong></li>
+							<li>Cadence de livraison maximale hebdomadaire : <strong><script>fval("{{defiDevisCadenceLivraison}}");</script></strong></li>
 							<li>Facturation : <strong>Entreprise De Filippis</strong></li>
 							<li>Prix valable pour : <strong> {{#contenance}}{{contenance_l}}{{/contenance}}</strong></li>
 							<li>Acompte : <strong>{{#accompte}}{{accompte_l}}{{/accompte}}</strong></li>
 							<li>Paiement: <strong>{{#paiement}}{{paiement_l}}{{/paiement}}</strong></li>
-							<li>Validité de l'offre : <strong>{{defiDevisDateValiditeOffre}}</strong></li>
+							<li>Validité de l'offre : <strong><script>fFormatDate("{{defiDevisDateValiditeOffre}}");</script></strong></li>
 							<li>Packaging transport : <strong>{{#pack_transp}}{{pack_transp_l}}{{/pack_transp}}</strong></li>
 							<li>Condition de mise à disposition : <strong>{{#conditions}}{{conditions_l}}{{/conditions}}</strong></li>
 						</ul>
@@ -425,7 +435,7 @@
 					<td class="totalttclibelle">TOTAL TTC</td>
 					<td class="totalttcvaleur"><script>fPrix({{defiDevisPrixTotal}});</script></td>					
 				</tr>				
-			</tfoot>
+			<!--</tfoot>-->
 		</table>
 		{{/rows}}
 		

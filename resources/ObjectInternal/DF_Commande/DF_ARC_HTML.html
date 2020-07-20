@@ -371,7 +371,7 @@
 				</tr>
 				<tr>
 					<td class="totallibelle" colspan="6">
-						Prix HT {{#defiCommandeIncotermPrix}}({{defiCommandeIncotermPrix}}){{/defiCommandeIncotermPrix}}
+						TOTAL HT {{#defiCommandeIncotermPrix}}({{defiCommandeIncotermPrix}}){{/defiCommandeIncotermPrix}}
 					</td>
 					<td class="totalvaleur">
 						<script>fPrix({{defiCommandeMontantHT}});</script>
@@ -379,7 +379,7 @@
 				</tr>				
 				<tr>
 					<td class="totallibelletva" colspan="6">
-						TVA
+						TVA 20,00%
 					</td>
 					<td class="totalvaleurtva">
 						<script>fPrix({{defiCommandeMontantHT}}*0.2);</script>
@@ -387,7 +387,7 @@
 				</tr>
 				<tr>
 					<td class="totallibellettc" colspan="6">
-						Montant TTC
+						TOTAL TTC
 					</td>
 					<td class="totalvaleurttc">
 						<script>fPrix({{defiCommandeMontantHT}}*1.2);</script>

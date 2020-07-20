@@ -47,9 +47,9 @@ public class DF_Client extends ObjectDB {
 			
 			for(String[] cmd : commandes.search()){
 				commandes.setValues(cmd);
-				if(commandes.getStatus().equals("TE")){
-					cm += commandes.getField("defiCommandeMontantHT").getDouble(0);
-				}
+				//if(commandes.getStatus().equals("TE")){
+				cm += commandes.getField("defiCommandeMontantHT").getDouble(0);
+				//}
 				
 				setFieldValue("defiClientSommeCommandes",cm);
 			}

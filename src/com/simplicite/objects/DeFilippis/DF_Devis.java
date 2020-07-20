@@ -131,6 +131,7 @@ public class DF_Devis extends ObjectDB {
 			double total_achat = Double.parseDouble(o.getField("defiLigneDevisTotalAchatHT").getListOperatorValue());
 			double nbc = Double.parseDouble(o.getField("defiLigneDevisNombreCamions").getListOperatorValue());
 			double pt = Double.parseDouble(o.getField("defiLigneDevisPoidsTotal").getListOperatorValue());
+			double total_ac_trsp = Double.parseDouble(o.getField("defiLigneDevisPrixTrsp").getListOperatorValue());
 			
 			
 			// Nombre de camions 
@@ -143,6 +144,9 @@ public class DF_Devis extends ObjectDB {
 			setFieldValue("defiDevisPrixTotal", t + t*0.2);
 			// Coefficition global : total ventes / total achats
 			setFieldValue("defiDevisCoefficientGlobal", t/total_achat);
+			
+			// Total Achat Transport
+			setFieldValue("defiDevisTotalAchatTransport", total_ac_trsp);
 		}
 	}
 	
