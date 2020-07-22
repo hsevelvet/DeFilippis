@@ -381,7 +381,10 @@ public class DF_Devis extends ObjectDB {
 		o.setFieldValue("defiDevisCoefficientGlobal", coef_global);
 		o.setFieldValue("defiDevisPoidsTotal",poids_total);
 		o.setFieldValue("defiDevisNombreCamions",nb_camions);
-		o.setFieldValue("DF_Devis_DF_Chantier_id.defiAfrNumero", getFieldValue("DF_Devis_DF_Chantier_id.defiAfrNumero"));
+		o.setFieldValue("DF_Devis_DF_Chantier_id", this.getFieldValue("DF_Devis_DF_Chantier_id"));
+		o.setFieldValue("DF_Devis_DF_Client_id", this.getFieldValue("DF_Devis_DF_Client_id"));
+		o.setFieldValue("DF_Devis_DF_Contact_id", this.getFieldValue("DF_Devis_DF_Contact_id"));
+		o.setFieldValue("DF_Devis_DF_utilisateur_interne_id", this.getFieldValue("DF_Devis_DF_utilisateur_interne_id"));
 		o.save();
 		// incrémentation d'indice du devis actuel
 		setFieldValue("defiDevisIndice",indice_next);

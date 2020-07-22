@@ -157,8 +157,8 @@ components:
           description: Secteur Activité Client
           type: string
           enum:
-          - AR
           - MDO
+          - AR
           - MO
           - ATPG
           - T
@@ -166,8 +166,8 @@ components:
           - V
           - N
           - EA
-          - P
           - A
+          - P
         DF_Chantier_DF_Client_id__defiClientId:
           description: Id Client
           type: string
@@ -1214,8 +1214,8 @@ components:
           description: Secteur Activité
           type: string
           enum:
-          - AR
           - MDO
+          - AR
           - MO
           - ATPG
           - T
@@ -1223,8 +1223,8 @@ components:
           - V
           - N
           - EA
-          - P
           - A
+          - P
         defiClientAdresse:
           description: Adresse
           type: string
@@ -2471,8 +2471,8 @@ paths:
       - schema:
           type: string
           enum:
-          - AR
           - MDO
+          - AR
           - MO
           - ATPG
           - T
@@ -2480,8 +2480,8 @@ paths:
           - V
           - N
           - EA
-          - P
           - A
+          - P
         in: query
         name: DF_Chantier_DF_Client_id__defiClientIdSecteurActivite
         description: Search filter for Secteur Activité Client
@@ -9611,8 +9611,8 @@ paths:
       - schema:
           type: string
           enum:
-          - AR
           - MDO
+          - AR
           - MO
           - ATPG
           - T
@@ -9620,8 +9620,8 @@ paths:
           - V
           - N
           - EA
-          - P
           - A
+          - P
         in: query
         name: defiClientIdSecteurActivite
         description: Search filter for Secteur Activité
