@@ -324,7 +324,7 @@
 		<usr_extra>1</usr_extra>
 		<usr_subhead>1</usr_subhead>
 		<usr_logout>2020-07-01 15:43:05</usr_logout>
-		<usr_last_logon>2020-07-22 16:40:51</usr_last_logon>
+		<usr_last_logon>2020-07-22 19:04:24</usr_last_logon>
 		<usr_dateformat>DMY</usr_dateformat>
 		<usr_uuid/>
 	</data>
@@ -426,7 +426,7 @@
 		<usr_extra>1</usr_extra>
 		<usr_subhead>1</usr_subhead>
 		<usr_logout>2020-07-20 14:25:32</usr_logout>
-		<usr_last_logon>2020-07-22 15:54:53</usr_last_logon>
+		<usr_last_logon>2020-07-22 19:00:58</usr_last_logon>
 		<usr_dateformat/>
 		<usr_uuid/>
 	</data>
@@ -700,6 +700,10 @@ DF_Ligne_Devis:1,addlist,listedit:reload,prefs,copy,exportxml,export,updall,dela
 		<usp_user_id.usr_login>designer</usp_user_id.usr_login>
 		<usp_param_id.sys_code>HISTORY Home</usp_param_id.sys_code>
 		<usp_value><![CDATA[[{"object":"DF_Devis","rowId":"152","label":"Devis : AGN.93170 BAGNOLET.ZAC Benoit Hure.2020.00152.B"},
+{"object":"ObjectFieldSystem","rowId":"18899","label":"Attribut d'objet : DF_Devis defiAfrLibelleChantier 4"},
+{"object":"Field","rowId":"8751","label":"Attribut : defiAfrLibelleChantier"},
+{"object":"Field","rowId":"8816","label":"Attribut : defiDevisCommentaire"},
+{"object":"Module","rowId":"39","label":"Module : DeFilippis"},
 {"object":"Action","rowId":"1074","label":"Action : Historiser"},
 {"object":"Action","rowId":"1084","label":"Action : Historiser-ODF"},
 {"object":"PrintTemplate","rowId":"56","label":"Publication : ARC-PDF Français"},
@@ -714,11 +718,7 @@ DF_Ligne_Devis:1,addlist,listedit:reload,prefs,copy,exportxml,export,updall,dela
 {"object":"Field","rowId":"8849","label":"Attribut : defiHstDocsDevis"},
 {"object":"DF_Devis","rowId":"155","label":"Devis : D-00155"},
 {"object":"DF_Commande","rowId":"178","label":"Commandes : CO-00178"},
-{"object":"Module","rowId":"39","label":"Module : DeFilippis"},
-{"object":"DF_Livraison","rowId":"792","label":"Livraisons : LVR-00792"},
-{"object":"Field","rowId":"9006","label":"Attribut : DF_Quantite_DF_Livraison_id"},
-{"object":"ObjectInternal","rowId":"2034","label":"Objet métier : DF_Quantite"},
-{"object":"DF_Commande","rowId":"198","label":"Commandes : CO-00198"}]]]></usp_value>
+{"object":"DF_Livraison","rowId":"792","label":"Livraisons : LVR-00792"}]]]></usp_value>
 		<usp_param_id.sys_type/>
 		<usp_param_id.sys_value><![CDATA[empty]]></usp_param_id.sys_value>
 		<usp_param_id.sys_desc/>
@@ -892,14 +892,15 @@ DF_Produit_Finis:defiPrdAppellationCommerciale,defiPrdFinitionFacesVues,defiPrdL
 	<data>
 		<usp_user_id.usr_login>hsenoussi</usp_user_id.usr_login>
 		<usp_param_id.sys_code>HISTORY</usp_param_id.sys_code>
-		<usp_value><![CDATA[[{"object":"DF_Devis","rowId":"226","label":"Devis : D-00226"},
+		<usp_value><![CDATA[[{"object":"DF_Commande","rowId":"177","label":"Commandes : CO-00177"},
+{"object":"DF_Devis","rowId":"152","label":"Devis : D-00152"},
+{"object":"DF_Devis","rowId":"226","label":"Devis : D-00226"},
 {"object":"DF_Devis","rowId":"225","label":"Devis : D-00225"},
 {"object":"DF_Ligne_Devis","rowId":"770","label":"Lignes Devis : D-00225 LD-00770"},
 {"object":"DF_Ligne_Devis","rowId":"769","label":"Lignes Devis : D-00225 LD-00769"},
 {"object":"DF_Devis","rowId":"210","label":"Devis : D-00210"},
 {"object":"DF_Devis","rowId":"168","label":"Devis : D-00168"},
 {"object":"DF_Devis","rowId":"198","label":"Devis : D-00198"},
-{"object":"DF_Devis","rowId":"152","label":"Devis : D-00152"},
 {"object":"DF_Devis","rowId":"18","label":"Devis : D-00018"},
 {"object":"DF_Devis","rowId":"20","label":"Devis : D-00020"},
 {"object":"DF_Ligne_Devis","rowId":"56","label":"Lignes Devis : LD-00056"},
@@ -8026,7 +8027,7 @@ Tout accés alloués.]]></grp_comment>
 		<fld_enumlist/>
 		<fld_list_id.lov_name/>
 		<fld_copy>1</fld_copy>
-		<fld_size>100</fld_size>
+		<fld_size>400</fld_size>
 		<fld_minsize/>
 		<fld_precision/>
 		<fld_fromdate_id.fld_name/>
@@ -22839,7 +22840,7 @@ Objet metier pour produit.]]></obo_comment>
 		<obf_fld_visible>2</obf_fld_visible>
 		<obf_fld_required/>
 		<obf_fld_updatable>0</obf_fld_updatable>
-		<obf_fld_research/>
+		<obf_fld_research>1</obf_fld_research>
 		<obf_fld_more/>
 		<obf_fld_listmore/>
 		<obf_fld_researchreq/>
