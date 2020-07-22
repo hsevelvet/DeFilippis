@@ -699,7 +699,12 @@ DF_Ligne_Devis:1,addlist,listedit:reload,prefs,copy,exportxml,export,updall,dela
 	<data>
 		<usp_user_id.usr_login>designer</usp_user_id.usr_login>
 		<usp_param_id.sys_code>HISTORY Home</usp_param_id.sys_code>
-		<usp_value><![CDATA[[{"object":"DF_Commande","rowId":"177","label":"Commandes : CO-00177"},
+		<usp_value><![CDATA[[{"object":"ObjectFieldSystem","rowId":"18589","label":"Attribut d'objet : DF_Client defiClientTauxTransformation 2322"},
+{"object":"TranslateField","rowId":"58088","label":"Traduction attribut : Attribut defiClientTauxTransformation Français"},
+{"object":"Field","rowId":"8771","label":"Attribut : defiClientTauxTransformation"},
+{"object":"DF_Client","rowId":"32","label":"Clients : CLT-00032"},
+{"object":"Module","rowId":"39","label":"Module : DeFilippis"},
+{"object":"DF_Commande","rowId":"177","label":"Commandes : CO-00177"},
 {"object":"DF_Commande","rowId":"197","label":"Commandes : CO-00197"},
 {"object":"Field","rowId":"8782","label":"Attribut : defiCommandeId"},
 {"object":"ObjectFieldSystem","rowId":"18594","label":"Attribut d'objet : DF_Commande defiCommandeId 10"},
@@ -713,12 +718,7 @@ DF_Ligne_Devis:1,addlist,listedit:reload,prefs,copy,exportxml,export,updall,dela
 {"object":"ObjectFieldSystem","rowId":"18787","label":"Attribut d'objet : DF_Livraison defiLivraisonId 1"},
 {"object":"ObjectInternal","rowId":"2031","label":"Objet métier : DF_Livraison"},
 {"object":"Link","rowId":"18842","label":"Relation d'objets : DF_Quantite_DF_Livraison_id"},
-{"object":"DF_Livraison","rowId":"784","label":"Livraisons : LVR-00784"},
-{"object":"DF_Devis","rowId":"211","label":"Devis : D-00211"},
-{"object":"DF_Devis","rowId":"215","label":"Devis : D-00215"},
-{"object":"Field","rowId":"9064","label":"Attribut : defiDevisId"},
-{"object":"ObjectFieldSystem","rowId":"18980","label":"Attribut d'objet : DF_Devis defiDevisId 1"},
-{"object":"DF_Devis","rowId":"210","label":"Devis : D-00210"}]]]></usp_value>
+{"object":"DF_Livraison","rowId":"784","label":"Livraisons : LVR-00784"}]]]></usp_value>
 		<usp_param_id.sys_type/>
 		<usp_param_id.sys_value><![CDATA[empty]]></usp_param_id.sys_value>
 		<usp_param_id.sys_desc/>
@@ -45091,6 +45091,19 @@ Tout accés alloués.]]></vig_group_id.grp_comment>
 		<tsl_simplehelp/>
 		<tsl_short_value/>
 		<tsl_listhelp/>
+		<tsl_placeholder/>
+		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_typeObjectField>L</tsl_typeObjectField>
+		<tsl_id.obf_object_id.obo_name>DF_Client</tsl_id.obf_object_id.obo_name>
+		<tsl_id.obf_field_id.fld_name>defiClientTauxTransformation</tsl_id.obf_field_id.fld_name>
+		<tsl_id.obf_order>2322</tsl_id.obf_order>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>Taux de Transformation</tsl_value>
+		<tsl_simplehelp><![CDATA[<p>1-(Nb de devis en chantier/Nb de devis total)</p>]]></tsl_simplehelp>
+		<tsl_short_value/>
+		<tsl_listhelp><![CDATA[<p>1-(Nb de devis en chantier/Nb de devis total)</p>]]></tsl_listhelp>
 		<tsl_placeholder/>
 		<row_module_id.mdl_name>DeFilippis</row_module_id.mdl_name>
 	</data>

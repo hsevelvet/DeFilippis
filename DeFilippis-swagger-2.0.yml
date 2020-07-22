@@ -6235,8 +6235,8 @@ paths:
         type: string
         required: false
         enum:
-        - MDO
         - AR
+        - MDO
         - MO
         - ATPG
         - T
@@ -6244,8 +6244,8 @@ paths:
         - V
         - N
         - EA
-        - A
         - P
+        - A
       - in: query
         name: defiClientRegion
         description: Search filter for Region
@@ -6273,7 +6273,7 @@ paths:
         required: false
       - in: query
         name: defiClientTauxTransformation
-        description: Search filter for Taux de transformation
+        description: Search filter for Taux de Transformation
         type: string
         required: false
       - in: query
@@ -7991,8 +7991,8 @@ definitions:
         description: Secteur Activité
         type: string
         enum:
-        - MDO
         - AR
+        - MDO
         - MO
         - ATPG
         - T
@@ -8000,8 +8000,8 @@ definitions:
         - V
         - N
         - EA
-        - A
         - P
+        - A
       defiClientAdresse:
         description: Adresse
         type: string
@@ -8012,7 +8012,7 @@ definitions:
         description: Adresse 3
         type: string
       defiClientTauxTransformation:
-        description: Taux de transformation
+        description: Taux de Transformation
         type: string
       defiClientAdresse2:
         description: Adresse 2

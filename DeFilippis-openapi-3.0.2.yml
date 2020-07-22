@@ -1214,8 +1214,8 @@ components:
           description: Secteur Activité
           type: string
           enum:
-          - MDO
           - AR
+          - MDO
           - MO
           - ATPG
           - T
@@ -1223,8 +1223,8 @@ components:
           - V
           - N
           - EA
-          - A
           - P
+          - A
         defiClientAdresse:
           description: Adresse
           type: string
@@ -1235,7 +1235,7 @@ components:
           description: Adresse 3
           type: string
         defiClientTauxTransformation:
-          description: Taux de transformation
+          description: Taux de Transformation
           type: string
         defiClientAdresse2:
           description: Adresse 2
@@ -9611,8 +9611,8 @@ paths:
       - schema:
           type: string
           enum:
-          - MDO
           - AR
+          - MDO
           - MO
           - ATPG
           - T
@@ -9620,8 +9620,8 @@ paths:
           - V
           - N
           - EA
-          - A
           - P
+          - A
         in: query
         name: defiClientIdSecteurActivite
         description: Search filter for Secteur Activité
@@ -9660,7 +9660,7 @@ paths:
           type: string
         in: query
         name: defiClientTauxTransformation
-        description: Search filter for Taux de transformation
+        description: Search filter for Taux de Transformation
         required: false
       - schema:
           type: integer
