@@ -324,7 +324,7 @@
 		<usr_extra>1</usr_extra>
 		<usr_subhead>1</usr_subhead>
 		<usr_logout>2020-07-01 15:43:05</usr_logout>
-		<usr_last_logon>2020-07-22 15:39:22</usr_last_logon>
+		<usr_last_logon>2020-07-22 16:01:24</usr_last_logon>
 		<usr_dateformat>DMY</usr_dateformat>
 		<usr_uuid/>
 	</data>
@@ -426,7 +426,7 @@
 		<usr_extra>1</usr_extra>
 		<usr_subhead>1</usr_subhead>
 		<usr_logout>2020-07-20 14:25:32</usr_logout>
-		<usr_last_logon>2020-07-22 12:47:13</usr_last_logon>
+		<usr_last_logon>2020-07-22 15:54:53</usr_last_logon>
 		<usr_dateformat/>
 		<usr_uuid/>
 	</data>
@@ -699,12 +699,18 @@ DF_Ligne_Devis:1,addlist,listedit:reload,prefs,copy,exportxml,export,updall,dela
 	<data>
 		<usp_user_id.usr_login>designer</usp_user_id.usr_login>
 		<usp_param_id.sys_code>HISTORY Home</usp_param_id.sys_code>
-		<usp_value><![CDATA[[{"object":"DF_Devis","rowId":"222","label":"Devis : D-00222"},
+		<usp_value><![CDATA[[{"object":"Module","rowId":"39","label":"Module : DeFilippis"},
+{"object":"Field","rowId":"8974","label":"Attribut : DF_Ligne_Devis_DF_Devis_id"},
+{"object":"ObjectInternal","rowId":"2030","label":"Objet métier : DF_Ligne_Devis"},
+{"object":"DF_Devis","rowId":"224","label":"Devis : D-00224"},
+{"object":"Field","rowId":"9064","label":"Attribut : defiDevisId"},
+{"object":"ObjectFieldSystem","rowId":"18982","label":"Attribut d'objet : DF_Ligne_Devis defiDevisId 1"},
+{"object":"DF_Devis","rowId":"223","label":"Devis : D-00223"},
+{"object":"DF_Devis","rowId":"222","label":"Devis : D-00222"},
 {"object":"DF_Devis","rowId":"221","label":"Devis : D-00221"},
 {"object":"DF_Devis","rowId":"152","label":"Devis : AGN.93170 BAGNOLET.ZAC Benoit Hure.2020.00152.B"},
 {"object":"DF_Devis","rowId":"219","label":"Devis : D-00219"},
 {"object":"DF_Devis","rowId":"216","label":"Devis : D-00216"},
-{"object":"Module","rowId":"39","label":"Module : DeFilippis"},
 {"object":"DF_Client","rowId":"35","label":"Clients : CLT-00035"},
 {"object":"DF_Client","rowId":"42","label":"Clients : CLT-00042"},
 {"object":"DF_Client","rowId":"51","label":"Clients : CLT-00051"},
@@ -712,13 +718,7 @@ DF_Ligne_Devis:1,addlist,listedit:reload,prefs,copy,exportxml,export,updall,dela
 {"object":"DF_Client","rowId":"33","label":"Clients : CLT-00033"},
 {"object":"DF_Ligne_Devis","rowId":"337","label":"Lignes Devis : LD-00337"},
 {"object":"DF_Devis","rowId":"154","label":"Devis : D-00154"},
-{"object":"DF_Devis","rowId":"155","label":"Devis : D-00155"},
-{"object":"DF_Ligne_Devis","rowId":"571","label":"Lignes Devis : LD-00571"},
-{"object":"DF_Devis","rowId":"200","label":"Devis : D-00200"},
-{"object":"DF_Devis","rowId":"0","label":"Copier Devis"},
-{"object":"Field","rowId":"9064","label":"Attribut : defiDevisId"},
-{"object":"ObjectFieldSystem","rowId":"18980","label":"Attribut d'objet : DF_Devis defiDevisId 1"},
-{"object":"ObjectInternal","rowId":"2038","label":"Objet métier : DF_Devis"}]]]></usp_value>
+{"object":"DF_Devis","rowId":"155","label":"Devis : D-00155"}]]]></usp_value>
 		<usp_param_id.sys_type/>
 		<usp_param_id.sys_value><![CDATA[empty]]></usp_param_id.sys_value>
 		<usp_param_id.sys_desc/>
@@ -892,7 +892,11 @@ DF_Produit_Finis:defiPrdAppellationCommerciale,defiPrdFinitionFacesVues,defiPrdL
 	<data>
 		<usp_user_id.usr_login>hsenoussi</usp_user_id.usr_login>
 		<usp_param_id.sys_code>HISTORY</usp_param_id.sys_code>
-		<usp_value><![CDATA[[{"object":"DF_Devis","rowId":"210","label":"Devis : D-00210"},
+		<usp_value><![CDATA[[{"object":"DF_Devis","rowId":"226","label":"Devis : D-00226"},
+{"object":"DF_Devis","rowId":"225","label":"Devis : D-00225"},
+{"object":"DF_Ligne_Devis","rowId":"770","label":"Lignes Devis : D-00225 LD-00770"},
+{"object":"DF_Ligne_Devis","rowId":"769","label":"Lignes Devis : D-00225 LD-00769"},
+{"object":"DF_Devis","rowId":"210","label":"Devis : D-00210"},
 {"object":"DF_Devis","rowId":"168","label":"Devis : D-00168"},
 {"object":"DF_Devis","rowId":"198","label":"Devis : D-00198"},
 {"object":"DF_Devis","rowId":"152","label":"Devis : D-00152"},
@@ -14894,7 +14898,7 @@ Tout accés alloués.]]></grp_comment>
 		<fld_visible>3</fld_visible>
 		<fld_updatable>1</fld_updatable>
 		<fld_required>0</fld_required>
-		<fld_fonctid>0</fld_fonctid>
+		<fld_fonctid>1</fld_fonctid>
 		<fld_research/>
 		<fld_researchreq>0</fld_researchreq>
 		<fld_sort>C</fld_sort>
@@ -16154,7 +16158,7 @@ Tout accés alloués.]]></grp_comment>
 		<fld_visible>3</fld_visible>
 		<fld_updatable>1</fld_updatable>
 		<fld_required>0</fld_required>
-		<fld_fonctid>0</fld_fonctid>
+		<fld_fonctid>1</fld_fonctid>
 		<fld_research/>
 		<fld_researchreq>0</fld_researchreq>
 		<fld_sort>C</fld_sort>
@@ -30092,7 +30096,7 @@ Objet metier pour produit.]]></obo_comment>
 		<obf_field_id.fld_dbname>df_ligne_commande_df_commande_id</obf_field_id.fld_dbname>
 		<obf_field_id.fld_updatable>1</obf_field_id.fld_updatable>
 		<obf_field_id.fld_required>0</obf_field_id.fld_required>
-		<obf_field_id.fld_fonctid>0</obf_field_id.fld_fonctid>
+		<obf_field_id.fld_fonctid>1</obf_field_id.fld_fonctid>
 		<obf_cascad>C</obf_cascad>
 		<obf_card>0,n</obf_card>
 		<obf_query/>
@@ -30404,7 +30408,7 @@ Objet metier pour produit.]]></obo_comment>
 		<obf_field_id.fld_dbname>df_quantite_df_livraison_id</obf_field_id.fld_dbname>
 		<obf_field_id.fld_updatable>1</obf_field_id.fld_updatable>
 		<obf_field_id.fld_required>0</obf_field_id.fld_required>
-		<obf_field_id.fld_fonctid>0</obf_field_id.fld_fonctid>
+		<obf_field_id.fld_fonctid>1</obf_field_id.fld_fonctid>
 		<obf_cascad>C</obf_cascad>
 		<obf_card>0,n</obf_card>
 		<obf_query/>
