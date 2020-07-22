@@ -699,26 +699,26 @@ DF_Ligne_Devis:1,addlist,listedit:reload,prefs,copy,exportxml,export,updall,dela
 	<data>
 		<usp_user_id.usr_login>designer</usp_user_id.usr_login>
 		<usp_param_id.sys_code>HISTORY Home</usp_param_id.sys_code>
-		<usp_value><![CDATA[[{"object":"ObjectFieldSystem","rowId":"18589","label":"Attribut d'objet : DF_Client defiClientTauxTransformation 2322"},
-{"object":"TranslateField","rowId":"58088","label":"Traduction attribut : Attribut defiClientTauxTransformation Français"},
-{"object":"Field","rowId":"8771","label":"Attribut : defiClientTauxTransformation"},
-{"object":"DF_Client","rowId":"32","label":"Clients : CLT-00032"},
-{"object":"Module","rowId":"39","label":"Module : DeFilippis"},
+		<usp_value><![CDATA[[{"object":"DF_Hist_Docs","rowId":"144","label":"Historique Documents : HST-00144"},
 {"object":"DF_Commande","rowId":"177","label":"Commandes : CO-00177"},
-{"object":"DF_Commande","rowId":"197","label":"Commandes : CO-00197"},
-{"object":"Field","rowId":"8782","label":"Attribut : defiCommandeId"},
-{"object":"ObjectFieldSystem","rowId":"18594","label":"Attribut d'objet : DF_Commande defiCommandeId 10"},
-{"object":"ObjectInternal","rowId":"2024","label":"Objet métier : DF_Commande"},
-{"object":"Link","rowId":"18716","label":"Relation d'objets : DF_ligne_commande_DF_Commande_id"},
-{"object":"Link","rowId":"18740","label":"Relation d'objets : DF_Ligne_Devis_DF_Devis_id"},
+{"object":"DF_Livraison","rowId":"784","label":"Livraisons : LVR-00784"},
+{"object":"DF_Client","rowId":"35","label":"Clients : CLT-00035"},
+{"object":"DF_Client","rowId":"42","label":"Clients : CLT-00042"},
+{"object":"DF_Client","rowId":"51","label":"Clients : CLT-00051"},
+{"object":"DF_Commande","rowId":"179","label":"Commandes : CO-00179"},
+{"object":"DF_Client","rowId":"33","label":"Clients : CLT-00033"},
+{"object":"DF_Devis","rowId":"152","label":"Devis : AGN.93170 BAGNOLET.ZAC Benoit Hure.2020.00152.B"},
+{"object":"DF_Ligne_Devis","rowId":"337","label":"Lignes Devis : LD-00337"},
+{"object":"DF_Devis","rowId":"154","label":"Devis : D-00154"},
+{"object":"Module","rowId":"39","label":"Module : DeFilippis"},
+{"object":"DF_Devis","rowId":"155","label":"Devis : D-00155"},
+{"object":"DF_Ligne_Devis","rowId":"571","label":"Lignes Devis : LD-00571"},
+{"object":"DF_Devis","rowId":"200","label":"Devis : D-00200"},
+{"object":"DF_Devis","rowId":"0","label":"Copier Devis"},
+{"object":"Field","rowId":"9064","label":"Attribut : defiDevisId"},
+{"object":"ObjectFieldSystem","rowId":"18980","label":"Attribut d'objet : DF_Devis defiDevisId 1"},
 {"object":"ObjectInternal","rowId":"2038","label":"Objet métier : DF_Devis"},
-{"object":"DF_Livraison","rowId":"791","label":"Livraisons : LVR-00791"},
-{"object":"DF_Livraison","rowId":"790","label":"Livraisons : LVR-00790"},
-{"object":"Field","rowId":"8899","label":"Attribut : defiLivraisonId"},
-{"object":"ObjectFieldSystem","rowId":"18787","label":"Attribut d'objet : DF_Livraison defiLivraisonId 1"},
-{"object":"ObjectInternal","rowId":"2031","label":"Objet métier : DF_Livraison"},
-{"object":"Link","rowId":"18842","label":"Relation d'objets : DF_Quantite_DF_Livraison_id"},
-{"object":"DF_Livraison","rowId":"784","label":"Livraisons : LVR-00784"}]]]></usp_value>
+{"object":"DF_Devis","rowId":"211","label":"Devis : D-00211"}]]]></usp_value>
 		<usp_param_id.sys_type/>
 		<usp_param_id.sys_value><![CDATA[empty]]></usp_param_id.sys_value>
 		<usp_param_id.sys_desc/>
@@ -778,7 +778,7 @@ DF_Ligne_Devis:DF_Ligne_Devis_DF_Produit_Finis_id.defiPrdAppellationCommerciale,
 	<data>
 		<usp_user_id.usr_login>designer</usp_user_id.usr_login>
 		<usp_param_id.sys_code>UI_EDITOR_PREFS</usp_param_id.sys_code>
-		<usp_value><![CDATA[{"explore":[{"module":"DeFilippis","id":"39","items":[{"field":"obo_script_id","label":"Objet métier","list":[{"docId":"6055","id":"2022","label":"DF_Affaire"},{"docId":"6056","id":"2023","label":"DF_Client"},{"docId":"6154","id":"2024","label":"DF_Commande"},{"docId":"6058","id":"2025","label":"DF_Contact"},{"docId":"6153","id":"2038","label":"DF_Devis"},{"docId":"6060","id":"2029","label":"DF_ligne_commande"},{"docId":"6106","id":"2030","label":"DF_Ligne_Devis"},{"docId":"6062","id":"2031","label":"DF_Livraison"},{"docId":"6063","id":"2033","label":"DF_Produit_Finis"},{"docId":"6064","id":"2034","label":"DF_Quantite"},{"docId":"6065","id":"2036","label":"DF_Transport"}],"open":true,"object":"ObjectInternal"},{"field":"obe_script_id","label":"Objet externe","list":[{"docId":"6053","id":"2020","label":"Test"},{"docId":"6054","id":"2021","label":"WebhookLivraisonTrello"}],"open":true,"object":"ObjectExternal"},{"field":"pcs_script_id","label":"Processus métier","list":[{"docId":"6066","id":"10","label":"DF_Process_01"}],"open":true,"object":"BPMProcess"},{"field":"res_file","label":"Ressource","list":[{"docId":"6067","id":"264","label":"Objet métier/DF_Commande * DF_ARC_HTML"},{"docId":"5248","id":"270","label":"Objet métier/DF_Contact * SCRIPT"},{"docId":"5673","id":"266","label":"Objet métier/DF_Ligne_Devis * SCRIPT"},{"docId":"6069","id":"267","label":"Objet métier/DF_Livraison * DF_BL_HTML"},{"docId":"6070","id":"268","label":"Objet métier/DF_Livraison * DF_ODF_HTML"},{"docId":"6068","id":"269","label":"Objet métier/DF_Devis * DF_Devis_HTML"},{"docId":"5788","id":"276","label":"Objet métier/DF_Devis * SCRIPT"}],"open":true,"object":"Resource"}],"open":true},{"module":"SimStore","id":"37","items":[{"field":"obe_script_id","label":"Objet externe","list":[{"docId":"4192","id":"1988","label":"StoStore"}],"open":false,"object":"ObjectExternal"},{"field":"res_file","label":"Ressource","list":[{"docId":"4188","id":"251","label":"Objet externe/StoStore * TEMPLATE"},{"docId":"4144","id":"252","label":"Objet externe/StoStore * SCRIPT"}],"open":false,"object":"Resource"}],"open":false}],"tabs":[{"field":"res_file","scope":"","type":"html","object":"Resource","rowId":"264"},{"field":"res_file","scope":"","type":"html","object":"Resource","rowId":"263"},{"field":"res_file","scope":"","type":"js","object":"Resource","rowId":"266"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2038"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2024"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2023"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2030"}],"selected":"ObjectInternal_obo_script_id_2024"}]]></usp_value>
+		<usp_value><![CDATA[{"explore":[{"module":"DeFilippis","id":"39","items":[{"field":"obo_script_id","label":"Objet métier","list":[{"docId":"6055","id":"2022","label":"DF_Affaire"},{"docId":"6056","id":"2023","label":"DF_Client"},{"docId":"6155","id":"2024","label":"DF_Commande"},{"docId":"6058","id":"2025","label":"DF_Contact"},{"docId":"6153","id":"2038","label":"DF_Devis"},{"docId":"6060","id":"2029","label":"DF_ligne_commande"},{"docId":"6106","id":"2030","label":"DF_Ligne_Devis"},{"docId":"6159","id":"2031","label":"DF_Livraison"},{"docId":"6063","id":"2033","label":"DF_Produit_Finis"},{"docId":"6064","id":"2034","label":"DF_Quantite"},{"docId":"6065","id":"2036","label":"DF_Transport"}],"open":true,"object":"ObjectInternal"},{"field":"obe_script_id","label":"Objet externe","list":[{"docId":"6053","id":"2020","label":"Test"},{"docId":"6054","id":"2021","label":"WebhookLivraisonTrello"}],"open":true,"object":"ObjectExternal"},{"field":"pcs_script_id","label":"Processus métier","list":[{"docId":"6066","id":"10","label":"DF_Process_01"}],"open":true,"object":"BPMProcess"},{"field":"res_file","label":"Ressource","list":[{"docId":"6067","id":"264","label":"Objet métier/DF_Commande * DF_ARC_HTML"},{"docId":"5248","id":"270","label":"Objet métier/DF_Contact * SCRIPT"},{"docId":"5673","id":"266","label":"Objet métier/DF_Ligne_Devis * SCRIPT"},{"docId":"6069","id":"267","label":"Objet métier/DF_Livraison * DF_BL_HTML"},{"docId":"6070","id":"268","label":"Objet métier/DF_Livraison * DF_ODF_HTML"},{"docId":"6068","id":"269","label":"Objet métier/DF_Devis * DF_Devis_HTML"},{"docId":"5788","id":"276","label":"Objet métier/DF_Devis * SCRIPT"}],"open":true,"object":"Resource"}],"open":true},{"module":"SimStore","id":"37","items":[{"field":"obe_script_id","label":"Objet externe","list":[{"docId":"4192","id":"1988","label":"StoStore"}],"open":false,"object":"ObjectExternal"},{"field":"res_file","label":"Ressource","list":[{"docId":"4188","id":"251","label":"Objet externe/StoStore * TEMPLATE"},{"docId":"4144","id":"252","label":"Objet externe/StoStore * SCRIPT"}],"open":false,"object":"Resource"}],"open":false}],"tabs":[{"field":"res_file","scope":"","type":"html","object":"Resource","rowId":"264"},{"field":"res_file","scope":"","type":"html","object":"Resource","rowId":"263"},{"field":"res_file","scope":"","type":"js","object":"Resource","rowId":"266"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2038"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2024"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2023"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2030"},{"field":"obo_script_id","scope":"object","type":"java","object":"ObjectInternal","rowId":"2031"}],"selected":"ObjectInternal_obo_script_id_2031"}]]></usp_value>
 		<usp_param_id.sys_type/>
 		<usp_param_id.sys_value><![CDATA[empty]]></usp_param_id.sys_value>
 		<usp_param_id.sys_desc/>

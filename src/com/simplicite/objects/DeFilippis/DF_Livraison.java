@@ -23,6 +23,7 @@ import com.simplicite.util.tools.*;
 import com.simplicite.util.tools.HTMLTool; 
 
 import com.simplicite.util.tools.PDFTool;
+import com.simplicite.util.PrintTemplate; 
 
 /**
  * Trello card business object example
@@ -319,7 +320,7 @@ public class DF_Livraison extends ObjectDB {
 	
 
 	
-	public byte[] pubPdfBL(){
+	public byte[] pubPdfBL(PrintTemplate pt){
 		String url = "http://wkhtml2pdf/";
 		String user = null;
 		String password = null;
@@ -327,7 +328,22 @@ public class DF_Livraison extends ObjectDB {
 		
 		JSONObject postData = new JSONObject();
 		postData.put("contents", Tool.toBase64(pubBL()));
-
+		
+		
+		ObjectDB commande = getGrant().getTmpObject("DF_Commande");
+	
+		synchronized(commande){
+			commande.resetFilters();
+			commande.setFieldFilter("row_id",this.getFieldValue("DF_Livraison_DF_Commande_id"));
+						
+			for(String[] cmde : commande.search()){
+				commande.setValues(cmde);
+				String numBl = this.getFieldValue("defiLivraisonNumBL");
+				pt.setFilename(commande.getFieldValue("defiCommandeNumero")+"-"+this.getFieldValue("defiLivraisonNumBL")+".pdf");
+				}
+			}
+		
+		
 		String[] headers = {"Content-Type:application/json"};
 		String encoding = Globals.BINARY;
 		byte[] pdf = null;
@@ -350,10 +366,10 @@ public class DF_Livraison extends ObjectDB {
 				
 					SimpleDateFormat formatter = new SimpleDateFormat("dd_MM_yyyy-HH");  
     				Date date = new Date();  
-
+					PrintTemplate pt = getPrintTemplate("DF_Livraison");
 
 					hst.create();	
-					hst.getField("defiHstDocsDevis").setDocument(hst, "BL"+formatter.format(date).toString()+".pdf", this.pubPdfBL());
+					hst.getField("defiHstDocsDevis").setDocument(hst, "BL"+formatter.format(date).toString()+".pdf", this.pubPdfBL(pt));
 					hst.setFieldValue("DF_Hist_Docs_DF_Commande_id",this.getFieldValue("DF_Livraison_DF_Commande_id"));
 					hst.setFieldValue("defiHstDocsDateEmission",date);
 					
