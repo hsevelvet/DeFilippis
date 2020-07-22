@@ -507,14 +507,14 @@ public class DF_Devis extends ObjectDB {
 	
 	}
 	
-	public byte[] pubPdf(){
+	public byte[] pubPdf(PrintTemplate pt){
 		String url = "http://wkhtml2pdf/";
 		String user = null;
 		String password = null;
 		
 		
 		JSONObject postData = new JSONObject();
-		PrintTemplate pt = getPrintTemplate("DF_Devis");
+		
 		postData.put("contents", Tool.toBase64(pubDevis()));
 		String[] headers = {"Content-Type:application/json"};
 		String encoding = Globals.BINARY;
@@ -522,6 +522,8 @@ public class DF_Devis extends ObjectDB {
 		
 		ObjectDB devis = getGrant().getTmpObject("DF_Devis");
 		ObjectField devis_fiche = devis.getField("defiDevisFicheTechnique"); // must be of type file
+		pt.setFilename("AGN.93170BAGNOLET.ZACBenoitHure.2020.00152.C.pdf");
+		
 
 		/**https://www.simplicite.io/resources/4.0/javadoc/com/simplicite/util/tools/MailTool.html
 		new Mail(getGrant()).send(
@@ -534,15 +536,18 @@ public class DF_Devis extends ObjectDB {
 		**/
 
 		try{
+			
 			pdf = Tool.readUrlAsByteArray(url, user, password, postData.toString(), headers, encoding);
-			pt.setFilename("test");
+			
 			
 		
 		}catch(Exception e){
 			AppLog.error(getClass(), "pubPdf", "------------", e, getGrant());
 		}
+		
 		return pdf;
 	}
+	
 	// Méthode pour historiser un Devis
 	public String generateFile() {
 		ObjectDB hst = getGrant().getTmpObject("DF_Hist_Docs");
@@ -552,9 +557,9 @@ public class DF_Devis extends ObjectDB {
 				hst.resetFilters();
 					SimpleDateFormat formatter = new SimpleDateFormat("dd_MM_yyyy-HH");  
     				Date date = new Date();  
-    
+    				PrintTemplate pt = getPrintTemplate("DF_Devis");
 					hst.create();	
-					hst.getField("defiHstDocsDevis").setDocument(hst, "Devis-"+formatter.format(date).toString()+".pdf", this.pubPdf());
+					hst.getField("defiHstDocsDevis").setDocument(hst, "Devis-"+formatter.format(date).toString()+".pdf", this.pubPdf(pt));
 					hst.setFieldValue("DF_Hist_Docs_DF_Devis_id",getRowId());
 					hst.setFieldValue("defiHstDocsDateEmission",date);
 					hst.setFieldValue("defiHstTitre", this.getFieldValue("defiDevisTitre"));
@@ -586,9 +591,9 @@ public class DF_Devis extends ObjectDB {
 		
 		SimpleDateFormat formatter = new SimpleDateFormat("dd_MM_yyyy-HH");  
     	Date date = new Date();  
-    
+    	PrintTemplate pt = getPrintTemplate("DF_Devis");
 		
-		devis.getField("defiDevisEmailPDF").setDocument(devis, "Devis-"+formatter.format(date).toString()+".pdf", this.pubPdf());
+		devis.getField("defiDevisEmailPDF").setDocument(devis, "Devis-"+formatter.format(date).toString()+".pdf", this.pubPdf(pt));
 		
 		ObjectField devis_pdf = devis.getField("defiDevisEmailPDF");
 		
