@@ -312,6 +312,9 @@ components:
         defiLigneDevisTypePierre:
           description: Type Geo
           type: string
+        defiLigneDevisPrixTransportTotal:
+          description: Prix Transport Total
+          type: number
         defiLigneDevisTotalEXWHT:
           description: Total EXW HT
           type: number
@@ -400,12 +403,12 @@ components:
           - LUS
           - TEC
           - PRE
-        defiLigneDevisMasseVolumique:
-          description: Masse Volumique
-          type: integer
         defiLigneDevisEpaisseur:
           description: Epaisseur / Hauteur (cm)
           type: string
+        defiLigneDevisMasseVolumique:
+          description: Masse Volumique
+          type: integer
         defiLigneDevisUnite:
           description: Unité
           type: string
@@ -991,6 +994,9 @@ components:
           - DPU
           - FCD
           - FCN
+        defiDevisTotalACFournHT:
+          description: Total Achat Fourniture HT
+          type: number
         DF_Devis_DF_Contact_id__defiContactId:
           description: Contact
           type: string
@@ -1017,7 +1023,7 @@ components:
           description: Indice
           type: string
         defiDevisPrixTotalHT:
-          description: Total Achat Fourniture HT
+          description: Total Vente HT
           type: string
         defiDevisOrdreFacturation:
           description: Ordre facturation
@@ -1038,6 +1044,9 @@ components:
         defiDevisDelaisPrevisionnel:
           description: Délais prévisionnel
           type: string
+        defiDevisTotalACHT:
+          description: Total Achat HT
+          type: number
         defiDevisAccompte:
           description: Acompte
           type: string
@@ -1148,7 +1157,7 @@ components:
           - M
           - F
         defiDevisPrixTotal:
-          description: Total Achat Fourniture TTC
+          description: Total Vente TTC
           type: number
         defiDevisCoefficientGlobal:
           description: Coefficient Global
@@ -5412,14 +5421,14 @@ paths:
       - schema:
           type: string
         in: query
-        name: DF_Ligne_Devis_DF_Devis_id__defiDevisId
-        description: Search filter for defi devis id DF devis
+        name: defiLigneDevisNPrix
+        description: Search filter for N° de prix
         required: false
       - schema:
           type: string
         in: query
-        name: defiLigneDevisNPrix
-        description: Search filter for N° de prix
+        name: DF_Ligne_Devis_DF_Devis_id__defiDevisId
+        description: Search filter for defi devis id DF devis
         required: false
       - schema:
           type: string
@@ -5438,6 +5447,18 @@ paths:
         required: false
       - schema:
           type: string
+        in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdAutresFinitions
+        description: Search filter for Autres finitions
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: defiLigneDevisPrixTransportReference
+        description: Search filter for Prix Transport Référence
+        required: false
+      - schema:
+          type: string
           enum:
           - PAVE
           - DALLE
@@ -5453,18 +5474,6 @@ paths:
       - schema:
           type: string
         in: query
-        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdAutresFinitions
-        description: Search filter for Autres finitions
-        required: false
-      - schema:
-          type: number
-        in: query
-        name: defiLigneDevisPrixTransportReference
-        description: Search filter for Prix Transport Référence
-        required: false
-      - schema:
-          type: string
-        in: query
         name: defiLigneDevisId
         description: Search filter for Ligne Devis ID
         required: false
@@ -5473,12 +5482,6 @@ paths:
         in: query
         name: defiLigneDevisQuantite
         description: Search filter for Quantité
-        required: false
-      - schema:
-          type: integer
-        in: query
-        name: defiLigneDevisMasseVolumique
-        description: Search filter for Masse Volumique
         required: false
       - schema:
           type: string
@@ -5738,6 +5741,12 @@ paths:
         description: Search filter for Désignation Produit
         required: false
       - schema:
+          type: integer
+        in: query
+        name: defiLigneDevisMasseVolumique
+        description: Search filter for Masse Volumique
+        required: false
+      - schema:
           type: string
         in: query
         name: defiLigneDevisNomProduit
@@ -5885,6 +5894,12 @@ paths:
         in: query
         name: defiLigneDevisCouleur
         description: Search filter for Couleur
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: defiLigneDevisPrixTransportTotal
+        description: Search filter for Prix Transport Total
         required: false
       tags:
       - DF_Ligne_Devis
@@ -8740,12 +8755,6 @@ paths:
         required: false
       - schema:
           type: string
-        in: query
-        name: defiDevisCreatedDT
-        description: Search filter for Date de Création
-        required: false
-      - schema:
-          type: string
           enum:
           - I
           - C
@@ -8762,14 +8771,20 @@ paths:
       - schema:
           type: string
         in: query
-        name: DF_Devis_DF_Chantier_id__defiAfrLibelleChantier
-        description: Search filter for Titre Affaire
+        name: defiDevisCreatedDT
+        description: Search filter for Date de Création
         required: false
       - schema:
           type: string
         in: query
         name: DF_Devis_DF_utilisateur_interne_id__defiUsrTrigramme
         description: Search filter for Trigramme
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: DF_Devis_DF_Chantier_id__defiAfrLibelleChantier
+        description: Search filter for Titre Affaire
         required: false
       - schema:
           type: string
@@ -8814,14 +8829,14 @@ paths:
       - schema:
           type: string
         in: query
-        name: defiDevisDateEmission
-        description: Search filter for Date Emission
+        name: defiDevisLieuProjet
+        description: Search filter for Ville Projet
         required: false
       - schema:
           type: string
         in: query
-        name: defiDevisLieuProjet
-        description: Search filter for Ville Projet
+        name: defiDevisDateEmission
+        description: Search filter for Date Emission
         required: false
       - schema:
           type: string
@@ -8851,7 +8866,7 @@ paths:
           type: number
         in: query
         name: defiDevisPrixTotal
-        description: Search filter for Total Achat Fourniture TTC
+        description: Search filter for Total Vente TTC
         required: false
       - schema:
           type: string
@@ -8893,7 +8908,7 @@ paths:
           type: string
         in: query
         name: defiDevisPrixTotalHT
-        description: Search filter for Total Achat Fourniture HT
+        description: Search filter for Total Vente HT
         required: false
       - schema:
           type: string
@@ -9031,14 +9046,14 @@ paths:
       - schema:
           type: string
         in: query
-        name: defiDevisNumero
-        description: Search filter for Numéro de devis
+        name: DF_Devis_DF_Contact_id__defiContactEmail
+        description: Search filter for E-mail Contact
         required: false
       - schema:
           type: string
         in: query
-        name: DF_Devis_DF_Contact_id__defiContactEmail
-        description: Search filter for E-mail Contact
+        name: defiDevisNumero
+        description: Search filter for Numéro de devis
         required: false
       - schema:
           type: string
@@ -9103,6 +9118,18 @@ paths:
         in: query
         name: defiDevisTotalAchatTransport
         description: Search filter for Total Achat Transport
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: defiDevisTotalACFournHT
+        description: Search filter for Total Achat Fourniture HT
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: defiDevisTotalACHT
+        description: Search filter for Total Achat HT
         required: false
       tags:
       - DF_Devis

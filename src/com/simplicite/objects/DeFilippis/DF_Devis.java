@@ -33,6 +33,9 @@ import com.simplicite.webapp.web.BootstrapWebPage;
 import com.simplicite.util.tools.PDFTool;
 import com.simplicite.util.tools.MailTool;
 import com.simplicite.util.Mail;
+import com.simplicite.util.PrintTemplate; 
+
+
 
 
 /**
@@ -131,7 +134,8 @@ public class DF_Devis extends ObjectDB {
 			double total_achat = Double.parseDouble(o.getField("defiLigneDevisTotalAchatHT").getListOperatorValue());
 			double nbc = Double.parseDouble(o.getField("defiLigneDevisNombreCamions").getListOperatorValue());
 			double pt = Double.parseDouble(o.getField("defiLigneDevisPoidsTotal").getListOperatorValue());
-			double total_ac_trsp = Double.parseDouble(o.getField("defiLigneDevisPrixTrsp").getListOperatorValue());
+			double total_ac_trsp = Double.parseDouble(o.getField("defiLigneDevisPrixTransportTotal").getListOperatorValue());
+			double total_exw_ht = Double.parseDouble(o.getField("defiLigneDevisTotalEXWHT").getListOperatorValue());
 			
 			
 			// Nombre de camions 
@@ -145,8 +149,14 @@ public class DF_Devis extends ObjectDB {
 			// Coefficition global : total ventes / total achats
 			setFieldValue("defiDevisCoefficientGlobal", t/total_achat);
 			
+			//Total Achat Fourniture
+			setFieldValue("defiDevisTotalACFournHT", total_exw_ht);
+			
 			// Total Achat Transport
 			setFieldValue("defiDevisTotalAchatTransport", total_ac_trsp);
+			
+			// Total Achat HT
+			setFieldValue("defiDevisTotalACHT", total_ac_trsp + total_exw_ht);
 		}
 	}
 	
@@ -504,6 +514,7 @@ public class DF_Devis extends ObjectDB {
 		
 		
 		JSONObject postData = new JSONObject();
+		PrintTemplate pt = getPrintTemplate("DF_Devis");
 		postData.put("contents", Tool.toBase64(pubDevis()));
 		String[] headers = {"Content-Type:application/json"};
 		String encoding = Globals.BINARY;
@@ -524,6 +535,7 @@ public class DF_Devis extends ObjectDB {
 
 		try{
 			pdf = Tool.readUrlAsByteArray(url, user, password, postData.toString(), headers, encoding);
+			pt.setFilename("test");
 			
 		
 		}catch(Exception e){

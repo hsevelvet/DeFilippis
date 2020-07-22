@@ -2706,13 +2706,13 @@ paths:
         type: string
         required: false
       - in: query
-        name: DF_Ligne_Devis_DF_Devis_id__defiDevisId
-        description: Search filter for defi devis id DF devis
+        name: defiLigneDevisNPrix
+        description: Search filter for N° de prix
         type: string
         required: false
       - in: query
-        name: defiLigneDevisNPrix
-        description: Search filter for N° de prix
+        name: DF_Ligne_Devis_DF_Devis_id__defiDevisId
+        description: Search filter for defi devis id DF devis
         type: string
         required: false
       - in: query
@@ -2729,6 +2729,16 @@ paths:
         - '2'
         - '1'
       - in: query
+        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdAutresFinitions
+        description: Search filter for Autres finitions
+        type: string
+        required: false
+      - in: query
+        name: defiLigneDevisPrixTransportReference
+        description: Search filter for Prix Transport Référence
+        type: number
+        required: false
+      - in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdTypeProduit
         description: Search filter for Type produit
         type: string
@@ -2742,16 +2752,6 @@ paths:
         - CANIVEAU
         - PIECE
       - in: query
-        name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdAutresFinitions
-        description: Search filter for Autres finitions
-        type: string
-        required: false
-      - in: query
-        name: defiLigneDevisPrixTransportReference
-        description: Search filter for Prix Transport Référence
-        type: number
-        required: false
-      - in: query
         name: defiLigneDevisId
         description: Search filter for Ligne Devis ID
         type: string
@@ -2760,11 +2760,6 @@ paths:
         name: defiLigneDevisQuantite
         description: Search filter for Quantité
         type: number
-        required: false
-      - in: query
-        name: defiLigneDevisMasseVolumique
-        description: Search filter for Masse Volumique
-        type: integer
         required: false
       - in: query
         name: DF_Ligne_Devis_DF_Produit_Finis_id__defiPrdFinitionFacesVues
@@ -2985,6 +2980,11 @@ paths:
         type: string
         required: false
       - in: query
+        name: defiLigneDevisMasseVolumique
+        description: Search filter for Masse Volumique
+        type: integer
+        required: false
+      - in: query
         name: defiLigneDevisNomProduit
         description: Search filter for Nom Produit
         type: string
@@ -3115,6 +3115,11 @@ paths:
         - OC
         - JA
         - MA
+      - in: query
+        name: defiLigneDevisPrixTransportTotal
+        description: Search filter for Prix Transport Total
+        type: number
+        required: false
       tags:
       - DF_Ligne_Devis
   /rest/DF_Transport/{row_id}:
@@ -5503,11 +5508,6 @@ paths:
         type: boolean
         required: false
       - in: query
-        name: defiDevisCreatedDT
-        description: Search filter for Date de Création
-        type: string
-        required: false
-      - in: query
         name: DF_Devis_DF_Chantier_id__defiAfrStatut
         description: Search filter for Statut Affaire DF chantier
         type: string
@@ -5521,13 +5521,18 @@ paths:
         type: string
         required: false
       - in: query
-        name: DF_Devis_DF_Chantier_id__defiAfrLibelleChantier
-        description: Search filter for Titre Affaire
+        name: defiDevisCreatedDT
+        description: Search filter for Date de Création
         type: string
         required: false
       - in: query
         name: DF_Devis_DF_utilisateur_interne_id__defiUsrTrigramme
         description: Search filter for Trigramme
+        type: string
+        required: false
+      - in: query
+        name: DF_Devis_DF_Chantier_id__defiAfrLibelleChantier
+        description: Search filter for Titre Affaire
         type: string
         required: false
       - in: query
@@ -5566,13 +5571,13 @@ paths:
         - M
         - F
       - in: query
-        name: defiDevisDateEmission
-        description: Search filter for Date Emission
+        name: defiDevisLieuProjet
+        description: Search filter for Ville Projet
         type: string
         required: false
       - in: query
-        name: defiDevisLieuProjet
-        description: Search filter for Ville Projet
+        name: defiDevisDateEmission
+        description: Search filter for Date Emission
         type: string
         required: false
       - in: query
@@ -5597,7 +5602,7 @@ paths:
         required: false
       - in: query
         name: defiDevisPrixTotal
-        description: Search filter for Total Achat Fourniture TTC
+        description: Search filter for Total Vente TTC
         type: number
         required: false
       - in: query
@@ -5632,7 +5637,7 @@ paths:
         required: false
       - in: query
         name: defiDevisPrixTotalHT
-        description: Search filter for Total Achat Fourniture HT
+        description: Search filter for Total Vente HT
         type: string
         required: false
       - in: query
@@ -5750,13 +5755,13 @@ paths:
         type: string
         required: false
       - in: query
-        name: defiDevisNumero
-        description: Search filter for Numéro de devis
+        name: DF_Devis_DF_Contact_id__defiContactEmail
+        description: Search filter for E-mail Contact
         type: string
         required: false
       - in: query
-        name: DF_Devis_DF_Contact_id__defiContactEmail
-        description: Search filter for E-mail Contact
+        name: defiDevisNumero
+        description: Search filter for Numéro de devis
         type: string
         required: false
       - in: query
@@ -5811,6 +5816,16 @@ paths:
       - in: query
         name: defiDevisTotalAchatTransport
         description: Search filter for Total Achat Transport
+        type: number
+        required: false
+      - in: query
+        name: defiDevisTotalACFournHT
+        description: Search filter for Total Achat Fourniture HT
+        type: number
+        required: false
+      - in: query
+        name: defiDevisTotalACHT
+        description: Search filter for Total Achat HT
         type: number
         required: false
       tags:
@@ -7074,6 +7089,9 @@ definitions:
       defiLigneDevisTypePierre:
         description: Type Geo
         type: string
+      defiLigneDevisPrixTransportTotal:
+        description: Prix Transport Total
+        type: number
       defiLigneDevisTotalEXWHT:
         description: Total EXW HT
         type: number
@@ -7162,12 +7180,12 @@ definitions:
         - LUS
         - TEC
         - PRE
-      defiLigneDevisMasseVolumique:
-        description: Masse Volumique
-        type: integer
       defiLigneDevisEpaisseur:
         description: Epaisseur / Hauteur (cm)
         type: string
+      defiLigneDevisMasseVolumique:
+        description: Masse Volumique
+        type: integer
       defiLigneDevisUnite:
         description: Unité
         type: string
@@ -7753,6 +7771,9 @@ definitions:
         - DPU
         - FCD
         - FCN
+      defiDevisTotalACFournHT:
+        description: Total Achat Fourniture HT
+        type: number
       DF_Devis_DF_Contact_id__defiContactId:
         description: Contact
         type: string
@@ -7779,7 +7800,7 @@ definitions:
         description: Indice
         type: string
       defiDevisPrixTotalHT:
-        description: Total Achat Fourniture HT
+        description: Total Vente HT
         type: string
       defiDevisOrdreFacturation:
         description: Ordre facturation
@@ -7800,6 +7821,9 @@ definitions:
       defiDevisDelaisPrevisionnel:
         description: Délais prévisionnel
         type: string
+      defiDevisTotalACHT:
+        description: Total Achat HT
+        type: number
       defiDevisAccompte:
         description: Acompte
         type: string
@@ -7910,7 +7934,7 @@ definitions:
         - M
         - F
       defiDevisPrixTotal:
-        description: Total Achat Fourniture TTC
+        description: Total Vente TTC
         type: number
       defiDevisCoefficientGlobal:
         description: Coefficient Global

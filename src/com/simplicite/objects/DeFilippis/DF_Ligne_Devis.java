@@ -293,6 +293,7 @@ public class DF_Ligne_Devis extends ObjectDB {
     		setFieldValue("defiLigneDevisPrixUnitaireSec",pexwut + ptu);
     	}
         
+        setFieldValue("defiLigneDevisPrixTransportTotal",ptu*qte);
         
         // calcul total achat reference ht
         setFieldValue("defiLigneDevisTotalEXWHT", pexwut * qte);

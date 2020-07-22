@@ -312,6 +312,8 @@ Objet metier pour devis.
 | `defiDevisRedacteur`                                         | char(70)                                 |          |           |          | -                                                                                |
 | `defiDevisEmailPDF`                                          | document                                 |          | yes       |          | -                                                                                |
 | `defiDevisTotalAchatTransport`                               | float(10, 2)                             |          | yes       |          | -                                                                                |
+| `defiDevisTotalACFournHT`                                    | float(10, 2)                             |          |           |          | -                                                                                |
+| `defiDevisTotalACHT`                                         | float(10, 2)                             |          |           |          | -                                                                                |
 
 ### Lists
 
@@ -510,6 +512,7 @@ Objet métier pour fournisseur.
 | `defiLigneDevisTypePierre`                                   | char(70)                                 |          | yes       |          | -                                                                                |
 | `defiLigneDevisPoidsUnitaire`                                | float(10, 2)                             |          |           |          | -                                                                                |
 | `defiLigneDevisCouleur`                                      | multi(100) using `DF_PRODUIT_COULEUR` list |          | yes       |          | -                                                                                |
+| `defiLigneDevisPrixTransportTotal`                           | float(10, 2)                             |          | yes       |          | -                                                                                |
 
 ### Lists
 
