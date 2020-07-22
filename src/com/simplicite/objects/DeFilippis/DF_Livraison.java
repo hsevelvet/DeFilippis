@@ -366,10 +366,10 @@ public class DF_Livraison extends ObjectDB {
 				
 					SimpleDateFormat formatter = new SimpleDateFormat("dd_MM_yyyy-HH");  
     				Date date = new Date();  
-					PrintTemplate pt = getPrintTemplate("DF_Livraison");
+					PrintTemplate ptLV = getPrintTemplate("BL-PDF");
 
 					hst.create();	
-					hst.getField("defiHstDocsDevis").setDocument(hst, "BL"+formatter.format(date).toString()+".pdf", this.pubPdfBL(pt));
+					hst.getField("defiHstDocsDevis").setDocument(hst, "BL"+formatter.format(date).toString()+".pdf", this.pubPdfBL(ptLV));
 					hst.setFieldValue("DF_Hist_Docs_DF_Commande_id",this.getFieldValue("DF_Livraison_DF_Commande_id"));
 					hst.setFieldValue("defiHstDocsDateEmission",date);
 					

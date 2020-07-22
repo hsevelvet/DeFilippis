@@ -564,9 +564,9 @@ public class DF_Devis extends ObjectDB {
 				hst.resetFilters();
 					SimpleDateFormat formatter = new SimpleDateFormat("dd_MM_yyyy-HH");  
     				Date date = new Date();  
-    				PrintTemplate pt = getPrintTemplate("DF_Devis");
-					hst.create();	
-					hst.getField("defiHstDocsDevis").setDocument(hst, "Devis-"+formatter.format(date).toString()+".pdf", this.pubPdf(pt));
+    				PrintTemplate ptDevis = getPrintTemplate("Devis-PDF");
+					hst.create();
+					hst.getField("defiHstDocsDevis").setDocument(hst, "Devis-"+formatter.format(date).toString()+".pdf", this.pubPdf(ptDevis));
 					hst.setFieldValue("DF_Hist_Docs_DF_Devis_id",getRowId());
 					hst.setFieldValue("defiHstDocsDateEmission",date);
 					hst.setFieldValue("defiHstTitre", this.getFieldValue("defiDevisTitre"));

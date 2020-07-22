@@ -437,9 +437,9 @@ public class DF_Commande extends ObjectDB {
 				hst.resetFilters();
 					SimpleDateFormat formatter = new SimpleDateFormat("dd_MM_yyyy-HH");  
     				Date date = new Date();  
-    				PrintTemplate pt = getPrintTemplate("DF_Commande");
+    				PrintTemplate ptARC = getPrintTemplate("ARC-PDF");
 					hst.create();	
-					hst.getField("defiHstDocsDevis").setDocument(hst, "ARC-"+this.getFieldValue("defiCommandeIntituleCommande")+"-"+formatter.format(date).toString()+".pdf", this.pubPdfARC(pt));
+					hst.getField("defiHstDocsDevis").setDocument(hst, "ARC-"+this.getFieldValue("defiCommandeIntituleCommande")+"-"+formatter.format(date).toString()+".pdf", this.pubPdfARC(ptARC));
 					hst.setFieldValue("DF_Hist_Docs_DF_Commande_id",getRowId());
 					hst.setFieldValue("defiHstDocsDateEmission",date);
 					hst.setFieldValue("defiHstTitre","ARC - "+this.getFieldValue("defiCommandeNumero"));
