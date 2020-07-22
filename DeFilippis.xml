@@ -601,7 +601,10 @@
 	<data>
 		<usp_user_id.usr_login>callain</usp_user_id.usr_login>
 		<usp_param_id.sys_code>HISTORY DeFilippis</usp_param_id.sys_code>
-		<usp_value><![CDATA[[{"object":"DF_Commande","rowId":"178","label":"Commandes : CO-00178"},
+		<usp_value><![CDATA[[{"object":"DF_Affaire","rowId":"115","label":"Affaires : AFR-00115"},
+{"object":"DF_Client","rowId":"59","label":"Clients : CLT-00059"},
+{"object":"DF_Contact","rowId":"101","label":"Contacts : CT-00101"},
+{"object":"DF_Commande","rowId":"178","label":"Commandes : CO-00178"},
 {"object":"DF_ligne_commande","rowId":"601","label":"Lignes Commande : LC-00601"},
 {"object":"DF_Commande","rowId":"196","label":"Commandes : CO-00196"},
 {"object":"DF_Devis","rowId":"200","label":"Devis : D-00200"},
@@ -617,10 +620,7 @@
 {"object":"DF_Devis","rowId":"169","label":"Devis"},
 {"object":"DF_Affaire","rowId":"97","label":"Affaires : AFR-00097"},
 {"object":"DF_Hist_Docs","rowId":"184","label":"Historique Documents : HST-00184"},
-{"object":"DF_Commande","rowId":"194","label":"Commandes : CO-00194"},
-{"object":"DF_Affaire","rowId":"106","label":"Affaires : AFR-00106"},
-{"object":"DF_Livraison","rowId":"784","label":"Livraisons : LVR-00784"},
-{"object":"DF_Affaire","rowId":"84","label":"Affaires : AFR-00084"}]]]></usp_value>
+{"object":"DF_Commande","rowId":"194","label":"Commandes : CO-00194"}]]]></usp_value>
 		<usp_param_id.sys_type/>
 		<usp_param_id.sys_value><![CDATA[empty]]></usp_param_id.sys_value>
 		<usp_param_id.sys_desc/>
@@ -699,9 +699,13 @@ DF_Ligne_Devis:1,addlist,listedit:reload,prefs,copy,exportxml,export,updall,dela
 	<data>
 		<usp_user_id.usr_login>designer</usp_user_id.usr_login>
 		<usp_param_id.sys_code>HISTORY Home</usp_param_id.sys_code>
-		<usp_value><![CDATA[[{"object":"ObjectInternal","rowId":"2025","label":"Objet métier : DF_Contact"},
-{"object":"DF_Devis","rowId":"152","label":"Devis : AGN.93170 BAGNOLET.ZAC Benoit Hure.2020.00152.B"},
+		<usp_value><![CDATA[[{"object":"DF_Devis","rowId":"155","label":"Devis"},
+{"object":"Field","rowId":"9064","label":"Attribut : defiDevisId"},
+{"object":"ObjectFieldSystem","rowId":"18980","label":"Attribut d'objet : DF_Devis defiDevisId 1"},
 {"object":"ObjectInternal","rowId":"2038","label":"Objet métier : DF_Devis"},
+{"object":"DF_Devis","rowId":"152","label":"Devis : AGN.93170 BAGNOLET.ZAC Benoit Hure.2020.00152.B"},
+{"object":"DF_Devis","rowId":"202","label":"Devis : D-00202"},
+{"object":"DF_Devis","rowId":"203","label":"Devis : D-00203"},
 {"object":"DF_Devis","rowId":"196","label":"Devis"},
 {"object":"DF_Ligne_Devis","rowId":"338","label":"Lignes Devis : LD-00338"},
 {"object":"DF_Ligne_Devis","rowId":"337","label":"Lignes Devis : LD-00337"},
@@ -714,11 +718,7 @@ DF_Ligne_Devis:1,addlist,listedit:reload,prefs,copy,exportxml,export,updall,dela
 {"object":"Responsability","rowId":"123","label":"Responsabilité : hsenoussi DeFilippisAdmin 20/07/2020"},
 {"object":"User","rowId":"40","label":"Utilisateur : Hamza Senoussi"},
 {"object":"DF_Ligne_Devis","rowId":"344","label":"Lignes Devis : LD-00344"},
-{"object":"DF_Devis","rowId":"154","label":"Devis : .93170 BAGNOLET.ZAC Benoit Hure.2020.00152.A"},
-{"object":"DF_utilisateur_interne","rowId":"39","label":"Utilisateurs Internes : Aurelie GUENDIJAN"},
-{"object":"DF_Contact","rowId":"61","label":"Contacts : CT-00061"},
-{"object":"DF_Client","rowId":"32","label":"Clients : CLT-00032"},
-{"object":"DF_Contact","rowId":"38","label":"Contacts : CT-00038"}]]]></usp_value>
+{"object":"DF_Devis","rowId":"154","label":"Devis : .93170 BAGNOLET.ZAC Benoit Hure.2020.00152.A"}]]]></usp_value>
 		<usp_param_id.sys_type/>
 		<usp_param_id.sys_value><![CDATA[empty]]></usp_param_id.sys_value>
 		<usp_param_id.sys_desc/>
@@ -8470,7 +8470,8 @@ Tout accés alloués.]]></grp_comment>
 		<fld_case/>
 		<fld_righttoleft>0</fld_righttoleft>
 		<fld_rendering/>
-		<fld_calc/>
+		<fld_calc><![CDATA[[EXPR:Tool.format("D-%05d", Long.valueOf([ROWID]))]
+]]></fld_calc>
 		<fld_objlist/>
 		<fld_comment/>
 		<fld_classification/>
