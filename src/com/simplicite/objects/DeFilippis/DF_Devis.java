@@ -438,6 +438,7 @@ public class DF_Devis extends ObjectDB {
 		
 		// Ajout de valeurs de Devis
 	    ObjectDB d = getGrant().getTmpObject("DF_Devis");
+	    d.resetFilters();
 		d.setFieldFilter("row_id",getRowId());
 
 		
