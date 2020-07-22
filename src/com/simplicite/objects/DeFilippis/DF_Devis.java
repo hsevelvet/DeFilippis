@@ -522,7 +522,11 @@ public class DF_Devis extends ObjectDB {
 		
 		ObjectDB devis = getGrant().getTmpObject("DF_Devis");
 		ObjectField devis_fiche = devis.getField("defiDevisFicheTechnique"); // must be of type file
-		pt.setFilename("AGN.93170BAGNOLET.ZACBenoitHure.2020.00152.C.pdf");
+		String titreDevis = this.getFieldValue("defiDevisTitre");
+		String titreDevis1 = titreDevis.replaceAll("\\s","")+".pdf";
+	
+		pt.setFilename(titreDevis1);
+		//pt.setFilename("AGN.93170BAGNOLET.ZACBenoitHure.2020.00152.C.pdf");
 		
 
 		/**https://www.simplicite.io/resources/4.0/javadoc/com/simplicite/util/tools/MailTool.html

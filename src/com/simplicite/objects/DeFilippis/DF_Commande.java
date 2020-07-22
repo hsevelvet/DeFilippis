@@ -403,7 +403,7 @@ public class DF_Commande extends ObjectDB {
 	
 	}
 	
-	public byte[] pubPdfARC(){
+	public byte[] pubPdfARC(PrintTemplate pt){
 		String url = "http://wkhtml2pdf/";
 		String user = null;
 		String password = null;
@@ -412,6 +412,9 @@ public class DF_Commande extends ObjectDB {
 		JSONObject postData = new JSONObject();
 		postData.put("contents", Tool.toBase64(pubARC()));
 		
+		String FileName = this.getFieldValue("defiCommandeNumero")+"-"+this.getFieldValue("defiCommandeIntituleCommande").replaceAll("\\s","")+".pdf";
+		
+		pt.setFilename(FileName);
 
 		String[] headers = {"Content-Type:application/json"};
 		String encoding = Globals.BINARY;
@@ -434,9 +437,9 @@ public class DF_Commande extends ObjectDB {
 				hst.resetFilters();
 					SimpleDateFormat formatter = new SimpleDateFormat("dd_MM_yyyy-HH");  
     				Date date = new Date();  
-    
+    				PrintTemplate pt = getPrintTemplate("DF_Commande");
 					hst.create();	
-					hst.getField("defiHstDocsDevis").setDocument(hst, "ARC-"+this.getFieldValue("defiCommandeIntituleCommande")+"-"+formatter.format(date).toString()+".pdf", this.pubPdfARC());
+					hst.getField("defiHstDocsDevis").setDocument(hst, "ARC-"+this.getFieldValue("defiCommandeIntituleCommande")+"-"+formatter.format(date).toString()+".pdf", this.pubPdfARC(pt));
 					hst.setFieldValue("DF_Hist_Docs_DF_Commande_id",getRowId());
 					hst.setFieldValue("defiHstDocsDateEmission",date);
 					hst.setFieldValue("defiHstTitre","ARC - "+this.getFieldValue("defiCommandeNumero"));
