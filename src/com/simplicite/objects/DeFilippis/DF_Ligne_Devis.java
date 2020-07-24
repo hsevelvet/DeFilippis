@@ -197,7 +197,7 @@ public class DF_Ligne_Devis extends ObjectDB {
 					//
 					if (n_rangs > 1){
 						
-					lrg = Math.round(lrg*n_rangs+dim_joint);
+					double lrg_r = Math.round((lrg+dim_joint)*n_rangs);
 					//setFieldValue("defiLigneDevisLargeur", Math.round(lrg*n_rangs+dim_joint));
 					
 				} 
@@ -222,7 +222,7 @@ public class DF_Ligne_Devis extends ObjectDB {
 					setFieldValue("defiLigneDevisNombreElementsSsJoints", Math.round(1/((lng / 100)*(lrg /100))));
 					break;
 				case "ML":
-					setFieldValue("defiLigneDevisNombreElementsSsJoints", Math.round(1/(lng / 100)));
+					setFieldValue("defiLigneDevisNombreElementsSsJoints", n_rangs*Math.round(1/(lng / 100)));
 					break;
 				case "U":
 					setFieldValue("defiLigneDevisNombreElementsSsJoints", 1);
@@ -236,7 +236,8 @@ public class DF_Ligne_Devis extends ObjectDB {
 				setFieldValue("defiLigneDevisMasseUnitaireSsJoints", Math.round(mvp*(lng*lrg*ep / 1000000)));
 				break;
 			case "ML":
-				setFieldValue("defiLigneDevisMasseUnitaireSsJoints", Math.round(mvp*(lrg*ep / 10000)));
+				//setFieldValue("defiLigneDevisMasseUnitaireSsJoints", Math.round(mvp*(lrg*ep / 10000)));
+				setFieldValue("defiLigneDevisMasseUnitaireSsJoints", ep * Math.round((lrg)*n_rangs)*mvp/ 10000);
 				break;
 			case "M2":
 				setFieldValue("defiLigneDevisMasseUnitaireSsJoints", Math.round(mvp*(ep / 100)));
@@ -253,7 +254,7 @@ public class DF_Ligne_Devis extends ObjectDB {
 					setFieldValue("defiLigneDevisNombreElementsAcJoints", Math.round(1/((lng + dim_joint)*(lrg + dim_joint)/10000)));
 					break;
 				case "ML":
-					setFieldValue("defiLigneDevisNombreElementsAcJoints", Math.round(1/((lng+dim_joint)/100)));
+					setFieldValue("defiLigneDevisNombreElementsAcJoints", n_rangs*Math.round(1/((lng+dim_joint)/100)));
 					break;
 				case "U":
 					setFieldValue("defiLigneDevisNombreElementsAcJoints", 1);
@@ -268,6 +269,8 @@ public class DF_Ligne_Devis extends ObjectDB {
         else{
         	double n = getField("defiLigneDevisNombreElementsAcJoints").getDouble(0);
         	setFieldValue("defiLigneDevisMasseUnitaireAcJoints", Math.round(n *(ep * lng * lrg * mvp / 1000000)));
+        	//setFieldValue("defiLigneDevisMasseUnitaireAcJoints", ep * Math.round((lrg+dim_joint)*n_rangs)*mvp/ 10000);
+        	
         }
         
         // calcul poids total

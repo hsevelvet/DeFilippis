@@ -493,7 +493,7 @@ components:
           type: number
         defiLigneDevisMasseUnitaireAcJoints:
           description: Masse Unitaire avec Joints (kg/unité)
-          type: integer
+          type: number
         defiLigneDevisPoidsUnitaire:
           description: Poids Unitaire (Kg)
           type: number
@@ -511,7 +511,7 @@ components:
           type: string
         defiLigneDevisMasseUnitaireSsJoints:
           description: Masse Unitaire sans Joints (kg/unité)
-          type: integer
+          type: number
     ArrayOfDF_Contact:
       type: array
       items:
@@ -5549,13 +5549,13 @@ paths:
         description: Search filter for Nombre Camions
         required: false
       - schema:
-          type: integer
+          type: number
         in: query
         name: defiLigneDevisMasseUnitaireAcJoints
         description: Search filter for Masse Unitaire avec Joints (kg/unité)
         required: false
       - schema:
-          type: integer
+          type: number
         in: query
         name: defiLigneDevisMasseUnitaireSsJoints
         description: Search filter for Masse Unitaire sans Joints (kg/unité)
