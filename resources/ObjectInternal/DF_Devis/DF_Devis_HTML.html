@@ -69,6 +69,12 @@
 	.tg  {
 		border-collapse:collapse;
 		border-spacing:0px !important;
+		page-break-inside:auto;    
+	}	
+	.tg tr {
+		page-break-inside:avoid;
+		page-break-after:auto 
+     	
 	}
 	.tg td {
 		padding:10px 7px !important;
@@ -260,6 +266,10 @@
 	div.coordclient {		
 		font-size:13px;
 	}
+	.cleanbreak {
+		page-break-inside:avoid;
+		page-break-after:auto 	
+	}	
 	
 	</style>	
 	
@@ -372,7 +382,7 @@
             </table>
             
          <table class="tg">
-			<!--<thead>-->
+			<thead>
 				<tr style="background-color: #004C8E;">
 				    <th class="tg-ul38 thref">Réf<br></th>
 				    <th class="tg-ul38 thtype">Type de pierre</th>
@@ -382,7 +392,7 @@
 				    <th class="tg-ul38 thprixu">P.U. HT</th>
 				    <th class="tg-ul38 thprixt">TOTAL €</th>
 				</tr>
-			<!--</thead>-->
+			</thead>
 			
 			<tbody>				
 				{{#rows_l}}
@@ -440,7 +450,7 @@
 		{{/rows}}
 		
 		
-		<table class="signature">
+		<table class="signature cleanbreak">
 			<tr>
 				<td>
 					<span class="signature_span">Bon pour accord<br/>Date et signature</span>
@@ -448,7 +458,7 @@
 			</tr>	
 		</table>
 		
-		<p class="cordialement">
+		<p class="cordialement cleanbreak">
 		Nous restons à votre disposition pour tout renseignement,<br/>
 		L'équipe Minéral Conseil
 		</p>		

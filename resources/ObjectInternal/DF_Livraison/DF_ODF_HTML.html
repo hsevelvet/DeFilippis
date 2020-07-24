@@ -54,6 +54,11 @@
 	.tg  {
 		border-collapse:collapse;
 		border-spacing:0px !important;
+		page-break-inside:auto;   
+	}
+	.tg tr {
+		page-break-inside:avoid;
+		page-break-after:auto      	
 	}
 	.tg td {
 		padding:5px 5px;
@@ -134,6 +139,7 @@
 	
 	tfoot {
 		xbackground-color:#ccc;
+		display: table-row-group;
 	}	
 	
 	tfoot td.vide {
@@ -251,6 +257,11 @@
 	div.coordclient {		
 		font-size:13px;
 	}	
+	
+	.cleanbreak {
+		page-break-inside:avoid;
+		page-break-after:auto 	
+	}		
 	
 	</style>	
 	<script>
@@ -381,7 +392,7 @@
 			</tbody>
 			
 			<tfoot>
-				<tr>
+				<tr class="footer">
 					<td class="vide" rowspan="3" colspan="5" >
 						
 					</td>				
@@ -401,7 +412,6 @@
 			</tfoot>
 			
 		</table>
-		<br/>
 	<!--<table class="signature">
 		<tr>
 			<td>

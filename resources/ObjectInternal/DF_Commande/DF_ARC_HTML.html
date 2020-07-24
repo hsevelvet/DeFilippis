@@ -56,6 +56,11 @@
 	.tg  {
 		border-collapse:collapse;
 		border-spacing:0px !important;
+		page-break-inside:auto;    
+	}	
+	.tg tr {
+		page-break-inside:avoid;
+		page-break-after:auto      	
 	}
 	.tg td {
 		padding:10px 7px !important;
@@ -131,6 +136,7 @@
 	
 	tfoot {
 		xbackground-color:#ccc;
+		display: table-row-group;
 	}	
 	
 	tfoot td.vide {
@@ -241,6 +247,11 @@
 	div.coordclient {		
 		font-size:13px;
 	}	
+	
+	.cleanbreak {
+		page-break-inside:avoid;
+		page-break-after:auto 	
+	}
 	
 	</style>	
 	<script>
@@ -397,7 +408,7 @@
 		</table>
 		
 	
-	<div>
+	<div class="cleanbreak">
 		<p>
 			<br/>
 			<strong>
@@ -418,7 +429,7 @@
 	</div>
 	
 	{{/rows}}
-	<table class="signature">
+	<table class="signature cleanbreak">
 		<tr>
 			<td>
 				<span class="signature_span">Date et signature</span>
@@ -426,7 +437,7 @@
 		</tr>	
 	</table>	
 	
-	<p class="cordialement"><strong>À nous retourner dûment accepté et signé.</strong><br/>
+	<p class="cordialement cleanbreak"><strong>À nous retourner dûment accepté et signé.</strong><br/>
 		Nous restons à votre disposition pour tout renseignement,<br/><br/>
 		L'équipe Minéral Conseil
 	</p>			
