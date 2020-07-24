@@ -32,7 +32,13 @@ public class DF_Ligne_Devis extends ObjectDB {
 					setFieldValue("defiLigneDevisU","ML");
 					//setFieldValue("defiLigneDevisUnite","ML");
 				}
+				else if(c_unite.equals("")){
+					setFieldValue("defiLigneDevisU","T");
+				}
 			}
+			
+			
+			
 			
 			// conversion m²
 			if (getFieldValue("defiLigneDevisUnite").equals("M2") ){
@@ -40,14 +46,29 @@ public class DF_Ligne_Devis extends ObjectDB {
 					
 				if (c_unite.equals("61")){
 					setFieldValue("defiLigneDevisU","M2");
-					setFieldValue("defiLigneDevisUnite","M2");
+					//setFieldValue("defiLigneDevisUnite","M2");
 				} 
-				else if (c_unite.equals("62")){
+				if (c_unite.equals("62")){
 					setFieldValue("defiLigneDevisU","ML");
-					setFieldValue("defiLigneDevisUnite","ML");
-				} 
+					//setFieldValue("defiLigneDevisUnite","ML");
+				}
+				else if(c_unite.equals("")){
+					setFieldValue("defiLigneDevisU","M2");
+				}
 			}
 			
+			// conversion U
+			if (getFieldValue("defiLigneDevisUnite").equals("U") ){
+				setFieldValue("defiLigneDevisU","U");
+				
+			}
+			
+			
+			// conversion ml
+			if (getFieldValue("defiLigneDevisUnite").equals("ML") ){
+				setFieldValue("defiLigneDevisU","ML");
+				
+			}
 		
 		// accès aux valeurs 
         String unite = getField("defiLigneDevisU").getValue(); 

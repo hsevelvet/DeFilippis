@@ -598,7 +598,7 @@ public class DF_Devis extends ObjectDB {
 		
 		SimpleDateFormat formatter = new SimpleDateFormat("dd_MM_yyyy-HH");  
     	Date date = new Date();  
-    	PrintTemplate pt = getPrintTemplate("DF_Devis");
+    	PrintTemplate pt = getPrintTemplate("Devis-PDF");
 		
 		devis.getField("defiDevisEmailPDF").setDocument(devis, "Devis-"+formatter.format(date).toString()+".pdf", this.pubPdf(pt));
 		
