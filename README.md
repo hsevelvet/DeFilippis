@@ -222,8 +222,8 @@ Objet metier pour contact.
 ### Lists
 
 * `CIVILITE_CLIENT_CONTACT`
-    - `M` Mr
-    - `F` Mme
+    - `Mr` Mr
+    - `Mme` Mme
 * `DF_CONTACT_ID_EMPLOI`
     - `D` Directeur
     - `CA` Chef d'agence
@@ -328,8 +328,8 @@ Objet metier pour devis.
     - `PE` Perdu
     - `VR` Versionné
 * `CIVILITE_CLIENT_CONTACT`
-    - `M` Mr
-    - `F` Mme
+    - `Mr` Mr
+    - `Mme` Mme
 * `DF_DEVIS_PACKAGING_TRANSPORT`
     - `EI` Emballage Inclus
     - `HE` Hors coût d'emballage
@@ -544,7 +544,7 @@ Objet métier pour fournisseur.
     - `GRE` Grès
     - `POR` Porphyre
     - `BAS` Basalte
-    - `LUS` Luserne
+    - `LUS` Luzerne
     - `TEC` Terre cuite
     - `PRE` Produit de réemploi
 * `DEFILIGNEDEVISCONVERSIONUNITE`
@@ -662,7 +662,7 @@ Objet metier pour produit.
     - `GRE` Grès
     - `POR` Porphyre
     - `BAS` Basalte
-    - `LUS` Luserne
+    - `LUS` Luzerne
     - `TEC` Terre cuite
     - `PRE` Produit de réemploi
 * `DF_PRODUIT_COULEUR`
@@ -708,7 +708,7 @@ Objet metier pour produit.
 | `defiQuantiteNumCommande`                                    | char(100)                                |          | yes       |          | -                                                                                |
 | `defiQuantiteRefProduit`                                     | char(30)                                 |          | yes       |          | -                                                                                |
 | `defiQuantitePoidsUnitaire`                                  | float(5, 2)                              |          | yes       |          | -                                                                                |
-| `defiQuantiteQte`                                            | int(20)                                  |          | yes       |          | -                                                                                |
+| `defiQuantiteQte`                                            | float(11, 0)                             |          | yes       |          | -                                                                                |
 | _Ref. `DF_Quantite_DF_ligne_commande_id.defiLigneCommandeDesignation`_ | _text(200)_                              |          |           |          | -                                                                                |
 | _Ref. `DF_Quantite_DF_ligne_commande_id.defiLigneCommandeTypeGeologique`_ | _char(100)_                              |          |           |          | -                                                                                |
 | _Ref. `DF_Quantite_DF_Livraison_id.defiLivraisonNumBL`_      | _char(10)_                               |          |           |          | -                                                                                |

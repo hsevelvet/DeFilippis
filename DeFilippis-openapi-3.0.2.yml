@@ -61,7 +61,7 @@ components:
           type: number
         defiQuantiteQte:
           description: Quantité
-          type: integer
+          type: number
         defiQuantitePoidsUnitaire:
           description: Poids Unitaire
           type: number
@@ -160,8 +160,8 @@ components:
           - MDO
           - AR
           - MO
-          - ATPG
           - T
+          - ATPG
           - ATP
           - V
           - N
@@ -1154,8 +1154,8 @@ components:
           description: Civilité Contacts
           type: string
           enum:
-          - M
-          - F
+          - Mr
+          - Mme
         defiDevisPrixTotal:
           description: Total Vente TTC
           type: number
@@ -1217,8 +1217,8 @@ components:
           - MDO
           - AR
           - MO
-          - ATPG
           - T
+          - ATPG
           - ATP
           - V
           - N
@@ -1410,8 +1410,8 @@ components:
           description: Civilité
           type: string
           enum:
-          - M
-          - F
+          - Mr
+          - Mme
         DF_Contact_DF_Client_id__defiClientId:
           description: Id Client Clients
           type: string
@@ -2474,8 +2474,8 @@ paths:
           - MDO
           - AR
           - MO
-          - ATPG
           - T
+          - ATPG
           - ATP
           - V
           - N
@@ -6170,8 +6170,8 @@ paths:
       - schema:
           type: string
           enum:
-          - M
-          - F
+          - Mr
+          - Mme
         in: query
         name: defiContactCivilite
         description: Search filter for Civilité
@@ -8820,8 +8820,8 @@ paths:
       - schema:
           type: string
           enum:
-          - M
-          - F
+          - Mr
+          - Mme
         in: query
         name: DF_Devis_DF_Contact_id__defiContactCivilite
         description: Search filter for Civilité Contacts
@@ -9203,7 +9203,7 @@ paths:
         description: Search filter for Poids Unitaire
         required: false
       - schema:
-          type: integer
+          type: number
         in: query
         name: defiQuantiteQte
         description: Search filter for Quantité
@@ -9614,8 +9614,8 @@ paths:
           - MDO
           - AR
           - MO
-          - ATPG
           - T
+          - ATPG
           - ATP
           - V
           - N

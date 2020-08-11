@@ -144,8 +144,8 @@ paths:
         - MDO
         - AR
         - MO
-        - ATPG
         - T
+        - ATPG
         - ATP
         - V
         - N
@@ -3348,8 +3348,8 @@ paths:
         type: string
         required: false
         enum:
-        - M
-        - F
+        - Mr
+        - Mme
       - in: query
         name: defiContactNom
         description: Search filter for Nom
@@ -5568,8 +5568,8 @@ paths:
         type: string
         required: false
         enum:
-        - M
-        - F
+        - Mr
+        - Mme
       - in: query
         name: defiDevisLieuProjet
         description: Search filter for Ville Projet
@@ -5891,7 +5891,7 @@ paths:
       - in: query
         name: defiQuantiteQte
         description: Search filter for Quantité
-        type: integer
+        type: number
         required: false
       - in: query
         name: DF_Quantite_DF_ligne_commande_id__defiLigneCommandeTypeGeologique
@@ -6238,8 +6238,8 @@ paths:
         - MDO
         - AR
         - MO
-        - ATPG
         - T
+        - ATPG
         - ATP
         - V
         - N
@@ -6838,7 +6838,7 @@ definitions:
         type: number
       defiQuantiteQte:
         description: Quantité
-        type: integer
+        type: number
       defiQuantitePoidsUnitaire:
         description: Poids Unitaire
         type: number
@@ -6937,8 +6937,8 @@ definitions:
         - MDO
         - AR
         - MO
-        - ATPG
         - T
+        - ATPG
         - ATP
         - V
         - N
@@ -7931,8 +7931,8 @@ definitions:
         description: Civilité Contacts
         type: string
         enum:
-        - M
-        - F
+        - Mr
+        - Mme
       defiDevisPrixTotal:
         description: Total Vente TTC
         type: number
@@ -7994,8 +7994,8 @@ definitions:
         - MDO
         - AR
         - MO
-        - ATPG
         - T
+        - ATPG
         - ATP
         - V
         - N
@@ -8187,8 +8187,8 @@ definitions:
         description: Civilité
         type: string
         enum:
-        - M
-        - F
+        - Mr
+        - Mme
       DF_Contact_DF_Client_id__defiClientId:
         description: Id Client Clients
         type: string
