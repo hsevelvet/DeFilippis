@@ -3086,7 +3086,7 @@ paths:
         required: false
       - in: query
         name: defiLigneDevisU
-        description: Search filter for U
+        description: Search filter for Unité
         type: string
         required: false
       - in: query
@@ -7015,7 +7015,7 @@ definitions:
         - T
         - U
       defiLigneDevisU:
-        description: U
+        description: Unité
         type: string
       defiLigneDevisPrixVenteCalcule:
         description: Prix Vente Unitaire Calculé

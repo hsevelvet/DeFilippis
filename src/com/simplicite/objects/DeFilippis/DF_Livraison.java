@@ -442,17 +442,22 @@ public class DF_Livraison extends ObjectDB {
 				//q.save();
 				
 				livraison.setFieldFilter("row_id", livraison.getRowId());
-				
-				commande_livraison.resetFilters();
+				//String usr = commande_livraison.getFieldValue("DF_Commande_DF_utilisateur_interne_id.defiUsrNC");
+				//commande_livraison.resetFilters();
+				//commande_livraison.setFieldValue("DF_Commande_DF_utilisateur_interne_id.defiUsrNC", usr);
 				commande_livraison.setFieldFilter("row_id",livraison.getFieldValue("DF_Livraison_DF_Commande_id"));
+				//commande_livraison.validate();
+				//commande_livraison.save();
 				
 				// Suiveur
 				
 				
 				
-				u.resetFilters();
+				//u.resetFilters();
 				u.setFieldFilter("row_id",commande_livraison.getFieldValue("DF_Commande_DF_utilisateur_interne_id"));
-				//commande_livraison.save();
+				u.validate();
+				u.save();
+				//commande_livraison.setFieldFilter("DF_Commande_DF_utilisateur_interne_id", u.getRowId());
 				AppLog.info(getClass(), "cliiiiient", commande_livraison.getFieldValue("DF_Commande_DF_utilisateur_interne_id"), getGrant());
 				client.resetFilters();
 				

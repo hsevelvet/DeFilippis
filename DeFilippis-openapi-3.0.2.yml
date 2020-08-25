@@ -238,7 +238,7 @@ components:
           - T
           - U
         defiLigneDevisU:
-          description: U
+          description: Unité
           type: string
         defiLigneDevisPrixVenteCalcule:
           description: Prix Vente Unitaire Calculé
@@ -5864,7 +5864,7 @@ paths:
           type: string
         in: query
         name: defiLigneDevisU
-        description: Search filter for U
+        description: Search filter for Unité
         required: false
       - schema:
           type: string
