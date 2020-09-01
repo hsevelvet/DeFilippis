@@ -237,7 +237,7 @@ public class DF_Ligne_Devis extends ObjectDB {
 				break;
 			case "ML":
 				//setFieldValue("defiLigneDevisMasseUnitaireSsJoints", Math.round(mvp*(lrg*ep / 10000)));
-				setFieldValue("defiLigneDevisMasseUnitaireSsJoints", ep * Math.round((lrg)*n_rangs)*mvp/ 10000);
+				setFieldValue("defiLigneDevisMasseUnitaireSsJoints", ep * Math.round(lrg*n_rangs)*mvp/ 10000);
 				break;
 			case "M2":
 				setFieldValue("defiLigneDevisMasseUnitaireSsJoints", Math.round(mvp*(ep / 100)));
@@ -262,9 +262,11 @@ public class DF_Ligne_Devis extends ObjectDB {
 			}
         }
         
+        double musj = getField("defiLigneDevisMasseUnitaireSsJoints").getDouble(0);
         // calcul masse unitaire avec joint
         if (dim_joint == 0){
-        	setFieldValue("defiLigneDevisMasseUnitaireAcJoints", Math.round((ep * mvp * lrg) / 10000));
+        	//setFieldValue("defiLigneDevisMasseUnitaireAcJoints", Math.round((ep * mvp * lrg) / 10000));
+        	setFieldValue("defiLigneDevisMasseUnitaireAcJoints", musj);
         }
         else{
         	double n = getField("defiLigneDevisNombreElementsAcJoints").getDouble(0);
@@ -275,7 +277,7 @@ public class DF_Ligne_Devis extends ObjectDB {
         
         // calcul poids total
         double muaj = getField("defiLigneDevisMasseUnitaireAcJoints").getDouble(0);
-        double musj = getField("defiLigneDevisMasseUnitaireSsJoints").getDouble(0);
+        //double musj = getField("defiLigneDevisMasseUnitaireSsJoints").getDouble(0);
 		if (muaj == 0){
         	setFieldValue("defiLigneDevisPoidsTotal", ((musj * qte) / 1000));
         	setFieldValue("defiLigneDevisPoidsUnitaire", musj);
