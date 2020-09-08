@@ -141,17 +141,17 @@ paths:
         type: string
         required: false
         enum:
-        - MDO
         - AR
+        - MDO
         - MO
-        - T
         - ATPG
+        - T
         - ATP
         - V
         - N
         - EA
-        - A
         - P
+        - A
       - in: query
         name: DF_Chantier_DF_Client_id__defiClientAdresse
         description: Search filter for Adresse Client
@@ -1331,7 +1331,7 @@ paths:
       - in: query
         name: defiLigneCommandeQuantite
         description: Search filter for Quantité
-        type: integer
+        type: number
         required: false
       - in: query
         name: defiLigneCommandePrixTotalEXW
@@ -6934,17 +6934,17 @@ definitions:
         description: Secteur Activité Client
         type: string
         enum:
-        - MDO
         - AR
+        - MDO
         - MO
-        - T
         - ATPG
+        - T
         - ATP
         - V
         - N
         - EA
-        - A
         - P
+        - A
       DF_Chantier_DF_Client_id__defiClientId:
         description: Id Client
         type: string
@@ -7710,7 +7710,7 @@ definitions:
         type: string
       defiLigneCommandeQuantite:
         description: Quantité
-        type: integer
+        type: number
       defiLigneCommandeUnite:
         description: Unité
         type: string

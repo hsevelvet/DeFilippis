@@ -157,17 +157,17 @@ components:
           description: Secteur Activité Client
           type: string
           enum:
-          - MDO
           - AR
+          - MDO
           - MO
-          - T
           - ATPG
+          - T
           - ATP
           - V
           - N
           - EA
-          - A
           - P
+          - A
         DF_Chantier_DF_Client_id__defiClientId:
           description: Id Client
           type: string
@@ -933,7 +933,7 @@ components:
           type: string
         defiLigneCommandeQuantite:
           description: Quantité
-          type: integer
+          type: number
         defiLigneCommandeUnite:
           description: Unité
           type: string
@@ -2471,17 +2471,17 @@ paths:
       - schema:
           type: string
           enum:
-          - MDO
           - AR
+          - MDO
           - MO
-          - T
           - ATPG
+          - T
           - ATP
           - V
           - N
           - EA
-          - A
           - P
+          - A
         in: query
         name: DF_Chantier_DF_Client_id__defiClientIdSecteurActivite
         description: Search filter for Secteur Activité Client
@@ -3897,7 +3897,7 @@ paths:
         description: Search filter for Id ligne commande
         required: false
       - schema:
-          type: integer
+          type: number
         in: query
         name: defiLigneCommandeQuantite
         description: Search filter for Quantité
