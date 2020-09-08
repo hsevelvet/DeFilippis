@@ -141,17 +141,17 @@ paths:
         type: string
         required: false
         enum:
-        - AR
         - MDO
+        - AR
         - MO
-        - ATPG
         - T
+        - ATPG
         - ATP
         - V
         - N
         - EA
-        - P
         - A
+        - P
       - in: query
         name: DF_Chantier_DF_Client_id__defiClientAdresse
         description: Search filter for Adresse Client
@@ -6934,17 +6934,17 @@ definitions:
         description: Secteur Activité Client
         type: string
         enum:
-        - AR
         - MDO
+        - AR
         - MO
-        - ATPG
         - T
+        - ATPG
         - ATP
         - V
         - N
         - EA
-        - P
         - A
+        - P
       DF_Chantier_DF_Client_id__defiClientId:
         description: Id Client
         type: string

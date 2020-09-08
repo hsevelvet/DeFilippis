@@ -55,7 +55,10 @@ public class DF_Commande extends ObjectDB {
 			// Itérer sur toutes les lignes de commandes et sommer la valeur de Prix Total 
 			double c = o.getCount();
 			double t = Double.parseDouble(o.getField("defiLigneCommandePrixTotalEXW").getListOperatorValue());
+			double poids_total = Double.parseDouble(o.getField("defiLigneCommandePoidsTotal").getListOperatorValue());
 			setFieldValue("defiCommandeMontantHT", t);
+			setFieldValue("defiCommandePoidsTotal", poids_total);
+			setFieldValue("defiCommandeNombreCamions", poids_total / 24 );
 			save();
 			
 		}
