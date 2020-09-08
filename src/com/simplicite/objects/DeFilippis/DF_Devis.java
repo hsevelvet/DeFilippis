@@ -600,7 +600,7 @@ public class DF_Devis extends ObjectDB {
     	Date date = new Date();  
     	PrintTemplate pt = getPrintTemplate("Devis-PDF");
 		
-		devis.getField("defiDevisEmailPDF").setDocument(devis, "Devis-"+formatter.format(date).toString()+".pdf", this.pubPdf(pt));
+		devis.getField("defiDevisEmailPDF").setDocument(devis,getFieldValue("defiDevisTitre")+".pdf", this.pubPdf(pt));
 		
 		ObjectField devis_pdf = devis.getField("defiDevisEmailPDF");
 		
