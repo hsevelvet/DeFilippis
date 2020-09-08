@@ -248,7 +248,7 @@ public class DF_Devis extends ObjectDB {
 				String type_geo = ld.getFieldValue("defiLigneDevisTypeGeo");
 				String apl_com = ld.getFieldValue("defiLigneDevisAppellationCommerciale");
 				String finition = ld.getFieldValue("defiLigneDevisFinitionFV");
-				String unite_p = ld.getFieldValue("defiLigneDevisUnite");
+				String unite_p = ld.getFieldValue("defiLigneDevisU");
 				String designation = ld.getFieldValue("defiLigneDevisDesignation");
 				String fournisseur = ld.getFieldValue("defiLigneDevisFournisseur");
 				
