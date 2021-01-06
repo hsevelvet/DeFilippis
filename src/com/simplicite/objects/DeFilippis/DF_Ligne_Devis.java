@@ -219,10 +219,14 @@ public class DF_Ligne_Devis extends ObjectDB {
         else {
         	switch(unite){
 				case "M2":
-					setFieldValue("defiLigneDevisNombreElementsSsJoints", Math.round(1/((lng / 100)*(lrg /100))));
+					// Correction JDE 20200909 : il veulent des valeurs avec décimale
+					//setFieldValue("defiLigneDevisNombreElementsSsJoints", Math.round(1/((lng / 100)*(lrg /100))));
+					setFieldValue("defiLigneDevisNombreElementsSsJoints", 1/((lng / 100)*(lrg /100)));
 					break;
 				case "ML":
-					setFieldValue("defiLigneDevisNombreElementsSsJoints", n_rangs*Math.round(1/(lng / 100)));
+					// Correction JDE 20200909 : il veulent des valeurs avec décimale
+					//setFieldValue("defiLigneDevisNombreElementsSsJoints", n_rangs*Math.round(1/(lng / 100)));
+					setFieldValue("defiLigneDevisNombreElementsSsJoints", n_rangs*(1/(lng / 100)));
 					break;
 				case "U":
 					setFieldValue("defiLigneDevisNombreElementsSsJoints", 1);
@@ -233,14 +237,21 @@ public class DF_Ligne_Devis extends ObjectDB {
         // calcul masse unitaire sans joint
         switch(unite){
 			case "U":
-				setFieldValue("defiLigneDevisMasseUnitaireSsJoints", Math.round(mvp*(lng*lrg*ep / 1000000)));
+				// Correction JDE 20200909 : il veulent des valeurs avec décimale
+				//setFieldValue("defiLigneDevisMasseUnitaireSsJoints", Math.round(mvp*(lng*lrg*ep / 1000000)));
+				setFieldValue("defiLigneDevisMasseUnitaireSsJoints", mvp*(lng*lrg*ep / 1000000));
 				break;
 			case "ML":
+				// Correction JDE 20200909 : il veulent des valeurs avec décimale
+				//setFieldValue("defiLigneDevisMasseUnitaireSsJoints", ep * Math.round(lrg*n_rangs)*mvp/ 10000);
+				setFieldValue("defiLigneDevisMasseUnitaireSsJoints", ep * (lrg*n_rangs)*mvp/ 10000);
+				
 				//setFieldValue("defiLigneDevisMasseUnitaireSsJoints", Math.round(mvp*(lrg*ep / 10000)));
-				setFieldValue("defiLigneDevisMasseUnitaireSsJoints", ep * Math.round(lrg*n_rangs)*mvp/ 10000);
 				break;
 			case "M2":
-				setFieldValue("defiLigneDevisMasseUnitaireSsJoints", Math.round(mvp*(ep / 100)));
+				// Correction JDE 20200909 : il veulent des valeurs avec décimale
+				//setFieldValue("defiLigneDevisMasseUnitaireSsJoints", Math.round(mvp*(ep / 100)));
+				setFieldValue("defiLigneDevisMasseUnitaireSsJoints", mvp*(ep / 100));
 				break;
 		}
         }
@@ -251,10 +262,14 @@ public class DF_Ligne_Devis extends ObjectDB {
         else {
         	switch(unite){
 				case "M2":
-					setFieldValue("defiLigneDevisNombreElementsAcJoints", Math.round(1/((lng + dim_joint)*(lrg + dim_joint)/10000)));
+					// Correction JDE 20200909 : il veulent des valeurs avec décimale
+					//setFieldValue("defiLigneDevisNombreElementsAcJoints", Math.round(1/((lng + dim_joint)*(lrg + dim_joint)/10000)));
+					setFieldValue("defiLigneDevisNombreElementsAcJoints", 1/((lng + dim_joint)*(lrg + dim_joint)/10000));
 					break;
 				case "ML":
-					setFieldValue("defiLigneDevisNombreElementsAcJoints", n_rangs*Math.round(1/((lng+dim_joint)/100)));
+					// Correction JDE 20200909 : il veulent des valeurs avec décimale
+					//setFieldValue("defiLigneDevisNombreElementsAcJoints", n_rangs*Math.round(1/((lng+dim_joint)/100)));
+					setFieldValue("defiLigneDevisNombreElementsAcJoints", n_rangs*(1/((lng+dim_joint)/100)));
 					break;
 				case "U":
 					setFieldValue("defiLigneDevisNombreElementsAcJoints", 1);
@@ -270,7 +285,10 @@ public class DF_Ligne_Devis extends ObjectDB {
         }
         else{
         	double n = getField("defiLigneDevisNombreElementsAcJoints").getDouble(0);
-        	setFieldValue("defiLigneDevisMasseUnitaireAcJoints", Math.round(n *(ep * lng * lrg * mvp / 1000000)));
+        	// Correction JDE 20200909 : il veulent des valeurs avec décimale
+        	//setFieldValue("defiLigneDevisMasseUnitaireAcJoints", Math.round(n *(ep * lng * lrg * mvp / 1000000)));
+        	setFieldValue("defiLigneDevisMasseUnitaireAcJoints", (n *(ep * lng * lrg * mvp / 1000000)));
+        	
         	//setFieldValue("defiLigneDevisMasseUnitaireAcJoints", ep * Math.round((lrg+dim_joint)*n_rangs)*mvp/ 10000);
         	
         }

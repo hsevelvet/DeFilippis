@@ -191,6 +191,7 @@ public class DF_Devis extends ObjectDB {
 		String libelle_affaire = getFieldValue("DF_Devis_DF_Chantier_id.defiAfrLibelleChantier");
 		String User = getFieldValue("DF_Devis_DF_utilisateur_interne_id.defiUsrNC");
 		String Redacteur = getFieldValue("defiDevisRedacteur");
+		String otp_affaire = getFieldValue("DF_Devis_DF_Chantier_id.defiAfrNumero");	// JDE 2020.09.28 : ajout du numero  OTP
 		
 		int index_accompte = getField("defiDevisAccompte").getList().getItemIndex(getFieldValue("defiDevisAccompte"),false);
 		String accompte = getField("defiDevisAccompte").getList().getValue(index_accompte);
@@ -217,6 +218,7 @@ public class DF_Devis extends ObjectDB {
 		c.setFieldValue("defiCommandeIntituleAffaire",intitule_affaire);
 		c.setFieldValue("defiCommandePoidsTotal",poids_total);
 		c.setFieldValue("defiCommandeNombreCamions",nb_camions);
+		c.setFieldValue("defiAfrNumero",otp_affaire); // JDE 2020.09.28 : ajout du numero  OTP		
 		
 		c.setFieldValue("defiCommandeAccompte",accompte);
 		c.setFieldValue("defiCommandeIncotermPrix",conditions);
@@ -453,11 +455,12 @@ public class DF_Devis extends ObjectDB {
 	    ObjectDB d = getGrant().getTmpObject("DF_Devis");
 	    d.resetFilters();
 		d.setFieldFilter("row_id",getRowId());
-
+		initUpdate(); // JDE - 20200928 : pour récupérer les bons montants totaux en cas de modif de ligne de devis.
 		
 		ObjectDB ld = getGrant().getObject("DF_Ligne_Devis","DF_Ligne_Devis");
 		ld.resetFilters();
 		ld.setFieldFilter("DF_Ligne_Devis_DF_Devis_id",getRowId());
+		
 	
 		// user (Suiveur)
 		ObjectDB u = getGrant().getTmpObject("User");
@@ -470,9 +473,10 @@ public class DF_Devis extends ObjectDB {
 		redacteur.setFieldFilter("row_id",getFieldValue("DF_Devis_DF_utilisateur_interne_id"));		
 
 		double prix_total = getField("defiDevisPrixTotalHT").getDouble();
-		
-
 		double prix_tva = (int)(Math.round(prix_total*0.2 * 100))/100.0;
+		double prix_totalttc = prix_total + prix_tva;
+		double poids_total = getField("defiDevisPoidsTotal").getDouble();
+		double nombre_camions = getField("defiDevisNombreCamions").getDouble();
 		
 		// Get des valeurs enum sur devis
 		int index_accompte = d.getField("defiDevisAccompte").getList().getItemIndex(getFieldValue("defiDevisAccompte"),false);
@@ -497,7 +501,11 @@ public class DF_Devis extends ObjectDB {
 			"{'rows':"+d.toJSON(d.search(), null, false, false)+
 			",'rows_l':"+ld.toJSON(ld.search(), null, false, false)+
 			",'rows_u':"+u.toJSON(u.search(), null, false, false)+
+			",'poids_total':"+ "[{'poids_total':"+Double.toString(poids_total)+"}]"+
+			",'nombre_camions':"+ "[{'nombre_camions':"+Double.toString(nombre_camions)+"}]"+			
+			",'px_totalht':"+ "[{'px_totalht':"+Double.toString(prix_total)+"}]"+
 			",'tva':"+ "[{'prix_tva':"+Double.toString(prix_tva)+"}]"+
+			",'prix_totalttc':"+ "[{'prix_totalttc':"+Double.toString(prix_totalttc)+"}]"+
 			",'accompte':"+ "[{'accompte_l':"+accompte+"}]"+
 			",'paiement':"+ "[{'paiement_l':"+paiement+"}]"+
 			",'pack_transp':"+ "[{'pack_transp_l':"+pack_transp+"}]"+

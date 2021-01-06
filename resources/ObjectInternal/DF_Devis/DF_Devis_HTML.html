@@ -315,14 +315,22 @@
 			
 			document.write(dateFormat); // au format 04/07/2020
 		}
-		function funite (unite,catPrix) {
+		function funite (unite,uniteConvertie,catPrix) {
 			
 			/*document.write(catPrix);*/
 			if(catPrix == "1"){ /* si prix FFT */
 				document.write("FFT");
 			}
 			else {
-				fval(unite);
+				if(uniteConvertie!="null"){
+					switch (uniteConvertie) {
+						case "62" : fval("ML"); break;
+						case "61" : fval("M²"); break;
+						default : fval(uniteConvertie);
+					}					
+				} else {				
+					fval(unite);					
+				}
 			}	
 		}
 	</script>
@@ -400,7 +408,7 @@
 					<td class="ref">{{defiLigneDevisNPrix}}</td>
 					<td class="type"><script>fval("{{defiLigneDevisTypePierre}}");</script></td>
 					<td class="designation">{{defiLigneDevisDesignation}}</td>
-					<td class="unite"><script>funite("{{defiLigneDevisU}}","{{defiLigneDevisCatPrix}}");</script></td>
+					<td class="unite"><script>funite("{{defiLigneDevisUnite}}","{{defiLigneDevisConversionUnite}}","{{defiLigneDevisCatPrix}}");</script></td>
 					<td class="quantite">{{defiLigneDevisQuantite}}</td>
 					<td class="prixu"><script>fPrix(fTrouvePrixUnitaire({{defiLigneDevisPrixVenteCalcule}},{{defiLigneDevisPrixUnitaireImpose}}));</script></td> <!-- fPrix({{defiLigneDevisPrixVenteImpose}}/{{defiLigneDevisQuantite}}); -->
 					<td class="prixt"><script>fPrix({{defiLigneDevisPrixVenteImpose}});</script></td>
@@ -412,14 +420,15 @@
 			<!--<tfoot>-->
 				<tr>
 					<td class="vide" colspan="7">
-						Nombre de camion (U) : <strong>{{defiDevisNombreCamions}}</strong><br/>
-						Poids total (T) : <strong>{{defiDevisPoidsTotal}}</strong>
+						Nombre de camion (U) : <strong>{{#nombre_camions}}{{nombre_camions}}{{/nombre_camions}}</strong><br/>
+						Poids total (T) : <strong>{{#poids_total}}{{poids_total}}{{/poids_total}}</strong>
 					</td>
 				</tr>
 				<tr>
 					<td class="conditions2" rowspan="3" colspan="5" >
 					<p>Conditions de mise à disposition de la marchandise : </p>
 					<ul class="inthefoot">
+							<li><strong>Prix valable pour Fourniture de Pierre Naturelle seule </strong></li>						
 							<li>Délais prévisionnel à confirmer au moment de la commande : <strong>{{defiDevisDelaisPrevisionnel}}</strong></li>						
 							<!--<strong>1ère livraison le {{defiDevisDelaisPrevisionnel}} si commande avant {{defiDevisDateValiditeOffre}}</strong></li>-->
 							<li>Cadence de livraison maximale hebdomadaire : <strong><script>fval("{{defiDevisCadenceLivraison}}");</script></strong></li>
@@ -435,15 +444,15 @@
 					<td class="totallibelle">
 						TOTAL HT
 					</td>
-					<td class="totalvaleur"><script>fPrix({{defiDevisPrixTotalHT}});</script></td>
+					<td class="totalvaleur">{{#px_totalht}}<script>fPrix({{px_totalht}});</script>{{/px_totalht}}</td>
 				</tr>		
 				<tr>
 					<td class="tvalibelle">TVA 20,00%</td>
 					<td class="tvavaleur">{{#tva}}<script>fPrix({{prix_tva}});</script>{{/tva}}</td>
 				</tr>
 				<tr>
-					<td class="totalttclibelle">TOTAL TTC</td>
-					<td class="totalttcvaleur"><script>fPrix({{defiDevisPrixTotal}});</script></td>					
+					<td class="totalttclibelle">TOTAL TTC</td>					
+					<td class="totalttcvaleur">{{#prix_totalttc}}<script>fPrix({{prix_totalttc}});</script>{{/prix_totalttc}}</td>
 				</tr>				
 			<!--</tfoot>-->
 		</table>

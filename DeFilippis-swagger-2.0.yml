@@ -4458,13 +4458,18 @@ paths:
         type: string
         required: false
       - in: query
-        name: defiCommandeId
-        description: Search filter for Id Commande
+        name: DF_Commande_DF_Affaire_id__defiAfrNumero
+        description: Search filter for Numéro d'affaire (OTP) Affaires
         type: string
         required: false
       - in: query
         name: defiCommandeNumero
         description: Search filter for Numéro de Commande
+        type: string
+        required: false
+      - in: query
+        name: defiCommandeId
+        description: Search filter for Id Commande
         type: string
         required: false
       - in: query
@@ -7435,6 +7440,9 @@ definitions:
         type: object
       defiCommandeTransporteur:
         description: Transporteur
+        type: string
+      DF_Commande_DF_Affaire_id__defiAfrNumero:
+        description: Numéro d'affaire (OTP) Affaires
         type: string
       DF_Commande_DF_utilisateur_interne_id:
         description: Rédacteur
