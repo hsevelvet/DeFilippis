@@ -173,6 +173,7 @@ objet metier pour commande.
 | `defiCommandeIncotermPrix`                                   | char(100)                                |          | yes       |          | -                                                                                |
 | `defiCommandeAccompte`                                       | char(100)                                |          | yes       |          | -                                                                                |
 | `defiCommandeContenance`                                     | char(100)                                |          | yes       |          | -                                                                                |
+| `defiCommandeAvcmt`                                          | float(11, 2)                             |          | yes       |          | -                                                                                |
 
 ### Lists
 
@@ -223,7 +224,9 @@ Objet metier pour contact.
 ### Lists
 
 * `CIVILITE_CLIENT_CONTACT`
+    - `M` Mr
     - `Mr` Mr
+    - `F` Mme
     - `Mme` Mme
 * `DF_CONTACT_ID_EMPLOI`
     - `D` Directeur
@@ -329,7 +332,9 @@ Objet metier pour devis.
     - `PE` Perdu
     - `VR` Versionné
 * `CIVILITE_CLIENT_CONTACT`
+    - `M` Mr
     - `Mr` Mr
+    - `F` Mme
     - `Mme` Mme
 * `DF_DEVIS_PACKAGING_TRANSPORT`
     - `EI` Emballage Inclus
@@ -408,29 +413,31 @@ Objet métier pour fournisseur.
 
 | Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
+| `defiLigneCommandeReferenceProduit`                          | char(100)                                |          | yes       |          | -                                                                                |
+| `defiLigneCommandeAppellationCommerciale`                    | char(100)                                |          | yes       |          | -                                                                                |
+| `defiLigneCommandeNmFourn`                                   | char(100)                                |          | yes       |          | -                                                                                |
 | `defiLigneCommandeId`                                        | char(20)                                 | yes*     | yes       |          | -                                                                                |
 | `defiLigneCommandeQuantite`                                  | float(11, 1)                             | yes      | yes       |          | -                                                                                |
-| `defiLigneCommandePrixTotalEXW`                              | float(100, 2)                            |          | yes       |          | -                                                                                |
-| `DF_ligne_commande_DF_Produit_Finis_id` link to **`DF_Produit_Finis`** | id                                       |          | yes       |          | -                                                                                |
-| `DF_ligne_commande_DF_Commande_id` link to **`DF_Commande`** | id                                       | *        | yes       |          | -                                                                                |
-| _Ref. `DF_ligne_commande_DF_Fournisseurs_id.defiFournNom`_   | _char(36)_                               |          |           |          | -                                                                                |
-| _Ref. `DF_ligne_commande_DF_Commande_id.defiCommandeId`_     | _char(50)_                               |          |           |          | -                                                                                |
-| `defiLigneCommandePrixEXWUnitaire`                           | float(10, 2)                             |          | yes       |          | -                                                                                |
-| `defiLigneCommandeReferenceProduit`                          | char(100)                                |          | yes       |          | -                                                                                |
-| `defiLigneCommandeTypeGeologique`                            | char(100)                                |          | yes       |          | -                                                                                |
-| `defiLigneCommandeAppellationCommerciale`                    | char(100)                                |          | yes       |          | -                                                                                |
+| `defiLigneCommandeQteLivr`                                   | float(11, 2)                             |          | yes       |          | -                                                                                |
+| `defiLigneCommandeUnite`                                     | char(4)                                  |          | yes       |          | -                                                                                |
 | `defiLigneCommandeFinitionFacesVues`                         | char(100)                                |          | yes       |          | -                                                                                |
 | `defiLigneCommandeLongueur`                                  | char(20)                                 |          | yes       |          | -                                                                                |
 | `defiLigneCommandeLargeur`                                   | char(20)                                 |          | yes       |          | -                                                                                |
 | `defiLigneCommandeEpaisseur`                                 | char(10)                                 |          | yes       |          | -                                                                                |
 | `defiLigneCommandePoidsUnitaire`                             | float(10, 2)                             |          | yes       |          | -                                                                                |
-| `defiLigneCommandeUnite`                                     | char(4)                                  |          | yes       |          | -                                                                                |
+| `defiLigneCommandePoidsTotal`                                | float(10, 1)                             |          | yes       |          | -                                                                                |
+| `defiLigneCommandePrixEXWUnitaire`                           | float(10, 2)                             |          | yes       |          | -                                                                                |
+| `defiLigneCommandePrixTotalEXW`                              | float(100, 2)                            |          | yes       |          | -                                                                                |
+| `DF_ligne_commande_DF_Produit_Finis_id` link to **`DF_Produit_Finis`** | id                                       |          | yes       |          | -                                                                                |
+| `DF_ligne_commande_DF_Commande_id` link to **`DF_Commande`** | id                                       | *        | yes       |          | -                                                                                |
+| _Ref. `DF_ligne_commande_DF_Fournisseurs_id.defiFournNom`_   | _char(36)_                               |          |           |          | -                                                                                |
+| _Ref. `DF_ligne_commande_DF_Commande_id.defiCommandeId`_     | _char(50)_                               |          |           |          | -                                                                                |
+| `defiLigneCommandeTypeGeologique`                            | char(100)                                |          | yes       |          | -                                                                                |
 | `defiLigneCommandeDesignation`                               | text(200)                                |          | yes       |          | -                                                                                |
 | `DF_ligne_commande_DF_Fournisseurs_id` link to **`DF_Fournisseurs`** | id                                       |          | yes       |          | -                                                                                |
 | _Ref. `DF_ligne_commande_DF_Fournisseurs_id.defiFournId`_    | _char(11)_                               |          |           |          | -                                                                                |
 | `defiLigneCommandeCatPrix`                                   | char(100)                                |          | yes       |          | -                                                                                |
-| `defiLigneCommandePoidsTotal`                                | float(10, 1)                             |          | yes       |          | -                                                                                |
-| `defiLigneCommandeNmFourn`                                   | char(100)                                |          | yes       |          | -                                                                                |
+| `defiLigneCommandelivre`                                     | float(11, 2)                             |          | yes       |          | -                                                                                |
 
 `DF_Ligne_Devis` business object definition
 -------------------------------------------

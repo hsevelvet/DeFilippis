@@ -97,12 +97,16 @@ public class DF_Devis extends ObjectDB {
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(date);
 		cal.add(Calendar.MONTH,3);
+		int year = cal.get(Calendar.YEAR);
 		setFieldValue("defiDevisDateValiditeOffre",cal.getTime());
+		setFieldValue("defiDevisNumero",String.valueOf(year)+String.format(".%05d",Long.valueOf(this.getRowId())));
+		
 	}
 
 	@Override
 	public void initUpdate() {
-		
+		int year = Calendar.getInstance().get(Calendar.YEAR);
+		setFieldValue("defiDevisNumero",String.valueOf(year)+String.format(".%05d",Long.valueOf(this.getRowId())));
 		// Création du titre devis
 		String num_devis = getFieldValue("defiDevisNumero");
 		String trigramme = getFieldValue("DF_Devis_DF_utilisateur_interne_id.defiUsrTrigramme");

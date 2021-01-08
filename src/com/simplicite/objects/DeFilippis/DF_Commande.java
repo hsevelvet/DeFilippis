@@ -56,15 +56,43 @@ public class DF_Commande extends ObjectDB {
 			double c = o.getCount();
 			double t = Double.parseDouble(o.getField("defiLigneCommandePrixTotalEXW").getListOperatorValue());
 			double poids_total = Double.parseDouble(o.getField("defiLigneCommandePoidsTotal").getListOperatorValue());
+			double qte = Double.parseDouble(o.getField("defiLigneCommandeQuantite").getListOperatorValue());
+			double ral = Double.parseDouble(o.getField("defiLigneCommandeQteLivr").getListOperatorValue());
+			
 			setFieldValue("defiCommandeMontantHT", t);
 			setFieldValue("defiCommandePoidsTotal", poids_total);
 			setFieldValue("defiCommandeNombreCamions", poids_total / 24 );
+			setFieldValue("defiCommandeAvcmt", 1-(ral/qte));
 			save();
 			
 		}
 		
 			
 	}
+	/*
+	@Override
+	public String preUpdate() {
+		
+		// Création Objet temporaire ligne commande
+		ObjectDB o = getGrant().getTmpObject("DF_ligne_commande");
+		o.resetFilters();
+		// filtrer sur les lignes commandes liées à notre commande
+		o.getField("DF_ligne_commande_DF_Commande_id").setFilter(getRowId());
+		
+		List<String[]> rows = o.search(false);
+		if (rows.size() > 0){
+			// Itérer sur toutes les lignes de commandes et sommer la valeur de Prix Total 
+			double c = o.getCount();
+			
+			double qte = Double.parseDouble(o.getField("defiLigneCommandeQuantite").getListOperatorValue());
+			double ral = Double.parseDouble(o.getField("defiLigneCommandeQteLivr").getListOperatorValue());
+
+			setFieldValue("defiCommandeAvcmt", 1-(ral/qte));
+			save();
+		
+	}
+		return null;
+	}*/
 	
 	
 	
@@ -110,12 +138,7 @@ public class DF_Commande extends ObjectDB {
 	 return result;
 	}
 
-	@Override
-	public String preUpdate() {
-		String result = null;
-		//result = updateCard();
-		return result;
-	}
+	
 
 	@Override
 	public String preDelete() {
@@ -461,6 +484,98 @@ public class DF_Commande extends ObjectDB {
 		    return Message.formatSimpleError("Error...");
 		}
 	}
+	
+	
+	////////////////////////// Print Synthèse Livraisons //////////////////////////////////////////////
+	public String pubSynth(){
+		BootstrapWebPage wp_arc = new BootstrapWebPage(
+			HTMLTool.getRoot(), 
+			"Webpage publication pattern example", 
+			true
+		);
+		
+		
+		// Commande
+		ObjectDB c = getGrant().getTmpObject("DF_Commande");
+		c.setFieldFilter("row_id",getRowId());
+
+		// Ligne Ccmmande
+		ObjectDB lc = getGrant().getTmpObject("DF_ligne_commande");
+		lc.resetFilters();
+		lc.setFieldFilter("DF_ligne_commande_DF_Commande_id",getRowId());
+		
+		// Livraisons
+		ObjectDB liv = getGrant().getTmpObject("DF_Livraison");
+		liv.resetFilters();
+		liv.setFieldFilter("DF_livraison_DF_Commande_id",getRowId());
+		
+		
+		// Suiveur
+		ObjectDB u = getGrant().getTmpObject("User");
+		u.resetFilters();
+		u.setFieldFilter("row_id",getFieldValue("DF_Commande_DF_utilisateur_interne_id"));
+		
+		
+		// Client 	
+		ObjectDB client = getGrant().getTmpObject("DF_Client");
+		client.resetFilters();
+		client.setFieldFilter("row_id",getFieldValue("DF_Commande_DF_Client_id"));
+		
+		// Contact Client
+		ObjectDB contact_client = getGrant().getTmpObject("DF_Contact");
+		contact_client.resetFilters();
+		contact_client.setFieldFilter("row_id",getFieldValue("DF_Commande_DF_Contact_id"));
+				
+		
+		List<String[]> rows_l = lc.search(false);
+		if (rows_l.size() > 0){
+			
+			wp_arc.append(MustacheTool.apply(
+			c,
+			"DF_SYNTH_HTML", 
+			"{'rows':"+c.toJSON(c.search(), null, false, false)+
+			",'rows_l':"+lc.toJSON(rows_l, null, false, false)+
+			",'rows_u':"+u.toJSON(u.search(), null, false, false)+
+			",'rows_liv':"+liv.toJSON(liv.search(), null, false, false)+
+			",'rows_client':"+client.toJSON(client.search(), null, false, false)+
+			",'contact_client':"+contact_client.toJSON(contact_client.search(), null, false, false)+
+			"}"
+			));
+			
+			
+					
+			
+		}
+		
+		return wp_arc.getHTML();
+	
+	}
+	
+	public byte[] pubPdfSynth(PrintTemplate pt){
+		String url = "http://wkhtml2pdf/";
+		String user = null;
+		String password = null;
+	
+		
+		JSONObject postData = new JSONObject();
+		postData.put("contents", Tool.toBase64(pubSynth()));
+		
+		String FileName = this.getFieldValue("defiCommandeNumero")+"-"+this.getFieldValue("defiCommandeIntituleCommande").replaceAll("\\s","")+".pdf";
+		
+		pt.setFilename(FileName);
+
+		String[] headers = {"Content-Type:application/json"};
+		String encoding = Globals.BINARY;
+		byte[] pdf = null;
+		
+		try{
+			pdf = Tool.readUrlAsByteArray(url, user, password, postData.toString(), headers, encoding);
+		}catch(Exception e){
+			AppLog.error(getClass(), "pubPdf", "------------", e, getGrant());
+		}
+		return pdf;
+	}
+	
 	
 		
 
