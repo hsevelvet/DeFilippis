@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <title>DEVIS DEFILIPPIS</title>
     
+    <link href=https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.20/css/dataTables.bootstrap.min.css rel=stylesheet>
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js></script>
     <style>
 	html, body, div, span, applet, object, iframe,
 	h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -66,17 +68,17 @@
     
     
 	
-	.tg  {
+	.sortable  {
 		border-collapse:collapse;
 		border-spacing:0px !important;
 		page-break-inside:auto;    
 	}	
-	.tg tr {
+	.sortable tr {
 		page-break-inside:avoid;
 		page-break-after:auto 
      	
 	}
-	.tg td {
+	.sortable td {
 		padding:10px 7px !important;
 		border-style:solid;
 		border-width:1px !important;
@@ -85,7 +87,7 @@
 		border-color:#222;
 		background-color:white;
 	}
-	.tg th{
+	.sortable th{
 		font-weight:bold;
 		padding:5px 5px;
 		border-style:solid;
@@ -95,7 +97,7 @@
 		border-color:#222;
 	}
 	
-	.tg .tg-ul38{
+	.sortable .sortable-ul38{
 		text-align:center;
 		vertical-align:top;
 		position:sticky;
@@ -105,48 +107,48 @@
 		color:#fff !important;
 	}
 	
-	.tg .thref {
+	.sortable .thref {
 		width:60px;
 	}
-	.tg .thtype {
+	.sortable .thtype {
 		
 	}
-	.tg .thdesignation {
+	.sortable .thdesignation {
 		min-width:290px;
 	}
-	.tg .thunite {
+	.sortable .thunite {
 	
 	}
-	.tg .thquantite {
+	.sortable .thquantite {
 	
 	}
-	.tg .thprixu {
+	.sortable .thprixu {
 		width:85px;
 	}
-	.tg .thprixt {
+	.sortable .thprixt {
 		width:90px;
 	}	
 
 	
-	.tg td.ref {
+	.sortable td.ref {
 		text-align:center;
 	}
-	.tg td.type {
+	.sortable td.type {
 		text-align:center;
 	}
-	.tg td.designation {
+	.sortable td.designation {
 		text-align:left;
 	}
-	.tg td.unite {
+	.sortable td.unite {
 		text-align:center;
 	}
-	.tg td.quantite {
+	.sortable td.quantite {
 		text-align:right;
 	}
-	.tg td.prixu {
+	.sortable td.prixu {
 		text-align:right;
 	}
-	.tg td.prixt {
+	.sortable td.prixt {
 		text-align:right;
 	}
 	
@@ -272,8 +274,24 @@
 	}	
 	
 	</style>	
+
+	<script src=https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.20/js/jquery.dataTables.min.js></script>
+	<script>
+	$(document).ready(function() {
+	  $('#main_table').DataTable();
+	});
+	
+	</script>
+	<script src=https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.20/js/dataTables.bootstrap.min.js></script>
 	
 	<script>
+		var mylist = $('#main_table');
+		var listitems = mylist.find('tr');
+		listitems.sort(function(a, b) {
+		   return $(a).text().toUpperCase().localeCompare($(b).text().toUpperCase());
+		})
+		$.each(listitems, function(idx, itm) { mylist.append(itm); });
+	
 		function fPrix(nombre){
 		  nombre = nombre.toFixed(2);		  
 		  nombre += '';
@@ -333,6 +351,23 @@
 				}
 			}	
 		}
+		function displaySsTotal (ssTotal) {
+			if(ssTotal !== 0) {
+				
+				document.write("<tr><td colspan=6 style='background-color: #A6C4E0;'>");
+				document.write("Sous-Total HT :");
+				document.write("</td><td colspan=7 style='background-color: #E0E0E0;text-align:right;'>");
+				document.write(ssTotal);
+				document.write(" €</td></tr>");
+				
+			} else {
+				
+				return;
+				
+			}
+			
+			
+		}
 	</script>
 </head>
 <body>
@@ -388,22 +423,40 @@
                 </td>
             </tr>            
             </table>
-            
-         <table class="tg">
+         
+         <table id="main_table" class="sortable">
 			<thead>
 				<tr style="background-color: #004C8E;">
-				    <th class="tg-ul38 thref">Réf<br></th>
-				    <th class="tg-ul38 thtype">Type de pierre</th>
-				    <th class="tg-ul38 thdesignation">Désignation</th>
-				    <th class="tg-ul38 thunite">Unité</th>
-				    <th class="tg-ul38 thquantite">Qté</th>
-				    <th class="tg-ul38 thprixu">P.U. HT</th>
-				    <th class="tg-ul38 thprixt">TOTAL €</th>
+				    <th class="sortable-ul38 thref">Réf<br></th>
+				    <th class="sortable-ul38 thtype">Type de pierre</th>
+				    <th class="sortable-ul38 thdesignation">Désignation</th>
+				    <th class="sortable-ul38 thunite">Unité</th>
+				    <th class="sortable-ul38 thquantite">Qté</th>
+				    <th class="sortable-ul38 thprixu">P.U. HT</th>
+				    <th class="sortable-ul38 thprixt">TOTAL €</th>
 				</tr>
 			</thead>
 			
 			<tbody>				
-				{{#rows_l}}
+				{{#rows_ld_bas}}
+				<tr>
+					<td class="ref">{{defiLigneDevisNPrix}}</td>
+					<td class="type"><script>fval("{{defiLigneDevisTypePierre}}");</script></td>
+					<td class="designation">{{defiLigneDevisDesignation}}</td>
+					<td class="unite"><script>funite("{{defiLigneDevisUnite}}","{{defiLigneDevisConversionUnite}}","{{defiLigneDevisCatPrix}}");</script></td>
+					<td class="quantite">{{defiLigneDevisQuantite}}</td>
+					<td class="prixu"><script>fPrix(fTrouvePrixUnitaire({{defiLigneDevisPrixVenteCalcule}},{{defiLigneDevisPrixUnitaireImpose}}));</script></td> <!-- fPrix({{defiLigneDevisPrixVenteImpose}}/{{defiLigneDevisQuantite}}); -->
+					<td class="prixt"><script>fPrix({{defiLigneDevisPrixVenteImpose}});</script></td>
+					
+				</tr>
+				{{/rows_ld_bas}}
+				
+		
+				{{#prix_totalbas}}
+				<script>displaySsTotal({{prix_totalbas}});</script>
+				{{/prix_totalbas}}
+				
+				{{#rows_ld_cal}}
 				<tr>
 					<td class="ref">{{defiLigneDevisNPrix}}</td>
 					<td class="type"><script>fval("{{defiLigneDevisTypePierre}}");</script></td>
@@ -413,7 +466,114 @@
 					<td class="prixu"><script>fPrix(fTrouvePrixUnitaire({{defiLigneDevisPrixVenteCalcule}},{{defiLigneDevisPrixUnitaireImpose}}));</script></td> <!-- fPrix({{defiLigneDevisPrixVenteImpose}}/{{defiLigneDevisQuantite}}); -->
 					<td class="prixt"><script>fPrix({{defiLigneDevisPrixVenteImpose}});</script></td>
 				</tr>
-				{{/rows_l}}
+				{{/rows_ld_cal}}
+				
+				{{#prix_totalcal}}
+				<script>displaySsTotal({{prix_totalcal}});</script>
+				{{/prix_totalcal}}
+			
+				
+				{{#rows_ld_gra}}
+				<tr>
+					<td class="ref">{{defiLigneDevisNPrix}}</td>
+					<td class="type"><script>fval("{{defiLigneDevisTypePierre}}");</script></td>
+					<td class="designation">{{defiLigneDevisDesignation}}</td>
+					<td class="unite"><script>funite("{{defiLigneDevisUnite}}","{{defiLigneDevisConversionUnite}}","{{defiLigneDevisCatPrix}}");</script></td>
+					<td class="quantite">{{defiLigneDevisQuantite}}</td>
+					<td class="prixu"><script>fPrix(fTrouvePrixUnitaire({{defiLigneDevisPrixVenteCalcule}},{{defiLigneDevisPrixUnitaireImpose}}));</script></td> <!-- fPrix({{defiLigneDevisPrixVenteImpose}}/{{defiLigneDevisQuantite}}); -->
+					<td class="prixt"><script>fPrix({{defiLigneDevisPrixVenteImpose}});</script></td>
+				</tr>
+				{{/rows_ld_gra}}
+				
+				{{#prix_totalgra}}
+				<script>displaySsTotal({{prix_totalgra}});</script>
+				{{/prix_totalgra}}
+			
+	
+				
+				{{#rows_ld_gre}}
+				<tr>
+					<td class="ref">{{defiLigneDevisNPrix}}</td>
+					<td class="type"><script>fval("{{defiLigneDevisTypePierre}}");</script></td>
+					<td class="designation">{{defiLigneDevisDesignation}}</td>
+					<td class="unite"><script>funite("{{defiLigneDevisUnite}}","{{defiLigneDevisConversionUnite}}","{{defiLigneDevisCatPrix}}");</script></td>
+					<td class="quantite">{{defiLigneDevisQuantite}}</td>
+					<td class="prixu"><script>fPrix(fTrouvePrixUnitaire({{defiLigneDevisPrixVenteCalcule}},{{defiLigneDevisPrixUnitaireImpose}}));</script></td> <!-- fPrix({{defiLigneDevisPrixVenteImpose}}/{{defiLigneDevisQuantite}}); -->
+					<td class="prixt"><script>fPrix({{defiLigneDevisPrixVenteImpose}});</script></td>
+				</tr>
+				{{/rows_ld_gre}}
+				
+				{{#prix_totalgre}}
+				<script>displaySsTotal({{prix_totalgre}});</script>
+				{{/prix_totalgre}}
+	
+				
+				{{#rows_ld_lus}}
+				<tr>
+					<td class="ref">{{defiLigneDevisNPrix}}</td>
+					<td class="type"><script>fval("{{defiLigneDevisTypePierre}}");</script></td>
+					<td class="designation">{{defiLigneDevisDesignation}}</td>
+					<td class="unite"><script>funite("{{defiLigneDevisUnite}}","{{defiLigneDevisConversionUnite}}","{{defiLigneDevisCatPrix}}");</script></td>
+					<td class="quantite">{{defiLigneDevisQuantite}}</td>
+					<td class="prixu"><script>fPrix(fTrouvePrixUnitaire({{defiLigneDevisPrixVenteCalcule}},{{defiLigneDevisPrixUnitaireImpose}}));</script></td> <!-- fPrix({{defiLigneDevisPrixVenteImpose}}/{{defiLigneDevisQuantite}}); -->
+					<td class="prixt"><script>fPrix({{defiLigneDevisPrixVenteImpose}});</script></td>
+				</tr>
+				{{/rows_ld_lus}}
+				{{#prix_totallus}}
+				<script>displaySsTotal({{prix_totallus}});</script>
+				{{/prix_totallus}}
+
+				
+				{{#rows_ld_pre}}
+				<tr>
+					<td class="ref">{{defiLigneDevisNPrix}}</td>
+					<td class="type"><script>fval("{{defiLigneDevisTypePierre}}");</script></td>
+					<td class="designation">{{defiLigneDevisDesignation}}</td>
+					<td class="unite"><script>funite("{{defiLigneDevisUnite}}","{{defiLigneDevisConversionUnite}}","{{defiLigneDevisCatPrix}}");</script></td>
+					<td class="quantite">{{defiLigneDevisQuantite}}</td>
+					<td class="prixu"><script>fPrix(fTrouvePrixUnitaire({{defiLigneDevisPrixVenteCalcule}},{{defiLigneDevisPrixUnitaireImpose}}));</script></td> <!-- fPrix({{defiLigneDevisPrixVenteImpose}}/{{defiLigneDevisQuantite}}); -->
+					<td class="prixt"><script>fPrix({{defiLigneDevisPrixVenteImpose}});</script></td>
+				</tr>
+				{{/rows_ld_pre}}
+				
+				{{#prix_totalpre}}
+				<script>displaySsTotal({{prix_totalpre}});</script>
+				{{/prix_totalpre}}
+
+				
+				{{#rows_ld_por}}
+				<tr>
+					<td class="ref">{{defiLigneDevisNPrix}}</td>
+					<td class="type"><script>fval("{{defiLigneDevisTypePierre}}");</script></td>
+					<td class="designation">{{defiLigneDevisDesignation}}</td>
+					<td class="unite"><script>funite("{{defiLigneDevisUnite}}","{{defiLigneDevisConversionUnite}}","{{defiLigneDevisCatPrix}}");</script></td>
+					<td class="quantite">{{defiLigneDevisQuantite}}</td>
+					<td class="prixu"><script>fPrix(fTrouvePrixUnitaire({{defiLigneDevisPrixVenteCalcule}},{{defiLigneDevisPrixUnitaireImpose}}));</script></td> <!-- fPrix({{defiLigneDevisPrixVenteImpose}}/{{defiLigneDevisQuantite}}); -->
+					<td class="prixt"><script>fPrix({{defiLigneDevisPrixVenteImpose}});</script></td>
+				</tr>
+				{{/rows_ld_por}}
+				
+				{{#prix_totalpor}}
+				<script>displaySsTotal({{prix_totalpor}});</script>
+				{{/prix_totalpor}}
+	
+				
+				{{#rows_ld_tec}}
+				<tr>
+					<td class="ref">{{defiLigneDevisNPrix}}</td>
+					<td class="type"><script>fval("{{defiLigneDevisTypePierre}}");</script></td>
+					<td class="designation">{{defiLigneDevisDesignation}}</td>
+					<td class="unite"><script>funite("{{defiLigneDevisUnite}}","{{defiLigneDevisConversionUnite}}","{{defiLigneDevisCatPrix}}");</script></td>
+					<td class="quantite">{{defiLigneDevisQuantite}}</td>
+					<td class="prixu"><script>fPrix(fTrouvePrixUnitaire({{defiLigneDevisPrixVenteCalcule}},{{defiLigneDevisPrixUnitaireImpose}}));</script></td> <!-- fPrix({{defiLigneDevisPrixVenteImpose}}/{{defiLigneDevisQuantite}}); -->
+					<td class="prixt"><script>fPrix({{defiLigneDevisPrixVenteImpose}});</script></td>
+				</tr>
+				{{/rows_ld_tec}}
+				
+				{{#prix_totaltec}}
+				<script>displaySsTotal({{prix_totaltec}});</script>
+				{{/prix_totaltec}}
+
 				
 			</tbody>
 		{{#rows}}
@@ -553,4 +713,7 @@ En cas de réclamation justifiée et effectuée dans les délais, la responsabil
 
 
 </body>
+
+
 </html>
+

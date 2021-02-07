@@ -42,6 +42,11 @@ public class DF_ligne_commande extends ObjectDB {
 		//return null;
 	}
 	
+	@Override
+	public void initCopy() {
+		setFieldValue("defiLigneCommandeTrelloId", "");
+	}
+	
 	
 
 	

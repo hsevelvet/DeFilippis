@@ -419,7 +419,7 @@ Objet métier pour fournisseur.
 | `defiLigneCommandeId`                                        | char(20)                                 | yes*     | yes       |          | -                                                                                |
 | `defiLigneCommandeQuantite`                                  | float(11, 1)                             | yes      | yes       |          | -                                                                                |
 | `defiLigneCommandeQteLivr`                                   | float(11, 2)                             |          | yes       |          | -                                                                                |
-| `defiLigneCommandeUnite`                                     | char(4)                                  |          | yes       |          | -                                                                                |
+| `defiLigneCommandeUnite`                                     | enum(7) using `DEFIPRDUNITE` list        |          | yes       |          | -                                                                                |
 | `defiLigneCommandeFinitionFacesVues`                         | char(100)                                |          | yes       |          | -                                                                                |
 | `defiLigneCommandeLongueur`                                  | char(20)                                 |          | yes       |          | -                                                                                |
 | `defiLigneCommandeLargeur`                                   | char(20)                                 |          | yes       |          | -                                                                                |
@@ -432,12 +432,33 @@ Objet métier pour fournisseur.
 | `DF_ligne_commande_DF_Commande_id` link to **`DF_Commande`** | id                                       | *        | yes       |          | -                                                                                |
 | _Ref. `DF_ligne_commande_DF_Fournisseurs_id.defiFournNom`_   | _char(36)_                               |          |           |          | -                                                                                |
 | _Ref. `DF_ligne_commande_DF_Commande_id.defiCommandeId`_     | _char(50)_                               |          |           |          | -                                                                                |
-| `defiLigneCommandeTypeGeologique`                            | char(100)                                |          | yes       |          | -                                                                                |
+| `defiLigneCommandeTypeGeologique`                            | enum(7) using `DEFIPRDTYPEGEOLOGIQUE` list |          | yes       |          | -                                                                                |
 | `defiLigneCommandeDesignation`                               | text(200)                                |          | yes       |          | -                                                                                |
 | `DF_ligne_commande_DF_Fournisseurs_id` link to **`DF_Fournisseurs`** | id                                       |          | yes       |          | -                                                                                |
 | _Ref. `DF_ligne_commande_DF_Fournisseurs_id.defiFournId`_    | _char(11)_                               |          |           |          | -                                                                                |
-| `defiLigneCommandeCatPrix`                                   | char(100)                                |          | yes       |          | -                                                                                |
+| `defiLigneCommandeCatPrix`                                   | enum(7) using `DEFIPRDCATEGORIEPRIX` list |          | yes       |          | -                                                                                |
 | `defiLigneCommandelivre`                                     | float(11, 2)                             |          | yes       |          | -                                                                                |
+| `defiLigneCommandeTrelloId`                                  | char(300)                                |          | yes       |          | -                                                                                |
+
+### Lists
+
+* `DEFIPRDUNITE`
+    - `M2` m²
+    - `ML` ml
+    - `T` T
+    - `U` U
+* `DEFIPRDTYPEGEOLOGIQUE`
+    - `GRA` Granit
+    - `CAL` Calcaire
+    - `GRE` Grès
+    - `POR` Porphyre
+    - `BAS` Basalte
+    - `LUS` Luzerne
+    - `TEC` Terre cuite
+    - `PRE` Produit de réemploi
+* `DEFIPRDCATEGORIEPRIX`
+    - `2` Pierre
+    - `1` FFT
 
 `DF_Ligne_Devis` business object definition
 -------------------------------------------
@@ -612,6 +633,7 @@ Objet métier pour fournisseur.
 
 * `Historiser-BL`: 
 * `Historiser-ODF`: 
+* `ODF-PRNT`: 
 
 `DF_Prix_Transport` business object definition
 ----------------------------------------------
@@ -718,10 +740,10 @@ Objet metier pour produit.
 | `defiQuantitePoidsUnitaire`                                  | float(5, 2)                              |          | yes       |          | -                                                                                |
 | `defiQuantiteQte`                                            | float(11, 2)                             |          | yes       |          | -                                                                                |
 | _Ref. `DF_Quantite_DF_ligne_commande_id.defiLigneCommandeDesignation`_ | _text(200)_                              |          |           |          | -                                                                                |
-| _Ref. `DF_Quantite_DF_ligne_commande_id.defiLigneCommandeTypeGeologique`_ | _char(100)_                              |          |           |          | -                                                                                |
+| _Ref. `DF_Quantite_DF_ligne_commande_id.defiLigneCommandeTypeGeologique`_ | _enum(7) using `DEFIPRDTYPEGEOLOGIQUE` list_ |          |           |          | -                                                                                |
 | _Ref. `DF_Quantite_DF_Livraison_id.defiLivraisonNumBL`_      | _char(10)_                               |          |           |          | -                                                                                |
 | `defiQuantiteTonnage`                                        | float(7, 1)                              |          | yes       |          | -                                                                                |
-| _Ref. `DF_Quantite_DF_ligne_commande_id.defiLigneCommandeUnite`_ | _char(4)_                                |          |           |          | -                                                                                |
+| _Ref. `DF_Quantite_DF_ligne_commande_id.defiLigneCommandeUnite`_ | _enum(7) using `DEFIPRDUNITE` list_      |          |           |          | -                                                                                |
 | `defiQuantiteTrigrammeSuiveur`                               | char(10)                                 |          | yes       |          | -                                                                                |
 | `DF_Quantite_DF_Livraison_id` link to **`DF_Livraison`**     | id                                       | *        | yes       |          | -                                                                                |
 | _Ref. `DF_Quantite_DF_Livraison_id.defiLivraisonId`_         | _char(100)_                              |          |           |          | -                                                                                |
@@ -730,6 +752,25 @@ Objet metier pour produit.
 | _Ref. `DF_Quantite_DF_ligne_commande_id.defiLigneCommandePrixEXWUnitaire`_ | _float(10, 2)_                           |          |           |          | -                                                                                |
 | `defiQuantiteMontant`                                        | float(10, 2)                             |          | yes       |          | -                                                                                |
 | `defiQuantitePrixUnitaire`                                   | float(10, 2)                             |          | yes       |          | -                                                                                |
+| `DF_Quantite_DF_Commande_id` link to **`DF_Commande`**       | id                                       |          | yes       |          | -                                                                                |
+| _Ref. `DF_Quantite_DF_Commande_id.defiCommandeId`_           | _char(50)_                               |          |           |          | -                                                                                |
+
+### Lists
+
+* `DEFIPRDTYPEGEOLOGIQUE`
+    - `GRA` Granit
+    - `CAL` Calcaire
+    - `GRE` Grès
+    - `POR` Porphyre
+    - `BAS` Basalte
+    - `LUS` Luzerne
+    - `TEC` Terre cuite
+    - `PRE` Produit de réemploi
+* `DEFIPRDUNITE`
+    - `M2` m²
+    - `ML` ml
+    - `T` T
+    - `U` U
 
 ### Custom actions
 
@@ -789,6 +830,25 @@ Objet metier pour produit.
 * `SelectionProduit`: 
 * `CreationLigneDevis`: 
 * `SelectionDevis`: 
+
+`ODFModification` business process definition
+---------------------------------------------
+
+
+
+### Activities
+
+* `SelectionCommande`: 
+* `CreationLigneCommande`: 
+* `SelectionLigneCommande`: 
+* `SelectionLivraison`: 
+* `CreationLivraison`: 
+* `CreationQuantite`: 
+* `SelectionMultipleLivraisons`: 
+* `PrintODF`: 
+* `Begin`: 
+* `End`: 
+* `EndMessage`: 
 
 `DFAccueil` external object definition
 --------------------------------------

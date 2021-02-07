@@ -141,11 +141,11 @@ paths:
         type: string
         required: false
         enum:
-        - MDO
         - MO
+        - MDO
         - AR
-        - ATPG
         - T
+        - ATPG
         - V
         - ATP
         - N
@@ -1358,13 +1358,13 @@ paths:
         type: boolean
         required: false
       - in: query
-        name: defiLigneCommandeReferenceProduit
-        description: Search filter for N° Prix
+        name: defiLigneCommandeAppellationCommerciale
+        description: Search filter for Appellation Commerciale
         type: string
         required: false
       - in: query
-        name: defiLigneCommandeAppellationCommerciale
-        description: Search filter for Appellation Commerciale
+        name: defiLigneCommandeReferenceProduit
+        description: Search filter for N° Prix
         type: string
         required: false
       - in: query
@@ -1392,6 +1392,11 @@ paths:
         description: Search filter for Unité
         type: string
         required: false
+        enum:
+        - M2
+        - ML
+        - T
+        - U
       - in: query
         name: defiLigneCommandeFinitionFacesVues
         description: Search filter for Finition Faces Vues
@@ -1403,13 +1408,13 @@ paths:
         type: string
         required: false
       - in: query
-        name: defiLigneCommandeEpaisseur
-        description: Search filter for Hauteur / Epaisseur (cm)
+        name: defiLigneCommandeLargeur
+        description: Search filter for Largeur (cm)
         type: string
         required: false
       - in: query
-        name: defiLigneCommandeLargeur
-        description: Search filter for Largeur (cm)
+        name: defiLigneCommandeEpaisseur
+        description: Search filter for Hauteur / Epaisseur (cm)
         type: string
         required: false
       - in: query
@@ -1457,6 +1462,15 @@ paths:
         description: Search filter for Type Géologique
         type: string
         required: false
+        enum:
+        - GRA
+        - CAL
+        - GRE
+        - POR
+        - BAS
+        - LUS
+        - TEC
+        - PRE
       - in: query
         name: defiLigneCommandeDesignation
         description: Search filter for Désignation
@@ -1477,10 +1491,18 @@ paths:
         description: Search filter for Catégorie Prix
         type: string
         required: false
+        enum:
+        - '2'
+        - '1'
       - in: query
         name: defiLigneCommandelivre
         description: Search filter for Qté Livrée
         type: number
+        required: false
+      - in: query
+        name: defiLigneCommandeTrelloId
+        description: Search filter for Trello Card
+        type: string
         required: false
       tags:
       - DF_ligne_commande
@@ -2631,8 +2653,8 @@ paths:
         - BE
         - CH
         - IE
-        - CA
         - US
+        - CA
       - in: query
         name: row_module_id
         description: Search filter for Module
@@ -3392,10 +3414,10 @@ paths:
         type: string
         required: false
         enum:
-        - M
         - Mr
-        - F
+        - M
         - Mme
+        - F
       - in: query
         name: defiContactNom
         description: Search filter for Nom
@@ -5624,10 +5646,10 @@ paths:
         type: string
         required: false
         enum:
-        - M
         - Mr
-        - F
+        - M
         - Mme
+        - F
       - in: query
         name: defiDevisLieuProjet
         description: Search filter for Ville Projet
@@ -5952,18 +5974,27 @@ paths:
         type: number
         required: false
       - in: query
-        name: DF_Quantite_DF_Livraison_id__defiLivraisonNumBL
-        description: Search filter for Numéro de BL Livraisons
+        name: DF_Quantite_DF_ligne_commande_id__defiLigneCommandeTypeGeologique
+        description: Search filter for Type Géologique DF ligne commande
         type: string
         required: false
+        enum:
+        - GRA
+        - CAL
+        - GRE
+        - POR
+        - BAS
+        - LUS
+        - TEC
+        - PRE
       - in: query
         name: DF_Quantite_DF_ligne_commande_id__defiLigneCommandeDesignation
         description: Search filter for Désignation DF ligne commande
         type: string
         required: false
       - in: query
-        name: DF_Quantite_DF_ligne_commande_id__defiLigneCommandeTypeGeologique
-        description: Search filter for Type Géologique DF ligne commande
+        name: DF_Quantite_DF_Livraison_id__defiLivraisonNumBL
+        description: Search filter for Numéro de BL Livraisons
         type: string
         required: false
       - in: query
@@ -5976,6 +6007,11 @@ paths:
         description: Search filter for Unité DF ligne commande
         type: string
         required: false
+        enum:
+        - M2
+        - ML
+        - T
+        - U
       - in: query
         name: defiQuantiteTrigrammeSuiveur
         description: Search filter for Trigramme Suiveur
@@ -6015,6 +6051,16 @@ paths:
         name: defiQuantitePrixUnitaire
         description: Search filter for Prix Unitaire
         type: number
+        required: false
+      - in: query
+        name: DF_Quantite_DF_Commande_id
+        description: Search filter for Commandes
+        type: string
+        required: false
+      - in: query
+        name: DF_Quantite_DF_Commande_id__defiCommandeId
+        description: Search filter for Id Commande Commandes
+        type: string
         required: false
       tags:
       - DF_Quantite
@@ -6293,11 +6339,11 @@ paths:
         type: string
         required: false
         enum:
-        - MDO
         - MO
+        - MDO
         - AR
-        - ATPG
         - T
+        - ATPG
         - V
         - ATP
         - N
@@ -6832,6 +6878,44 @@ paths:
       - DF_Hist_Docs
       consumes:
       - application/json
+  /rest/DF_Livraison/{row_id}/action:ODF-PRNT:
+    get:
+      summary: Call a custom action for a DF_Livraison business object record or for
+        all records
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-df_livraison-action-odf-prnt
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/ActionResult'
+          description: Success in calling the custom action
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      tags:
+      - DF_Livraison
 securityDefinitions:
   basicAuth:
     type: basic
@@ -6870,6 +6954,12 @@ definitions:
   DF_Quantite:
     type: object
     properties:
+      DF_Quantite_DF_Commande_id__defiCommandeId:
+        description: Id Commande Commandes
+        type: string
+      DF_Quantite_DF_Commande_id:
+        description: Commandes
+        type: string
       DF_Quantite_DF_Livraison_id:
         description: Livraisons
         type: string
@@ -6912,6 +7002,11 @@ definitions:
       DF_Quantite_DF_ligne_commande_id__defiLigneCommandeUnite:
         description: Unité DF ligne commande
         type: string
+        enum:
+        - M2
+        - ML
+        - T
+        - U
       defiQuantiteTonnage:
         description: Tonnage
         type: number
@@ -6924,6 +7019,15 @@ definitions:
       DF_Quantite_DF_ligne_commande_id__defiLigneCommandeTypeGeologique:
         description: Type Géologique DF ligne commande
         type: string
+        enum:
+        - GRA
+        - CAL
+        - GRE
+        - POR
+        - BAS
+        - LUS
+        - TEC
+        - PRE
       DF_Quantite_DF_ligne_commande_id:
         description: DF ligne commande
         type: string
@@ -6992,11 +7096,11 @@ definitions:
         description: Secteur Activité Client
         type: string
         enum:
-        - MDO
         - MO
+        - MDO
         - AR
-        - ATPG
         - T
+        - ATPG
         - V
         - ATP
         - N
@@ -7721,6 +7825,9 @@ definitions:
       defiLigneCommandeCatPrix:
         description: Catégorie Prix
         type: string
+        enum:
+        - '2'
+        - '1'
       defiLigneCommandeReferenceProduit:
         description: N° Prix
         type: string
@@ -7742,6 +7849,15 @@ definitions:
       defiLigneCommandeTypeGeologique:
         description: Type Géologique
         type: string
+        enum:
+        - GRA
+        - CAL
+        - GRE
+        - POR
+        - BAS
+        - LUS
+        - TEC
+        - PRE
       DF_ligne_commande_DF_Fournisseurs_id__defiFournNom:
         description: Nom Fournisseur
         type: string
@@ -7751,6 +7867,11 @@ definitions:
       defiLigneCommandeUnite:
         description: Unité
         type: string
+        enum:
+        - M2
+        - ML
+        - T
+        - U
       defiLigneCommandeLargeur:
         description: Largeur (cm)
         type: string
@@ -7774,6 +7895,9 @@ definitions:
         type: string
       DF_ligne_commande_DF_Fournisseurs_id:
         description: Fournisseurs
+        type: string
+      defiLigneCommandeTrelloId:
+        description: Trello Card
         type: string
       defiLigneCommandeLongueur:
         description: Longueur (cm)
@@ -8001,10 +8125,10 @@ definitions:
         description: Civilité Contacts
         type: string
         enum:
-        - M
         - Mr
-        - F
+        - M
         - Mme
+        - F
       defiDevisPrixTotal:
         description: Total Vente TTC
         type: number
@@ -8063,11 +8187,11 @@ definitions:
         description: Secteur Activité
         type: string
         enum:
-        - MDO
         - MO
+        - MDO
         - AR
-        - ATPG
         - T
+        - ATPG
         - V
         - ATP
         - N
@@ -8259,10 +8383,10 @@ definitions:
         description: Civilité
         type: string
         enum:
-        - M
         - Mr
-        - F
+        - M
         - Mme
+        - F
       DF_Contact_DF_Client_id__defiClientId:
         description: Id Client Clients
         type: string
@@ -9039,8 +9163,8 @@ definitions:
         - BE
         - CH
         - IE
-        - CA
         - US
+        - CA
       usr_title:
         description: Title
         type: string

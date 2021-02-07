@@ -533,6 +533,12 @@ public class DF_Livraison extends ObjectDB {
 		return pdf;
 	}
 	
+	// Méthode pour imprimer un odf en action processus métier 
+	public String pubODFWorkflow(){
+		pubPdfODF();
+		return Message.formatSimpleInfo("ODF imprimé");
+		
+	}
 	// Méthode pour historiser un ODF
 	public String generateODF() {
 		ObjectDB hst = getGrant().getTmpObject("DF_Hist_Docs");

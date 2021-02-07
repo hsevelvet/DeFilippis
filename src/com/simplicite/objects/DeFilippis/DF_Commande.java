@@ -40,7 +40,22 @@ public class DF_Commande extends ObjectDB {
 	/**
 	 * Valorisation du champs Montant Commande à chaque fois où on enregistre une nouvelle valeur de ligne commande 
 	 */
-
+	@Override
+	public void initCopy() {
+		ObjectDB lc = getGrant().getTmpObject("DF_ligne_commande");
+		synchronized(lc){
+			lc.resetFilters();
+			lc.setFieldFilter("DF_ligne_commande_DF_Commande_id",this.getRowId());
+			
+			
+			for(String[] lce : lc.search()){
+				lc.setFieldValue("defiLigneCommandeTrelloId", "aa");
+				lc.validate();
+				lc.save();
+	}
+			
+		}
+	}
 	
 	@Override
 	public void initUpdate() {
@@ -69,6 +84,7 @@ public class DF_Commande extends ObjectDB {
 		
 			
 	}
+
 	/*
 	@Override
 	public String preUpdate() {
@@ -131,27 +147,7 @@ public class DF_Commande extends ObjectDB {
 	}
 	}
 
-	@Override
-	public String preCreate() {
-	 String result = null;
-	 //result = createCard();
-	 return result;
-	}
 
-	
-
-	@Override
-	public String preDelete() {
-		if (tt == null) return null;
-		try {
-			tt.deleteCard(getFieldValue("defiCommandeTrelloId"));
-			return null;
-		} catch (APIException e) { // Prevents deletion if card creation fails
-			AppLog.error(getClass(), "postLoad", null, e, getGrant());
-			return null;
-		}
-	}
-	
 
 	// Méthode exécutée lors de mise à jour des cartes
 	
@@ -159,33 +155,72 @@ public class DF_Commande extends ObjectDB {
 		if (tt == null) return null;
 		ObjectDB lc = getGrant().getTmpObject("DF_ligne_commande");
 		try {
-			synchronized(lc){
+			/*synchronized(lc){
 				lc.resetFilters();
 				lc.getField("DF_ligne_commande_DF_Commande_id").setFilter(getRowId());
 				long c = lc.getCount();
 		    		
 				for(String[] lce : lc.search()){
-					lc.setValues(lce);
-					String id = getFieldValue("defiCommandeTrelloId");
+                    lc.setValues(lce);*/
+                    
+					String id = lc.getFieldValue("defiLigneCommandeTrelloId");
 					JSONObject card = tt.getCard(id);
 					
+					int index_cat_prix = lc.getField("defiLigneCommandeCatPrix").getList().getItemIndex(lc.getFieldValue("defiLigneCommandeCatPrix"),false);
+					String cat_prix = lc.getField("defiLigneCommandeCatPrix").getList().getValue(index_cat_prix);
 					
+					if (cat_prix.equals("Pierre")){
+						// Récupérer les 7 premières lettres du libellé de l'affaire
+						String int_aff = getFieldValue("DF_Commande_DF_Affaire_id.defiAfrLibelleChantier");
+						int_aff.replace(" " , "");
+						String firstCharsIntitule ="";
+						
+						if (int_aff.length()>=7){
+							firstCharsIntitule = int_aff.substring(0, 7);
+						} else{
+							firstCharsIntitule = int_aff;
+						}
+						
 					
-					card.put("name",  getFieldValue("defiCommandeIntituleAffaire")+"-"+lc.getFieldValue("defiLigneCommandeTypeGeologique")+"-"+lc.getFieldValue("defiLigneCommandeQuantite"));
-					//card.put("desc", createDesc());
-					card.put("due", getFieldValue("defiCommandeDate"));
-					card.put("idList",getIDList(getFieldValue("defiCommandeStatut")));
-					tt.updateCard(id, card);
+						String fourns = lc.getFieldValue("defiLigneCommandeNmFourn");
+						//fourns.replace(" " , "");
+						//String firstCharsFourns = fourns.substring(0, 3);
+					
+						double poids_total = lc.getField("defiLigneCommandePoidsTotal").getDouble();
+					
+						double quantite_lc = lc.getField("defiLigneCommandeQuantite").getDouble();
+						// int tonnage_carte = (int)Math.round(poids_total);
+						String tonnage_carte = String.valueOf(poids_total);
+						tonnage_carte = tonnage_carte.replace(".",",");
+					// Nom de la carte
+						card.put("name",  (firstCharsIntitule+"."+getFieldValue("defiCommandeIntituleCommande")+"."+lc.getFieldValue("defiLigneCommandeReferenceProduit")+"."+ tonnage_carte).toUpperCase());
+					// Description de la carte
+						card.put("desc","\n**Numéro de commande**: "+getFieldValue("defiCommandeNumero")+"\n**Titre Affaire / Nom Affaire**: "+int_aff+"\n**Date Livraison confirmée**: "+getFieldValue("defiCommandeDatePremierCamion")+"\n"+"\n**Contact Déchargement Privilégié**: "+getFieldValue("defiCommandeContactLivraison")+"\n"+"\n**Contact En Cas De Problème**: "+"\n"+"\n**Quantité Initiale**: "+ lc.getFieldValue("defiLigneCommandeQuantite"));
+						
+					// Date limie de la carte 
+						card.put("due", getFieldValue("defiCommandeDatePremierCamion"));
+					    tt.updateCard(id, card);
 					
 									
 					//Mise à jour les informations custom fields
-					tt.setCardCustomFieldItem(id,getIDCustomField("Numéro de commande"),new JSONObject().put("value",new JSONObject().put("text",getFieldValue("defiCommandeNumero"))));
-					tt.setCardCustomFieldItem(id,getIDCustomField("Adresse"),new JSONObject().put("value",new JSONObject().put("text",getFieldValue("defiCommandeAdresseLivraison"))));
-					tt.setCardCustomFieldItem(id,getIDCustomField("Quantité"),new JSONObject().put("value",new JSONObject().put("number",lc.getFieldValue("defiLigneCommandeQuantite"))));
-		    		tt.setCardCustomFieldItem(id,getIDCustomField("Référence Produit"),new JSONObject().put("value",new JSONObject().put("text",lc.getFieldValue("defiLigneCommandeReferenceProduit"))));
 					
-		    		}
-			}
+                        tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Adresse"),new JSONObject().put("value",new JSONObject().put("text",getFieldValue("defiCommandeAdresseLivraison"))));
+                        tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Quantité"),new JSONObject().put("value",new JSONObject().put("number",lc.getFieldValue("defiLigneCommandeQuantite"))));
+                        tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Référence Produit"),new JSONObject().put("value",new JSONObject().put("text",lc.getFieldValue("defiLigneCommandeReferenceProduit"))));	
+                        tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Poids Unitaire"),new JSONObject().put("value",new JSONObject().put("number",lc.getFieldValue("defiLigneCommandePoidsUnitaire"))));
+                        tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Ville"),new JSONObject().put("value",new JSONObject().put("text",getFieldValue("DF_Commande_DF_Affaire_id.defiAfrLieuAffaire"))));
+                        tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Id Ligne de commande"),new JSONObject().put("value",new JSONObject().put("text",lc.getFieldValue("defiLigneCommandeId"))));
+                        tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Fournisseur"),new JSONObject().put("value",new JSONObject().put("text",fourns)));
+                        tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Trigramme Suiveur"),new JSONObject().put("value",new JSONObject().put("text",getFieldValue("DF_Commande_DF_utilisateur_interne_id.defiUsrTrigramme"))));
+                        lc.save();
+                        lc.validate();
+                        
+                    //}
+                }
+                    
+					save();
+					validate();
+			//}
 			
 			
 			return Message.formatSimpleInfo("Trello card updated");
@@ -203,7 +238,7 @@ public class DF_Commande extends ObjectDB {
 		ObjectDB lc = getGrant().getTmpObject("DF_ligne_commande");
 		try {
 		    JSONObject card = new JSONObject();
-		    synchronized(lc){
+		    /*synchronized(lc){
 				// Filtrer sur les lignes de commandes correspondantes à la commande qui lance l'action
 				lc.resetFilters();
 				lc.getField("DF_ligne_commande_DF_Commande_id").setFilter(getRowId());
@@ -211,9 +246,11 @@ public class DF_Commande extends ObjectDB {
 		    		
 				for(String[] lce : lc.search()){
 					lc.setValues(lce);
-					// Mettre condition sur export trello si produit est de catégorie pierre
+					// Mettre condition sur export trello si produit est de catégorie pierre*/
+					int index_cat_prix = lc.getField("defiLigneCommandeCatPrix").getList().getItemIndex(lc.getFieldValue("defiLigneCommandeCatPrix"),false);
+					String cat_prix = lc.getField("defiLigneCommandeCatPrix").getList().getValue(index_cat_prix);
 					
-					if (lc.getFieldValue("defiLigneCommandeCatPrix").equals("Pierre")){
+					if (cat_prix.equals("Pierre")){
 						// Récupérer les 7 premières lettres du libellé de l'affaire
 						String int_aff = getFieldValue("DF_Commande_DF_Affaire_id.defiAfrLibelleChantier");
 						int_aff.replace(" " , "");
@@ -258,13 +295,19 @@ public class DF_Commande extends ObjectDB {
 		    			tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Fournisseur"),new JSONObject().put("value",new JSONObject().put("text",fourns)));
 		    			tt.setCardCustomFieldItem(card.getString("id"),getIDCustomField("Trigramme Suiveur"),new JSONObject().put("value",new JSONObject().put("text",getFieldValue("DF_Commande_DF_utilisateur_interne_id.defiUsrTrigramme"))));
 		    			
-					}
+		    			lc.setFieldValue("defiLigneCommandeTrelloId", card.getString("id"));
+		    			lc.save();
+						lc.validate();
+		    			
+					
 		    			}
+		    			else
+		    				;
 
-					setFieldValue("defiCommandeTrelloId", card.getString("id"));
+					
 					save();
 					validate();
-					}
+					
 					
 				return Message.formatSimpleInfo("Trello card created");					
 					
@@ -276,15 +319,34 @@ public class DF_Commande extends ObjectDB {
 			}
 		
 
-	
+
 	//Fonction appelée par le bouton dans Livraison
 	public String commandeTrello(){
 		if (tt == null) return null;
-		String id = getFieldValue("defiCommandeTrelloId");
-		if (id.length()>0)
-			return createCard();
-		else 
-			return createCard();
+		
+		
+		ObjectDB lc = getGrant().getTmpObject("DF_ligne_commande");
+		JSONObject card = new JSONObject();
+		synchronized(lc){
+			// Filtrer sur les lignes de commandes correspondantes à la commande qui lance l'action
+			lc.resetFilters();
+			lc.getField("DF_ligne_commande_DF_Commande_id").setFilter(getRowId());
+			long c = lc.getCount();
+		    		
+			for(String[] lce : lc.search()){
+				lc.setValues(lce);
+					
+				String id = lc.getFieldValue("defiLigneCommandeTrelloId");
+				if (id.length()>0)
+					updateCard();
+				
+				else
+					createCard();
+					
+					
+			}
+		}
+		return Message.formatSimpleInfo("Trello card created");	
 	}
 	
 	//Récupérer l'id de la colonne dans Trello avec le statut de la livraison
@@ -368,7 +430,24 @@ public class DF_Commande extends ObjectDB {
         return id;
 	}
 	
+
+
+
 	
+
+	
+
+	@Override
+	public String preDelete() {
+		if (tt == null) return null;
+		try {
+			tt.deleteCard(getFieldValue("defiCommandeTrelloId"));
+			return null;
+		} catch (APIException e) { // Prevents deletion if card creation fails
+			AppLog.error(getClass(), "postLoad", null, e, getGrant());
+			return null;
+		}
+	}
 	
 	////////////////////////// Print ARC //////////////////////////////////////////////
 	public String pubARC(){

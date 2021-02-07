@@ -306,7 +306,7 @@ public class DF_Devis extends ObjectDB {
 				}*/
 				
 				lc.setFieldValue("defiLigneCommandeNmFourn", fournisseur);
-				lc.setFieldValue("defiLigneCommandeCatPrix",cat_prix);
+				lc.setFieldValue("defiLigneCommandeCatPrix",ld.getFieldValue("defiLigneDevisCatPrix"));
 				lc.setFieldValue("defiLigneCommandeReferenceProduit",ref_prod);
 				lc.setFieldValue("defiLigneCommandeTypeGeologique", type_geo);
 				lc.setFieldValue("defiLigneCommandeAppellationCommerciale",apl_com);
@@ -461,10 +461,133 @@ public class DF_Devis extends ObjectDB {
 		d.setFieldFilter("row_id",getRowId());
 		initUpdate(); // JDE - 20200928 : pour récupérer les bons montants totaux en cas de modif de ligne de devis.
 		
-		ObjectDB ld = getGrant().getObject("DF_Ligne_Devis","DF_Ligne_Devis");
-		ld.resetFilters();
-		ld.setFieldFilter("DF_Ligne_Devis_DF_Devis_id",getRowId());
+		// section : granit
+		ObjectDB ld_gra = getGrant().getTmpObject("DF_Ligne_Devis");
+		ld_gra.resetFilters();
+		ld_gra.setFieldFilter("DF_Ligne_Devis_DF_Devis_id",getRowId());
+		ld_gra.setFieldFilter("defiLigneDevisTypeGeo","GRA");
 		
+		String gra = ld_gra.toJSON(ld_gra.search(), null, false, false);
+		
+		double total_gra = 0;
+		List<String[]> rows_gra = ld_gra.search(false);
+		if (rows_gra.size() > 0){
+			double c = ld_gra.getCount();
+			
+			total_gra = Double.parseDouble(ld_gra.getField("defiLigneDevisPrixVenteImpose").getListOperatorValue());
+		}
+		
+		// section : calcaire
+		ObjectDB ld_cal = getGrant().getTmpObject("DF_Ligne_Devis");
+		ld_cal.resetFilters();
+		ld_cal.setFieldFilter("DF_Ligne_Devis_DF_Devis_id",getRowId());
+		ld_cal.setFieldFilter("defiLigneDevisTypeGeo","CAL");
+		
+		String cal = ld_cal.toJSON(ld_cal.search(), null, false, false);
+		
+		double total_cal = 0;
+		List<String[]> rows_cal = ld_cal.search(false);
+		if (rows_cal.size() > 0){
+			double c = ld_cal.getCount();
+			
+			total_cal = Double.parseDouble(ld_cal.getField("defiLigneDevisPrixVenteImpose").getListOperatorValue());
+		}
+		
+		// section : basalte
+		ObjectDB ld_bas = getGrant().getTmpObject("DF_Ligne_Devis");
+		ld_bas.resetFilters();
+		ld_bas.setFieldFilter("DF_Ligne_Devis_DF_Devis_id",getRowId());
+		ld_bas.setFieldFilter("defiLigneDevisTypeGeo","BAS");
+		
+		String bas = ld_bas.toJSON(ld_bas.search(), null, false, false);
+		
+		double total_bas = 0;
+		List<String[]> rows_bas = ld_bas.search(false);
+		if (rows_bas.size() > 0){
+			double c = ld_bas.getCount();
+			
+			total_bas = Double.parseDouble(ld_bas.getField("defiLigneDevisPrixVenteImpose").getListOperatorValue());
+		}
+		
+		// section : Grès
+		ObjectDB ld_gre = getGrant().getTmpObject("DF_Ligne_Devis");
+		ld_gre.resetFilters();
+		ld_gre.setFieldFilter("DF_Ligne_Devis_DF_Devis_id",getRowId());
+		ld_gre.setFieldFilter("defiLigneDevisTypeGeo","GRE");
+		
+		String gre = ld_gre.toJSON(ld_gre.search(), null, false, false);
+		
+		double total_gre = 0;
+		List<String[]> rows_gre = ld_gre.search(false);
+		if (rows_gre.size() > 0){
+			double c = ld_gre.getCount();
+			
+			total_gre = Double.parseDouble(ld_gre.getField("defiLigneDevisPrixVenteImpose").getListOperatorValue());
+		}
+		
+		// section : Porphyre
+		ObjectDB ld_por = getGrant().getTmpObject("DF_Ligne_Devis");
+		ld_por.resetFilters();
+		ld_por.setFieldFilter("DF_Ligne_Devis_DF_Devis_id",getRowId());
+		ld_por.setFieldFilter("defiLigneDevisTypeGeo","POR");
+		
+		String por = ld_por.toJSON(ld_por.search(), null, false, false);
+		
+		double total_por = 0;
+		List<String[]> rows_por = ld_por.search(false);
+		if (rows_por.size() > 0){
+			double c = ld_por.getCount();
+			
+			total_por = Double.parseDouble(ld_por.getField("defiLigneDevisPrixVenteImpose").getListOperatorValue());
+		}
+		
+		// section : Luzerne
+		ObjectDB ld_lus = getGrant().getTmpObject("DF_Ligne_Devis");
+		ld_lus.resetFilters();
+		ld_lus.setFieldFilter("DF_Ligne_Devis_DF_Devis_id",getRowId());
+		ld_lus.setFieldFilter("defiLigneDevisTypeGeo","LUS");
+		
+		String lus = ld_lus.toJSON(ld_lus.search(), null, false, false);
+		
+		double total_lus = 0;
+		List<String[]> rows_lus = ld_lus.search(false);
+		if (rows_lus.size() > 0){
+			double c = ld_lus.getCount();
+			
+			total_lus = Double.parseDouble(ld_lus.getField("defiLigneDevisPrixVenteImpose").getListOperatorValue());
+		}
+		
+		// section : Terre cuite
+		ObjectDB ld_tec = getGrant().getTmpObject("DF_Ligne_Devis");
+		ld_tec.resetFilters();
+		ld_tec.setFieldFilter("DF_Ligne_Devis_DF_Devis_id",getRowId());
+		ld_tec.setFieldFilter("defiLigneDevisTypeGeo","TEC");
+		
+		String tec = ld_tec.toJSON(ld_tec.search(), null, false, false);
+		
+		double total_tec = 0;
+		List<String[]> rows_tec = ld_tec.search(false);
+		if (rows_tec.size() > 0){
+			double c = ld_tec.getCount();
+			
+			total_tec = Double.parseDouble(ld_tec.getField("defiLigneDevisPrixVenteImpose").getListOperatorValue());
+		}
+		
+		// section : Produit de réemploi
+		ObjectDB ld_pre = getGrant().getTmpObject("DF_Ligne_Devis");
+		ld_pre.resetFilters();
+		ld_pre.setFieldFilter("DF_Ligne_Devis_DF_Devis_id",getRowId());
+		ld_pre.setFieldFilter("defiLigneDevisTypeGeo","PRE");
+		
+		String pre = ld_pre.toJSON(ld_pre.search(), null, false, false);
+		
+		double total_pre= 0;
+		List<String[]> rows_pre = ld_pre.search(false);
+		if (rows_pre.size() > 0){
+			double c = ld_pre.getCount();
+			
+			total_pre = Double.parseDouble(ld_pre.getField("defiLigneDevisPrixVenteImpose").getListOperatorValue());
+		}
 	
 		// user (Suiveur)
 		ObjectDB u = getGrant().getTmpObject("User");
@@ -503,13 +626,28 @@ public class DF_Devis extends ObjectDB {
 			this,
 			"DF_Devis_HTML", 
 			"{'rows':"+d.toJSON(d.search(), null, false, false)+
-			",'rows_l':"+ld.toJSON(ld.search(), null, false, false)+
+			",'rows_ld_bas':"+bas+
+			",'rows_ld_cal':"+cal+
+			",'rows_ld_gra':"+gra+
+			",'rows_ld_gre':"+gre+
+			",'rows_ld_lus':"+lus+
+			",'rows_ld_pre':"+pre+
+			",'rows_ld_por':"+por+
+			",'rows_ld_tec':"+tec+
 			",'rows_u':"+u.toJSON(u.search(), null, false, false)+
 			",'poids_total':"+ "[{'poids_total':"+Double.toString(poids_total)+"}]"+
 			",'nombre_camions':"+ "[{'nombre_camions':"+Double.toString(nombre_camions)+"}]"+			
 			",'px_totalht':"+ "[{'px_totalht':"+Double.toString(prix_total)+"}]"+
 			",'tva':"+ "[{'prix_tva':"+Double.toString(prix_tva)+"}]"+
 			",'prix_totalttc':"+ "[{'prix_totalttc':"+Double.toString(prix_totalttc)+"}]"+
+			",'prix_totalbas':"+ "[{'prix_totalbas':"+Double.toString(total_bas)+"}]"+
+			",'prix_totalcal':"+ "[{'prix_totalcal':"+Double.toString(total_cal)+"}]"+
+			",'prix_totalgra':"+ "[{'prix_totalgra':"+Double.toString(total_gra)+"}]"+
+			",'prix_totalgre':"+ "[{'prix_totalgre':"+Double.toString(total_gre)+"}]"+
+			",'prix_totallus':"+ "[{'prix_totallus':"+Double.toString(total_lus)+"}]"+
+			",'prix_totalpre':"+ "[{'prix_totalpre':"+Double.toString(total_pre)+"}]"+
+			",'prix_totalpor':"+ "[{'prix_totalpor':"+Double.toString(total_por)+"}]"+
+			",'prix_totaltec':"+ "[{'prix_totaltec':"+Double.toString(total_tec)+"}]"+
 			",'accompte':"+ "[{'accompte_l':"+accompte+"}]"+
 			",'paiement':"+ "[{'paiement_l':"+paiement+"}]"+
 			",'pack_transp':"+ "[{'pack_transp_l':"+pack_transp+"}]"+
